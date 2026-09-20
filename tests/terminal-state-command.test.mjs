@@ -27,5 +27,14 @@ test('nonterminal, conditional or wrong-target state rows remain unsupported',()
     v=>{const a=v.command.data_list['2'];v.command.data_list['2']=v.command.data_list['3'];v.command.data_list['3']=a;},
     v=>{v.command.data_list['3'].Cond='true';},
     v=>{v.command.data_list['3'].Target='UpperTarget';}
-  ]){const v=input();mutate(v);assert.throws(()=>runTerminalStateCommand(v),/terminal/);}
+  ]){const v=input();mutate(v);assert.throws(()=>runTerminalStateCommand(v),/[Tt]erminal/);}
+});
+test('actual damage then Vulnerable command applies its terminal state to the supplied target',()=>{
+ const v=input(),commands=read('../research/extracted/config/Cmd.json'),state=read('../research/extracted/config/State.json')['2934'];
+ v.command=commands['23548'];v.variables={Arg1:120,Arg2:2};v.targetBinding.expression='UpperTarget';
+ v.state.definition={id:2934,owner:'target',maximum:String(state.MaxLayer),properties:Object.entries(state.ExistProperty).map(([property,expression])=>({property,expression:String(expression)})),skillLevel:1,caster:7,specialValue:0,banned:false};
+ v.state.request.layer=2;
+ const r=runTerminalStateCommand(v);
+ assert.equal(r.completed,true);assert.equal(r.targetAfter.hp,760);assert.equal(r.casterEnergyAfter,95);
+ assert.equal(r.stateApplication.properties.target.vulnerable_per,50);assert.equal(r.stateApplication.states[0].stateId,2934);
 });

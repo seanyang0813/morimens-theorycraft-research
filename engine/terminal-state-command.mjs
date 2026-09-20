@@ -12,9 +12,11 @@ export function runTerminalStateCommand(value){
   const input=snapshot(value);
   if(!exact(input,['schemaVersion','kind','build','otherEvents','command','variables','targetBinding','attackBase','energy','state'])||input.schemaVersion!==1||input.kind!=='morimens-terminal-state-command'||input.build!=='pc-res144-build51'||input.otherEvents!=='assumed-absent')throw new Error('Explicit terminal-state command required');
   const imported=importCommandRows(input.command),last=imported.rows.at(-1),prefix=imported.rows.slice(0,-1);
-  if(prefix.length===0||last?.Type!=='BEAddState'||last.Target!=='CmdCaster'||Object.hasOwn(last,'Cond')||Object.keys(last).some(key=>!['id','Type','Target','Para'].includes(key)))throw new Error('One unconditional terminal self-state row required');
+  if(prefix.length===0||last?.Type!=='BEAddState'||Object.hasOwn(last,'Cond')||Object.keys(last).some(key=>!['id','Type','Target','Para'].includes(key)))throw new Error('One unconditional terminal state row required');
   if(prefix.some(row=>!['BEActiveDamage','BEGainUltiEnergy'].includes(row.Type)))throw new Error('Prefix supports only active damage and ultimate-energy gain');
   if(!exact(input.targetBinding,['expression','resolution'])||input.targetBinding.resolution!=='supplied-single-UpperTarget')throw new Error('Explicit single-target binding required');
+  const stateOwner=last.Target==='CmdCaster'?'actor':last.Target===input.targetBinding.expression?'target':null;
+  if(stateOwner===null)throw new Error('Terminal state must target the caster or the supplied damage target');
   const normalizedPrefix=prefix.map(row=>{
     if(row.Type==='BEActiveDamage'){
       if(row.Target!==input.targetBinding.expression)throw new Error('Damage-row selector does not match supplied target binding');
@@ -27,7 +29,7 @@ export function runTerminalStateCommand(value){
   if(evaluation.values.length!==2||!Number.isSafeInteger(evaluation.values[0])||!Number.isFinite(evaluation.values[1]))throw new Error('Terminal BEAddState requires numeric state ID and layer');
   const [stateId,layer]=evaluation.values;
   const state=input.state;
-  if(!exact(state,['definition','request','actorProperties','targetProperties','stateQueries'])||state.definition?.id!==stateId||state.definition.owner!=='actor'||state.request?.layer!==layer)throw new Error('Terminal row, definition owner/ID and explicit request layer must agree');
+  if(!exact(state,['definition','request','actorProperties','targetProperties','stateQueries'])||state.definition?.id!==stateId||state.definition.owner!==stateOwner||state.request?.layer!==layer)throw new Error('Terminal row, definition owner/ID and explicit request layer must agree');
   const prefixCommand={...input.command,data_list:Object.fromEntries(normalizedPrefix.map((row,index)=>{
     const {id,...exported}=row;return [String(index+1),exported];
   }))};
@@ -45,5 +47,5 @@ export function runTerminalStateCommand(value){
     steps:[{type:'applyState',definitionId:stateId,request:state.request}],attackBase:{...input.attackBase,variables:input.variables,offense,targetModifiers,targetState:prefixResult.targetAfter}});
   return {...base,status:'EXPERIMENTAL',completed:stateApplication.completed,stop:stateApplication.stop,targetAfter:prefixResult.targetAfter,casterEnergyAfter:prefixResult.casterEnergyAfter,
     modeledHpLost:prefixResult.modeledHpLost,stateApplication,
-    unresolvedDependencies:[...prefixResult.unresolvedDependencies,...stateApplication.unresolvedDependencies,'Only one unconditional terminal BEAddState to CmdCaster; no later-row observation','Command target is explicitly bound to one supplied target; no automatic target acquisition','Composition is not a connected original complete command or independent gameplay validation']};
+    unresolvedDependencies:[...prefixResult.unresolvedDependencies,...stateApplication.unresolvedDependencies,'Only one unconditional terminal BEAddState to the caster or supplied target; no later-row observation','Command target is explicitly bound to one supplied target; no automatic target acquisition','Composition is not a connected original complete command or independent gameplay validation']};
 }

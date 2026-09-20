@@ -17,8 +17,8 @@ export function inspectCommandSupport({command,allowedFunctions=[],profile='ordi
     if(!damage&&!energy&&!state)blockers.push({code:'EFFECT_HANDLER',value:row.Type??null});
     if(terminal&&!last&&row.Type==='BEAddState')blockers.push({code:'TERMINAL_STATE_ORDER'});
     if(terminal&&last&&!state)blockers.push({code:'TERMINAL_STATE_REQUIRED'});
-    const expectedTarget=state||energy?'CmdCaster':terminal?targetExpression:'UpperTarget';
-    if(row.Target!==expectedTarget)blockers.push({code:'TARGET_BINDING',value:row.Target??null});
+    const expectedTargets=state&&terminal?['CmdCaster',targetExpression]:[state||energy?'CmdCaster':terminal?targetExpression:'UpperTarget'];
+    if(!expectedTargets.includes(row.Target))blockers.push({code:'TARGET_BINDING',value:row.Target??null});
     if(state&&Object.hasOwn(row,'Cond'))blockers.push({code:'TERMINAL_STATE_CONDITION'});
     if(Object.hasOwn(row,'VFX'))blockers.push({code:'PRESENTATION_RNG',detail:'Original PlayEffectSfx may call battleEngine.rand for player targets; explicit target context and RNG handling required'});
     // Metadata and presentation fields also need an explicit adapter policy.

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "d28da570fd94f229053f40bd62b8e35161ed6c650d800b05b23f1a2d231857d0",
+  "fingerprint": "8f1f5d313c80af7003465882fee33a67b14956888b01b31f7b5391f81e2518ad",
   "files": {
     "build-catalog.json": "2d1188fadcaff7a1eb53af580c509756b21a3f003065c7c9036aa919958a1496",
     "client-build-data.json": "f857768a28bb9865d35158ae47c0cf453dcc0ae9cb9114dd0082d1ea73f17c0f",
@@ -41,7 +41,7 @@
     "engine/hp-property.mjs": "08ea0d1c23cf7e4acee5cebdb58991921bc72a5530821c50a3ec719c704afe56",
     "engine/immunity.mjs": "5a6dbfdb8f55098a7337d0c783efbdf7ebb6cddc89d9ab7d86a83df9fa538b6a",
     "engine/import-command-rows.mjs": "dbec8cb8c2e41da996e176c6a1e76b22932e13367a30ef63d7a4dd16b740abed",
-    "engine/inspect-command-support.mjs": "0255874f833197ac22c86757d1e04b5fd381bf15e042a358a02293fb15bc0474",
+    "engine/inspect-command-support.mjs": "4d7ed2582068e4d1ada6277ced38dba06a626fd24fda933ac1f53c6f16135345",
     "engine/live-state-lookup.mjs": "db44a2056b38ae9f758ee4c29ebb1a5da9e35fcb44a7a62b16d807c8e9703908",
     "engine/offensive-setup.mjs": "6062e42db21a7288d27a1a963634c6014b70b3732fd755f944f0e85ed105342e",
     "engine/old-embers-activation.mjs": "e756371a091e55d384e8e80b3344e18eb085ddab1d46695d6787801957a5300f",
@@ -69,7 +69,7 @@
     "engine/state-sequence-example.mjs": "648cfd1b4e836fd7c340164ed4830b72685c6e979e9eb59ef65b77676c56902f",
     "engine/state-sequence-experiment.mjs": "955ad9bdd467e95906958258366783f861bc84e2d83a1dbc573c9c5c029f6420",
     "engine/sub-state-layer.mjs": "712f54e3b4d1744769912955995c23fcd16505a7a15c903848dfb68e2a2ddaeb",
-    "engine/terminal-state-command.mjs": "d63d1da8dc95bacc50cd5aff9d2ed7d12a67a939f046b411dfb115c2d73a4016",
+    "engine/terminal-state-command.mjs": "c90ce28ca2a415e623ca7e74454e36b5f3b65c7027ffa6841bca2e562584352e",
     "engine/timeline-experiments.mjs": "0bf199ca16b1b92bb33b7aae1acdcad47aae8b124b47290792f3a1d5e2f6ed3e",
     "engine/trigger-eligibility.mjs": "b39dc53d7acf3248adbc9923f269a586834a7cda29f387bdc42ccef9b66a2447",
     "engine/ulti-energy-calculation.mjs": "5d072d264088cf488700b2ed950ffd3c442d41bf34830166930332f55a644702",
