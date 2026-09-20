@@ -38,9 +38,10 @@ test('terminal-state command UI shows the damage/energy prefix and applied state
  const nodes=new Map(),doc={getElementById(id){if(!nodes.has(id))nodes.set(id,new Element());return nodes.get(id);},createElement(){return new Element();}};
  const input={kind:'morimens-terminal-state-command',energy:{target:{energy:5}},attackBase:{targetState:{hp:100,block:4}},command:{data_list:{}}};
  const damage={rowId:'1',type:'damage',result:{targetAfter:{hp:80,block:0},completed:true}},energy={rowId:'2',type:'energy',result:{targetsAfter:[{energy:9}]}};
- const runTerminalStateCommand=()=>({status:'EXPERIMENTAL',completed:true,modeledHpLost:20,casterEnergyAfter:9,targetAfter:{hp:80,block:0},stop:null,prefix:{actions:[damage,energy]},terminalRow:{id:'3',evaluation:{values:[2669,10]}},stateApplication:{states:[{stateId:2669,layer:10}]},unresolvedDependencies:[]});
+ const terminalRow={id:'3',evaluation:{values:[2669,10]}};
+ const runTerminalStateCommand=()=>({status:'EXPERIMENTAL',completed:true,modeledHpLost:20,casterEnergyAfter:9,targetAfter:{hp:80,block:0},stop:null,prefix:{actions:[damage,energy]},terminalRow,terminalRows:[terminalRow],stateApplication:{states:[{stateId:2669,layer:10}]},unresolvedDependencies:[]});
  startActions({runCardActionTimeline,syntheticCardActionExample,runDamageEnergyCommand,runTerminalStateCommand,syntheticDamageEnergyExample,runtimeFingerprint:'d'.repeat(64)},doc);
  doc.getElementById('action-input').value=JSON.stringify(input);nodes.get('run').onclick();
- assert.match(nodes.get('summary').textContent,/State 2669 layer 10/);assert.equal(nodes.get('rows').children.length,3);
- assert.match(nodes.get('rows').children[2].children[4].textContent,/applied at layer 10/);
+ assert.match(nodes.get('summary').textContent,/States 2669 \+10/);assert.equal(nodes.get('rows').children.length,3);
+ assert.match(nodes.get('rows').children[2].children[4].textContent,/requested at layer 10/);
 });

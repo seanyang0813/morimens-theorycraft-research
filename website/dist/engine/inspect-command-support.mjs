@@ -7,16 +7,16 @@ export function inspectCommandSupport({command,allowedFunctions=[],profile='ordi
   if(!command||!command.data_list||typeof command.data_list!=='object'||Array.isArray(command.data_list))throw new Error('Exported command data_list required');
   const imported=importCommandRows(command);
   const terminal=profile==='terminal-self-state';
+  const firstStateIndex=terminal?imported.rows.findIndex(row=>row.Type==='BEAddState'):-1;
+  const validStateSuffix=!terminal||(firstStateIndex>0&&imported.rows.slice(firstStateIndex).every(row=>row.Type==='BEAddState'));
   const rows=imported.rows.map(({id,...row},index)=>{
     const blockers=[];
     if(!row||typeof row!=='object'||Array.isArray(row))return {id,blockers:[{code:'INVALID_ROW'}]};
-    const last=index===imported.rows.length-1;
-    const state=terminal&&last&&row.Type==='BEAddState';
+    const state=terminal&&index>=firstStateIndex&&row.Type==='BEAddState';
     const energy=(profile==='damage-and-energy'||terminal)&&row.Type==='BEGainUltiEnergy';
     const damage=row.Type==='BEActiveDamage';
     if(!damage&&!energy&&!state)blockers.push({code:'EFFECT_HANDLER',value:row.Type??null});
-    if(terminal&&!last&&row.Type==='BEAddState')blockers.push({code:'TERMINAL_STATE_ORDER'});
-    if(terminal&&last&&!state)blockers.push({code:'TERMINAL_STATE_REQUIRED'});
+    if(terminal&&!validStateSuffix)blockers.push({code:'TERMINAL_STATE_SUFFIX'});
     const expectedTargets=state&&terminal?['CmdCaster',targetExpression]:[state||energy?'CmdCaster':terminal?targetExpression:'UpperTarget'];
     if(!expectedTargets.includes(row.Target))blockers.push({code:'TARGET_BINDING',value:row.Target??null});
     if(state&&Object.hasOwn(row,'Cond'))blockers.push({code:'TERMINAL_STATE_CONDITION'});

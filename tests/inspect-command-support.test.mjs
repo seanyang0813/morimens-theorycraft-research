@@ -16,6 +16,10 @@ test('terminal-state profile accepts the exact actual three-row shape without dr
  assert.deepEqual(r.rows.map(row=>row.type),['BEActiveDamage','BEGainUltiEnergy','BEAddState']);
  const conditional=JSON.parse(JSON.stringify(cmds[57564]));conditional.data_list['3'].Cond='true';
  assert.ok(inspectCommandSupport({command:conditional,profile:'terminal-self-state',targetExpression:'FrontEnemy'}).rows[2].blockers.some(b=>b.code==='TERMINAL_STATE_CONDITION'));
+ const twoState=inspectCommandSupport({command:cmds[117897],profile:'terminal-self-state',targetExpression:'UpperTarget'});
+ assert.equal(twoState.structurallyCompatible,true);assert.deepEqual(twoState.rows.map(row=>row.type),['BEActiveDamage','BEAddState','BEAddState']);
+ const interleaved=JSON.parse(JSON.stringify(cmds[117897]));interleaved.data_list['2']=cmds[117897].data_list['2'];interleaved.data_list['3']={Type:'BEGainUltiEnergy',Target:'CmdCaster',Para:'1'};
+ assert.ok(inspectCommandSupport({command:interleaved,profile:'terminal-self-state'}).rows.some(row=>row.blockers.some(b=>b.code==='TERMINAL_STATE_SUFFIX')));
 });
 test('syntax compatibility never claims executable; unsupported fields and expressions remain visible',()=>{
  const row={Type:'BEActiveDamage',Target:'UpperTarget',Para:'Arg1'};

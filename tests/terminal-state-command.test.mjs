@@ -38,3 +38,15 @@ test('actual damage then Vulnerable command applies its terminal state to the su
  assert.equal(r.completed,true);assert.equal(r.targetAfter.hp,760);assert.equal(r.casterEnergyAfter,95);
  assert.equal(r.stateApplication.properties.target.vulnerable_per,50);assert.equal(r.stateApplication.states[0].stateId,2934);
 });
+test('actual damage and two-state suffix applies both requests in exported row order',()=>{
+ const v=input(),commands=read('../research/extracted/config/Cmd.json'),state=read('../research/extracted/config/State.json')['3023'];
+ v.command=commands['117897'];v.variables={Arg1:120,Arg2:1,Arg3:2,Arg4:3,Arg5:4};v.targetBinding.expression='UpperTarget';
+ const definition={id:3023,owner:'actor',maximum:String(state.MaxLayer),properties:[],skillLevel:1,caster:7,specialValue:0,banned:false};
+ const first=JSON.parse(JSON.stringify(v.state.request)),second=JSON.parse(JSON.stringify(v.state.request));first.layer=2;second.layer=12;
+ v.state={definitions:[definition],requests:[first,second],actorProperties:v.state.actorProperties,targetProperties:v.state.targetProperties,stateQueries:{}};
+ const r=runTerminalStateCommand(v);
+ assert.equal(r.completed,true);assert.equal(r.targetAfter.hp,880);assert.equal(r.casterEnergyAfter,95);assert.equal(r.terminalRow,null);
+ assert.deepEqual(r.terminalRows.map(row=>row.evaluation.values),[[3023,2],[3023,12]]);
+ assert.equal(r.stateApplication.states.length,1);assert.equal(r.stateApplication.states[0].layer,14);
+ assert.deepEqual(r.stateApplication.trace.map(step=>step.type),['applyState','applyState']);
+});

@@ -12,7 +12,8 @@ export function startActions({runCardActionTimeline,syntheticCardActionExample,r
           el('summary').textContent='Unsupported command: no calculation performed.';el('stop').textContent='Every row must be supported before the command can run.';
           for(const row of (result.support??executed?.support)?.rows??[]){const tr=doc.createElement('tr');for(const text of [row.id,'—','—','—',row.blockers.map(b=>b.code+(b.field?': '+b.field:b.value?': '+b.value:'')).join('; ')||'Supported row']){const td=doc.createElement('td');td.textContent=text;tr.append(td);}el('rows').append(tr);}
         }else{
-          const stateSummary=terminal&&result.stateApplication?` · State ${result.terminalRow.evaluation.values[0]} layer ${result.stateApplication.states[0]?.layer}`:'';
+          const appliedRows=terminal&&result.stateApplication?(result.terminalRows??[result.terminalRow]).filter(Boolean):[];
+          const stateSummary=appliedRows.length?` · States ${appliedRows.map(row=>`${row.evaluation.values[0]} +${row.evaluation.values[1]}`).join(', ')}`:'';
           el('summary').textContent=`${result.completed?'Command completed':'Command stopped'} · Modeled HP lost: ${result.modeledHpLost} · Ultimate energy: ${result.casterEnergyAfter}${stateSummary}`;
           el('stop').textContent=result.stop?JSON.stringify(result.stop):'No stop within this supported scope.';
           let energy=input.energy.target.energy,target={...input.attackBase.targetState};
@@ -21,7 +22,7 @@ export function startActions({runCardActionTimeline,syntheticCardActionExample,r
             if(action.type==='damage')target=action.result.targetAfter;else energy=action.result.targetsAfter[0].energy;
             const tr=doc.createElement('tr');for(const text of [action.rowId,`${beforeEnergy} → ${energy}`,`${beforeTarget.hp} → ${target.hp}`,`${beforeTarget.block} → ${target.block}`,action.type==='energy'?'Energy gain':action.result.completed?'Damage':'Partial damage']){const td=doc.createElement('td');td.textContent=text;tr.append(td);}el('rows').append(tr);
           }
-          if(terminal&&result.stateApplication){const tr=doc.createElement('tr');for(const text of [result.terminalRow.id,`${energy} → ${energy}`,`${target.hp} → ${target.hp}`,`${target.block} → ${target.block}`,`State ${result.terminalRow.evaluation.values[0]} applied at layer ${result.stateApplication.states[0]?.layer}`]){const td=doc.createElement('td');td.textContent=text;tr.append(td);}el('rows').append(tr);}
+          for(const row of appliedRows){const tr=doc.createElement('tr');for(const text of [row.id,`${energy} → ${energy}`,`${target.hp} → ${target.hp}`,`${target.block} → ${target.block}`,`State ${row.evaluation.values[0]} requested at layer ${row.evaluation.values[1]}`]){const td=doc.createElement('td');td.textContent=text;tr.append(td);}el('rows').append(tr);}
         }
       }else{
       el('summary').textContent=`${result.completed?'Sequence completed':'Sequence stopped'} Â· Modeled HP lost: ${result.modeledHpLost} Â· Energy left: ${result.energyAfter} Â· Accepted actions: ${result.acceptedActions}`;
