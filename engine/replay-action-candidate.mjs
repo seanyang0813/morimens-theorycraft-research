@@ -97,7 +97,8 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
   const rowSelection=damageRows.map(row=>({row,condition:Object.hasOwn(row,'Cond')?compileCommandCondition(row.Cond,{allowedFunctions})(readVariable,callFunction):null}));
   const eligibleRows=rowSelection.filter(item=>item.condition===null||item.condition.passed);
   const selected=exactOne(eligibleRows,'Eligible ordinary Active-damage row'),row=selected.row;
-  if(!['UpperTarget','FrontEnemy','RandomEnemy','AllEnemy'].includes(row.Target))throw new Error('Supported replay target selector required');
+  const supportedTargets=['UpperTarget','FrontEnemy','RandomEnemy','AllEnemy','MaxHpEnemy','MinHpEnemy','MaxHpAndBlockEnemy','MinHpAndBlockEnemy'];
+  if(!supportedTargets.includes(row.Target))throw new Error('Supported replay target selector required');
   const selections=action.window?.selectedTargetCommands??[];
   if(selections.length>1)throw new Error('At most one recorded target-selection command is supported');
   let targetBindingSource='recorded-hit';
@@ -106,6 +107,16 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
     if(selectedUids.length!==1||selectedUids[0]!==targetUid)throw new Error('Recorded selected target must match the hit target');
     targetBindingSource='selected-target-command-and-recorded-hit';
   }else if(row.Target==='UpperTarget')throw new Error('UpperTarget requires a recorded target-selection command');
+  let selectorValidation=null;
+  if(['MaxHpEnemy','MinHpEnemy','MaxHpAndBlockEnemy','MinHpAndBlockEnemy'].includes(row.Target)){
+    const includeBlock=row.Target.includes('AndBlock'),maximum=row.Target.startsWith('Max');
+    const enemies=Object.values(hitSnapshot.roles).filter(role=>role?.roleType===roleType.Monster&&role.camp!==caster.camp&&Number.isFinite(role.properties?.hp)&&role.properties.hp>0);
+    if(!enemies.length||enemies.some(role=>includeBlock&&!Number.isFinite(role.properties?.block)))throw new Error('Complete living enemy properties required for selector validation');
+    const value=role=>role.properties.hp+(includeBlock?role.properties.block:0);
+    const selected=enemies.reduce((best,role)=>maximum?(value(best)<value(role)?role:best):(value(best)>value(role)?role:best));
+    if(selected.uid!==targetUid)throw new Error('Recorded hit target does not match reconstructed HP selector');
+    selectorValidation={selector:row.Target,candidateOrder:enemies.map(role=>({uid:role.uid,value:value(role)})),selectedUid:selected.uid,tiePolicy:'first role in captured registry order'};targetBindingSource='reconstructed-selector-and-recorded-hit';
+  }
   const parameters=compileNumericCommand(row.Para,{allowedFunctions})(readVariable,callFunction).values;
   if(parameters.length>4||!Number.isFinite(parameters[0])||Math.ceil(parameters[1]??1)!==1||(parameters[2]??0)!==0)throw new Error('One ordinary zero-subtype Active hit required');
   const skillArgsPlus=parameters.length===4?parameters[3]:0;
@@ -124,6 +135,6 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
   try{calculation=calculateSnapshotActiveDamage(scenario);}catch(error){if(error.message==='RNG-dependent critical outcome requires a captured pre-outcome roll')calculationBlocker=error.message;else throw error;}
   const observedCastDamage=Number.isFinite(observed.castDamage)?observed.castDamage:null;
   const comparison=calculation&&observedCastDamage!==null?{metric:'preHitDamage-vs-beHitConfig.castDamage',predicted:calculation.preHitDamage,observed:observedCastDamage,difference:calculation.preHitDamage-observedCastDamage}:null;
-  return {schemaVersion:1,kind:'MORIMENS_REPLAY_ACTION_REGRESSION_CANDIDATE',build,status:calculation?'CALCULATED_REGRESSION_CANDIDATE':'PREOUTCOME_INPUT_REQUIRED',actionIndex,identities:{cardUid:card.uid,skillId:card.tid,casterUid:caster.uid,playerUid:player.uid,targetUid,commandId:selectedCommand.value,rowId:row.id},routing:{selectedCommand,importMetadata:imported.metadata,rowSelection:rowSelection.map(item=>({rowId:item.row.id,target:item.row.Target,condition:item.condition})),targetBindingSource,parameters,plusValues,tags},scenario,calculation,calculationBlocker,
+  return {schemaVersion:1,kind:'MORIMENS_REPLAY_ACTION_REGRESSION_CANDIDATE',build,status:calculation?'CALCULATED_REGRESSION_CANDIDATE':'PREOUTCOME_INPUT_REQUIRED',actionIndex,identities:{cardUid:card.uid,skillId:card.tid,casterUid:caster.uid,playerUid:player.uid,targetUid,commandId:selectedCommand.value,rowId:row.id},routing:{selectedCommand,importMetadata:imported.metadata,rowSelection:rowSelection.map(item=>({rowId:item.row.id,target:item.row.Target,condition:item.condition})),targetBindingSource,selectorValidation,parameters,plusValues,tags},scenario,calculation,calculationBlocker,
     damageInputReconstruction:JSON.parse(JSON.stringify(hitSnapshot.reconstruction)),observedHit:JSON.parse(JSON.stringify(hit)),comparison,unresolvedDependencies:['Retrospective replay evidence cannot become a blind holdout','Action window and identity still require human review for triggered or overlapping actions','Observed hit and post-outcome critical fields are excluded from scenario construction','Target HP and block are reconstructed from explicit BeHit fields because the render record follows their mutations','No connected original card-use, trigger graph, hit resolution or independent gameplay validation']};
 }

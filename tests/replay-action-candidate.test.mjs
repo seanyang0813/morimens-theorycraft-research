@@ -31,3 +31,11 @@ test('replay adapter selects one conditional damage row from captured live state
   const result=buildReplayActionCandidate({...input,actionIndex:0});
   assert.equal(result.identities.rowId,'3');assert.equal(result.scenario.baseValue,200);assert.equal(result.calculation.preHitDamage,500);assert.deepEqual(result.routing.rowSelection.map(item=>item.condition?.passed),[false,true]);
 });
+
+test('replay adapter validates max HP plus block target selection from captured enemies',()=>{
+  const input=fixture(),action=input.index.actionSnapshots[0],snapshot=action.window.hitSnapshots[0];
+  input.commands['20']={data_list:{1:{Type:'BEActiveDamage',Target:'MaxHpAndBlockEnemy',Para:'Arg1'}}};action.window.selectedTargetCommands=[];
+  snapshot.roles['4']={uid:4,tid:202,camp:2,roleType:2,properties:{...properties,hp:900,max_hp:1200,block:50}};input.monsters['202']={ID:202,BattleTag:'Elite'};
+  const result=buildReplayActionCandidate({...input,actionIndex:0});assert.equal(result.routing.targetBindingSource,'reconstructed-selector-and-recorded-hit');assert.equal(result.routing.selectorValidation.selectedUid,2);
+  snapshot.roles['4'].properties.block=200;assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0}),/HP selector/);
+});
