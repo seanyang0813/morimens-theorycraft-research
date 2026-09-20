@@ -22,10 +22,10 @@ export function calculateSnapshotActiveDamage(value){
   for(const [label,map] of [['Caster',input.casterProperties],['Player',input.playerProperties],['Target',input.targetProperties],['Card',input.cardProperties]])validateMap(map,label);
   const cardContextKeys=['present','instructionCard','stateTriggerAdd'];
   if(!exact(input.cardContext,cardContextKeys)||!cardContextKeys.every(key=>typeof input.cardContext[key]==='boolean')||input.cardContext.stateTriggerAdd||(!input.cardContext.present&&(input.cardContext.instructionCard||Object.keys(input.cardProperties).length)))throw new Error('Explicit ordinary direct card context required');
-  const contextKeys=['critRoll','targetBattleTag','targetStateIds','targetHasBuff','targetHasDebuff'];
+  const contextKeys=['critRoll','targetBattleTag','targetStateIds'];
   const context=input.targetContext;
-  if(!exact(context,contextKeys)||!['targetHasBuff','targetHasDebuff'].every(key=>typeof context[key]==='boolean')||(context.critRoll!==null&&(!Number.isInteger(context.critRoll)||context.critRoll<1||context.critRoll>100)))throw new Error('Explicit event-time target context required');
-  const targetEligibility=resolveTargetDamageEligibility({targetBattleTag:context.targetBattleTag,targetStateIds:context.targetStateIds,targetHasBuff:context.targetHasBuff,targetHasDebuff:context.targetHasDebuff});
+  if(!exact(context,contextKeys)||(context.critRoll!==null&&(!Number.isInteger(context.critRoll)||context.critRoll<1||context.critRoll>100)))throw new Error('Explicit event-time target context required');
+  const targetEligibility=resolveTargetDamageEligibility({targetBattleTag:context.targetBattleTag,targetStateIds:context.targetStateIds});
   const constructorTrace={};
   const normalize=(name,map)=>{
     if(input.snapshotStage==='battle-property-server-live')return {...map};
@@ -57,5 +57,5 @@ export function calculateSnapshotActiveDamage(value){
   const target=activeTargetDamage(offense.showDamage,targetData);
   return {schemaVersion:1,status:'EXPERIMENTAL',build,finalDamage:null,preHitDamage:target.preHitDamage,scope:`Complete captured property maps; ${input.cardContext.present?'captured card instance':'no card'}; PvE Awakener ordinary direct Active damage; supplied event-time context`,
     snapshotStage:input.snapshotStage,constructorTrace,reads,critResolution,targetEligibility,resolvedUtilityInputs:offense.resolvedUtilityInputs,targetInputs:targetData,offense,target,
-    unresolvedDependencies:['Base command value, card identity/type, tags, target battle tag, active target state IDs, buff/debuff presence and any required critical RNG draw must be captured from the same pre-action boundary','A deterministic crit result still consumes an RNG draw in the original chance branch; later RNG-stream reconstruction requires its state/effect','Card-awake skills, state-trigger-add, formula subtype, targeting, HP resolution and callbacks are outside this adapter','Snapshot completeness and provenance require evidence review','Authored composition of separately checked property, offense, critical, eligibility and target boundaries; no connected original execution or independent gameplay validation']};
+    unresolvedDependencies:['Base command value, card identity/type, tags, target battle tag, active target state IDs and any required critical RNG draw must be captured from the same pre-action boundary','A deterministic crit result still consumes an RNG draw in the original chance branch; later RNG-stream reconstruction requires its state/effect','Card-awake skills, state-trigger-add, formula subtype, targeting, HP resolution and callbacks are outside this adapter','Snapshot completeness and provenance require evidence review','Authored composition of separately checked property, offense, critical, eligibility and target boundaries; no connected original execution or independent gameplay validation']};
 }

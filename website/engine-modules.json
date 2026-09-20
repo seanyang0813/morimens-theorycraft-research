@@ -70,6 +70,7 @@
   "observation-scenario.mjs",
   "battle-property-snapshot-damage.mjs",
   "crit-resolution.mjs",
+  "state-type-catalog.mjs",
   "target-damage-eligibility.mjs",
   "inspect-command-support.mjs",
   "import-command-rows.mjs",

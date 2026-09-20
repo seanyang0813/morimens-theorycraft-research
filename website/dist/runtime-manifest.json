@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "3e2e11d60db6e6fc2dd06c668ac619634f3614600b4afe76ca39c8b2a1e6bf62",
+  "fingerprint": "8171896b7f13c476e382ad01a1cec9bc8ce7028e1e61618186359c48c5106a71",
   "files": {
     "build-catalog.json": "2d1188fadcaff7a1eb53af580c509756b21a3f003065c7c9036aa919958a1496",
     "client-build-data.json": "f857768a28bb9865d35158ae47c0cf453dcc0ae9cb9114dd0082d1ea73f17c0f",
@@ -11,7 +11,7 @@
     "engine/active-target.mjs": "99497dd55c3a411f80afdb79080bec65965d63bc4b7effc35d849d8efa5693a1",
     "engine/add-state-layer.mjs": "f48dab804914d5a36adad723f2f75617396f8b718347d42c107cd09123c223e7",
     "engine/add-state-request.mjs": "98236b4339ecc8989a5a1dd8895c0d59480e4d1ee36a30dfefccb8632bb81b29",
-    "engine/battle-property-snapshot-damage.mjs": "b2ed36ef208ffe08f0eb650b869e65517850696f33cdc4eb527b5aed3bb80884",
+    "engine/battle-property-snapshot-damage.mjs": "cd1438d99aa9d90e68e4371bb5103b60d165950c242cb856262cf2de54ef64ef",
     "engine/build-plan.mjs": "1738a0d0a99ee0510b8b509c28cb630c55212e4f1b75e0774ef87bf921d74507",
     "engine/calculate-damage.mjs": "535a7da758b96179597b6c36b36059ea416fca8f6e3b7664839a1bcff8178511",
     "engine/card-action-example.mjs": "8f8cd99a436a66b35f142f09a358dc40b646455746ffa99e6071f8d57eba243f",
@@ -73,8 +73,9 @@
     "engine/state-property-removal.mjs": "23c6ced50142f7b886a6f536f90d639d94ce833d4f63cfbfdc4563a473c1d12b",
     "engine/state-sequence-example.mjs": "648cfd1b4e836fd7c340164ed4830b72685c6e979e9eb59ef65b77676c56902f",
     "engine/state-sequence-experiment.mjs": "78cefa33171a9fe196fc7f679b2064536c1613120de28f174ca10893bc3996f5",
+    "engine/state-type-catalog.mjs": "6ea6e4485c14527fb13019a298a16d043cd333d78dfbc06379e1cfbc1aef5ed2",
     "engine/sub-state-layer.mjs": "712f54e3b4d1744769912955995c23fcd16505a7a15c903848dfb68e2a2ddaeb",
-    "engine/target-damage-eligibility.mjs": "12ae1828bdaf92a518e329ed0187e6ab8b84c170703b6ff1bdfb143ca4a792c7",
+    "engine/target-damage-eligibility.mjs": "8e2f0eecd97302645311469fec8d9239682c9bf0dfb0c65fdb702bc9a62780c1",
     "engine/terminal-state-command.mjs": "c3e3c9446463cbd944df4b5da9cdc0947554f069b7fead52c0bbcc3ad2bc39f5",
     "engine/timeline-experiments.mjs": "0bf199ca16b1b92bb33b7aae1acdcad47aae8b124b47290792f3a1d5e2f6ed3e",
     "engine/trigger-eligibility.mjs": "b39dc53d7acf3248adbc9923f269a586834a7cda29f387bdc42ccef9b66a2447",
@@ -83,7 +84,7 @@
     "engine/ulti-energy-experiment.mjs": "6de163423a1e99c6be4922093711a797fa3012554589484c4ae5fd864bc35973",
     "engine/ulti-energy-gain.mjs": "08a4f4f32a7700422d6999e19e0e58fb2cace3bcbf7d0a910a9bcacf3b520468",
     "engine/wheel-stats.mjs": "484a5b4a51fbbd9c4759b27457ae9eec71fceb0420354823f54654edfb78fadd",
-    "rules.json": "79d917d6030efe92c487e118cc1be47cecef25e9b37de31bcfd2e66e7479886f",
+    "rules.json": "ca7fcf9fd34b4b43f4b954f5f9e9a392d0d0e6875b3b2db4daf51f4d5f06e0e1",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af"
   }
 }

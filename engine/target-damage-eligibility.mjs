@@ -22,14 +22,15 @@ const blockBarrierStateId=3638;
 // Data translation for BattleUnitBase target eligibility. The original monster
 // rule uses string.find(api.Data, monster.BattleTag); state rules test live IDs.
 export function resolveTargetDamageEligibility(value){
-  const keys=['targetBattleTag','targetStateIds','targetHasBuff','targetHasDebuff'];
+  const keys=['targetBattleTag','targetStateIds'];
   if(!value||Array.isArray(value)||Object.getPrototypeOf(value)!==Object.prototype||Object.keys(value).length!==keys.length||!keys.every(key=>Object.hasOwn(value,key)))throw new Error('Exact target eligibility context required');
   if(value.targetBattleTag!==null&&(typeof value.targetBattleTag!=='string'||!value.targetBattleTag))throw new Error('Target battle tag must be null or a nonempty string');
   if(!Array.isArray(value.targetStateIds)||value.targetStateIds.some(id=>!Number.isSafeInteger(id)||id<=0)||new Set(value.targetStateIds).size!==value.targetStateIds.length)throw new Error('Target state IDs must be unique positive safe integers');
-  if(typeof value.targetHasBuff!=='boolean'||typeof value.targetHasDebuff!=='boolean')throw new Error('Explicit target buff/debuff flags required');
   const states=new Set(value.targetStateIds);
+  const classification=classifyTargetStateIds(value.targetStateIds);
   return {monsterTypeDamageProperties:value.targetBattleTag===null?[]:monsterRules.filter(([,data])=>data.includes(value.targetBattleTag)).map(([property])=>property),
     targetStateDamageProperties:stateRules.filter(([,id])=>states.has(id)).map(([property])=>property),targetBlockBarrierStatePresent:states.has(blockBarrierStateId),
-    targetHasBuff:value.targetHasBuff,targetHasDebuff:value.targetHasDebuff,
+    targetHasBuff:classification.targetHasBuff,targetHasDebuff:classification.targetHasDebuff,stateTypes:classification.types,
     trace:{monsterBattleTag:value.targetBattleTag,activeStateIds:[...value.targetStateIds],monsterRules:monsterRules.map(([property,data])=>({property,data,matched:value.targetBattleTag!==null&&data.includes(value.targetBattleTag)})),stateRules:stateRules.map(([property,stateId])=>({property,stateId,matched:states.has(stateId)})),blockBarrierStateId}};
 }
+import {classifyTargetStateIds} from './state-type-catalog.mjs';

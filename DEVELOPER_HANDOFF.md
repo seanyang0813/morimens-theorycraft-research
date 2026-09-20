@@ -17,7 +17,7 @@ python tools/prepare_local_website.py
 python tools/verify_research.py
 ```
 
-The expected current result is 126 passing test files and `publicationStatus: NOT_READY`. A nonzero `--check-publication` result is correct until gameplay evidence satisfies the gate. The battle-property snapshot adapter accepts complete captured card maps, so Strike/Mortal Blast validation does not silently drop card-instance branches. It derives crits from the recovered rules and refuses chance-dependent results without a captured pre-outcome roll. Monster and target-state damage eligibility now derives from a captured battle tag and active state IDs instead of manually selected property names.
+The expected current result is 127 passing test files and `publicationStatus: NOT_READY`. A nonzero `--check-publication` result is correct until gameplay evidence satisfies the gate. The battle-property snapshot adapter accepts complete captured card maps, so Strike/Mortal Blast validation does not silently drop card-instance branches. It derives crits from the recovered rules and refuses chance-dependent results without a captured pre-outcome roll. Monster bonuses, buff/debuff presence and target-state damage eligibility derive from a captured battle tag and active state IDs instead of manually selected flags or property names.
 
 ## Architecture
 

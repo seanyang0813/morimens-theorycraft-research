@@ -28,13 +28,13 @@
     {
       "id": "PC144:TargetDamageEligibility",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
-      "claim": "Monster battle tags select overlapping monster damage properties; ten configured live-state IDs select multiplicative state damage properties; state 3638 enables both owner and card block-barrier damage branches",
-      "scope": "Literal build-144 API/constant mappings and authored resolver tests. Buff/debuff presence remains an explicit captured flag. No original-runtime method execution, automatic state-manager capture, property derivation, complete hit or gameplay",
+      "claim": "Monster battle tags select overlapping monster damage properties; classified live-state IDs derive buff/debuff presence and ten multiplicative state damage properties; state 3638 enables both owner and card block-barrier damage branches",
+      "scope": "Literal build-144 API/constant/state mappings and authored resolver tests across all 6973 classified state IDs. No original-runtime method execution, automatic state-manager capture, property derivation, complete hit or gameplay",
       "gameplayValidation": false,
       "sources": [
         {
           "module": "BattleUnitBase",
-          "member": "GetDamagePer2MonsterType,GetDamagePer2HasStateValue,GetDamagePer2BlockBarrier",
+          "member": "GetDamagePer2MonsterType,GetDamagePer2HasStateValue,GetDamagePer2BuffEnemy,GetDamagePer2DebuffEnemy,GetDamagePer2BlockBarrier",
           "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410"
         },
         {
@@ -51,9 +51,15 @@
           "module": "Constant",
           "member": "DamagePer2HasState",
           "sha256": "6f9876d9577b2e043351ff9c41887996a269787e16900e238fb1d4f0eb852694"
+        },
+        {
+          "module": "State",
+          "member": "IsBuff",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8"
         }
       ],
       "checks": [
+        "tests/state-type-module.test.mjs",
         "tests/target-damage-eligibility.test.mjs",
         "tests/battle-property-snapshot-damage.test.mjs"
       ]
@@ -330,7 +336,7 @@
       "id": "PC144:StateImmunityCatalog",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
       "claim": "Original specific-immunity mapping resolves four properties and five state IDs; all 6973 exported states retain explicit buff/debuff/untyped classification",
-      "scope": "Original BC table enumeration plus literal numeric API join and complete exported state classification. Authored resolver requires explicit target properties. No automatic property derivation or gameplay",
+      "scope": "Original BC table enumeration plus literal numeric API join and complete exported state classification. Authored resolver requires explicit target properties. Browser-safe generated classifier is checked against every catalog entry. No automatic property derivation or gameplay",
       "gameplayValidation": false,
       "sources": [
         {
@@ -350,7 +356,8 @@
         }
       ],
       "checks": [
-        "tests/state-immunity-catalog.test.mjs"
+        "tests/state-immunity-catalog.test.mjs",
+        "tests/state-type-module.test.mjs"
       ]
     },
     {

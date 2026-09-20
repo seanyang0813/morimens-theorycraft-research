@@ -7,7 +7,7 @@ const base=()=>({schemaVersion:1,kind:'morimens-battle-property-snapshot-damage'
   casterProperties:{crit:100,crit_damage:50,crit_damage_from_strikecard:10,crit_damage_per:0,damage_per2monster_boss:20,damage_per2buff_enemy:5,damage_per2enemy_has_vulnerable:10},
   playerProperties:{dimension_fix_per:0},targetProperties:{hp:100,max_hp:100,block:0,be_damage_per:10,vulnerable_per:50},
   cardProperties:{},cardContext:{present:false,instructionCard:false,stateTriggerAdd:false},
-  targetContext:{critRoll:null,targetBattleTag:'Boss',targetStateIds:[2934],targetHasBuff:true,targetHasDebuff:false}});
+  targetContext:{critRoll:null,targetBattleTag:'Boss',targetStateIds:[2934,49270]}});
 test('complete live property maps feed recovered offense and target reads without invented fields',()=>{
   const input=base(),saved=JSON.stringify(input),result=calculateSnapshotActiveDamage(input);
   assert.equal(result.offense.showDamage,100);assert.equal(result.preHitDamage,366);assert.equal(result.finalDamage,null);
