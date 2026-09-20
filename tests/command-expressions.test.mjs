@@ -20,6 +20,12 @@ test('unknown values and unsupported Lua syntax cannot silently execute or defau
   for(const expression of ['math.ceil(Arg1)','a > 1','a and b','a^2','1--2','1,','a; b','true','[1]','1..2','1e999'])assert.throws(()=>compileNumericCommand(expression));
   for(const expression of ['missing','1/0'])assert.throws(()=>compileNumericCommand(expression)(()=>undefined));
 });
+test('opt-in logical numeric expressions preserve Lua operand-returning selection',()=>{
+  const evaluate=compileNumericCommand('(flag()==1 and Arg5 or Arg1), (Arg2>0 and Arg2 or 1)',{allowedFunctions:['flag'],allowLogicalNumeric:true});
+  assert.deepEqual(evaluate(name=>({Arg1:10,Arg2:0,Arg5:50})[name],()=>1).values,[50,1]);
+  assert.deepEqual(evaluate(name=>({Arg1:10,Arg2:3,Arg5:50})[name],()=>0).values,[10,3]);
+  assert.throws(()=>compileNumericCommand('true',{allowLogicalNumeric:true})());
+});
 test('command expression and Arg fallback connect to scheduled hits using current state',()=>{
   let power=10;const scheduler=new ResearchEffectOrder(),evaluate=compileNumericCommand('Arg1,3,0,ParaPlus1'),reads=[];
   const readVariable=name=>name==='ParaPlus1'?7.5:resolveCommandArgument({index:1,skillArgs:[],readFallback:()=>[power]}).value;

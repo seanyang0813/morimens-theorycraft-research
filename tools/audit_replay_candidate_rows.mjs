@@ -4,7 +4,7 @@ import {pathToFileURL} from 'node:url';
 import {compileNumericCommand,compileCommandCondition} from '../engine/command-expressions.mjs';
 import {importCommandRows} from '../engine/import-command-rows.mjs';
 
-const allowedFunctions=['CmdCaster.GetStateLayer','PlayerRole.GetStateLayer','UpperTarget.GetStateLayer','OwnerCard.GetStateLayer','CurCard.GetStateLayer','CmdCaster.GetPotencyLevel','CmdCaster.GetBreakSkillLevel','math.ceil','math.floor'];
+const allowedFunctions=['CmdCaster.GetStateLayer','PlayerRole.GetStateLayer','UpperTarget.GetStateLayer','OwnerCard.GetStateLayer','CurCard.GetStateLayer','CmdCaster.GetPotencyLevel','CmdCaster.GetBreakSkillLevel','IsSuperUtlSkill','math.ceil','math.floor'];
 const allowedTargets=new Set(['UpperTarget','FrontEnemy','RandomEnemy','AllEnemy','MaxHpEnemy','MinHpEnemy','MaxHpAndBlockEnemy','MinHpAndBlockEnemy']);
 const allowedFields=new Set(['id','Type','Target','Para','Cond','VFX','DelayTime']);
 const supportedTags=new Set(['Card_Strike','Card_Skill','Ulti_Skill','Card_AttachPost']);
@@ -35,7 +35,7 @@ export function auditReplayCandidateRows(commands,skills,{sourceSha256=null}={})
       const block=code=>{blockers.push(code);add(code);};
       if(Object.keys(row).some(key=>!allowedFields.has(key)))block('ROW_FIELD');
       if(!allowedTargets.has(row.Target))block('TARGET_SELECTOR');
-      try{compileNumericCommand(row.Para,{allowedFunctions});}catch{block('PARAMETER_EXPRESSION');}
+      try{compileNumericCommand(row.Para,{allowedFunctions,allowLogicalNumeric:true});}catch{block('PARAMETER_EXPRESSION');}
       if(Object.hasOwn(row,'Cond')){
         conditionalRows++;
         try{compileCommandCondition(row.Cond,{allowedFunctions});}catch{block('CONDITION_EXPRESSION');}

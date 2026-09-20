@@ -39,3 +39,11 @@ test('replay adapter validates max HP plus block target selection from captured 
   const result=buildReplayActionCandidate({...input,actionIndex:0});assert.equal(result.routing.targetBindingSource,'reconstructed-selector-and-recorded-hit');assert.equal(result.routing.selectorValidation.selectedUid,2);
   snapshot.roles['4'].properties.block=200;assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0}),/HP selector/);
 });
+
+test('replay adapter derives Super Ultimate selection from captured caster energy',()=>{
+  const input=fixture(),caster=input.index.actionSnapshots[0].window.hitSnapshots[0].roles['1'];
+  input.commands['20']={data_list:{1:{Type:'BEActiveDamage',Target:'UpperTarget',Para:'(IsSuperUtlSkill()==1 and Arg1*2 or Arg1)'}}};
+  Object.assign(caster,{doubleUltiEnergy:true});Object.assign(caster.properties,{ulti_energy:100,ulti_energy_max:100,ulti_energy_cost_per:0,ulti_energy_cost_flat:0,ulti_energy_max_per:0,ulti_skill_level_up:0});
+  const superResult=buildReplayActionCandidate({...input,actionIndex:0});assert.equal(superResult.routing.superUltimateResolution.isSuperUltimate,true);assert.equal(superResult.scenario.baseValue,200);
+  caster.properties.ulti_energy=99;const ordinary=buildReplayActionCandidate({...input,actionIndex:0});assert.equal(ordinary.routing.superUltimateResolution.isSuperUltimate,false);assert.equal(ordinary.scenario.baseValue,100);
+});

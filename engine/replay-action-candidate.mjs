@@ -66,7 +66,11 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
     const list=stateRegistry.get(state.ownerUid)??[];list.push({stateId:state.stateId,layer:state.layer,isDeleted:Boolean(state.isDeleted)});stateRegistry.set(state.ownerUid,list);
   }
   const functionOwners={'CmdCaster.GetStateLayer':caster.uid,'PlayerRole.GetStateLayer':player.uid,'UpperTarget.GetStateLayer':target.uid,'OwnerCard.GetStateLayer':card.uid,'CurCard.GetStateLayer':card.uid};
-  const allowedFunctions=[...Object.keys(functionOwners),'CmdCaster.GetPotencyLevel','CmdCaster.GetBreakSkillLevel','math.ceil','math.floor'];
+  const prop=name=>Number.isFinite(caster.properties?.[name])?caster.properties[name]:0;
+  const maxUltiEnergy=Math.floor((prop('ulti_energy_max')*(1+prop('ulti_energy_cost_per')/100)+prop('ulti_energy_cost_flat'))*(1+prop('ulti_energy_max_per')/100)+0.5);
+  const doubleEnergy=caster.doubleUltiEnergy!==undefined&&caster.doubleUltiEnergy!==null&&caster.doubleUltiEnergy!==false;
+  const superUltimate=prop('ulti_skill_level_up')>0||(doubleEnergy&&prop('ulti_energy')>=maxUltiEnergy);
+  const allowedFunctions=[...Object.keys(functionOwners),'CmdCaster.GetPotencyLevel','CmdCaster.GetBreakSkillLevel','IsSuperUtlSkill','math.ceil','math.floor'];
   const callFunction=(name,values)=>{
     if(Object.hasOwn(functionOwners,name)){
       if(values.length!==1||!Number.isSafeInteger(values[0]))throw new Error(`${name} requires one integer state ID`);
@@ -74,6 +78,7 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
     }
     if(name==='CmdCaster.GetPotencyLevel'){if(values.length)throw new Error('GetPotencyLevel takes no arguments');return potencyLevel;}
     if(name==='CmdCaster.GetBreakSkillLevel'){if(values.length)throw new Error('GetBreakSkillLevel takes no arguments');return breakSkillLevel;}
+    if(name==='IsSuperUtlSkill'){if(values.length)throw new Error('IsSuperUtlSkill takes no arguments');return superUltimate?1:0;}
     if(name==='math.ceil'||name==='math.floor'){if(values.length!==1)throw new Error(`${name} requires one argument`);return name==='math.ceil'?Math.ceil(values[0]):Math.floor(values[0]);}
     throw new Error(`Unsupported replay expression function ${name}`);
   };
@@ -90,7 +95,7 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
   if(Object.hasOwn(skill,'ParaPlus')){
     const plus=resolveScalarSkillField({...routeInput,field:'ParaPlus'});
     if(plus.value!==null){
-      plusValues=compileNumericCommand(plus.value,{allowedFunctions})(readVariable,callFunction).values;
+      plusValues=compileNumericCommand(plus.value,{allowedFunctions,allowLogicalNumeric:true})(readVariable,callFunction).values;
       plusValues.forEach((value,i)=>variables[`ParaPlus${i+1}`]=value);
     }
   }
@@ -117,7 +122,7 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
     if(selected.uid!==targetUid)throw new Error('Recorded hit target does not match reconstructed HP selector');
     selectorValidation={selector:row.Target,candidateOrder:enemies.map(role=>({uid:role.uid,value:value(role)})),selectedUid:selected.uid,tiePolicy:'first role in captured registry order'};targetBindingSource='reconstructed-selector-and-recorded-hit';
   }
-  const parameters=compileNumericCommand(row.Para,{allowedFunctions})(readVariable,callFunction).values;
+  const parameters=compileNumericCommand(row.Para,{allowedFunctions,allowLogicalNumeric:true})(readVariable,callFunction).values;
   if(parameters.length>4||!Number.isFinite(parameters[0])||Math.ceil(parameters[1]??1)!==1||(parameters[2]??0)!==0)throw new Error('One ordinary zero-subtype Active hit required');
   const skillArgsPlus=parameters.length===4?parameters[3]:0;
   if(!Number.isFinite(skillArgsPlus))throw new Error('Resolved finite ParaPlus value required');
@@ -135,6 +140,6 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
   try{calculation=calculateSnapshotActiveDamage(scenario);}catch(error){if(error.message==='RNG-dependent critical outcome requires a captured pre-outcome roll')calculationBlocker=error.message;else throw error;}
   const observedCastDamage=Number.isFinite(observed.castDamage)?observed.castDamage:null;
   const comparison=calculation&&observedCastDamage!==null?{metric:'preHitDamage-vs-beHitConfig.castDamage',predicted:calculation.preHitDamage,observed:observedCastDamage,difference:calculation.preHitDamage-observedCastDamage}:null;
-  return {schemaVersion:1,kind:'MORIMENS_REPLAY_ACTION_REGRESSION_CANDIDATE',build,status:calculation?'CALCULATED_REGRESSION_CANDIDATE':'PREOUTCOME_INPUT_REQUIRED',actionIndex,identities:{cardUid:card.uid,skillId:card.tid,casterUid:caster.uid,playerUid:player.uid,targetUid,commandId:selectedCommand.value,rowId:row.id},routing:{selectedCommand,importMetadata:imported.metadata,rowSelection:rowSelection.map(item=>({rowId:item.row.id,target:item.row.Target,condition:item.condition})),targetBindingSource,selectorValidation,parameters,plusValues,tags},scenario,calculation,calculationBlocker,
+  return {schemaVersion:1,kind:'MORIMENS_REPLAY_ACTION_REGRESSION_CANDIDATE',build,status:calculation?'CALCULATED_REGRESSION_CANDIDATE':'PREOUTCOME_INPUT_REQUIRED',actionIndex,identities:{cardUid:card.uid,skillId:card.tid,casterUid:caster.uid,playerUid:player.uid,targetUid,commandId:selectedCommand.value,rowId:row.id},routing:{selectedCommand,importMetadata:imported.metadata,rowSelection:rowSelection.map(item=>({rowId:item.row.id,target:item.row.Target,condition:item.condition})),targetBindingSource,selectorValidation,superUltimateResolution:{isSuperUltimate:superUltimate,doubleUltiEnergy:doubleEnergy,maximumEnergy:maxUltiEnergy,currentEnergy:prop('ulti_energy'),levelUp:prop('ulti_skill_level_up')},parameters,plusValues,tags},scenario,calculation,calculationBlocker,
     damageInputReconstruction:JSON.parse(JSON.stringify(hitSnapshot.reconstruction)),observedHit:JSON.parse(JSON.stringify(hit)),comparison,unresolvedDependencies:['Retrospective replay evidence cannot become a blind holdout','Action window and identity still require human review for triggered or overlapping actions','Observed hit and post-outcome critical fields are excluded from scenario construction','Target HP and block are reconstructed from explicit BeHit fields because the render record follows their mutations','No connected original card-use, trigger graph, hit resolution or independent gameplay validation']};
 }

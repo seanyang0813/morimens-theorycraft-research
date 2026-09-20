@@ -76,7 +76,7 @@
       "sources": [
         {
           "module": "BattleUnitBase",
-          "member": "Serialize,BeHit",
+          "member": "Serialize,BeHit,InitSkillCmdServer",
           "bundle": "pc\\downloaded\\share.ab",
           "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
@@ -87,6 +87,20 @@
           "bundle": "pc\\downloaded\\share.ab",
           "sha256": "b664734d7f12a5009b36727d2c3dfde75295b6e2be03edb37c3cf98ee74a1d04",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-2996011540817531336_BattleUnitUtil.lua"
+        },
+        {
+          "module": "BattleUnitAwaker",
+          "member": "CanUseSuperUtlSkill",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "a6703d8ea024ebb938789e9d3b22b725dad5137842db88729ac6c401c409fbc5",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2527921886044457143_BattleUnitAwaker.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "GetMaxUltiEnergy",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
         },
         {
           "module": "BattleCardServer",
@@ -115,6 +129,13 @@
           "bundle": "pc\\downloaded\\share.ab",
           "sha256": "0ee07c8fd06f29787f8139306b55d16c726eaf8cabcd1ad0b128d907c8dbbeea",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7402197778903831940_BattleEngine.lua"
+        },
+        {
+          "module": "BattleCmdParser",
+          "member": "IsSuperUtlSkill",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6247644512047908854_BattleCmdParser.lua"
         },
         {
           "module": "BattleCmdServer",
@@ -156,13 +177,13 @@
         "tests/replay-index.test.mjs",
         "tests/replay-action-candidate.test.mjs"
       ],
-      "scope": "Authored fail-closed adapter supports one direct PvE Awakener Active hit, one monster and exactly one eligible ordinary damage row. Conditions/parameters support captured role/card state layers, potency/breakthrough, live properties and ceil/floor; unresolved bindings and competing damage effects fail. Target HP/block are restored from explicit BeHit oldHp/blockLose after their recorded mutations. Observed damage/crit stay outside prediction inputs. No real replay decoded, trigger graph execution, blind holdout or gameplay validation",
+      "scope": "Authored fail-closed adapter supports one direct PvE Awakener Active hit, one monster and exactly one eligible ordinary damage row. Conditions/parameters support captured role/card state layers, potency/breakthrough, live properties, Super Ultimate state, ceil/floor and Lua logical numeric selection; unresolved bindings and competing damage effects fail. Target HP/block are restored from explicit BeHit oldHp/blockLose after their recorded mutations. Observed damage/crit stay outside prediction inputs. No real replay decoded, trigger graph execution, blind holdout or gameplay validation",
       "gameplayValidation": false
     },
     {
       "id": "PC144:ReplayCandidateRowCoverage",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
-      "claim": "The current exports contain 627 supported-tag Awakener skills linked to 531 commands; 174 of the 198 linked commands containing ordinary Active damage pass the replay candidate static shape checks, and 212 of 246 ordinary Active rows have compatible syntax",
+      "claim": "The current exports contain 627 supported-tag Awakener skills linked to 531 commands; 180 of the 198 linked commands containing ordinary Active damage pass the replay candidate static shape checks, and 223 of 246 ordinary Active rows have compatible syntax",
       "sources": [
         {
           "module": "Skill",
@@ -180,17 +201,31 @@
         },
         {
           "module": "BattleCmdParser",
-          "member": "MinHpEnemy,MaxHpEnemy,MinHpAndBlockEnemy,MaxHpAndBlockEnemy",
+          "member": "MinHpEnemy,MaxHpEnemy,MinHpAndBlockEnemy,MaxHpAndBlockEnemy,IsSuperUtlSkill",
           "bundle": "pc\\downloaded\\share.ab",
           "sha256": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6247644512047908854_BattleCmdParser.lua"
+        },
+        {
+          "module": "BattleUnitAwaker",
+          "member": "CanUseSuperUtlSkill",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "a6703d8ea024ebb938789e9d3b22b725dad5137842db88729ac6c401c409fbc5",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2527921886044457143_BattleUnitAwaker.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "GetMaxUltiEnergy",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
         }
       ],
       "tests": [
         "tests/replay-candidate-row-audit.test.mjs",
         "tests/replay-action-candidate.test.mjs"
       ],
-      "scope": "Source-hashed static audit follows Awakener-owned supported-tag Skill CmdList/tempCmdList links, then checks row fields, target selectors, competing damage types and supported condition/parameter syntax. HP and HP+block selectors are reconstructed from complete captured living-enemy maps and original registry-order tie behavior. Does not establish runtime bindings, eligible condition count, hit association, property completeness, critical RNG, card executability or gameplay correctness",
+      "scope": "Source-hashed static audit follows Awakener-owned supported-tag Skill CmdList/tempCmdList links, then checks row fields, target selectors, competing damage types and supported condition/parameter syntax. HP and HP+block selectors are reconstructed from complete captured living-enemy maps and original registry-order tie behavior. Super Ultimate is derived from captured properties under the inspected client rule. Does not establish runtime bindings, eligible condition count, hit association, property completeness, critical RNG, card executability or gameplay correctness",
       "gameplayValidation": false
     },
     {

@@ -1,6 +1,7 @@
 // Deliberately numeric Lua-expression subset; never executes JavaScript/source code.
-function compileCommand(expression,{allowedFunctions=[]}={},condition=false){
+function compileCommand(expression,{allowedFunctions=[],allowLogicalNumeric=false}={},condition=false){
   if(!Array.isArray(allowedFunctions)||!allowedFunctions.every(name=>typeof name==='string'&&/^[A-Za-z_][A-Za-z_0-9]*(?:\.[A-Za-z_][A-Za-z_0-9]*)*$/.test(name)))throw new Error('Explicit function-name allowlist required');
+  if(typeof allowLogicalNumeric!=='boolean')throw new Error('Explicit logical-numeric option required');
   const allowed=new Set(allowedFunctions);
   if(typeof expression==='number'){
     if(!Number.isFinite(expression))throw new Error('Finite numeric command required');
@@ -12,7 +13,7 @@ function compileCommand(expression,{allowedFunctions=[]}={},condition=false){
   while(offset<expression.length){
     const rest=expression.slice(offset),space=/^\s+/.exec(rest);
     if(space){offset+=space[0].length;continue;}
-    const match=/^(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?/.exec(rest)||/^[A-Za-z_][A-Za-z_0-9]*(?:\.[A-Za-z_][A-Za-z_0-9]*)*/.exec(rest)||(condition?/^(?:==|~=|<=|>=|[<>])/.exec(rest):null)||/^[+*/(),-]/.exec(rest);
+    const match=/^(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?/.exec(rest)||/^[A-Za-z_][A-Za-z_0-9]*(?:\.[A-Za-z_][A-Za-z_0-9]*)*/.exec(rest)||((condition||allowLogicalNumeric)?/^(?:==|~=|<=|>=|[<>])/.exec(rest):null)||/^[+*/(),-]/.exec(rest);
     if(!match)throw new Error(`Unsupported command syntax at ${offset}`);
     tokens.push(match[0]);offset+=match[0].length;
   }
@@ -22,8 +23,8 @@ function compileCommand(expression,{allowedFunctions=[]}={},condition=false){
     if(depth>100)throw new Error('Command nesting exceeds supported depth');
     const token=tokens[cursor++];
     if(token==='-')return {op:'negate',value:atom(depth+1)};
-    if(condition&&token==='not')return {op:'not',value:atom(depth+1)};
-    if(condition&&['true','false'].includes(token))return {value:token==='true'};
+    if((condition||allowLogicalNumeric)&&token==='not')return {op:'not',value:atom(depth+1)};
+    if((condition||allowLogicalNumeric)&&['true','false'].includes(token))return {value:token==='true'};
     if(token==='('){const value=expressionRoot(depth+1);if(tokens[cursor++]!==')')throw new Error('Expected closing parenthesis');return value;}
     if(token!==undefined&&/^(?:\d|\.\d)/.test(token)){const value=Number(token);if(!Number.isFinite(value))throw new Error('Nonfinite literal');return {value};}
     if(token&&/^[A-Za-z_]/.test(token)&&!['true','false','nil','and','or','not'].includes(token)){
@@ -40,8 +41,8 @@ function compileCommand(expression,{allowedFunctions=[]}={},condition=false){
   function sum(depth){let left=product(depth);while(['+','-'].includes(peek())){const op=tokens[cursor++];left={op,left,right:product(depth)};}return left;}
   function comparison(depth){let left=sum(depth);while(['==','~=','<','>','<=','>='].includes(peek())){const op=tokens[cursor++];left={op,left,right:sum(depth)};}return left;}
   function conjunction(depth){let left=comparison(depth);while(peek()==='and'){cursor++;left={op:'and',left,right:comparison(depth)};}return left;}
-  function expressionRoot(depth){if(!condition)return sum(depth);let left=conjunction(depth);while(peek()==='or'){cursor++;left={op:'or',left,right:conjunction(depth)};}return left;}
-  const roots=[expressionRoot(0)];while(!condition&&peek()===','){cursor++;roots.push(sum(0));}
+  function expressionRoot(depth){if(!condition&&!allowLogicalNumeric)return sum(depth);let left=conjunction(depth);while(peek()==='or'){cursor++;left={op:'or',left,right:conjunction(depth)};}return left;}
+  const roots=[expressionRoot(0)];while(!condition&&peek()===','){cursor++;roots.push(expressionRoot(0));}
   if(cursor!==tokens.length)throw new Error('Unsupported command syntax or trailing tokens');
   return (readVariable,callFunction)=>{
     const reads=[],calls=[];
@@ -69,10 +70,10 @@ function compileCommand(expression,{allowedFunctions=[]}={},condition=false){
           }
         }
       }
-      if(!Number.isFinite(result)&&!(condition&&typeof result==='boolean'))throw new Error(`Unknown or nonfinite command value${node.name?' '+node.name:''}`);
+      if(!Number.isFinite(result)&&!((condition||allowLogicalNumeric)&&typeof result==='boolean'))throw new Error(`Unknown or nonfinite command value${node.name?' '+node.name:''}`);
       return result;
     }
-    return {values:roots.map(evaluate),reads,calls};
+    const values=roots.map(evaluate);if(!condition&&values.some(value=>!Number.isFinite(value)))throw new Error('Numeric command expression must resolve to finite values');return {values,reads,calls};
   };
 }
 export function compileNumericCommand(expression,options){return compileCommand(expression,options,false);}

@@ -11,12 +11,11 @@
   "commandsWithOrdinaryActive": 198,
   "ordinaryActiveRows": 246,
   "conditionalRows": 67,
-  "rowExpressionCompatible": 212,
-  "commandShapeCompatible": 174,
+  "rowExpressionCompatible": 223,
+  "commandShapeCompatible": 180,
   "blockerCounts": {
     "COMPETING_DAMAGE_EFFECT": 6,
-    "CONDITION_EXPRESSION": 12,
-    "PARAMETER_EXPRESSION": 3,
+    "CONDITION_EXPRESSION": 4,
     "ROW_FIELD": 3,
     "TARGET_SELECTOR": 16
   },
@@ -28,6 +27,7 @@
     "CurCard.GetStateLayer",
     "CmdCaster.GetPotencyLevel",
     "CmdCaster.GetBreakSkillLevel",
+    "IsSuperUtlSkill",
     "math.ceil",
     "math.floor"
   ],
@@ -5779,21 +5779,17 @@
           "rowId": "4",
           "target": "UpperTarget",
           "conditional": true,
-          "blockers": [
-            "CONDITION_EXPRESSION"
-          ]
+          "blockers": []
         },
         {
           "rowId": "5",
           "target": "UpperTarget",
           "conditional": true,
-          "blockers": [
-            "CONDITION_EXPRESSION"
-          ]
+          "blockers": []
         }
       ],
       "competingDamageEffect": false,
-      "shapeCompatible": false
+      "shapeCompatible": true
     },
     {
       "commandId": 672,
@@ -5893,13 +5889,11 @@
           "rowId": "4",
           "target": "UpperTarget",
           "conditional": false,
-          "blockers": [
-            "PARAMETER_EXPRESSION"
-          ]
+          "blockers": []
         }
       ],
       "competingDamageEffect": false,
-      "shapeCompatible": false
+      "shapeCompatible": true
     },
     {
       "commandId": 1001,
@@ -5992,21 +5986,17 @@
           "rowId": "1",
           "target": "AllEnemy",
           "conditional": false,
-          "blockers": [
-            "PARAMETER_EXPRESSION"
-          ]
+          "blockers": []
         },
         {
           "rowId": "5",
           "target": "RandomEnemy",
           "conditional": true,
-          "blockers": [
-            "PARAMETER_EXPRESSION"
-          ]
+          "blockers": []
         }
       ],
       "competingDamageEffect": false,
-      "shapeCompatible": false
+      "shapeCompatible": true
     },
     {
       "commandId": 1197,
@@ -7791,21 +7781,17 @@
           "rowId": "8",
           "target": "UpperTarget",
           "conditional": true,
-          "blockers": [
-            "CONDITION_EXPRESSION"
-          ]
+          "blockers": []
         },
         {
           "rowId": "9",
           "target": "UpperTarget",
           "conditional": true,
-          "blockers": [
-            "CONDITION_EXPRESSION"
-          ]
+          "blockers": []
         }
       ],
       "competingDamageEffect": false,
-      "shapeCompatible": false
+      "shapeCompatible": true
     },
     {
       "commandId": 95906,
@@ -7918,21 +7904,17 @@
           "rowId": "1",
           "target": "AllEnemy",
           "conditional": true,
-          "blockers": [
-            "CONDITION_EXPRESSION"
-          ]
+          "blockers": []
         },
         {
           "rowId": "2",
           "target": "AllEnemy",
           "conditional": true,
-          "blockers": [
-            "CONDITION_EXPRESSION"
-          ]
+          "blockers": []
         }
       ],
       "competingDamageEffect": false,
-      "shapeCompatible": false
+      "shapeCompatible": true
     },
     {
       "commandId": 97926,
@@ -8083,21 +8065,17 @@
           "rowId": "1",
           "target": "AllEnemy",
           "conditional": true,
-          "blockers": [
-            "CONDITION_EXPRESSION"
-          ]
+          "blockers": []
         },
         {
           "rowId": "2",
           "target": "AllEnemy",
           "conditional": true,
-          "blockers": [
-            "CONDITION_EXPRESSION"
-          ]
+          "blockers": []
         }
       ],
       "competingDamageEffect": false,
-      "shapeCompatible": false
+      "shapeCompatible": true
     },
     {
       "commandId": 122496,
