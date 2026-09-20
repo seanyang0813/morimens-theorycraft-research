@@ -2,6 +2,7 @@ import {initializeNumericProperties} from './property-initialization.mjs';
 import {prepareNoCardPveOffense,casterSetupKeys,playerSetupKeys} from './offensive-setup.mjs';
 import {prepareCardPveOffense,cardCasterKeys,cardPropertyKeys} from './card-offensive-setup.mjs';
 import {activeTargetDamage} from './active-target.mjs';
+import {resolveCriticalHit} from './crit-resolution.mjs';
 
 const build='pc-res144-build51';
 const tags=['Card_Strike','Card_Skill','Ulti_Skill','Card_AttachPost'];
@@ -26,9 +27,9 @@ export function calculateSnapshotActiveDamage(value){
   for(const [label,map] of [['Caster',input.casterProperties],['Player',input.playerProperties],['Target',input.targetProperties],['Card',input.cardProperties]])validateMap(map,label);
   const cardContextKeys=['present','instructionCard','stateTriggerAdd','blockBarrierStatePresent'];
   if(!exact(input.cardContext,cardContextKeys)||!cardContextKeys.every(key=>typeof input.cardContext[key]==='boolean')||input.cardContext.stateTriggerAdd||(!input.cardContext.present&&(input.cardContext.instructionCard||input.cardContext.blockBarrierStatePresent||Object.keys(input.cardProperties).length)))throw new Error('Explicit ordinary direct card context required');
-  const contextKeys=['isCrit','monsterTypeDamageProperties','targetHasBuff','targetHasDebuff','targetBlockBarrierStatePresent','targetStateDamageProperties'];
+  const contextKeys=['critRoll','monsterTypeDamageProperties','targetHasBuff','targetHasDebuff','targetBlockBarrierStatePresent','targetStateDamageProperties'];
   const context=input.targetContext;
-  if(!exact(context,contextKeys)||!['isCrit','targetHasBuff','targetHasDebuff','targetBlockBarrierStatePresent'].every(key=>typeof context[key]==='boolean'))throw new Error('Explicit event-time target context required');
+  if(!exact(context,contextKeys)||!['targetHasBuff','targetHasDebuff','targetBlockBarrierStatePresent'].every(key=>typeof context[key]==='boolean')||(context.critRoll!==null&&(!Number.isInteger(context.critRoll)||context.critRoll<1||context.critRoll>100)))throw new Error('Explicit event-time target context required');
   validateSelection(context.monsterTypeDamageProperties,monsterProperties,'Monster-type selection');validateSelection(context.targetStateDamageProperties,stateProperties,'Target-state selection');
   const constructorTrace={};
   const normalize=(name,map)=>{
@@ -44,10 +45,13 @@ export function calculateSnapshotActiveDamage(value){
   const offense=input.cardContext.present?
     prepareCardPveOffense({build,value:input.baseValue,caster,player,tags:input.tags,dimensionFixPer,skillArgsPlus:input.skillArgsPlus,card,instructionCard:input.cardContext.instructionCard,stateTriggerAdd:false}):
     prepareNoCardPveOffense({build,value:input.baseValue,caster,player,tags:input.tags,dimensionFixPer,skillArgsPlus:input.skillArgsPlus});
+  const critResolution=resolveCriticalHit({tags:input.tags,cardPresent:input.cardContext.present,casterIsAwaker:true,casterProperties:snapshots.caster,playerProperties:snapshots.player,targetProperties:snapshots.target,cardProperties:snapshots.card,roll:context.critRoll});
+  reads.push(...critResolution.trace);
+  if(critResolution.isCrit===null)throw new Error('RNG-dependent critical outcome requires a captured pre-outcome roll');
   const selectedSum=properties=>properties.reduce((sum,property)=>sum+read('caster',property),0);
   const stateMultiplier=context.targetStateDamageProperties.reduce((product,property)=>{const amount=read('caster',property);return amount>0?product*(1+amount/100):product;},1);
   const targetBlock=read('target','block');
-  const targetData={isCrit:context.isCrit,awakerCritDamage:read('caster','crit_damage'),cardCritDamage:input.cardContext.present?read('card','crit_damage'):0,
+  const targetData={isCrit:critResolution.isCrit,awakerCritDamage:read('caster','crit_damage'),cardCritDamage:input.cardContext.present?read('card','crit_damage'):0,
     skillTypeCritDamage:input.tags.reduce((sum,tag)=>sum+(tagCrit[tag]?read('caster',tagCrit[tag]):0),0),awakerCardCritDamage:input.cardContext.present?read('caster','card_crit_damage'):0,critDamagePer:read('caster','crit_damage_per'),
     beDamagePer:read('target','be_damage_per'),beDamagePer2:read('target','be_damage_per2'),beDamagePer3:read('target','be_damage_per3'),
     beDamagePer4:input.tags.includes('Ulti_Skill')?read('target','be_damage_per4'):0,beDamagePer5:input.cardContext.present&&input.cardContext.instructionCard?read('target','be_damage_per5'):0,vulnerablePer:read('target','vulnerable_per'),
@@ -57,6 +61,6 @@ export function calculateSnapshotActiveDamage(value){
     enemyStateDmgMultiplier:stateMultiplier,beDamagePlus:read('target','be_damage_plus')};
   const target=activeTargetDamage(offense.showDamage,targetData);
   return {schemaVersion:1,status:'EXPERIMENTAL',build,finalDamage:null,preHitDamage:target.preHitDamage,scope:`Complete captured property maps; ${input.cardContext.present?'captured card instance':'no card'}; PvE Awakener ordinary direct Active damage; supplied event-time context`,
-    snapshotStage:input.snapshotStage,constructorTrace,reads,resolvedUtilityInputs:offense.resolvedUtilityInputs,targetInputs:targetData,offense,target,
-    unresolvedDependencies:['Base command value, card identity/type, tags, critical result and target-state eligibility must be captured from the same pre-action boundary','Card-awake skills, state-trigger-add, formula subtype, targeting, HP resolution and callbacks are outside this adapter','Snapshot completeness and provenance require evidence review','Authored composition of separately runtime-checked property, offense and target boundaries; no connected original execution or independent gameplay validation']};
+    snapshotStage:input.snapshotStage,constructorTrace,reads,critResolution,resolvedUtilityInputs:offense.resolvedUtilityInputs,targetInputs:targetData,offense,target,
+    unresolvedDependencies:['Base command value, card identity/type, tags, any required critical RNG draw and target-state eligibility must be captured from the same pre-action boundary','A deterministic crit result still consumes an RNG draw in the original chance branch; later RNG-stream reconstruction requires its state/effect','Card-awake skills, state-trigger-add, formula subtype, targeting, HP resolution and callbacks are outside this adapter','Snapshot completeness and provenance require evidence review','Authored composition of separately runtime-checked property, offense, critical and target boundaries; no connected original execution or independent gameplay validation']};
 }

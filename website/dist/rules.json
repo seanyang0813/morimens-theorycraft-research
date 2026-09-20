@@ -4,6 +4,28 @@
   "scope": "Selected researched rules, not an exhaustive implementation or gameplay coverage list. Runtime checks use explicit synthetic adapters; source-only claims have a different evidence level.",
   "entries": [
     {
+      "id": "PC144:CritResolution",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Critical-hit resolution preserves card, Awakener and player certain-crit rules, strict HP-ratio thresholds, additive card/caster/player/tag chance, caster percentage scaling, target anti-crit, ceiling and the inclusive 1-100 roll comparison",
+      "scope": "263 original method cases with explicit synthetic role/property/tag and controlled RNG adapters. No battle PRNG algorithm/state, property derivation, target selection, complete hit execution or gameplay. Authored resolver refuses chance-dependent results without an explicit pre-outcome roll",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "BattleCmdServer",
+          "member": "CalcCrit,__CalcCardCrit,__CalcAwakerCrit",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b"
+        },
+        {
+          "module": "BattleConst",
+          "member": "SkillType2Crit",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+        }
+      ],
+      "checks": [
+        "tests/crit-resolution.test.mjs"
+      ]
+    },
+    {
       "id": "PC144:ConnectedUltiEnergyEffectStorage",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "Connected energy effect repetition, calculation, source assembly and actual Awaker/property storage match authored final energy and ordered callback payloads",

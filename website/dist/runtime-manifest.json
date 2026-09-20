@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "cc617959e7b73b746ebe67783563cef4e289db6ccd4590c29f514b6fb9ea9d18",
+  "fingerprint": "780dfad63649cd574ddee97dfb9a6bdd558f2f2e51c7e6d882210e0b2529dda2",
   "files": {
     "build-catalog.json": "2d1188fadcaff7a1eb53af580c509756b21a3f003065c7c9036aa919958a1496",
     "client-build-data.json": "f857768a28bb9865d35158ae47c0cf453dcc0ae9cb9114dd0082d1ea73f17c0f",
@@ -11,7 +11,7 @@
     "engine/active-target.mjs": "99497dd55c3a411f80afdb79080bec65965d63bc4b7effc35d849d8efa5693a1",
     "engine/add-state-layer.mjs": "f48dab804914d5a36adad723f2f75617396f8b718347d42c107cd09123c223e7",
     "engine/add-state-request.mjs": "98236b4339ecc8989a5a1dd8895c0d59480e4d1ee36a30dfefccb8632bb81b29",
-    "engine/battle-property-snapshot-damage.mjs": "24684b8ca4246b4abd984847a02f919d2096db6ceac51dc028217b825ed2ddf5",
+    "engine/battle-property-snapshot-damage.mjs": "82c18151bb54d8b03e28d25ff4cd622128fad2686a743409312c9e493d941c86",
     "engine/build-plan.mjs": "1738a0d0a99ee0510b8b509c28cb630c55212e4f1b75e0774ef87bf921d74507",
     "engine/calculate-damage.mjs": "535a7da758b96179597b6c36b36059ea416fca8f6e3b7664839a1bcff8178511",
     "engine/card-action-example.mjs": "8f8cd99a436a66b35f142f09a358dc40b646455746ffa99e6071f8d57eba243f",
@@ -28,6 +28,7 @@
     "engine/combat-property-mutation.mjs": "07faf8fc378ec39a00b4784a83f7a4e06ae4d9ee54e390fc53544f2e6ee73215",
     "engine/command-expressions.mjs": "ccb3351a7d0e08ab25e28c0caf57269f1c27495726d5be8b17919b0c3cb59169",
     "engine/command-rows.mjs": "f44d5bbb4036e84fe8c6c900dcb35ce719b60f460f424221faea970162e556ab",
+    "engine/crit-resolution.mjs": "58841b28db82b3d4e2c8493616a64d8995650dbd9717f8296adf03b27ea91eae",
     "engine/damage-energy-command.mjs": "039aca152a761da8cb86483ee7e0b0cad517d5e8f61d46c0c259a2a7a5d5c782",
     "engine/damage-energy-example.mjs": "74a3418458d1038101196466edaebb229b704e3e2386a3465aceb122f8301f89",
     "engine/damage-triggers.mjs": "c530cebd4084165045ae0a3dc615854b79a791590244dca71e77bb8bd4496611",
@@ -81,7 +82,7 @@
     "engine/ulti-energy-experiment.mjs": "6de163423a1e99c6be4922093711a797fa3012554589484c4ae5fd864bc35973",
     "engine/ulti-energy-gain.mjs": "08a4f4f32a7700422d6999e19e0e58fb2cace3bcbf7d0a910a9bcacf3b520468",
     "engine/wheel-stats.mjs": "484a5b4a51fbbd9c4759b27457ae9eec71fceb0420354823f54654edfb78fadd",
-    "rules.json": "f5c71f34e8004342ae0586be04f31d5b9d157d1f06ab98a510bdfd24135a55ec",
+    "rules.json": "b2fdd87c67a67f6d8129bb5826dc6c0c8e1c88e67e273700fde69cf78c7d5d67",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af"
   }
 }
