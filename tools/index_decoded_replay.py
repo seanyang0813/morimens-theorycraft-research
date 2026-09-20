@@ -15,6 +15,6 @@ def main():
     if output.exists():raise FileExistsError('Refusing to overwrite replay index')
     artifact=json.loads(source.read_text(encoding='utf-8'));catalog=json.loads((ROOT/'research/evidence/replay-protocol.json').read_text(encoding='utf-8'));index=build_replay_index(artifact,catalog)
     output.parent.mkdir(parents=True,exist_ok=True);output.write_text(json.dumps(index,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')
-    print(json.dumps({'output':str(output.relative_to(ROOT)),'records':index['counts']['records'],'events':index['counts']['events'],'initializations':len(index['initializations']),'propertyChanges':len(index['propertyChanges']),'stateEvents':len(index['stateEvents']),'cardUses':len(index['cardUses']),'hits':len(index['hits'])},indent=2))
+    print(json.dumps({'output':str(output.relative_to(ROOT)),'records':index['counts']['records'],'events':index['counts']['events'],'initializations':len(index['initializations']),'propertyChanges':len(index['propertyChanges']),'stateEvents':len(index['stateEvents']),'cardUses':len(index['cardUses']),'hits':len(index['hits']),'actionSnapshots':len(index['actionSnapshots']),'snapshotBoundaryStatus':index['snapshotBoundaryStatus']},indent=2))
 
 if __name__=='__main__':main()

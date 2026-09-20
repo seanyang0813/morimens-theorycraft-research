@@ -52,6 +52,13 @@
           "bundle": "pc\\downloaded\\share.ab",
           "sha256": "0ee07c8fd06f29787f8139306b55d16c726eaf8cabcd1ad0b128d907c8dbbeea",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7402197778903831940_BattleEngine.lua"
+        },
+        {
+          "module": "BEBeforeUseCard",
+          "member": "energy payment and OnUseCard order",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b660610845cc1181bab671a07d5df91814b2b39419aed2d4ba826bee2be8699c",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7020487249631624131_BEBeforeUseCard.lua"
         }
       ],
       "tests": [
@@ -59,7 +66,7 @@
         "tests/replay-protocol.test.mjs",
         "tests/replay-index.test.mjs"
       ],
-      "scope": "Original BattleCommand and BattleRenderEvent tables enumerated in copied Lua runtime; nested nonnumeric helper entries retained only as exclusions. Authored replay index tested on a synthetic decoded stream. Payload fields follow inspected record constructors; no real replay decoded or gameplay validation",
+      "scope": "Original BattleCommand and BattleRenderEvent tables enumerated in copied Lua runtime; nested nonnumeric helper entries retained only as exclusions. Authored replay index applies synthetic initialization, absolute property, state and card-use events and freezes an action boundary. Payload fields and boundary order follow inspected constructors; no real replay decoded, automatic target/command binding or gameplay validation",
       "gameplayValidation": false
     },
     {

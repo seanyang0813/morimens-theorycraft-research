@@ -36,6 +36,71 @@ def build_replay_index(artifact,catalog):
             elif event_name in STATE_EVENTS:state_events.append(row)
             elif event_name=='UseCard':card_uses.append(row)
             elif event_name=='BeHit':hits.append(row)
+    boundary_issues=[];action_snapshots=[];roles={};cards={};states={}
+    for row in unknown_commands:boundary_issues.append({'code':'UNKNOWN_COMMAND',**row})
+    if len(initializations)!=1:boundary_issues.append({'code':'INIT_COUNT','count':len(initializations)})
+    else:
+        initial=initializations[0]
+        def add_entity(target,row,label):
+            if not isinstance(row,dict) or not isinstance(row.get('uid'),int):boundary_issues.append({'code':'MALFORMED_INITIAL_ENTITY','kind':label});return
+            target[str(row['uid'])]=copy.deepcopy(row)
+            for state in row.get('stateList',[]) if isinstance(row.get('stateList',[]),list) else []:
+                if isinstance(state,dict) and isinstance(state.get('stateUid'),int):states[str(state['stateUid'])]=copy.deepcopy(state)
+                else:boundary_issues.append({'code':'MALFORMED_INITIAL_STATE','ownerUid':row['uid']})
+        for row in initial['roleDataList']+initial['monsterDataList']:add_entity(roles,row,'role')
+        for row in initial['cardDataList']:add_entity(cards,row,'card')
+        for event in events:
+            name,data=event['eventName'],event['data']
+            if name is None:boundary_issues.append({'code':'UNKNOWN_EVENT','recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'eventId':event['eventId']})
+            elif name=='PropertyChanged':
+                uid=data.get('uid');entity=roles.get(str(uid)) or cards.get(str(uid));prop=data.get('propertyType')
+                if entity is None or not isinstance(prop,str) or not isinstance(data.get('value'),(int,float)):boundary_issues.append({'code':'UNBOUND_PROPERTY_CHANGE','recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'uid':uid,'propertyType':prop})
+                else:entity.setdefault('properties',{})[prop]=data['value']
+            elif name in {'AddState','AddCardState'}:
+                uid=data.get('stateUid')
+                if not isinstance(uid,int) or not isinstance(data.get('ownerUid'),int) or not isinstance(data.get('stateId'),int):boundary_issues.append({'code':'MALFORMED_ADD_STATE','recordIndex':event['recordIndex'],'frameIndex':event['frameIndex']})
+                else:states[str(uid)]=copy.deepcopy(data)
+            elif name in {'ChangeStateLayer','ChangeCardStateLayer'}:
+                uid=data.get('stateUid');state=states.get(str(uid))
+                if state is None or not isinstance(data.get('newLayer'),(int,float)):boundary_issues.append({'code':'UNBOUND_STATE_LAYER','recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'stateUid':uid})
+                else:state.update(copy.deepcopy(data));state['layer']=data['newLayer']
+            elif name=='DelState':
+                uid=data.get('stateUid')
+                if str(uid) not in states:boundary_issues.append({'code':'UNBOUND_DEL_STATE','recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'stateUid':uid})
+                else:del states[str(uid)]
+            elif name=='ChangeCardId':
+                uid=data.get('cardUid',data.get('uid'))
+                if not isinstance(uid,int):boundary_issues.append({'code':'MALFORMED_CHANGE_CARD','recordIndex':event['recordIndex'],'frameIndex':event['frameIndex']})
+                else:cards[str(uid)]=copy.deepcopy(data);cards[str(uid)]['uid']=uid
+            elif name=='AddNewCard':
+                rows=data.get('cards',[]);rows=rows if isinstance(rows,list) else [rows]
+                for row in rows:add_entity(cards,row,'card')
+            elif name=='CardArgsChange':
+                for uid,change in data.items():
+                    card=cards.get(str(uid))
+                    if card is None or not isinstance(change,dict):boundary_issues.append({'code':'UNBOUND_CARD_ARGS','recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'cardUid':uid})
+                    else:card.update(copy.deepcopy(change))
+            elif name in {'SkillArgsChange','SilverKeyAwakeArgsChange'}:
+                role=roles.get(str(data.get('roleUid')))
+                if role is None:boundary_issues.append({'code':'UNBOUND_ROLE_ARGS','recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'roleUid':data.get('roleUid')})
+                else:
+                    key='skillArgs' if name=='SkillArgsChange' else 'silverKeyAwakeArgs';role[key]=copy.deepcopy(data.get('args'));role[key.replace('Args','DescArgs')]=copy.deepcopy(data.get('descArgs'))
+            elif name=='ModifyCardCost':
+                card=cards.get(str(data.get('cardUid')))
+                if card is None:boundary_issues.append({'code':'UNBOUND_CARD_COST','recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'cardUid':data.get('cardUid')})
+                else:card['cost']=data.get('value')
+            elif name=='SetCardAttribute':
+                card=cards.get(str(data.get('cardUid')))
+                if card is None or not isinstance(data.get('attribute'),str):boundary_issues.append({'code':'UNBOUND_CARD_ATTRIBUTE','recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'cardUid':data.get('cardUid')})
+                else:card[data['attribute']]=copy.deepcopy(data.get('val'))
+            elif name=='SpawnMonster':add_entity(roles,data.get('roleData'), 'role')
+            elif name=='SpawnWaveMonster':
+                for row in data.get('roleDataList',[]) if isinstance(data.get('roleDataList',[]),list) else []:add_entity(roles,row,'role')
+            elif name=='RemoveRole':roles.pop(str(data.get('roleUid')),None)
+            elif name=='UseCard':
+                active_states=[copy.deepcopy(state) for state in states.values() if not state.get('isDeleted')]
+                action_snapshots.append({'actionIndex':len(action_snapshots),'recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'time':event['frameTime'] if event['frameTime'] is not None else event['recordTime'],'cardUid':data.get('cardUid'),'camp':data.get('camp'),'roles':copy.deepcopy(roles),'cards':copy.deepcopy(cards),'activeStates':active_states,'boundaryStatus':'COMPLETE' if not boundary_issues else 'INCOMPLETE','boundaryIssueCount':len(boundary_issues)})
     return {'schemaVersion':1,'kind':'MORIMENS_REPLAY_EVENT_INDEX','build':catalog['build'],'inputSha256':artifact.get('inputSha256'),'protocolSourceHashes':copy.deepcopy(catalog.get('sourceHashes',{})),'battleDat':copy.deepcopy(artifact['decoded'].get('battleDat')),
       'counts':{'records':len(records),'events':len(events),'commands':dict(sorted(command_counts.items())),'renderEvents':dict(sorted(event_counts.items()))},'initializations':initializations,'events':events,'propertyChanges':property_changes,'stateEvents':state_events,'cardUses':card_uses,'hits':hits,'unknownCommands':unknown_commands,'unknownEvents':unknown_events,
-      'limitations':['Chronological lossless index only; no automatic action grouping or pre-action snapshot reconstruction','Recorded critical result is post-outcome evidence and cannot freeze an uncertain holdout','No gameplay claim until an actual replay is decoded and reviewed']}
+      'actionSnapshots':action_snapshots,'snapshotBoundaryStatus':'COMPLETE' if not boundary_issues and len(initializations)==1 else 'INCOMPLETE','snapshotBoundaryIssues':boundary_issues,
+      'limitations':['UseCard snapshot occurs after card energy payment and before BeforeUseCard triggers, matching original BEBeforeUseCard order','Target binding, command base value/tags and action-to-hit grouping remain unresolved','Recorded critical result is post-outcome evidence and cannot freeze an uncertain holdout','No gameplay claim until an actual replay is decoded and reviewed']}

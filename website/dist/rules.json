@@ -24,7 +24,7 @@
       "id": "PC144:ReplayProtocolCatalog",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "Original replay protocol tables expose 29 unique numeric battle commands and 101 unique numeric render events, including initialization, cut, property, state, card, target and hit records",
-      "scope": "Original BattleCommand and BattleRenderEvent tables enumerated in copied Lua runtime; nested nonnumeric helper entries retained only as exclusions. Authored replay index tested on a synthetic decoded stream. Payload fields follow inspected record constructors; no real replay decoded or gameplay validation",
+      "scope": "Original BattleCommand and BattleRenderEvent tables enumerated in copied Lua runtime; nested nonnumeric helper entries retained only as exclusions. Authored replay index applies synthetic initialization, absolute property, state and card-use events and freezes an action boundary. Payload fields and boundary order follow inspected constructors; no real replay decoded, automatic target/command binding or gameplay validation",
       "gameplayValidation": false,
       "sources": [
         {
@@ -46,6 +46,11 @@
           "module": "BattleEngine",
           "member": "rd_InitBattle payload",
           "sha256": "0ee07c8fd06f29787f8139306b55d16c726eaf8cabcd1ad0b128d907c8dbbeea"
+        },
+        {
+          "module": "BEBeforeUseCard",
+          "member": "energy payment and OnUseCard order",
+          "sha256": "b660610845cc1181bab671a07d5df91814b2b39419aed2d4ba826bee2be8699c"
         }
       ],
       "checks": [
