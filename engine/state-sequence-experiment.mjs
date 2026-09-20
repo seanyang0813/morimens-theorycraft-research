@@ -14,6 +14,7 @@ import {calculateStateLayers} from './state-layer-pipeline.mjs';
 import {applyDimensionFinalValue} from './dimension-final-value.mjs';
 import {limitStateLayers} from './state-layer-limits.mjs';
 import {resolveStateImmunity} from './state-immunity.mjs';
+import {subtractStateLayer} from './sub-state-layer.mjs';
 
 const actorOffenseBindings={basic_damage_per:'basicDamagePer'};
 const actorTargetBindings={crit_damage:'awakerCritDamage'};
@@ -51,6 +52,8 @@ export function runStateSequenceExperiment(value){
       if(!exact(step,['type','definitionId','request'])||!defs.has(step.definitionId)||!exact(r,requestKeys)||!(r.layer===null||Number.isFinite(r.layer))||!validImmunity(r.immune)||![r.perLimit,r.totalLimit].every(validLimit)||!Array.isArray(r.dimensionStateIds)||r.dimensionStateIds.some(id=>!Number.isSafeInteger(id)))throw new Error('Explicit state request, immunity, modifiers and limit rules/results required');
     }else if(step?.type==='removeState'){
       if(!exact(step,['type','definitionId'])||!defs.has(step.definitionId))throw new Error('Explicit known state removal required');
+    }else if(step?.type==='subtractState'){
+      if(!exact(step,['type','definitionId','amount'])||!defs.has(step.definitionId)||!(step.amount===null||Number.isFinite(step.amount)))throw new Error('Explicit known state layer subtraction required');
     }else if(step?.type==='attack'){
       if(!exact(step,['type','rows'])||!Array.isArray(step.rows))throw new Error('Explicit attack rows required');
     }else throw new Error('Unsupported sequence operation');
@@ -77,6 +80,30 @@ export function runStateSequenceExperiment(value){
     for(const [key,binding] of Object.entries(bindings.target))targetModifiers[binding]=properties.target[key];
     return {...input.attackBase,schemaVersion:1,kind:'morimens-active-command-experiment',build,interveningEffects:'assumed-absent',rows,offense,targetModifiers,targetState:target};
   };
+  const changeProperties=(d,state,operation,initial)=>{
+    for(const p of d.properties){
+      const specialValue=p.property==='vulnerable_per'?d.specialValue:null;
+      const evaluateProperty=e=>evaluate(e,state,operation.expressions);
+      const result=initial?initializeStateProperty({property:p.property,expression:p.expression,evaluate:evaluateProperty,specialValue,skipInit:false}):updateStateProperty({contribution:state.properties[p.property],changedLayer:state.changedLayer,evaluate:evaluateProperty,specialValue});
+      state.properties[p.property]=result.contribution;
+      if(!d.banned&&result.requestedDelta!==null){
+        const mutation=changeCombatProperty({property:p.property,before:properties[d.owner][p.property],delta:result.requestedDelta,critScale:0,critDamageScale:properties.actor.i_crit_damage_per,castValue:null});
+        properties[d.owner][p.property]=mutation.after;operation.mutations.push({owner:d.owner,property:p.property,...mutation});
+      }
+    }
+  };
+  const endLife=(d,state,operation)=>endStateLife({state,teamUnique:false,removeUniqueStateRole:()=>{throw new Error('Unique state removal unsupported');},
+    removeProperty:()=>{
+      operation.lifecycleTrace.push('removeProperty');
+      for(const p of d.properties){
+        const removal=statePropertyRemoval({property:p.property,storedValue:state.properties[p.property].value,apiType:'OTHER',pve:true,playerOwner:false,banned:d.banned,ignoreBan:false,owner:d.owner,awakeners:[]});
+        for(const request of removal.mutations){
+          const mutation=changeCombatProperty({property:request.property,before:properties[d.owner][request.property],delta:request.delta,critScale:0,critDamageScale:properties.actor.i_crit_damage_per,castValue:null});
+          properties[d.owner][request.property]=mutation.after;operation.mutations.push({owner:d.owner,property:request.property,...mutation});
+        }
+      }
+    },onDelState:()=>operation.lifecycleTrace.push('recordDeletion'),log:()=>operation.lifecycleTrace.push('log'),
+    createStateLifeEnd:event=>{operation.lifecycleTrace.push('StateLifeEnd');operation.events.push({kind:'StateLifeEnd',stateUid:event.stateUid,handling:'listeners-assumed-absent'});}});
   // Validate attack inputs before changing any state; a false row deals no hits.
   runActiveCommandExperiment(attackInput([{id:'validate',Type:'BEActiveDamage',Target:'UpperTarget',Para:'0',Cond:'false'}]));
   for(const [index,step] of input.steps.entries()){
@@ -113,32 +140,16 @@ export function runStateSequenceExperiment(value){
     if(step.type==='removeState'){
       operation.type='removeState';operation.lifecycleTrace=[];
       const state=registry.get(ownerUid)?.find(s=>!s.isDeleted&&s.stateId===d.id);
-      if(state)endStateLife({state,teamUnique:false,removeUniqueStateRole:()=>{throw new Error('Unique state removal unsupported');},
-        removeProperty:()=>{
-          operation.lifecycleTrace.push('removeProperty');
-          for(const p of d.properties){
-            const removal=statePropertyRemoval({property:p.property,storedValue:state.properties[p.property].value,apiType:'OTHER',pve:true,playerOwner:false,banned:d.banned,ignoreBan:false,owner:d.owner,awakeners:[]});
-            for(const request of removal.mutations){
-              const mutation=changeCombatProperty({property:request.property,before:properties[d.owner][request.property],delta:request.delta,critScale:0,critDamageScale:properties.actor.i_crit_damage_per,castValue:null});
-              properties[d.owner][request.property]=mutation.after;operation.mutations.push({owner:d.owner,property:request.property,...mutation});
-            }
-          }
-        },onDelState:()=>operation.lifecycleTrace.push('recordDeletion'),log:()=>operation.lifecycleTrace.push('log'),
-        createStateLifeEnd:event=>{operation.lifecycleTrace.push('StateLifeEnd');operation.events.push({kind:'StateLifeEnd',stateUid:event.stateUid,handling:'listeners-assumed-absent'});}});
+      if(state)endLife(d,state,operation);
       operation.state=state?JSON.parse(JSON.stringify(state)):null;operation.removed=Boolean(state);trace.push(operation);continue;
     }
-    const change=(state,initial)=>{
-      for(const p of d.properties){
-        const specialValue=p.property==='vulnerable_per'?d.specialValue:null;
-        const evaluateProperty=e=>evaluate(e,state,operation.expressions);
-        const result=initial?initializeStateProperty({property:p.property,expression:p.expression,evaluate:evaluateProperty,specialValue,skipInit:false}):updateStateProperty({contribution:state.properties[p.property],changedLayer:state.changedLayer,evaluate:evaluateProperty,specialValue});
-        state.properties[p.property]=result.contribution;
-        if(!d.banned&&result.requestedDelta!==null){
-          const mutation=changeCombatProperty({property:p.property,before:properties[d.owner][p.property],delta:result.requestedDelta,critScale:0,critDamageScale:properties.actor.i_crit_damage_per,castValue:null});
-          properties[d.owner][p.property]=mutation.after;operation.mutations.push({owner:d.owner,property:p.property,...mutation});
-        }
-      }
-    };
+    if(step.type==='subtractState'){
+      operation.type='subtractState';operation.lifecycleTrace=[];
+      const state=registry.get(ownerUid)?.find(s=>!s.isDeleted&&s.stateId===d.id);
+      operation.subtraction=subtractStateLayer({layers:state?.layer??0,amount:step.amount,exists:Boolean(state),casterAttribution:'absent'});
+      if(state){state.layer=operation.subtraction.layersAfter;state.changedLayer=operation.subtraction.changedLayer;changeProperties(d,state,operation,false);if(state.layer<=0)endLife(d,state,operation);}
+      operation.state=state?JSON.parse(JSON.stringify(state)):null;trace.push(operation);continue;
+    }
     const manager=createManagedState({target:{uid:ownerUid,role:'Monster',dead:false},createArgs:{stateId:d.id,layer:resolvedLayers,skipOnAdd:false},registry,deathHandling:'Wipe',teamUnique:false,
       hooks:{construct:(_target,args)=>{
         const raw=args.layer??1,maximum=evaluate(d.maximum,{layer:raw,changedLayer:raw},operation.expressions);
@@ -150,11 +161,11 @@ export function runStateSequenceExperiment(value){
         const maximum=evaluate(d.maximum,state,operation.expressions);
         const merged=mergeStateLayers({state,add:args.layer,caster:d.caster,maximum,sourceType:null,resolvedCommandCaster:ownerUid,cachedTriggers:[]});
         Object.assign(state,merged);operation.mergeTrace=merged.trace;
-        if(merged.trace.some(e=>e.event==='propertyDelta'))change(state,false);
-      },afterInit:state=>change(state,true),serialize:state=>({uid:state.uid}),record:()=>{},changeUniqueRole:()=>{throw new Error('Unique state routing unsupported');},
+        if(merged.trace.some(e=>e.event==='propertyDelta'))changeProperties(d,state,operation,false);
+      },afterInit:state=>changeProperties(d,state,operation,true),serialize:state=>({uid:state.uid}),record:()=>{},changeUniqueRole:()=>{throw new Error('Unique state routing unsupported');},
       queueOnAdd:event=>operation.events.push({kind:'StateOnAdd',stateUid:event.stateUid,handling:'listeners-assumed-absent'}),recordStats:()=>{}}});
     operation.managerTrace=manager.trace;operation.state=manager.state?JSON.parse(JSON.stringify(manager.state)):null;trace.push(operation);
   }
   return {schemaVersion:1,status:'EXPERIMENTAL',build,finalDamage:null,completed:stop===null,stop,properties,targetAfter:target,modeledHpLost:input.attackBase.targetState.hp-target.hp,
-    states:[...registry.values()].flat(),trace,unresolvedDependencies:['Authored component composition, not connected original full battle execution or independent gameplay validation','addState uses already-resolved layers; applyState uses explicit immunity, modifier mappings, dimension role/player context and supplied limit results, not automatic property/rule derivation','No trigger listeners, expiry, death handling, team/card property routing or source attribution; within one turn only','State queries use explicit static inputs or explicitly bound live registry owners; no automatic parser target binding or build/skill assembly','Damage eligibility modifiers outside the five bound properties remain explicitly supplied']};
+    states:[...registry.values()].flat(),trace,unresolvedDependencies:['Authored component composition, not connected original full battle execution or independent gameplay validation','addState uses already-resolved layers; applyState uses explicit immunity, modifier mappings, dimension role/player context and supplied limit results, not automatic property/rule derivation','Layer subtraction excludes caster attribution; no trigger listeners, expiry, death handling, team/card property routing or source attribution; within one turn only','State queries use explicit static inputs or explicitly bound live registry owners; no automatic parser target binding or build/skill assembly','Damage eligibility modifiers outside the five bound properties remain explicitly supplied']};
 }

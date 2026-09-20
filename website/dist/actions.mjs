@@ -16,7 +16,7 @@ export function startActions({runCardActionTimeline,syntheticCardActionExample,r
             const plan=result.rowPlan[index],before={...target};
             if(entry.type==='attack')target={...entry.result.targetAfter};
             const stateId=plan.evaluation?.values[0],layer=plan.evaluation?.values[1]??1;
-            const outcome=entry.type==='attack'?(entry.result.completed?'Damage':'Partial damage'):`State ${stateId} requested at layer ${layer}`;
+            const outcome=entry.type==='attack'?(entry.result.completed?'Damage':'Partial damage'):entry.type==='removeState'?`State ${stateId} removed`:entry.type==='subtractState'?`State ${stateId} subtract ${layer}`:`State ${stateId} requested at layer ${layer}`;
             const tr=doc.createElement('tr');for(const text of [plan.rowId,'—',`${before.hp} → ${target.hp}`,`${before.block} → ${target.block}`,outcome]){const td=doc.createElement('td');td.textContent=text;tr.append(td);}el('rows').append(tr);
           }
         }else{

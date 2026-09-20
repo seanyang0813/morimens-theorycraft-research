@@ -41,3 +41,14 @@ test('row order remains observable and unsupported effects or fields fail closed
     const bad=input();mutate(bad);assert.throws(()=>runOrderedStateCommand(bad));
   }
 });
+
+test('ordered subtraction and removal update later damage and live state queries',()=>{
+  const v=input(),states=read('../research/extracted/config/State.json'),state=states['80331'];
+  v.command={data_list:{1:{Type:'BEAddState',Target:'UpperTarget',Para:'80331,10'},2:{Type:'BEActiveDamage',Target:'UpperTarget',Para:'100'},3:{Type:'BESubStateLayer',Target:'UpperTarget',Para:'80331,5'},4:{Type:'BEActiveDamage',Target:'UpperTarget',Para:'100'},5:{Type:'BERemoveState',Target:'UpperTarget',Para:'80331'},6:{Type:'BEActiveDamage',Target:'UpperTarget',Para:'100'}}};
+  v.state.definitions=[{id:80331,owner:'target',maximum:String(state.MaxLayer),properties:Object.entries(state.ExistProperty).map(([property,expression])=>({property,expression:String(expression)})),skillLevel:6,caster:7,specialValue:0,banned:false}];
+  v.state.requests[0].layer=10;v.state.stateQueries={'CmdCaster.GetStateLayer':{'133235':0}};
+  const r=runOrderedStateCommand(v);
+  assert.equal(r.modeledHpLost,345);assert.equal(r.properties.target.be_damage_per2,0);assert.equal(r.states[0].isDeleted,true);
+  assert.deepEqual(r.calculation.trace.map(step=>step.type),['applyState','attack','subtractState','attack','removeState','attack']);
+  assert.deepEqual(r.calculation.trace.filter(step=>step.type==='attack').map(step=>step.result.modeledHpLost),[130,115,100]);
+});

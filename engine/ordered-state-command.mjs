@@ -18,16 +18,19 @@ export function runOrderedStateCommand(value){
   const imported=importCommandRows(input.command),rows=imported.rows;
   if(rows.length<2||!rows.some(row=>row.Type==='BEAddState')||!rows.some(row=>row.Type==='BEActiveDamage'))throw new Error('At least one state and one damage row required');
   for(const row of rows){
-    if(!['BEAddState','BEActiveDamage'].includes(row.Type))throw new Error(`Unsupported ordered row type ${row.Type??'missing'}`);
+    if(!['BEAddState','BERemoveState','BESubStateLayer','BEActiveDamage'].includes(row.Type))throw new Error(`Unsupported ordered row type ${row.Type??'missing'}`);
     if(Object.keys(row).some(key=>!allowedRowFields.has(key)))throw new Error('Unsupported ordered row field');
-    if(row.Type==='BEAddState'&&Object.hasOwn(row,'Cond'))throw new Error('Conditional state rows are unsupported');
+    if(row.Type!=='BEActiveDamage'&&Object.hasOwn(row,'Cond'))throw new Error('Conditional state rows are unsupported');
     if(Object.hasOwn(row,'DelayTime')&&(!Number.isFinite(row.DelayTime)||row.DelayTime<0))throw new Error('Finite nonnegative row delay required');
     if(row.Type==='BEActiveDamage'&&row.Target!==input.targetBinding.expression)throw new Error('Damage-row selector does not match supplied target binding');
-    if(row.Type==='BEAddState'&&!['CmdCaster',input.targetBinding.expression].includes(row.Target))throw new Error('State rows must target the caster or supplied damage target');
+    if(row.Type!=='BEActiveDamage'&&!['CmdCaster',input.targetBinding.expression].includes(row.Target))throw new Error('State rows must target the caster or supplied damage target');
   }
   const stateRows=rows.filter(row=>row.Type==='BEAddState');
-  const evaluations=stateRows.map(row=>compileNumericCommand(row.Para)(name=>input.variables[name]));
-  if(evaluations.some(result=>result.values.length<1||result.values.length>2||!Number.isSafeInteger(result.values[0])||(result.values.length===2&&!Number.isFinite(result.values[1]))))throw new Error('Each BEAddState requires a numeric state ID and optional layer');
+  const stateEvaluations=new Map(rows.filter(row=>row.Type!=='BEActiveDamage').map(row=>[row.id,compileNumericCommand(row.Para)(name=>input.variables[name])]));
+  for(const row of rows.filter(row=>row.Type!=='BEActiveDamage')){
+    const values=stateEvaluations.get(row.id).values,maximum=row.Type==='BERemoveState'?1:2;
+    if(values.length<1||values.length>maximum||!Number.isSafeInteger(values[0])||(values.length===2&&!Number.isFinite(values[1])))throw new Error(`${row.Type} requires a numeric state ID${maximum===2?' and optional layer/amount':''}`);
+  }
   const state=input.state;
   if(!exact(state,['definitions','requests','actorProperties','targetProperties','stateQueries'])||!Array.isArray(state.definitions)||!Array.isArray(state.requests)||state.requests.length!==stateRows.length)throw new Error('Explicit ordered state definitions and one request per state row required');
   const definitions=new Map();
@@ -39,9 +42,15 @@ export function runOrderedStateCommand(value){
       const {DelayTime,...kept}=row;
       return {rowId:row.id,type:'attack',delay,step:{type:'attack',rows:[{...kept,Target:'UpperTarget'}]}};
     }
-    const evaluation=evaluations[stateIndex],request=state.requests[stateIndex++],[stateId]=evaluation.values,layer=evaluation.values.length===2?evaluation.values[1]:null;
-    const definition=definitions.get(stateId),owner=row.Target==='CmdCaster'?'actor':'target';
-    if(!definition||definition.owner!==owner||request?.layer!==layer)throw new Error('State row, definition owner/ID and explicit request layer must agree');
+    const evaluation=stateEvaluations.get(row.id),[stateId]=evaluation.values,definition=definitions.get(stateId),owner=row.Target==='CmdCaster'?'actor':'target';
+    if(!definition||definition.owner!==owner)throw new Error('State row and definition owner/ID must agree');
+    if(row.Type==='BERemoveState')return {rowId:row.id,type:'removeState',delay,evaluation,step:{type:'removeState',definitionId:stateId}};
+    if(row.Type==='BESubStateLayer'){
+      const amount=evaluation.values.length===2?evaluation.values[1]:null;
+      return {rowId:row.id,type:'subtractState',delay,evaluation,step:{type:'subtractState',definitionId:stateId,amount}};
+    }
+    const request=state.requests[stateIndex++],layer=evaluation.values.length===2?evaluation.values[1]:null;
+    if(request?.layer!==layer)throw new Error('State row and explicit request layer must agree');
     return {rowId:row.id,type:'applyState',delay,evaluation,step:{type:'applyState',definitionId:stateId,request}};
   });
   const offense={...input.attackBase.offense},targetModifiers={...input.attackBase.targetModifiers};
@@ -56,5 +65,5 @@ export function runOrderedStateCommand(value){
   return {schemaVersion:1,status:'EXPERIMENTAL',build:input.build,finalDamage:null,completed:calculation.completed,stop:calculation.stop,targetAfter:calculation.targetAfter,
     modeledHpLost:calculation.modeledHpLost,properties:calculation.properties,states:calculation.states,rowPlan:rowPlan.map(({step,...item})=>item),calculation,
     delayPolicy:'DelayTime is recorded but has no observable effect while other events are explicitly absent',
-    unresolvedDependencies:[...calculation.unresolvedDependencies,'Only BEAddState and ordinary BEActiveDamage rows against one supplied target','State-row expressions use supplied numeric variables; live state queries are connected for later damage rows','DelayTime is inert only under the explicit no-other-events assumption','No automatic targeting, build/state assembly, triggers or connected original full-command validation']};
+    unresolvedDependencies:[...calculation.unresolvedDependencies,'Only BEAddState, BERemoveState, BESubStateLayer and ordinary BEActiveDamage rows against one supplied target','State-row expressions use supplied numeric variables; live state queries are connected for later damage rows','State layer subtraction excludes caster attribution','DelayTime is inert only under the explicit no-other-events assumption','No automatic targeting, build/state assembly, triggers or connected original full-command validation']};
 }

@@ -145,3 +145,13 @@ test('actual state 2669 changes live critical damage with explicit amplification
     {kind:'send',property:'crit_damage',delta:-10,new:5}
   ]);
 });
+
+test('layer subtraction updates layer-derived properties and zero performs life end once',()=>{
+  const v=sample();
+  v.steps=[add(10),attack(),{type:'subtractState',definitionId:80331,amount:4},attack(),{type:'subtractState',definitionId:80331,amount:null},attack(),{type:'subtractState',definitionId:80331,amount:99},attack()];
+  const r=runStateSequenceExperiment(v);
+  assert.deepEqual(r.trace.filter(step=>step.type==='attack').map(step=>step.result.modeledHpLost),[130,118,115,100]);
+  assert.equal(r.states[0].isDeleted,true);assert.equal(r.states[0].layer,0);assert.equal(r.properties.target.be_damage_per2,0);
+  assert.deepEqual(r.trace.filter(step=>step.type==='subtractState').map(step=>step.subtraction.requested),[4,1,99]);
+  assert.deepEqual(r.trace[6].lifecycleTrace,['removeProperty','recordDeletion','log','StateLifeEnd']);
+});
