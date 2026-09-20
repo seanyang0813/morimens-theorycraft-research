@@ -6,8 +6,8 @@ import {runStateSequenceExperiment} from './state-sequence-experiment.mjs';
 
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(key=>Object.hasOwn(value,key));
 
-// Complete only for a damage/energy prefix followed by one unconditional self-state row.
-// The state is terminal, so no claim is made about later rows observing it.
+// Complete only for a damage/energy prefix followed by a contiguous suffix of
+// unconditional caster- or target-owned state rows. Later rows cannot observe it.
 export function runTerminalStateCommand(value){
   const input=snapshot(value);
   if(!exact(input,['schemaVersion','kind','build','otherEvents','command','variables','targetBinding','attackBase','energy','state'])||input.schemaVersion!==1||input.kind!=='morimens-terminal-state-command'||input.build!=='pc-res144-build51'||input.otherEvents!=='assumed-absent')throw new Error('Explicit terminal-state command required');

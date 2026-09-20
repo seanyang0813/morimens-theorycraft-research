@@ -38,6 +38,7 @@ export async function loadVerifiedRuntime({fetchFile=path=>fetch(path,{cache:'no
     const mixed=await importModule(moduleUrl('engine/damage-energy-command.mjs'));
     const mixedExample=await importModule(moduleUrl('engine/damage-energy-example.mjs'));
     const terminal=await importModule(moduleUrl('engine/terminal-state-command.mjs'));
-    return {runTerminalStateCommand:terminal.runTerminalStateCommand,runDamageEnergyCommand:mixed.runDamageEnergyCommand,syntheticDamageEnergyExample:mixedExample.syntheticDamageEnergyExample,runResearchTimeline:timeline.runResearchTimeline,compareTimelines:comparison.compareTimelines,runCardActionTimeline:actions.runCardActionTimeline,syntheticCardActionExample:examples.syntheticCardActionExample,runStateSequenceExperiment:states.runStateSequenceExperiment,syntheticStateSequenceExample:stateExample.syntheticStateSequenceExample,runtimeFingerprint:manifest.fingerprint};
+    const ordered=await importModule(moduleUrl('engine/ordered-state-command.mjs'));
+    return {runOrderedStateCommand:ordered.runOrderedStateCommand,runTerminalStateCommand:terminal.runTerminalStateCommand,runDamageEnergyCommand:mixed.runDamageEnergyCommand,syntheticDamageEnergyExample:mixedExample.syntheticDamageEnergyExample,runResearchTimeline:timeline.runResearchTimeline,compareTimelines:comparison.compareTimelines,runCardActionTimeline:actions.runCardActionTimeline,syntheticCardActionExample:examples.syntheticCardActionExample,runStateSequenceExperiment:states.runStateSequenceExperiment,syntheticStateSequenceExample:stateExample.syntheticStateSequenceExample,runtimeFingerprint:manifest.fingerprint};
   }finally{for(const url of urls.values())revokeUrl(url);}
 }

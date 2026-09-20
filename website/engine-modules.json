@@ -65,6 +65,7 @@
   "damage-energy-command.mjs",
   "damage-energy-example.mjs",
   "terminal-state-command.mjs",
+  "ordered-state-command.mjs",
   "inspect-command-support.mjs",
   "import-command-rows.mjs",
   "ulti-energy-experiment.mjs",

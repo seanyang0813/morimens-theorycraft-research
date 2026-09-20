@@ -33,7 +33,7 @@ The expected current result is 120 passing test files and `publicationStatus: NO
 
 The general runners can model resolved Active, Passive, Fixed and Pure hits; HP limits; energy and card payment; bounded multi-hit timelines; selected state lifecycle/property effects; and some imported command shapes. The current command frontier is a damage/energy prefix followed by a contiguous suffix of unconditional `BEAddState` rows. Each suffix row may target the caster or selected damage target, repeated definitions merge in command order, and prefix death prevents the suffix. Prepared skills and the Actions workbench use this runner. See `engine/terminal-state-command.mjs` and `docs/TERMINAL_STATE_COMMAND.md`.
 
-The next valuable engine work is to support later command rows observing states applied by earlier rows without weakening the strict unsupported-effect checks. Broader command/state execution, automatic build assembly, encounter phases and reactive event graphs remain incomplete.
+`engine/ordered-state-command.mjs` is the next boundary beyond terminal suffixes: it preserves interleaved `BEAddState` / `BEActiveDamage` order, lets later damage expressions query states created by earlier rows, and lets attacks consume their live property effects. The next valuable work is to add explicit removal/subtraction and energy steps without weakening the strict unsupported-effect checks. Broader command execution, automatic build assembly, encounter phases and reactive event graphs remain incomplete.
 
 ## Validation frontier
 
