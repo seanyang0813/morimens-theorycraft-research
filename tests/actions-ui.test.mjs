@@ -51,7 +51,7 @@ test('ordered-state command UI shows state and damage rows in command order',()=
  const nodes=new Map(),doc={getElementById(id){if(!nodes.has(id))nodes.set(id,new Element());return nodes.get(id);},createElement(){return new Element();}};
  const input={kind:'morimens-ordered-state-command',attackBase:{targetState:{hp:100,block:0}},command:{data_list:{1:{},2:{}}}};
  const rowPlan=[{rowId:'1',type:'applyState',evaluation:{values:[19534]}},{rowId:'2',type:'attack'}];
- const runOrderedStateCommand=()=>({completed:true,modeledHpLost:25,targetAfter:{hp:75,block:0},stop:null,rowPlan,calculation:{trace:[{type:'applyState'},{type:'attack',result:{completed:true,targetAfter:{hp:75,block:0}}}]},unresolvedDependencies:[]});
+ const runOrderedStateCommand=()=>({completed:true,modeledHpLost:25,casterEnergyAfter:null,targetAfter:{hp:75,block:0},stop:null,rowPlan,calculation:{trace:[{type:'applyState'},{type:'attack',result:{completed:true,targetAfter:{hp:75,block:0}}}]},unresolvedDependencies:[]});
  startActions({runCardActionTimeline,syntheticCardActionExample,runDamageEnergyCommand,runTerminalStateCommand:()=>{},runOrderedStateCommand,syntheticDamageEnergyExample,runtimeFingerprint:'e'.repeat(64)},doc);
  doc.getElementById('action-input').value=JSON.stringify(input);nodes.get('run').onclick();
  assert.match(nodes.get('summary').textContent,/States 19534 \+1/);assert.equal(nodes.get('rows').children.length,2);

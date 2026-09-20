@@ -15,6 +15,7 @@ import {applyDimensionFinalValue} from './dimension-final-value.mjs';
 import {limitStateLayers} from './state-layer-limits.mjs';
 import {resolveStateImmunity} from './state-immunity.mjs';
 import {subtractStateLayer} from './sub-state-layer.mjs';
+import {runUltiEnergyExperiment} from './ulti-energy-experiment.mjs';
 
 const actorOffenseBindings={basic_damage_per:'basicDamagePer'};
 const actorTargetBindings={crit_damage:'awakerCritDamage'};
@@ -25,7 +26,9 @@ const exact=(o,keys)=>o&&typeof o==='object'&&!Array.isArray(o)&&Object.keys(o).
 // no claim of original complete battle execution or inferred build attributes.
 export function runStateSequenceExperiment(value){
   const input=JSON.parse(JSON.stringify(value));
-  if(!exact(input,['schemaVersion','kind','build','otherEvents','crossesTurnBoundary','actorProperties','targetProperties','stateQueries','definitions','steps','attackBase'])||input.schemaVersion!==1||input.kind!=='morimens-state-sequence'||input.build!==build||input.otherEvents!=='assumed-absent'||input.crossesTurnBoundary!==false)throw new Error('Explicit within-turn state sequence with absent other events required');
+  const baseKeys=['schemaVersion','kind','build','otherEvents','crossesTurnBoundary','actorProperties','targetProperties','stateQueries','definitions','steps','attackBase'],hasEnergy=Object.hasOwn(input,'energy');
+  if(!exact(input,hasEnergy?[...baseKeys,'energy']:baseKeys)||input.schemaVersion!==1||input.kind!=='morimens-state-sequence'||input.build!==build||input.otherEvents!=='assumed-absent'||input.crossesTurnBoundary!==false)throw new Error('Explicit within-turn state sequence with absent other events required');
+  if(hasEnergy&&(!exact(input.energy,['source','target'])||input.energy.source?.castRoleUid!==input.energy.target?.uid))throw new Error('Explicit caster energy context required');
   for(const [who,props] of [['actor',input.actorProperties],['target',input.targetProperties]])if(!exact(props,requiredProperties[who])||!Object.values(props).every(Number.isFinite))throw new Error('All live bound and amplification properties must be explicit');
   if(!input.stateQueries||Array.isArray(input.stateQueries)||Object.entries(input.stateQueries).some(([name,ids])=>!name||!ids||typeof ids!=='object'||Array.isArray(ids)||
     (Object.hasOwn(ids,'liveOwner')?(!exact(ids,['liveOwner'])||!['actor','target'].includes(ids.liveOwner)||!name.endsWith('.GetStateLayer')):Object.entries(ids).some(([id,n])=>!/^\d+$/.test(id)||!Number.isFinite(n)))))throw new Error('Explicit static state values or live GetStateLayer owner bindings required');
@@ -54,12 +57,14 @@ export function runStateSequenceExperiment(value){
       if(!exact(step,['type','definitionId'])||!defs.has(step.definitionId))throw new Error('Explicit known state removal required');
     }else if(step?.type==='subtractState'){
       if(!exact(step,['type','definitionId','amount'])||!defs.has(step.definitionId)||!(step.amount===null||Number.isFinite(step.amount)))throw new Error('Explicit known state layer subtraction required');
+    }else if(step?.type==='gainUltiEnergy'){
+      if(!exact(step,['type','parameters'])||!hasEnergy||!Array.isArray(step.parameters)||step.parameters.length<1||step.parameters.length>2||step.parameters.some(value=>!Number.isFinite(value)))throw new Error('Explicit ultimate-energy step and caster context required');
     }else if(step?.type==='attack'){
       if(!exact(step,['type','rows'])||!Array.isArray(step.rows))throw new Error('Explicit attack rows required');
     }else throw new Error('Unsupported sequence operation');
   }
   const registry=new Map(),properties={actor:{...input.actorProperties},target:{...input.targetProperties}},trace=[];
-  let nextUid=100,target={...input.attackBase.targetState},stop=null;
+  let nextUid=100,target={...input.attackBase.targetState},casterEnergy=hasEnergy?input.energy.target.energy:null,stop=null;
   const resolveStateQuery=(name,args)=>{
       if(args.length!==1||!Number.isSafeInteger(args[0]))throw new Error('One integer state ID required');
       const query=input.stateQueries[name];
@@ -106,12 +111,17 @@ export function runStateSequenceExperiment(value){
     createStateLifeEnd:event=>{operation.lifecycleTrace.push('StateLifeEnd');operation.events.push({kind:'StateLifeEnd',stateUid:event.stateUid,handling:'listeners-assumed-absent'});}});
   // Validate attack inputs before changing any state; a false row deals no hits.
   runActiveCommandExperiment(attackInput([{id:'validate',Type:'BEActiveDamage',Target:'UpperTarget',Para:'0',Cond:'false'}]));
+  if(hasEnergy)runUltiEnergyExperiment({schemaVersion:1,kind:'morimens-ulti-energy-experiment',build,otherEvents:'assumed-absent',parameters:[0,0],source:input.energy.source,targetOrder:[input.energy.target.uid],targets:[{...input.energy.target,energy:casterEnergy}]});
   for(const [index,step] of input.steps.entries()){
     if(step.type==='attack'){
       const result=runActiveCommandExperiment(attackInput(step.rows),expressionBindings);target=result.targetAfter;
       trace.push({index,type:'attack',boundProperties:JSON.parse(JSON.stringify(properties)),result});
       if(!result.completed){stop={index,reason:result.stop};break;}
       continue;
+    }
+    if(step.type==='gainUltiEnergy'){
+      const result=runUltiEnergyExperiment({schemaVersion:1,kind:'morimens-ulti-energy-experiment',build,otherEvents:'assumed-absent',parameters:step.parameters,source:input.energy.source,targetOrder:[input.energy.target.uid],targets:[{...input.energy.target,energy:casterEnergy}]});
+      casterEnergy=result.targetsAfter[0].energy;trace.push({index,type:'gainUltiEnergy',result});continue;
     }
     const d=defs.get(step.definitionId),ownerUid=d.owner==='actor'?1:2,operation={index,type:'addState',definitionId:d.id,expressions:[],mutations:[],events:[]};
     let resolvedLayers=step.resolvedLayers;
@@ -166,6 +176,6 @@ export function runStateSequenceExperiment(value){
       queueOnAdd:event=>operation.events.push({kind:'StateOnAdd',stateUid:event.stateUid,handling:'listeners-assumed-absent'}),recordStats:()=>{}}});
     operation.managerTrace=manager.trace;operation.state=manager.state?JSON.parse(JSON.stringify(manager.state)):null;trace.push(operation);
   }
-  return {schemaVersion:1,status:'EXPERIMENTAL',build,finalDamage:null,completed:stop===null,stop,properties,targetAfter:target,modeledHpLost:input.attackBase.targetState.hp-target.hp,
-    states:[...registry.values()].flat(),trace,unresolvedDependencies:['Authored component composition, not connected original full battle execution or independent gameplay validation','addState uses already-resolved layers; applyState uses explicit immunity, modifier mappings, dimension role/player context and supplied limit results, not automatic property/rule derivation','Layer subtraction excludes caster attribution; no trigger listeners, expiry, death handling, team/card property routing or source attribution; within one turn only','State queries use explicit static inputs or explicitly bound live registry owners; no automatic parser target binding or build/skill assembly','Damage eligibility modifiers outside the five bound properties remain explicitly supplied']};
+  return {schemaVersion:1,status:'EXPERIMENTAL',build,finalDamage:null,completed:stop===null,stop,properties,targetAfter:target,casterEnergyAfter:casterEnergy,modeledHpLost:input.attackBase.targetState.hp-target.hp,
+    states:[...registry.values()].flat(),trace,unresolvedDependencies:['Authored component composition, not connected original full battle execution or independent gameplay validation','addState uses already-resolved layers; applyState uses explicit immunity, modifier mappings, dimension role/player context and supplied limit results, not automatic property/rule derivation','Layer subtraction excludes caster attribution; no trigger listeners, expiry, death handling, team/card property routing or source attribution; within one turn only','State queries use explicit static inputs or explicitly bound live registry owners; no automatic parser target binding or build/skill assembly','Damage eligibility modifiers outside the five bound properties remain explicitly supplied','Ultimate-energy steps use explicit caster/build/card context and do not expose live energy to command expressions']};
 }

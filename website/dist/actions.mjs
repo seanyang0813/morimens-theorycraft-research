@@ -9,15 +9,16 @@ export function startActions({runCardActionTimeline,syntheticCardActionExample,r
       if(command){
         if(ordered){
           const stateRows=result.rowPlan.filter(row=>row.type==='applyState');
-          el('summary').textContent=`${result.completed?'Command completed':'Command stopped'} · Modeled HP lost: ${result.modeledHpLost} · States ${stateRows.map(row=>`${row.evaluation.values[0]} +${row.evaluation.values[1]??1}`).join(', ')}`;
+          el('summary').textContent=`${result.completed?'Command completed':'Command stopped'} · Modeled HP lost: ${result.modeledHpLost}${result.casterEnergyAfter==null?'':` · Ultimate energy: ${result.casterEnergyAfter}`} · States ${stateRows.map(row=>`${row.evaluation.values[0]} +${row.evaluation.values[1]??1}`).join(', ')}`;
           el('stop').textContent=result.stop?JSON.stringify(result.stop):'No stop within this supported scope.';
-          let target={...input.attackBase.targetState};
+          let target={...input.attackBase.targetState},energy=input.energy?.target?.energy??null;
           for(const [index,entry] of result.calculation.trace.entries()){
             const plan=result.rowPlan[index],before={...target};
             if(entry.type==='attack')target={...entry.result.targetAfter};
+            const beforeEnergy=energy;if(entry.type==='gainUltiEnergy')energy=entry.result.targetsAfter[0].energy;
             const stateId=plan.evaluation?.values[0],layer=plan.evaluation?.values[1]??1;
-            const outcome=entry.type==='attack'?(entry.result.completed?'Damage':'Partial damage'):entry.type==='removeState'?`State ${stateId} removed`:entry.type==='subtractState'?`State ${stateId} subtract ${layer}`:`State ${stateId} requested at layer ${layer}`;
-            const tr=doc.createElement('tr');for(const text of [plan.rowId,'—',`${before.hp} → ${target.hp}`,`${before.block} → ${target.block}`,outcome]){const td=doc.createElement('td');td.textContent=text;tr.append(td);}el('rows').append(tr);
+            const outcome=entry.type==='attack'?(entry.result.completed?'Damage':'Partial damage'):entry.type==='gainUltiEnergy'?'Energy gain':entry.type==='removeState'?`State ${stateId} removed`:entry.type==='subtractState'?`State ${stateId} subtract ${layer}`:`State ${stateId} requested at layer ${layer}`;
+            const tr=doc.createElement('tr');for(const text of [plan.rowId,energy===null?'—':`${beforeEnergy} → ${energy}`,`${before.hp} → ${target.hp}`,`${before.block} → ${target.block}`,outcome]){const td=doc.createElement('td');td.textContent=text;tr.append(td);}el('rows').append(tr);
           }
         }else{
         const executed=terminal?result.prefix:result;

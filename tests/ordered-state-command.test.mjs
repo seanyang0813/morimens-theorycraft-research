@@ -52,3 +52,24 @@ test('ordered subtraction and removal update later damage and live state queries
   assert.deepEqual(r.calculation.trace.map(step=>step.type),['applyState','attack','subtractState','attack','removeState','attack']);
   assert.deepEqual(r.calculation.trace.filter(step=>step.type==='attack').map(step=>step.result.modeledHpLost),[130,115,100]);
 });
+
+test('actual exported damage-energy-state command executes all three rows in order',()=>{
+  const base=read('../research/examples/damage-energy-command.json'),commands=read('../research/extracted/config/Cmd.json'),states=read('../research/extracted/config/State.json'),definition=states['2669'];
+  const v=input();
+  v.command=commands['57564'];v.variables={Arg1:120,Arg2:10};v.targetBinding={expression:'FrontEnemy',resolution:'supplied-single-UpperTarget'};
+  v.energy=base.energy;v.state.actorProperties.crit_damage=5;v.attackBase.targetModifiers.awakerCritDamage=5;
+  v.state.definitions=[{id:2669,owner:'actor',maximum:String(definition.MaxLayer),properties:Object.entries(definition.ExistProperty).map(([property,expression])=>({property,expression:String(expression)})),skillLevel:1,caster:7,specialValue:0,banned:false}];
+  v.state.requests=[{...v.state.requests[0],layer:10}];
+  const r=runOrderedStateCommand(v);
+  assert.equal(r.completed,true);assert.equal(r.modeledHpLost,120);assert.equal(r.targetAfter.hp,880);assert.equal(r.casterEnergyAfter,100);assert.equal(r.properties.actor.crit_damage,15);
+  assert.deepEqual(r.calculation.trace.map(step=>step.type),['attack','gainUltiEnergy','applyState']);
+  assert.deepEqual(r.rowPlan.map(row=>row.type),['attack','gainUltiEnergy','applyState']);
+});
+
+test('ordered energy fails closed without caster context or with an unsupported condition',()=>{
+  const base=read('../research/examples/damage-energy-command.json'),commands=read('../research/extracted/config/Cmd.json'),v=input();
+  v.command=commands['57564'];v.variables={Arg1:120,Arg2:10};v.targetBinding.expression='FrontEnemy';
+  assert.throws(()=>runOrderedStateCommand(v),/energy requires/i);
+  v.energy=base.energy;v.command.data_list['2'].Cond='true';
+  assert.throws(()=>runOrderedStateCommand(v),/conditional state and energy/i);
+});
