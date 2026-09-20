@@ -11,14 +11,16 @@ def build_replay_index(artifact,catalog):
     records=artifact['decoded'].get('unZippedRecord')
     if not isinstance(records,list):raise ValueError('Decoded replay requires unZippedRecord list')
     command_names={value:key for key,value in catalog['commands'].items()};event_names={value:key for key,value in catalog['renderEvents'].items()}
-    command_counts=Counter();event_counts=Counter();initializations=[];events=[];property_changes=[];state_events=[];card_uses=[];hits=[];unknown_commands=[];unknown_events=[]
-    init_id=catalog['commands']['rd_InitBattle'];cut_ids={catalog['commands']['rd_BattleCut'],catalog['commands']['rd_BattleInstantCut']}
+    command_counts=Counter();event_counts=Counter();initializations=[];events=[];command_results=[];property_changes=[];state_events=[];card_uses=[];hits=[];unknown_commands=[];unknown_events=[]
+    init_id=catalog['commands']['rd_InitBattle'];result_id=catalog['commands']['rd_CommandResult'];cut_ids={catalog['commands']['rd_BattleCut'],catalog['commands']['rd_BattleInstantCut']}
     for record_index,record in enumerate(records):
         if not isinstance(record,dict) or not isinstance(record.get('msgId'),int) or not isinstance(record.get('msgData'),dict):raise ValueError(f'Malformed replay record {record_index}')
         msg_id=record['msgId'];name=command_names.get(msg_id);command_counts[name or f'UNKNOWN:{msg_id}']+=1
         if name is None:unknown_commands.append({'recordIndex':record_index,'msgId':msg_id})
         if msg_id==init_id:
             data=record['msgData'];initializations.append({'recordIndex':record_index,'time':record.get('time'),'roleDataList':copy.deepcopy(data.get('roleDataList',[])),'monsterDataList':copy.deepcopy(data.get('monsterDataList',[])),'cardDataList':copy.deepcopy(data.get('cardDataList',[])),'battleUuid':data.get('battleUuid'),'battleEngineUuid':data.get('battleEngineUuid')})
+        if msg_id==result_id:
+            nested=record['msgData'].get('msgId');command_results.append({'recordIndex':record_index,'time':record.get('time'),'commandId':nested,'commandName':command_names.get(nested),'data':copy.deepcopy(record['msgData'])})
         if msg_id not in cut_ids:continue
         frames=record['msgData'].get('frameList')
         if not isinstance(frames,list):raise ValueError(f'Battle cut {record_index} requires frameList')
@@ -100,7 +102,13 @@ def build_replay_index(artifact,catalog):
             elif name=='UseCard':
                 active_states=[copy.deepcopy(state) for state in states.values() if not state.get('isDeleted')]
                 action_snapshots.append({'actionIndex':len(action_snapshots),'recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'time':event['frameTime'] if event['frameTime'] is not None else event['recordTime'],'cardUid':data.get('cardUid'),'camp':data.get('camp'),'roles':copy.deepcopy(roles),'cards':copy.deepcopy(cards),'activeStates':active_states,'boundaryStatus':'COMPLETE' if not boundary_issues else 'INCOMPLETE','boundaryIssueCount':len(boundary_issues)})
+    for index,action in enumerate(action_snapshots):
+        start=(action['recordIndex'],action['frameIndex']);next_action=action_snapshots[index+1] if index+1<len(action_snapshots) else None;end=(next_action['recordIndex'],next_action['frameIndex']) if next_action else None
+        in_window=lambda record_index,frame_index=-1:(record_index,frame_index)>start and (end is None or (record_index,frame_index)<end)
+        action['window']={'events':[copy.deepcopy(row) for row in events if in_window(row['recordIndex'],row['frameIndex'])],'commandResults':[copy.deepcopy(row) for row in command_results if in_window(row['recordIndex'])]}
+        action['window']['selectedTargetCommands']=[row for row in action['window']['commandResults'] if row['commandName']=='lg_SelectTargets']
+        action['window']['hits']=[row for row in action['window']['events'] if row['eventName']=='BeHit']
     return {'schemaVersion':1,'kind':'MORIMENS_REPLAY_EVENT_INDEX','build':catalog['build'],'inputSha256':artifact.get('inputSha256'),'protocolSourceHashes':copy.deepcopy(catalog.get('sourceHashes',{})),'battleDat':copy.deepcopy(artifact['decoded'].get('battleDat')),
-      'counts':{'records':len(records),'events':len(events),'commands':dict(sorted(command_counts.items())),'renderEvents':dict(sorted(event_counts.items()))},'initializations':initializations,'events':events,'propertyChanges':property_changes,'stateEvents':state_events,'cardUses':card_uses,'hits':hits,'unknownCommands':unknown_commands,'unknownEvents':unknown_events,
+      'counts':{'records':len(records),'events':len(events),'commands':dict(sorted(command_counts.items())),'renderEvents':dict(sorted(event_counts.items()))},'initializations':initializations,'events':events,'commandResults':command_results,'propertyChanges':property_changes,'stateEvents':state_events,'cardUses':card_uses,'hits':hits,'unknownCommands':unknown_commands,'unknownEvents':unknown_events,
       'actionSnapshots':action_snapshots,'snapshotBoundaryStatus':'COMPLETE' if not boundary_issues and len(initializations)==1 else 'INCOMPLETE','snapshotBoundaryIssues':boundary_issues,
-      'limitations':['UseCard snapshot occurs after card energy payment and before BeforeUseCard triggers, matching original BEBeforeUseCard order','Target binding, command base value/tags and action-to-hit grouping remain unresolved','Recorded critical result is post-outcome evidence and cannot freeze an uncertain holdout','No gameplay claim until an actual replay is decoded and reviewed']}
+      'limitations':['UseCard snapshot occurs after card energy payment and before BeforeUseCard triggers, matching original BEBeforeUseCard order','Action windows end at the next UseCard; nested/triggered actions and overlapping timelines still require evidence review','Command base value/tags and exact hit-to-row binding remain unresolved','Recorded critical result is post-outcome evidence and cannot freeze an uncertain holdout','No gameplay claim until an actual replay is decoded and reviewed']}
