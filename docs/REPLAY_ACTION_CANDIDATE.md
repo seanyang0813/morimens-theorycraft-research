@@ -17,3 +17,9 @@ The supported boundary remains intentionally narrow: one Awakener-owned card, on
 If critical chance depends on RNG, the result has status `PREOUTCOME_INPUT_REQUIRED` and no calculation. An optional third CLI argument accepts a 1-100 pre-outcome critical roll only when that roll was independently captured. The observed `isCrit` field is post-outcome evidence and is not accepted as a substitute.
 
 The observed `BeHit` record is copied into a separate output field and is never read to construct the scenario. After the calculation exists, `comparison` reports predicted `preHitDamage` against `beHitConfig.castDamage`; this is the pre-shield incoming damage carried into `BeHit`, not HP lost. Every output remains a retrospective regression candidate. A human must still review the action window for triggered or overlapping actions. An already viewed replay can never become a blind holdout, and no candidate is publication evidence until the observation audit accepts its provenance and comparison.
+
+## Static command coverage
+
+`node tools/audit_replay_candidate_rows.mjs` regenerates the source-hashed `research/evidence/replay-candidate-row-audit.json`. In the current export, 932 commands contain 1,033 ordinary Active rows. The adapter's static expression, field and target checks accept all relevant rows in 846 commands; 928 individual rows have compatible syntax. The audit includes 137 conditional rows and retains every remaining blocker count.
+
+These numbers do not mean 846 cards are executable or accurate. The audit does not know runtime variables, which conditions pass, actual hit count, target identity, property completeness, critical RNG, triggers or gameplay outcomes. It only measures whether a future complete replay boundary could reach the adapter without a known static row-shape blocker.

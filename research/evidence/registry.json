@@ -160,6 +160,25 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC144:ReplayCandidateRowCoverage",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "The current command export contains 932 commands with ordinary Active damage; 846 pass the replay candidate adapter static command-shape checks and 928 of 1,033 ordinary Active rows have compatible syntax",
+      "sources": [
+        {
+          "module": "Cmd",
+          "member": "complete export",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        }
+      ],
+      "tests": [
+        "tests/replay-candidate-row-audit.test.mjs"
+      ],
+      "scope": "Source-hashed static audit of row fields, target selectors, competing damage types and supported condition/parameter syntax. Does not establish runtime bindings, eligible condition count, hit association, property completeness, critical RNG, card executability or gameplay correctness",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC144:CritResolution",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "Critical-hit resolution preserves card, Awakener and player certain-crit rules, strict HP-ratio thresholds, additive card/caster/player/tag chance, caster percentage scaling, target anti-crit, ceiling and the inclusive 1-100 roll comparison",
