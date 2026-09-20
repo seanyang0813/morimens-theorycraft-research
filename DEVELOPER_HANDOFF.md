@@ -17,7 +17,7 @@ python tools/prepare_local_website.py
 python tools/verify_research.py
 ```
 
-The expected current result is 122 passing test files and `publicationStatus: NOT_READY`. A nonzero `--check-publication` result is correct until gameplay evidence satisfies the gate.
+The expected current result is 123 passing test files and `publicationStatus: NOT_READY`. A nonzero `--check-publication` result is correct until gameplay evidence satisfies the gate.
 
 ## Architecture
 
@@ -44,7 +44,7 @@ There are two real gameplay records and neither is reviewable. The next decisive
 3. Use the first completed case as regression evidence.
 4. Freeze a different unseen case as an independent holdout.
 
-Use `tools/freeze_gameplay_prediction.mjs` for steps 2 and 4. It verifies the current runtime, hashes the scenario and pre-outcome evidence, writes a non-overwritable freeze record, and prints the reference expected by the observation audit.
+Use `tools/freeze_gameplay_prediction.mjs` for steps 2 and 4. It verifies the current runtime, hashes the scenario and pre-outcome evidence, writes a non-overwritable freeze record, and prints the reference expected by the observation audit. It accepts single-hit scenarios and completed resolved-hit, Old Embers, card-action or ordered-command scenarios; partial sequence totals fail closed.
 
 Do not fit unknown modifiers to an already viewed total. Synthetic original-runtime matches prove component behavior only.
 

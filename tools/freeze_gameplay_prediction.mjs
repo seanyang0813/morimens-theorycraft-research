@@ -2,7 +2,7 @@ import {createHash} from 'node:crypto';
 import {existsSync,readFileSync,writeFileSync} from 'node:fs';
 import {isAbsolute,relative,resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {calculateDamage} from '../engine/calculate-damage.mjs';
+import {runObservationScenario} from '../engine/observation-scenario.mjs';
 import {verifyRuntimeManifest} from './verify_runtime_manifest.mjs';
 
 const root=resolve(fileURLToPath(new URL('../',import.meta.url)));
@@ -31,12 +31,9 @@ export function freezeGameplayPrediction({scenarioFile,metric,evidenceFiles,outp
   if(!outputRel||outputRel.startsWith('..')||isAbsolute(outputRel))throw new Error('Output must be inside research/observations');
   if(existsSync(output))throw new Error('Prediction freeze already exists; refusing to overwrite chronology evidence');
   const input=JSON.parse(scenario.bytes.toString('utf8'));
-  if(input.mode!=='experimental')throw new Error('Explicit experimental scenario required');
-  const runtimeFingerprint=verifyRuntimeManifest(),result=calculateDamage(input);
-  const models=result.experimentalModels.filter(model=>Object.hasOwn(model,metric));
-  if(models.length!==1||!Number.isFinite(models[0][metric]))throw new Error('Requested metric is unavailable or ambiguous');
+  const runtimeFingerprint=verifyRuntimeManifest(),result=runObservationScenario(input,metric);
   const prediction={scenarioFile:relativePath(scenario.path),scenarioSha256:hash(scenario.bytes),runtimeFingerprint,metric};
-  const record={schemaVersion:1,kind:'MORIMENS_PREDICTION_FREEZE',createdAtUtc:now().toISOString(),prediction,predictedDamage:models[0][metric],predictionScope:models[0].scope,
+  const record={schemaVersion:1,kind:'MORIMENS_PREDICTION_FREEZE',createdAtUtc:now().toISOString(),prediction,predictedDamage:result.value,predictionScope:result.scope,scenarioKind:result.scenarioKind,
     unresolvedDependencies:result.unresolvedDependencies,beforeOutcomeEvidence:evidence.map(item=>({path:relativePath(item.path),sha256:hash(item.bytes)}))};
   writeFileSync(output,JSON.stringify(record,null,2)+'\n',{encoding:'utf8',flag:'wx'});
   const outputBytes=readFileSync(output);

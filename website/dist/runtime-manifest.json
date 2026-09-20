@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "8da62060a57d2c32329b38884b2982a96c99943e0b952bd534e1a78a96edda41",
+  "fingerprint": "e77a67786b9339e91167b8aab103f3d0f3bff7c552ea10f0dc6c875dd42462a6",
   "files": {
     "build-catalog.json": "2d1188fadcaff7a1eb53af580c509756b21a3f003065c7c9036aa919958a1496",
     "client-build-data.json": "f857768a28bb9865d35158ae47c0cf453dcc0ae9cb9114dd0082d1ea73f17c0f",
@@ -43,6 +43,7 @@
     "engine/import-command-rows.mjs": "dbec8cb8c2e41da996e176c6a1e76b22932e13367a30ef63d7a4dd16b740abed",
     "engine/inspect-command-support.mjs": "4ac00e4a31f2064ffa59cbdbf61567c11a719e74401bea4c5dc766df66ccd689",
     "engine/live-state-lookup.mjs": "db44a2056b38ae9f758ee4c29ebb1a5da9e35fcb44a7a62b16d807c8e9703908",
+    "engine/observation-scenario.mjs": "a60fa6bcaff5bb75ceceac7d591dc33e5aab327e0c4234b551f278e7d8fd438b",
     "engine/offensive-setup.mjs": "6062e42db21a7288d27a1a963634c6014b70b3732fd755f944f0e85ed105342e",
     "engine/old-embers-activation.mjs": "e756371a091e55d384e8e80b3344e18eb085ddab1d46695d6787801957a5300f",
     "engine/old-embers-command.mjs": "eb70d3a75af30bcfe6411a2e93833ad169e705b1a5bdf7e8d4a1fc2e656d7e96",
