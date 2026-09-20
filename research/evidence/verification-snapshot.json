@@ -1,13 +1,13 @@
 {
-  "generatedAtUtc": "2026-09-20T05:32:56.118686+00:00",
+  "generatedAtUtc": "2026-09-20T05:36:43.385439+00:00",
   "publicationStatus": "NOT_READY",
   "publicationAuthorized": false,
   "automatedSuite": {
-    "testFiles": 123,
+    "testFiles": 124,
     "passed": true,
     "exitCode": 0,
     "log": "research\\evidence\\latest-test-suite.tap",
-    "logSha256": "800462aa24dea3a6212b1064e94eb02b1dcdd951b127352878648bc425538c33"
+    "logSha256": "6c66752f6fc54a6e76a1f8982b16ea8ace224632e43be943ec6f00a5039a7ff2"
   },
   "realObservations": {
     "records": 2,
@@ -115,6 +115,10 @@
     },
     {
       "module": "offensive-setup.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "property-initialization.mjs",
       "matchesResearchEngine": true
     },
     {
@@ -359,6 +363,10 @@
     },
     {
       "module": "observation-scenario.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "battle-property-snapshot-damage.mjs",
       "matchesResearchEngine": true
     },
     {

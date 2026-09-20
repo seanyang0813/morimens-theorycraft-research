@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "e77a67786b9339e91167b8aab103f3d0f3bff7c552ea10f0dc6c875dd42462a6",
+  "fingerprint": "62afcff3bfd2036f81ec26fb293ff7ed0d67c4c5bda3d531d4e2664383557be4",
   "files": {
     "build-catalog.json": "2d1188fadcaff7a1eb53af580c509756b21a3f003065c7c9036aa919958a1496",
     "client-build-data.json": "f857768a28bb9865d35158ae47c0cf453dcc0ae9cb9114dd0082d1ea73f17c0f",
@@ -11,6 +11,7 @@
     "engine/active-target.mjs": "99497dd55c3a411f80afdb79080bec65965d63bc4b7effc35d849d8efa5693a1",
     "engine/add-state-layer.mjs": "f48dab804914d5a36adad723f2f75617396f8b718347d42c107cd09123c223e7",
     "engine/add-state-request.mjs": "98236b4339ecc8989a5a1dd8895c0d59480e4d1ee36a30dfefccb8632bb81b29",
+    "engine/battle-property-snapshot-damage.mjs": "bea5b4391eb4a3a7996f8b3a2e89daab1f0211f08281c703fe512321893f5e19",
     "engine/build-plan.mjs": "1738a0d0a99ee0510b8b509c28cb630c55212e4f1b75e0774ef87bf921d74507",
     "engine/calculate-damage.mjs": "535a7da758b96179597b6c36b36059ea416fca8f6e3b7664839a1bcff8178511",
     "engine/card-action-example.mjs": "8f8cd99a436a66b35f142f09a358dc40b646455746ffa99e6071f8d57eba243f",
@@ -43,7 +44,7 @@
     "engine/import-command-rows.mjs": "dbec8cb8c2e41da996e176c6a1e76b22932e13367a30ef63d7a4dd16b740abed",
     "engine/inspect-command-support.mjs": "4ac00e4a31f2064ffa59cbdbf61567c11a719e74401bea4c5dc766df66ccd689",
     "engine/live-state-lookup.mjs": "db44a2056b38ae9f758ee4c29ebb1a5da9e35fcb44a7a62b16d807c8e9703908",
-    "engine/observation-scenario.mjs": "a60fa6bcaff5bb75ceceac7d591dc33e5aab327e0c4234b551f278e7d8fd438b",
+    "engine/observation-scenario.mjs": "470388b56bf3e043e89177153155d87949769b57ae55efbf39d807461c3731be",
     "engine/offensive-setup.mjs": "6062e42db21a7288d27a1a963634c6014b70b3732fd755f944f0e85ed105342e",
     "engine/old-embers-activation.mjs": "e756371a091e55d384e8e80b3344e18eb085ddab1d46695d6787801957a5300f",
     "engine/old-embers-command.mjs": "eb70d3a75af30bcfe6411a2e93833ad169e705b1a5bdf7e8d4a1fc2e656d7e96",
@@ -51,6 +52,7 @@
     "engine/old-embers-steps.mjs": "a1c1e4ce8a448c20e6367cc8a0d99a809f0e5cd249bbd3c3c47bb1e46b371c0e",
     "engine/ordered-state-command.mjs": "1e5521c04211a6e0c5ad04ff5440c6334b1698bad7b17812bfc8212e6ecd0620",
     "engine/passive-prehit.mjs": "c8b1ccfb7c47ce49c3bd09842fef15058ed78277d9de743d772c79ba0d85a77e",
+    "engine/property-initialization.mjs": "a57ff39cf0a1860b857b5c3cafb6d54324e118fc6f97fa738afa41abcf792fbb",
     "engine/research-timeline.mjs": "7239c698436549bab8bd6218e570535ed8042bde82e6e38075acb1bf4f35d64f",
     "engine/resolved-hit-timeline.mjs": "86d3d2562cae483cddf204af524a5ff6ce3b0ec10e9a1e2533bb732c6701a949",
     "engine/show-damage.mjs": "95937cfedbd2ba6398e6c799f51549e1739530f938b0a95696a2001f75173f2b",

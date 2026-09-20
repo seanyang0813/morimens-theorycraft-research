@@ -11,7 +11,7 @@ The research gate now requires each candidate real observation to include a `pre
 }
 ```
 
-Supported metrics are preHitDamage and modeledHpLost. Their scopes differ: a displayed pre-hit label must not be compared with an HP decrease as though they were interchangeable. Metric-to-observation correspondence still needs evidence review. Single-hit experimental scenarios support the applicable model metric. Completed resolved-hit timelines, Old Embers hit timelines, card-action timelines and ordered-state commands support modeledHpLost. Partial timelines are rejected rather than freezing a misleading prefix total.
+Supported metrics are preHitDamage and modeledHpLost. Their scopes differ: a displayed pre-hit label must not be compared with an HP decrease as though they were interchangeable. Metric-to-observation correspondence still needs evidence review. Single-hit experimental scenarios and complete battle-property snapshot scenarios support the applicable pre-hit metric. Completed resolved-hit timelines, Old Embers hit timelines, card-action timelines and ordered-state commands support modeledHpLost. Partial timelines are rejected rather than freezing a misleading prefix total.
 
 The gate checks the scenario hash, executes the shared engine through tools/replay_observation.mjs, verifies the runtime manifest, and requires the recorded combat build to equal the scenario build. It rejects a reported predictedDamage that differs from the recomputed value, even when reported and observed numbers match. Skipped or unsupported calculations cannot produce eligible predictions. The report retains the model's scope and unresolved dependencies for review.
 

@@ -2,6 +2,7 @@ import {calculateDamage} from './calculate-damage.mjs';
 import {runResearchTimeline} from './research-timeline.mjs';
 import {runCardActionTimeline} from './card-action-timeline.mjs';
 import {runOrderedStateCommand} from './ordered-state-command.mjs';
+import {calculateSnapshotActiveDamage} from './battle-property-snapshot-damage.mjs';
 
 const metrics=new Set(['preHitDamage','modeledHpLost']);
 export function runObservationScenario(scenario,metric){
@@ -11,6 +12,11 @@ export function runObservationScenario(scenario,metric){
     const result=calculateDamage(scenario),models=result.experimentalModels.filter(model=>Object.hasOwn(model,metric));
     if(models.length!==1||!Number.isFinite(models[0][metric]))throw new Error('Requested metric is unavailable or ambiguous');
     return {build:scenario.build,scenarioKind:'single-hit',metric,value:models[0][metric],scope:models[0].scope,unresolvedDependencies:result.unresolvedDependencies};
+  }
+  if(scenario.kind==='morimens-battle-property-snapshot-damage'){
+    if(metric!=='preHitDamage')throw new Error('Requested metric is unavailable for this scenario shape');
+    const result=calculateSnapshotActiveDamage(scenario);
+    return {build:result.build,scenarioKind:scenario.kind,metric,value:result.preHitDamage,scope:result.scope,unresolvedDependencies:result.unresolvedDependencies};
   }
   let result,scenarioKind;
   if(scenario.kind==='morimens-card-action-timeline'){result=runCardActionTimeline(scenario);scenarioKind=scenario.kind;}

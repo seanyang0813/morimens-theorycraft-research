@@ -17,7 +17,7 @@ python tools/prepare_local_website.py
 python tools/verify_research.py
 ```
 
-The expected current result is 123 passing test files and `publicationStatus: NOT_READY`. A nonzero `--check-publication` result is correct until gameplay evidence satisfies the gate.
+The expected current result is 124 passing test files and `publicationStatus: NOT_READY`. A nonzero `--check-publication` result is correct until gameplay evidence satisfies the gate.
 
 ## Architecture
 
