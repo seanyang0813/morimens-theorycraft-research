@@ -6,7 +6,7 @@ Run `node tools/prepare_skill_command.mjs research/examples/prepare-skill-comman
 
 The CLI reads local Skill, BattleApi and Cmd exports and includes each export's SHA-256. Requests require skillId, skillLevel, isAwaker, breakSkillLevel, potencyLevel, overrides, variables, conditionResults and stateQueries. Missing runtime conditions or state-query values fail explicitly. State queries bind named single-integer-argument functions to supplied numeric values; no absent-state default is invented. The engine API accepts explicit callbacks instead of these JSON maps.
 
-Output reports command effect types and row count, with executable=false. In the example the command includes BEActiveDamage, BEGainUltiEnergy and BEAddState; those rows must all be handled before offering complete execution. It is unsafe to silently retain only its damage row. Automatic character-to-skill lookup, equipment and state assembly, dynamic refresh timing and full handler support remain unfinished.
+Output reports command effect types and row count, with executable=false. In the example the command includes BEActiveDamage, BEGainUltiEnergy and BEAddState; it is unsafe to silently retain only its damage row. That exact shape can now execute only through the explicit terminal-state experiment, which requires the selected state definition, layer request and live property snapshots. Automatic character-to-skill lookup, equipment and state assembly, dynamic refresh timing and general handler support remain unfinished.
 
 The underlying selectors and numeric argument components have original-runtime evidence at documented boundaries. Their entire combination on actual skill exports has composition tests, not a connected original end-to-end execution or independent gameplay validation. List-form parameter expressions, original missing-coefficient defaulting and other unsupported input forms remain explicit errors.
 
@@ -37,6 +37,8 @@ Costs, lifecycle, animation timing, state/trigger effects and automatic target r
 ## Selected skill to mixed damage/energy command
 
 The same preparation entry point now accepts an experiment of kind `morimens-damage-energy-command`, without a caller-supplied command or ArgN values. It selects the corresponding support profile, imports the selected command, binds computed arguments and runs both damage and energy. The supplied energy source skillConfigId must match the selected exported skill ID. Unsupported rows still stop the entire command before damage.
+
+The preparation entry point also accepts `morimens-terminal-state-command`. The actual potency-selected Skill4163 / Cmd57564 path now prepares its arguments, executes the Active damage and ultimate-energy rows, and then applies State2669 through the state-sequence engine. The current boundary is deliberately narrow: the state must be the final row, unconditional, caster-owned and fully supplied, and no later row may observe it.
 
 ```
 node tools/prepare_skill_command.mjs research/examples/prepared-damage-energy-request.json research/examples/prepared-damage-energy-context.json

@@ -10,6 +10,13 @@ test('actual mixed skill retains all blockers and all three effects',()=>{
  assert.ok(r.rows[1].blockers.some(b=>b.value==='BEGainUltiEnergy'));
  assert.ok(r.rows[2].blockers.some(b=>b.value==='BEAddState'));
 });
+test('terminal-state profile accepts the exact actual three-row shape without dropping effects',()=>{
+ const r=inspectCommandSupport({command:cmds[57564],profile:'terminal-self-state',targetExpression:'FrontEnemy'});
+ assert.equal(r.structurallyCompatible,true);assert.equal(r.rowCount,3);
+ assert.deepEqual(r.rows.map(row=>row.type),['BEActiveDamage','BEGainUltiEnergy','BEAddState']);
+ const conditional=JSON.parse(JSON.stringify(cmds[57564]));conditional.data_list['3'].Cond='true';
+ assert.ok(inspectCommandSupport({command:conditional,profile:'terminal-self-state',targetExpression:'FrontEnemy'}).rows[2].blockers.some(b=>b.code==='TERMINAL_STATE_CONDITION'));
+});
 test('syntax compatibility never claims executable; unsupported fields and expressions remain visible',()=>{
  const row={Type:'BEActiveDamage',Target:'UpperTarget',Para:'Arg1'};
  const inspect=r=>inspectCommandSupport({command:{data_list:{1:r}}});

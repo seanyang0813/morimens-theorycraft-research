@@ -4,6 +4,8 @@ Status: research prototype. The general calculator, sequence workbenches and evi
 
 This repository is a source checkpoint for collaboration. It does not claim that the calculator is accurate enough for build recommendations. Generated symbol indexes, copied client files, extraction outputs, local observations, private screenshots and keys are intentionally excluded.
 
+For a quick shareable overview, read [`FRIEND_PREVIEW.md`](FRIEND_PREVIEW.md). An agent or developer continuing the work should start with [`DEVELOPER_HANDOFF.md`](DEVELOPER_HANDOFF.md).
+
 ## Current checkpoint
 
 The reproducible checkpoint is `research/evidence/verification-snapshot.json`, which records the latest full-suite result and test-file count. Two gameplay observation records remain incomplete; zero reconstructed predictions and zero independent holdouts qualify for review. Synthetic runtime comparisons do not count as gameplay validation.

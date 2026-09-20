@@ -4,6 +4,7 @@ import {prepareSkillCommand} from './prepare-skill-command.mjs';
 import {resolveScalarSkillField} from './skill-field.mjs';
 import {inspectCommandSupport} from './inspect-command-support.mjs';
 import {runActiveCommandExperiment} from './active-command-experiment.mjs';
+import {runTerminalStateCommand} from './terminal-state-command.mjs';
 
 // Connect selected exported skills to supported imported rows without dropping effects.
 export function runPreparedSkillExperiment({preparation,commands,experiment,targetBinding,lifecycle}){
@@ -18,14 +19,17 @@ export function runPreparedSkillExperiment({preparation,commands,experiment,targ
     targetResolution=selectFrontEnemy(targetBinding.context);
     if(targetResolution.targets.length!==1||targetResolution.targets[0]!==targetBinding.targetUid)throw new Error('Selected target does not match supplied HP/modifier snapshot; no damage executed');
   }else if(targetBinding.resolution!=='supplied-single-UpperTarget'||Object.keys(targetBinding).length!==2)throw new Error('Explicit binding of the selected skill target to supplied UpperTarget required');
-  const mixed=experiment.kind==='morimens-damage-energy-command';
-  if(mixed&&experiment.energy?.source?.skillConfigId!==preparation.skill.ID)throw new Error('Energy source skill identity must match selected skill');
-  const support=inspectCommandSupport({command:commands[prepared.commandId],allowedFunctions:mixed?[]:preparation.allowedFunctions??[],profile:mixed?'damage-and-energy':'ordinary-active-UpperTarget'});
+  const mixed=experiment.kind==='morimens-damage-energy-command',terminal=experiment.kind==='morimens-terminal-state-command';
+  if((mixed||terminal)&&experiment.energy?.source?.skillConfigId!==preparation.skill.ID)throw new Error('Energy source skill identity must match selected skill');
+  if(terminal&&targetBinding.resolution!=='supplied-single-UpperTarget')throw new Error('Terminal-state prepared skills currently require a supplied single target');
+  const profile=terminal?'terminal-self-state':mixed?'damage-and-energy':'ordinary-active-UpperTarget';
+  const support=inspectCommandSupport({command:commands[prepared.commandId],allowedFunctions:mixed||terminal?[]:preparation.allowedFunctions??[],profile,targetExpression:targetSelection.value});
   const dependencies=[...prepared.unresolvedDependencies,targetResolution?'FrontEnemy uses supplied camp, lock/taunt identities and role snapshots; no automatic registry derivation':'Skill target resolved externally; no automatic target selection','Skill arguments frozen at preparation; no intervening argument refresh','No costs, lifecycle, passive triggers, animation timing or gameplay validation'];
   const base={build:'pc-res144-build51',finalDamage:null,prepared,targetSelection,targetResolution,targetBinding:{...targetBinding},support,unresolvedDependencies:dependencies};
   if(!support.structurallyCompatible)return {...base,status:'UNSUPPORTED_COMMAND',calculation:null};
   for(const name of Object.keys(experiment.variables))if(/^Arg\d+$/.test(name))throw new Error('Command ArgN bindings must come from prepared skill arguments');
-  const calculation=mixed?runDamageEnergyCommand({...experiment,command:commands[prepared.commandId],variables:{...experiment.variables,...prepared.argumentBindings}}):runActiveCommandExperiment({...experiment,rows:support.normalizedRows,variables:{...experiment.variables,...prepared.argumentBindings}},
+  const commandInput={...experiment,command:commands[prepared.commandId],variables:{...experiment.variables,...prepared.argumentBindings}};
+  const calculation=terminal?runTerminalStateCommand({...commandInput,targetBinding:{...targetBinding}}):mixed?runDamageEnergyCommand(commandInput):runActiveCommandExperiment({...experiment,rows:support.normalizedRows,variables:{...experiment.variables,...prepared.argumentBindings}},
     {allowedFunctions:preparation.allowedFunctions??[],callFunction:preparation.callFunction});
   return {...base,status:'EXPERIMENTAL',calculation,unresolvedDependencies:[...dependencies,...calculation.unresolvedDependencies]};
 }
