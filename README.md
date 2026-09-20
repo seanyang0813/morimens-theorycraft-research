@@ -27,6 +27,16 @@ Run from this directory:
 
 The earlier equipped Mouchette PDF omitted intrinsic Arachne realm effects and is not a complete team prediction. Its builder is disabled. Final investigation Realm Mastery is still needed for the corrected scenario; see `docs/ARACHNE_SIGNATURE_COMPARISON.md`.
 
+## Offline replay pipeline
+
+An explicitly exported PC replay can now be processed without running game logic or reading process memory:
+
+1. `tools/decode_battle_replay.py` calls copied client LZ4/cmsgpack modules to decode the replay under ignored `research/observations/`.
+2. `tools/index_decoded_replay.py` reconstructs role, card and active-state maps at every `UseCard` boundary and preserves selected-target commands and following hit windows.
+3. `tools/build_replay_action_candidate.mjs` can bind a narrow unambiguous single-hit action into the complete-property damage scenario while keeping its observed result separate.
+
+The native decoder has passed a synthetic round trip, and the index/adapter have synthetic integration coverage. No actual server replay has been decoded yet. See `docs/LOCAL_REPLAY_RECOVERY.md` and `docs/REPLAY_ACTION_CANDIDATE.md` for the explicit limits.
+
 ## Evidence and next validation
 
 - `docs/VERIFICATION_REPORT.md`: research history and validation scope.
