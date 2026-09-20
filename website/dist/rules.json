@@ -60,6 +60,58 @@
       ]
     },
     {
+      "id": "PC144:ReplayActionCandidate",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "A complete card-use replay boundary can bind the serialized card owner, same-camp player, selected monster, live property maps, active target states, skill tags, command row and resolved card arguments into a strict retrospective Active-hit regression candidate",
+      "scope": "Authored fail-closed adapter supports one direct PvE Awakener Active hit, one selected monster, one unconditional damage row, optional post-damage energy rows, complete live property maps and no recorded pre-hit mutations. It excludes observed damage/crit from prediction inputs. No real replay decoded, trigger graph execution, blind holdout or gameplay validation",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "BattleUnitBase",
+          "member": "Serialize",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410"
+        },
+        {
+          "module": "BattleCardServer",
+          "member": "Serialize,InitOwner,InitCmdServer",
+          "sha256": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53"
+        },
+        {
+          "module": "BattleStateServer",
+          "member": "Serialize",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369"
+        },
+        {
+          "module": "BattleEngine",
+          "member": "lg_SelectTargets",
+          "sha256": "0ee07c8fd06f29787f8139306b55d16c726eaf8cabcd1ad0b128d907c8dbbeea"
+        },
+        {
+          "module": "BEActiveDamage",
+          "member": "DoEffect,Damage2SingleTarget",
+          "sha256": "6d87f4da91293c019579f5d586a093763d3fb1051d6efed8652cdbc3b114e208"
+        },
+        {
+          "module": "Skill",
+          "member": "complete export",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8"
+        },
+        {
+          "module": "Cmd",
+          "member": "complete export",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2"
+        },
+        {
+          "module": "MonsterConfig",
+          "member": "complete export",
+          "sha256": "3431a36ee83639e8dd97bb664b6775afa8f3e8189a89407c1e3c4fcf08db9954"
+        }
+      ],
+      "checks": [
+        "tests/replay-action-candidate.test.mjs"
+      ]
+    },
+    {
       "id": "PC144:CritResolution",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "Critical-hit resolution preserves card, Awakener and player certain-crit rules, strict HP-ratio thresholds, additive card/caster/player/tag chance, caster percentage scaling, target anti-crit, ceiling and the inclusive 1-100 roll comparison",
