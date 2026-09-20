@@ -47,3 +47,12 @@ test('replay adapter derives Super Ultimate selection from captured caster energ
   const superResult=buildReplayActionCandidate({...input,actionIndex:0});assert.equal(superResult.routing.superUltimateResolution.isSuperUltimate,true);assert.equal(superResult.scenario.baseValue,200);
   caster.properties.ulti_energy=99;const ordinary=buildReplayActionCandidate({...input,actionIndex:0});assert.equal(ordinary.routing.superUltimateResolution.isSuperUltimate,false);assert.equal(ordinary.scenario.baseValue,100);
 });
+
+test('replay adapter accepts inspected presentation-only target fields',()=>{
+  for(const performTarget of ['CmdTarget','EnemyFieldCenter']){
+    const input=fixture();input.commands['20'].data_list['1'].PerformTarget=performTarget;
+    assert.equal(buildReplayActionCandidate({...input,actionIndex:0}).scenario.baseValue,100);
+  }
+  const input=fixture();input.commands['20'].data_list['1'].PerformTarget='PlayerRole';
+  assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0}),/row field/);
+});

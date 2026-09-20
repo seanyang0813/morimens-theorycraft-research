@@ -11,12 +11,11 @@
   "commandsWithOrdinaryActive": 198,
   "ordinaryActiveRows": 246,
   "conditionalRows": 67,
-  "rowExpressionCompatible": 223,
-  "commandShapeCompatible": 180,
+  "rowExpressionCompatible": 226,
+  "commandShapeCompatible": 182,
   "blockerCounts": {
     "COMPETING_DAMAGE_EFFECT": 6,
     "CONDITION_EXPRESSION": 4,
-    "ROW_FIELD": 3,
     "TARGET_SELECTOR": 16
   },
   "allowedFunctions": [
@@ -6437,21 +6436,17 @@
           "rowId": "2",
           "target": "FrontEnemy",
           "conditional": true,
-          "blockers": [
-            "ROW_FIELD"
-          ]
+          "blockers": []
         },
         {
           "rowId": "3",
           "target": "FrontEnemy",
           "conditional": true,
-          "blockers": [
-            "ROW_FIELD"
-          ]
+          "blockers": []
         }
       ],
       "competingDamageEffect": false,
-      "shapeCompatible": false
+      "shapeCompatible": true
     },
     {
       "commandId": 2347,
@@ -6460,13 +6455,11 @@
           "rowId": "3",
           "target": "AllEnemy",
           "conditional": false,
-          "blockers": [
-            "ROW_FIELD"
-          ]
+          "blockers": []
         }
       ],
       "competingDamageEffect": false,
-      "shapeCompatible": false
+      "shapeCompatible": true
     },
     {
       "commandId": 2350,

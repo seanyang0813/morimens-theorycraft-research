@@ -145,8 +145,8 @@
     {
       "id": "PC144:ReplayCandidateRowCoverage",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
-      "claim": "The current exports contain 627 supported-tag Awakener skills linked to 531 commands; 180 of the 198 linked commands containing ordinary Active damage pass the replay candidate static shape checks, and 223 of 246 ordinary Active rows have compatible syntax",
-      "scope": "Source-hashed static audit follows Awakener-owned supported-tag Skill CmdList/tempCmdList links, then checks row fields, target selectors, competing damage types and supported condition/parameter syntax. HP and HP+block selectors are reconstructed from complete captured living-enemy maps and original registry-order tie behavior. Super Ultimate is derived from captured properties under the inspected client rule. Does not establish runtime bindings, eligible condition count, hit association, property completeness, critical RNG, card executability or gameplay correctness",
+      "claim": "The current exports contain 627 supported-tag Awakener skills linked to 531 commands; 182 of the 198 linked commands containing ordinary Active damage pass the replay candidate static shape checks, and 226 of 246 ordinary Active rows have compatible syntax",
+      "scope": "Source-hashed static audit follows Awakener-owned supported-tag Skill CmdList/tempCmdList links, then checks row fields, target selectors, competing damage types and supported condition/parameter syntax. HP and HP+block selectors are reconstructed from complete captured living-enemy maps and original registry-order tie behavior. Super Ultimate is derived from captured properties under the inspected client rule. PerformTarget is accepted only for inspected CmdTarget and EnemyFieldCenter presentation routing. Does not establish runtime bindings, eligible condition count, hit association, property completeness, critical RNG, card executability or gameplay correctness",
       "gameplayValidation": false,
       "sources": [
         {
@@ -163,6 +163,11 @@
           "module": "BattleCmdParser",
           "member": "MinHpEnemy,MaxHpEnemy,MinHpAndBlockEnemy,MaxHpAndBlockEnemy,IsSuperUtlSkill",
           "sha256": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d"
+        },
+        {
+          "module": "BattleEffectServer",
+          "member": "PlayEffectSfx,GenPerformTargets,GenTargets",
+          "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e"
         },
         {
           "module": "BattleUnitAwaker",

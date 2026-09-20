@@ -8,6 +8,7 @@ const build='pc-res144-build51';
 const roleType={Awaker:1,Monster:2,Player:3};
 const supportedTags=new Set(['Card_Strike','Card_Skill','Ulti_Skill','Card_AttachPost']);
 const instructionTags=new Set(['Card_Strike','Card_Skill','Card_Defend','Card_Extend']);
+const presentationTargets=new Set(['CmdTarget','EnemyFieldCenter']);
 
 function dense(value,label){
   if(Array.isArray(value)){
@@ -56,7 +57,7 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
   if(!Number.isSafeInteger(selectedCommand.value)||!commands[String(selectedCommand.value)])throw new Error('Resolved exported command required');
   const imported=importCommandRows(commands[String(selectedCommand.value)]),damageRows=imported.rows.filter(row=>row.Type==='BEActiveDamage');
   if(!damageRows.length||imported.rows.some(row=>row.Type!=='BEActiveDamage'&&/Damage/.test(row.Type)))throw new Error('At least one ordinary Active row and no competing damage effect required');
-  if(damageRows.some(row=>Object.keys(row).some(key=>!['id','Type','Target','Para','Cond','VFX','DelayTime'].includes(key))))throw new Error('Unsupported Active-damage row field');
+  if(damageRows.some(row=>Object.keys(row).some(key=>!['id','Type','Target','Para','Cond','VFX','DelayTime','PerformTarget'].includes(key))||(Object.hasOwn(row,'PerformTarget')&&!presentationTargets.has(row.PerformTarget))))throw new Error('Unsupported Active-damage row field');
   const args=dense(card.cardArgs,'Captured card arguments');
   if(args.some(value=>!Number.isFinite(value)))throw new Error('Captured card arguments must be finite');
   const variables=Object.fromEntries(args.map((value,i)=>[`Arg${i+1}`,value]));

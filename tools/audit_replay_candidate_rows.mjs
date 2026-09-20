@@ -6,7 +6,8 @@ import {importCommandRows} from '../engine/import-command-rows.mjs';
 
 const allowedFunctions=['CmdCaster.GetStateLayer','PlayerRole.GetStateLayer','UpperTarget.GetStateLayer','OwnerCard.GetStateLayer','CurCard.GetStateLayer','CmdCaster.GetPotencyLevel','CmdCaster.GetBreakSkillLevel','IsSuperUtlSkill','math.ceil','math.floor'];
 const allowedTargets=new Set(['UpperTarget','FrontEnemy','RandomEnemy','AllEnemy','MaxHpEnemy','MinHpEnemy','MaxHpAndBlockEnemy','MinHpAndBlockEnemy']);
-const allowedFields=new Set(['id','Type','Target','Para','Cond','VFX','DelayTime']);
+const allowedFields=new Set(['id','Type','Target','Para','Cond','VFX','DelayTime','PerformTarget']);
+const presentationTargets=new Set(['CmdTarget','EnemyFieldCenter']);
 const supportedTags=new Set(['Card_Strike','Card_Skill','Ulti_Skill','Card_AttachPost']);
 const leaves=(value,type)=>value&&typeof value==='object'?Object.values(value).flatMap(item=>leaves(item,type)):typeof value===type?[value]:[];
 
@@ -33,7 +34,7 @@ export function auditReplayCandidateRows(commands,skills,{sourceSha256=null}={})
     const rows=active.map(row=>{
       const blockers=[];
       const block=code=>{blockers.push(code);add(code);};
-      if(Object.keys(row).some(key=>!allowedFields.has(key)))block('ROW_FIELD');
+      if(Object.keys(row).some(key=>!allowedFields.has(key))||(Object.hasOwn(row,'PerformTarget')&&!presentationTargets.has(row.PerformTarget)))block('ROW_FIELD');
       if(!allowedTargets.has(row.Target))block('TARGET_SELECTOR');
       try{compileNumericCommand(row.Para,{allowedFunctions,allowLogicalNumeric:true});}catch{block('PARAMETER_EXPRESSION');}
       if(Object.hasOwn(row,'Cond')){
