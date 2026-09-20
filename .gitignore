@@ -12,4 +12,5 @@ tmp/
 tools/check_bundle_header.py
 tools/derive_bundle_key.py
 tools/local_bundle_key.py
+output/share/*.bundle
 __pycache__/
