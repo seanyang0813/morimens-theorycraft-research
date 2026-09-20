@@ -38,7 +38,7 @@ def build_replay_index(artifact,catalog):
             elif event_name in STATE_EVENTS:state_events.append(row)
             elif event_name=='UseCard':card_uses.append(row)
             elif event_name=='BeHit':hits.append(row)
-    boundary_issues=[];action_snapshots=[];roles={};cards={};states={}
+    boundary_issues=[];action_snapshots=[];hit_snapshots=[];roles={};cards={};states={}
     for row in unknown_commands:boundary_issues.append({'code':'UNKNOWN_COMMAND',**row})
     if len(initializations)!=1:boundary_issues.append({'code':'INIT_COUNT','count':len(initializations)})
     else:
@@ -102,13 +102,27 @@ def build_replay_index(artifact,catalog):
             elif name=='UseCard':
                 active_states=[copy.deepcopy(state) for state in states.values() if not state.get('isDeleted')]
                 action_snapshots.append({'actionIndex':len(action_snapshots),'recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'time':event['frameTime'] if event['frameTime'] is not None else event['recordTime'],'cardUid':data.get('cardUid'),'camp':data.get('camp'),'roles':copy.deepcopy(roles),'cards':copy.deepcopy(cards),'activeStates':active_states,'boundaryStatus':'COMPLETE' if not boundary_issues else 'INCOMPLETE','boundaryIssueCount':len(boundary_issues)})
+            elif name=='BeHit':
+                role_uid=data.get('roleUid');config=data.get('beHitConfig');role=roles.get(str(role_uid));issues=[]
+                if role is None or not isinstance(config,dict):issues.append({'code':'MALFORMED_HIT_SNAPSHOT','recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'roleUid':role_uid})
+                else:
+                    properties=role.get('properties')
+                    if not isinstance(properties,dict) or not isinstance(config.get('oldHp'),(int,float)) or not isinstance(config.get('blockLose'),(int,float)) or not isinstance(properties.get('block'),(int,float)):
+                        issues.append({'code':'MISSING_HIT_PRESTATE','recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'roleUid':role_uid})
+                snapshot_roles=copy.deepcopy(roles)
+                if not issues:
+                    target_properties=snapshot_roles[str(role_uid)]['properties'];target_properties['hp']=config['oldHp'];target_properties['block']=target_properties['block']+config['blockLose']
+                active_states=[copy.deepcopy(state) for state in states.values() if not state.get('isDeleted')]
+                hit_snapshots.append({'hitIndex':len(hit_snapshots),'recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'time':event['frameTime'] if event['frameTime'] is not None else event['recordTime'],'roleUid':role_uid,'roles':snapshot_roles,'cards':copy.deepcopy(cards),'activeStates':active_states,'hitData':copy.deepcopy(data),'boundaryStatus':'COMPLETE' if not boundary_issues and not issues else 'INCOMPLETE','boundaryIssueCount':len(boundary_issues)+len(issues),'boundaryIssues':issues,
+                  'reconstruction':{'targetHp':'beHitConfig.oldHp','targetBlock':'post-event target block + beHitConfig.blockLose','otherProperties':'latest serialized/property-change values before BeHit record'}})
     for index,action in enumerate(action_snapshots):
         start=(action['recordIndex'],action['frameIndex']);next_action=action_snapshots[index+1] if index+1<len(action_snapshots) else None;end=(next_action['recordIndex'],next_action['frameIndex']) if next_action else None
         in_window=lambda record_index,frame_index=-1:(record_index,frame_index)>start and (end is None or (record_index,frame_index)<end)
         action['window']={'events':[copy.deepcopy(row) for row in events if in_window(row['recordIndex'],row['frameIndex'])],'commandResults':[copy.deepcopy(row) for row in command_results if in_window(row['recordIndex'])]}
         action['window']['selectedTargetCommands']=[row for row in action['window']['commandResults'] if row['commandName']=='lg_SelectTargets']
         action['window']['hits']=[row for row in action['window']['events'] if row['eventName']=='BeHit']
+        action['window']['hitSnapshots']=[copy.deepcopy(row) for row in hit_snapshots if in_window(row['recordIndex'],row['frameIndex'])]
     return {'schemaVersion':1,'kind':'MORIMENS_REPLAY_EVENT_INDEX','build':catalog['build'],'inputSha256':artifact.get('inputSha256'),'protocolSourceHashes':copy.deepcopy(catalog.get('sourceHashes',{})),'battleDat':copy.deepcopy(artifact['decoded'].get('battleDat')),
       'counts':{'records':len(records),'events':len(events),'commands':dict(sorted(command_counts.items())),'renderEvents':dict(sorted(event_counts.items()))},'initializations':initializations,'events':events,'commandResults':command_results,'propertyChanges':property_changes,'stateEvents':state_events,'cardUses':card_uses,'hits':hits,'unknownCommands':unknown_commands,'unknownEvents':unknown_events,
-      'actionSnapshots':action_snapshots,'snapshotBoundaryStatus':'COMPLETE' if not boundary_issues and len(initializations)==1 else 'INCOMPLETE','snapshotBoundaryIssues':boundary_issues,
-      'limitations':['UseCard snapshot occurs after card energy payment and before BeforeUseCard triggers, matching original BEBeforeUseCard order','Action windows end at the next UseCard; nested/triggered actions and overlapping timelines still require evidence review','Command base value/tags and exact hit-to-row binding remain unresolved','Recorded critical result is post-outcome evidence and cannot freeze an uncertain holdout','No gameplay claim until an actual replay is decoded and reviewed']}
+      'actionSnapshots':action_snapshots,'hitSnapshots':hit_snapshots,'snapshotBoundaryStatus':'COMPLETE' if not boundary_issues and len(initializations)==1 else 'INCOMPLETE','snapshotBoundaryIssues':boundary_issues,
+      'limitations':['UseCard snapshot occurs after card energy payment and before BeforeUseCard triggers, matching original BEBeforeUseCard order','BeHit is recorded after shield/HP mutation; damage-input snapshots restore target hp from oldHp and target block from post-event block plus blockLose','Action windows end at the next UseCard; nested/triggered actions and overlapping timelines still require evidence review','Command base value/tags and exact hit-to-row binding remain unresolved','Recorded critical result is post-outcome evidence and cannot freeze an uncertain holdout','No gameplay claim until an actual replay is decoded and reviewed']}

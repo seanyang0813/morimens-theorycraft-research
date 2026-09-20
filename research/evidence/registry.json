@@ -72,14 +72,21 @@
     {
       "id": "PC144:ReplayActionCandidate",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
-      "claim": "A complete card-use replay boundary can bind the serialized card owner, same-camp player, selected monster, live property maps, active target states, skill tags, command row and resolved card arguments into a strict retrospective Active-hit regression candidate",
+      "claim": "A complete card-use replay boundary and reconstructed damage-input hit snapshot can bind the serialized card owner, same-camp player, selected monster, live property maps, active target states, skill tags, command row and resolved card arguments into a strict retrospective Active-hit regression candidate",
       "sources": [
         {
           "module": "BattleUnitBase",
-          "member": "Serialize",
+          "member": "Serialize,BeHit",
           "bundle": "pc\\downloaded\\share.ab",
           "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BattleUnitUtil",
+          "member": "CalcBlockedDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b664734d7f12a5009b36727d2c3dfde75295b6e2be03edb37c3cf98ee74a1d04",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-2996011540817531336_BattleUnitUtil.lua"
         },
         {
           "module": "BattleCardServer",
@@ -94,6 +101,13 @@
           "bundle": "pc\\downloaded\\share.ab",
           "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6839215435199190924_BattleStateServer.lua"
+        },
+        {
+          "module": "BattleRecord",
+          "member": "OnBeHit",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "aee64145e334f212666d259b6960d16e9a2b9bec751fee9fdba46fa63b8febf1",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\8168586524479805375_BattleRecord.lua"
         },
         {
           "module": "BattleEngine",
@@ -132,9 +146,10 @@
         }
       ],
       "tests": [
+        "tests/replay-index.test.mjs",
         "tests/replay-action-candidate.test.mjs"
       ],
-      "scope": "Authored fail-closed adapter supports one direct PvE Awakener Active hit, one selected monster, one unconditional damage row, optional post-damage energy rows, complete live property maps and no recorded pre-hit mutations. It excludes observed damage/crit from prediction inputs. No real replay decoded, trigger graph execution, blind holdout or gameplay validation",
+      "scope": "Authored fail-closed adapter supports one direct PvE Awakener Active hit, one selected monster, one unconditional damage row, optional post-damage energy rows and complete live property maps. Target HP/block are restored from explicit BeHit oldHp/blockLose after their recorded mutations, allowing other recorded pre-hit changes. It excludes observed damage/crit from prediction inputs. No real replay decoded, trigger graph execution, blind holdout or gameplay validation",
       "gameplayValidation": false
     },
     {

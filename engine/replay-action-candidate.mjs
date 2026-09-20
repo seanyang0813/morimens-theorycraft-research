@@ -7,7 +7,6 @@ const build='pc-res144-build51';
 const roleType={Awaker:1,Monster:2,Player:3};
 const supportedTags=new Set(['Card_Strike','Card_Skill','Ulti_Skill','Card_AttachPost']);
 const instructionTags=new Set(['Card_Strike','Card_Skill','Card_Defend','Card_Extend']);
-const mutationEvents=new Set(['PropertyChanged','AddState','ChangeStateLayer','DelState','AddCardState','ChangeCardStateLayer','CardArgsChange','SkillArgsChange','SilverKeyAwakeArgsChange','SetCardAttribute','ChangeCardId']);
 
 function dense(value,label){
   if(Array.isArray(value)){
@@ -31,16 +30,20 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
   if(!index||index.kind!=='MORIMENS_REPLAY_EVENT_INDEX'||index.build!==build||!Number.isSafeInteger(actionIndex)||actionIndex<0||!skills||!commands||!monsters)throw new Error('Explicit PC144 replay index, action and config catalogs required');
   const action=index.actionSnapshots?.[actionIndex];
   if(!action||action.actionIndex!==actionIndex||action.boundaryStatus!=='COMPLETE')throw new Error('Complete indexed card-use boundary required');
-  const card=action.cards?.[String(action.cardUid)];
-  if(!card||!Number.isSafeInteger(card.tid)||!Number.isSafeInteger(card.ownerUid)||card.camp!==action.camp)throw new Error('Played card identity, owner and camp required');
-  const caster=action.roles?.[String(card.ownerUid)];
+  const playedCard=action.cards?.[String(action.cardUid)];
+  if(!playedCard||!Number.isSafeInteger(playedCard.tid)||!Number.isSafeInteger(playedCard.ownerUid)||playedCard.camp!==action.camp)throw new Error('Played card identity, owner and camp required');
+  const hitSnapshot=exactOne(action.window?.hitSnapshots??[],'Damage-input hit snapshot');
+  if(hitSnapshot.boundaryStatus!=='COMPLETE')throw new Error('Complete reconstructed damage-input boundary required');
+  const card=hitSnapshot.cards?.[String(action.cardUid)];
+  if(!card||card.tid!==playedCard.tid||card.ownerUid!==playedCard.ownerUid||card.camp!==playedCard.camp)throw new Error('Played card identity changed before the hit');
+  const caster=hitSnapshot.roles?.[String(card.ownerUid)];
   if(!caster||caster.roleType!==roleType.Awaker||caster.camp!==card.camp)throw new Error('Played card must resolve to its captured Awakener owner');
-  const player=exactOne(Object.values(action.roles).filter(row=>row?.roleType===roleType.Player&&row.camp===card.camp),'Same-camp player');
+  const player=exactOne(Object.values(hitSnapshot.roles).filter(row=>row?.roleType===roleType.Player&&row.camp===card.camp),'Same-camp player');
   const selections=action.window?.selectedTargetCommands??[];
   const selection=exactOne(selections,'Recorded target-selection command');
   const selectedUids=dense(selection.data?.uids,'Selected target UIDs');
   const targetUid=exactOne(selectedUids,'Selected target');
-  const target=action.roles?.[String(targetUid)];
+  const target=hitSnapshot.roles?.[String(targetUid)];
   if(!target||target.roleType!==roleType.Monster||target.camp===card.camp||!Number.isSafeInteger(target.tid))throw new Error('Single captured enemy monster target required');
   const monster=monsters[String(target.tid)];
   if(!monster||typeof monster.BattleTag!=='string'||!monster.BattleTag)throw new Error('Captured target MonsterConfig BattleTag required');
@@ -79,14 +82,11 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
   if(!Number.isFinite(skillArgsPlus))throw new Error('Resolved finite ParaPlus value required');
   const tags=dense(skill.Type,'Skill type tags');
   if(!tags.length||tags.some(tag=>!supportedTags.has(tag))||new Set(tags).size!==tags.length)throw new Error('Unique supported skill tags required');
-  const targetStateIds=[...new Set((action.activeStates??[]).filter(state=>state?.ownerUid===targetUid&&!state.isDeleted).map(state=>state.stateId))];
+  const targetStateIds=[...new Set((hitSnapshot.activeStates??[]).filter(state=>state?.ownerUid===targetUid&&!state.isDeleted).map(state=>state.stateId))];
   if(targetStateIds.some(id=>!Number.isSafeInteger(id)||id<=0))throw new Error('Captured positive target state IDs required');
-  const firstHitPosition=(action.window?.events??[]).findIndex(event=>event.eventName==='BeHit');
-  if(firstHitPosition<0)throw new Error('Recorded hit required for regression action binding');
-  const preHitMutations=action.window.events.slice(0,firstHitPosition).filter(event=>mutationEvents.has(event.eventName));
-  if(preHitMutations.length)throw new Error('Pre-hit property, state, card or argument mutations require connected trigger execution');
   const hits=action.window.hits??[];
   const hit=exactOne(hits,'Action-window hit');
+  if(hit.recordIndex!==hitSnapshot.recordIndex||hit.frameIndex!==hitSnapshot.frameIndex)throw new Error('Hit snapshot does not match the action-window hit');
   if(hit.data?.roleUid!==targetUid)throw new Error('Recorded hit target must match selected target');
   const observed=hit.data.beHitConfig??{};
   if(observed.castRoleUid!==undefined&&observed.castRoleUid!==caster.uid)throw new Error('Recorded hit caster does not match card owner');
@@ -96,6 +96,8 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
     cardContext:{present:true,instructionCard:tags.some(tag=>instructionTags.has(tag)),stateTriggerAdd:false},targetContext:{critRoll,targetBattleTag:monster.BattleTag,targetStateIds}};
   let calculation=null,calculationBlocker=null;
   try{calculation=calculateSnapshotActiveDamage(scenario);}catch(error){if(error.message==='RNG-dependent critical outcome requires a captured pre-outcome roll')calculationBlocker=error.message;else throw error;}
+  const observedCastDamage=Number.isFinite(observed.castDamage)?observed.castDamage:null;
+  const comparison=calculation&&observedCastDamage!==null?{metric:'preHitDamage-vs-beHitConfig.castDamage',predicted:calculation.preHitDamage,observed:observedCastDamage,difference:calculation.preHitDamage-observedCastDamage}:null;
   return {schemaVersion:1,kind:'MORIMENS_REPLAY_ACTION_REGRESSION_CANDIDATE',build,status:calculation?'CALCULATED_REGRESSION_CANDIDATE':'PREOUTCOME_INPUT_REQUIRED',actionIndex,identities:{cardUid:card.uid,skillId:card.tid,casterUid:caster.uid,playerUid:player.uid,targetUid,commandId:selectedCommand.value,rowId:row.id},routing:{selectedCommand,importMetadata:imported.metadata,parameters,plusValues,tags},scenario,calculation,calculationBlocker,
-    observedHit:JSON.parse(JSON.stringify(hit)),unresolvedDependencies:['Retrospective replay evidence cannot become a blind holdout','Action window and identity still require human review for triggered or overlapping actions','Observed hit and post-outcome critical fields are excluded from scenario construction','No connected original card-use, trigger graph, hit resolution or independent gameplay validation']};
+    damageInputReconstruction:JSON.parse(JSON.stringify(hitSnapshot.reconstruction)),observedHit:JSON.parse(JSON.stringify(hit)),comparison,unresolvedDependencies:['Retrospective replay evidence cannot become a blind holdout','Action window and identity still require human review for triggered or overlapping actions','Observed hit and post-outcome critical fields are excluded from scenario construction','Target HP and block are reconstructed from explicit BeHit fields because the render record follows their mutations','No connected original card-use, trigger graph, hit resolution or independent gameplay validation']};
 }
