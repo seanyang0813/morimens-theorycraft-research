@@ -20,6 +20,19 @@ class ObservationAuditTests(unittest.TestCase):
         self.assertFalse(audit_observation({**self.row(),'holdout':True})['eligibleForReview'])
         result=audit_observation({**self.row(),'holdout':True,'predictionFrozenBeforeOutcomeEvidence':'trust me'})
         self.assertTrue(any(reason.startswith('Holdout freeze:') for reason in result['reasons']))
+    def test_holdout_freeze_checks_format_and_pre_outcome_hashes(self):
+        with tempfile.TemporaryDirectory(dir=ROOT) as directory:
+            directory=Path(directory);evidence=directory/'prehit.txt';evidence.write_text('before',encoding='utf-8')
+            prediction={'scenarioFile':'unused.json','scenarioSha256':'0'*64,'runtimeFingerprint':'0'*64,'metric':'preHitDamage'}
+            frozen={'schemaVersion':1,'kind':'MORIMENS_PREDICTION_FREEZE','prediction':prediction,'predictedDamage':100,'beforeOutcomeEvidence':[{'path':str(evidence.relative_to(ROOT)),'sha256':hashlib.sha256(evidence.read_bytes()).hexdigest()}]}
+            freeze=directory/'freeze.json';freeze.write_text(json.dumps(frozen),encoding='utf-8')
+            proof={'path':str(freeze.relative_to(ROOT)),'sha256':hashlib.sha256(freeze.read_bytes()).hexdigest()}
+            row={**self.row(),'holdout':True,'prediction':prediction,'predictionFrozenBeforeOutcomeEvidence':proof}
+            result=audit_observation(row)
+            self.assertFalse(any(reason.startswith('Holdout freeze:') for reason in result['reasons']))
+            evidence.write_text('after',encoding='utf-8')
+            result=audit_observation(row)
+            self.assertIn('Holdout freeze: Pre-outcome evidence hash mismatch',result['reasons'])
     def test_no_implicit_tolerance(self):
         result=audit_observation({**self.row(),'predictedDamage':101})
         self.assertEqual(result['difference'],1)

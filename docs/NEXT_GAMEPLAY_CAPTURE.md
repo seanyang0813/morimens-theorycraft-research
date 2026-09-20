@@ -7,7 +7,7 @@ The next capture should resolve one high-difficulty action before expanding cove
 1. Establish the recorded combat build, or use a fresh controlled battle with known build. The viewing-client build alone does not prove the replay's formula version.
 2. Record difficulty, target identity, exact HP/shield and all relevant target states, particularly Old Embers, Vulnerable, immunity and caps. Abbreviated HP labels cannot validate integer HP loss.
 3. Record the attacker/card identity and level, final ATK/STR/crit values, equipment/talents, realm mastery/Prism/Beacon, team amplification and any flat Strike buff immediately before the action. Resolve copied-card ownership and preceding pursuit/Wheel counters.
-4. Select a deterministic isolated action. Confirm hit count and critical eligibility from evidence, not the desired output. Predict with the frozen engine and save inputs and engine hash before inspecting the result.
+4. Select a deterministic isolated action. Confirm hit count and critical eligibility from evidence, not the desired output. Save the scenario and pre-action evidence, then run `tools/freeze_gameplay_prediction.mjs` before inspecting the result. The tool pins the scenario, runtime, prediction and evidence hashes and refuses overwrite.
 5. Capture displayed hit damage, statistics attribution, exact HP change and resource change separately. A match in one does not establish the others. Account for queued effects finishing after pause.
 6. Reconstruct a regression observation first. Reserve a new unseen result as a holdout; the already viewed replay outcomes cannot become blind holdouts retrospectively.
 

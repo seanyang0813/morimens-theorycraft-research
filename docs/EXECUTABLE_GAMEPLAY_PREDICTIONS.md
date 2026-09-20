@@ -17,4 +17,12 @@ The gate checks the scenario hash, executes the shared engine through tools/repl
 
 For a holdout, predictionFrozenBeforeOutcomeEvidence must be an object with path and sha256 pointing to a local JSON freeze record. That record must contain the identical prediction contract, predictedDamage, and beforeOutcomeEvidence identifying independent chronology evidence. Hash equality does not establish chronology: manual review must still prove the prediction existed before outcome inspection. A text assertion or a file without the matching contract is insufficient.
 
+Create that record before revealing or inspecting the outcome:
+
+```powershell
+node tools/freeze_gameplay_prediction.mjs --scenario research/observations/<case>/scenario.json --metric preHitDamage --evidence research/observations/<case>/pre-hit.png --output research/observations/<case>/prediction-freeze.json
+```
+
+The command verifies the prepared runtime, runs the exact scenario, hashes every input, and refuses to overwrite an existing freeze. Its printed `path` and `sha256` become the observation's `predictionFrozenBeforeOutcomeEvidence`. The gate independently checks the freeze, scenario, runtime, and every pre-outcome evidence hash. The screenshot or log must actually show the frozen pre-action state; hashes preserve bytes but do not prove chronology or relevance without manual review.
+
 The two existing saved observations remain incomplete and receive no validation credit. Synthetic audit regression tests exercise replay and tamper rejection but are never written into the real-observation collection. Exact replay only makes an observation eligible for evidence review; it cannot authorize publication or establish full mechanic coverage.

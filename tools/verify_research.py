@@ -56,9 +56,16 @@ def audit_observation(row):
             if not path.is_relative_to(ROOT) or not path.is_file():raise ValueError('Freeze evidence missing or outside workspace')
             if hashlib.sha256(path.read_bytes()).hexdigest()!=proof['sha256']:raise ValueError('Freeze evidence hash mismatch')
             frozen=json.loads(path.read_text(encoding='utf-8'))
+            if frozen.get('schemaVersion')!=1 or frozen.get('kind')!='MORIMENS_PREDICTION_FREEZE':raise ValueError('Unsupported prediction freeze format')
             if frozen.get('prediction')!=row.get('prediction'):raise ValueError('Frozen contract differs from replayed prediction contract')
             if frozen.get('predictedDamage')!=predicted:raise ValueError('Frozen predicted damage differs')
-            if not frozen.get('beforeOutcomeEvidence'):raise ValueError('Independent evidence of freeze timing missing')
+            before=frozen.get('beforeOutcomeEvidence')
+            if not isinstance(before,list) or not before:raise ValueError('Independent evidence of freeze timing missing')
+            for item in before:
+                evidence_path=(ROOT/item['path']).resolve()
+                if not evidence_path.is_relative_to(ROOT) or not evidence_path.is_file():raise ValueError('Pre-outcome evidence missing or outside workspace')
+                if hashlib.sha256(evidence_path.read_bytes()).hexdigest()!=item['sha256']:raise ValueError('Pre-outcome evidence hash mismatch')
+                hashes.append({'path':item['path'],'sha256':item['sha256'],'purpose':'pre-outcome state; chronology requires manual review'})
             hashes.append({'path':proof['path'],'sha256':proof['sha256'],'purpose':'prediction freeze; chronology requires manual review'})
         except (KeyError,TypeError,ValueError,OSError) as error:reasons.append('Holdout freeze: '+str(error))
     return {'id':row.get('id'),'holdout':row.get('holdout') is True,'observed':observed,'predicted':predicted,'recomputed':recomputed,'difference':difference,'eligibleForReview':not reasons,'reasons':reasons,'evidenceFiles':hashes}
