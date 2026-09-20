@@ -18,7 +18,16 @@ test('replay card boundary becomes a calculated regression candidate without rea
 });
 
 test('replay adapter refuses ambiguity and uses reconstructed damage-input maps after mutations',()=>{
-  const target=fixture();target.index.actionSnapshots[0].window.selectedTargetCommands[0].data.uids.push(3);assert.throws(()=>buildReplayActionCandidate({...target,actionIndex:0}),/exactly once/);
+  const target=fixture();target.index.actionSnapshots[0].window.selectedTargetCommands[0].data.uids.push(3);assert.throws(()=>buildReplayActionCandidate({...target,actionIndex:0}),/selected target/);
   const mutation=fixture();mutation.index.actionSnapshots[0].window.events.unshift({recordIndex:4,frameIndex:1,eventName:'PropertyChanged',data:{uid:1,propertyType:'crit_damage',value:200}});mutation.index.actionSnapshots[0].window.hitSnapshots[0].roles['1'].properties.crit_damage=200;
   assert.equal(buildReplayActionCandidate({...mutation,actionIndex:0}).calculation.preHitDamage,300);
+});
+
+test('replay adapter selects one conditional damage row from captured live state',()=>{
+  const input=fixture(),action=input.index.actionSnapshots[0],snapshot=action.window.hitSnapshots[0];
+  input.commands['20']={data_list:{1:{Type:'BEAddState',Target:'CmdCaster',Para:'99,2'},2:{Type:'BEActiveDamage',Target:'UpperTarget',Para:'Arg1',Cond:'CmdCaster.GetStateLayer(99)==0',VFX:{1:7}},3:{Type:'BEActiveDamage',Target:'UpperTarget',Para:'Arg1*2',Cond:'CmdCaster.GetStateLayer(99)>0',DelayTime:'cast'}}};
+  snapshot.activeStates=[{ownerUid:1,stateId:99,layer:2,isDeleted:false}];
+  action.window.hits[0].data.beHitConfig.castDamage=500;action.window.events[0].data.beHitConfig.castDamage=500;
+  const result=buildReplayActionCandidate({...input,actionIndex:0});
+  assert.equal(result.identities.rowId,'3');assert.equal(result.scenario.baseValue,200);assert.equal(result.calculation.preHitDamage,500);assert.deepEqual(result.routing.rowSelection.map(item=>item.condition?.passed),[false,true]);
 });

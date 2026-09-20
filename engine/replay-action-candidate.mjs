@@ -1,7 +1,8 @@
 import {calculateSnapshotActiveDamage} from './battle-property-snapshot-damage.mjs';
-import {compileNumericCommand} from './command-expressions.mjs';
+import {compileNumericCommand,compileCommandCondition} from './command-expressions.mjs';
 import {importCommandRows} from './import-command-rows.mjs';
 import {resolveScalarSkillField} from './skill-field.mjs';
+import {getLiveStateLayer} from './live-state-lookup.mjs';
 
 const build='pc-res144-build51';
 const roleType={Awaker:1,Monster:2,Player:3};
@@ -39,10 +40,9 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
   const caster=hitSnapshot.roles?.[String(card.ownerUid)];
   if(!caster||caster.roleType!==roleType.Awaker||caster.camp!==card.camp)throw new Error('Played card must resolve to its captured Awakener owner');
   const player=exactOne(Object.values(hitSnapshot.roles).filter(row=>row?.roleType===roleType.Player&&row.camp===card.camp),'Same-camp player');
-  const selections=action.window?.selectedTargetCommands??[];
-  const selection=exactOne(selections,'Recorded target-selection command');
-  const selectedUids=dense(selection.data?.uids,'Selected target UIDs');
-  const targetUid=exactOne(selectedUids,'Selected target');
+  const hits=action.window.hits??[],hit=exactOne(hits,'Action-window hit');
+  if(hit.recordIndex!==hitSnapshot.recordIndex||hit.frameIndex!==hitSnapshot.frameIndex)throw new Error('Hit snapshot does not match the action-window hit');
+  const targetUid=hit.data?.roleUid;
   const target=hitSnapshot.roles?.[String(targetUid)];
   if(!target||target.roleType!==roleType.Monster||target.camp===card.camp||!Number.isSafeInteger(target.tid))throw new Error('Single captured enemy monster target required');
   const monster=monsters[String(target.tid)];
@@ -55,28 +55,58 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
   const selectedCommand=resolveScalarSkillField({...routeInput,field:'CmdList'});
   if(!Number.isSafeInteger(selectedCommand.value)||!commands[String(selectedCommand.value)])throw new Error('Resolved exported command required');
   const imported=importCommandRows(commands[String(selectedCommand.value)]),damageRows=imported.rows.filter(row=>row.Type==='BEActiveDamage');
-  if(damageRows.length!==1)throw new Error('Exactly one ordinary Active-damage row required');
-  const damageIndex=imported.rows.findIndex(row=>row===damageRows[0]);
-  if(imported.rows.some((row,i)=>row.Type!=='BEActiveDamage'&&(row.Type!=='BEGainUltiEnergy'||i<damageIndex)))throw new Error('Only post-damage energy rows may accompany the supported hit');
-  const row=damageRows[0];
-  if(row.Target!=='UpperTarget'||Object.hasOwn(row,'Cond')||Object.keys(row).some(key=>!['id','Type','Target','Para'].includes(key)))throw new Error('Unconditional ordinary damage to UpperTarget required');
+  if(!damageRows.length||imported.rows.some(row=>row.Type!=='BEActiveDamage'&&/Damage/.test(row.Type)))throw new Error('At least one ordinary Active row and no competing damage effect required');
+  if(damageRows.some(row=>Object.keys(row).some(key=>!['id','Type','Target','Para','Cond','VFX','DelayTime'].includes(key))))throw new Error('Unsupported Active-damage row field');
   const args=dense(card.cardArgs,'Captured card arguments');
   if(args.some(value=>!Number.isFinite(value)))throw new Error('Captured card arguments must be finite');
   const variables=Object.fromEntries(args.map((value,i)=>[`Arg${i+1}`,value]));
+  const stateRegistry=new Map();
+  for(const state of hitSnapshot.activeStates??[]){
+    if(!Number.isSafeInteger(state?.ownerUid)||!Number.isSafeInteger(state?.stateId)||!Number.isFinite(state?.layer))throw new Error('Complete live state owner, ID and layer required');
+    const list=stateRegistry.get(state.ownerUid)??[];list.push({stateId:state.stateId,layer:state.layer,isDeleted:Boolean(state.isDeleted)});stateRegistry.set(state.ownerUid,list);
+  }
+  const functionOwners={'CmdCaster.GetStateLayer':caster.uid,'PlayerRole.GetStateLayer':player.uid,'UpperTarget.GetStateLayer':target.uid,'OwnerCard.GetStateLayer':card.uid,'CurCard.GetStateLayer':card.uid};
+  const allowedFunctions=[...Object.keys(functionOwners),'CmdCaster.GetPotencyLevel','CmdCaster.GetBreakSkillLevel','math.ceil','math.floor'];
+  const callFunction=(name,values)=>{
+    if(Object.hasOwn(functionOwners,name)){
+      if(values.length!==1||!Number.isSafeInteger(values[0]))throw new Error(`${name} requires one integer state ID`);
+      return getLiveStateLayer({registry:stateRegistry,ownerUid:functionOwners[name],stateId:values[0]});
+    }
+    if(name==='CmdCaster.GetPotencyLevel'){if(values.length)throw new Error('GetPotencyLevel takes no arguments');return potencyLevel;}
+    if(name==='CmdCaster.GetBreakSkillLevel'){if(values.length)throw new Error('GetBreakSkillLevel takes no arguments');return breakSkillLevel;}
+    if(name==='math.ceil'||name==='math.floor'){if(values.length!==1)throw new Error(`${name} requires one argument`);return name==='math.ceil'?Math.ceil(values[0]):Math.floor(values[0]);}
+    throw new Error(`Unsupported replay expression function ${name}`);
+  };
+  const readVariable=name=>{
+    if(Object.hasOwn(variables,name))return variables[name];
+    const separator=name.indexOf('.');
+    if(separator>0){
+      const owner=name.slice(0,separator),property=name.slice(separator+1),maps={CmdCaster:caster.properties,PlayerRole:player.properties,UpperTarget:target.properties,OwnerCard:card.properties,CurCard:card.properties};
+      if(Object.hasOwn(maps,owner))return maps[owner]?.[property];
+    }
+    return undefined;
+  };
   let plusValues=[];
   if(Object.hasOwn(skill,'ParaPlus')){
     const plus=resolveScalarSkillField({...routeInput,field:'ParaPlus'});
     if(plus.value!==null){
-      plusValues=compileNumericCommand(plus.value)((name)=>{
-        if(Object.hasOwn(variables,name))return variables[name];
-        const [owner,property]=name.split('.');
-        const maps={CmdCaster:caster.properties,PlayerRole:player.properties,UpperTarget:target.properties};
-        return maps[owner]?.[property];
-      }).values;
+      plusValues=compileNumericCommand(plus.value,{allowedFunctions})(readVariable,callFunction).values;
       plusValues.forEach((value,i)=>variables[`ParaPlus${i+1}`]=value);
     }
   }
-  const parameters=compileNumericCommand(row.Para)(name=>variables[name]).values;
+  const rowSelection=damageRows.map(row=>({row,condition:Object.hasOwn(row,'Cond')?compileCommandCondition(row.Cond,{allowedFunctions})(readVariable,callFunction):null}));
+  const eligibleRows=rowSelection.filter(item=>item.condition===null||item.condition.passed);
+  const selected=exactOne(eligibleRows,'Eligible ordinary Active-damage row'),row=selected.row;
+  if(!['UpperTarget','FrontEnemy','RandomEnemy','AllEnemy'].includes(row.Target))throw new Error('Supported replay target selector required');
+  const selections=action.window?.selectedTargetCommands??[];
+  if(selections.length>1)throw new Error('At most one recorded target-selection command is supported');
+  let targetBindingSource='recorded-hit';
+  if(selections.length){
+    const selectedUids=dense(selections[0].data?.uids,'Selected target UIDs');
+    if(selectedUids.length!==1||selectedUids[0]!==targetUid)throw new Error('Recorded selected target must match the hit target');
+    targetBindingSource='selected-target-command-and-recorded-hit';
+  }else if(row.Target==='UpperTarget')throw new Error('UpperTarget requires a recorded target-selection command');
+  const parameters=compileNumericCommand(row.Para,{allowedFunctions})(readVariable,callFunction).values;
   if(parameters.length>4||!Number.isFinite(parameters[0])||Math.ceil(parameters[1]??1)!==1||(parameters[2]??0)!==0)throw new Error('One ordinary zero-subtype Active hit required');
   const skillArgsPlus=parameters.length===4?parameters[3]:0;
   if(!Number.isFinite(skillArgsPlus))throw new Error('Resolved finite ParaPlus value required');
@@ -84,10 +114,6 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
   if(!tags.length||tags.some(tag=>!supportedTags.has(tag))||new Set(tags).size!==tags.length)throw new Error('Unique supported skill tags required');
   const targetStateIds=[...new Set((hitSnapshot.activeStates??[]).filter(state=>state?.ownerUid===targetUid&&!state.isDeleted).map(state=>state.stateId))];
   if(targetStateIds.some(id=>!Number.isSafeInteger(id)||id<=0))throw new Error('Captured positive target state IDs required');
-  const hits=action.window.hits??[];
-  const hit=exactOne(hits,'Action-window hit');
-  if(hit.recordIndex!==hitSnapshot.recordIndex||hit.frameIndex!==hitSnapshot.frameIndex)throw new Error('Hit snapshot does not match the action-window hit');
-  if(hit.data?.roleUid!==targetUid)throw new Error('Recorded hit target must match selected target');
   const observed=hit.data.beHitConfig??{};
   if(observed.castRoleUid!==undefined&&observed.castRoleUid!==caster.uid)throw new Error('Recorded hit caster does not match card owner');
   if(observed.skillConfigId!==undefined&&observed.skillConfigId!==card.tid)throw new Error('Recorded hit skill does not match played card');
@@ -98,6 +124,6 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
   try{calculation=calculateSnapshotActiveDamage(scenario);}catch(error){if(error.message==='RNG-dependent critical outcome requires a captured pre-outcome roll')calculationBlocker=error.message;else throw error;}
   const observedCastDamage=Number.isFinite(observed.castDamage)?observed.castDamage:null;
   const comparison=calculation&&observedCastDamage!==null?{metric:'preHitDamage-vs-beHitConfig.castDamage',predicted:calculation.preHitDamage,observed:observedCastDamage,difference:calculation.preHitDamage-observedCastDamage}:null;
-  return {schemaVersion:1,kind:'MORIMENS_REPLAY_ACTION_REGRESSION_CANDIDATE',build,status:calculation?'CALCULATED_REGRESSION_CANDIDATE':'PREOUTCOME_INPUT_REQUIRED',actionIndex,identities:{cardUid:card.uid,skillId:card.tid,casterUid:caster.uid,playerUid:player.uid,targetUid,commandId:selectedCommand.value,rowId:row.id},routing:{selectedCommand,importMetadata:imported.metadata,parameters,plusValues,tags},scenario,calculation,calculationBlocker,
+  return {schemaVersion:1,kind:'MORIMENS_REPLAY_ACTION_REGRESSION_CANDIDATE',build,status:calculation?'CALCULATED_REGRESSION_CANDIDATE':'PREOUTCOME_INPUT_REQUIRED',actionIndex,identities:{cardUid:card.uid,skillId:card.tid,casterUid:caster.uid,playerUid:player.uid,targetUid,commandId:selectedCommand.value,rowId:row.id},routing:{selectedCommand,importMetadata:imported.metadata,rowSelection:rowSelection.map(item=>({rowId:item.row.id,target:item.row.Target,condition:item.condition})),targetBindingSource,parameters,plusValues,tags},scenario,calculation,calculationBlocker,
     damageInputReconstruction:JSON.parse(JSON.stringify(hitSnapshot.reconstruction)),observedHit:JSON.parse(JSON.stringify(hit)),comparison,unresolvedDependencies:['Retrospective replay evidence cannot become a blind holdout','Action window and identity still require human review for triggered or overlapping actions','Observed hit and post-outcome critical fields are excluded from scenario construction','Target HP and block are reconstructed from explicit BeHit fields because the render record follows their mutations','No connected original card-use, trigger graph, hit resolution or independent gameplay validation']};
 }

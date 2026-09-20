@@ -62,8 +62,8 @@
     {
       "id": "PC144:ReplayActionCandidate",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
-      "claim": "A complete card-use replay boundary and reconstructed damage-input hit snapshot can bind the serialized card owner, same-camp player, selected monster, live property maps, active target states, skill tags, command row and resolved card arguments into a strict retrospective Active-hit regression candidate",
-      "scope": "Authored fail-closed adapter supports one direct PvE Awakener Active hit, one selected monster, one unconditional damage row, optional post-damage energy rows and complete live property maps. Target HP/block are restored from explicit BeHit oldHp/blockLose after their recorded mutations, allowing other recorded pre-hit changes. It excludes observed damage/crit from prediction inputs. No real replay decoded, trigger graph execution, blind holdout or gameplay validation",
+      "claim": "A complete card-use replay boundary and reconstructed damage-input hit snapshot can bind the serialized card owner, same-camp player, hit monster, live property maps, active states, skill tags, condition-selected command row and resolved card arguments into a strict retrospective Active-hit regression candidate",
+      "scope": "Authored fail-closed adapter supports one direct PvE Awakener Active hit, one monster and exactly one eligible ordinary damage row. Conditions/parameters support captured role/card state layers, potency/breakthrough, live properties and ceil/floor; unresolved bindings and competing damage effects fail. Target HP/block are restored from explicit BeHit oldHp/blockLose after their recorded mutations. Observed damage/crit stay outside prediction inputs. No real replay decoded, trigger graph execution, blind holdout or gameplay validation",
       "gameplayValidation": false,
       "sources": [
         {
@@ -95,6 +95,11 @@
           "module": "BattleEngine",
           "member": "lg_SelectTargets",
           "sha256": "0ee07c8fd06f29787f8139306b55d16c726eaf8cabcd1ad0b128d907c8dbbeea"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "CheckCondition,GetValueListByCmd",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b"
         },
         {
           "module": "BEActiveDamage",
