@@ -1,0 +1,36 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {webcrypto} from 'node:crypto';
+import {loadVerifiedRuntime} from '../website/dist/verified-runtime.mjs';
+import {verifyRuntimeManifest} from '../tools/verify_runtime_manifest.mjs';
+const fetchFile=async path=>({ok:true,arrayBuffer:async()=>readFileSync(new URL('../website/dist/'+path,import.meta.url))});
+const options={fetchFile,digest:bytes=>webcrypto.subtle.digest('SHA-256',bytes),makeUrl:source=>'data:text/javascript;base64,'+Buffer.from(source).toString('base64'),revokeUrl:()=>{}};
+test('browser loader executes checked module bytes with the CLI runtime fingerprint',async()=>{
+  const runtime=await loadVerifiedRuntime(options);assert.equal(runtime.runtimeFingerprint,verifyRuntimeManifest());
+  const build='pc-res144-build51',timeline={schemaVersion:1,build,interveningEffects:'assumed-absent',target:{hp:1000,block:0},steps:[{id:'one',immune:false,puncture:false,scenario:{build,mode:'experimental',damageType:'PURE',effect:{build,category:'PURE',targetDead:false,baseDamage:10}}}]};
+  assert.equal(runtime.runResearchTimeline(timeline).modeledHpLost,10);
+  const actions=runtime.syntheticCardActionExample();
+  assert.equal(runtime.runCardActionTimeline(actions).modeledHpLost,500);
+  actions.steps.reverse();assert.equal(runtime.runCardActionTimeline(actions).completed,false);
+  const mixed=runtime.runDamageEnergyCommand(runtime.syntheticDamageEnergyExample());
+  assert.equal(mixed.modeledHpLost,120);assert.equal(mixed.casterEnergyAfter,100);
+  const states=runtime.syntheticStateSequenceExample();
+  assert.equal(runtime.runStateSequenceExperiment(states).modeledHpLost,520);
+  [states.steps[0],states.steps[1]]=[states.steps[1],states.steps[0]];
+  assert.equal(runtime.runStateSequenceExperiment(states).modeledHpLost,550);
+  const queried=runtime.syntheticStateSequenceExample();
+  queried.stateQueries={'CmdCaster.GetStateLayer':{liveOwner:'actor'}};
+  queried.definitions=[{id:90001,owner:'actor',maximum:'10',properties:[],skillLevel:1,caster:1,specialValue:0,banned:false}];
+  queried.steps=[{type:'addState',definitionId:90001,resolvedLayers:2},{type:'attack',rows:[{id:'state-hit',Type:'BEActiveDamage',Target:'UpperTarget',Para:'100+CmdCaster.GetStateLayer(90001)*10',Cond:'CmdCaster.GetStateLayer(90001)>0'}]}];
+  assert.equal(runtime.runStateSequenceExperiment(queried).modeledHpLost,120);
+  queried.steps.push({type:'removeState',definitionId:90001},queried.steps[1]);
+  const removed=runtime.runStateSequenceExperiment(queried);assert.equal(removed.modeledHpLost,120);assert.equal(removed.trace[3].result.hits.length,0);
+  const saved=runtime.compareTimelines({schemaVersion:1,kind:'morimens-timeline-comparison',baseline:timeline,candidate:timeline},{runtimeFingerprint:runtime.runtimeFingerprint});
+  assert.equal(saved.reproducibility,'RUNTIME_PINNED');assert.equal(saved.modeledHpLostDelta,0);
+});
+test('changed bytes fail verification before any engine import',async()=>{
+  let imported=false;
+  await assert.rejects(()=>loadVerifiedRuntime({...options,fetchFile:async path=>path==='engine/research-timeline.mjs'?{ok:true,arrayBuffer:async()=>new TextEncoder().encode('changed')}:fetchFile(path),importModule:async()=>{imported=true;return {};}}),/Runtime asset changed/);
+  assert.equal(imported,false);
+});

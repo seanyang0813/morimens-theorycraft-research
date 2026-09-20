@@ -1,0 +1,2909 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original effect __DoMultiEffect; explicit property and dimension adapters; intercepted BeHit; no HP, events, or statistics",
+  "sourceHashes": {
+    "BEPureDamage": "1a8c11026251e91c3d5f9838f8c69dffabf91ba6889ab27dc4893fd8a93771bc",
+    "BattleEffectServer": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e"
+  },
+  "fixtures": [
+    {
+      "id": "pure-0",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "pure-1",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": true
+      },
+      "expected": null
+    },
+    {
+      "id": "pure-2",
+      "input": {
+        "baseDamage": -150,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": null
+    },
+    {
+      "id": "pure-3",
+      "input": {
+        "baseDamage": -100,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": null
+    },
+    {
+      "id": "pure-4",
+      "input": {
+        "baseDamage": -99.9,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": null
+    },
+    {
+      "id": "pure-5",
+      "input": {
+        "baseDamage": -0.1,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": null
+    },
+    {
+      "id": "pure-6",
+      "input": {
+        "baseDamage": 0,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": null
+    },
+    {
+      "id": "pure-7",
+      "input": {
+        "baseDamage": 0.1,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "pure-8",
+      "input": {
+        "baseDamage": 1,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "pure-9",
+      "input": {
+        "baseDamage": 33.333,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 34.0
+    },
+    {
+      "id": "pure-10",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "pure-11",
+      "input": {
+        "baseDamage": 1000,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 1000.0
+    },
+    {
+      "id": "pure-12",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "pure-13",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "pure-14",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": -99.9,
+        "targetDead": false
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "pure-15",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": -0.1,
+        "targetDead": false
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "pure-16",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "pure-17",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0.1,
+        "targetDead": false
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "pure-18",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 1,
+        "targetDead": false
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "pure-19",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 33.333,
+        "targetDead": false
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "pure-20",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "pure-21",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 1000,
+        "targetDead": false
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "pure-22",
+      "input": {
+        "baseDamage": 87062.20371498246,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 87063.0
+    },
+    {
+      "id": "pure-23",
+      "input": {
+        "baseDamage": 18963.60033739913,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 18964.0
+    },
+    {
+      "id": "pure-24",
+      "input": {
+        "baseDamage": 86766.49835430927,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 86767.0
+    },
+    {
+      "id": "pure-25",
+      "input": {
+        "baseDamage": 37847.906020432405,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 37848.0
+    },
+    {
+      "id": "pure-26",
+      "input": {
+        "baseDamage": 72035.02049073883,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 72036.0
+    },
+    {
+      "id": "pure-27",
+      "input": {
+        "baseDamage": 6949.038235198329,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 6950.0
+    },
+    {
+      "id": "pure-28",
+      "input": {
+        "baseDamage": 70147.90124261261,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 70148.0
+    },
+    {
+      "id": "pure-29",
+      "input": {
+        "baseDamage": 98707.47215808077,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 98708.0
+    },
+    {
+      "id": "pure-30",
+      "input": {
+        "baseDamage": 86812.46013788099,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 86813.0
+    },
+    {
+      "id": "pure-31",
+      "input": {
+        "baseDamage": 54810.42938088606,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 54811.0
+    },
+    {
+      "id": "pure-32",
+      "input": {
+        "baseDamage": 50186.44509337989,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 50187.0
+    },
+    {
+      "id": "pure-33",
+      "input": {
+        "baseDamage": 75417.6986060523,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 75418.0
+    },
+    {
+      "id": "pure-34",
+      "input": {
+        "baseDamage": 99921.53701535719,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 99922.0
+    },
+    {
+      "id": "pure-35",
+      "input": {
+        "baseDamage": 53587.491910038545,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 53588.0
+    },
+    {
+      "id": "pure-36",
+      "input": {
+        "baseDamage": 92825.27668691525,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 92826.0
+    },
+    {
+      "id": "pure-37",
+      "input": {
+        "baseDamage": 12456.896939883944,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 12457.0
+    },
+    {
+      "id": "pure-38",
+      "input": {
+        "baseDamage": 43328.34455025512,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 43329.0
+    },
+    {
+      "id": "pure-39",
+      "input": {
+        "baseDamage": 18725.064034716313,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 18726.0
+    },
+    {
+      "id": "pure-40",
+      "input": {
+        "baseDamage": 42362.153394258035,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 42363.0
+    },
+    {
+      "id": "pure-41",
+      "input": {
+        "baseDamage": 56917.5556862637,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 56918.0
+    },
+    {
+      "id": "pure-42",
+      "input": {
+        "baseDamage": 20319.32057728712,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 20320.0
+    },
+    {
+      "id": "pure-43",
+      "input": {
+        "baseDamage": 73570.27846319911,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 73571.0
+    },
+    {
+      "id": "pure-44",
+      "input": {
+        "baseDamage": 6129.160694815303,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 6130.0
+    },
+    {
+      "id": "pure-45",
+      "input": {
+        "baseDamage": 52993.81070960865,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 52994.0
+    },
+    {
+      "id": "pure-46",
+      "input": {
+        "baseDamage": 69239.11501995445,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 69240.0
+    },
+    {
+      "id": "pure-47",
+      "input": {
+        "baseDamage": 19208.438376786904,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 19209.0
+    },
+    {
+      "id": "pure-48",
+      "input": {
+        "baseDamage": 71520.11631048919,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 71521.0
+    },
+    {
+      "id": "pure-49",
+      "input": {
+        "baseDamage": 91818.46576273716,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 91819.0
+    },
+    {
+      "id": "pure-50",
+      "input": {
+        "baseDamage": 80725.59361252899,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 80726.0
+    },
+    {
+      "id": "pure-51",
+      "input": {
+        "baseDamage": 4461.38378762736,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 4462.0
+    },
+    {
+      "id": "pure-52",
+      "input": {
+        "baseDamage": 28560.835447757712,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 28561.0
+    },
+    {
+      "id": "pure-53",
+      "input": {
+        "baseDamage": 41052.31831505561,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 41053.0
+    },
+    {
+      "id": "pure-54",
+      "input": {
+        "baseDamage": 18380.16992497238,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 18381.0
+    },
+    {
+      "id": "pure-55",
+      "input": {
+        "baseDamage": 724.2630995822094,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 725.0
+    },
+    {
+      "id": "pure-56",
+      "input": {
+        "baseDamage": 45292.912798021054,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 45293.0
+    },
+    {
+      "id": "pure-57",
+      "input": {
+        "baseDamage": 23155.873084054252,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 23156.0
+    },
+    {
+      "id": "pure-58",
+      "input": {
+        "baseDamage": 13473.57809665743,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 13474.0
+    },
+    {
+      "id": "pure-59",
+      "input": {
+        "baseDamage": 34461.67768452119,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 34462.0
+    },
+    {
+      "id": "pure-60",
+      "input": {
+        "baseDamage": 52189.26519791378,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 52190.0
+    },
+    {
+      "id": "pure-61",
+      "input": {
+        "baseDamage": 26391.126904012857,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 26392.0
+    },
+    {
+      "id": "pure-62",
+      "input": {
+        "baseDamage": 94780.87436998576,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 94781.0
+    },
+    {
+      "id": "pure-63",
+      "input": {
+        "baseDamage": 77018.31422875846,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 77019.0
+    },
+    {
+      "id": "pure-64",
+      "input": {
+        "baseDamage": 99761.9611820668,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 99762.0
+    },
+    {
+      "id": "pure-65",
+      "input": {
+        "baseDamage": 81179.6230761517,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 81180.0
+    },
+    {
+      "id": "pure-66",
+      "input": {
+        "baseDamage": 58074.0645687006,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 58075.0
+    },
+    {
+      "id": "pure-67",
+      "input": {
+        "baseDamage": 15425.042184072176,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 15426.0
+    },
+    {
+      "id": "pure-68",
+      "input": {
+        "baseDamage": 71960.7595331955,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 71961.0
+    },
+    {
+      "id": "pure-69",
+      "input": {
+        "baseDamage": 27575.915009306405,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 27576.0
+    },
+    {
+      "id": "pure-70",
+      "input": {
+        "baseDamage": 82409.42245487506,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 82410.0
+    },
+    {
+      "id": "pure-71",
+      "input": {
+        "baseDamage": 26331.433755073682,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 26332.0
+    },
+    {
+      "id": "pure-72",
+      "input": {
+        "baseDamage": 82775.77984496426,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 82776.0
+    },
+    {
+      "id": "pure-73",
+      "input": {
+        "baseDamage": 67955.71057108146,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 67956.0
+    },
+    {
+      "id": "pure-74",
+      "input": {
+        "baseDamage": 44618.47254403036,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 44619.0
+    },
+    {
+      "id": "pure-75",
+      "input": {
+        "baseDamage": 40301.687875289645,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 40302.0
+    },
+    {
+      "id": "pure-76",
+      "input": {
+        "baseDamage": 66578.51995420204,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 66579.0
+    },
+    {
+      "id": "pure-77",
+      "input": {
+        "baseDamage": 85318.57144617004,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 85319.0
+    },
+    {
+      "id": "pure-78",
+      "input": {
+        "baseDamage": 92992.74281103474,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 92993.0
+    },
+    {
+      "id": "pure-79",
+      "input": {
+        "baseDamage": 6370.264365207784,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 6371.0
+    },
+    {
+      "id": "pure-80",
+      "input": {
+        "baseDamage": 64829.7544133179,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 64830.0
+    },
+    {
+      "id": "pure-81",
+      "input": {
+        "baseDamage": 76082.64474595814,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 76083.0
+    },
+    {
+      "id": "pure-82",
+      "input": {
+        "baseDamage": 98168.54284943116,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 98169.0
+    },
+    {
+      "id": "pure-83",
+      "input": {
+        "baseDamage": 58812.9012145605,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 58813.0
+    },
+    {
+      "id": "pure-84",
+      "input": {
+        "baseDamage": 47798.544188847634,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 47799.0
+    },
+    {
+      "id": "pure-85",
+      "input": {
+        "baseDamage": 10091.805950753313,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 10092.0
+    },
+    {
+      "id": "pure-86",
+      "input": {
+        "baseDamage": 58607.06539042733,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 58608.0
+    },
+    {
+      "id": "pure-87",
+      "input": {
+        "baseDamage": 67642.55063649268,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 67643.0
+    },
+    {
+      "id": "pure-88",
+      "input": {
+        "baseDamage": 71296.91161527485,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 71297.0
+    },
+    {
+      "id": "pure-89",
+      "input": {
+        "baseDamage": 73164.21728799732,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 73165.0
+    },
+    {
+      "id": "pure-90",
+      "input": {
+        "baseDamage": 23731.262467412835,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 23732.0
+    },
+    {
+      "id": "pure-91",
+      "input": {
+        "baseDamage": 47399.453010288315,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 47400.0
+    },
+    {
+      "id": "pure-92",
+      "input": {
+        "baseDamage": 38013.93667173984,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 38014.0
+    },
+    {
+      "id": "pure-93",
+      "input": {
+        "baseDamage": 72015.8281945503,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 72016.0
+    },
+    {
+      "id": "pure-94",
+      "input": {
+        "baseDamage": 13634.682388096157,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 13635.0
+    },
+    {
+      "id": "pure-95",
+      "input": {
+        "baseDamage": 74403.86117438794,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 74404.0
+    },
+    {
+      "id": "pure-96",
+      "input": {
+        "baseDamage": 77112.88742772685,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 77113.0
+    },
+    {
+      "id": "pure-97",
+      "input": {
+        "baseDamage": 6374.84411590921,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 6375.0
+    },
+    {
+      "id": "pure-98",
+      "input": {
+        "baseDamage": 44908.10375631597,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 44909.0
+    },
+    {
+      "id": "pure-99",
+      "input": {
+        "baseDamage": 83330.89256613901,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 83331.0
+    },
+    {
+      "id": "pure-100",
+      "input": {
+        "baseDamage": 43994.963703214016,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 43995.0
+    },
+    {
+      "id": "pure-101",
+      "input": {
+        "baseDamage": 38776.821581015676,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 38777.0
+    },
+    {
+      "id": "pure-102",
+      "input": {
+        "baseDamage": 68682.97568687226,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 68683.0
+    },
+    {
+      "id": "pure-103",
+      "input": {
+        "baseDamage": 39569.907656812524,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 39570.0
+    },
+    {
+      "id": "pure-104",
+      "input": {
+        "baseDamage": 38325.90770572716,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 38326.0
+    },
+    {
+      "id": "pure-105",
+      "input": {
+        "baseDamage": 72113.04965324957,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 72114.0
+    },
+    {
+      "id": "pure-106",
+      "input": {
+        "baseDamage": 57039.378584144164,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 57040.0
+    },
+    {
+      "id": "pure-107",
+      "input": {
+        "baseDamage": 38385.07705983146,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 38386.0
+    },
+    {
+      "id": "pure-108",
+      "input": {
+        "baseDamage": 7094.731308263848,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 7095.0
+    },
+    {
+      "id": "pure-109",
+      "input": {
+        "baseDamage": 58030.30116888643,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 58031.0
+    },
+    {
+      "id": "pure-110",
+      "input": {
+        "baseDamage": 98042.40850113505,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 98043.0
+    },
+    {
+      "id": "pure-111",
+      "input": {
+        "baseDamage": 11953.666943094071,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 11954.0
+    },
+    {
+      "id": "pure-112",
+      "input": {
+        "baseDamage": 81078.04314609221,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 81079.0
+    },
+    {
+      "id": "pure-113",
+      "input": {
+        "baseDamage": 45457.53882938841,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 45458.0
+    },
+    {
+      "id": "pure-114",
+      "input": {
+        "baseDamage": 76572.80098959983,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 76573.0
+    },
+    {
+      "id": "pure-115",
+      "input": {
+        "baseDamage": 90474.35366002972,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 90475.0
+    },
+    {
+      "id": "pure-116",
+      "input": {
+        "baseDamage": 53376.046895353415,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 53377.0
+    },
+    {
+      "id": "pure-117",
+      "input": {
+        "baseDamage": 50923.847733038085,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 50924.0
+    },
+    {
+      "id": "pure-118",
+      "input": {
+        "baseDamage": 88766.32198179558,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 88767.0
+    },
+    {
+      "id": "pure-119",
+      "input": {
+        "baseDamage": 98617.40784001791,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 98618.0
+    },
+    {
+      "id": "pure-120",
+      "input": {
+        "baseDamage": 1381.7056235604782,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 1382.0
+    },
+    {
+      "id": "pure-121",
+      "input": {
+        "baseDamage": 10487.854374733099,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 10488.0
+    },
+    {
+      "id": "pure-122",
+      "input": {
+        "baseDamage": 79049.76704417793,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 79050.0
+    },
+    {
+      "id": "pure-123",
+      "input": {
+        "baseDamage": 87353.44319752006,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 87354.0
+    },
+    {
+      "id": "pure-124",
+      "input": {
+        "baseDamage": 49235.526961953095,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 49236.0
+    },
+    {
+      "id": "pure-125",
+      "input": {
+        "baseDamage": 17540.543545104058,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 17541.0
+    },
+    {
+      "id": "pure-126",
+      "input": {
+        "baseDamage": 15794.049104519674,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 15795.0
+    },
+    {
+      "id": "pure-127",
+      "input": {
+        "baseDamage": 74878.20694226309,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 74879.0
+    },
+    {
+      "id": "pure-128",
+      "input": {
+        "baseDamage": 70325.99314177877,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 70326.0
+    },
+    {
+      "id": "pure-129",
+      "input": {
+        "baseDamage": 66812.66092701495,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 66813.0
+    },
+    {
+      "id": "pure-130",
+      "input": {
+        "baseDamage": 76219.48167564264,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 76220.0
+    },
+    {
+      "id": "pure-131",
+      "input": {
+        "baseDamage": 40015.59021421617,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 40016.0
+    },
+    {
+      "id": "pure-132",
+      "input": {
+        "baseDamage": 58370.89615943145,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 58371.0
+    },
+    {
+      "id": "pure-133",
+      "input": {
+        "baseDamage": 68894.81357940458,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 68895.0
+    },
+    {
+      "id": "pure-134",
+      "input": {
+        "baseDamage": 1982.5815824582833,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 1983.0
+    },
+    {
+      "id": "pure-135",
+      "input": {
+        "baseDamage": 59346.92003168621,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 59347.0
+    },
+    {
+      "id": "pure-136",
+      "input": {
+        "baseDamage": 39620.375177101916,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 39621.0
+    },
+    {
+      "id": "pure-137",
+      "input": {
+        "baseDamage": 97396.97067025436,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 97397.0
+    },
+    {
+      "id": "pure-138",
+      "input": {
+        "baseDamage": 19911.07718873076,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 19912.0
+    },
+    {
+      "id": "pure-139",
+      "input": {
+        "baseDamage": 17623.416851577567,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 17624.0
+    },
+    {
+      "id": "pure-140",
+      "input": {
+        "baseDamage": 36939.38709810263,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 36940.0
+    },
+    {
+      "id": "pure-141",
+      "input": {
+        "baseDamage": 92440.08583154084,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 92441.0
+    },
+    {
+      "id": "pure-142",
+      "input": {
+        "baseDamage": 65918.77381892732,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 65919.0
+    },
+    {
+      "id": "pure-143",
+      "input": {
+        "baseDamage": 60685.81551866379,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 60686.0
+    },
+    {
+      "id": "pure-144",
+      "input": {
+        "baseDamage": 56810.44532041514,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 56811.0
+    },
+    {
+      "id": "pure-145",
+      "input": {
+        "baseDamage": 82202.59977341417,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 82203.0
+    },
+    {
+      "id": "pure-146",
+      "input": {
+        "baseDamage": 21929.639779853653,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 21930.0
+    },
+    {
+      "id": "pure-147",
+      "input": {
+        "baseDamage": 55934.59853759614,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 55935.0
+    },
+    {
+      "id": "pure-148",
+      "input": {
+        "baseDamage": 77715.93690863583,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 77716.0
+    },
+    {
+      "id": "pure-149",
+      "input": {
+        "baseDamage": 93443.34230422095,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 93444.0
+    },
+    {
+      "id": "pure-150",
+      "input": {
+        "baseDamage": 62820.560349599524,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 62821.0
+    },
+    {
+      "id": "pure-151",
+      "input": {
+        "baseDamage": 63444.171376370854,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 63445.0
+    },
+    {
+      "id": "pure-152",
+      "input": {
+        "baseDamage": 6986.850094375889,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 6987.0
+    },
+    {
+      "id": "pure-153",
+      "input": {
+        "baseDamage": 90104.045000648,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 90105.0
+    },
+    {
+      "id": "pure-154",
+      "input": {
+        "baseDamage": 12878.339692217669,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 12879.0
+    },
+    {
+      "id": "pure-155",
+      "input": {
+        "baseDamage": 14439.538412308002,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 14440.0
+    },
+    {
+      "id": "pure-156",
+      "input": {
+        "baseDamage": 2511.5863020239126,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 2512.0
+    },
+    {
+      "id": "pure-157",
+      "input": {
+        "baseDamage": 98028.02925264543,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 98029.0
+    },
+    {
+      "id": "pure-158",
+      "input": {
+        "baseDamage": 15898.605584526562,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 15899.0
+    },
+    {
+      "id": "pure-159",
+      "input": {
+        "baseDamage": 86875.99592935822,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 86876.0
+    },
+    {
+      "id": "pure-160",
+      "input": {
+        "baseDamage": 74550.97010473552,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 74551.0
+    },
+    {
+      "id": "pure-161",
+      "input": {
+        "baseDamage": 10082.043425722122,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 10083.0
+    },
+    {
+      "id": "pure-162",
+      "input": {
+        "baseDamage": 47302.57542041298,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 47303.0
+    },
+    {
+      "id": "pure-163",
+      "input": {
+        "baseDamage": 99819.9933397855,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 99820.0
+    },
+    {
+      "id": "pure-164",
+      "input": {
+        "baseDamage": 20895.10557482282,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 20896.0
+    },
+    {
+      "id": "pure-165",
+      "input": {
+        "baseDamage": 9726.340426960453,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 9727.0
+    },
+    {
+      "id": "pure-166",
+      "input": {
+        "baseDamage": 41144.278067318985,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 41145.0
+    },
+    {
+      "id": "pure-167",
+      "input": {
+        "baseDamage": 52603.929498469195,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 52604.0
+    },
+    {
+      "id": "pure-168",
+      "input": {
+        "baseDamage": 28487.23768470364,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 28488.0
+    },
+    {
+      "id": "pure-169",
+      "input": {
+        "baseDamage": 96934.2472094335,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 96935.0
+    },
+    {
+      "id": "pure-170",
+      "input": {
+        "baseDamage": 5277.669275669174,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 5278.0
+    },
+    {
+      "id": "pure-171",
+      "input": {
+        "baseDamage": 43647.41179115167,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 43648.0
+    },
+    {
+      "id": "pure-172",
+      "input": {
+        "baseDamage": 51161.45309113977,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 51162.0
+    },
+    {
+      "id": "pure-173",
+      "input": {
+        "baseDamage": 57551.747381576606,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 57552.0
+    },
+    {
+      "id": "pure-174",
+      "input": {
+        "baseDamage": 83500.98540808617,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 83501.0
+    },
+    {
+      "id": "pure-175",
+      "input": {
+        "baseDamage": 58730.84615192357,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 58731.0
+    },
+    {
+      "id": "pure-176",
+      "input": {
+        "baseDamage": 89282.38474650652,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 89283.0
+    },
+    {
+      "id": "pure-177",
+      "input": {
+        "baseDamage": 87075.10589204509,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 87076.0
+    },
+    {
+      "id": "pure-178",
+      "input": {
+        "baseDamage": 43062.37833249976,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 43063.0
+    },
+    {
+      "id": "pure-179",
+      "input": {
+        "baseDamage": 94625.54742496164,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 94626.0
+    },
+    {
+      "id": "pure-180",
+      "input": {
+        "baseDamage": 79884.96263484175,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 79885.0
+    },
+    {
+      "id": "pure-181",
+      "input": {
+        "baseDamage": 24310.131988711055,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 24311.0
+    },
+    {
+      "id": "pure-182",
+      "input": {
+        "baseDamage": 80572.45967545616,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 80573.0
+    },
+    {
+      "id": "pure-183",
+      "input": {
+        "baseDamage": 45526.48086103576,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 45527.0
+    },
+    {
+      "id": "pure-184",
+      "input": {
+        "baseDamage": 24854.06612593492,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 24855.0
+    },
+    {
+      "id": "pure-185",
+      "input": {
+        "baseDamage": 79837.8390316749,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 79838.0
+    },
+    {
+      "id": "pure-186",
+      "input": {
+        "baseDamage": 51804.41561969863,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 51805.0
+    },
+    {
+      "id": "pure-187",
+      "input": {
+        "baseDamage": 26189.214898500413,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 26190.0
+    },
+    {
+      "id": "pure-188",
+      "input": {
+        "baseDamage": 48121.3151479104,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 48122.0
+    },
+    {
+      "id": "pure-189",
+      "input": {
+        "baseDamage": 90267.19797131755,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 90268.0
+    },
+    {
+      "id": "pure-190",
+      "input": {
+        "baseDamage": 4350.9218317128725,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 4351.0
+    },
+    {
+      "id": "pure-191",
+      "input": {
+        "baseDamage": 78409.60418507188,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 78410.0
+    },
+    {
+      "id": "pure-192",
+      "input": {
+        "baseDamage": 9358.012193070306,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 9359.0
+    },
+    {
+      "id": "pure-193",
+      "input": {
+        "baseDamage": 49372.523388360234,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 49373.0
+    },
+    {
+      "id": "pure-194",
+      "input": {
+        "baseDamage": 65050.504284774805,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 65051.0
+    },
+    {
+      "id": "pure-195",
+      "input": {
+        "baseDamage": 61772.029606979086,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 61773.0
+    },
+    {
+      "id": "pure-196",
+      "input": {
+        "baseDamage": 21570.07106807863,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 21571.0
+    },
+    {
+      "id": "pure-197",
+      "input": {
+        "baseDamage": 48257.21445728741,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 48258.0
+    },
+    {
+      "id": "pure-198",
+      "input": {
+        "baseDamage": 42146.24415106425,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 42147.0
+    },
+    {
+      "id": "pure-199",
+      "input": {
+        "baseDamage": 48011.155883199164,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 48012.0
+    },
+    {
+      "id": "pure-200",
+      "input": {
+        "baseDamage": 22089.126171978056,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 22090.0
+    },
+    {
+      "id": "pure-201",
+      "input": {
+        "baseDamage": 40009.59283551639,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 40010.0
+    },
+    {
+      "id": "pure-202",
+      "input": {
+        "baseDamage": 96336.94384625221,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 96337.0
+    },
+    {
+      "id": "pure-203",
+      "input": {
+        "baseDamage": 74011.40402623222,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 74012.0
+    },
+    {
+      "id": "pure-204",
+      "input": {
+        "baseDamage": 71285.97824821246,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 71286.0
+    },
+    {
+      "id": "pure-205",
+      "input": {
+        "baseDamage": 57286.66055758369,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 57287.0
+    },
+    {
+      "id": "pure-206",
+      "input": {
+        "baseDamage": 2916.8928910538066,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 2917.0
+    },
+    {
+      "id": "pure-207",
+      "input": {
+        "baseDamage": 78973.34456491336,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 78974.0
+    },
+    {
+      "id": "pure-208",
+      "input": {
+        "baseDamage": 37680.69487115379,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 37681.0
+    },
+    {
+      "id": "pure-209",
+      "input": {
+        "baseDamage": 6853.374244533455,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 6854.0
+    },
+    {
+      "id": "pure-210",
+      "input": {
+        "baseDamage": 27313.53759420088,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 27314.0
+    },
+    {
+      "id": "pure-211",
+      "input": {
+        "baseDamage": 62798.16023406485,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 62799.0
+    },
+    {
+      "id": "pure-212",
+      "input": {
+        "baseDamage": 65751.4642114964,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 65752.0
+    },
+    {
+      "id": "pure-213",
+      "input": {
+        "baseDamage": 49319.410546272324,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 49320.0
+    },
+    {
+      "id": "pure-214",
+      "input": {
+        "baseDamage": 41375.92398492531,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 41376.0
+    },
+    {
+      "id": "pure-215",
+      "input": {
+        "baseDamage": 84771.99451552577,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 84772.0
+    },
+    {
+      "id": "pure-216",
+      "input": {
+        "baseDamage": 11255.77960956449,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 11256.0
+    },
+    {
+      "id": "pure-217",
+      "input": {
+        "baseDamage": 94037.47200419518,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 94038.0
+    },
+    {
+      "id": "pure-218",
+      "input": {
+        "baseDamage": 1878.4759236469001,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 1879.0
+    },
+    {
+      "id": "pure-219",
+      "input": {
+        "baseDamage": 47706.384371939035,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 47707.0
+    },
+    {
+      "id": "pure-220",
+      "input": {
+        "baseDamage": 49842.524913118315,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 49843.0
+    },
+    {
+      "id": "pure-221",
+      "input": {
+        "baseDamage": 43319.70058998554,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 43320.0
+    },
+    {
+      "id": "pure-222",
+      "input": {
+        "baseDamage": 16494.234584962192,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 16495.0
+    },
+    {
+      "id": "pure-223",
+      "input": {
+        "baseDamage": 92593.18784065467,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 92594.0
+    },
+    {
+      "id": "pure-224",
+      "input": {
+        "baseDamage": 97313.09869456083,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 97314.0
+    },
+    {
+      "id": "pure-225",
+      "input": {
+        "baseDamage": 99861.01099849741,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 99862.0
+    },
+    {
+      "id": "pure-226",
+      "input": {
+        "baseDamage": 79739.3861251695,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 79740.0
+    },
+    {
+      "id": "pure-227",
+      "input": {
+        "baseDamage": 78151.98502340115,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 78152.0
+    },
+    {
+      "id": "pure-228",
+      "input": {
+        "baseDamage": 72318.7346921297,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 72319.0
+    },
+    {
+      "id": "pure-229",
+      "input": {
+        "baseDamage": 46327.98839883886,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 46328.0
+    },
+    {
+      "id": "pure-230",
+      "input": {
+        "baseDamage": 17664.936006099506,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 17665.0
+    },
+    {
+      "id": "pure-231",
+      "input": {
+        "baseDamage": 63914.30147668275,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 63915.0
+    },
+    {
+      "id": "pure-232",
+      "input": {
+        "baseDamage": 46260.88816005991,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 46261.0
+    },
+    {
+      "id": "pure-233",
+      "input": {
+        "baseDamage": 15947.591142160925,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 15948.0
+    },
+    {
+      "id": "pure-234",
+      "input": {
+        "baseDamage": 76609.33099144314,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 76610.0
+    },
+    {
+      "id": "pure-235",
+      "input": {
+        "baseDamage": 38671.264628000834,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 38672.0
+    },
+    {
+      "id": "pure-236",
+      "input": {
+        "baseDamage": 43835.100507505376,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 43836.0
+    },
+    {
+      "id": "pure-237",
+      "input": {
+        "baseDamage": 63370.42984547262,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 63371.0
+    },
+    {
+      "id": "pure-238",
+      "input": {
+        "baseDamage": 25586.76171218877,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 25587.0
+    },
+    {
+      "id": "pure-239",
+      "input": {
+        "baseDamage": 64323.69077694373,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 64324.0
+    },
+    {
+      "id": "pure-240",
+      "input": {
+        "baseDamage": 55758.04676238883,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 55759.0
+    },
+    {
+      "id": "pure-241",
+      "input": {
+        "baseDamage": 65386.63069735127,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 65387.0
+    },
+    {
+      "id": "pure-242",
+      "input": {
+        "baseDamage": 57157.94358295016,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 57158.0
+    },
+    {
+      "id": "pure-243",
+      "input": {
+        "baseDamage": 2182.3279699210057,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 2183.0
+    },
+    {
+      "id": "pure-244",
+      "input": {
+        "baseDamage": 4461.358908123405,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 4462.0
+    },
+    {
+      "id": "pure-245",
+      "input": {
+        "baseDamage": 38986.81760526606,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 38987.0
+    },
+    {
+      "id": "pure-246",
+      "input": {
+        "baseDamage": 7637.231173678273,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 7638.0
+    },
+    {
+      "id": "pure-247",
+      "input": {
+        "baseDamage": 47201.19008435199,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 47202.0
+    },
+    {
+      "id": "pure-248",
+      "input": {
+        "baseDamage": 10499.778677746903,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 10500.0
+    },
+    {
+      "id": "pure-249",
+      "input": {
+        "baseDamage": 16393.238006981206,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 16394.0
+    },
+    {
+      "id": "pure-250",
+      "input": {
+        "baseDamage": 16795.703243058633,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 16796.0
+    },
+    {
+      "id": "pure-251",
+      "input": {
+        "baseDamage": 66940.22733433614,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 66941.0
+    },
+    {
+      "id": "pure-252",
+      "input": {
+        "baseDamage": 50672.40346722505,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 50673.0
+    },
+    {
+      "id": "pure-253",
+      "input": {
+        "baseDamage": 82278.08748973387,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 82279.0
+    },
+    {
+      "id": "pure-254",
+      "input": {
+        "baseDamage": 83508.9522024174,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 83509.0
+    },
+    {
+      "id": "pure-255",
+      "input": {
+        "baseDamage": 51589.29954776644,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 51590.0
+    },
+    {
+      "id": "pure-256",
+      "input": {
+        "baseDamage": 63401.616654997866,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 63402.0
+    },
+    {
+      "id": "pure-257",
+      "input": {
+        "baseDamage": 58903.61816428967,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 58904.0
+    },
+    {
+      "id": "pure-258",
+      "input": {
+        "baseDamage": 49755.77271265321,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 49756.0
+    },
+    {
+      "id": "pure-259",
+      "input": {
+        "baseDamage": 76896.24512685539,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 76897.0
+    },
+    {
+      "id": "pure-260",
+      "input": {
+        "baseDamage": 46613.28183694685,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 46614.0
+    },
+    {
+      "id": "pure-261",
+      "input": {
+        "baseDamage": 45798.13795475065,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 45799.0
+    },
+    {
+      "id": "pure-262",
+      "input": {
+        "baseDamage": 32143.174411870536,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 32144.0
+    },
+    {
+      "id": "pure-263",
+      "input": {
+        "baseDamage": 11348.100597281127,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 11349.0
+    },
+    {
+      "id": "pure-264",
+      "input": {
+        "baseDamage": 73988.26194548847,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 73989.0
+    },
+    {
+      "id": "pure-265",
+      "input": {
+        "baseDamage": 40563.9748412847,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 40564.0
+    },
+    {
+      "id": "pure-266",
+      "input": {
+        "baseDamage": 38590.47529482465,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 38591.0
+    },
+    {
+      "id": "pure-267",
+      "input": {
+        "baseDamage": 3976.636728132808,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 3977.0
+    },
+    {
+      "id": "pure-268",
+      "input": {
+        "baseDamage": 49172.25729145935,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 49173.0
+    },
+    {
+      "id": "pure-269",
+      "input": {
+        "baseDamage": 1761.7795489325003,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 1762.0
+    },
+    {
+      "id": "pure-270",
+      "input": {
+        "baseDamage": 48301.265073161485,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 48302.0
+    },
+    {
+      "id": "pure-271",
+      "input": {
+        "baseDamage": 82670.145167372,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 82671.0
+    },
+    {
+      "id": "pure-272",
+      "input": {
+        "baseDamage": 3385.452365900879,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 3386.0
+    },
+    {
+      "id": "pure-273",
+      "input": {
+        "baseDamage": 25783.816627766213,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 25784.0
+    },
+    {
+      "id": "pure-274",
+      "input": {
+        "baseDamage": 57322.22901085148,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 57323.0
+    },
+    {
+      "id": "pure-275",
+      "input": {
+        "baseDamage": 80658.26535923754,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 80659.0
+    },
+    {
+      "id": "pure-276",
+      "input": {
+        "baseDamage": 96692.75482812832,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 96693.0
+    },
+    {
+      "id": "pure-277",
+      "input": {
+        "baseDamage": 67858.11338900945,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 67859.0
+    },
+    {
+      "id": "pure-278",
+      "input": {
+        "baseDamage": 54880.43385610366,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 54881.0
+    },
+    {
+      "id": "pure-279",
+      "input": {
+        "baseDamage": 26476.136268492664,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 26477.0
+    },
+    {
+      "id": "pure-280",
+      "input": {
+        "baseDamage": 81759.20919400474,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 81760.0
+    },
+    {
+      "id": "pure-281",
+      "input": {
+        "baseDamage": 31010.29621137819,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 31011.0
+    },
+    {
+      "id": "pure-282",
+      "input": {
+        "baseDamage": 83168.13788405538,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 83169.0
+    },
+    {
+      "id": "pure-283",
+      "input": {
+        "baseDamage": 92464.95353153508,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 92465.0
+    },
+    {
+      "id": "pure-284",
+      "input": {
+        "baseDamage": 50876.83835762002,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 50877.0
+    },
+    {
+      "id": "pure-285",
+      "input": {
+        "baseDamage": 52151.066413848836,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 52152.0
+    },
+    {
+      "id": "pure-286",
+      "input": {
+        "baseDamage": 259.9661573936376,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 260.0
+    },
+    {
+      "id": "pure-287",
+      "input": {
+        "baseDamage": 16058.0195088969,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 16059.0
+    },
+    {
+      "id": "pure-288",
+      "input": {
+        "baseDamage": 74737.58326418034,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 74738.0
+    },
+    {
+      "id": "pure-289",
+      "input": {
+        "baseDamage": 38382.54145339118,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 38383.0
+    },
+    {
+      "id": "pure-290",
+      "input": {
+        "baseDamage": 76729.00838087736,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 76730.0
+    },
+    {
+      "id": "pure-291",
+      "input": {
+        "baseDamage": 40873.68386891915,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 40874.0
+    },
+    {
+      "id": "pure-292",
+      "input": {
+        "baseDamage": 21344.239986180375,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 21345.0
+    },
+    {
+      "id": "pure-293",
+      "input": {
+        "baseDamage": 48757.75550557029,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 48758.0
+    },
+    {
+      "id": "pure-294",
+      "input": {
+        "baseDamage": 56658.68784824607,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 56659.0
+    },
+    {
+      "id": "pure-295",
+      "input": {
+        "baseDamage": 81266.75871550292,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 81267.0
+    },
+    {
+      "id": "pure-296",
+      "input": {
+        "baseDamage": 76104.43960380429,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 76105.0
+    },
+    {
+      "id": "pure-297",
+      "input": {
+        "baseDamage": 1844.9791416919572,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 1845.0
+    },
+    {
+      "id": "pure-298",
+      "input": {
+        "baseDamage": 7375.084885245144,
+        "dimensionFixPer": -150,
+        "targetDead": false
+      },
+      "expected": 7376.0
+    },
+    {
+      "id": "pure-299",
+      "input": {
+        "baseDamage": 75058.68032053318,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 75059.0
+    },
+    {
+      "id": "pure-300",
+      "input": {
+        "baseDamage": 41998.39986472111,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 41999.0
+    },
+    {
+      "id": "pure-301",
+      "input": {
+        "baseDamage": 26238.441371299272,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 26239.0
+    },
+    {
+      "id": "pure-302",
+      "input": {
+        "baseDamage": 79981.55104897334,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 79982.0
+    },
+    {
+      "id": "pure-303",
+      "input": {
+        "baseDamage": 5480.08411949041,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 5481.0
+    },
+    {
+      "id": "pure-304",
+      "input": {
+        "baseDamage": 51121.91087415119,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 51122.0
+    },
+    {
+      "id": "pure-305",
+      "input": {
+        "baseDamage": 43025.62695901579,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 43026.0
+    },
+    {
+      "id": "pure-306",
+      "input": {
+        "baseDamage": 1420.8193407966223,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 1421.0
+    },
+    {
+      "id": "pure-307",
+      "input": {
+        "baseDamage": 27145.18105033519,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 27146.0
+    },
+    {
+      "id": "pure-308",
+      "input": {
+        "baseDamage": 3564.102260855267,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 3565.0
+    },
+    {
+      "id": "pure-309",
+      "input": {
+        "baseDamage": 65969.12628280565,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 65970.0
+    },
+    {
+      "id": "pure-310",
+      "input": {
+        "baseDamage": 41251.47557558074,
+        "dimensionFixPer": 100,
+        "targetDead": false
+      },
+      "expected": 41252.0
+    },
+    {
+      "id": "pure-311",
+      "input": {
+        "baseDamage": 95848.61771236897,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 95849.0
+    },
+    {
+      "id": "pure-312",
+      "input": {
+        "baseDamage": 12442.990744223443,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 12443.0
+    },
+    {
+      "id": "pure-313",
+      "input": {
+        "baseDamage": 583.5968244140055,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 584.0
+    },
+    {
+      "id": "pure-314",
+      "input": {
+        "baseDamage": 12811.582641653307,
+        "dimensionFixPer": 0,
+        "targetDead": false
+      },
+      "expected": 12812.0
+    },
+    {
+      "id": "pure-315",
+      "input": {
+        "baseDamage": 16028.540331685826,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 16029.0
+    },
+    {
+      "id": "pure-316",
+      "input": {
+        "baseDamage": 47619.29009656804,
+        "dimensionFixPer": -100,
+        "targetDead": false
+      },
+      "expected": 47620.0
+    },
+    {
+      "id": "pure-317",
+      "input": {
+        "baseDamage": 77872.44272359839,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 77873.0
+    },
+    {
+      "id": "pure-318",
+      "input": {
+        "baseDamage": 42573.30549778434,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 42574.0
+    },
+    {
+      "id": "pure-319",
+      "input": {
+        "baseDamage": 84765.43265353753,
+        "dimensionFixPer": -50,
+        "targetDead": false
+      },
+      "expected": 84766.0
+    },
+    {
+      "id": "pure-320",
+      "input": {
+        "baseDamage": 4027.1353563873745,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 4028.0
+    },
+    {
+      "id": "pure-321",
+      "input": {
+        "baseDamage": 9434.39862245058,
+        "dimensionFixPer": 25,
+        "targetDead": false
+      },
+      "expected": 9435.0
+    }
+  ]
+}

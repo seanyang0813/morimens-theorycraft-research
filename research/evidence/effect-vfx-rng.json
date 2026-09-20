@@ -1,0 +1,173 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleEffectServer": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e"
+  },
+  "scope": "10 original PlayEffectSfx executions with player targets, supplied Awakener lists, shared rand callback choosing last index, and record observer. No actual PRNG algorithm/state or downstream gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "playerAwakenerGroups": [],
+        "vfxPresent": false
+      },
+      "events": []
+    },
+    {
+      "input": {
+        "playerAwakenerGroups": [],
+        "vfxPresent": true
+      },
+      "events": []
+    },
+    {
+      "input": {
+        "playerAwakenerGroups": [
+          []
+        ],
+        "vfxPresent": false
+      },
+      "events": []
+    },
+    {
+      "input": {
+        "playerAwakenerGroups": [
+          []
+        ],
+        "vfxPresent": true
+      },
+      "events": [
+        {
+          "type": "record",
+          "targetUids": []
+        }
+      ]
+    },
+    {
+      "input": {
+        "playerAwakenerGroups": [
+          [
+            11
+          ]
+        ],
+        "vfxPresent": false
+      },
+      "events": []
+    },
+    {
+      "input": {
+        "playerAwakenerGroups": [
+          [
+            11
+          ]
+        ],
+        "vfxPresent": true
+      },
+      "events": [
+        {
+          "type": "random",
+          "low": 1.0,
+          "high": 1.0
+        },
+        {
+          "type": "record",
+          "targetUids": [
+            11.0
+          ]
+        }
+      ]
+    },
+    {
+      "input": {
+        "playerAwakenerGroups": [
+          [
+            11,
+            12,
+            13
+          ]
+        ],
+        "vfxPresent": false
+      },
+      "events": []
+    },
+    {
+      "input": {
+        "playerAwakenerGroups": [
+          [
+            11,
+            12,
+            13
+          ]
+        ],
+        "vfxPresent": true
+      },
+      "events": [
+        {
+          "type": "random",
+          "low": 1.0,
+          "high": 3.0
+        },
+        {
+          "type": "record",
+          "targetUids": [
+            13.0
+          ]
+        }
+      ]
+    },
+    {
+      "input": {
+        "playerAwakenerGroups": [
+          [
+            11,
+            12
+          ],
+          [],
+          [
+            21,
+            22,
+            23
+          ]
+        ],
+        "vfxPresent": false
+      },
+      "events": []
+    },
+    {
+      "input": {
+        "playerAwakenerGroups": [
+          [
+            11,
+            12
+          ],
+          [],
+          [
+            21,
+            22,
+            23
+          ]
+        ],
+        "vfxPresent": true
+      },
+      "events": [
+        {
+          "type": "random",
+          "low": 1.0,
+          "high": 2.0
+        },
+        {
+          "type": "random",
+          "low": 1.0,
+          "high": 3.0
+        },
+        {
+          "type": "record",
+          "targetUids": [
+            12.0,
+            23.0
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2083 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleEffectServer": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e"
+  },
+  "scope": "144 original CalFinalVal -> GetDimensionFixPer cases with supplied caster UID, role camp/player existence and player property getter. Includes original errors when a positive value resolves no player. No automatic role/property derivation, state pipeline integration or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": -1.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 0,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": false,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": [
+          "getCaster"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": [
+          "getCaster"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": [
+          "getCaster"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": [
+          "getCaster"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": [
+          "getCaster"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": [
+          "getCaster"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": [
+          "getCaster"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": [
+          "getCaster"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": [
+          "getCaster"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": [
+          "getCaster"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": [
+          "getCaster"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": false,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": [
+          "getCaster"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": [
+          "getCaster"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": [
+          "getCaster"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": [
+          "getCaster"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": [
+          "getCaster"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": [
+          "getCaster"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": false,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": [
+          "getCaster"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": -150
+      },
+      "expected": {
+        "error": true,
+        "trace": [
+          "getCaster",
+          "getPlayer"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 0
+      },
+      "expected": {
+        "error": true,
+        "trace": [
+          "getCaster",
+          "getPlayer"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": false,
+        "percent": 50
+      },
+      "expected": {
+        "error": true,
+        "trace": [
+          "getCaster",
+          "getPlayer"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": -150
+      },
+      "expected": {
+        "value": -1.0,
+        "trace": [
+          "getCaster",
+          "getPlayer",
+          "dimensionProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 0
+      },
+      "expected": {
+        "value": 3.0,
+        "trace": [
+          "getCaster",
+          "getPlayer",
+          "dimensionProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "value": 2.2,
+        "hasCasterUid": true,
+        "hasRole": true,
+        "friendly": true,
+        "hasPlayer": true,
+        "percent": 50
+      },
+      "expected": {
+        "value": 4.0,
+        "trace": [
+          "getCaster",
+          "getPlayer",
+          "dimensionProperty"
+        ]
+      }
+    }
+  ]
+}

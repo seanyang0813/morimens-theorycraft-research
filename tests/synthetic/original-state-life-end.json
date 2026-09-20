@@ -1,0 +1,175 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original LifeEnd with supplied team-unique decision; property removal, unique registry removal, record, logging and event creation observed only. Checks deletion visible during callbacks and repeat-call idempotence. No actual property mutation, event dispatch or gameplay.",
+  "sourceHashes": {
+    "BattleStateServer": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+    "BattleLogicEvent": "cef7477d60a84d8ac4f4b097436a39628d37ff5c54bd8f44d08828d75ad80c4a"
+  },
+  "fixtures": [
+    {
+      "input": {
+        "deleted": false,
+        "unique": false,
+        "calls": 1
+      },
+      "expected": {
+        "deleted": true,
+        "trace": [
+          {
+            "event": "RemoveProperty",
+            "deleted": true
+          },
+          {
+            "event": "OnDelState",
+            "deleted": true
+          },
+          {
+            "event": "Log",
+            "deleted": true
+          },
+          {
+            "event": "StateLifeEnd",
+            "deleted": true
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "deleted": false,
+        "unique": false,
+        "calls": 2
+      },
+      "expected": {
+        "deleted": true,
+        "trace": [
+          {
+            "event": "RemoveProperty",
+            "deleted": true
+          },
+          {
+            "event": "OnDelState",
+            "deleted": true
+          },
+          {
+            "event": "Log",
+            "deleted": true
+          },
+          {
+            "event": "StateLifeEnd",
+            "deleted": true
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "deleted": false,
+        "unique": true,
+        "calls": 1
+      },
+      "expected": {
+        "deleted": true,
+        "trace": [
+          {
+            "event": "RemoveUniqueStateRole",
+            "deleted": true
+          },
+          {
+            "event": "RemoveProperty",
+            "deleted": true
+          },
+          {
+            "event": "OnDelState",
+            "deleted": true
+          },
+          {
+            "event": "Log",
+            "deleted": true
+          },
+          {
+            "event": "StateLifeEnd",
+            "deleted": true
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "deleted": false,
+        "unique": true,
+        "calls": 2
+      },
+      "expected": {
+        "deleted": true,
+        "trace": [
+          {
+            "event": "RemoveUniqueStateRole",
+            "deleted": true
+          },
+          {
+            "event": "RemoveProperty",
+            "deleted": true
+          },
+          {
+            "event": "OnDelState",
+            "deleted": true
+          },
+          {
+            "event": "Log",
+            "deleted": true
+          },
+          {
+            "event": "StateLifeEnd",
+            "deleted": true
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "deleted": true,
+        "unique": false,
+        "calls": 1
+      },
+      "expected": {
+        "deleted": true,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "deleted": true,
+        "unique": false,
+        "calls": 2
+      },
+      "expected": {
+        "deleted": true,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "deleted": true,
+        "unique": true,
+        "calls": 1
+      },
+      "expected": {
+        "deleted": true,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "deleted": true,
+        "unique": true,
+        "calls": 2
+      },
+      "expected": {
+        "deleted": true,
+        "trace": []
+      }
+    }
+  ]
+}

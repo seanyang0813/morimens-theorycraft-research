@@ -1,0 +1,4330 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original BattleUnitBase.ImmueDamage with explicit properties; subtype 0 or Puncture; no HP or event execution",
+  "sourceHashes": {
+    "BattleUnitBase": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410"
+  },
+  "fixtures": [
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": -1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 0,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 0.1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": -1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 0,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 0.1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": -1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 0,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 0.1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": -1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 0,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 0.1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": -1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 0,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 0.1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": -1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 0,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 0.1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": -1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 0,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 0.1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": -1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 0,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 0.1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": -1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 0,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 0.1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": -1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 0,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 0.1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": -1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 0,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 0.1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": -1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 0,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 0.1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": -1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 0,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 0.1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": -1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 0,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 0.1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": -1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 0,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 0.1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": -1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 0,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 0.1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": -1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 0,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 0.1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": -1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 0,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Active",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 0.1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": -1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0.1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": -1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0.1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": -1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0.1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": -1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0.1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": -1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0.1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": -1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0.1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": -1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0.1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": -1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0.1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": -1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0.1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": -1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0.1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": -1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0.1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": -1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0.1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": -1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0.1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": -1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0.1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": -1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0.1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": -1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0.1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": -1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0.1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": -1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Passive",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 0.1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": -1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0.1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": -1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0.1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": -1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0.1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": -1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0.1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": -1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0.1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": -1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0.1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": -1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0.1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": -1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0.1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": -1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0.1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": -1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0.1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": -1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0.1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": -1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0.1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": -1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0.1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": -1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0.1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": -1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0.1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": -1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0.1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": -1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0.1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": -1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Fixed",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 0.1,
+          "Pure": 1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": -1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0.1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": -1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0.1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": -1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0.1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": -1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0.1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": -1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0.1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": -1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0.1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": -1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0.1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": -1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0.1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": -1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0.1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": -1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0.1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": -1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0.1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": -1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0.1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": -1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0.1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": -1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0.1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": -1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0.1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": -1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0.1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": -1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0.1,
+          "Tentacle": 1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": -1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Pure",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 0.1,
+          "Tentacle": 1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": -1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0.1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": -1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0.1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": -1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0.1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": -1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0.1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": -1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0.1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": -1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0.1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": -1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0.1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": -1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0.1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": -1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": false,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0.1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": -1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0.1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": -1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0.1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": -1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": -1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0.1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": -1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0.1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": -1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0.1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": -1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": 0,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0.1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": -1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": -1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0.1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": -1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0.1
+        }
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": -1
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0
+        }
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "category": "Tentacle",
+        "puncture": true,
+        "general": 0.1,
+        "punctureImmunity": 0.1,
+        "categoryImmunities": {
+          "Active": 1,
+          "Passive": 1,
+          "Fixed": 1,
+          "Pure": 1,
+          "Tentacle": 0.1
+        }
+      },
+      "expected": true
+    }
+  ]
+}

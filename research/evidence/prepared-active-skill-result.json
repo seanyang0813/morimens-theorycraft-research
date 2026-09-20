@@ -1,0 +1,604 @@
+{
+  "build": "pc-res144-build51",
+  "skillId": 4100,
+  "sourceHashes": {
+    "Skill": "dd47c38241edb513c71bd09e6f1f9a8ecdbfc7080f59b0c12a300ac7be2f7a2d",
+    "BattleApi": "47c6b4434a0c78ec59927a29237d960a81b2f9c0cf69f8ae3c26a0c3f4500d1a",
+    "Cmd": "855355ad600a5c419a7704c9dfbba0c199ce57d6b474478e75b94e8d714e030c"
+  },
+  "prepared": {
+    "status": "PREPARED_COMMAND_UNVERIFIED",
+    "commandId": 743,
+    "arguments": [
+      120,
+      1
+    ],
+    "argumentBindings": {
+      "Arg1": 120,
+      "Arg2": 1
+    },
+    "selection": {
+      "command": {
+        "route": "progression",
+        "value": 743,
+        "selection": null
+      },
+      "parameter": {
+        "route": "progression",
+        "value": "BattleAtkForce*1.2,1",
+        "selection": null
+      },
+      "formulas": {
+        "value": null,
+        "selection": null
+      },
+      "coefficients": {
+        "value": null,
+        "selection": null
+      }
+    },
+    "argumentCalculation": {
+      "status": "EXPERIMENTAL",
+      "arguments": [
+        120,
+        1
+      ],
+      "growth": {
+        "status": "EXPERIMENTAL",
+        "values": [],
+        "members": {},
+        "trace": []
+      },
+      "parameters": {
+        "values": [
+          120,
+          1
+        ],
+        "reads": [
+          {
+            "name": "BattleAtkForce",
+            "value": 100
+          }
+        ],
+        "calls": []
+      },
+      "unresolvedDependencies": [
+        "Coefficient lists and internal skill level supplied to this component; ownership not reconstructed",
+        "Expression/parser environment bindings supplied; full original skill-to-command execution not reproduced",
+        "Numeric expression form only; no parameter-list table, missing coefficient default, descriptions or gameplay validation"
+      ]
+    },
+    "unresolvedDependencies": [
+      "Internal progression, attack/state variables and condition outcomes supplied; character/build assembly absent",
+      "Selected command still requires handler, target, cost and lifecycle support",
+      "Composed field-to-argument pipeline not validated as a connected original execution or gameplay prediction"
+    ]
+  },
+  "execution": {
+    "build": "pc-res144-build51",
+    "finalDamage": null,
+    "prepared": {
+      "status": "PREPARED_COMMAND_UNVERIFIED",
+      "commandId": 743,
+      "arguments": [
+        120,
+        1
+      ],
+      "argumentBindings": {
+        "Arg1": 120,
+        "Arg2": 1
+      },
+      "selection": {
+        "command": {
+          "route": "progression",
+          "value": 743,
+          "selection": null
+        },
+        "parameter": {
+          "route": "progression",
+          "value": "BattleAtkForce*1.2,1",
+          "selection": null
+        },
+        "formulas": {
+          "value": null,
+          "selection": null
+        },
+        "coefficients": {
+          "value": null,
+          "selection": null
+        }
+      },
+      "argumentCalculation": {
+        "status": "EXPERIMENTAL",
+        "arguments": [
+          120,
+          1
+        ],
+        "growth": {
+          "status": "EXPERIMENTAL",
+          "values": [],
+          "members": {},
+          "trace": []
+        },
+        "parameters": {
+          "values": [
+            120,
+            1
+          ],
+          "reads": [
+            {
+              "name": "BattleAtkForce",
+              "value": 100
+            }
+          ],
+          "calls": []
+        },
+        "unresolvedDependencies": [
+          "Coefficient lists and internal skill level supplied to this component; ownership not reconstructed",
+          "Expression/parser environment bindings supplied; full original skill-to-command execution not reproduced",
+          "Numeric expression form only; no parameter-list table, missing coefficient default, descriptions or gameplay validation"
+        ]
+      },
+      "unresolvedDependencies": [
+        "Internal progression, attack/state variables and condition outcomes supplied; character/build assembly absent",
+        "Selected command still requires handler, target, cost and lifecycle support",
+        "Composed field-to-argument pipeline not validated as a connected original execution or gameplay prediction"
+      ]
+    },
+    "targetSelection": {
+      "route": "progression",
+      "value": "FrontEnemy",
+      "selection": null
+    },
+    "targetBinding": {
+      "expression": "FrontEnemy",
+      "resolution": "supplied-single-UpperTarget"
+    },
+    "support": {
+      "status": "STATIC_COMPATIBILITY_INSPECTION",
+      "profile": "ordinary-active-UpperTarget",
+      "importMetadata": [
+        {
+          "rowId": "1",
+          "BaseSortID": 1976
+        }
+      ],
+      "normalizedRows": [
+        {
+          "id": "1",
+          "Para": "Arg1,Arg2",
+          "Type": "BEActiveDamage",
+          "Target": "UpperTarget"
+        }
+      ],
+      "rowCount": 1,
+      "rows": [
+        {
+          "id": "1",
+          "type": "BEActiveDamage",
+          "target": "UpperTarget",
+          "blockers": []
+        }
+      ],
+      "structurallyCompatible": true,
+      "executable": false,
+      "remainingRuntimeChecks": [
+        "Numeric bindings and condition outcomes",
+        "Damage subtype and ParaPlus restrictions",
+        "Resolved offense, target modifiers, immunity and repetition inputs",
+        "Costs, lifecycle, state changes and trigger listeners",
+        "Original row construction and ordering"
+      ],
+      "limitations": [
+        "Checks current authored experiment compatibility, not correctness of the game command",
+        "No row is dropped; compilation does not evaluate expressions or prove runtime support",
+        "Not a gameplay prediction or full skill execution"
+      ]
+    },
+    "unresolvedDependencies": [
+      "Internal progression, attack/state variables and condition outcomes supplied; character/build assembly absent",
+      "Selected command still requires handler, target, cost and lifecycle support",
+      "Composed field-to-argument pipeline not validated as a connected original execution or gameplay prediction",
+      "Skill target resolved externally; no automatic target selection",
+      "Skill arguments frozen at preparation; no intervening argument refresh",
+      "No costs, lifecycle, passive triggers, animation timing or gameplay validation",
+      "Resolved inputs have not been tied to a fully reconstructed gameplay scenario",
+      "Independent gameplay holdouts have not passed",
+      "HP-dependent combat callbacks, statistics and death execution are not performed by this API",
+      "Immunity decision is supplied, not reconstructed",
+      "Prevention eligibility is supplied, not reconstructed",
+      "Limit properties are supplied, not reconstructed",
+      "Explicit target resolution, effect handlers and continuation decisions",
+      "No original command construction, delays, interruption, yielding or full lifecycle",
+      "Component composition, not connected original command execution or gameplay validation",
+      "No card costs, automatic skill/build assembly, ParaPlus, state changes, random targeting, caps or death handling",
+      "Supplied numeric variables except live UpperTarget.hp; no original command-to-damage execution or independent gameplay validation"
+    ],
+    "status": "EXPERIMENTAL",
+    "calculation": {
+      "schemaVersion": 1,
+      "status": "EXPERIMENTAL",
+      "build": "pc-res144-build51",
+      "finalDamage": null,
+      "scope": "Numeric active command rows, supplied resolved modifiers, one target, no intervening effects",
+      "completed": true,
+      "stop": null,
+      "initialTarget": {
+        "hp": 1000,
+        "block": 0
+      },
+      "targetAfter": {
+        "hp": 880,
+        "block": 0
+      },
+      "modeledHpLost": 120,
+      "hits": [
+        {
+          "id": "1/hit-1",
+          "rowId": "1",
+          "before": {
+            "hp": 1000,
+            "block": 0
+          },
+          "after": {
+            "hp": 880,
+            "block": 0
+          },
+          "modeledHpLost": 120,
+          "calculation": {
+            "mode": "experimental",
+            "build": "pc-res144-build51",
+            "damageType": "ACTIVE",
+            "status": "EXPERIMENTAL",
+            "message": "Exact verified result unavailable.",
+            "finalDamage": null,
+            "experimentalModels": [
+              {
+                "name": "Recovered Active pre-hit formula, explicitly resolved inputs",
+                "scope": "Before shield and HP resolution; not a verified gameplay prediction",
+                "preHitDamage": 120,
+                "trace": [
+                  {
+                    "stage": "base",
+                    "value": 120
+                  },
+                  {
+                    "stage": "flat contributions",
+                    "value": 0
+                  },
+                  {
+                    "stage": "offensive subtotal",
+                    "value": 120
+                  },
+                  {
+                    "stage": "ceil(x - 0.00001), minimum 1",
+                    "value": 120
+                  },
+                  {
+                    "stage": "reduction product",
+                    "value": 1
+                  },
+                  {
+                    "stage": "floor(x + 0.00001), minimum 1",
+                    "value": 120
+                  },
+                  {
+                    "stage": "crit bonus",
+                    "value": 0
+                  },
+                  {
+                    "stage": "after crit",
+                    "value": 120
+                  },
+                  {
+                    "stage": "target products and flat addition",
+                    "value": 120
+                  },
+                  {
+                    "stage": "ceil, minimum 1",
+                    "value": 120
+                  }
+                ],
+                "evidence": [
+                  "PC144:BattleUtilServer.ShowDamageFormula",
+                  "PC144:BattleCmdServer.__GetFinalDamage"
+                ]
+              },
+              {
+                "name": "ACTIVE incoming-hit request",
+                "scope": "Resolved immunity decision, shield and limit helpers; before HP mutation and callbacks",
+                "incomingDamage": 120,
+                "immune": false,
+                "shield": [
+                  120,
+                  0,
+                  0,
+                  false,
+                  false,
+                  0
+                ],
+                "afterRetain": 120,
+                "converted": 0,
+                "hpLossRequest": 120,
+                "deathResistApplied": false,
+                "evidence": [
+                  "PC144:HitLimitHelpers"
+                ]
+              },
+              {
+                "name": "Ordinary HP subtraction",
+                "scope": "One explicit ordinary HP mutation; callback descriptors only, no combat event/death execution",
+                "incomingDamage": 120,
+                "hpLossRequest": 120,
+                "hpBefore": 1000,
+                "hpAfter": 880,
+                "modeledHpLost": 120,
+                "shieldAfter": 0,
+                "overflowDiagnostic": null,
+                "callbackDescriptors": [
+                  {
+                    "kind": "owner",
+                    "property": "hp",
+                    "old": 1000,
+                    "new": 880
+                  },
+                  {
+                    "kind": "send",
+                    "property": "hp",
+                    "delta": -120,
+                    "new": 880
+                  }
+                ],
+                "evidence": [
+                  "PC144:OrdinaryHpSubtraction",
+                  "PC144:HitLimitHelpers"
+                ]
+              }
+            ],
+            "trace": [
+              {
+                "stage": "base",
+                "value": 120
+              },
+              {
+                "stage": "flat contributions",
+                "value": 0
+              },
+              {
+                "stage": "offensive subtotal",
+                "value": 120
+              },
+              {
+                "stage": "ceil(x - 0.00001), minimum 1",
+                "value": 120
+              },
+              {
+                "stage": "reduction product",
+                "value": 1
+              },
+              {
+                "stage": "floor(x + 0.00001), minimum 1",
+                "value": 120
+              }
+            ],
+            "evidence": [
+              "PC144:BattleUtilServer.ShowDamageFormula",
+              "PC144:BattleCmdServer.__GetFinalDamage",
+              "PC144:HitLimitHelpers",
+              "PC144:OrdinaryHpSubtraction"
+            ],
+            "unresolvedDependencies": [
+              "Resolved inputs have not been tied to a fully reconstructed gameplay scenario",
+              "Independent gameplay holdouts have not passed",
+              "HP-dependent combat callbacks, statistics and death execution are not performed by this API",
+              "Immunity decision is supplied, not reconstructed",
+              "Prevention eligibility is supplied, not reconstructed",
+              "Limit properties are supplied, not reconstructed"
+            ],
+            "offensiveUtility": {
+              "showDamage": 120,
+              "diagnosticBaseDamage": 120,
+              "trace": [
+                {
+                  "stage": "base",
+                  "value": 120
+                },
+                {
+                  "stage": "flat contributions",
+                  "value": 0
+                },
+                {
+                  "stage": "offensive subtotal",
+                  "value": 120
+                },
+                {
+                  "stage": "ceil(x - 0.00001), minimum 1",
+                  "value": 120
+                },
+                {
+                  "stage": "reduction product",
+                  "value": 1
+                },
+                {
+                  "stage": "floor(x + 0.00001), minimum 1",
+                  "value": 120
+                }
+              ],
+              "evidence": [
+                "PC144:BattleUtilServer.ShowDamageFormula"
+              ],
+              "status": "SUPPORTED_BY_RUNTIME_TEST"
+            },
+            "hitTriggerValues": {
+              "changeVal": 120,
+              "curHp": 880,
+              "oldHp": 1000,
+              "immueDamage": false,
+              "originVal": 120,
+              "castDamage": 120,
+              "realDamage": 120,
+              "unBlockedDamage": 120,
+              "blockedDamage": 0,
+              "blockLose": 0,
+              "isBlockedDamage": false,
+              "isBlockedAllDamage": false,
+              "overflowDamage": null,
+              "pvp_death_resist": false,
+              "isPreventActiveDamage": false,
+              "convertDamageVal": 0
+            }
+          }
+        }
+      ],
+      "command": {
+        "status": "EXPERIMENTAL",
+        "finalDamage": null,
+        "completed": true,
+        "stop": null,
+        "trace": [
+          {
+            "rowId": "1",
+            "type": "BEActiveDamage",
+            "condition": null,
+            "executed": true,
+            "parameterEvaluations": [
+              {
+                "values": [
+                  120,
+                  1
+                ],
+                "reads": [
+                  {
+                    "name": "Arg1",
+                    "value": 120
+                  },
+                  {
+                    "name": "Arg2",
+                    "value": 1
+                  }
+                ],
+                "calls": []
+              },
+              {
+                "values": [
+                  120,
+                  1
+                ],
+                "reads": [
+                  {
+                    "name": "Arg1",
+                    "value": 120
+                  },
+                  {
+                    "name": "Arg2",
+                    "value": 1
+                  }
+                ],
+                "calls": []
+              }
+            ],
+            "result": {
+              "status": "EXPERIMENTAL",
+              "initialization": {
+                "baseTimes": 1,
+                "afterAddition": 1,
+                "totalEffectTimes": 1
+              },
+              "paraPlus": null,
+              "damageSubType": 0,
+              "trace": [
+                {
+                  "hitIndex": 1,
+                  "parameters": [
+                    120,
+                    1
+                  ],
+                  "attack": {
+                    "damageVal": 120,
+                    "isCrit": false,
+                    "damageSubType": 0
+                  },
+                  "result": {
+                    "hitId": "1/hit-1"
+                  }
+                }
+              ],
+              "stop": null,
+              "unresolvedDependencies": [
+                "Supplied expression, target, damage, crit and hit adapters",
+                "No automatic retargeting, state-add variant, delay or complete lifecycle",
+                "Component composition, not connected original execution or gameplay validation"
+              ]
+            }
+          }
+        ],
+        "unresolvedDependencies": [
+          "Explicit target resolution, effect handlers and continuation decisions",
+          "No original command construction, delays, interruption, yielding or full lifecycle",
+          "Component composition, not connected original command execution or gameplay validation"
+        ]
+      },
+      "unresolvedDependencies": [
+        "Resolved inputs have not been tied to a fully reconstructed gameplay scenario",
+        "Independent gameplay holdouts have not passed",
+        "HP-dependent combat callbacks, statistics and death execution are not performed by this API",
+        "Immunity decision is supplied, not reconstructed",
+        "Prevention eligibility is supplied, not reconstructed",
+        "Limit properties are supplied, not reconstructed",
+        "Explicit target resolution, effect handlers and continuation decisions",
+        "No original command construction, delays, interruption, yielding or full lifecycle",
+        "Component composition, not connected original command execution or gameplay validation",
+        "No card costs, automatic skill/build assembly, ParaPlus, state changes, random targeting, caps or death handling",
+        "Supplied numeric variables except live UpperTarget.hp; no original command-to-damage execution or independent gameplay validation"
+      ]
+    }
+  },
+  "commandSupport": {
+    "status": "STATIC_COMPATIBILITY_INSPECTION",
+    "profile": "ordinary-active-UpperTarget",
+    "importMetadata": [
+      {
+        "rowId": "1",
+        "BaseSortID": 1976
+      }
+    ],
+    "normalizedRows": [
+      {
+        "id": "1",
+        "Para": "Arg1,Arg2",
+        "Type": "BEActiveDamage",
+        "Target": "UpperTarget"
+      }
+    ],
+    "rowCount": 1,
+    "rows": [
+      {
+        "id": "1",
+        "type": "BEActiveDamage",
+        "target": "UpperTarget",
+        "blockers": []
+      }
+    ],
+    "structurallyCompatible": true,
+    "executable": false,
+    "remainingRuntimeChecks": [
+      "Numeric bindings and condition outcomes",
+      "Damage subtype and ParaPlus restrictions",
+      "Resolved offense, target modifiers, immunity and repetition inputs",
+      "Costs, lifecycle, state changes and trigger listeners",
+      "Original row construction and ordering"
+    ],
+    "limitations": [
+      "Checks current authored experiment compatibility, not correctness of the game command",
+      "No row is dropped; compilation does not evaluate expressions or prove runtime support",
+      "Not a gameplay prediction or full skill execution"
+    ]
+  },
+  "commandSummary": {
+    "effectTypes": [
+      "BEActiveDamage"
+    ],
+    "rowCount": 1
+  },
+  "executable": false
+}

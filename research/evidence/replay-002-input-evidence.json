@@ -1,0 +1,43 @@
+{
+  "kind": "INPUT_EVIDENCE_INVENTORY",
+  "record": "replay-002-frenzy",
+  "scope": "Independent UI equipment, base preview and recorded talent observations; not resolved per-event combat inputs",
+  "files": [
+    {
+      "path": "research\\observations\\replay-002-frenzy\\arachne-weapon.png",
+      "sha256": "23a3ac78b08a77b36a0b0bf6e1a9f687510a5860987d90edc2fcf17eb7073995"
+    },
+    {
+      "path": "research\\observations\\replay-002-frenzy\\arachne-second-weapon.png",
+      "sha256": "7a97d4c6fbfc9a63901890639bf5db2e2186728e5c9e612b1754cdc49603734a"
+    },
+    {
+      "path": "research\\observations\\replay-002-frenzy\\arachne-trinket-stats.png",
+      "sha256": "3e91749a4fe7d01e88443b35f57440f8f5f4b9d2457258efa62460dc51b64158"
+    },
+    {
+      "path": "research\\observations\\replay-002-frenzy\\arachne-character-preview.png",
+      "sha256": "3b575c6524f8674cce8c6b0ea7dfdcdd45369ea5230e18e9e93ce5879a246f26"
+    },
+    {
+      "path": "research\\observations\\replay-002-frenzy\\arachne-base-attributes.png",
+      "sha256": "fba70f98c7c5ca16cbd1cd25605529467c92183c8d9e2c534fd1353ff82ce597"
+    },
+    {
+      "path": "research\\observations\\replay-002-frenzy\\arachne-talents.png",
+      "sha256": "a7d5ea54792f836a407d1f50d22cf7a8c8774129be9c35859d6b9710510b3bf7"
+    },
+    {
+      "path": "research\\observations\\replay-002-frenzy\\arachne-season-talent.png",
+      "sha256": "7453edf297021a14249f030be8a9b1a10e6ecf3e248e8628ac297a27598871b4"
+    },
+    {
+      "path": "research\\observations\\replay-002-frenzy\\arachne-attribute-talent.png",
+      "sha256": "ddaf6c6ec3e4c1d41ec27799ae34a53b1e3f53cf230130a146dae3df5621ec28"
+    },
+    {
+      "path": "research\\observations\\replay-002-frenzy\\arachne-common-talent.png",
+      "sha256": "fded3af47554602bad5c084fcd4be6672e90be7cb851970834999e51c38894a4"
+    }
+  ]
+}

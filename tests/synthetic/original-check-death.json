@@ -1,0 +1,140 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original CheckDeathEvent; eligibility/dead/HP supplied, CreateEffect requests observed; optional immediate HP response probes absence of a second guard. No scheduler or death effect execution.",
+  "sourceHash": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+  "fixtures": [
+    {
+      "input": {
+        "eligible": true,
+        "dead": false,
+        "hp": 0,
+        "withPayload": true,
+        "healOnFirstCreate": false
+      },
+      "expected": [
+        {
+          "effectType": "BERoleDeadlyDamage",
+          "roleUid": 7.0,
+          "castRoleUid": 9.0,
+          "fromCmdServerUid": 11.0,
+          "hpChangeReason": 3.0,
+          "castDamage": 200.0,
+          "overflowDamage": 75.0
+        },
+        {
+          "effectType": "BERoleDie",
+          "roleUid": 7.0,
+          "fromCmdServerUid": 11.0,
+          "hpChangeReason": 3.0
+        }
+      ]
+    },
+    {
+      "input": {
+        "eligible": false,
+        "dead": false,
+        "hp": 0,
+        "withPayload": true,
+        "healOnFirstCreate": false
+      },
+      "expected": []
+    },
+    {
+      "input": {
+        "eligible": true,
+        "dead": true,
+        "hp": 0,
+        "withPayload": true,
+        "healOnFirstCreate": false
+      },
+      "expected": []
+    },
+    {
+      "input": {
+        "eligible": true,
+        "dead": false,
+        "hp": 1,
+        "withPayload": true,
+        "healOnFirstCreate": false
+      },
+      "expected": []
+    },
+    {
+      "input": {
+        "eligible": true,
+        "dead": false,
+        "hp": -1,
+        "withPayload": true,
+        "healOnFirstCreate": false
+      },
+      "expected": [
+        {
+          "effectType": "BERoleDeadlyDamage",
+          "roleUid": 7.0,
+          "castRoleUid": 9.0,
+          "fromCmdServerUid": 11.0,
+          "hpChangeReason": 3.0,
+          "castDamage": 200.0,
+          "overflowDamage": 75.0
+        },
+        {
+          "effectType": "BERoleDie",
+          "roleUid": 7.0,
+          "fromCmdServerUid": 11.0,
+          "hpChangeReason": 3.0
+        }
+      ]
+    },
+    {
+      "input": {
+        "eligible": true,
+        "dead": false,
+        "hp": 0,
+        "withPayload": false,
+        "healOnFirstCreate": false
+      },
+      "expected": [
+        {
+          "effectType": "BERoleDeadlyDamage",
+          "roleUid": 7.0,
+          "castRoleUid": 9.0,
+          "fromCmdServerUid": 11.0,
+          "hpChangeReason": 3.0
+        },
+        {
+          "effectType": "BERoleDie",
+          "roleUid": 7.0,
+          "fromCmdServerUid": 11.0,
+          "hpChangeReason": 3.0
+        }
+      ]
+    },
+    {
+      "input": {
+        "eligible": true,
+        "dead": false,
+        "hp": 0,
+        "withPayload": true,
+        "healOnFirstCreate": true
+      },
+      "expected": [
+        {
+          "effectType": "BERoleDeadlyDamage",
+          "roleUid": 7.0,
+          "castRoleUid": 9.0,
+          "fromCmdServerUid": 11.0,
+          "hpChangeReason": 3.0,
+          "castDamage": 200.0,
+          "overflowDamage": 75.0
+        },
+        {
+          "effectType": "BERoleDie",
+          "roleUid": 7.0,
+          "fromCmdServerUid": 11.0,
+          "hpChangeReason": 3.0
+        }
+      ]
+    }
+  ]
+}

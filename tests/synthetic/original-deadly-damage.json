@@ -1,0 +1,158 @@
+{
+  "scope": "Original BERoleDeadlyDamage.DoEffect; base DoEffect and logging stubbed. Event adapter executes configured HP responses synchronously; IsDeathResist/DeathResist are explicit role adapters, not full implementations. Does not execute scheduler override, actual revive states or BERoleDie.",
+  "sourceHash": "faae1ab17077e9ca643648c8f4262478c1fda8f224d0f4d7afb8a8c64343c3fa",
+  "fixtures": [
+    {
+      "input": {
+        "roleExists": true,
+        "hp": 0,
+        "deathResist": false,
+        "hpAfterDeathResist": 1,
+        "healBeforeResist": null,
+        "healBeforeDeath": null,
+        "revivePopup": 0
+      },
+      "expected": {
+        "returnValue": false,
+        "hp": 0,
+        "trace": [
+          "RoleBeforeDeathResist",
+          "RoleBeforeDeath",
+          "RoleAfterDeath"
+        ]
+      }
+    },
+    {
+      "input": {
+        "roleExists": false,
+        "hp": 0,
+        "deathResist": false,
+        "hpAfterDeathResist": 1,
+        "healBeforeResist": null,
+        "healBeforeDeath": null,
+        "revivePopup": 0
+      },
+      "expected": {
+        "returnValue": false,
+        "hp": 0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "roleExists": true,
+        "hp": 0,
+        "deathResist": false,
+        "hpAfterDeathResist": 1,
+        "healBeforeResist": 25,
+        "healBeforeDeath": null,
+        "revivePopup": 0
+      },
+      "expected": {
+        "returnValue": false,
+        "hp": 25,
+        "trace": [
+          "RoleBeforeDeathResist",
+          "ReviveFloatingText"
+        ]
+      }
+    },
+    {
+      "input": {
+        "roleExists": true,
+        "hp": 0,
+        "deathResist": true,
+        "hpAfterDeathResist": 1,
+        "healBeforeResist": null,
+        "healBeforeDeath": null,
+        "revivePopup": 0
+      },
+      "expected": {
+        "returnValue": false,
+        "hp": 1,
+        "trace": [
+          "RoleBeforeDeathResist",
+          "DeathResist",
+          "RoleAfterDeathResist"
+        ]
+      }
+    },
+    {
+      "input": {
+        "roleExists": true,
+        "hp": 0,
+        "deathResist": false,
+        "hpAfterDeathResist": 1,
+        "healBeforeResist": null,
+        "healBeforeDeath": 30,
+        "revivePopup": 0
+      },
+      "expected": {
+        "returnValue": false,
+        "hp": 30,
+        "trace": [
+          "RoleBeforeDeathResist",
+          "RoleBeforeDeath",
+          "ReviveFloatingText"
+        ]
+      }
+    },
+    {
+      "input": {
+        "roleExists": true,
+        "hp": 0,
+        "deathResist": false,
+        "hpAfterDeathResist": 1,
+        "healBeforeResist": null,
+        "healBeforeDeath": 30,
+        "revivePopup": 1
+      },
+      "expected": {
+        "returnValue": false,
+        "hp": 30,
+        "trace": [
+          "RoleBeforeDeathResist",
+          "RoleBeforeDeath"
+        ]
+      }
+    },
+    {
+      "input": {
+        "roleExists": true,
+        "hp": 10,
+        "deathResist": false,
+        "hpAfterDeathResist": 1,
+        "healBeforeResist": null,
+        "healBeforeDeath": null,
+        "revivePopup": 0
+      },
+      "expected": {
+        "returnValue": false,
+        "hp": 10,
+        "trace": [
+          "RoleBeforeDeathResist",
+          "ReviveFloatingText"
+        ]
+      }
+    },
+    {
+      "input": {
+        "roleExists": true,
+        "hp": 0,
+        "deathResist": true,
+        "hpAfterDeathResist": 1,
+        "healBeforeResist": 25,
+        "healBeforeDeath": null,
+        "revivePopup": 0
+      },
+      "expected": {
+        "returnValue": false,
+        "hp": 25,
+        "trace": [
+          "RoleBeforeDeathResist",
+          "ReviveFloatingText"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,712 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original TryTrigger; explicit state deletion, owner monster/camp/uid adapters. No state callback or command execution. Includes roleUid zero, which is truthy in Lua.",
+  "sourceHash": "b21b29209c0f0ccd206b6bb7e8355665faded1a64f062ae326c0e501fbbbfa7d",
+  "fixtures": [
+    {
+      "input": {
+        "deleted": false,
+        "monster": false,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": null
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": false,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 0
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": false,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 7
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": false,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 9
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": false,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": null
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": false,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 0
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": false,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 7
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": false,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 9
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": false,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": null
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": false,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 0
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": false,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 7
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": false,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 9
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": false,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": null
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": false,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 0
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": false,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 7
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": false,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 9
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": true,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": null
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": true,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 0
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": true,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 7
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": true,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 9
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": true,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": null
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": true,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 0
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": true,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 7
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": true,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 9
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": true,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": null
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": true,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 0
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": true,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 7
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": true,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 9
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": true,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": null
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": true,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 0
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": true,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 7
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "deleted": false,
+        "monster": true,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 9
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": false,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": null
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": false,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 0
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": false,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 7
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": false,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 9
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": false,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": null
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": false,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 0
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": false,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 7
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": false,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 9
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": false,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": null
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": false,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 0
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": false,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 7
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": false,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 9
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": false,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": null
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": false,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 0
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": false,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 7
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": false,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 9
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": true,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": null
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": true,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 0
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": true,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 7
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": true,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 9
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": true,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": null
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": true,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 0
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": true,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 7
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": true,
+        "enemy": false,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 9
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": true,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": null
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": true,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 0
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": true,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 7
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": true,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 1,
+        "roleUid": 9
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": true,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": null
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": true,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 0
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": true,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 7
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "deleted": true,
+        "monster": true,
+        "enemy": true,
+        "ownerCamp": 2,
+        "triggerCamp": 2,
+        "roleUid": 9
+      },
+      "expected": false
+    }
+  ]
+}

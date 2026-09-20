@@ -1,0 +1,2351 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original CanUseCard non-keeper PvE path; all property, identity, card-method and EnergyEnough results supplied, reset side effect observed. No target checks, turn gate, forced-play path, payment or gameplay.",
+  "sourceHashes": {
+    "BattleUnitBase": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+  },
+  "fixtures": [
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": true,
+        "reasonCode": null,
+        "resetAllowIgnoreCost": true
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 5.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": true,
+        "reasonCode": null,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": true,
+        "reasonCode": null,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": true,
+        "reasonCode": null,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": true,
+        "reasonCode": null,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": false,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 1.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": false,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 1.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": false,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 1.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": false,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 1.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": false,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 1.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": false,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 1.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": false,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 1.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": false,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 1.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": false,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 1.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": false,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 1.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": false,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 1.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": false,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 1.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": false,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": false,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": false,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": false,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": false,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": false,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 1,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 1,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 1,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 1,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 1,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 1,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 1,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 1,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 1,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 1,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 1,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 1,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": false,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": false,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": false,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": false,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": false,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": false,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": true,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 6.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": true,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 6.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": true,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 6.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": true,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 6.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": true,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 6.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": true,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 6.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 1,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": null,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 1,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": null,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 1,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": null,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 1,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": null,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 1,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": null,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 1,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": null,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 1,
+        "comaImmunity": 1,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": true,
+        "reasonCode": null,
+        "resetAllowIgnoreCost": true
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 1,
+        "comaImmunity": 1,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 5.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 1,
+        "comaImmunity": 1,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": true,
+        "reasonCode": null,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 1,
+        "comaImmunity": 1,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": true,
+        "reasonCode": null,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 1,
+        "comaImmunity": 1,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": true,
+        "reasonCode": null,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 1,
+        "comaImmunity": 1,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": true,
+        "reasonCode": null,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 1,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 1,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 1,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 1,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 1,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 1,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 1,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 1,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 1,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 1,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 1,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 1,
+        "strike": false,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": true,
+        "ownerForbidStrike": 1,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": true,
+        "ownerForbidStrike": 1,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": true,
+        "ownerForbidStrike": 1,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": true,
+        "ownerForbidStrike": 1,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": true,
+        "ownerForbidStrike": 1,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": true,
+        "ownerForbidStrike": 1,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": true,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 1,
+        "variable": false,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": true,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 1,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": true,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 1,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": true,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 1,
+        "variable": true,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": true,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 1,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": true,
+        "ownerForbidStrike": 0,
+        "playerForbidStrike": 1,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 2.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 1,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": true,
+        "reasonCode": null,
+        "resetAllowIgnoreCost": true
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 1,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": false,
+        "reasonCode": 5.0,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 1,
+        "playerForbidStrike": 0,
+        "variable": false,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": true,
+        "reasonCode": null,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 1,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": true,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": true,
+        "reasonCode": null,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 1,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": false
+      },
+      "expected": {
+        "allowed": true,
+        "reasonCode": null,
+        "resetAllowIgnoreCost": false
+      }
+    },
+    {
+      "input": {
+        "cardExists": true,
+        "inHand": true,
+        "judgeCost": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "commandExists": true,
+        "dead": false,
+        "coma": 0,
+        "comaImmunity": 0,
+        "ownerForbid": 0,
+        "playerForbid": 0,
+        "strike": false,
+        "ownerForbidStrike": 1,
+        "playerForbidStrike": 0,
+        "variable": true,
+        "energyEnough": false,
+        "allowIgnoreCost": true
+      },
+      "expected": {
+        "allowed": true,
+        "reasonCode": null,
+        "resetAllowIgnoreCost": false
+      }
+    }
+  ]
+}

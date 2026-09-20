@@ -1,0 +1,15 @@
+.venv/
+research/raw/
+research/extracted/
+research/observations/
+research/builds/
+research/symbols/
+research/evidence/command-support-audit.json
+research/evidence/command-coverage-inventory.json
+research/evidence/latest-test-suite.tap
+research/evidence/local-replay-storage-inspection.json
+tmp/
+tools/check_bundle_header.py
+tools/derive_bundle_key.py
+tools/local_bundle_key.py
+__pycache__/

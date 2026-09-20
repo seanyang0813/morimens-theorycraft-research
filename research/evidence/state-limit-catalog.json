@@ -1,0 +1,62 @@
+{
+  "build": "pc-res144-build51",
+  "rules": {
+    "statistics": [
+      {
+        "key": "posion",
+        "stateIds": [
+          3068
+        ],
+        "limitProperty": "be_state_layer_limit_posion",
+        "usedProperty": "be_state_layer_statics_posion"
+      }
+    ],
+    "total": [
+      {
+        "key": "posion",
+        "stateIds": [
+          3068
+        ],
+        "limitProperty": "be_state_layer_limit_posion_max"
+      },
+      {
+        "key": "retaliate",
+        "stateIds": [
+          3905
+        ],
+        "limitProperty": "be_state_layer_limit_retaliate_max"
+      }
+    ]
+  },
+  "sourceHashes": {
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+    "BattleApiExport": "47c6b4434a0c78ec59927a29237d960a81b2f9c0cf69f8ae3c26a0c3f4500d1a"
+  },
+  "unusedLimitApiEntries": [
+    "be_state_layer_limit_retaliate"
+  ],
+  "statePropertySources": {
+    "76448": {
+      "be_state_layer_limit_retaliate_max": "StateArg1"
+    },
+    "76447": {
+      "be_state_layer_limit_posion_max": "StateArg1"
+    }
+  },
+  "usagePropertyExactReferences": {
+    "research/extracted/prototypes": [
+      "research/extracted/prototypes/config/-6894225089628909939_BattleApi.lua.json",
+      "research/extracted/prototypes/config/9079617640149979602_FuncTable.lua.json",
+      "research/extracted/prototypes/share/-7904900691744414154_BattleConst.lua.json"
+    ],
+    "research/extracted/config": [
+      "research/extracted/config/BattleApi.json"
+    ]
+  },
+  "limitations": [
+    "Lua pairs order observed during export; current active rule state IDs do not overlap",
+    "Exact-reference audit does not exclude dynamic names, native code or missing downloaded files",
+    "Usage-property accumulation/reset writer not established; do not infer an update from added layers",
+    "No gameplay validation"
+  ]
+}

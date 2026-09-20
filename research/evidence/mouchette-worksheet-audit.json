@@ -1,0 +1,8 @@
+{
+  "status": "CONDITIONAL_WORKSHEET_EQUATIONS_MATCH",
+  "scope": "Equation cross-check against existing authored combo implementation on synthetic mastery vectors; not gameplay or full original sequence validation",
+  "checks": 168,
+  "masteryResolved": false,
+  "finalDamage": null,
+  "scenarioSha256": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af"
+}

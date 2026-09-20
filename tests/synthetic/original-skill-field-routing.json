@@ -1,0 +1,1412 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleCmdServer": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+    "BattleUtilServer": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+  },
+  "scope": "64 original GetSkillConfigTQText calls connected to original variant helpers; supplied skill tables, role/progression getters and expression outcomes. No real skill preprocessing, missing-role handling, list fields, card execution or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": {
+            "0": 10,
+            "1003": 20
+          }
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": 10.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": {
+            "0": 10,
+            "1003": 20
+          }
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": 10.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": {
+            "0": 10,
+            "1003": 20
+          }
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": 10.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": {
+            "0": 10,
+            "1003": 20
+          }
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": 10.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": {
+            "0": 10,
+            "1003": 20
+          }
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": {
+            "0": 10,
+            "1003": 20
+          }
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": {
+            "0": 10,
+            "1003": 20
+          }
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": 20.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": {
+            "0": 10,
+            "1003": 20
+          }
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": 20.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 10,
+          "tempCmdList": [
+            [
+              "true",
+              30
+            ],
+            [
+              "active",
+              40
+            ]
+          ]
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": 30.0,
+        "reads": [
+          "active"
+        ]
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 10,
+          "tempCmdList": [
+            [
+              "true",
+              30
+            ],
+            [
+              "active",
+              40
+            ]
+          ]
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": 40.0,
+        "reads": [
+          "active"
+        ]
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 10,
+          "tempCmdList": [
+            [
+              "true",
+              30
+            ],
+            [
+              "active",
+              40
+            ]
+          ]
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": 30.0,
+        "reads": [
+          "active"
+        ]
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 10,
+          "tempCmdList": [
+            [
+              "true",
+              30
+            ],
+            [
+              "active",
+              40
+            ]
+          ]
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": 40.0,
+        "reads": [
+          "active"
+        ]
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 10,
+          "tempCmdList": [
+            [
+              "true",
+              30
+            ],
+            [
+              "active",
+              40
+            ]
+          ]
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": 30.0,
+        "reads": [
+          "active"
+        ]
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 10,
+          "tempCmdList": [
+            [
+              "true",
+              30
+            ],
+            [
+              "active",
+              40
+            ]
+          ]
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": 40.0,
+        "reads": [
+          "active"
+        ]
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 10,
+          "tempCmdList": [
+            [
+              "true",
+              30
+            ],
+            [
+              "active",
+              40
+            ]
+          ]
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": 30.0,
+        "reads": [
+          "active"
+        ]
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 10,
+          "tempCmdList": [
+            [
+              "true",
+              30
+            ],
+            [
+              "active",
+              40
+            ]
+          ]
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": 40.0,
+        "reads": [
+          "active"
+        ]
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "IsPVP": true,
+          "CmdList": [
+            [
+              "true",
+              50
+            ],
+            [
+              "active",
+              60
+            ]
+          ]
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": 50.0,
+        "reads": [
+          "active"
+        ]
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "IsPVP": true,
+          "CmdList": [
+            [
+              "true",
+              50
+            ],
+            [
+              "active",
+              60
+            ]
+          ]
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": 60.0,
+        "reads": [
+          "active"
+        ]
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "IsPVP": true,
+          "CmdList": [
+            [
+              "true",
+              50
+            ],
+            [
+              "active",
+              60
+            ]
+          ]
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": 50.0,
+        "reads": [
+          "active"
+        ]
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "IsPVP": true,
+          "CmdList": [
+            [
+              "true",
+              50
+            ],
+            [
+              "active",
+              60
+            ]
+          ]
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": 60.0,
+        "reads": [
+          "active"
+        ]
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "IsPVP": true,
+          "CmdList": [
+            [
+              "true",
+              50
+            ],
+            [
+              "active",
+              60
+            ]
+          ]
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": 50.0,
+        "reads": [
+          "active"
+        ]
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "IsPVP": true,
+          "CmdList": [
+            [
+              "true",
+              50
+            ],
+            [
+              "active",
+              60
+            ]
+          ]
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": 60.0,
+        "reads": [
+          "active"
+        ]
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "IsPVP": true,
+          "CmdList": [
+            [
+              "true",
+              50
+            ],
+            [
+              "active",
+              60
+            ]
+          ]
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": 50.0,
+        "reads": [
+          "active"
+        ]
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "IsPVP": true,
+          "CmdList": [
+            [
+              "true",
+              50
+            ],
+            [
+              "active",
+              60
+            ]
+          ]
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": 60.0,
+        "reads": [
+          "active"
+        ]
+      }
+    },
+    {
+      "input": {
+        "field": "Para",
+        "skill": {
+          "IsPVP": true,
+          "Para": {
+            "0": "Arg1",
+            "1003": "Arg2"
+          }
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": "Arg1",
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "Para",
+        "skill": {
+          "IsPVP": true,
+          "Para": {
+            "0": "Arg1",
+            "1003": "Arg2"
+          }
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": "Arg1",
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "Para",
+        "skill": {
+          "IsPVP": true,
+          "Para": {
+            "0": "Arg1",
+            "1003": "Arg2"
+          }
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": "Arg1",
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "Para",
+        "skill": {
+          "IsPVP": true,
+          "Para": {
+            "0": "Arg1",
+            "1003": "Arg2"
+          }
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": "Arg1",
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "Para",
+        "skill": {
+          "IsPVP": true,
+          "Para": {
+            "0": "Arg1",
+            "1003": "Arg2"
+          }
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "Para",
+        "skill": {
+          "IsPVP": true,
+          "Para": {
+            "0": "Arg1",
+            "1003": "Arg2"
+          }
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "Para",
+        "skill": {
+          "IsPVP": true,
+          "Para": {
+            "0": "Arg1",
+            "1003": "Arg2"
+          }
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": "Arg2",
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "Para",
+        "skill": {
+          "IsPVP": true,
+          "Para": {
+            "0": "Arg1",
+            "1003": "Arg2"
+          }
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": "Arg2",
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 10,
+          "tempCmdList": 0
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 10,
+          "tempCmdList": 0
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 10,
+          "tempCmdList": 0
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 10,
+          "tempCmdList": 0
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 10,
+          "tempCmdList": 0
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 10,
+          "tempCmdList": 0
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 10,
+          "tempCmdList": 0
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 10,
+          "tempCmdList": 0
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 0,
+          "tempCmdList": false
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 0,
+          "tempCmdList": false
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 0,
+          "tempCmdList": false
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 0,
+          "tempCmdList": false
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 0,
+          "tempCmdList": false
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 0,
+          "tempCmdList": false
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 0,
+          "tempCmdList": false
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": 0,
+          "tempCmdList": false
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {},
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {},
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {},
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {},
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {},
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {},
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {},
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {},
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": false
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": false
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": false
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": false
+        },
+        "isAwaker": false,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": false
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": false
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": false
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 0
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "field": "CmdList",
+        "skill": {
+          "CmdList": false
+        },
+        "isAwaker": true,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3,
+        "results": {
+          "active": 1
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Morimens damage calculator</title><meta name="description" content="General Morimens damage calculations with editable modifiers and an auditable breakdown."><link rel="stylesheet" href="style.css"></head>
+<body><main class="general">
+<header><span class="eyebrow">MORIMENS / DAMAGE CALCULATOR</span><span class="status">Research preview · gameplay validation pending</span></header>
+<nav aria-label="Calculator navigation"><a href="builds.html">Build planner</a><a href="index.html" aria-current="page">Formula experiments</a><a href="mouchette.html">Mouchette + Arachne scenario</a><a href="states.html">Buff sequences</a><a href="timeline.html">Hit sequences</a><a href="rules.html">Rule evidence</a></nav>
+<h1>Theorycraft workbench</h1><p class="intro">Explore a hypothesis, compare two setups and inspect why the calculation changes. Current workspace: single-hit formula experiments.</p>
+<div class="workspace"><section class="setup"><form id="general-form">
+<h2>Damage setup</h2><label for="damage-type">Damage category</label><select id="damage-type"><option value="ACTIVE">Active</option><option value="PASSIVE">Passive</option><option value="FIXED">Fixed</option><option value="PURE">Pure</option></select>
+<p class="help">One hit, living target. Base values are required. Modifier defaults mean explicitly neutral: 0% bonus or ×1, not inferred equipment stats.</p>
+<label class="check" id="critical-label"><input id="critical" type="checkbox">This hit is critical</label>
+<div id="damage-fields"></div><p class="help" id="category-help"></p>
+<label class="check"><input id="resolve-hp" type="checkbox">Include shield and HP resolution</label>
+<div id="hp-fields" hidden><div id="hp-numbers"></div>
+<label class="check"><input id="immune" type="checkbox">This hit is immune after subtype checks</label>
+<label class="check" id="puncture-label"><input id="puncture" type="checkbox">Puncture</label>
+<label class="check" id="prevention-label"><input id="prevention" type="checkbox">Eligible for Active-damage prevention</label>
+<p class="help">Use resolved battle properties. This step excludes triggered effects, phase changes and death processing.</p></div>
+<button type="submit">Calculate hit</button><button type="button" class="secondary" id="reset">Reset current category</button><p id="error" role="alert"></p>
+</form></section>
+<section class="results" aria-labelledby="result-heading"><h2 id="result-heading">Damage breakdown</h2><p id="total" class="total" aria-live="polite">—</p><p id="result-note">Enter the resolved card or effect base damage to begin.</p>
+<div id="hp-result"></div><ol id="arithmetic" class="arithmetic"></ol>
+<section aria-labelledby="experiment-heading"><h3 id="experiment-heading">A/B experiment</h3><p class="help">Save the current inputs as A, change a modifier, then compare B. Several simultaneous changes show their combined effect, not individual causal contributions.</p>
+<button type="button" id="save-baseline" class="secondary">Use current setup as A</button><button type="button" id="compare" disabled>Compare current setup as B</button><p id="baseline-note" aria-live="polite">No baseline saved.</p><div id="comparison"></div>
+<details><summary>Reproduce or share this experiment</summary><label for="experiment-json">Experiment JSON</label><textarea id="experiment-json" rows="8" spellcheck="false" placeholder="A completed comparison produces reproducible JSON here. You can also paste an experiment from another person or agent."></textarea><button type="button" class="secondary" id="import-experiment">Run pasted experiment</button><p class="help">Pasted experiments are evaluated separately; they do not overwrite the form. Use the displayed input changes and JSON to inspect both setups.</p></details></section>
+<details><summary>Input snapshot and evidence</summary><pre id="snapshot">No calculation yet.</pre></details>
+<aside><h3>Calculation scope</h3><p>These formulas have been compared with copied original game code. No complete independent gameplay prediction has passed verification yet.</p><p>Character selection, equipment-to-stat reconstruction, automatic crit rolls, multi-hit triggers, DEF reconstruction and boss phases are not yet integrated. Enter resolved values; this tool does not infer them from a character name.</p><p>150% Crit DMG bonus means ×2.5 on a critical hit in the recovered formula. Percentage slots combine according to their individual rules; they are not all added together.</p></aside>
+<details><summary>Unresolved dependencies</summary><ul id="dependencies"><li>Calculate to see the dependencies for this setup.</li></ul></details>
+</section></div><footer>PC resources 144 / build 51 · General research calculator · Local preview, unpublished</footer>
+<noscript>This calculator requires JavaScript.</noscript></main><script type="module" src="app.mjs"></script></body></html>

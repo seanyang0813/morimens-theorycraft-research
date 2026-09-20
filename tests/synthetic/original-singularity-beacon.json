@@ -1,0 +1,421 @@
+{
+  "scope": "Original State126900 Judgement4 expression with explicit getters and actual Skill.Type tags; layer amount from original Cmd134388 expression. Assumes before-use event already dispatched. No attached-action event routing or after-use commands.",
+  "sourceHash": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3",
+  "expression": "(CurCard.CardTypeMatch(Card_Strike)==1 or CurCard.CardTypeMatch(Card_Defend)==1 or CurCard.CardTypeMatch(Card_Skill)==1 or CurCard.CardTypeMatch(Card_Extend)==1) and CurCard.GetStateLayer(126895)==0 and (PlayerRole.GetStateLayer(3867)==0 or PlayerRole.GetStateLayer(133395)>0)",
+  "fixtures": [
+    {
+      "skillId": 122485,
+      "input": {
+        "cardTypes": [
+          "Card_Awake"
+        ],
+        "existingBeaconLayers": 0,
+        "shuttleUses": 0,
+        "extraShuttles": 0,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": false,
+        "temporaryBeaconLayers": 0,
+        "admissionMarker": false
+      }
+    },
+    {
+      "skillId": 122485,
+      "input": {
+        "cardTypes": [
+          "Card_Awake"
+        ],
+        "existingBeaconLayers": 0,
+        "shuttleUses": 1,
+        "extraShuttles": 0,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": false,
+        "temporaryBeaconLayers": 0,
+        "admissionMarker": false
+      }
+    },
+    {
+      "skillId": 122485,
+      "input": {
+        "cardTypes": [
+          "Card_Awake"
+        ],
+        "existingBeaconLayers": 0,
+        "shuttleUses": 1,
+        "extraShuttles": 1,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": false,
+        "temporaryBeaconLayers": 0,
+        "admissionMarker": false
+      }
+    },
+    {
+      "skillId": 122485,
+      "input": {
+        "cardTypes": [
+          "Card_Awake"
+        ],
+        "existingBeaconLayers": 26,
+        "shuttleUses": 0,
+        "extraShuttles": 0,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": false,
+        "temporaryBeaconLayers": 0,
+        "admissionMarker": false
+      }
+    },
+    {
+      "skillId": 122485,
+      "input": {
+        "cardTypes": [
+          "Card_Awake"
+        ],
+        "existingBeaconLayers": 26,
+        "shuttleUses": 1,
+        "extraShuttles": 1,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": false,
+        "temporaryBeaconLayers": 0,
+        "admissionMarker": false
+      }
+    },
+    {
+      "skillId": 122485,
+      "input": {
+        "cardTypes": [
+          "Card_Awake"
+        ],
+        "existingBeaconLayers": 0,
+        "shuttleUses": 0,
+        "extraShuttles": 1,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": false,
+        "temporaryBeaconLayers": 0,
+        "admissionMarker": false
+      }
+    },
+    {
+      "skillId": 122486,
+      "input": {
+        "cardTypes": [
+          "Ulti_Skill"
+        ],
+        "existingBeaconLayers": 0,
+        "shuttleUses": 0,
+        "extraShuttles": 0,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": false,
+        "temporaryBeaconLayers": 0,
+        "admissionMarker": false
+      }
+    },
+    {
+      "skillId": 122486,
+      "input": {
+        "cardTypes": [
+          "Ulti_Skill"
+        ],
+        "existingBeaconLayers": 0,
+        "shuttleUses": 1,
+        "extraShuttles": 0,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": false,
+        "temporaryBeaconLayers": 0,
+        "admissionMarker": false
+      }
+    },
+    {
+      "skillId": 122486,
+      "input": {
+        "cardTypes": [
+          "Ulti_Skill"
+        ],
+        "existingBeaconLayers": 0,
+        "shuttleUses": 1,
+        "extraShuttles": 1,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": false,
+        "temporaryBeaconLayers": 0,
+        "admissionMarker": false
+      }
+    },
+    {
+      "skillId": 122486,
+      "input": {
+        "cardTypes": [
+          "Ulti_Skill"
+        ],
+        "existingBeaconLayers": 26,
+        "shuttleUses": 0,
+        "extraShuttles": 0,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": false,
+        "temporaryBeaconLayers": 0,
+        "admissionMarker": false
+      }
+    },
+    {
+      "skillId": 122486,
+      "input": {
+        "cardTypes": [
+          "Ulti_Skill"
+        ],
+        "existingBeaconLayers": 26,
+        "shuttleUses": 1,
+        "extraShuttles": 1,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": false,
+        "temporaryBeaconLayers": 0,
+        "admissionMarker": false
+      }
+    },
+    {
+      "skillId": 122486,
+      "input": {
+        "cardTypes": [
+          "Ulti_Skill"
+        ],
+        "existingBeaconLayers": 0,
+        "shuttleUses": 0,
+        "extraShuttles": 1,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": false,
+        "temporaryBeaconLayers": 0,
+        "admissionMarker": false
+      }
+    },
+    {
+      "skillId": 126484,
+      "input": {
+        "cardTypes": [
+          "Card_Strike"
+        ],
+        "existingBeaconLayers": 0,
+        "shuttleUses": 0,
+        "extraShuttles": 0,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": true,
+        "temporaryBeaconLayers": 26.0,
+        "admissionMarker": true
+      }
+    },
+    {
+      "skillId": 126484,
+      "input": {
+        "cardTypes": [
+          "Card_Strike"
+        ],
+        "existingBeaconLayers": 0,
+        "shuttleUses": 1,
+        "extraShuttles": 0,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": false,
+        "temporaryBeaconLayers": 0,
+        "admissionMarker": false
+      }
+    },
+    {
+      "skillId": 126484,
+      "input": {
+        "cardTypes": [
+          "Card_Strike"
+        ],
+        "existingBeaconLayers": 0,
+        "shuttleUses": 1,
+        "extraShuttles": 1,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": true,
+        "temporaryBeaconLayers": 26.0,
+        "admissionMarker": true
+      }
+    },
+    {
+      "skillId": 126484,
+      "input": {
+        "cardTypes": [
+          "Card_Strike"
+        ],
+        "existingBeaconLayers": 26,
+        "shuttleUses": 0,
+        "extraShuttles": 0,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": false,
+        "temporaryBeaconLayers": 0,
+        "admissionMarker": false
+      }
+    },
+    {
+      "skillId": 126484,
+      "input": {
+        "cardTypes": [
+          "Card_Strike"
+        ],
+        "existingBeaconLayers": 26,
+        "shuttleUses": 1,
+        "extraShuttles": 1,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": false,
+        "temporaryBeaconLayers": 0,
+        "admissionMarker": false
+      }
+    },
+    {
+      "skillId": 126484,
+      "input": {
+        "cardTypes": [
+          "Card_Strike"
+        ],
+        "existingBeaconLayers": 0,
+        "shuttleUses": 0,
+        "extraShuttles": 1,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": true,
+        "temporaryBeaconLayers": 26.0,
+        "admissionMarker": true
+      }
+    },
+    {
+      "skillId": 122483,
+      "input": {
+        "cardTypes": [
+          "Card_Skill",
+          "Card_Strike"
+        ],
+        "existingBeaconLayers": 0,
+        "shuttleUses": 0,
+        "extraShuttles": 0,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": true,
+        "temporaryBeaconLayers": 26.0,
+        "admissionMarker": true
+      }
+    },
+    {
+      "skillId": 122483,
+      "input": {
+        "cardTypes": [
+          "Card_Skill",
+          "Card_Strike"
+        ],
+        "existingBeaconLayers": 0,
+        "shuttleUses": 1,
+        "extraShuttles": 0,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": false,
+        "temporaryBeaconLayers": 0,
+        "admissionMarker": false
+      }
+    },
+    {
+      "skillId": 122483,
+      "input": {
+        "cardTypes": [
+          "Card_Skill",
+          "Card_Strike"
+        ],
+        "existingBeaconLayers": 0,
+        "shuttleUses": 1,
+        "extraShuttles": 1,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": true,
+        "temporaryBeaconLayers": 26.0,
+        "admissionMarker": true
+      }
+    },
+    {
+      "skillId": 122483,
+      "input": {
+        "cardTypes": [
+          "Card_Skill",
+          "Card_Strike"
+        ],
+        "existingBeaconLayers": 26,
+        "shuttleUses": 0,
+        "extraShuttles": 0,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": false,
+        "temporaryBeaconLayers": 0,
+        "admissionMarker": false
+      }
+    },
+    {
+      "skillId": 122483,
+      "input": {
+        "cardTypes": [
+          "Card_Skill",
+          "Card_Strike"
+        ],
+        "existingBeaconLayers": 26,
+        "shuttleUses": 1,
+        "extraShuttles": 1,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": false,
+        "temporaryBeaconLayers": 0,
+        "admissionMarker": false
+      }
+    },
+    {
+      "skillId": 122483,
+      "input": {
+        "cardTypes": [
+          "Card_Skill",
+          "Card_Strike"
+        ],
+        "existingBeaconLayers": 0,
+        "shuttleUses": 0,
+        "extraShuttles": 1,
+        "finalRealmMastery": 72
+      },
+      "expected": {
+        "eligible": true,
+        "temporaryBeaconLayers": 26.0,
+        "admissionMarker": true
+      }
+    }
+  ]
+}

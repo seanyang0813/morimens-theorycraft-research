@@ -1,0 +1,50 @@
+{
+  "kind": "LOCAL_ANDROID_BOOTSTRAP_INSPECTION",
+  "apkSha256": "8b0b08083fbce0e3a6e0a440ab200f111f90396971dc1cdfecd2bccd0f278a8b",
+  "entry": "assets/artres/gameupdate.ab",
+  "entrySize": 1065919,
+  "entrySha256": "704794e04c957c5dcd2243274fa066749a1e4cf00f5f04dc2e5e351c53f7e039",
+  "startupSha256": "1d8d936951837af84f3b4904ba75c6370b0fc414dac84a7c80be7ab75f8d441e",
+  "startupHeader": "1b4c75615430010119930d0a1a0a0408",
+  "startupPlaintextHttpUrlCount": 0,
+  "scope": "Static APK entry inspection only. No client execution, network request or formula equivalence claim.",
+  "decodeStatus": "FAILED",
+  "decoderError": {
+    "type": "LZ4BlockError",
+    "message": "Decompression failed: corrupt input or insufficient space in destination buffer. Error code: 10"
+  },
+  "compatibilityDecode": {
+    "status": "PARSED_CONTAINER",
+    "originalVersion": 6,
+    "engineVersion": "2022.3.61t8",
+    "flags": "0x643",
+    "keySignatureValid": true,
+    "originalMetadataOffset": 120,
+    "alignedMetadataOffset": 128,
+    "metadataLength": 413,
+    "metadataSha256": "92c9435abd032e36854a323fcc29824e2135a8c0cdfdef384f231b0203376174",
+    "inMemoryHeaderOverride": {
+      "offset": 8,
+      "originalHex": "00000006",
+      "replacementHex": "00000007"
+    },
+    "objectCounts": {
+      "GameObject": 108,
+      "MonoScript": 23,
+      "Sprite": 23,
+      "CanvasGroup": 12,
+      "Texture2D": 23,
+      "RectTransform": 108,
+      "MonoBehaviour": 130,
+      "CanvasRenderer": 71,
+      "Animator": 3,
+      "AnimationClip": 3,
+      "AssetBundle": 1,
+      "VideoPlayer": 1,
+      "AnimatorController": 1
+    },
+    "textAssetCount": 0,
+    "scope": "Compatibility alignment override validated by decompression and container parsing; original APK unchanged. No combat script or cross-platform rule equivalence recovered."
+  },
+  "nextEvidenceNeeded": "Fingerprinted downloaded Android combat/config bundles. The packaged update bundle contains no TextAssets in the successful compatibility parse; do not infer CDN paths from PC content."
+}

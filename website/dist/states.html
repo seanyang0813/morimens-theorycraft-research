@@ -1,0 +1,14 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Buff sequences · Morimens theorycraft</title><link rel="stylesheet" href="style.css"></head><body><main>
+<header><span class="eyebrow">MORIMENS / THEORYCRAFT WORKBENCH</span><span class="status">Experimental · PC res144 build51</span></header>
+<nav><a href="builds.html">Build planner</a><a href="index.html">Formula experiments</a><a href="actions.html">Card sequences</a><a href="states.html" aria-current="page">Buff sequences</a><a href="timeline.html">Hit sequences</a><a href="rules.html">Rule evidence</a></nav>
+<h1>See how buffs change later hits</h1><p class="intro">Apply a state, inspect its stack and property changes, then follow those values into the next attack.</p>
+<p class="help">Within one turn, using resolved state additions or requested stacks with explicit modifiers, immunity decisions and limit results. Other event listeners are assumed absent. Automatic rule derivation, expiry, card costs and complete character builds remain unfinished. Results are not gameplay verified.</p>
+<p id="runtime-status" class="help" aria-live="polite">Checking engine files...</p>
+<label for="state-input">State-sequence JSON</label><textarea id="state-input" rows="18" spellcheck="false"></textarea>
+<button id="run" disabled>Run sequence</button><button id="example" class="secondary" disabled>Load synthetic buff example</button><button id="swap" class="secondary" disabled>Swap first two steps and run</button>
+<section id="step-editor" hidden><h2>Edit the sequence</h2><p class="help">Move, duplicate or remove a step to recalculate. This list includes steps after a simulation stop. Advanced formula and build inputs remain in the JSON above.</p><ol id="step-list" class="sequence-steps"></ol><button id="undo" class="secondary" disabled>Undo last sequence edit</button></section>
+<p id="error" role="alert"></p><section id="results" hidden><p id="summary" aria-live="polite"></p><p id="stop"></p>
+<div class="table-scroll"><table><caption>Each step carries its state changes into the next. A stopped sequence shows only the executed portion.</caption><thead><tr><th>Step</th><th>Operation</th><th>Stacks / HP</th><th>Property change / damage</th></tr></thead><tbody id="rows"></tbody></table></div>
+<h2>Unresolved mechanics</h2><ul id="dependencies"></ul><details><summary>Input, engine fingerprint and full trace</summary><pre id="result-json"></pre></details></section>
+<footer>Local unpublished research. The example uses Psychic Trauma’s recovered expressions with synthetic attack values, not a real character build. The JSON trace includes the input and engine fingerprint; it does not archive the engine or establish gameplay accuracy.</footer>
+</main><script type="module" src="states-bootstrap.mjs"></script></body></html>

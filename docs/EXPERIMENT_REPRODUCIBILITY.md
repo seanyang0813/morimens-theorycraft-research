@@ -1,0 +1,14 @@
+# Experiment runtime fingerprints
+
+`tools/prepare_local_website.py` now emits runtime-manifest.json containing SHA-256 hashes for all explicitly allowlisted engine modules and the prepared build catalog, numeric client build data and scenario data. Its fingerprint hashes the compact JSON map sorted by path. No timestamp enters the hash, so unchanged content reproduces the fingerprint.
+
+`node tools/compare_experiment.mjs experiment.json` verifies the manifest file set, every packaged file, and byte identity between packaged and authored engine modules before calculation. Its result.experiment includes runtimeFingerprint. Save that experiment object for replay. If engine/data content changes, the old pinned experiment rejects until the matching runtime is restored or a deliberately new experiment is created. The verifier never edits a saved fingerprint automatically.
+
+The shared compareScenarios API accepts a runtimeFingerprint option supplied by the caller after runtime verification. A pinned input requires an identical current fingerprint. An unpinned input becomes pinned when that option is supplied; otherwise the result explicitly says UNPINNED. The API itself does not perform filesystem or network verification.
+
+The browser comparison UI is still unpinned and will reject a pinned CLI experiment because it does not yet verify its loaded runtime. This prevents silently claiming reproducibility across those interfaces. Browser support must verify the served artifact set before supplying the fingerprint. The manifest does not preserve old files; archived runtime bundles are still needed for future historical replay. Hash agreement proves content identity, not mechanic accuracy or gameplay validation.
+# Browser sequence runtime verification
+
+The sequence page boots through `timeline-bootstrap.mjs` and `verified-runtime.mjs`. Controls remain disabled until every manifest-listed asset hash and the aggregate fingerprint verify. The loader imports engine modules from the checked bytes through a temporary Blob module graph, rewriting only supported static relative imports; it does not re-fetch modules after verification. URLs are released after imports complete. Dynamic, bare, external and cyclic import forms are unsupported. Engine imports and comparisons use the same fingerprint as the CLI.
+
+The offline test executes the verified graph through Node data URLs and compares its fingerprint and calculation with the CLI. A tampered asset rejects before module execution. The UI event harness checks that saved/imported sequence comparisons retain the fingerprint. Actual browser Blob loading, secure-context Web Crypto availability and visual layout still need browser QA; no browser was opened during this work. The older single-hit formula page remains unpinned. Fingerprints support exact replay, not a claim of gameplay correctness or an archived copy of old engine versions.

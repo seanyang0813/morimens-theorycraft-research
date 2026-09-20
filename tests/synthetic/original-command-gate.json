@@ -1,0 +1,383 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original OnReceiveCommand with original command classifications, PvE lg_UseCard; supplied effect state and finished flag. Camp2 avoids play-limit branch, missing-card lookup stops dispatch. Robot/timeout/log/result hooks observed only. No valid card execution, turn advance or gameplay.",
+  "sourceHashes": {
+    "BattleEngine": "0ee07c8fd06f29787f8139306b55d16c726eaf8cabcd1ad0b128d907c8dbbeea",
+    "BattleCommand": "7b5748cdbb422a88051e49568e35266fedea4ec75ae4ee127216fc3a9c3e2480"
+  },
+  "fixtures": [
+    {
+      "input": {
+        "waiting": false,
+        "rootExists": false,
+        "finished": false,
+        "waitingTimes": 0
+      },
+      "expected": {
+        "reachedCardLookup": true,
+        "waitingTimesAfter": 0.0,
+        "robotWaitingCalled": false,
+        "timeoutFlags": [],
+        "returned": false
+      }
+    },
+    {
+      "input": {
+        "waiting": false,
+        "rootExists": false,
+        "finished": false,
+        "waitingTimes": 3
+      },
+      "expected": {
+        "reachedCardLookup": true,
+        "waitingTimesAfter": 0.0,
+        "robotWaitingCalled": false,
+        "timeoutFlags": [],
+        "returned": false
+      }
+    },
+    {
+      "input": {
+        "waiting": false,
+        "rootExists": false,
+        "finished": false,
+        "waitingTimes": 4
+      },
+      "expected": {
+        "reachedCardLookup": true,
+        "waitingTimesAfter": 0.0,
+        "robotWaitingCalled": false,
+        "timeoutFlags": [],
+        "returned": false
+      }
+    },
+    {
+      "input": {
+        "waiting": false,
+        "rootExists": false,
+        "finished": true,
+        "waitingTimes": 0
+      },
+      "expected": {
+        "reachedCardLookup": false,
+        "waitingTimesAfter": 0.0,
+        "robotWaitingCalled": false,
+        "timeoutFlags": [],
+        "returned": null
+      }
+    },
+    {
+      "input": {
+        "waiting": false,
+        "rootExists": false,
+        "finished": true,
+        "waitingTimes": 3
+      },
+      "expected": {
+        "reachedCardLookup": false,
+        "waitingTimesAfter": 3.0,
+        "robotWaitingCalled": false,
+        "timeoutFlags": [],
+        "returned": null
+      }
+    },
+    {
+      "input": {
+        "waiting": false,
+        "rootExists": false,
+        "finished": true,
+        "waitingTimes": 4
+      },
+      "expected": {
+        "reachedCardLookup": false,
+        "waitingTimesAfter": 4.0,
+        "robotWaitingCalled": false,
+        "timeoutFlags": [],
+        "returned": null
+      }
+    },
+    {
+      "input": {
+        "waiting": false,
+        "rootExists": true,
+        "finished": false,
+        "waitingTimes": 0
+      },
+      "expected": {
+        "reachedCardLookup": false,
+        "waitingTimesAfter": 0.0,
+        "robotWaitingCalled": false,
+        "timeoutFlags": [],
+        "returned": false
+      }
+    },
+    {
+      "input": {
+        "waiting": false,
+        "rootExists": true,
+        "finished": false,
+        "waitingTimes": 3
+      },
+      "expected": {
+        "reachedCardLookup": false,
+        "waitingTimesAfter": 3.0,
+        "robotWaitingCalled": false,
+        "timeoutFlags": [],
+        "returned": false
+      }
+    },
+    {
+      "input": {
+        "waiting": false,
+        "rootExists": true,
+        "finished": false,
+        "waitingTimes": 4
+      },
+      "expected": {
+        "reachedCardLookup": false,
+        "waitingTimesAfter": 4.0,
+        "robotWaitingCalled": false,
+        "timeoutFlags": [],
+        "returned": false
+      }
+    },
+    {
+      "input": {
+        "waiting": false,
+        "rootExists": true,
+        "finished": true,
+        "waitingTimes": 0
+      },
+      "expected": {
+        "reachedCardLookup": false,
+        "waitingTimesAfter": 0.0,
+        "robotWaitingCalled": false,
+        "timeoutFlags": [],
+        "returned": false
+      }
+    },
+    {
+      "input": {
+        "waiting": false,
+        "rootExists": true,
+        "finished": true,
+        "waitingTimes": 3
+      },
+      "expected": {
+        "reachedCardLookup": false,
+        "waitingTimesAfter": 3.0,
+        "robotWaitingCalled": false,
+        "timeoutFlags": [],
+        "returned": false
+      }
+    },
+    {
+      "input": {
+        "waiting": false,
+        "rootExists": true,
+        "finished": true,
+        "waitingTimes": 4
+      },
+      "expected": {
+        "reachedCardLookup": false,
+        "waitingTimesAfter": 4.0,
+        "robotWaitingCalled": false,
+        "timeoutFlags": [],
+        "returned": false
+      }
+    },
+    {
+      "input": {
+        "waiting": true,
+        "rootExists": false,
+        "finished": false,
+        "waitingTimes": 0
+      },
+      "expected": {
+        "reachedCardLookup": false,
+        "waitingTimesAfter": 1.0,
+        "robotWaitingCalled": false,
+        "timeoutFlags": [],
+        "returned": false
+      }
+    },
+    {
+      "input": {
+        "waiting": true,
+        "rootExists": false,
+        "finished": false,
+        "waitingTimes": 3
+      },
+      "expected": {
+        "reachedCardLookup": false,
+        "waitingTimesAfter": 4.0,
+        "robotWaitingCalled": false,
+        "timeoutFlags": [],
+        "returned": false
+      }
+    },
+    {
+      "input": {
+        "waiting": true,
+        "rootExists": false,
+        "finished": false,
+        "waitingTimes": 4
+      },
+      "expected": {
+        "reachedCardLookup": false,
+        "waitingTimesAfter": 5.0,
+        "robotWaitingCalled": true,
+        "timeoutFlags": [
+          true,
+          false
+        ],
+        "returned": false
+      }
+    },
+    {
+      "input": {
+        "waiting": true,
+        "rootExists": false,
+        "finished": true,
+        "waitingTimes": 0
+      },
+      "expected": {
+        "reachedCardLookup": false,
+        "waitingTimesAfter": 1.0,
+        "robotWaitingCalled": false,
+        "timeoutFlags": [],
+        "returned": false
+      }
+    },
+    {
+      "input": {
+        "waiting": true,
+        "rootExists": false,
+        "finished": true,
+        "waitingTimes": 3
+      },
+      "expected": {
+        "reachedCardLookup": false,
+        "waitingTimesAfter": 4.0,
+        "robotWaitingCalled": false,
+        "timeoutFlags": [],
+        "returned": false
+      }
+    },
+    {
+      "input": {
+        "waiting": true,
+        "rootExists": false,
+        "finished": true,
+        "waitingTimes": 4
+      },
+      "expected": {
+        "reachedCardLookup": false,
+        "waitingTimesAfter": 5.0,
+        "robotWaitingCalled": true,
+        "timeoutFlags": [
+          true,
+          false
+        ],
+        "returned": false
+      }
+    },
+    {
+      "input": {
+        "waiting": true,
+        "rootExists": true,
+        "finished": false,
+        "waitingTimes": 0
+      },
+      "expected": {
+        "reachedCardLookup": false,
+        "waitingTimesAfter": 1.0,
+        "robotWaitingCalled": false,
+        "timeoutFlags": [],
+        "returned": false
+      }
+    },
+    {
+      "input": {
+        "waiting": true,
+        "rootExists": true,
+        "finished": false,
+        "waitingTimes": 3
+      },
+      "expected": {
+        "reachedCardLookup": false,
+        "waitingTimesAfter": 4.0,
+        "robotWaitingCalled": false,
+        "timeoutFlags": [],
+        "returned": false
+      }
+    },
+    {
+      "input": {
+        "waiting": true,
+        "rootExists": true,
+        "finished": false,
+        "waitingTimes": 4
+      },
+      "expected": {
+        "reachedCardLookup": false,
+        "waitingTimesAfter": 5.0,
+        "robotWaitingCalled": true,
+        "timeoutFlags": [
+          true,
+          false
+        ],
+        "returned": false
+      }
+    },
+    {
+      "input": {
+        "waiting": true,
+        "rootExists": true,
+        "finished": true,
+        "waitingTimes": 0
+      },
+      "expected": {
+        "reachedCardLookup": false,
+        "waitingTimesAfter": 1.0,
+        "robotWaitingCalled": false,
+        "timeoutFlags": [],
+        "returned": false
+      }
+    },
+    {
+      "input": {
+        "waiting": true,
+        "rootExists": true,
+        "finished": true,
+        "waitingTimes": 3
+      },
+      "expected": {
+        "reachedCardLookup": false,
+        "waitingTimesAfter": 4.0,
+        "robotWaitingCalled": false,
+        "timeoutFlags": [],
+        "returned": false
+      }
+    },
+    {
+      "input": {
+        "waiting": true,
+        "rootExists": true,
+        "finished": true,
+        "waitingTimes": 4
+      },
+      "expected": {
+        "reachedCardLookup": false,
+        "waitingTimesAfter": 5.0,
+        "robotWaitingCalled": true,
+        "timeoutFlags": [
+          true,
+          false
+        ],
+        "returned": false
+      }
+    }
+  ]
+}

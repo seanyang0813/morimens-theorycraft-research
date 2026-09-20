@@ -1,0 +1,136 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleCmdServer": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b"
+  },
+  "scope": "6 original GenerateEffectList cases with contiguous three-row config, explicit delay adapter, no-loop and skill-argument/parser adapters, effect-construction observer. No actual effect construction or gameplay.",
+  "fixtures": [
+    {
+      "skipPhase": false,
+      "notAwakerCardPerform": "absent",
+      "effects": [
+        {
+          "index": 1.0,
+          "baseSortId": 300.0,
+          "delay": 0.1
+        },
+        {
+          "index": 2.0,
+          "baseSortId": 100.0,
+          "delay": 0.2
+        },
+        {
+          "index": 3.0,
+          "baseSortId": 200.0,
+          "delay": 0.3
+        }
+      ]
+    },
+    {
+      "skipPhase": false,
+      "notAwakerCardPerform": "empty",
+      "effects": [
+        {
+          "index": 1.0,
+          "baseSortId": 300.0,
+          "delay": 0.1
+        },
+        {
+          "index": 2.0,
+          "baseSortId": 100.0,
+          "delay": 0.2
+        },
+        {
+          "index": 3.0,
+          "baseSortId": 200.0,
+          "delay": 0.3
+        }
+      ]
+    },
+    {
+      "skipPhase": false,
+      "notAwakerCardPerform": "nonempty",
+      "effects": [
+        {
+          "index": 1.0,
+          "baseSortId": 300.0,
+          "delay": 0.1
+        },
+        {
+          "index": 2.0,
+          "baseSortId": 100.0,
+          "delay": 0.2
+        },
+        {
+          "index": 3.0,
+          "baseSortId": 200.0,
+          "delay": 0.3
+        }
+      ]
+    },
+    {
+      "skipPhase": true,
+      "notAwakerCardPerform": "absent",
+      "effects": [
+        {
+          "index": 1.0,
+          "baseSortId": 300.0,
+          "delay": 0.0
+        },
+        {
+          "index": 2.0,
+          "baseSortId": 100.0,
+          "delay": 0.0
+        },
+        {
+          "index": 3.0,
+          "baseSortId": 200.0,
+          "delay": 0.0
+        }
+      ]
+    },
+    {
+      "skipPhase": true,
+      "notAwakerCardPerform": "empty",
+      "effects": [
+        {
+          "index": 1.0,
+          "baseSortId": 300.0,
+          "delay": 0.0
+        },
+        {
+          "index": 2.0,
+          "baseSortId": 100.0,
+          "delay": 0.0
+        },
+        {
+          "index": 3.0,
+          "baseSortId": 200.0,
+          "delay": 0.0
+        }
+      ]
+    },
+    {
+      "skipPhase": true,
+      "notAwakerCardPerform": "nonempty",
+      "effects": [
+        {
+          "index": 1.0,
+          "baseSortId": 300.0,
+          "delay": 0.1
+        },
+        {
+          "index": 2.0,
+          "baseSortId": 100.0,
+          "delay": 0.2
+        },
+        {
+          "index": 3.0,
+          "baseSortId": 200.0,
+          "delay": 0.3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "scope": "Original RegisterEvent, RegisterEventToHead, UnregisterEvent, SendEvent and foundation table.clone. Synthetic callback actions; no battle scheduler, state trigger eligibility or command execution.",
+  "sourceHashes": {
+    "BattleEventMgr": "64fc30976751226fbe929e3125ee74b0a41bda0bde49a65466d0c501441b1bb4",
+    "Table": "c737ed8080146ef1b4a871c0b96362212072d1e2381a4d8c486e75d1ad73ecc4"
+  },
+  "fixtures": [
+    {
+      "input": {
+        "name": "ascending-priority-stable-ties",
+        "registrations": [
+          [
+            "A",
+            2,
+            false
+          ],
+          [
+            "B",
+            1,
+            false
+          ],
+          [
+            "C",
+            2,
+            false
+          ]
+        ],
+        "action": null
+      },
+      "expected": [
+        [
+          "B",
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "A",
+          "C"
+        ]
+      ]
+    },
+    {
+      "input": {
+        "name": "head-before-equal-not-before-lower",
+        "registrations": [
+          [
+            "A",
+            2,
+            false
+          ],
+          [
+            "B",
+            1,
+            false
+          ],
+          [
+            "C",
+            2,
+            true
+          ]
+        ],
+        "action": null
+      },
+      "expected": [
+        [
+          "B",
+          "C",
+          "A"
+        ],
+        [
+          "B",
+          "C",
+          "A"
+        ]
+      ]
+    },
+    {
+      "input": {
+        "name": "remove-next-during-dispatch",
+        "registrations": [
+          [
+            "A",
+            1,
+            false
+          ],
+          [
+            "B",
+            2,
+            false
+          ],
+          [
+            "C",
+            3,
+            false
+          ]
+        ],
+        "action": "removeB"
+      },
+      "expected": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ]
+    },
+    {
+      "input": {
+        "name": "register-during-dispatch",
+        "registrations": [
+          [
+            "A",
+            1,
+            false
+          ],
+          [
+            "B",
+            2,
+            false
+          ]
+        ],
+        "action": "addC"
+      },
+      "expected": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "A",
+          "B"
+        ]
+      ]
+    },
+    {
+      "input": {
+        "name": "remove-and-reregister",
+        "registrations": [
+          [
+            "A",
+            1,
+            false
+          ],
+          [
+            "B",
+            2,
+            false
+          ]
+        ],
+        "action": "replaceB"
+      },
+      "expected": [
+        [
+          "A"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Coefficient list selection
+
+`engine/skill-list.mjs` models the homogeneous scalar/list subset of GetTQList. A direct dense scalar list is copied. A progression-keyed map of dense lists uses the original independent-threshold selection rule, then copies the selected list. A missing combined key remains null. Exported numeric-key lists and normalized dense arrays are supported; mixed, sparse and ambiguous shapes are rejected.
+
+`tools/skill_list_oracle.py` executes original GetTQList/GetMatchTQ in 44 cases: CoefficientTypelist and OriginalCoefficient fields from skills 3997, 4163, 4638 and 57342, plus sparse-variant, absent and empty controls. `table.next` aliases original Lua next; `table.clone` is an identity adapter, so fixture evidence establishes selection but not original copy semantics. Authored copy isolation has a separate test. Scalar/string entries and empty lists are preserved without evaluating formulas.
+
+The original function inspects the first entry's type. The authored subset requires homogeneous forms to avoid claiming behavior for mixed tables whose iteration order matters. This helper is not the enclosing GetSkillConfigTQList route, especially its ExistState conditional-list branch. It also does not resolve BattleFomula expressions, compute GrowArgValue members, derive user-facing progression levels or execute a card. Those are separate remaining links in automatic skill argument construction.

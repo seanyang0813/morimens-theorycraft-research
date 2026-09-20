@@ -1,0 +1,3515 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BEAddStateParent": "00871a473b5c4ced3824c28afb88fc3cfe6cbfca01d23bc2a0d3bac6afa0f8b3",
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+  },
+  "scope": "144 original CheckImmue cases. Original buff-type constants; supplied state config/property getters and synthetic specific-state mapping/expression, tip observer. No automatic property derivation, original expression lookup, enclosing AddState or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": [
+          2669.0
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": [
+          2669.0
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": [
+          2669.0
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": [
+          2669.0
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": [
+          2669.0
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": [
+          2669.0
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": [
+          2669.0
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "none",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": [
+          2669.0
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": [
+          2669.0
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": [
+          2669.0
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "buff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": [
+          2669.0
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 0,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": false,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe"
+        ],
+        "tipStateIds": []
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff",
+          "immue_state_probe",
+          "immue_state_probe"
+        ],
+        "tipStateIds": [
+          2669.0
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 0,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 0,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 0
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": []
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "buffType": "debuff",
+        "properties": {
+          "immue_buff": 1,
+          "immue_debuff": 1,
+          "immue_both_buff": 1,
+          "immue_state_probe": 1
+        },
+        "ids": [
+          7,
+          2669
+        ]
+      },
+      "expected": {
+        "immune": true,
+        "reads": [
+          "immue_buff",
+          "immue_debuff",
+          "immue_both_buff"
+        ],
+        "tipStateIds": [
+          null
+        ]
+      }
+    }
+  ]
+}

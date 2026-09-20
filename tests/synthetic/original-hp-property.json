@@ -1,0 +1,390 @@
+{
+  "scope": "Original SubProperty, BeforeSub, GetSubPropertyValueFunc, AfterSub and RefreshMaxLimit for explicit nonnegative HP/request. Owner callback and SendOnPropertyChanged replaced by non-mutating spies; no constructor, event dispatch, BeHit or death handling.",
+  "sourceHash": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+  "fixtures": [
+    {
+      "input": {
+        "hp": 0,
+        "request": 0
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "hpLost": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -0.0,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "request": 0.25
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "hpLost": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -0.0,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "request": 0
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "hpLost": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -0.0,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "request": 0.5
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "hpLost": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -0.0,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "request": 0
+      },
+      "expected": {
+        "hpAfter": 0.5,
+        "hpLost": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 0.5,
+            "new": 0.5
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -0.0,
+            "new": 0.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "request": 0.25
+      },
+      "expected": {
+        "hpAfter": 0.25,
+        "hpLost": 0.25,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 0.5,
+            "new": 0.25
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -0.25,
+            "new": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "request": 0.5
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "hpLost": 0.5,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -0.5,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "request": 1.0
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "hpLost": 0.5,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -0.5,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "hp": 1,
+        "request": 0
+      },
+      "expected": {
+        "hpAfter": 1.0,
+        "hpLost": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -0.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "hp": 1,
+        "request": 0.25
+      },
+      "expected": {
+        "hpAfter": 0.75,
+        "hpLost": 0.25,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1.0,
+            "new": 0.75
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -0.25,
+            "new": 0.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "hp": 1,
+        "request": 1
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "hpLost": 1.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -1.0,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "hp": 1,
+        "request": 1.5
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "hpLost": 1.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -1.0,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "request": 0
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "hpLost": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 100.0,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -0.0,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "request": 0.25
+      },
+      "expected": {
+        "hpAfter": 99.75,
+        "hpLost": 0.25,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 100.0,
+            "new": 99.75
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -0.25,
+            "new": 99.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "request": 100
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "hpLost": 100.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 100.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -100.0,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "request": 100.5
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "hpLost": 100.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 100.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -100.0,
+            "new": 0.0
+          }
+        ]
+      }
+    }
+  ]
+}

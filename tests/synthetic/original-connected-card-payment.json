@@ -1,0 +1,5741 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original __CostEnergy calls original EnergyEnough/ConsumeEnergy and original property subtraction in one Lua state. Original card variable parser/resolver, supplied use cost and command flags. Observed callbacks, one-field clone, role/property lookup adapters. No full DoEffect, cost derivation, play checks, event listeners or gameplay.",
+  "sourceHashes": {
+    "BEBeforeUseCard": "b660610845cc1181bab671a07d5df91814b2b39419aed2d4ba826bee2be8699c",
+    "BattleUnitPlayer": "ca4e9847ac558a6c8e81a80461869ce2a6c72b0e8e75caf63b9c4dc9afb1b52e",
+    "BattlePropertyServer": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+    "BattleCardServer": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53",
+    "BattleUtilServer": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+  },
+  "fixtures": [
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 3.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 3.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 3.0,
+            "realCost": 3.0
+          },
+          {
+            "kind": "record",
+            "delta": -3.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 3.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 3.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 3.0,
+            "realCost": 3.0
+          },
+          {
+            "kind": "record",
+            "delta": -3.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0.5,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 3.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "reportedCost": 3.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 3.0,
+            "realCost": 3.0
+          },
+          {
+            "kind": "record",
+            "delta": -3.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0.5,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0.5,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0.5,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0.5,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0.5,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0.5,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0.5,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0.5,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.5,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "reportedCost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.5,
+            "realCost": 0.5
+          },
+          {
+            "kind": "record",
+            "delta": -0.5,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0.5,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.5,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "reportedCost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.5,
+            "realCost": 0.5
+          },
+          {
+            "kind": "record",
+            "delta": -0.5,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0.5,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0.5,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0.5,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 3.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "reportedCost": 3.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 3.0,
+            "realCost": 3.0
+          },
+          {
+            "kind": "record",
+            "delta": -3.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0.5,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0.5,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 0.5,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 2,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 3.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "reportedCost": 3.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 3.0,
+            "realCost": 3.0
+          },
+          {
+            "kind": "record",
+            "delta": -3.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 2,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 2,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 2,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 2,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 2,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 2,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 2,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 2,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "reportedCost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 2,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "reportedCost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 2,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 2,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 2,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 3.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "reportedCost": 3.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 3.0,
+            "realCost": 3.0
+          },
+          {
+            "kind": "record",
+            "delta": -3.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 2,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 2,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 2,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": false
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 5,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 3.0,
+        "energyAfter": 2.0,
+        "energyLost": 3.0,
+        "reportedCost": 3.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 2.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -3.0,
+            "new": 2.0
+          },
+          {
+            "kind": "event",
+            "castValue": 3.0,
+            "realCost": 3.0
+          },
+          {
+            "kind": "record",
+            "delta": -3.0,
+            "energyAfter": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 5,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 3.0,
+        "energyAfter": 2.0,
+        "energyLost": 3.0,
+        "reportedCost": 3.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 2.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -3.0,
+            "new": 2.0
+          },
+          {
+            "kind": "event",
+            "castValue": 3.0,
+            "realCost": 3.0
+          },
+          {
+            "kind": "record",
+            "delta": -3.0,
+            "energyAfter": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 5,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 5,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 5,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 5,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 5,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 5,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 5,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 3.0,
+        "energyAfter": 2.0,
+        "energyLost": 3.0,
+        "reportedCost": 3.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 2.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -3.0,
+            "new": 2.0
+          },
+          {
+            "kind": "event",
+            "castValue": 3.0,
+            "realCost": 3.0
+          },
+          {
+            "kind": "record",
+            "delta": -3.0,
+            "energyAfter": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 5,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 3.0,
+        "energyAfter": 2.0,
+        "energyLost": 3.0,
+        "reportedCost": 3.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 2.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -3.0,
+            "new": 2.0
+          },
+          {
+            "kind": "event",
+            "castValue": 3.0,
+            "realCost": 3.0
+          },
+          {
+            "kind": "record",
+            "delta": -3.0,
+            "energyAfter": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 5,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 5,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 5,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 3.0,
+        "energyAfter": 2.0,
+        "energyLost": 3.0,
+        "reportedCost": 3.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 2.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -3.0,
+            "new": 2.0
+          },
+          {
+            "kind": "event",
+            "castValue": 3.0,
+            "realCost": 3.0
+          },
+          {
+            "kind": "record",
+            "delta": -3.0,
+            "energyAfter": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 5,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 3.0,
+        "energyAfter": 2.0,
+        "energyLost": 3.0,
+        "reportedCost": 3.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 2.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -3.0,
+            "new": 2.0
+          },
+          {
+            "kind": "event",
+            "castValue": 3.0,
+            "realCost": 3.0
+          },
+          {
+            "kind": "record",
+            "delta": -3.0,
+            "energyAfter": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 5,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "cost": 3,
+        "energy": 5,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.5,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "reportedCost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.5,
+            "realCost": 0.5
+          },
+          {
+            "kind": "record",
+            "delta": -0.5,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.5,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "reportedCost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.5,
+            "realCost": 0.5
+          },
+          {
+            "kind": "record",
+            "delta": -0.5,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.5,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "reportedCost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.5,
+            "realCost": 0.5
+          },
+          {
+            "kind": "record",
+            "delta": -0.5,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.5,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "reportedCost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.5,
+            "realCost": 0.5
+          },
+          {
+            "kind": "record",
+            "delta": -0.5,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.5,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "reportedCost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.5,
+            "realCost": 0.5
+          },
+          {
+            "kind": "record",
+            "delta": -0.5,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.5,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "reportedCost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.5,
+            "realCost": 0.5
+          },
+          {
+            "kind": "record",
+            "delta": -0.5,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.5,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "reportedCost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.5,
+            "realCost": 0.5
+          },
+          {
+            "kind": "record",
+            "delta": -0.5,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.5,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "reportedCost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.5,
+            "realCost": 0.5
+          },
+          {
+            "kind": "record",
+            "delta": -0.5,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "reportedCost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "reportedCost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "reportedCost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "reportedCost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "reportedCost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "reportedCost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "reportedCost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "reportedCost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 5.0,
+        "energyAfter": 0.0,
+        "energyLost": 5.0,
+        "reportedCost": 5.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 5.0,
+            "realCost": 5.0
+          },
+          {
+            "kind": "record",
+            "delta": -5.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 5.0,
+        "energyAfter": 0.0,
+        "energyLost": 5.0,
+        "reportedCost": 5.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 5.0,
+            "realCost": 5.0
+          },
+          {
+            "kind": "record",
+            "delta": -5.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 5.0,
+        "energyAfter": 0.0,
+        "energyLost": 5.0,
+        "reportedCost": 5.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 5.0,
+            "realCost": 5.0
+          },
+          {
+            "kind": "record",
+            "delta": -5.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 5.0,
+        "energyAfter": 0.0,
+        "energyLost": 5.0,
+        "reportedCost": 5.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 5.0,
+            "realCost": 5.0
+          },
+          {
+            "kind": "record",
+            "delta": -5.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 5.0,
+        "energyAfter": 0.0,
+        "energyLost": 5.0,
+        "reportedCost": 5.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 5.0,
+            "realCost": 5.0
+          },
+          {
+            "kind": "record",
+            "delta": -5.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 5.0,
+        "energyAfter": 0.0,
+        "energyLost": 5.0,
+        "reportedCost": 5.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 5.0,
+            "realCost": 5.0
+          },
+          {
+            "kind": "record",
+            "delta": -5.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 5.0,
+        "energyAfter": 0.0,
+        "energyLost": 5.0,
+        "reportedCost": 5.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 5.0,
+            "realCost": 5.0
+          },
+          {
+            "kind": "record",
+            "delta": -5.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 5.0,
+        "energyAfter": 0.0,
+        "energyLost": 5.0,
+        "reportedCost": 5.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 5.0,
+            "realCost": 5.0
+          },
+          {
+            "kind": "record",
+            "delta": -5.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.5,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "reportedCost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.5,
+            "realCost": 0.5
+          },
+          {
+            "kind": "record",
+            "delta": -0.5,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.5,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "reportedCost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.5,
+            "realCost": 0.5
+          },
+          {
+            "kind": "record",
+            "delta": -0.5,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.5,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "reportedCost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.5,
+            "realCost": 0.5
+          },
+          {
+            "kind": "record",
+            "delta": -0.5,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.5,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "reportedCost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.5,
+            "realCost": 0.5
+          },
+          {
+            "kind": "record",
+            "delta": -0.5,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.5,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "reportedCost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.5,
+            "realCost": 0.5
+          },
+          {
+            "kind": "record",
+            "delta": -0.5,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.5,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "reportedCost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.5,
+            "realCost": 0.5
+          },
+          {
+            "kind": "record",
+            "delta": -0.5,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.5,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "reportedCost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.5,
+            "realCost": 0.5
+          },
+          {
+            "kind": "record",
+            "delta": -0.5,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 0.5,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "reportedCost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.5,
+            "realCost": 0.5
+          },
+          {
+            "kind": "record",
+            "delta": -0.5,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 0.5,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "reportedCost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "reportedCost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "reportedCost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "reportedCost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "reportedCost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "reportedCost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "reportedCost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "reportedCost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 2,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 3.0,
+        "energyAfter": 2.0,
+        "energyLost": 3.0,
+        "reportedCost": 3.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 2.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -3.0,
+            "new": 2.0
+          },
+          {
+            "kind": "event",
+            "castValue": 3.0,
+            "realCost": 3.0
+          },
+          {
+            "kind": "record",
+            "delta": -3.0,
+            "energyAfter": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": null,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 3.0,
+        "energyAfter": 2.0,
+        "energyLost": 3.0,
+        "reportedCost": 3.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 2.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -3.0,
+            "new": 2.0
+          },
+          {
+            "kind": "event",
+            "castValue": 3.0,
+            "realCost": 3.0
+          },
+          {
+            "kind": "record",
+            "delta": -3.0,
+            "energyAfter": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": null,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 3.0,
+        "energyAfter": 2.0,
+        "energyLost": 3.0,
+        "reportedCost": 3.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 2.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -3.0,
+            "new": 2.0
+          },
+          {
+            "kind": "event",
+            "castValue": 3.0,
+            "realCost": 3.0
+          },
+          {
+            "kind": "record",
+            "delta": -3.0,
+            "energyAfter": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 1,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 3.0,
+        "energyAfter": 2.0,
+        "energyLost": 3.0,
+        "reportedCost": 3.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 2.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -3.0,
+            "new": 2.0
+          },
+          {
+            "kind": "event",
+            "castValue": 3.0,
+            "realCost": 3.0
+          },
+          {
+            "kind": "record",
+            "delta": -3.0,
+            "energyAfter": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 1,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 3.0,
+        "energyAfter": 2.0,
+        "energyLost": 3.0,
+        "reportedCost": 3.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 2.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -3.0,
+            "new": 2.0
+          },
+          {
+            "kind": "event",
+            "castValue": 3.0,
+            "realCost": 3.0
+          },
+          {
+            "kind": "record",
+            "delta": -3.0,
+            "energyAfter": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 2,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 3.0,
+        "energyAfter": 2.0,
+        "energyLost": 3.0,
+        "reportedCost": 3.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 2.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -3.0,
+            "new": 2.0
+          },
+          {
+            "kind": "event",
+            "castValue": 3.0,
+            "realCost": 3.0
+          },
+          {
+            "kind": "record",
+            "delta": -3.0,
+            "energyAfter": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 2,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 3.0,
+        "energyAfter": 2.0,
+        "energyLost": 3.0,
+        "reportedCost": 3.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 2.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -3.0,
+            "new": 2.0
+          },
+          {
+            "kind": "event",
+            "castValue": 3.0,
+            "realCost": 3.0
+          },
+          {
+            "kind": "record",
+            "delta": -3.0,
+            "energyAfter": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 3,
+        "attached": false,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": null,
+        "forceModeCleared": true,
+        "castValue": 3.0,
+        "energyAfter": 2.0,
+        "energyLost": 3.0,
+        "reportedCost": 3.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 2.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -3.0,
+            "new": 2.0
+          },
+          {
+            "kind": "event",
+            "castValue": 3.0,
+            "realCost": 3.0
+          },
+          {
+            "kind": "record",
+            "delta": -3.0,
+            "energyAfter": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": false,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "cost": -1,
+        "energy": 5,
+        "forceMode": 3,
+        "attached": true,
+        "allowIgnoreCost": true,
+        "energyEnough": true
+      },
+      "expected": {
+        "ignoreCost": 1.0,
+        "forceModeCleared": true,
+        "castValue": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "reportedCost": 0.0,
+        "events": []
+      }
+    }
+  ]
+}

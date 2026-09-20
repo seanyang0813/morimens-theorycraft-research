@@ -1,0 +1,1705 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BEActiveDamage": "6d87f4da91293c019579f5d586a093763d3fb1051d6efed8652cdbc3b114e208"
+  },
+  "scope": "Original DoEffect and GetDamageSubTypeValue, ordinary variant. Supplied params, caster property getters, no-op superclass, subtype identity and DoMultiEffect observer. Empty target table is present; no hit execution, scheduler or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "repeat": null,
+        "plus": -1,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": null,
+        "plus": -1,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": null,
+        "plus": -1,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": null,
+        "plus": -1,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": null,
+        "plus": 0,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": null,
+        "plus": 0,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": null,
+        "plus": 0,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": null,
+        "plus": 0,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 2.0,
+        "leftEffectTimes": 2.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": null,
+        "plus": 0.5,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": null,
+        "plus": 0.5,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": null,
+        "plus": 0.5,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 2.0,
+        "leftEffectTimes": 2.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": null,
+        "plus": 0.5,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 2.0,
+        "leftEffectTimes": 2.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": null,
+        "plus": 2,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": null,
+        "plus": 2,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 2.0,
+        "leftEffectTimes": 2.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": null,
+        "plus": 2,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 3.0,
+        "leftEffectTimes": 3.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": null,
+        "plus": 2,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 4.0,
+        "leftEffectTimes": 4.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": -1,
+        "plus": -1,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": -1,
+        "plus": -1,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": -1,
+        "plus": -1,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": -1,
+        "plus": -1,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": -1,
+        "plus": 0,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": -1,
+        "plus": 0,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": -1,
+        "plus": 0,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": -1,
+        "plus": 0,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": -1,
+        "plus": 0.5,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": -1,
+        "plus": 0.5,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": -1,
+        "plus": 0.5,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": -1,
+        "plus": 0.5,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": -1,
+        "plus": 2,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": -1,
+        "plus": 2,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": -1,
+        "plus": 2,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": -1,
+        "plus": 2,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 2.0,
+        "leftEffectTimes": 2.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0,
+        "plus": -1,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0,
+        "plus": -1,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0,
+        "plus": -1,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0,
+        "plus": -1,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0,
+        "plus": 0,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0,
+        "plus": 0,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0,
+        "plus": 0,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0,
+        "plus": 0,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0,
+        "plus": 0.5,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0,
+        "plus": 0.5,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0,
+        "plus": 0.5,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0,
+        "plus": 0.5,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0,
+        "plus": 2,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0,
+        "plus": 2,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0,
+        "plus": 2,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 2.0,
+        "leftEffectTimes": 2.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0,
+        "plus": 2,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 3.0,
+        "leftEffectTimes": 3.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0.25,
+        "plus": -1,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0.25,
+        "plus": -1,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0.25,
+        "plus": -1,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0.25,
+        "plus": -1,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0.25,
+        "plus": 0,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0.25,
+        "plus": 0,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0.25,
+        "plus": 0,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0.25,
+        "plus": 0,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 2.0,
+        "leftEffectTimes": 2.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0.25,
+        "plus": 0.5,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0.25,
+        "plus": 0.5,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0.25,
+        "plus": 0.5,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 2.0,
+        "leftEffectTimes": 2.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0.25,
+        "plus": 0.5,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 2.0,
+        "leftEffectTimes": 2.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0.25,
+        "plus": 2,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0.25,
+        "plus": 2,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 2.0,
+        "leftEffectTimes": 2.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0.25,
+        "plus": 2,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 3.0,
+        "leftEffectTimes": 3.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 0.25,
+        "plus": 2,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 4.0,
+        "leftEffectTimes": 4.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1,
+        "plus": -1,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1,
+        "plus": -1,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1,
+        "plus": -1,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1,
+        "plus": -1,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1,
+        "plus": 0,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1,
+        "plus": 0,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1,
+        "plus": 0,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1,
+        "plus": 0,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 2.0,
+        "leftEffectTimes": 2.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1,
+        "plus": 0.5,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1,
+        "plus": 0.5,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1,
+        "plus": 0.5,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 2.0,
+        "leftEffectTimes": 2.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1,
+        "plus": 0.5,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 2.0,
+        "leftEffectTimes": 2.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1,
+        "plus": 2,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1,
+        "plus": 2,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 2.0,
+        "leftEffectTimes": 2.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1,
+        "plus": 2,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 3.0,
+        "leftEffectTimes": 3.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1,
+        "plus": 2,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 4.0,
+        "leftEffectTimes": 4.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1.2,
+        "plus": -1,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1.2,
+        "plus": -1,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1.2,
+        "plus": -1,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1.2,
+        "plus": -1,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 2.0,
+        "leftEffectTimes": 2.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1.2,
+        "plus": 0,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1.2,
+        "plus": 0,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1.2,
+        "plus": 0,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 2.0,
+        "leftEffectTimes": 2.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1.2,
+        "plus": 0,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 3.0,
+        "leftEffectTimes": 3.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1.2,
+        "plus": 0.5,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1.2,
+        "plus": 0.5,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 2.0,
+        "leftEffectTimes": 2.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1.2,
+        "plus": 0.5,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 3.0,
+        "leftEffectTimes": 3.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1.2,
+        "plus": 0.5,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 4.0,
+        "leftEffectTimes": 4.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1.2,
+        "plus": 2,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1.2,
+        "plus": 2,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 2.0,
+        "leftEffectTimes": 2.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1.2,
+        "plus": 2,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 4.0,
+        "leftEffectTimes": 4.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 1.2,
+        "plus": 2,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 5.0,
+        "leftEffectTimes": 5.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 3,
+        "plus": -1,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 3,
+        "plus": -1,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 3,
+        "plus": -1,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 2.0,
+        "leftEffectTimes": 2.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 3,
+        "plus": -1,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 3.0,
+        "leftEffectTimes": 3.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 3,
+        "plus": 0,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 3,
+        "plus": 0,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 2.0,
+        "leftEffectTimes": 2.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 3,
+        "plus": 0,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 3.0,
+        "leftEffectTimes": 3.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 3,
+        "plus": 0,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 4.0,
+        "leftEffectTimes": 4.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 3,
+        "plus": 0.5,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 3,
+        "plus": 0.5,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 2.0,
+        "leftEffectTimes": 2.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 3,
+        "plus": 0.5,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 4.0,
+        "leftEffectTimes": 4.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 3,
+        "plus": 0.5,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 5.0,
+        "leftEffectTimes": 5.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 3,
+        "plus": 2,
+        "per": -150,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 1.0,
+        "leftEffectTimes": 1.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 3,
+        "plus": 2,
+        "per": -50,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 3.0,
+        "leftEffectTimes": 3.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 3,
+        "plus": 2,
+        "per": 0,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 5.0,
+        "leftEffectTimes": 5.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 3,
+        "plus": 2,
+        "per": 25,
+        "targetsPresent": true
+      },
+      "expected": {
+        "executionCalls": 1,
+        "totalEffectTimes": 7.0,
+        "leftEffectTimes": 7.0,
+        "paraPlus": 7.5,
+        "damageSubType": 0.0
+      }
+    },
+    {
+      "input": {
+        "repeat": 3,
+        "plus": 0,
+        "per": 0,
+        "targetsPresent": false
+      },
+      "expected": {
+        "executionCalls": 0,
+        "totalEffectTimes": null,
+        "leftEffectTimes": null,
+        "paraPlus": null,
+        "damageSubType": null
+      }
+    }
+  ]
+}

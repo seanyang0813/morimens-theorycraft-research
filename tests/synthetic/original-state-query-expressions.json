@@ -1,0 +1,570 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "FuncTable": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3"
+  },
+  "scope": "16 original compiled skill-expression executions, explicit attack/coefficient and numeric state-query adapter. No original parser, state lookup, skill selection, command execution or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "expression": "BattleAtkForce*GrowArgValue1*(1+CmdCaster.GetStateLayer(45713)/100)*(1+CmdCaster.GetStateLayer(119813)/100),3",
+        "variables": {
+          "BattleAtkForce": 0,
+          "GrowArgValue1": 0.78
+        },
+        "layers": {
+          "45713": 0,
+          "119813": 0
+        }
+      },
+      "expected": {
+        "values": [
+          0.0,
+          3.0
+        ],
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              45713
+            ],
+            "value": 0
+          },
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              119813
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "BattleAtkForce*GrowArgValue1*(1+CmdCaster.GetStateLayer(45713)/100)*(1+CmdCaster.GetStateLayer(119813)/100),3",
+        "variables": {
+          "BattleAtkForce": 0,
+          "GrowArgValue1": 0.78
+        },
+        "layers": {
+          "45713": 1,
+          "119813": 25
+        }
+      },
+      "expected": {
+        "values": [
+          0.0,
+          3.0
+        ],
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              45713
+            ],
+            "value": 1
+          },
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              119813
+            ],
+            "value": 25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "BattleAtkForce*GrowArgValue1*(1+CmdCaster.GetStateLayer(45713)/100)*(1+CmdCaster.GetStateLayer(119813)/100),3",
+        "variables": {
+          "BattleAtkForce": 0,
+          "GrowArgValue1": 0.78
+        },
+        "layers": {
+          "45713": 100,
+          "119813": 50
+        }
+      },
+      "expected": {
+        "values": [
+          0.0,
+          3.0
+        ],
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              45713
+            ],
+            "value": 100
+          },
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              119813
+            ],
+            "value": 50
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "BattleAtkForce*GrowArgValue1*(1+CmdCaster.GetStateLayer(45713)/100)*(1+CmdCaster.GetStateLayer(119813)/100),3",
+        "variables": {
+          "BattleAtkForce": 0,
+          "GrowArgValue1": 0.78
+        },
+        "layers": {
+          "45713": 2.5,
+          "119813": -20
+        }
+      },
+      "expected": {
+        "values": [
+          0.0,
+          3.0
+        ],
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              45713
+            ],
+            "value": 2.5
+          },
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              119813
+            ],
+            "value": -20
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "BattleAtkForce*GrowArgValue1*(1+CmdCaster.GetStateLayer(45713)/100)*(1+CmdCaster.GetStateLayer(119813)/100),3",
+        "variables": {
+          "BattleAtkForce": 138,
+          "GrowArgValue1": 0.78
+        },
+        "layers": {
+          "45713": 0,
+          "119813": 0
+        }
+      },
+      "expected": {
+        "values": [
+          107.64,
+          3.0
+        ],
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              45713
+            ],
+            "value": 0
+          },
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              119813
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "BattleAtkForce*GrowArgValue1*(1+CmdCaster.GetStateLayer(45713)/100)*(1+CmdCaster.GetStateLayer(119813)/100),3",
+        "variables": {
+          "BattleAtkForce": 138,
+          "GrowArgValue1": 0.78
+        },
+        "layers": {
+          "45713": 1,
+          "119813": 25
+        }
+      },
+      "expected": {
+        "values": [
+          135.8955,
+          3.0
+        ],
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              45713
+            ],
+            "value": 1
+          },
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              119813
+            ],
+            "value": 25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "BattleAtkForce*GrowArgValue1*(1+CmdCaster.GetStateLayer(45713)/100)*(1+CmdCaster.GetStateLayer(119813)/100),3",
+        "variables": {
+          "BattleAtkForce": 138,
+          "GrowArgValue1": 0.78
+        },
+        "layers": {
+          "45713": 100,
+          "119813": 50
+        }
+      },
+      "expected": {
+        "values": [
+          322.92,
+          3.0
+        ],
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              45713
+            ],
+            "value": 100
+          },
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              119813
+            ],
+            "value": 50
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "BattleAtkForce*GrowArgValue1*(1+CmdCaster.GetStateLayer(45713)/100)*(1+CmdCaster.GetStateLayer(119813)/100),3",
+        "variables": {
+          "BattleAtkForce": 138,
+          "GrowArgValue1": 0.78
+        },
+        "layers": {
+          "45713": 2.5,
+          "119813": -20
+        }
+      },
+      "expected": {
+        "values": [
+          88.2648,
+          3.0
+        ],
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              45713
+            ],
+            "value": 2.5
+          },
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              119813
+            ],
+            "value": -20
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "BattleAtkForce*GrowArgValue1*(1+CmdCaster.GetStateLayer(45713)/100)*(1+CmdCaster.GetStateLayer(119813)/100),3",
+        "variables": {
+          "BattleAtkForce": 258,
+          "GrowArgValue1": 0.78
+        },
+        "layers": {
+          "45713": 0,
+          "119813": 0
+        }
+      },
+      "expected": {
+        "values": [
+          201.24,
+          3.0
+        ],
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              45713
+            ],
+            "value": 0
+          },
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              119813
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "BattleAtkForce*GrowArgValue1*(1+CmdCaster.GetStateLayer(45713)/100)*(1+CmdCaster.GetStateLayer(119813)/100),3",
+        "variables": {
+          "BattleAtkForce": 258,
+          "GrowArgValue1": 0.78
+        },
+        "layers": {
+          "45713": 1,
+          "119813": 25
+        }
+      },
+      "expected": {
+        "values": [
+          254.06550000000004,
+          3.0
+        ],
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              45713
+            ],
+            "value": 1
+          },
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              119813
+            ],
+            "value": 25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "BattleAtkForce*GrowArgValue1*(1+CmdCaster.GetStateLayer(45713)/100)*(1+CmdCaster.GetStateLayer(119813)/100),3",
+        "variables": {
+          "BattleAtkForce": 258,
+          "GrowArgValue1": 0.78
+        },
+        "layers": {
+          "45713": 100,
+          "119813": 50
+        }
+      },
+      "expected": {
+        "values": [
+          603.72,
+          3.0
+        ],
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              45713
+            ],
+            "value": 100
+          },
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              119813
+            ],
+            "value": 50
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "BattleAtkForce*GrowArgValue1*(1+CmdCaster.GetStateLayer(45713)/100)*(1+CmdCaster.GetStateLayer(119813)/100),3",
+        "variables": {
+          "BattleAtkForce": 258,
+          "GrowArgValue1": 0.78
+        },
+        "layers": {
+          "45713": 2.5,
+          "119813": -20
+        }
+      },
+      "expected": {
+        "values": [
+          165.0168,
+          3.0
+        ],
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              45713
+            ],
+            "value": 2.5
+          },
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              119813
+            ],
+            "value": -20
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "BattleAtkForce*GrowArgValue1*(1+CmdCaster.GetStateLayer(45713)/100)*(1+CmdCaster.GetStateLayer(119813)/100),3",
+        "variables": {
+          "BattleAtkForce": 300.25,
+          "GrowArgValue1": 0.78
+        },
+        "layers": {
+          "45713": 0,
+          "119813": 0
+        }
+      },
+      "expected": {
+        "values": [
+          234.19500000000002,
+          3.0
+        ],
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              45713
+            ],
+            "value": 0
+          },
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              119813
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "BattleAtkForce*GrowArgValue1*(1+CmdCaster.GetStateLayer(45713)/100)*(1+CmdCaster.GetStateLayer(119813)/100),3",
+        "variables": {
+          "BattleAtkForce": 300.25,
+          "GrowArgValue1": 0.78
+        },
+        "layers": {
+          "45713": 1,
+          "119813": 25
+        }
+      },
+      "expected": {
+        "values": [
+          295.67118750000003,
+          3.0
+        ],
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              45713
+            ],
+            "value": 1
+          },
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              119813
+            ],
+            "value": 25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "BattleAtkForce*GrowArgValue1*(1+CmdCaster.GetStateLayer(45713)/100)*(1+CmdCaster.GetStateLayer(119813)/100),3",
+        "variables": {
+          "BattleAtkForce": 300.25,
+          "GrowArgValue1": 0.78
+        },
+        "layers": {
+          "45713": 100,
+          "119813": 50
+        }
+      },
+      "expected": {
+        "values": [
+          702.585,
+          3.0
+        ],
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              45713
+            ],
+            "value": 100
+          },
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              119813
+            ],
+            "value": 50
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "BattleAtkForce*GrowArgValue1*(1+CmdCaster.GetStateLayer(45713)/100)*(1+CmdCaster.GetStateLayer(119813)/100),3",
+        "variables": {
+          "BattleAtkForce": 300.25,
+          "GrowArgValue1": 0.78
+        },
+        "layers": {
+          "45713": 2.5,
+          "119813": -20
+        }
+      },
+      "expected": {
+        "values": [
+          192.03990000000002,
+          3.0
+        ],
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              45713
+            ],
+            "value": 2.5
+          },
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              119813
+            ],
+            "value": -20
+          }
+        ]
+      }
+    }
+  ]
+}

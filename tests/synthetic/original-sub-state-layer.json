@@ -1,0 +1,635 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original effect DoEffect and original state SubLayer. Base effect no-op; target/state lookup supplied; property update, record, logging and LifeEnd are spies. No origin state or caster-layer attribution map. Does not execute actual state removal, events or gameplay.",
+  "sourceHashes": {
+    "BESubStateLayer": "b2763469ed0278b671bf02f6353bd7249a814299b41b4b63d40149655fcc581d",
+    "BattleStateServer": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369"
+  },
+  "fixtures": [
+    {
+      "input": {
+        "layers": 0,
+        "amount": null,
+        "exists": false
+      },
+      "expected": {
+        "layersAfter": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "layers": 0,
+        "amount": null,
+        "exists": true
+      },
+      "expected": {
+        "layersAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "value": 0.0
+          },
+          {
+            "event": "record"
+          },
+          {
+            "event": "log"
+          },
+          {
+            "event": "lifeEnd"
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "layers": 0,
+        "amount": 0,
+        "exists": false
+      },
+      "expected": {
+        "layersAfter": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "layers": 0,
+        "amount": 0,
+        "exists": true
+      },
+      "expected": {
+        "layersAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "value": 0.0
+          },
+          {
+            "event": "record"
+          },
+          {
+            "event": "log"
+          },
+          {
+            "event": "lifeEnd"
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "layers": 0,
+        "amount": 0.25,
+        "exists": false
+      },
+      "expected": {
+        "layersAfter": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "layers": 0,
+        "amount": 0.25,
+        "exists": true
+      },
+      "expected": {
+        "layersAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "value": 0.0
+          },
+          {
+            "event": "record"
+          },
+          {
+            "event": "log"
+          },
+          {
+            "event": "lifeEnd"
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "layers": 0,
+        "amount": 2.5,
+        "exists": false
+      },
+      "expected": {
+        "layersAfter": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "layers": 0,
+        "amount": 2.5,
+        "exists": true
+      },
+      "expected": {
+        "layersAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "value": 0.0
+          },
+          {
+            "event": "record"
+          },
+          {
+            "event": "log"
+          },
+          {
+            "event": "lifeEnd"
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "layers": 0,
+        "amount": -2.5,
+        "exists": false
+      },
+      "expected": {
+        "layersAfter": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "layers": 0,
+        "amount": -2.5,
+        "exists": true
+      },
+      "expected": {
+        "layersAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "value": 0.0
+          },
+          {
+            "event": "record"
+          },
+          {
+            "event": "log"
+          },
+          {
+            "event": "lifeEnd"
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "layers": 0,
+        "amount": 20,
+        "exists": false
+      },
+      "expected": {
+        "layersAfter": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "layers": 0,
+        "amount": 20,
+        "exists": true
+      },
+      "expected": {
+        "layersAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "value": 0.0
+          },
+          {
+            "event": "record"
+          },
+          {
+            "event": "log"
+          },
+          {
+            "event": "lifeEnd"
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "layers": 2,
+        "amount": null,
+        "exists": false
+      },
+      "expected": {
+        "layersAfter": 2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "layers": 2,
+        "amount": null,
+        "exists": true
+      },
+      "expected": {
+        "layersAfter": 1.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "value": -1.0
+          },
+          {
+            "event": "record"
+          },
+          {
+            "event": "log"
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "layers": 2,
+        "amount": 0,
+        "exists": false
+      },
+      "expected": {
+        "layersAfter": 2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "layers": 2,
+        "amount": 0,
+        "exists": true
+      },
+      "expected": {
+        "layersAfter": 2.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "value": 0.0
+          },
+          {
+            "event": "record"
+          },
+          {
+            "event": "log"
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "layers": 2,
+        "amount": 0.25,
+        "exists": false
+      },
+      "expected": {
+        "layersAfter": 2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "layers": 2,
+        "amount": 0.25,
+        "exists": true
+      },
+      "expected": {
+        "layersAfter": 1.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "value": -1.0
+          },
+          {
+            "event": "record"
+          },
+          {
+            "event": "log"
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "layers": 2,
+        "amount": 2.5,
+        "exists": false
+      },
+      "expected": {
+        "layersAfter": 2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "layers": 2,
+        "amount": 2.5,
+        "exists": true
+      },
+      "expected": {
+        "layersAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "value": -2.0
+          },
+          {
+            "event": "record"
+          },
+          {
+            "event": "log"
+          },
+          {
+            "event": "lifeEnd"
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "layers": 2,
+        "amount": -2.5,
+        "exists": false
+      },
+      "expected": {
+        "layersAfter": 2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "layers": 2,
+        "amount": -2.5,
+        "exists": true
+      },
+      "expected": {
+        "layersAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "value": -2.0
+          },
+          {
+            "event": "record"
+          },
+          {
+            "event": "log"
+          },
+          {
+            "event": "lifeEnd"
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "layers": 2,
+        "amount": 20,
+        "exists": false
+      },
+      "expected": {
+        "layersAfter": 2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "layers": 2,
+        "amount": 20,
+        "exists": true
+      },
+      "expected": {
+        "layersAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "value": -2.0
+          },
+          {
+            "event": "record"
+          },
+          {
+            "event": "log"
+          },
+          {
+            "event": "lifeEnd"
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "layers": 10,
+        "amount": null,
+        "exists": false
+      },
+      "expected": {
+        "layersAfter": 10.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "layers": 10,
+        "amount": null,
+        "exists": true
+      },
+      "expected": {
+        "layersAfter": 9.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "value": -1.0
+          },
+          {
+            "event": "record"
+          },
+          {
+            "event": "log"
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "layers": 10,
+        "amount": 0,
+        "exists": false
+      },
+      "expected": {
+        "layersAfter": 10.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "layers": 10,
+        "amount": 0,
+        "exists": true
+      },
+      "expected": {
+        "layersAfter": 10.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "value": 0.0
+          },
+          {
+            "event": "record"
+          },
+          {
+            "event": "log"
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "layers": 10,
+        "amount": 0.25,
+        "exists": false
+      },
+      "expected": {
+        "layersAfter": 10.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "layers": 10,
+        "amount": 0.25,
+        "exists": true
+      },
+      "expected": {
+        "layersAfter": 9.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "value": -1.0
+          },
+          {
+            "event": "record"
+          },
+          {
+            "event": "log"
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "layers": 10,
+        "amount": 2.5,
+        "exists": false
+      },
+      "expected": {
+        "layersAfter": 10.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "layers": 10,
+        "amount": 2.5,
+        "exists": true
+      },
+      "expected": {
+        "layersAfter": 7.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "value": -3.0
+          },
+          {
+            "event": "record"
+          },
+          {
+            "event": "log"
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "layers": 10,
+        "amount": -2.5,
+        "exists": false
+      },
+      "expected": {
+        "layersAfter": 10.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "layers": 10,
+        "amount": -2.5,
+        "exists": true
+      },
+      "expected": {
+        "layersAfter": 7.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "value": -3.0
+          },
+          {
+            "event": "record"
+          },
+          {
+            "event": "log"
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "layers": 10,
+        "amount": 20,
+        "exists": false
+      },
+      "expected": {
+        "layersAfter": 10.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "layers": 10,
+        "amount": 20,
+        "exists": true
+      },
+      "expected": {
+        "layersAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "value": -10.0
+          },
+          {
+            "event": "record"
+          },
+          {
+            "event": "log"
+          },
+          {
+            "event": "lifeEnd"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,249 @@
+{
+  "build": "pc-res144-build51",
+  "skillId": 4163,
+  "sourceHashes": {
+    "Skill": "dd47c38241edb513c71bd09e6f1f9a8ecdbfc7080f59b0c12a300ac7be2f7a2d",
+    "BattleApi": "47c6b4434a0c78ec59927a29237d960a81b2f9c0cf69f8ae3c26a0c3f4500d1a",
+    "Cmd": "855355ad600a5c419a7704c9dfbba0c199ce57d6b474478e75b94e8d714e030c"
+  },
+  "prepared": {
+    "status": "PREPARED_COMMAND_UNVERIFIED",
+    "commandId": 57564,
+    "arguments": [
+      52,
+      10
+    ],
+    "argumentBindings": {
+      "Arg1": 52,
+      "Arg2": 10
+    },
+    "selection": {
+      "command": {
+        "route": "progression",
+        "value": 57564,
+        "selection": {
+          "build": "pc-res144-build51",
+          "status": "VARIANT_SELECTED",
+          "matchKey": 3,
+          "value": 57564,
+          "found": true,
+          "breakThreshold": 0,
+          "potencyThreshold": 3
+        }
+      },
+      "parameter": {
+        "route": "progression",
+        "value": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "selection": null
+      },
+      "formulas": {
+        "value": [
+          "BattleFomula1",
+          "BattleFomula2"
+        ],
+        "selection": null
+      },
+      "coefficients": {
+        "value": [
+          0.1,
+          5
+        ],
+        "selection": null
+      }
+    },
+    "argumentCalculation": {
+      "status": "EXPERIMENTAL",
+      "arguments": [
+        52,
+        10
+      ],
+      "growth": {
+        "status": "EXPERIMENTAL",
+        "values": [
+          0.2,
+          10
+        ],
+        "members": {
+          "GrowArgValue": 5,
+          "GrowArgValue1": 0.2,
+          "GrowArgValue2": 10
+        },
+        "trace": [
+          {
+            "index": 1,
+            "name": "BattleFomula1",
+            "coefficient": 0.1,
+            "expression": "(( SkillLevel-1 )*20+100)/100*GrowArgValue",
+            "evaluation": {
+              "values": [
+                0.2
+              ],
+              "reads": [
+                {
+                  "name": "SkillLevel",
+                  "value": 6
+                },
+                {
+                  "name": "GrowArgValue",
+                  "value": 0.1
+                }
+              ],
+              "calls": []
+            }
+          },
+          {
+            "index": 2,
+            "name": "BattleFomula2",
+            "coefficient": 5,
+            "expression": "GrowArgValue+(SkillLevel-1)",
+            "evaluation": {
+              "values": [
+                10
+              ],
+              "reads": [
+                {
+                  "name": "GrowArgValue",
+                  "value": 5
+                },
+                {
+                  "name": "SkillLevel",
+                  "value": 6
+                }
+              ],
+              "calls": []
+            }
+          }
+        ]
+      },
+      "parameters": {
+        "values": [
+          51.6,
+          10
+        ],
+        "reads": [
+          {
+            "name": "BattleAtkForce",
+            "value": 258
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.2
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 10
+          }
+        ],
+        "calls": []
+      },
+      "unresolvedDependencies": [
+        "Coefficient lists and internal skill level supplied to this component; ownership not reconstructed",
+        "Expression/parser environment bindings supplied; full original skill-to-command execution not reproduced",
+        "Numeric expression form only; no parameter-list table, missing coefficient default, descriptions or gameplay validation"
+      ]
+    },
+    "unresolvedDependencies": [
+      "Internal progression, attack/state variables and condition outcomes supplied; character/build assembly absent",
+      "Selected command still requires handler, target, cost and lifecycle support",
+      "Composed field-to-argument pipeline not validated as a connected original execution or gameplay prediction"
+    ]
+  },
+  "execution": null,
+  "commandSupport": {
+    "status": "STATIC_COMPATIBILITY_INSPECTION",
+    "profile": "ordinary-active-UpperTarget",
+    "importMetadata": [
+      {
+        "rowId": "1",
+        "BaseSortID": 739
+      }
+    ],
+    "normalizedRows": [
+      {
+        "id": "1",
+        "Para": "Arg1",
+        "Type": "BEActiveDamage",
+        "Target": "FrontEnemy"
+      },
+      {
+        "id": "2",
+        "Type": "BEGainUltiEnergy",
+        "Para": "Arg2",
+        "Target": "CmdCaster"
+      },
+      {
+        "id": "3",
+        "Type": "BEAddState",
+        "Para": "2669,10",
+        "Target": "CmdCaster"
+      }
+    ],
+    "rowCount": 3,
+    "rows": [
+      {
+        "id": "1",
+        "type": "BEActiveDamage",
+        "target": "FrontEnemy",
+        "blockers": [
+          {
+            "code": "TARGET_BINDING",
+            "value": "FrontEnemy"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "type": "BEGainUltiEnergy",
+        "target": "CmdCaster",
+        "blockers": [
+          {
+            "code": "EFFECT_HANDLER",
+            "value": "BEGainUltiEnergy"
+          },
+          {
+            "code": "TARGET_BINDING",
+            "value": "CmdCaster"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "type": "BEAddState",
+        "target": "CmdCaster",
+        "blockers": [
+          {
+            "code": "EFFECT_HANDLER",
+            "value": "BEAddState"
+          },
+          {
+            "code": "TARGET_BINDING",
+            "value": "CmdCaster"
+          }
+        ]
+      }
+    ],
+    "structurallyCompatible": false,
+    "executable": false,
+    "remainingRuntimeChecks": [
+      "Numeric bindings and condition outcomes",
+      "Damage subtype and ParaPlus restrictions",
+      "Resolved offense, target modifiers, immunity and repetition inputs",
+      "Costs, lifecycle, state changes and trigger listeners",
+      "Original row construction and ordering"
+    ],
+    "limitations": [
+      "Checks current authored experiment compatibility, not correctness of the game command",
+      "No row is dropped; compilation does not evaluate expressions or prove runtime support",
+      "Not a gameplay prediction or full skill execution"
+    ]
+  },
+  "commandSummary": {
+    "effectTypes": [
+      "BEActiveDamage",
+      "BEGainUltiEnergy",
+      "BEAddState"
+    ],
+    "rowCount": 3
+  },
+  "executable": false
+}

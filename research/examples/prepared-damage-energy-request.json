@@ -1,0 +1,13 @@
+{
+  "skillId": 4046,
+  "skillLevel": 6,
+  "isAwaker": true,
+  "breakSkillLevel": 0,
+  "potencyLevel": 0,
+  "overrides": [],
+  "variables": {
+    "BattleAtkForce": 100
+  },
+  "conditionResults": {},
+  "stateQueries": {}
+}

@@ -1,0 +1,530 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "FuncTable": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3"
+  },
+  "scope": "Six original compiled expression closures with explicit numeric environments, four values each. No original parser/environment lookup, argument fallback, card, target selection or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "expression": "Arg1",
+        "environment": {
+          "Arg1": -2.5,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": -2.5
+          },
+          "CmdCaster": {
+            "max_hp": -2.5
+          },
+          "BattleAtkForce": -2.5,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        -2.5
+      ]
+    },
+    {
+      "input": {
+        "expression": "Arg1",
+        "environment": {
+          "Arg1": 0,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": 0
+          },
+          "CmdCaster": {
+            "max_hp": 0
+          },
+          "BattleAtkForce": 0,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        0.0
+      ]
+    },
+    {
+      "input": {
+        "expression": "Arg1",
+        "environment": {
+          "Arg1": 1.25,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": 1.25
+          },
+          "CmdCaster": {
+            "max_hp": 1.25
+          },
+          "BattleAtkForce": 1.25,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        1.25
+      ]
+    },
+    {
+      "input": {
+        "expression": "Arg1",
+        "environment": {
+          "Arg1": 258,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": 258
+          },
+          "CmdCaster": {
+            "max_hp": 258
+          },
+          "BattleAtkForce": 258,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        258.0
+      ]
+    },
+    {
+      "input": {
+        "expression": "Arg1,Arg2",
+        "environment": {
+          "Arg1": -2.5,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": -2.5
+          },
+          "CmdCaster": {
+            "max_hp": -2.5
+          },
+          "BattleAtkForce": -2.5,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        -2.5,
+        3.5
+      ]
+    },
+    {
+      "input": {
+        "expression": "Arg1,Arg2",
+        "environment": {
+          "Arg1": 0,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": 0
+          },
+          "CmdCaster": {
+            "max_hp": 0
+          },
+          "BattleAtkForce": 0,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        0.0,
+        3.5
+      ]
+    },
+    {
+      "input": {
+        "expression": "Arg1,Arg2",
+        "environment": {
+          "Arg1": 1.25,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": 1.25
+          },
+          "CmdCaster": {
+            "max_hp": 1.25
+          },
+          "BattleAtkForce": 1.25,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        1.25,
+        3.5
+      ]
+    },
+    {
+      "input": {
+        "expression": "Arg1,Arg2",
+        "environment": {
+          "Arg1": 258,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": 258
+          },
+          "CmdCaster": {
+            "max_hp": 258
+          },
+          "BattleAtkForce": 258,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        258.0,
+        3.5
+      ]
+    },
+    {
+      "input": {
+        "expression": "Arg1,1,0,ParaPlus1",
+        "environment": {
+          "Arg1": -2.5,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": -2.5
+          },
+          "CmdCaster": {
+            "max_hp": -2.5
+          },
+          "BattleAtkForce": -2.5,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        -2.5,
+        1.0,
+        0.0,
+        7.25
+      ]
+    },
+    {
+      "input": {
+        "expression": "Arg1,1,0,ParaPlus1",
+        "environment": {
+          "Arg1": 0,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": 0
+          },
+          "CmdCaster": {
+            "max_hp": 0
+          },
+          "BattleAtkForce": 0,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        0.0,
+        1.0,
+        0.0,
+        7.25
+      ]
+    },
+    {
+      "input": {
+        "expression": "Arg1,1,0,ParaPlus1",
+        "environment": {
+          "Arg1": 1.25,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": 1.25
+          },
+          "CmdCaster": {
+            "max_hp": 1.25
+          },
+          "BattleAtkForce": 1.25,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        1.25,
+        1.0,
+        0.0,
+        7.25
+      ]
+    },
+    {
+      "input": {
+        "expression": "Arg1,1,0,ParaPlus1",
+        "environment": {
+          "Arg1": 258,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": 258
+          },
+          "CmdCaster": {
+            "max_hp": 258
+          },
+          "BattleAtkForce": 258,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        258.0,
+        1.0,
+        0.0,
+        7.25
+      ]
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.physique*4*1.5",
+        "environment": {
+          "Arg1": -2.5,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": -2.5
+          },
+          "CmdCaster": {
+            "max_hp": -2.5
+          },
+          "BattleAtkForce": -2.5,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        -15.0
+      ]
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.physique*4*1.5",
+        "environment": {
+          "Arg1": 0,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": 0
+          },
+          "CmdCaster": {
+            "max_hp": 0
+          },
+          "BattleAtkForce": 0,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        0.0
+      ]
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.physique*4*1.5",
+        "environment": {
+          "Arg1": 1.25,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": 1.25
+          },
+          "CmdCaster": {
+            "max_hp": 1.25
+          },
+          "BattleAtkForce": 1.25,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        7.5
+      ]
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.physique*4*1.5",
+        "environment": {
+          "Arg1": 258,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": 258
+          },
+          "CmdCaster": {
+            "max_hp": 258
+          },
+          "BattleAtkForce": 258,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        1548.0
+      ]
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.max_hp",
+        "environment": {
+          "Arg1": -2.5,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": -2.5
+          },
+          "CmdCaster": {
+            "max_hp": -2.5
+          },
+          "BattleAtkForce": -2.5,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        -2.5
+      ]
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.max_hp",
+        "environment": {
+          "Arg1": 0,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": 0
+          },
+          "CmdCaster": {
+            "max_hp": 0
+          },
+          "BattleAtkForce": 0,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        0.0
+      ]
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.max_hp",
+        "environment": {
+          "Arg1": 1.25,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": 1.25
+          },
+          "CmdCaster": {
+            "max_hp": 1.25
+          },
+          "BattleAtkForce": 1.25,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        1.25
+      ]
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.max_hp",
+        "environment": {
+          "Arg1": 258,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": 258
+          },
+          "CmdCaster": {
+            "max_hp": 258
+          },
+          "BattleAtkForce": 258,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        258.0
+      ]
+    },
+    {
+      "input": {
+        "expression": "BattleAtkForce*GrowArgValue1",
+        "environment": {
+          "Arg1": -2.5,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": -2.5
+          },
+          "CmdCaster": {
+            "max_hp": -2.5
+          },
+          "BattleAtkForce": -2.5,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        -1.9500000000000002
+      ]
+    },
+    {
+      "input": {
+        "expression": "BattleAtkForce*GrowArgValue1",
+        "environment": {
+          "Arg1": 0,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": 0
+          },
+          "CmdCaster": {
+            "max_hp": 0
+          },
+          "BattleAtkForce": 0,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        0.0
+      ]
+    },
+    {
+      "input": {
+        "expression": "BattleAtkForce*GrowArgValue1",
+        "environment": {
+          "Arg1": 1.25,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": 1.25
+          },
+          "CmdCaster": {
+            "max_hp": 1.25
+          },
+          "BattleAtkForce": 1.25,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        0.9750000000000001
+      ]
+    },
+    {
+      "input": {
+        "expression": "BattleAtkForce*GrowArgValue1",
+        "environment": {
+          "Arg1": 258,
+          "Arg2": 3.5,
+          "ParaPlus1": 7.25,
+          "UpperTarget": {
+            "physique": 258
+          },
+          "CmdCaster": {
+            "max_hp": 258
+          },
+          "BattleAtkForce": 258,
+          "GrowArgValue1": 0.78
+        }
+      },
+      "expected": [
+        201.24
+      ]
+    }
+  ]
+}

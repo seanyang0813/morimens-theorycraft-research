@@ -1,0 +1,1928 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original RemoveProperty calls original ChangeOwnerProperty with one recorded contribution and a non-card owner. Supplied owner/team/ban/PVE flags; recipient ChangeProperty observed only. No property mutation, card-cost records, multi-property order or gameplay.",
+  "sourceHashes": {
+    "BattleStateServer": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+  },
+  "fixtures": [
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": false,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "strikecard_damage_plus",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": false,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "awaker-0",
+            "property": "strikecard_damage_plus",
+            "delta": 20.0
+          },
+          {
+            "recipient": "awaker-1",
+            "property": "strikecard_damage_plus",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "awaker-0",
+            "property": "strikecard_damage_plus",
+            "delta": -0.0
+          },
+          {
+            "recipient": "awaker-1",
+            "property": "strikecard_damage_plus",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "awaker-0",
+            "property": "strikecard_damage_plus",
+            "delta": -30.0
+          },
+          {
+            "recipient": "awaker-1",
+            "property": "strikecard_damage_plus",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "awaker-0",
+            "property": "strikecard_damage_plus",
+            "delta": 20.0
+          },
+          {
+            "recipient": "awaker-1",
+            "property": "strikecard_damage_plus",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "awaker-0",
+            "property": "strikecard_damage_plus",
+            "delta": -0.0
+          },
+          {
+            "recipient": "awaker-1",
+            "property": "strikecard_damage_plus",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "awaker-0",
+            "property": "strikecard_damage_plus",
+            "delta": -30.0
+          },
+          {
+            "recipient": "awaker-1",
+            "property": "strikecard_damage_plus",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": false,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "strikecard_damage_plus",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": false,
+        "property": "basic_damage_per",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "awaker-0",
+            "property": "strikecard_damage_plus",
+            "delta": 20.0
+          },
+          {
+            "recipient": "awaker-1",
+            "property": "strikecard_damage_plus",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "awaker-0",
+            "property": "strikecard_damage_plus",
+            "delta": -0.0
+          },
+          {
+            "recipient": "awaker-1",
+            "property": "strikecard_damage_plus",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "strikecard_damage_plus",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "awaker-0",
+            "property": "strikecard_damage_plus",
+            "delta": -30.0
+          },
+          {
+            "recipient": "awaker-1",
+            "property": "strikecard_damage_plus",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": -20,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": 20.0
+          }
+        ],
+        "storedValueAfter": -20.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": 0,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -0.0
+          }
+        ],
+        "storedValueAfter": 0.0
+      }
+    },
+    {
+      "input": {
+        "pve": true,
+        "playerOwner": true,
+        "banned": true,
+        "ignoreBan": true,
+        "property": "basic_damage_per",
+        "storedValue": 30,
+        "teamSize": 2
+      },
+      "expected": {
+        "mutations": [
+          {
+            "recipient": "owner",
+            "property": "basic_damage_per",
+            "delta": -30.0
+          }
+        ],
+        "storedValueAfter": 30.0
+      }
+    }
+  ]
+}

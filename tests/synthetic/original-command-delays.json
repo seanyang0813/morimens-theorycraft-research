@@ -1,0 +1,2236 @@
+{
+  "build": "pc-res144-build51",
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "sourceHashes": {
+    "BattleCmdServer": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b"
+  },
+  "scope": "96 original GetEffectDelayTimes executions; supplied cast-time callback results and pre/nested command flags. No animation lookup, effect generation, scheduler or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "delays": [],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          null
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          1.0
+        ],
+        "castTimeReads": [
+          "cast"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          null
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0
+        ],
+        "castTimeReads": [
+          "cast"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          null
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          null
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          null
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          null
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          null
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          null
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          null,
+          null
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          1.0,
+          0.0
+        ],
+        "castTimeReads": [
+          "cast"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          null,
+          null
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": [
+          "cast"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          null,
+          null
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          null,
+          null
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          null,
+          null
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          null,
+          null
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          null,
+          null
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          null,
+          null
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          100,
+          null,
+          100
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.1,
+          0.9,
+          0.10000000000000009
+        ],
+        "castTimeReads": [
+          "cast"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          100,
+          null,
+          100
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0,
+          0.1
+        ],
+        "castTimeReads": [
+          "cast"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          100,
+          null,
+          100
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.1,
+          0.0,
+          0.1
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          100,
+          null,
+          100
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.1,
+          0.0,
+          0.1
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          100,
+          null,
+          100
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.1,
+          0.0,
+          0.1
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          100,
+          null,
+          100
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.1,
+          0.0,
+          0.1
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          100,
+          null,
+          100
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.1,
+          0.0,
+          0.1
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          100,
+          null,
+          100
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.1,
+          0.0,
+          0.1
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          0,
+          null,
+          0
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "castTimeReads": [
+          "cast"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          0,
+          null,
+          0
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": [
+          "cast"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          0,
+          null,
+          0
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          0,
+          null,
+          0
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          0,
+          null,
+          0
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          0,
+          null,
+          0
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          0,
+          null,
+          0
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          0,
+          null,
+          0
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          "cast2",
+          100
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.25,
+          0.0,
+          0.09999999999999998
+        ],
+        "castTimeReads": [
+          "cast",
+          "cast2"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          "cast2",
+          100
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          2.0,
+          0.10000000000000009
+        ],
+        "castTimeReads": [
+          "cast",
+          "cast2"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          "cast2",
+          100
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0,
+          0.1
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          "cast2",
+          100
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0,
+          0.1
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          "cast2",
+          100
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0,
+          0.1
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          "cast2",
+          100
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0,
+          0.1
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          "cast2",
+          100
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0,
+          0.1
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          "cast2",
+          100
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0,
+          0.1
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          -100,
+          null
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.9,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": [
+          "cast"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          -100,
+          null
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          -0.1,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": [
+          "cast"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          -100,
+          null
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          -0.1,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          -100,
+          null
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          -0.1,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          -100,
+          null
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          -0.1,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          -100,
+          null
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          -0.1,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          -100,
+          null
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          -0.1,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          -100,
+          null
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          -0.1,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "100",
+          " 2.5e2 ",
+          "cast2"
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.1,
+          0.15,
+          0.0
+        ],
+        "castTimeReads": [
+          "cast2"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "100",
+          " 2.5e2 ",
+          "cast2"
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.1,
+          0.24999999999999997,
+          1.65
+        ],
+        "castTimeReads": [
+          "cast2"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "100",
+          " 2.5e2 ",
+          "cast2"
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.1,
+          0.24999999999999997,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "100",
+          " 2.5e2 ",
+          "cast2"
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.1,
+          0.24999999999999997,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "100",
+          " 2.5e2 ",
+          "cast2"
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.1,
+          0.24999999999999997,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "100",
+          " 2.5e2 ",
+          "cast2"
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.1,
+          0.24999999999999997,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "100",
+          " 2.5e2 ",
+          "cast2"
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.1,
+          0.24999999999999997,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "100",
+          " 2.5e2 ",
+          "cast2"
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.1,
+          0.24999999999999997,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          false,
+          false
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          1.0,
+          0.0
+        ],
+        "castTimeReads": [
+          "cast"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          false,
+          false
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": [
+          "cast"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          false,
+          false
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          false,
+          false
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          false,
+          false
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          false,
+          false
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          false,
+          false
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          false,
+          false
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast2",
+          null,
+          "cast"
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.25,
+          0.0,
+          0.75
+        ],
+        "castTimeReads": [
+          "cast2",
+          "cast"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast2",
+          null,
+          "cast"
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": [
+          "cast2",
+          "cast"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast2",
+          null,
+          "cast"
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast2",
+          null,
+          "cast"
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast2",
+          null,
+          "cast"
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast2",
+          null,
+          "cast"
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast2",
+          null,
+          "cast"
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast2",
+          null,
+          "cast"
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "unknown",
+          null
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": [
+          "unknown"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "unknown",
+          null
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": [
+          "unknown"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "unknown",
+          null
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "unknown",
+          null
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "unknown",
+          null
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "unknown",
+          null
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "unknown",
+          null
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "unknown",
+          null
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          0.0
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          1000,
+          "cast2",
+          200
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.25,
+          0.0,
+          0.0,
+          0.2
+        ],
+        "castTimeReads": [
+          "cast",
+          "cast2"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          1000,
+          "cast2",
+          200
+        ],
+        "preCommand": false,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          1.0,
+          1.0,
+          0.20000000000000018
+        ],
+        "castTimeReads": [
+          "cast",
+          "cast2"
+        ]
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          1000,
+          "cast2",
+          200
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          1.0,
+          0.0,
+          0.19999999999999996
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          1000,
+          "cast2",
+          200
+        ],
+        "preCommand": false,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          1.0,
+          0.0,
+          0.19999999999999996
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          1000,
+          "cast2",
+          200
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          1.0,
+          0.0,
+          0.19999999999999996
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          1000,
+          "cast2",
+          200
+        ],
+        "preCommand": true,
+        "executeCommand": false,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          1.0,
+          0.0,
+          0.19999999999999996
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          1000,
+          "cast2",
+          200
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 1,
+          "cast2": 0.25,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          1.0,
+          0.0,
+          0.19999999999999996
+        ],
+        "castTimeReads": []
+      }
+    },
+    {
+      "input": {
+        "delays": [
+          "cast",
+          1000,
+          "cast2",
+          200
+        ],
+        "preCommand": true,
+        "executeCommand": true,
+        "castTimes": {
+          "cast": 0,
+          "cast2": 2,
+          "unknown": null
+        }
+      },
+      "expected": {
+        "delays": [
+          0.0,
+          1.0,
+          0.0,
+          0.19999999999999996
+        ],
+        "castTimeReads": []
+      }
+    }
+  ]
+}

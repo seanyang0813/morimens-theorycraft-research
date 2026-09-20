@@ -1,0 +1,2767 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original FuncTable condition/parameter closures selected from original Cmd rows, with live state getter. Python iterates rows and applies marker/stack adapters. HP effects are recorded only. Not original parser, scheduler, state effects, command executor or gameplay.",
+  "sourceHashes": {
+    "FuncTable": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3",
+    "Cmd": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2"
+  },
+  "commands": {
+    "80572": [
+      {
+        "id": "1",
+        "Para": 80593,
+        "Cond": "UpperTarget.GetStateLayer(80575)>=Arg1",
+        "Target": "UpperTarget",
+        "Type": "BEAddState"
+      },
+      {
+        "id": "2",
+        "Type": "BEAddState",
+        "Para": 80594,
+        "Cond": "UpperTarget.GetStateLayer(80575)<Arg1",
+        "Target": "UpperTarget"
+      },
+      {
+        "id": "3",
+        "Type": "BEChangeAttr.hp",
+        "Para": "Arg1*(-3)",
+        "Cond": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0  and UpperTarget.GetStateLayer(62317)==0",
+        "Target": "UpperTarget"
+      },
+      {
+        "id": "4",
+        "Type": "BESubStateLayer",
+        "Para": "80575,Arg1",
+        "Cond": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "Target": "UpperTarget"
+      },
+      {
+        "id": "5",
+        "Type": "BEChangeAttr.hp",
+        "Para": "UpperTarget.GetStateLayer(80575)*(-3)",
+        "Cond": "UpperTarget.GetStateLayer(80594)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "Target": "UpperTarget"
+      },
+      {
+        "id": "6",
+        "Type": "BERemoveState",
+        "Para": 80575,
+        "Cond": "UpperTarget.GetStateLayer(80594)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "Target": "UpperTarget"
+      },
+      {
+        "id": "7",
+        "Type": "BERemoveState",
+        "Para": 80593,
+        "Target": "UpperTarget"
+      },
+      {
+        "id": "8",
+        "Type": "BERemoveState",
+        "Para": 80594,
+        "Target": "UpperTarget"
+      }
+    ],
+    "81060": [
+      {
+        "id": "1",
+        "Para": 80593,
+        "Cond": "UpperTarget.GetStateLayer(80575)>=Arg1",
+        "Target": "UpperTarget",
+        "Type": "BEAddState"
+      },
+      {
+        "id": "2",
+        "Type": "BEAddState",
+        "Para": 80594,
+        "Cond": "UpperTarget.GetStateLayer(80575)<Arg1",
+        "Target": "UpperTarget"
+      },
+      {
+        "id": "3",
+        "Type": "BEChangeAttr.hp",
+        "Para": "Arg1*(-3)",
+        "Cond": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "Target": "UpperTarget"
+      },
+      {
+        "id": "4",
+        "Type": "BESubStateLayer",
+        "Para": "80575,Arg1",
+        "Cond": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "Target": "UpperTarget"
+      },
+      {
+        "id": "5",
+        "Type": "BEChangeAttr.hp",
+        "Para": "UpperTarget.GetStateLayer(80575)*(-3)",
+        "Cond": "UpperTarget.GetStateLayer(80594)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "Target": "UpperTarget"
+      },
+      {
+        "id": "6",
+        "Type": "BERemoveState",
+        "Para": 80575,
+        "Cond": "UpperTarget.GetStateLayer(80594)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "Target": "UpperTarget"
+      },
+      {
+        "id": "7",
+        "Type": "BERemoveState",
+        "Para": 80593,
+        "Target": "UpperTarget"
+      },
+      {
+        "id": "8",
+        "Type": "BERemoveState",
+        "Para": 80594,
+        "Target": "UpperTarget"
+      }
+    ]
+  },
+  "fixtures": [
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 0,
+        "argument": 0,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -0.0
+            ]
+          },
+          {
+            "row": 4,
+            "type": "BESubStateLayer",
+            "params": [
+              80575.0,
+              0.0
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 0,
+        "argument": 0,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 0,
+        "argument": 2.5,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 5,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -0.0
+            ]
+          },
+          {
+            "row": 6,
+            "type": "BERemoveState",
+            "params": [
+              80575
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 0,
+        "argument": 2.5,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 0,
+        "argument": 3,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 5,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -0.0
+            ]
+          },
+          {
+            "row": 6,
+            "type": "BERemoveState",
+            "params": [
+              80575
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 0,
+        "argument": 3,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 0,
+        "argument": 5,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 5,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -0.0
+            ]
+          },
+          {
+            "row": 6,
+            "type": "BERemoveState",
+            "params": [
+              80575
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 0,
+        "argument": 5,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 2,
+        "argument": 0,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -0.0
+            ]
+          },
+          {
+            "row": 4,
+            "type": "BESubStateLayer",
+            "params": [
+              80575.0,
+              0.0
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 2
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 2,
+        "argument": 0,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 2
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 2,
+        "argument": 2.5,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 5,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -6.0
+            ]
+          },
+          {
+            "row": 6,
+            "type": "BERemoveState",
+            "params": [
+              80575
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 2,
+        "argument": 2.5,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 2
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 2,
+        "argument": 3,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 5,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -6.0
+            ]
+          },
+          {
+            "row": 6,
+            "type": "BERemoveState",
+            "params": [
+              80575
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 2,
+        "argument": 3,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 2
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 2,
+        "argument": 5,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 5,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -6.0
+            ]
+          },
+          {
+            "row": 6,
+            "type": "BERemoveState",
+            "params": [
+              80575
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 2,
+        "argument": 5,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 2
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 3,
+        "argument": 0,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -0.0
+            ]
+          },
+          {
+            "row": 4,
+            "type": "BESubStateLayer",
+            "params": [
+              80575.0,
+              0.0
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 3
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 3,
+        "argument": 0,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 3
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 3,
+        "argument": 2.5,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -7.5
+            ]
+          },
+          {
+            "row": 4,
+            "type": "BESubStateLayer",
+            "params": [
+              80575.0,
+              2.5
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 3,
+        "argument": 2.5,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 3
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 3,
+        "argument": 3,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -9.0
+            ]
+          },
+          {
+            "row": 4,
+            "type": "BESubStateLayer",
+            "params": [
+              80575.0,
+              3.0
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 3,
+        "argument": 3,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 3
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 3,
+        "argument": 5,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 5,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -9.0
+            ]
+          },
+          {
+            "row": 6,
+            "type": "BERemoveState",
+            "params": [
+              80575
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 3,
+        "argument": 5,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 3
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 100,
+        "argument": 0,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -0.0
+            ]
+          },
+          {
+            "row": 4,
+            "type": "BESubStateLayer",
+            "params": [
+              80575.0,
+              0.0
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 100
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 100,
+        "argument": 0,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 100
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 100,
+        "argument": 2.5,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -7.5
+            ]
+          },
+          {
+            "row": 4,
+            "type": "BESubStateLayer",
+            "params": [
+              80575.0,
+              2.5
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 97
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 100,
+        "argument": 2.5,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 100
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 100,
+        "argument": 3,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -9.0
+            ]
+          },
+          {
+            "row": 4,
+            "type": "BESubStateLayer",
+            "params": [
+              80575.0,
+              3.0
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 97
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 100,
+        "argument": 3,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 100
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 100,
+        "argument": 5,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -15.0
+            ]
+          },
+          {
+            "row": 4,
+            "type": "BESubStateLayer",
+            "params": [
+              80575.0,
+              5.0
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 95
+      }
+    },
+    {
+      "input": {
+        "commandId": 80572,
+        "layers": 100,
+        "argument": 5,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 100
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 0,
+        "argument": 0,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -0.0
+            ]
+          },
+          {
+            "row": 4,
+            "type": "BESubStateLayer",
+            "params": [
+              80575.0,
+              0.0
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 0,
+        "argument": 0,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 0,
+        "argument": 2.5,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 5,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -0.0
+            ]
+          },
+          {
+            "row": 6,
+            "type": "BERemoveState",
+            "params": [
+              80575
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 0,
+        "argument": 2.5,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 0,
+        "argument": 3,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 5,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -0.0
+            ]
+          },
+          {
+            "row": 6,
+            "type": "BERemoveState",
+            "params": [
+              80575
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 0,
+        "argument": 3,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 0,
+        "argument": 5,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 5,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -0.0
+            ]
+          },
+          {
+            "row": 6,
+            "type": "BERemoveState",
+            "params": [
+              80575
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 0,
+        "argument": 5,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 2,
+        "argument": 0,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -0.0
+            ]
+          },
+          {
+            "row": 4,
+            "type": "BESubStateLayer",
+            "params": [
+              80575.0,
+              0.0
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 2
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 2,
+        "argument": 0,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 2
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 2,
+        "argument": 2.5,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 5,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -6.0
+            ]
+          },
+          {
+            "row": 6,
+            "type": "BERemoveState",
+            "params": [
+              80575
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 2,
+        "argument": 2.5,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 2
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 2,
+        "argument": 3,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 5,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -6.0
+            ]
+          },
+          {
+            "row": 6,
+            "type": "BERemoveState",
+            "params": [
+              80575
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 2,
+        "argument": 3,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 2
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 2,
+        "argument": 5,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 5,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -6.0
+            ]
+          },
+          {
+            "row": 6,
+            "type": "BERemoveState",
+            "params": [
+              80575
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 2,
+        "argument": 5,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 2
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 3,
+        "argument": 0,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -0.0
+            ]
+          },
+          {
+            "row": 4,
+            "type": "BESubStateLayer",
+            "params": [
+              80575.0,
+              0.0
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 3
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 3,
+        "argument": 0,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 3
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 3,
+        "argument": 2.5,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -7.5
+            ]
+          },
+          {
+            "row": 4,
+            "type": "BESubStateLayer",
+            "params": [
+              80575.0,
+              2.5
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 3,
+        "argument": 2.5,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 3
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 3,
+        "argument": 3,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -9.0
+            ]
+          },
+          {
+            "row": 4,
+            "type": "BESubStateLayer",
+            "params": [
+              80575.0,
+              3.0
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 3,
+        "argument": 3,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 3
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 3,
+        "argument": 5,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 5,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -9.0
+            ]
+          },
+          {
+            "row": 6,
+            "type": "BERemoveState",
+            "params": [
+              80575
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 0
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 3,
+        "argument": 5,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 2,
+            "type": "BEAddState",
+            "params": [
+              80594
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 3
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 100,
+        "argument": 0,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -0.0
+            ]
+          },
+          {
+            "row": 4,
+            "type": "BESubStateLayer",
+            "params": [
+              80575.0,
+              0.0
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 100
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 100,
+        "argument": 0,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 100
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 100,
+        "argument": 2.5,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -7.5
+            ]
+          },
+          {
+            "row": 4,
+            "type": "BESubStateLayer",
+            "params": [
+              80575.0,
+              2.5
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 97
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 100,
+        "argument": 2.5,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 100
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 100,
+        "argument": 3,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -9.0
+            ]
+          },
+          {
+            "row": 4,
+            "type": "BESubStateLayer",
+            "params": [
+              80575.0,
+              3.0
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 97
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 100,
+        "argument": 3,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 100
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 100,
+        "argument": 5,
+        "blocker": 0
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BEChangeAttr.hp",
+            "params": [
+              -15.0
+            ]
+          },
+          {
+            "row": 4,
+            "type": "BESubStateLayer",
+            "params": [
+              80575.0,
+              5.0
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 95
+      }
+    },
+    {
+      "input": {
+        "commandId": 81060,
+        "layers": 100,
+        "argument": 5,
+        "blocker": 1
+      },
+      "expected": {
+        "trace": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "params": [
+              80593
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "params": [
+              80594
+            ]
+          }
+        ],
+        "layersAfter": 100
+      }
+    }
+  ]
+}

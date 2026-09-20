@@ -1,0 +1,95 @@
+"""Reproducible research checkpoint. Never grants publication automatically."""
+from pathlib import Path
+import argparse
+import datetime
+import hashlib
+import json
+import math
+import subprocess
+
+ROOT=Path(__file__).resolve().parents[1]
+
+def number(value):
+    return isinstance(value,(int,float)) and not isinstance(value,bool) and math.isfinite(value)
+
+def replay_prediction(row):
+    prediction=row.get('prediction')
+    if not isinstance(prediction,dict):return None,'No executable prediction contract'
+    try:
+        path=(ROOT/prediction['scenarioFile']).resolve()
+        if not path.is_relative_to(ROOT) or not path.is_file():raise ValueError('Scenario file missing or outside workspace')
+        if hashlib.sha256(path.read_bytes()).hexdigest()!=prediction['scenarioSha256']:raise ValueError('Scenario hash mismatch')
+        run=subprocess.run(['node',str(ROOT/'tools/replay_observation.mjs'),str(path),prediction['metric'],prediction['runtimeFingerprint']],cwd=ROOT,capture_output=True,text=True,encoding='utf-8',timeout=30)
+        if run.returncode:raise ValueError(run.stderr.strip() or 'Prediction execution failed')
+        result=json.loads(run.stdout)
+        if result['build']!=row.get('version',{}).get('recordedCombatBuild'):raise ValueError('Scenario and recorded combat build differ')
+        if not number(result.get('value')):raise ValueError('Prediction replay returned no finite metric')
+        return result,None
+    except (KeyError,TypeError,ValueError,OSError,subprocess.TimeoutExpired) as error:return None,str(error)
+
+def audit_observation(row):
+    reasons=[]
+    if row.get('kind')!='REAL_GAME_OBSERVATION':reasons.append('Not a real gameplay observation')
+    if row.get('status')!='COMPLETE':reasons.append('State/sequence reconstruction incomplete')
+    if not row.get('version',{}).get('recordedCombatBuild'):reasons.append('Recorded combat build unknown')
+    if row.get('uncertainState'):reasons.append('Unresolved input state')
+    if row.get('assumedState'):reasons.append('Assumed state requires provenance review before scoring')
+    observed,predicted=row.get('observedDamage'),row.get('predictedDamage')
+    difference=predicted-observed if number(observed) and number(predicted) else None
+    if difference is None:reasons.append('No finite observed/predicted pair')
+    elif difference!=0:reasons.append('Nonzero discrepancy requires documented review; not automatically accepted')
+    recomputed,replay_error=replay_prediction(row)
+    if replay_error:reasons.append('Prediction replay: '+replay_error)
+    elif recomputed['value']!=predicted:reasons.append('Reported prediction differs from executable engine output')
+    evidence=row.get('evidence',[])
+    if not evidence:reasons.append('No evidence files')
+    hashes=[]
+    for name in evidence:
+        path=(ROOT/name).resolve()
+        if not path.is_relative_to(ROOT) or not path.is_file():reasons.append('Missing or out-of-workspace evidence: '+name)
+        else:hashes.append({'path':name,'sha256':hashlib.sha256(path.read_bytes()).hexdigest()})
+    if row.get('holdout'):
+        proof=row.get('predictionFrozenBeforeOutcomeEvidence')
+        try:
+            if not isinstance(proof,dict):raise ValueError('A hashed freeze-evidence file is required')
+            path=(ROOT/proof['path']).resolve()
+            if not path.is_relative_to(ROOT) or not path.is_file():raise ValueError('Freeze evidence missing or outside workspace')
+            if hashlib.sha256(path.read_bytes()).hexdigest()!=proof['sha256']:raise ValueError('Freeze evidence hash mismatch')
+            frozen=json.loads(path.read_text(encoding='utf-8'))
+            if frozen.get('prediction')!=row.get('prediction'):raise ValueError('Frozen contract differs from replayed prediction contract')
+            if frozen.get('predictedDamage')!=predicted:raise ValueError('Frozen predicted damage differs')
+            if not frozen.get('beforeOutcomeEvidence'):raise ValueError('Independent evidence of freeze timing missing')
+            hashes.append({'path':proof['path'],'sha256':proof['sha256'],'purpose':'prediction freeze; chronology requires manual review'})
+        except (KeyError,TypeError,ValueError,OSError) as error:reasons.append('Holdout freeze: '+str(error))
+    return {'id':row.get('id'),'holdout':row.get('holdout') is True,'observed':observed,'predicted':predicted,'recomputed':recomputed,'difference':difference,'eligibleForReview':not reasons,'reasons':reasons,'evidenceFiles':hashes}
+
+def main():
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--check-publication',action='store_true',help='Exit nonzero unless publication review is complete (never automatically granted here)')
+    args=parser.parse_args()
+    tests=sorted((ROOT/'tests').glob('*.test.mjs'))
+    run=subprocess.run(['node','--test',*[str(p) for p in tests]],cwd=ROOT,text=True,encoding='utf-8',errors='replace',capture_output=True)
+    log=ROOT/'research/evidence/latest-test-suite.tap'
+    log.write_text(run.stdout+'\n'+run.stderr,encoding='utf-8')
+    rows=[audit_observation(json.loads(path.read_text(encoding='utf-8'))) for path in sorted((ROOT/'tests/observations').glob('*.json'))]
+    reviewable=sum(row['eligibleForReview'] for row in rows)
+    holdouts=sum(row['eligibleForReview'] and row['holdout'] for row in rows)
+    reasons=[]
+    if run.returncode:reasons.append('Automated test suite failed')
+    if not tests:reasons.append('No automated tests discovered')
+    if not reviewable:reasons.append('No fully reconstructed real observation with matching prediction')
+    if not holdouts:reasons.append('No independently frozen, reconstructed holdout with matching prediction')
+    reasons.append('Supported-scenario core-mechanic coverage and source traceability require a complete evidence review; this checkpoint cannot authorize publication')
+    copies=[]
+    for name in json.loads((ROOT/'website/engine-modules.json').read_text(encoding='utf-8')):
+        engine=ROOT/'engine'/name;website=ROOT/'website/dist/engine'/name
+        matches=website.is_file() and engine.read_bytes()==website.read_bytes()
+        copies.append({'module':name,'matchesResearchEngine':matches})
+        if not matches:reasons.append('Website engine copy missing or stale: '+name)
+    out={'generatedAtUtc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'publicationStatus':'NOT_READY' if len(reasons)>1 else 'REQUIRES_EVIDENCE_REVIEW','publicationAuthorized':False,'automatedSuite':{'testFiles':len(tests),'passed':run.returncode==0 and bool(tests),'exitCode':run.returncode,'log':str(log.relative_to(ROOT)),'logSha256':hashlib.sha256(log.read_bytes()).hexdigest()},'realObservations':{'records':len(rows),'eligibleForReview':reviewable,'holdoutsEligibleForReview':holdouts,'rows':rows},'websiteEngineCopies':copies,'blockingReasons':reasons,'limitations':['Matching reported values alone cannot establish input provenance or validate a formula','Synthetic runtime comparisons are not gameplay fixtures or holdouts','No browser QA, source coverage review or deployed-site verification is performed by this script']}
+    path=ROOT/'research/evidence/verification-snapshot.json'
+    path.write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+    print(json.dumps({'suitePassed':out['automatedSuite']['passed'],'testFiles':len(tests),'realObservationRecords':len(rows),'reviewablePredictions':reviewable,'reviewableHoldouts':holdouts,'publicationStatus':out['publicationStatus'],'report':str(path.relative_to(ROOT))},indent=2))
+    return run.returncode or (2 if args.check_publication else 0)
+
+if __name__=='__main__':raise SystemExit(main())

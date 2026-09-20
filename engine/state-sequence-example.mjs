@@ -1,0 +1,171 @@
+// Synthetic example; copied state expressions are sourced in research/examples/state-sequence-provenance.json.
+export function syntheticStateSequenceExample(){return {
+  "schemaVersion": 1,
+  "kind": "morimens-state-sequence",
+  "build": "pc-res144-build51",
+  "otherEvents": "assumed-absent",
+  "crossesTurnBoundary": false,
+  "actorProperties": {
+    "basic_damage_per": 0,
+    "crit_damage": 0,
+    "i_crit_damage_per": 0
+  },
+  "targetProperties": {
+    "be_damage_per": 0,
+    "be_damage_per2": 0,
+    "be_damage_per3": 0,
+    "vulnerable_per": 0
+  },
+  "stateQueries": {
+    "CmdCaster.GetStateLayer": {
+      "133235": 0
+    }
+  },
+  "definitions": [
+    {
+      "id": 80331,
+      "owner": "target",
+      "maximum": "15+CmdCaster.GetStateLayer(133235)*5",
+      "properties": [
+        {
+          "property": "be_damage_per2",
+          "expression": "ChangedLayer*3"
+        }
+      ],
+      "skillLevel": 6,
+      "caster": 1,
+      "specialValue": 0,
+      "banned": false
+    }
+  ],
+  "steps": [
+    {
+      "type": "attack",
+      "rows": [
+        {
+          "id": "hit",
+          "Type": "BEActiveDamage",
+          "Target": "UpperTarget",
+          "Para": "100"
+        }
+      ]
+    },
+    {
+      "type": "addState",
+      "definitionId": 80331,
+      "resolvedLayers": 10
+    },
+    {
+      "type": "attack",
+      "rows": [
+        {
+          "id": "hit",
+          "Type": "BEActiveDamage",
+          "Target": "UpperTarget",
+          "Para": "100"
+        }
+      ]
+    },
+    {
+      "type": "addState",
+      "definitionId": 80331,
+      "resolvedLayers": 10
+    },
+    {
+      "type": "attack",
+      "rows": [
+        {
+          "id": "hit",
+          "Type": "BEActiveDamage",
+          "Target": "UpperTarget",
+          "Para": "100"
+        }
+      ]
+    },
+    {
+      "type": "addState",
+      "definitionId": 80331,
+      "resolvedLayers": 10
+    },
+    {
+      "type": "attack",
+      "rows": [
+        {
+          "id": "hit",
+          "Type": "BEActiveDamage",
+          "Target": "UpperTarget",
+          "Para": "100"
+        }
+      ]
+    }
+  ],
+  "attackBase": {
+    "variables": {},
+    "offense": {
+      "awakerOutsideDamagePer": 0,
+      "awakerInsideBasicDamagePer": 0,
+      "playerOutsideDamagePer": 0,
+      "cardOutsideDmgPer": 0,
+      "curCardDamagePer": 0,
+      "cardDamagePlus": 0,
+      "strength": 0,
+      "ultiDamgePlus": 0,
+      "strikecard_damage_plus": 0,
+      "skillArgsPlus": 0,
+      "awakerDamagePlus": 0,
+      "skillTypeOutsideDmgPer": 1,
+      "skillTypeDmgPer": 1,
+      "roleEnhancePer": 0,
+      "roleWeakPer": 0,
+      "awakerInsideDamagePer": 0,
+      "awakerInsideDamagePer1": 0,
+      "awakerInsideDamagePer2": 0,
+      "awakerInsideDamagePer3": 0,
+      "awakerInsideDamagePer4": 0,
+      "awakerInsideDamagePer5": 0,
+      "awakerInsideDamagePer6": 0,
+      "awakerInsideDamagePer7": 0,
+      "awakerInsideDamagePer8": 0,
+      "playerInsideDamagePer": 0,
+      "dimension_fix_per": 0,
+      "cardInsideDmgPer": 0,
+      "cardDamagePer2": 0,
+      "cardDamagePer3": 0,
+      "card_damage_per3_n2": 0,
+      "awaker_CmdCard_dmg_per": 0,
+      "awaker_ulti_dmg_per": 0,
+      "skillTypeInsideDmgPer": 1,
+      "spellboundDmgPer": 0,
+      "spellboundDmgPer2": 0,
+      "spellboundDmgPer3": 0,
+      "spellboundDmgPer4": 0,
+      "spellboundDmgPer5": 0
+    },
+    "targetModifiers": {
+      "isCrit": false,
+      "cardCritDamage": 0,
+      "skillTypeCritDamage": 0,
+      "awakerCardCritDamage": 0,
+      "critDamagePer": 0,
+      "beDamagePer4": 0,
+      "beDamagePer5": 0,
+      "enemyTypeDmgPer": 0,
+      "enemyBuffDmgPer": 0,
+      "enemyDebuffDmgPer": 0,
+      "enemyBlockDmgPer": 0,
+      "enemyBlockBarrierDmgPer": 0,
+      "cardBlockBarrierPer": 0,
+      "enemyStateDmgMultiplier": 1,
+      "beDamagePlus": 0
+    },
+    "repeatModifiers": {
+      "plus": 0,
+      "per": 0
+    },
+    "immune": false,
+    "targetState": {
+      "hp": 10000,
+      "block": 0
+    }
+  }
+};}

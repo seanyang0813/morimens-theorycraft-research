@@ -1,0 +1,4354 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHash": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+  "scope": "Original ChangeProperty/AddProperty/SubProperty and nested final-mastery SetProperty, using explicit stored properties. Owner and send callbacks are observational spies; owner has no player type, so keeper-skill refresh returns early. No constructor, keeper-skill recalculation, event dispatch or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.0,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 0.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.25,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 1.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 1.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 0.0,
+            "new": 0.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 0.25,
+            "new": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 1.0,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 1.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 1.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 1.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 10.0,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 10.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 0.0,
+            "new": 10.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 10.0,
+            "new": 10.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 0.0,
+            "new": 10.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 10.0,
+            "new": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 0,
+        "property": "occupation_master_final_per",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.0,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 0.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 0,
+        "property": "occupation_master_final_per",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.0,
+          "occupation_master_final_per": 0.25,
+          "occupation_master_final": 0.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 0.0,
+            "new": 0.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 0.25,
+            "new": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 0,
+        "property": "occupation_master_final_per",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.0,
+          "occupation_master_final_per": 1.0,
+          "occupation_master_final": 0.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 1.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 0,
+        "property": "occupation_master_final_per",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.0,
+          "occupation_master_final_per": 10.0,
+          "occupation_master_final": 0.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 0.0,
+            "new": 10.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 10.0,
+            "new": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.0,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 0.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.25,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 1.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 1.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 0.0,
+            "new": 0.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 0.25,
+            "new": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 1.0,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 2.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 0.0,
+            "new": 2.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 2.0,
+            "new": 2.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 1.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 10.0,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 13.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 0.0,
+            "new": 13.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 13.0,
+            "new": 13.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 0.0,
+            "new": 10.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 10.0,
+            "new": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.0,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 0.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.0,
+          "occupation_master_final_per": 25.25,
+          "occupation_master_final": 0.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 25.0,
+            "new": 25.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 0.25,
+            "new": 25.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.0,
+          "occupation_master_final_per": 26.0,
+          "occupation_master_final": 0.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 25.0,
+            "new": 26.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 1.0,
+            "new": 26.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.0,
+          "occupation_master_final_per": 35.0,
+          "occupation_master_final": 0.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 25.0,
+            "new": 35.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 10.0,
+            "new": 35.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": -0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.0,
+          "occupation_master_final_per": 24.75,
+          "occupation_master_final": 0.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 25.0,
+            "new": 24.75
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": -0.25,
+            "new": 24.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": -10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.0,
+          "occupation_master_final_per": 15.0,
+          "occupation_master_final": 0.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 25.0,
+            "new": 15.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": -10.0,
+            "new": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.0,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 0.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.25,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 1.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 1.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 0.0,
+            "new": 0.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 0.25,
+            "new": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 1.0,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 2.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 0.0,
+            "new": 2.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 2.0,
+            "new": 2.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 1.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 10.0,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 20.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 0.0,
+            "new": 20.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 20.0,
+            "new": 20.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 0.0,
+            "new": 10.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 10.0,
+            "new": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.0,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 0.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.0,
+          "occupation_master_final_per": 100.25,
+          "occupation_master_final": 0.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 100.0,
+            "new": 100.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 0.25,
+            "new": 100.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.0,
+          "occupation_master_final_per": 101.0,
+          "occupation_master_final": 0.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 100.0,
+            "new": 101.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 1.0,
+            "new": 101.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.0,
+          "occupation_master_final_per": 110.0,
+          "occupation_master_final": 0.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 100.0,
+            "new": 110.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 10.0,
+            "new": 110.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": -0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.0,
+          "occupation_master_final_per": 99.75,
+          "occupation_master_final": 0.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 100.0,
+            "new": 99.75
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": -0.25,
+            "new": 99.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 0,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": -10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 0.0,
+          "occupation_master_final_per": 90.0,
+          "occupation_master_final": 0.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 100.0,
+            "new": 90.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": -10.0,
+            "new": 90.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.0,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 24.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.25,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 25.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 24.0,
+            "new": 25.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 25.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 24.0,
+            "new": 24.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 0.25,
+            "new": 24.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 25.0,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 25.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 24.0,
+            "new": 25.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 25.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 24.0,
+            "new": 25.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 1.0,
+            "new": 25.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 34.0,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 34.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 24.0,
+            "new": 34.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 10.0,
+            "new": 34.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 24.0,
+            "new": 34.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 10.0,
+            "new": 34.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": -0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 23.75,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 24.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 24.0,
+            "new": 23.75
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": -0.25,
+            "new": 23.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": -10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 14.0,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 14.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 24.0,
+            "new": 14.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": -10.0,
+            "new": 14.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 24.0,
+            "new": 14.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": -10.0,
+            "new": 14.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 0,
+        "property": "occupation_master_final_per",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.0,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 24.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 0,
+        "property": "occupation_master_final_per",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.0,
+          "occupation_master_final_per": 0.25,
+          "occupation_master_final": 25.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 24.0,
+            "new": 25.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 25.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 0.0,
+            "new": 0.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 0.25,
+            "new": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 0,
+        "property": "occupation_master_final_per",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.0,
+          "occupation_master_final_per": 1.0,
+          "occupation_master_final": 25.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 24.0,
+            "new": 25.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 25.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 1.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 0,
+        "property": "occupation_master_final_per",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.0,
+          "occupation_master_final_per": 10.0,
+          "occupation_master_final": 27.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 24.0,
+            "new": 27.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 3.0,
+            "new": 27.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 0.0,
+            "new": 10.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 10.0,
+            "new": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.0,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 30.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.25,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 31.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 30.0,
+            "new": 31.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 31.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 24.0,
+            "new": 24.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 0.25,
+            "new": 24.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 25.0,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 32.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 30.0,
+            "new": 32.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 2.0,
+            "new": 32.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 24.0,
+            "new": 25.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 1.0,
+            "new": 25.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 34.0,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 43.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 30.0,
+            "new": 43.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 13.0,
+            "new": 43.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 24.0,
+            "new": 34.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 10.0,
+            "new": 34.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": -0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 23.75,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 30.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 24.0,
+            "new": 23.75
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": -0.25,
+            "new": 23.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": -10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 14.0,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 18.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 30.0,
+            "new": 18.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": -12.0,
+            "new": 18.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 24.0,
+            "new": 14.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": -10.0,
+            "new": 14.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.0,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 30.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.0,
+          "occupation_master_final_per": 25.25,
+          "occupation_master_final": 31.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 30.0,
+            "new": 31.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 31.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 25.0,
+            "new": 25.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 0.25,
+            "new": 25.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.0,
+          "occupation_master_final_per": 26.0,
+          "occupation_master_final": 31.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 30.0,
+            "new": 31.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 31.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 25.0,
+            "new": 26.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 1.0,
+            "new": 26.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.0,
+          "occupation_master_final_per": 35.0,
+          "occupation_master_final": 33.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 30.0,
+            "new": 33.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 3.0,
+            "new": 33.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 25.0,
+            "new": 35.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 10.0,
+            "new": 35.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": -0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.0,
+          "occupation_master_final_per": 24.75,
+          "occupation_master_final": 30.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 25.0,
+            "new": 24.75
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": -0.25,
+            "new": 24.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": -10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.0,
+          "occupation_master_final_per": 15.0,
+          "occupation_master_final": 28.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 30.0,
+            "new": 28.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": -2.0,
+            "new": 28.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 25.0,
+            "new": 15.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": -10.0,
+            "new": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.0,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 48.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.25,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 49.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 48.0,
+            "new": 49.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 49.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 24.0,
+            "new": 24.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 0.25,
+            "new": 24.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 25.0,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 50.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 48.0,
+            "new": 50.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 2.0,
+            "new": 50.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 24.0,
+            "new": 25.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 1.0,
+            "new": 25.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 34.0,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 68.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 48.0,
+            "new": 68.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 20.0,
+            "new": 68.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 24.0,
+            "new": 34.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 10.0,
+            "new": 34.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": -0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 23.75,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 48.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 24.0,
+            "new": 23.75
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": -0.25,
+            "new": 23.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": -10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 14.0,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 28.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 48.0,
+            "new": 28.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": -20.0,
+            "new": 28.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 24.0,
+            "new": 14.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": -10.0,
+            "new": 14.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.0,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 48.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.0,
+          "occupation_master_final_per": 100.25,
+          "occupation_master_final": 49.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 48.0,
+            "new": 49.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 49.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 100.0,
+            "new": 100.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 0.25,
+            "new": 100.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.0,
+          "occupation_master_final_per": 101.0,
+          "occupation_master_final": 49.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 48.0,
+            "new": 49.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 49.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 100.0,
+            "new": 101.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 1.0,
+            "new": 101.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.0,
+          "occupation_master_final_per": 110.0,
+          "occupation_master_final": 51.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 48.0,
+            "new": 51.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 3.0,
+            "new": 51.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 100.0,
+            "new": 110.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 10.0,
+            "new": 110.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": -0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.0,
+          "occupation_master_final_per": 99.75,
+          "occupation_master_final": 48.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 100.0,
+            "new": 99.75
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": -0.25,
+            "new": 99.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 24,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": -10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 24.0,
+          "occupation_master_final_per": 90.0,
+          "occupation_master_final": 46.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 48.0,
+            "new": 46.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": -2.0,
+            "new": 46.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 100.0,
+            "new": 90.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": -10.0,
+            "new": 90.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.5,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 80.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.75,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 80.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 79.5,
+            "new": 79.75
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 0.25,
+            "new": 79.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 80.5,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 81.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 80.0,
+            "new": 81.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 81.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 79.5,
+            "new": 80.5
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 1.0,
+            "new": 80.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 89.5,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 90.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 80.0,
+            "new": 90.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 10.0,
+            "new": 90.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 79.5,
+            "new": 89.5
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 10.0,
+            "new": 89.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": -0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.25,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 80.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 79.5,
+            "new": 79.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": -0.25,
+            "new": 79.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": -10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 69.5,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 70.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 80.0,
+            "new": 70.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": -10.0,
+            "new": 70.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 79.5,
+            "new": 69.5
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": -10.0,
+            "new": 69.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 0,
+        "property": "occupation_master_final_per",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.5,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 80.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 0,
+        "property": "occupation_master_final_per",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.5,
+          "occupation_master_final_per": 0.25,
+          "occupation_master_final": 80.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 0.0,
+            "new": 0.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 0.25,
+            "new": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 0,
+        "property": "occupation_master_final_per",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.5,
+          "occupation_master_final_per": 1.0,
+          "occupation_master_final": 81.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 80.0,
+            "new": 81.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 81.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 1.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 0,
+        "property": "occupation_master_final_per",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.5,
+          "occupation_master_final_per": 10.0,
+          "occupation_master_final": 88.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 80.0,
+            "new": 88.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 8.0,
+            "new": 88.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 0.0,
+            "new": 10.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 10.0,
+            "new": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.5,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 100.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.75,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 100.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 79.5,
+            "new": 79.75
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 0.25,
+            "new": 79.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 80.5,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 101.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 100.0,
+            "new": 101.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 101.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 79.5,
+            "new": 80.5
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 1.0,
+            "new": 80.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 89.5,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 112.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 100.0,
+            "new": 112.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 12.0,
+            "new": 112.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 79.5,
+            "new": 89.5
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 10.0,
+            "new": 89.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": -0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.25,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 100.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 79.5,
+            "new": 79.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": -0.25,
+            "new": 79.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": -10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 69.5,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 87.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 100.0,
+            "new": 87.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": -13.0,
+            "new": 87.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 79.5,
+            "new": 69.5
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": -10.0,
+            "new": 69.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.5,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 100.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.5,
+          "occupation_master_final_per": 25.25,
+          "occupation_master_final": 100.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 25.0,
+            "new": 25.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 0.25,
+            "new": 25.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.5,
+          "occupation_master_final_per": 26.0,
+          "occupation_master_final": 101.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 100.0,
+            "new": 101.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 101.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 25.0,
+            "new": 26.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 1.0,
+            "new": 26.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.5,
+          "occupation_master_final_per": 35.0,
+          "occupation_master_final": 108.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 100.0,
+            "new": 108.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 8.0,
+            "new": 108.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 25.0,
+            "new": 35.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 10.0,
+            "new": 35.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": -0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.5,
+          "occupation_master_final_per": 24.75,
+          "occupation_master_final": 100.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 25.0,
+            "new": 24.75
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": -0.25,
+            "new": 24.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": -10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.5,
+          "occupation_master_final_per": 15.0,
+          "occupation_master_final": 92.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 100.0,
+            "new": 92.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": -8.0,
+            "new": 92.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 25.0,
+            "new": 15.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": -10.0,
+            "new": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.5,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 159.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.75,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 160.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 159.0,
+            "new": 160.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 160.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 79.5,
+            "new": 79.75
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 0.25,
+            "new": 79.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 80.5,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 161.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 159.0,
+            "new": 161.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 2.0,
+            "new": 161.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 79.5,
+            "new": 80.5
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 1.0,
+            "new": 80.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 89.5,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 179.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 159.0,
+            "new": 179.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 20.0,
+            "new": 179.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 79.5,
+            "new": 89.5
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 10.0,
+            "new": 89.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": -0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.25,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 159.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 79.5,
+            "new": 79.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": -0.25,
+            "new": 79.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": -10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 69.5,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 139.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 159.0,
+            "new": 139.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": -20.0,
+            "new": 139.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 79.5,
+            "new": 69.5
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": -10.0,
+            "new": 69.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.5,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 159.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.5,
+          "occupation_master_final_per": 100.25,
+          "occupation_master_final": 160.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 159.0,
+            "new": 160.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 160.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 100.0,
+            "new": 100.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 0.25,
+            "new": 100.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.5,
+          "occupation_master_final_per": 101.0,
+          "occupation_master_final": 160.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 159.0,
+            "new": 160.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 160.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 100.0,
+            "new": 101.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 1.0,
+            "new": 101.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.5,
+          "occupation_master_final_per": 110.0,
+          "occupation_master_final": 167.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 159.0,
+            "new": 167.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 8.0,
+            "new": 167.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 100.0,
+            "new": 110.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 10.0,
+            "new": 110.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": -0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.5,
+          "occupation_master_final_per": 99.75,
+          "occupation_master_final": 159.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 100.0,
+            "new": 99.75
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": -0.25,
+            "new": 99.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 79.5,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": -10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 79.5,
+          "occupation_master_final_per": 90.0,
+          "occupation_master_final": 152.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 159.0,
+            "new": 152.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": -7.0,
+            "new": 152.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 100.0,
+            "new": 90.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": -10.0,
+            "new": 90.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.0,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 144.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.25,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 145.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 144.0,
+            "new": 145.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 145.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 144.0,
+            "new": 144.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 0.25,
+            "new": 144.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 145.0,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 145.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 144.0,
+            "new": 145.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 145.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 144.0,
+            "new": 145.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 1.0,
+            "new": 145.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 154.0,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 154.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 144.0,
+            "new": 154.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 10.0,
+            "new": 154.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 144.0,
+            "new": 154.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 10.0,
+            "new": 154.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": -0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 143.75,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 144.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 144.0,
+            "new": 143.75
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": -0.25,
+            "new": 143.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 0,
+        "property": "occupation_master",
+        "delta": -10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 134.0,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 134.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 144.0,
+            "new": 134.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": -10.0,
+            "new": 134.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 144.0,
+            "new": 134.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": -10.0,
+            "new": 134.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 0,
+        "property": "occupation_master_final_per",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.0,
+          "occupation_master_final_per": 0.0,
+          "occupation_master_final": 144.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 0,
+        "property": "occupation_master_final_per",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.0,
+          "occupation_master_final_per": 0.25,
+          "occupation_master_final": 145.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 144.0,
+            "new": 145.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 145.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 0.0,
+            "new": 0.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 0.25,
+            "new": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 0,
+        "property": "occupation_master_final_per",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.0,
+          "occupation_master_final_per": 1.0,
+          "occupation_master_final": 146.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 144.0,
+            "new": 146.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 2.0,
+            "new": 146.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 1.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 0,
+        "property": "occupation_master_final_per",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.0,
+          "occupation_master_final_per": 10.0,
+          "occupation_master_final": 159.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 144.0,
+            "new": 159.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 15.0,
+            "new": 159.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 0.0,
+            "new": 10.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 10.0,
+            "new": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.0,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 180.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.25,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 181.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 180.0,
+            "new": 181.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 181.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 144.0,
+            "new": 144.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 0.25,
+            "new": 144.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 145.0,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 182.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 180.0,
+            "new": 182.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 2.0,
+            "new": 182.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 144.0,
+            "new": 145.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 1.0,
+            "new": 145.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 154.0,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 193.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 180.0,
+            "new": 193.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 13.0,
+            "new": 193.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 144.0,
+            "new": 154.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 10.0,
+            "new": 154.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": -0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 143.75,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 180.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 144.0,
+            "new": 143.75
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": -0.25,
+            "new": 143.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 25,
+        "property": "occupation_master",
+        "delta": -10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 134.0,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 168.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 180.0,
+            "new": 168.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": -12.0,
+            "new": 168.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 144.0,
+            "new": 134.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": -10.0,
+            "new": 134.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.0,
+          "occupation_master_final_per": 25.0,
+          "occupation_master_final": 180.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.0,
+          "occupation_master_final_per": 25.25,
+          "occupation_master_final": 181.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 180.0,
+            "new": 181.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 181.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 25.0,
+            "new": 25.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 0.25,
+            "new": 25.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.0,
+          "occupation_master_final_per": 26.0,
+          "occupation_master_final": 182.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 180.0,
+            "new": 182.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 2.0,
+            "new": 182.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 25.0,
+            "new": 26.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 1.0,
+            "new": 26.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.0,
+          "occupation_master_final_per": 35.0,
+          "occupation_master_final": 195.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 180.0,
+            "new": 195.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 15.0,
+            "new": 195.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 25.0,
+            "new": 35.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 10.0,
+            "new": 35.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": -0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.0,
+          "occupation_master_final_per": 24.75,
+          "occupation_master_final": 180.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 25.0,
+            "new": 24.75
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": -0.25,
+            "new": 24.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 25,
+        "property": "occupation_master_final_per",
+        "delta": -10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.0,
+          "occupation_master_final_per": 15.0,
+          "occupation_master_final": 166.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 180.0,
+            "new": 166.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": -14.0,
+            "new": 166.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 25.0,
+            "new": 15.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": -10.0,
+            "new": 15.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.0,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 288.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.25,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 289.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 288.0,
+            "new": 289.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 289.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 144.0,
+            "new": 144.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 0.25,
+            "new": 144.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 145.0,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 290.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 288.0,
+            "new": 290.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 2.0,
+            "new": 290.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 144.0,
+            "new": 145.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 1.0,
+            "new": 145.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 154.0,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 308.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 288.0,
+            "new": 308.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 20.0,
+            "new": 308.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 144.0,
+            "new": 154.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": 10.0,
+            "new": 154.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": -0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 143.75,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 288.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 144.0,
+            "new": 143.75
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": -0.25,
+            "new": 143.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 100,
+        "property": "occupation_master",
+        "delta": -10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 134.0,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 268.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 288.0,
+            "new": 268.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": -20.0,
+            "new": 268.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master",
+            "old": 144.0,
+            "new": 134.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master",
+            "delta": -10.0,
+            "new": 134.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": 0
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.0,
+          "occupation_master_final_per": 100.0,
+          "occupation_master_final": 288.0
+        },
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": 0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.0,
+          "occupation_master_final_per": 100.25,
+          "occupation_master_final": 289.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 288.0,
+            "new": 289.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 1.0,
+            "new": 289.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 100.0,
+            "new": 100.25
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 0.25,
+            "new": 100.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": 1
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.0,
+          "occupation_master_final_per": 101.0,
+          "occupation_master_final": 290.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 288.0,
+            "new": 290.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 2.0,
+            "new": 290.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 100.0,
+            "new": 101.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 1.0,
+            "new": 101.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": 10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.0,
+          "occupation_master_final_per": 110.0,
+          "occupation_master_final": 303.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 288.0,
+            "new": 303.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": 15.0,
+            "new": 303.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 100.0,
+            "new": 110.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": 10.0,
+            "new": 110.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": -0.25
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.0,
+          "occupation_master_final_per": 99.75,
+          "occupation_master_final": 288.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 100.0,
+            "new": 99.75
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": -0.25,
+            "new": 99.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "mastery": 144,
+        "percent": 100,
+        "property": "occupation_master_final_per",
+        "delta": -10
+      },
+      "expected": {
+        "properties": {
+          "occupation_master": 144.0,
+          "occupation_master_final_per": 90.0,
+          "occupation_master_final": 274.0
+        },
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "occupation_master_final",
+            "old": 288.0,
+            "new": 274.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final",
+            "delta": -14.0,
+            "new": 274.0
+          },
+          {
+            "kind": "owner",
+            "property": "occupation_master_final_per",
+            "old": 100.0,
+            "new": 90.0
+          },
+          {
+            "kind": "send",
+            "property": "occupation_master_final_per",
+            "delta": -10.0,
+            "new": 90.0
+          }
+        ]
+      }
+    }
+  ]
+}

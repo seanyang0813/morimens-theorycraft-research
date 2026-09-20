@@ -1,0 +1,183 @@
+{
+  "kind": "LOCAL_MANIFEST_COMPARISON",
+  "sources": {
+    "pcBundled": {
+      "path": "research\\raw\\pc\\bundled\\_version.json",
+      "sha256": "0884f8530a9f9793c2012eccd38fe7b554b2cd95fd63f7475800715a4aae40fa",
+      "versionInfo": {
+        "branchName": "Z1G_2025_11_OB",
+        "resVersion": 106,
+        "buildVersion": 48,
+        "platformCode": "p10020",
+        "downloadPlatformCode": "P11222",
+        "hash": "c11cd6ef485320f453e970593112d7ec",
+        "size": 2754279
+      }
+    },
+    "pcDownloaded": {
+      "path": "research\\raw\\pc\\downloaded\\_version.json",
+      "sha256": "f3d3a7d4c27235f0a772e8c7503207811070fcf42308c52965286ffd861b8520",
+      "versionInfo": {
+        "branchName": "Z1G_2025_11_OB",
+        "resVersion": 144,
+        "buildVersion": 51,
+        "platformCode": "p10020",
+        "downloadPlatformCode": "p10020",
+        "hash": "e09f2bca897444f3dc8480d728c60ab7",
+        "size": 2892256
+      }
+    },
+    "androidBundled": {
+      "path": "research\\raw\\android\\unpacked\\assets\\_version.json",
+      "sha256": "bc8a229a9ca172e3cda1225256543b793782ce8a652cd794c8d53ec0062dd8b1",
+      "versionInfo": {
+        "branchName": "Z1G_2025_11_OB",
+        "resVersion": 83,
+        "buildVersion": 54,
+        "platformCode": "p10020",
+        "downloadPlatformCode": "P11222",
+        "hash": "2830de893b73123934a76b8e974480b8",
+        "size": 2672862
+      }
+    }
+  },
+  "bundles": [
+    {
+      "bundle": "config.ab",
+      "manifests": {
+        "pcBundled": {
+          "f": "config.ab",
+          "h": "968640d275237aa8883e5d9e6629298f",
+          "s": 38974071,
+          "i": 106
+        },
+        "pcDownloaded": {
+          "f": "config.ab",
+          "h": "ff0212c1840ed22ae5cc15e365d7b350",
+          "s": 41612959,
+          "i": 144
+        },
+        "androidBundled": {
+          "f": "config.ab",
+          "h": "f0b0290b1c043680af6f6757b7717ab4",
+          "s": 38082291,
+          "i": 83
+        }
+      },
+      "androidApkEntries": [],
+      "pcDownloadedAndAndroidManifestHashEqual": false,
+      "interpretation": "Bundle metadata only; different bundle hashes do not establish different combat formulas."
+    },
+    {
+      "bundle": "share.ab",
+      "manifests": {
+        "pcBundled": {
+          "f": "share.ab",
+          "h": "c80ef45f38a75342d863949ac52c6d0b",
+          "s": 795220,
+          "i": 106
+        },
+        "pcDownloaded": {
+          "f": "share.ab",
+          "h": "3910766ed35d8aa20f9a9f9c8e11de06",
+          "s": 867982,
+          "i": 144
+        },
+        "androidBundled": {
+          "f": "share.ab",
+          "h": "68a516489044a88b871576542fe8c350",
+          "s": 761003,
+          "i": 83
+        }
+      },
+      "androidApkEntries": [],
+      "pcDownloadedAndAndroidManifestHashEqual": false,
+      "interpretation": "Bundle metadata only; different bundle hashes do not establish different combat formulas."
+    },
+    {
+      "bundle": "gamescript.ab",
+      "manifests": {
+        "pcBundled": {
+          "f": "gamescript.ab",
+          "h": "1cefcf355ecc620df4d7d91c462abee3",
+          "s": 9772001,
+          "i": 106
+        },
+        "pcDownloaded": {
+          "f": "gamescript.ab",
+          "h": "bdd2f358806d1f0b142cff30a7aaab6a",
+          "s": 10650222,
+          "i": 144
+        },
+        "androidBundled": {
+          "f": "gamescript.ab",
+          "h": "c04cefafc1196bc6d4da0b45ed85d45b",
+          "s": 9371912,
+          "i": 83
+        }
+      },
+      "androidApkEntries": [],
+      "pcDownloadedAndAndroidManifestHashEqual": false,
+      "interpretation": "Bundle metadata only; different bundle hashes do not establish different combat formulas."
+    },
+    {
+      "bundle": "foundation.ab",
+      "manifests": {
+        "pcBundled": {
+          "f": "foundation.ab",
+          "h": "c3da4e17a506426854567fb29cf55f57",
+          "s": 273670,
+          "i": 106
+        },
+        "pcDownloaded": {
+          "f": "foundation.ab",
+          "h": "18a4a8b1be5f9bb155d34a73a3a1bc5d",
+          "s": 271579,
+          "i": 144
+        },
+        "androidBundled": {
+          "f": "foundation.ab",
+          "h": "b248ed377aefc3347087d0fa8d2336db",
+          "s": 270555,
+          "i": 83
+        }
+      },
+      "androidApkEntries": [],
+      "pcDownloadedAndAndroidManifestHashEqual": false,
+      "interpretation": "Bundle metadata only; different bundle hashes do not establish different combat formulas."
+    },
+    {
+      "bundle": "gamelauncher.ab",
+      "manifests": {
+        "pcBundled": {
+          "f": "gamelauncher.ab",
+          "h": "b6ebec89ce42af47ff24182843a66d4e",
+          "s": 4968,
+          "i": 106
+        },
+        "pcDownloaded": {
+          "f": "gamelauncher.ab",
+          "h": "84ad1d1d2b8c69d1070226440aadf441",
+          "s": 4972,
+          "i": 144
+        },
+        "androidBundled": {
+          "f": "gamelauncher.ab",
+          "h": "591e3bb44dc70b49554b8837b6cc22db",
+          "s": 4970,
+          "i": 83
+        }
+      },
+      "androidApkEntries": [],
+      "pcDownloadedAndAndroidManifestHashEqual": false,
+      "interpretation": "Bundle metadata only; different bundle hashes do not establish different combat formulas."
+    }
+  ],
+  "startupArchive": {
+    "androidSha256": "1d8d936951837af84f3b4904ba75c6370b0fc414dac84a7c80be7ab75f8d441e",
+    "pcSha256": "1d8d936951837af84f3b4904ba75c6370b0fc414dac84a7c80be7ab75f8d441e",
+    "equal": true
+  },
+  "combatEquivalence": "NOT_ESTABLISHED",
+  "missingEvidence": "Android downloaded combat/config bundles are not present in the APK entries inspected. No Android formula execution or module comparison is claimed."
+}

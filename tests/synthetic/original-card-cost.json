@@ -1,0 +1,2046 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original GetBaseCost/GetUseCost/GetFixedCost and variable parser/consume resolver. Config cost, origin, total delta/harmonize, keeper match/cost and PvP decision supplied. No modifier derivation, cost payment, play eligibility or gameplay.",
+  "sourceHashes": {
+    "BattleCardServer": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53",
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+    "BattleUtilServer": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007"
+  },
+  "fixtures": [
+    {
+      "input": {
+        "cfgCost": null,
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": null,
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost0": 1,
+          "card_fixed_cost3": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": null,
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost2": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 2.0,
+        "useCost": 2.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": null,
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": true,
+        "keeperCost": 4,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 4.0,
+        "useCost": 4.0,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": null,
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": true
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.0,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": null,
+        "energy": 0,
+        "originCost": 2,
+        "delta": -9,
+        "harmonize": -1,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.0,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": null,
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": null,
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost0": 1,
+          "card_fixed_cost3": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": null,
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost2": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 2.0,
+        "useCost": 2.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": null,
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": true,
+        "keeperCost": 4,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 4.0,
+        "useCost": 4.0,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": null,
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": true
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.0,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": null,
+        "energy": 2,
+        "originCost": 2,
+        "delta": -9,
+        "harmonize": -1,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.0,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": null,
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": null,
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost0": 1,
+          "card_fixed_cost3": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": null,
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost2": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 2.0,
+        "useCost": 2.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": null,
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": true,
+        "keeperCost": 4,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 4.0,
+        "useCost": 4.0,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": null,
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": true
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.0,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": null,
+        "energy": 5,
+        "originCost": 2,
+        "delta": -9,
+        "harmonize": -1,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.0,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": 0,
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 3.0,
+        "useCost": 3.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": 0,
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost0": 1,
+          "card_fixed_cost3": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": 0,
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost2": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 2.0,
+        "useCost": 2.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": 0,
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": true,
+        "keeperCost": 4,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 4.0,
+        "useCost": 4.0,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": 0,
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": true
+      },
+      "expected": {
+        "baseCost": 3.0,
+        "useCost": 3.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": 0,
+        "energy": 0,
+        "originCost": 2,
+        "delta": -9,
+        "harmonize": -1,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.0,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": 0,
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 3.0,
+        "useCost": 3.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": 0,
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost0": 1,
+          "card_fixed_cost3": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": 0,
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost2": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 2.0,
+        "useCost": 2.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": 0,
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": true,
+        "keeperCost": 4,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 4.0,
+        "useCost": 4.0,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": 0,
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": true
+      },
+      "expected": {
+        "baseCost": 3.0,
+        "useCost": 3.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": 0,
+        "energy": 2,
+        "originCost": 2,
+        "delta": -9,
+        "harmonize": -1,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.0,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": 0,
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 3.0,
+        "useCost": 3.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": 0,
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost0": 1,
+          "card_fixed_cost3": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": 0,
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost2": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 2.0,
+        "useCost": 2.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": 0,
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": true,
+        "keeperCost": 4,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 4.0,
+        "useCost": 4.0,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": 0,
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": true
+      },
+      "expected": {
+        "baseCost": 3.0,
+        "useCost": 3.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": 0,
+        "energy": 5,
+        "originCost": 2,
+        "delta": -9,
+        "harmonize": -1,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.0,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 3.0,
+        "useCost": 3.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost0": 1,
+          "card_fixed_cost3": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost2": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 2.0,
+        "useCost": 2.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": true,
+        "keeperCost": 4,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 4.0,
+        "useCost": 4.0,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": true
+      },
+      "expected": {
+        "baseCost": 3.0,
+        "useCost": 3.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "energy": 0,
+        "originCost": 2,
+        "delta": -9,
+        "harmonize": -1,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.0,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 3.0,
+        "useCost": 3.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost0": 1,
+          "card_fixed_cost3": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost2": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 2.0,
+        "useCost": 2.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": true,
+        "keeperCost": 4,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 4.0,
+        "useCost": 4.0,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": true
+      },
+      "expected": {
+        "baseCost": 3.0,
+        "useCost": 3.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "energy": 2,
+        "originCost": 2,
+        "delta": -9,
+        "harmonize": -1,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.0,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 3.0,
+        "useCost": 3.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost0": 1,
+          "card_fixed_cost3": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost2": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 2.0,
+        "useCost": 2.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": true,
+        "keeperCost": 4,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 4.0,
+        "useCost": 4.0,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": true
+      },
+      "expected": {
+        "baseCost": 3.0,
+        "useCost": 3.5,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "2",
+        "energy": 5,
+        "originCost": 2,
+        "delta": -9,
+        "harmonize": -1,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 0.0,
+        "useCost": 0.0,
+        "variableConsumeCost": null
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost0": 1,
+          "card_fixed_cost3": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost2": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": true,
+        "keeperCost": 4,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 4.0,
+        "useCost": 4.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": true
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "energy": 0,
+        "originCost": 2,
+        "delta": -9,
+        "harmonize": -1,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 2.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost0": 1,
+          "card_fixed_cost3": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 2.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost2": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 2.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": true,
+        "keeperCost": 4,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 4.0,
+        "useCost": 4.0,
+        "variableConsumeCost": 2.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": true
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 2.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "energy": 2,
+        "originCost": 2,
+        "delta": -9,
+        "harmonize": -1,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 2.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 5.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost0": 1,
+          "card_fixed_cost3": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 5.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost2": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 5.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": true,
+        "keeperCost": 4,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 4.0,
+        "useCost": 4.0,
+        "variableConsumeCost": 5.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": true
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 5.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X",
+        "energy": 5,
+        "originCost": 2,
+        "delta": -9,
+        "harmonize": -1,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 5.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost0": 1,
+          "card_fixed_cost3": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost2": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": true,
+        "keeperCost": 4,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 4.0,
+        "useCost": 4.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": true
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "energy": 0,
+        "originCost": 2,
+        "delta": -9,
+        "harmonize": -1,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 2.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost0": 1,
+          "card_fixed_cost3": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 2.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost2": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 2.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": true,
+        "keeperCost": 4,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 4.0,
+        "useCost": 4.0,
+        "variableConsumeCost": 2.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": true
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 2.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "energy": 2,
+        "originCost": 2,
+        "delta": -9,
+        "harmonize": -1,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 2.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 3.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost0": 1,
+          "card_fixed_cost3": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 3.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost2": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 3.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": true,
+        "keeperCost": 4,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 4.0,
+        "useCost": 4.0,
+        "variableConsumeCost": 3.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": true
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 3.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X3",
+        "energy": 5,
+        "originCost": 2,
+        "delta": -9,
+        "harmonize": -1,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 3.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X0",
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X0",
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost0": 1,
+          "card_fixed_cost3": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X0",
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost2": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X0",
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": true,
+        "keeperCost": 4,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 4.0,
+        "useCost": 4.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X0",
+        "energy": 0,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": true
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X0",
+        "energy": 0,
+        "originCost": 2,
+        "delta": -9,
+        "harmonize": -1,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X0",
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X0",
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost0": 1,
+          "card_fixed_cost3": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X0",
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost2": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X0",
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": true,
+        "keeperCost": 4,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 4.0,
+        "useCost": 4.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X0",
+        "energy": 2,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": true
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X0",
+        "energy": 2,
+        "originCost": 2,
+        "delta": -9,
+        "harmonize": -1,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X0",
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X0",
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost0": 1,
+          "card_fixed_cost3": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X0",
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {
+          "card_fixed_cost2": 1
+        },
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X0",
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": true,
+        "keeperCost": 4,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": 4.0,
+        "useCost": 4.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X0",
+        "energy": 5,
+        "originCost": 2,
+        "delta": 1,
+        "harmonize": 0.5,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": true
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    },
+    {
+      "input": {
+        "cfgCost": "X0",
+        "energy": 5,
+        "originCost": 2,
+        "delta": -9,
+        "harmonize": -1,
+        "fixedSwitches": {},
+        "keeper": false,
+        "keeperCost": null,
+        "pvp": false
+      },
+      "expected": {
+        "baseCost": -1.0,
+        "useCost": -1.0,
+        "variableConsumeCost": 0.0
+      }
+    }
+  ]
+}

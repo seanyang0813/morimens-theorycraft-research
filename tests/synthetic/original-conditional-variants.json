@@ -1,0 +1,946 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleUtilServer": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007"
+  },
+  "scope": "Original GetTrueConditionByCmd -> GetTrueConditionIndexByCmd -> IsCondMatch; dense lists, scalar numeric selected values, supplied boolean/numeric/nil expression results. No original expression parsing, skill routing or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": null,
+          "b": null
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": null,
+          "b": false
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": null,
+          "b": true
+        }
+      },
+      "expected": {
+        "value": 20.0,
+        "reads": [
+          "b"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": null,
+          "b": -1
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": null,
+          "b": 0
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": null,
+          "b": 2.5
+        }
+      },
+      "expected": {
+        "value": 20.0,
+        "reads": [
+          "b"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": false,
+          "b": null
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": false,
+          "b": false
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": false,
+          "b": true
+        }
+      },
+      "expected": {
+        "value": 20.0,
+        "reads": [
+          "b"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": false,
+          "b": -1
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": false,
+          "b": 0
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": false,
+          "b": 2.5
+        }
+      },
+      "expected": {
+        "value": 20.0,
+        "reads": [
+          "b"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": true,
+          "b": null
+        }
+      },
+      "expected": {
+        "value": 10.0,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": true,
+          "b": false
+        }
+      },
+      "expected": {
+        "value": 10.0,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": true,
+          "b": true
+        }
+      },
+      "expected": {
+        "value": 20.0,
+        "reads": [
+          "b"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": true,
+          "b": -1
+        }
+      },
+      "expected": {
+        "value": 10.0,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": true,
+          "b": 0
+        }
+      },
+      "expected": {
+        "value": 10.0,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": true,
+          "b": 2.5
+        }
+      },
+      "expected": {
+        "value": 20.0,
+        "reads": [
+          "b"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": -1,
+          "b": null
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": -1,
+          "b": false
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": -1,
+          "b": true
+        }
+      },
+      "expected": {
+        "value": 20.0,
+        "reads": [
+          "b"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": -1,
+          "b": -1
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": -1,
+          "b": 0
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": -1,
+          "b": 2.5
+        }
+      },
+      "expected": {
+        "value": 20.0,
+        "reads": [
+          "b"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": 0,
+          "b": null
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": 0,
+          "b": false
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": 0,
+          "b": true
+        }
+      },
+      "expected": {
+        "value": 20.0,
+        "reads": [
+          "b"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": 0,
+          "b": -1
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": 0,
+          "b": 0
+        }
+      },
+      "expected": {
+        "value": null,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": 0,
+          "b": 2.5
+        }
+      },
+      "expected": {
+        "value": 20.0,
+        "reads": [
+          "b"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": 2.5,
+          "b": null
+        }
+      },
+      "expected": {
+        "value": 10.0,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": 2.5,
+          "b": false
+        }
+      },
+      "expected": {
+        "value": 10.0,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": 2.5,
+          "b": true
+        }
+      },
+      "expected": {
+        "value": 20.0,
+        "reads": [
+          "b"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": 2.5,
+          "b": -1
+        }
+      },
+      "expected": {
+        "value": 10.0,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": 2.5,
+          "b": 0
+        }
+      },
+      "expected": {
+        "value": 10.0,
+        "reads": [
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "b",
+            "value": 20
+          }
+        ],
+        "results": {
+          "a": 2.5,
+          "b": 2.5
+        }
+      },
+      "expected": {
+        "value": 20.0,
+        "reads": [
+          "b"
+        ]
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": true,
+            "value": 10
+          },
+          {
+            "condition": false,
+            "value": 20
+          }
+        ],
+        "results": {}
+      },
+      "expected": {
+        "value": 10.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "variants": [
+          {
+            "condition": "a",
+            "value": 10
+          },
+          {
+            "condition": "true",
+            "value": 20
+          }
+        ],
+        "results": {}
+      },
+      "expected": {
+        "value": 20.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "variants": [],
+        "results": {}
+      },
+      "expected": {
+        "value": null,
+        "reads": []
+      }
+    }
+  ]
+}

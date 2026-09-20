@@ -1,0 +1,46 @@
+{
+  "status": "INCOMPLETE_TEAM_REALM_RECONSTRUCTION",
+  "approval": "User replied Use that baseline to the fully specified setup question",
+  "setup": {
+    "level": 90,
+    "skillLevel": 6,
+    "gnosticLevel": 5,
+    "mouchetteEnlighten": 2,
+    "mouchetteSoulforge": 10,
+    "mouchetteRoused": true,
+    "arachneRoused": false,
+    "critRate": 100,
+    "critDamageStat": 150,
+    "STR": 0,
+    "mode": "Astral Reign",
+    "target": "one Dominator; no additional modifiers",
+    "sequence": "[Arachne Strike -> Mortal Blast] x5 after Rouse and Exalt",
+    "startingPursuitProgress": 0,
+    "startingInsideStrikeLayers": 0,
+    "cardSupply": "five Mortal Blasts and five Strikes explicitly supplied",
+    "exaltOpeningDamageIncluded": false,
+    "teamDamageAmplificationPercent": 150,
+    "mouchetteWheel": "Doomsday Rampage, maximum effect values",
+    "critInterpretation": "100% rate and 150% Crit DMG remain supplied final stats, including equipment/talent contributions",
+    "startingWheelStacks": 0
+  },
+  "report": "output/pdf/mouchette-equipped-baseline-calculation.json",
+  "latestUserAdditions": [
+    "Mouchette signature Wheel maxed",
+    "150% team Damage Amplification"
+  ],
+  "scopeWarning": "Arithmetic reference only: intrinsic Arachne Prism and Dimension Shuttle are omitted. Not a complete equipped-team prediction.",
+  "arachneWheelComparison": {
+    "requested": "Compare no Wheel with max Eternal Weave; user uncertain whether equipped",
+    "resolvedEffects": {
+      "realmMastery": 72,
+      "amplificationPointsPerOwnPursuit": 40,
+      "maximumTriggersPerTurn": 5
+    },
+    "unresolved": [
+      "Final team mastery and Pure Ultra eligibility",
+      "Initial turn and Beacon schedule"
+    ],
+    "doNotAssume": "Mouchette pursuits do not activate Arachne wheel"
+  }
+}

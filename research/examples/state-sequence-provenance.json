@@ -1,0 +1,16 @@
+{
+  "kind": "SYNTHETIC_COMPONENT_COMPOSITION",
+  "stateId": 80331,
+  "source": "research/extracted/config/State.json",
+  "sha256": "63b8d50b06e05c970ce4027b49082b007155489d272644c32e9adcbfabd2028a",
+  "copiedFields": [
+    "MaxLayer",
+    "ExistProperty"
+  ],
+  "assumptions": [
+    "Synthetic attack base 100, target HP 10000, neutral other modifiers and explicit absent caster state 133235",
+    "Resolved additions of 10 layers; no layer modifier or immunity calculation",
+    "No turn boundary or event listeners; original end-of-turn expiry not executed",
+    "No player build or gameplay claim"
+  ]
+}

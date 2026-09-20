@@ -1,0 +1,630 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleUtilServer": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+    "Skill": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8"
+  },
+  "scope": "Original GetTQList/GetMatchTQ over eight exported coefficient fields plus sparse/absent/empty controls. table.next aliases Lua next; table.clone is identity, so copy isolation is not tested. No enclosing skill routing, growth evaluation or gameplay.",
+  "fixtures": [
+    {
+      "source": "3997:CoefficientTypelist",
+      "input": {
+        "value": {
+          "1": "BattleFomula1",
+          "2": "BattleFomula2"
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": [
+        "BattleFomula1",
+        "BattleFomula2"
+      ]
+    },
+    {
+      "source": "3997:CoefficientTypelist",
+      "input": {
+        "value": {
+          "1": "BattleFomula1",
+          "2": "BattleFomula2"
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": [
+        "BattleFomula1",
+        "BattleFomula2"
+      ]
+    },
+    {
+      "source": "3997:CoefficientTypelist",
+      "input": {
+        "value": {
+          "1": "BattleFomula1",
+          "2": "BattleFomula2"
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": [
+        "BattleFomula1",
+        "BattleFomula2"
+      ]
+    },
+    {
+      "source": "3997:CoefficientTypelist",
+      "input": {
+        "value": {
+          "1": "BattleFomula1",
+          "2": "BattleFomula2"
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": [
+        "BattleFomula1",
+        "BattleFomula2"
+      ]
+    },
+    {
+      "source": "3997:OriginalCoefficient",
+      "input": {
+        "value": {
+          "1": 0.2,
+          "2": 5
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": [
+        0.2,
+        5.0
+      ]
+    },
+    {
+      "source": "3997:OriginalCoefficient",
+      "input": {
+        "value": {
+          "1": 0.2,
+          "2": 5
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": [
+        0.2,
+        5.0
+      ]
+    },
+    {
+      "source": "3997:OriginalCoefficient",
+      "input": {
+        "value": {
+          "1": 0.2,
+          "2": 5
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": [
+        0.2,
+        5.0
+      ]
+    },
+    {
+      "source": "3997:OriginalCoefficient",
+      "input": {
+        "value": {
+          "1": 0.2,
+          "2": 5
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": [
+        0.2,
+        5.0
+      ]
+    },
+    {
+      "source": "4163:CoefficientTypelist",
+      "input": {
+        "value": {
+          "1": "BattleFomula1",
+          "2": "BattleFomula2"
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": [
+        "BattleFomula1",
+        "BattleFomula2"
+      ]
+    },
+    {
+      "source": "4163:CoefficientTypelist",
+      "input": {
+        "value": {
+          "1": "BattleFomula1",
+          "2": "BattleFomula2"
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": [
+        "BattleFomula1",
+        "BattleFomula2"
+      ]
+    },
+    {
+      "source": "4163:CoefficientTypelist",
+      "input": {
+        "value": {
+          "1": "BattleFomula1",
+          "2": "BattleFomula2"
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": [
+        "BattleFomula1",
+        "BattleFomula2"
+      ]
+    },
+    {
+      "source": "4163:CoefficientTypelist",
+      "input": {
+        "value": {
+          "1": "BattleFomula1",
+          "2": "BattleFomula2"
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": [
+        "BattleFomula1",
+        "BattleFomula2"
+      ]
+    },
+    {
+      "source": "4163:OriginalCoefficient",
+      "input": {
+        "value": {
+          "1": 0.1,
+          "2": 5
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": [
+        0.1,
+        5.0
+      ]
+    },
+    {
+      "source": "4163:OriginalCoefficient",
+      "input": {
+        "value": {
+          "1": 0.1,
+          "2": 5
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": [
+        0.1,
+        5.0
+      ]
+    },
+    {
+      "source": "4163:OriginalCoefficient",
+      "input": {
+        "value": {
+          "1": 0.1,
+          "2": 5
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": [
+        0.1,
+        5.0
+      ]
+    },
+    {
+      "source": "4163:OriginalCoefficient",
+      "input": {
+        "value": {
+          "1": 0.1,
+          "2": 5
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": [
+        0.1,
+        5.0
+      ]
+    },
+    {
+      "source": "4638:CoefficientTypelist",
+      "input": {
+        "value": {
+          "1": "BattleFomula1"
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": [
+        "BattleFomula1"
+      ]
+    },
+    {
+      "source": "4638:CoefficientTypelist",
+      "input": {
+        "value": {
+          "1": "BattleFomula1"
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": [
+        "BattleFomula1"
+      ]
+    },
+    {
+      "source": "4638:CoefficientTypelist",
+      "input": {
+        "value": {
+          "1": "BattleFomula1"
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": [
+        "BattleFomula1"
+      ]
+    },
+    {
+      "source": "4638:CoefficientTypelist",
+      "input": {
+        "value": {
+          "1": "BattleFomula1"
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": [
+        "BattleFomula1"
+      ]
+    },
+    {
+      "source": "4638:OriginalCoefficient",
+      "input": {
+        "value": {
+          "0": {
+            "1": 0.4
+          }
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": [
+        0.4
+      ]
+    },
+    {
+      "source": "4638:OriginalCoefficient",
+      "input": {
+        "value": {
+          "0": {
+            "1": 0.4
+          }
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": [
+        0.4
+      ]
+    },
+    {
+      "source": "4638:OriginalCoefficient",
+      "input": {
+        "value": {
+          "0": {
+            "1": 0.4
+          }
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": [
+        0.4
+      ]
+    },
+    {
+      "source": "4638:OriginalCoefficient",
+      "input": {
+        "value": {
+          "0": {
+            "1": 0.4
+          }
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": [
+        0.4
+      ]
+    },
+    {
+      "source": "57342:CoefficientTypelist",
+      "input": {
+        "value": {
+          "1": "BattleFomula1"
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": [
+        "BattleFomula1"
+      ]
+    },
+    {
+      "source": "57342:CoefficientTypelist",
+      "input": {
+        "value": {
+          "1": "BattleFomula1"
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": [
+        "BattleFomula1"
+      ]
+    },
+    {
+      "source": "57342:CoefficientTypelist",
+      "input": {
+        "value": {
+          "1": "BattleFomula1"
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": [
+        "BattleFomula1"
+      ]
+    },
+    {
+      "source": "57342:CoefficientTypelist",
+      "input": {
+        "value": {
+          "1": "BattleFomula1"
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": [
+        "BattleFomula1"
+      ]
+    },
+    {
+      "source": "57342:OriginalCoefficient",
+      "input": {
+        "value": {
+          "0": {
+            "1": 2
+          }
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": [
+        2.0
+      ]
+    },
+    {
+      "source": "57342:OriginalCoefficient",
+      "input": {
+        "value": {
+          "0": {
+            "1": 2
+          }
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": [
+        2.0
+      ]
+    },
+    {
+      "source": "57342:OriginalCoefficient",
+      "input": {
+        "value": {
+          "0": {
+            "1": 2
+          }
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": [
+        2.0
+      ]
+    },
+    {
+      "source": "57342:OriginalCoefficient",
+      "input": {
+        "value": {
+          "0": {
+            "1": 2
+          }
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": [
+        2.0
+      ]
+    },
+    {
+      "source": "synthetic-sparse",
+      "input": {
+        "value": {
+          "0": [
+            1
+          ],
+          "1000": [
+            2
+          ],
+          "3": [
+            3
+          ]
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": [
+        1.0
+      ]
+    },
+    {
+      "source": "synthetic-sparse",
+      "input": {
+        "value": {
+          "0": [
+            1
+          ],
+          "1000": [
+            2
+          ],
+          "3": [
+            3
+          ]
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": [
+        3.0
+      ]
+    },
+    {
+      "source": "synthetic-sparse",
+      "input": {
+        "value": {
+          "0": [
+            1
+          ],
+          "1000": [
+            2
+          ],
+          "3": [
+            3
+          ]
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": [
+        2.0
+      ]
+    },
+    {
+      "source": "synthetic-sparse",
+      "input": {
+        "value": {
+          "0": [
+            1
+          ],
+          "1000": [
+            2
+          ],
+          "3": [
+            3
+          ]
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": null
+    },
+    {
+      "source": "absent",
+      "input": {
+        "value": null,
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": null
+    },
+    {
+      "source": "absent",
+      "input": {
+        "value": null,
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": null
+    },
+    {
+      "source": "absent",
+      "input": {
+        "value": null,
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": null
+    },
+    {
+      "source": "absent",
+      "input": {
+        "value": null,
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": null
+    },
+    {
+      "source": "empty",
+      "input": {
+        "value": {},
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": []
+    },
+    {
+      "source": "empty",
+      "input": {
+        "value": {},
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": []
+    },
+    {
+      "source": "empty",
+      "input": {
+        "value": {},
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": []
+    },
+    {
+      "source": "empty",
+      "input": {
+        "value": {},
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": []
+    }
+  ]
+}

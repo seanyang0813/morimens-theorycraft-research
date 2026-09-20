@@ -1,0 +1,243 @@
+{
+  "scope": "Original OnPropertyChange_Hp with explicit getters and CreateEventEffect spy retaining Lua table references; not event creation implementation, scheduler, dispatch or listeners",
+  "sourceHash": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+  "fixtures": [
+    {
+      "input": {
+        "property": "hp",
+        "old": 100,
+        "new": 75,
+        "hp": 75,
+        "max_hp": 100
+      },
+      "events": [
+        {
+          "eventId": 203.0,
+          "atCreation": {
+            "uid": 7.0,
+            "oldValue": 100.0,
+            "newValue": 75.0,
+            "castRoleUid": 9.0
+          },
+          "afterCallback": {
+            "uid": 7.0,
+            "oldValue": 100.0,
+            "newValue": 75.0,
+            "castRoleUid": 9.0,
+            "max_hp": 100.0,
+            "hp": 75.0,
+            "propertyName": "hp"
+          }
+        },
+        {
+          "eventId": 204.0,
+          "atCreation": {
+            "uid": 7.0,
+            "oldValue": 100.0,
+            "newValue": 75.0,
+            "castRoleUid": 9.0,
+            "max_hp": 100.0,
+            "hp": 75.0,
+            "propertyName": "hp"
+          },
+          "afterCallback": {
+            "uid": 7.0,
+            "oldValue": 100.0,
+            "newValue": 75.0,
+            "castRoleUid": 9.0,
+            "max_hp": 100.0,
+            "hp": 75.0,
+            "propertyName": "hp"
+          }
+        }
+      ],
+      "sharedPayload": true
+    },
+    {
+      "input": {
+        "property": "hp",
+        "old": 100,
+        "new": 0,
+        "hp": 0,
+        "max_hp": 100
+      },
+      "events": [
+        {
+          "eventId": 203.0,
+          "atCreation": {
+            "uid": 7.0,
+            "oldValue": 100.0,
+            "newValue": 0.0,
+            "castRoleUid": 9.0
+          },
+          "afterCallback": {
+            "uid": 7.0,
+            "oldValue": 100.0,
+            "newValue": 0.0,
+            "castRoleUid": 9.0,
+            "max_hp": 100.0,
+            "hp": 0.0,
+            "propertyName": "hp"
+          }
+        },
+        {
+          "eventId": 204.0,
+          "atCreation": {
+            "uid": 7.0,
+            "oldValue": 100.0,
+            "newValue": 0.0,
+            "castRoleUid": 9.0,
+            "max_hp": 100.0,
+            "hp": 0.0,
+            "propertyName": "hp"
+          },
+          "afterCallback": {
+            "uid": 7.0,
+            "oldValue": 100.0,
+            "newValue": 0.0,
+            "castRoleUid": 9.0,
+            "max_hp": 100.0,
+            "hp": 0.0,
+            "propertyName": "hp"
+          }
+        }
+      ],
+      "sharedPayload": true
+    },
+    {
+      "input": {
+        "property": "hp",
+        "old": 100,
+        "new": 100,
+        "hp": 100,
+        "max_hp": 100
+      },
+      "events": [
+        {
+          "eventId": 203.0,
+          "atCreation": {
+            "uid": 7.0,
+            "oldValue": 100.0,
+            "newValue": 100.0,
+            "castRoleUid": 9.0
+          },
+          "afterCallback": {
+            "uid": 7.0,
+            "oldValue": 100.0,
+            "newValue": 100.0,
+            "castRoleUid": 9.0,
+            "max_hp": 100.0,
+            "hp": 100.0,
+            "propertyName": "hp"
+          }
+        },
+        {
+          "eventId": 204.0,
+          "atCreation": {
+            "uid": 7.0,
+            "oldValue": 100.0,
+            "newValue": 100.0,
+            "castRoleUid": 9.0,
+            "max_hp": 100.0,
+            "hp": 100.0,
+            "propertyName": "hp"
+          },
+          "afterCallback": {
+            "uid": 7.0,
+            "oldValue": 100.0,
+            "newValue": 100.0,
+            "castRoleUid": 9.0,
+            "max_hp": 100.0,
+            "hp": 100.0,
+            "propertyName": "hp"
+          }
+        }
+      ],
+      "sharedPayload": true
+    },
+    {
+      "input": {
+        "property": "hp",
+        "old": 0.5,
+        "new": 0.25,
+        "hp": 0.25,
+        "max_hp": 100
+      },
+      "events": [
+        {
+          "eventId": 203.0,
+          "atCreation": {
+            "uid": 7.0,
+            "oldValue": 0.5,
+            "newValue": 0.25,
+            "castRoleUid": 9.0
+          },
+          "afterCallback": {
+            "uid": 7.0,
+            "oldValue": 0.5,
+            "newValue": 0.25,
+            "castRoleUid": 9.0,
+            "max_hp": 100.0,
+            "hp": 0.25,
+            "propertyName": "hp"
+          }
+        },
+        {
+          "eventId": 204.0,
+          "atCreation": {
+            "uid": 7.0,
+            "oldValue": 0.5,
+            "newValue": 0.25,
+            "castRoleUid": 9.0,
+            "max_hp": 100.0,
+            "hp": 0.25,
+            "propertyName": "hp"
+          },
+          "afterCallback": {
+            "uid": 7.0,
+            "oldValue": 0.5,
+            "newValue": 0.25,
+            "castRoleUid": 9.0,
+            "max_hp": 100.0,
+            "hp": 0.25,
+            "propertyName": "hp"
+          }
+        }
+      ],
+      "sharedPayload": true
+    },
+    {
+      "input": {
+        "property": "max_hp",
+        "old": 100,
+        "new": 80,
+        "hp": 70,
+        "max_hp": 80
+      },
+      "events": [
+        {
+          "eventId": 204.0,
+          "atCreation": {
+            "uid": 7.0,
+            "oldValue": 100.0,
+            "newValue": 80.0,
+            "castRoleUid": 9.0,
+            "max_hp": 80.0,
+            "hp": 70.0,
+            "propertyName": "max_hp"
+          },
+          "afterCallback": {
+            "uid": 7.0,
+            "oldValue": 100.0,
+            "newValue": 80.0,
+            "castRoleUid": 9.0,
+            "max_hp": 80.0,
+            "hp": 70.0,
+            "propertyName": "max_hp"
+          }
+        }
+      ],
+      "sharedPayload": false
+    }
+  ]
+}

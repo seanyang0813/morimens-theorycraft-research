@@ -1,0 +1,1061 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original ConsumeEnergy -> SubProperty/BeforeSub/AfterSub/RefreshMaxLimit, supplied initialized energy 0..99 and request >=0 or -1 sentinel. GetProperty and one-field table.clone adapters, observational property/event/record callbacks. No event listeners, before-use branching, play eligibility or gameplay.",
+  "sourceHashes": {
+    "BattleUnitPlayer": "ca4e9847ac558a6c8e81a80461869ce2a6c72b0e8e75caf63b9c4dc9afb1b52e",
+    "BattlePropertyServer": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76"
+  },
+  "fixtures": [
+    {
+      "input": {
+        "energy": 0,
+        "request": -1
+      },
+      "expected": {
+        "reportedCost": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 0
+      },
+      "expected": {
+        "reportedCost": 0.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 0.25
+      },
+      "expected": {
+        "reportedCost": 0.25,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.25,
+            "realCost": 0.25
+          },
+          {
+            "kind": "record",
+            "delta": -0.25,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 2
+      },
+      "expected": {
+        "reportedCost": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 5
+      },
+      "expected": {
+        "reportedCost": 5.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 5.0,
+            "realCost": 5.0
+          },
+          {
+            "kind": "record",
+            "delta": -5.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 100
+      },
+      "expected": {
+        "reportedCost": 100.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 100.0,
+            "realCost": 100.0
+          },
+          {
+            "kind": "record",
+            "delta": -100.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0.5,
+        "request": -1
+      },
+      "expected": {
+        "reportedCost": 0.5,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.5,
+            "realCost": 0.5
+          },
+          {
+            "kind": "record",
+            "delta": -0.5,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0.5,
+        "request": 0
+      },
+      "expected": {
+        "reportedCost": 0.0,
+        "energyAfter": 0.5,
+        "energyLost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.5
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 0.5
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 0.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0.5,
+        "request": 0.25
+      },
+      "expected": {
+        "reportedCost": 0.25,
+        "energyAfter": 0.25,
+        "energyLost": 0.25,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.25
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.25,
+            "new": 0.25
+          },
+          {
+            "kind": "event",
+            "castValue": 0.25,
+            "realCost": 0.25
+          },
+          {
+            "kind": "record",
+            "delta": -0.25,
+            "energyAfter": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0.5,
+        "request": 2
+      },
+      "expected": {
+        "reportedCost": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0.5,
+        "request": 5
+      },
+      "expected": {
+        "reportedCost": 5.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 5.0,
+            "realCost": 5.0
+          },
+          {
+            "kind": "record",
+            "delta": -5.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0.5,
+        "request": 100
+      },
+      "expected": {
+        "reportedCost": 100.0,
+        "energyAfter": 0.0,
+        "energyLost": 0.5,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 100.0,
+            "realCost": 100.0
+          },
+          {
+            "kind": "record",
+            "delta": -100.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 2,
+        "request": -1
+      },
+      "expected": {
+        "reportedCost": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 2,
+        "request": 0
+      },
+      "expected": {
+        "reportedCost": 0.0,
+        "energyAfter": 2.0,
+        "energyLost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 2.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 2.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 2,
+        "request": 0.25
+      },
+      "expected": {
+        "reportedCost": 0.25,
+        "energyAfter": 1.75,
+        "energyLost": 0.25,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 1.75
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.25,
+            "new": 1.75
+          },
+          {
+            "kind": "event",
+            "castValue": 0.25,
+            "realCost": 0.25
+          },
+          {
+            "kind": "record",
+            "delta": -0.25,
+            "energyAfter": 1.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 2,
+        "request": 2
+      },
+      "expected": {
+        "reportedCost": 2.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 2,
+        "request": 5
+      },
+      "expected": {
+        "reportedCost": 5.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 5.0,
+            "realCost": 5.0
+          },
+          {
+            "kind": "record",
+            "delta": -5.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 2,
+        "request": 100
+      },
+      "expected": {
+        "reportedCost": 100.0,
+        "energyAfter": 0.0,
+        "energyLost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 100.0,
+            "realCost": 100.0
+          },
+          {
+            "kind": "record",
+            "delta": -100.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 5,
+        "request": -1
+      },
+      "expected": {
+        "reportedCost": 5.0,
+        "energyAfter": 0.0,
+        "energyLost": 5.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 5.0,
+            "realCost": 5.0
+          },
+          {
+            "kind": "record",
+            "delta": -5.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 5,
+        "request": 0
+      },
+      "expected": {
+        "reportedCost": 0.0,
+        "energyAfter": 5.0,
+        "energyLost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 5.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 5.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 5,
+        "request": 0.25
+      },
+      "expected": {
+        "reportedCost": 0.25,
+        "energyAfter": 4.75,
+        "energyLost": 0.25,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 4.75
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.25,
+            "new": 4.75
+          },
+          {
+            "kind": "event",
+            "castValue": 0.25,
+            "realCost": 0.25
+          },
+          {
+            "kind": "record",
+            "delta": -0.25,
+            "energyAfter": 4.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 5,
+        "request": 2
+      },
+      "expected": {
+        "reportedCost": 2.0,
+        "energyAfter": 3.0,
+        "energyLost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 3.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 3.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 3.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 5,
+        "request": 5
+      },
+      "expected": {
+        "reportedCost": 5.0,
+        "energyAfter": 0.0,
+        "energyLost": 5.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 5.0,
+            "realCost": 5.0
+          },
+          {
+            "kind": "record",
+            "delta": -5.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 5,
+        "request": 100
+      },
+      "expected": {
+        "reportedCost": 100.0,
+        "energyAfter": 0.0,
+        "energyLost": 5.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 100.0,
+            "realCost": 100.0
+          },
+          {
+            "kind": "record",
+            "delta": -100.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": -1
+      },
+      "expected": {
+        "reportedCost": 99.0,
+        "energyAfter": 0.0,
+        "energyLost": 99.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 99.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -99.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 99.0,
+            "realCost": 99.0
+          },
+          {
+            "kind": "record",
+            "delta": -99.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 0
+      },
+      "expected": {
+        "reportedCost": 0.0,
+        "energyAfter": 99.0,
+        "energyLost": 0.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 99.0,
+            "new": 99.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.0,
+            "new": 99.0
+          },
+          {
+            "kind": "event",
+            "castValue": 0.0,
+            "realCost": 0.0
+          },
+          {
+            "kind": "record",
+            "delta": -0.0,
+            "energyAfter": 99.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 0.25
+      },
+      "expected": {
+        "reportedCost": 0.25,
+        "energyAfter": 98.75,
+        "energyLost": 0.25,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 99.0,
+            "new": 98.75
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -0.25,
+            "new": 98.75
+          },
+          {
+            "kind": "event",
+            "castValue": 0.25,
+            "realCost": 0.25
+          },
+          {
+            "kind": "record",
+            "delta": -0.25,
+            "energyAfter": 98.75
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 2
+      },
+      "expected": {
+        "reportedCost": 2.0,
+        "energyAfter": 97.0,
+        "energyLost": 2.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 99.0,
+            "new": 97.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 97.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 97.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 5
+      },
+      "expected": {
+        "reportedCost": 5.0,
+        "energyAfter": 94.0,
+        "energyLost": 5.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 99.0,
+            "new": 94.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -5.0,
+            "new": 94.0
+          },
+          {
+            "kind": "event",
+            "castValue": 5.0,
+            "realCost": 5.0
+          },
+          {
+            "kind": "record",
+            "delta": -5.0,
+            "energyAfter": 94.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 100
+      },
+      "expected": {
+        "reportedCost": 100.0,
+        "energyAfter": 0.0,
+        "energyLost": 99.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 99.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -99.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 100.0,
+            "realCost": 100.0
+          },
+          {
+            "kind": "record",
+            "delta": -100.0,
+            "energyAfter": 0.0
+          }
+        ]
+      }
+    }
+  ]
+}

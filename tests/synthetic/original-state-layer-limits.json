@@ -1,0 +1,6652 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleUnitBase": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410"
+  },
+  "scope": "432 original CalcStateLayerLimit/Total cases. Synthetic one-entry BC rule/state mapping, supplied property values and state lookup. No property derivation/statistics updates, multi-rule ordering, AddState pipeline or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 0,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 0,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 0,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 0,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 0,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 0,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 0,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 0,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 0,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 9,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 9,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 9,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 9,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 9,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 9,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 9,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 9,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": -1,
+        "used": 9,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 0,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 0,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 0,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 0,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 0,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 0,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 0,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 0,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 0,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 9,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 9,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 9,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 9,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 9,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 9,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 9,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 9,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 0,
+        "used": 9,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 0,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 0,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 0,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 9,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 9,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 9,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 0,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 0,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 0,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 0,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 0,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 0,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 0,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 0,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 0,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 9,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 9,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 9,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 9,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 9,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 9,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 9,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 9,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": false,
+        "limit": 5,
+        "used": 9,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 0,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 0,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 0,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 0,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 0,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 0,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 0,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 0,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 0,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 9,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 9,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 9,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 9,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 9,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 9,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 9,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 9,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": -1,
+        "used": 9,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 0,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 0,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 0,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 0,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 0,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 0,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 0,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 0,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 0,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 9,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 9,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 9,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 9,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 9,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 9,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 9,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 9,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 0,
+        "used": 9,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 0,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 0,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 0,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 3.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 3.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 3.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 1.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 1.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 1.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 9,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 9,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 9,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 0,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 0,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 0,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 0,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 0,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 0,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 0,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 0,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 0,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 4.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 4.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 4.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 9,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 9,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 9,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 9,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 9,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 9,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 9,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 9,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "statistics",
+        "matching": true,
+        "limit": 5,
+        "used": 9,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "used"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 0,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 0,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 0,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 0,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 0,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 0,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 0,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 0,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 0,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 9,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 9,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 9,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 9,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 9,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 9,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 9,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 9,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": -1,
+        "used": 9,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 0,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 0,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 0,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 0,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 0,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 0,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 0,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 0,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 0,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 9,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 9,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 9,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 9,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 9,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 9,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 9,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 9,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 0,
+        "used": 9,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 0,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 0,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 0,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 9,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 9,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 9,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 0,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 0,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 0,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 0,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 0,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 0,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 0,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 0,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 0,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 9,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 9,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 9,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 9,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 9,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 9,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 9,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 9,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": false,
+        "limit": 5,
+        "used": 9,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 0,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 0,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 0,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 0,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 0,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 0,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 0,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 0,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 0,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 9,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 9,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 9,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 9,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 9,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 9,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 9,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 9,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": -1,
+        "used": 9,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 0,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 0,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 0,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 0,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 0,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 0,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 0,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 0,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 0,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 9,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 9,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 9,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 9,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 9,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 9,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 9,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 9,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 0,
+        "used": 9,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 0,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 0,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 0,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 3.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 3.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 0,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 3.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 3.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 3.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 1.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 9,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 9,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 9,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 3.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 3.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 2.2,
+        "used": 9,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 0,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 0,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 0,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 0,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 0,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 0,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 0,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 0,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 0,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 1.5,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 1.5,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 4.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 9,
+        "layer": -2.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 9,
+        "layer": -2.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 9,
+        "layer": -2.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": -2.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 9,
+        "layer": 0,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 9,
+        "layer": 0,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 9,
+        "layer": 0,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 9,
+        "layer": 4.2,
+        "state": "missing"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 9,
+        "layer": 4.2,
+        "state": "deleted"
+      },
+      "expected": {
+        "layer": 5.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    },
+    {
+      "input": {
+        "mode": "total",
+        "matching": true,
+        "limit": 5,
+        "used": 9,
+        "layer": 4.2,
+        "state": "live"
+      },
+      "expected": {
+        "layer": 0.0,
+        "trace": [
+          "limit",
+          "currentState"
+        ]
+      }
+    }
+  ]
+}

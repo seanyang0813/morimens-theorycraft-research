@@ -1,0 +1,3104 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BEAddState": "1465ac7c4f7b101ded98c429e9bb089ebabaad7c48a4b6f4c4519419e6eec133",
+    "BEAddStateParent": "00871a473b5c4ced3824c28afb88fc3cfe6cbfca01d23bc2a0d3bac6afa0f8b3"
+  },
+  "scope": "150 original DoEffect -> AddState method-chain cases, one supplied non-card target. No-op superclass, supplied immunity/layer calculation/limit results and CreateState observer. Does not create states, apply modifiers/properties, events or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "layer": null,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [
+          0.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [
+          2.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": -2.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [
+          4.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": -2.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": -2.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [
+          4.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": -2.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": -2.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [
+          0.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": -2.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": -2.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [
+          0.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [
+          2.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 0.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [
+          4.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 0.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": 0.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [
+          4.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 0.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": 0.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [
+          0.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 0.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": 0.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [
+          5.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [
+          2.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 5.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [
+          4.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 5.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": 5.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 5.0
+          },
+          {
+            "stage": "tip"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 5.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": 5.0
+          },
+          {
+            "stage": "tip"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": -0.1,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [
+          0.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [
+          2.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": -2.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [
+          4.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": -2.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": -2.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [
+          4.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": -2.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": -2.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [
+          0.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": -2.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": -2.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [
+          0.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [
+          2.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 0.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [
+          4.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 0.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": 0.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [
+          4.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 0.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": 0.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [
+          0.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 0.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": 0.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [
+          5.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [
+          2.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 5.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [
+          4.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 5.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": 5.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 5.0
+          },
+          {
+            "stage": "tip"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 1.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 5.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": 5.0
+          },
+          {
+            "stage": "tip"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 0.5,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [
+          0.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 3.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [
+          2.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 3.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": -2.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [
+          4.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 3.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": -2.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": -2.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [
+          4.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 3.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": -2.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": -2.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": -2,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [
+          0.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 3.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": -2.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": -2.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": -2,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [
+          0.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 3.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [
+          2.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 3.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 0.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [
+          4.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 3.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 0.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": 0.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [
+          4.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 3.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 0.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": 0.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": 0,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [
+          0.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 3.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 0.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": 0.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": 0,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [
+          5.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 3.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [
+          2.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 3.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 5.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [
+          4.0
+        ],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 3.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 5.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": 5.0
+          },
+          {
+            "stage": "create"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 3.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 5.0
+          },
+          {
+            "stage": "tip"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": 5,
+        "immune": false,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          },
+          {
+            "stage": "calculate",
+            "input": 3.0
+          },
+          {
+            "stage": "CalcStateLayerLimit",
+            "input": 5.0
+          },
+          {
+            "stage": "CalcStateLayerLimitTotal",
+            "input": 5.0
+          },
+          {
+            "stage": "tip"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": null,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": null
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": 0,
+        "totalLimit": 4
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "layer": 2.2,
+        "calculated": 5,
+        "immune": true,
+        "perLimit": 2,
+        "totalLimit": 0
+      },
+      "expected": {
+        "createdLayers": [],
+        "events": [
+          {
+            "stage": "immunity"
+          }
+        ],
+        "returned": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,5689 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original handler bodies; target/caster lookup and TryTrigger result supplied; Trigger payload captured. Direct calls include mismatched event categories to probe filtering; no registration, generic trigger eligibility, command execution or gameplay validation.",
+  "sourceHashes": {
+    "BSTAfterBeActiveDamage": "319488a45104726febcdf9bc66c1cdf04ced2064ce533cedfece43dacb96eea9",
+    "BSTAfterPassiveDamage": "519147ce5f5afd330d6569862ff314ede58a41a4b64833bdef027282eccf4ad9",
+    "BSTAfterFixedDamage": "2e13d8ca6092853a4b60d0ee6e152c881cca1dbadf408e51ee20b748f6a7241f",
+    "BSTAfterAttackedByTentacle": "17621490e50303433e5fcf3d5bb741e6e49f276939b7dbbf952854bdeca1dc09"
+  },
+  "fixtures": [
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Active",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "triggerValue2": 180.0,
+          "triggerValue3": 20.0,
+          "associator": [
+            9.0
+          ],
+          "associator2": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Active",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "triggerValue2": 180.0,
+          "triggerValue3": 0.0,
+          "associator": [
+            9.0
+          ],
+          "associator2": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Active",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "triggerValue2": 180.0,
+          "triggerValue3": 0.0,
+          "associator": [
+            9.0
+          ],
+          "associator2": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Active",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Active",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 20.0,
+          "triggerValue2": 180.0,
+          "triggerValue3": 20.0,
+          "associator": [
+            9.0
+          ],
+          "associator2": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Active",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Active",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Active",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Active",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Active",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Active",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 0.0,
+          "triggerValue2": 180.0,
+          "triggerValue3": 0.0,
+          "associator": [
+            9.0
+          ],
+          "associator2": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Active",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Passive",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Passive",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Passive",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Passive",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Passive",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Passive",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Passive",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Passive",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Passive",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Passive",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Passive",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Passive",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Fixed",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Fixed",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Fixed",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Fixed",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Fixed",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Fixed",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Fixed",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Fixed",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Fixed",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Fixed",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Fixed",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Fixed",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Pure",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Pure",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Pure",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Pure",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Pure",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Pure",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Pure",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Pure",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Pure",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Pure",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Pure",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Pure",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Tentacle",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Tentacle",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Tentacle",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Tentacle",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Tentacle",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Tentacle",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Tentacle",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Tentacle",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Tentacle",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Tentacle",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Tentacle",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterBeActiveDamage",
+        "category": "Tentacle",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Active",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Active",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Active",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Active",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Active",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Active",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Active",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Active",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Active",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Active",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Active",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Active",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Passive",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            9.0
+          ],
+          "associator2": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Passive",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            9.0
+          ],
+          "associator2": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Passive",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            9.0
+          ],
+          "associator2": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Passive",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Passive",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 20.0,
+          "associator": [
+            9.0
+          ],
+          "associator2": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Passive",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Passive",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Passive",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Passive",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Passive",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Passive",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 0.0,
+          "associator": [
+            9.0
+          ],
+          "associator2": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Passive",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Fixed",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Fixed",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Fixed",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Fixed",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Fixed",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Fixed",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Fixed",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Fixed",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Fixed",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Fixed",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Fixed",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Fixed",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Pure",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Pure",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Pure",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Pure",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Pure",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Pure",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Pure",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Pure",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Pure",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Pure",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Pure",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Pure",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Tentacle",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Tentacle",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Tentacle",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Tentacle",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Tentacle",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Tentacle",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Tentacle",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Tentacle",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Tentacle",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Tentacle",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Tentacle",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterPassiveDamage",
+        "category": "Tentacle",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Active",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Active",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Active",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Active",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Active",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Active",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Active",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Active",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Active",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Active",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Active",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Active",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Passive",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Passive",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Passive",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Passive",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Passive",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Passive",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Passive",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Passive",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Passive",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Passive",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Passive",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Passive",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Fixed",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "triggerValue2": 20.0,
+          "associator": [
+            9.0
+          ],
+          "associator2": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Fixed",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "triggerValue2": 0.0,
+          "associator": [
+            9.0
+          ],
+          "associator2": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Fixed",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "triggerValue2": 0.0,
+          "associator": [
+            9.0
+          ],
+          "associator2": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Fixed",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Fixed",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "triggerValue2": 20.0,
+          "associator": [
+            9.0
+          ],
+          "associator2": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Fixed",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "triggerValue2": 0.0,
+          "associator": [
+            9.0
+          ],
+          "associator2": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Fixed",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "triggerValue2": 0.0,
+          "associator": [
+            9.0
+          ],
+          "associator2": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Fixed",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Fixed",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "triggerValue2": 20.0,
+          "associator": [
+            9.0
+          ],
+          "associator2": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Fixed",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "triggerValue2": 0.0,
+          "associator": [
+            9.0
+          ],
+          "associator2": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Fixed",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "triggerValue2": 0.0,
+          "associator": [
+            9.0
+          ],
+          "associator2": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Fixed",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Pure",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Pure",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Pure",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Pure",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Pure",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Pure",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Pure",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Pure",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Pure",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Pure",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Pure",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Pure",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Tentacle",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Tentacle",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Tentacle",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Tentacle",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Tentacle",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Tentacle",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Tentacle",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Tentacle",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Tentacle",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Tentacle",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Tentacle",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterFixedDamage",
+        "category": "Tentacle",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Active",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Active",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Active",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Active",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Active",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Active",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Active",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Active",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Active",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Active",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Active",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Active",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Passive",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Passive",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Passive",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Passive",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Passive",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Passive",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Passive",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Passive",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Passive",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Passive",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Passive",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Passive",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Fixed",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Fixed",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Fixed",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Fixed",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Fixed",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Fixed",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Fixed",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Fixed",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Fixed",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Fixed",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Fixed",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Fixed",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Pure",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Pure",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Pure",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Pure",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Pure",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Pure",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Pure",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Pure",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Pure",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Pure",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Pure",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Pure",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Tentacle",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Tentacle",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Tentacle",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Tentacle",
+        "mode": "None"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Tentacle",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Tentacle",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Tentacle",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Tentacle",
+        "mode": "Unblocked"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Tentacle",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 0,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Tentacle",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 0,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": true,
+        "eligible": true,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Tentacle",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": {
+          "triggerValue": 200.0,
+          "associator": [
+            7.0
+          ]
+        },
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "castDamage": 200,
+        "realDamage": 20,
+        "unBlockedDamage": 20,
+        "blockedDamage": 180,
+        "crit": false,
+        "eligible": false,
+        "handler": "BSTAfterAttackedByTentacle",
+        "category": "Tentacle",
+        "mode": "CritDamage"
+      },
+      "expected": {
+        "trigger": null,
+        "eligibilityCalls": [
+          [
+            2.0,
+            7.0
+          ]
+        ]
+      }
+    }
+  ]
+}

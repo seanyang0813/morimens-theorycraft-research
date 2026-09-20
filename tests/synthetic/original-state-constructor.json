@@ -1,0 +1,2531 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleStateServer": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+    "BattleStateData": "3d24986198cdab349ed790e58756292c086f7e3d8ffc76f5d61e9fdc15c21e26"
+  },
+  "scope": "96 original ctor -> original StateData.Create (unless restored data), numeric/absent InitStateParams and AfterInit. No-op entity superclass, supplied UID/max/parser; triggers/log/property initialization observed. table.deepclone identity adapter does not verify copying. No real command parser, triggers, properties, manager integration or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "layer": null,
+        "maximum": null,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers7": 1.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": null,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers7": 1.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": null,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers7": 1.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": null,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers7": 1.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": null,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": null,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": null,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": null,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": null,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers7": 1.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": null,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers7": 1.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": null,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers7": 1.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": null,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers7": 1.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": null,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": null,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": null,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": null,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers7": 1.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers7": 1.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers7": 1.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers7": 1.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers7": 1.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers7": 1.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers7": 1.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers7": 1.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": null,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": null,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers7": 2.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": null,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers7": 2.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": null,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers7": 2.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": null,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers7": 2.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": null,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": null,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": null,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": null,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": null,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers7": 2.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": null,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers7": 2.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": null,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers7": 2.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": null,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers7": 2.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": null,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": null,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": null,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": null,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers7": 2.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers7": 2.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers7": 2.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers7": 2.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers7": 2.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers7": 2.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers7": 2.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers7": 2.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 2,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": null,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 8.0,
+        "changedLayer": 8.0,
+        "casterLayers7": 8.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": null,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 8.0,
+        "changedLayer": 8.0,
+        "casterLayers7": 8.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": null,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 8.0,
+        "changedLayer": 8.0,
+        "casterLayers7": 8.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": null,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 8.0,
+        "changedLayer": 8.0,
+        "casterLayers7": 8.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": null,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": null,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": null,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": null,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": null,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 8.0,
+        "changedLayer": 8.0,
+        "casterLayers7": 8.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": null,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 8.0,
+        "changedLayer": 8.0,
+        "casterLayers7": 8.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": null,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 8.0,
+        "changedLayer": 8.0,
+        "casterLayers7": 8.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": null,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 8.0,
+        "changedLayer": 8.0,
+        "casterLayers7": 8.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": null,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": null,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": null,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": null,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 5.0,
+        "changedLayer": 8.0,
+        "casterLayers7": 8.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 5.0,
+        "changedLayer": 8.0,
+        "casterLayers7": 8.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 5.0,
+        "changedLayer": 8.0,
+        "casterLayers7": 8.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 5.0,
+        "changedLayer": 8.0,
+        "casterLayers7": 8.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": 4.2,
+        "recover": false,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "maximum",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 8.0,
+        "changedLayer": 8.0,
+        "casterLayers7": 8.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 8.0,
+        "changedLayer": 8.0,
+        "casterLayers7": 8.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 8.0,
+        "changedLayer": 8.0,
+        "casterLayers7": 8.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": false,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 8.0,
+        "changedLayer": 8.0,
+        "casterLayers7": 8.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": null,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 1.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": null
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    },
+    {
+      "input": {
+        "layer": 8,
+        "maximum": 4.2,
+        "recover": true,
+        "restoredData": true,
+        "skillLevel": 6,
+        "parameter": 2.5
+      },
+      "expected": {
+        "uid": 88.0,
+        "layer": 3.0,
+        "changedLayer": 9.0,
+        "casterLayers7": 3.0,
+        "skillLevel": 6.0,
+        "parameters": [
+          2.5
+        ],
+        "trace": [
+          "uid",
+          "parser",
+          "triggers",
+          "log",
+          "properties"
+        ]
+      }
+    }
+  ]
+}

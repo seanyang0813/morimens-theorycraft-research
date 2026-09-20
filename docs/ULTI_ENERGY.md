@@ -1,0 +1,41 @@
+# Ultimate-energy calculation
+
+`calculateUltiEnergy` models the ordinary-subtype numeric pipeline with explicit base, dimension, properties, caster eligibility, skill tags and card context. `calculateNoCardUltiEnergy` retains the eligible-caster/no-card/empty-tag entry point. Neither function changes stored energy.
+
+Caster and card flat bonuses are added before separate caster percentage, inside percentage, outside percentage, efficiency, card percentage, dimension and tag multipliers. The utility preserves the original multiply/divide-by-10000 arithmetic order, subtracts 1e-5, rounds up and applies a minimum of one. Target gain percentage and flat bonus then apply, followed by another ceiling with no minimum. A zero or negative calculated result is not actual energy gained.
+
+`card` is null or `{matchesEnergyCardTypes}`. Card properties `card_ulti_per` and `card_ulti_plus` apply whenever a card exists. The caster's `o_ulti_energy_per` additionally requires an eligible caster and a card matching the original skill/defend/extend/strike group. That matching decision remains explicit; original CardTypeMatch has not been reproduced here.
+
+Eligible casters apply each skill-tag multiplier separately, including duplicate tags. The original mappings are Card_Defend to ulti_per_defendcard, Ulti_Skill to ulti_per_ultiskill, Card_Skill to ulti_per_skillcard, and Card_Strike to ulti_per_strikecard. Unknown eligible mappings fail. Ineligible casters skip caster properties while card and dimension factors remain.
+
+`tools/ulti_energy_oracle.py` runs 144 connected original no-card cases. `tools/card_ulti_energy_oracle.py` adds 144 cases covering card presence/matching, caster eligibility, all four tag mappings, duplicate tags and card-percentage variations. Original GetRealUltiEnergy, show/final helpers and utility execute in one Lua state. Properties, role/type matching, tags and dimension remain adapters. Tests compare final values and property-read order. These are synthetic component checks, not gameplay validation.
+
+Source inspection identifies the next integration boundaries: BEGainUltiEnergy ceils base and repeat count, defaults repetitions/showText to one, recalculates for every target/repetition, obtains source metadata and invokes the target GainUltiEnergy. BattleUnitAwaker then uses a floor-based cap check, ceiling and positive-only property mutation. Gain application, storage/caps, event callbacks, automatic build/property derivation and nonordinary subtypes remain unfinished. The complete mixed-effect skill remains unsupported.
+
+## Verified gain and storage boundary
+
+`gainUltiEnergy` now connects the authored Awaker gain policy to property storage semantics. Its explicit inputs are current `energy`, calculated `request`, `maximumProperties`, and `ignoreMax`. The four required maximum properties are ulti_energy_max, ulti_energy_cost_per, ulti_energy_cost_flat, and ulti_energy_max_per. Maximum equals floor((baseMaximum * (1 + costPercent/100) + costFlat) * (1 + maximumPercent/100) + 0.5).
+
+The Awaker method compares floor(current + request) with maximum, substitutes remaining capacity when above it, then ceils the addition. A nonpositive addition returns zero without mutation or callbacks. A positive addition passes through property storage, which applies a second cap unless ignoreMax is supplied. `castValue` describes the pre-storage addition; `energyGained` describes the actual stored delta; `returned` is the resulting energy for a positive attempted mutation. These values are not interchangeable.
+
+`tools/ulti_energy_gain_oracle.py` runs 252 connected original GainUltiEnergy/GetMaxUltiEnergy/ChangeProperty/AddProperty cases with actual Lua numeric storage and observed owner/send callbacks. Inputs include fractional energy, over-cap starting values, nonpositive gains, cost/maximum modifiers, and both ignoreMax settings. Callback listeners do not execute. Source fields other than ignoreMax and generated castValue are outside this probe. Calculation-to-effect repetition/source attribution still needs integration before full mixed-skill support.
+
+## Verified effect repetition and source payload
+
+`runUltiEnergyEffect` now models the synchronous effect loop with live calculation/gain callbacks. It rounds base and repeat count upward once, defaults absent repetitions to one, and allows zero/negative repetitions to produce no applications. It finishes all repetitions for the first target before advancing to the next. Every repetition recalculates energy and receives a fresh source object containing caster UID, command-server UID, skill ID, AttrModify reason 3, calculated castValue and showText. Numeric showText is true only for exactly 1; absence defaults to 1.
+
+`tools/ulti_energy_effect_oracle.py` runs 120 original DoEffect/GetPropertyChangeSource cases. A changing calculation adapter verifies repeated evaluation rather than cached results. A gain observer records source payloads and call order. Superclass presentation is explicitly omitted; actual VFX may consume RNG. Parameters are numeric/null and source identities are explicitly nonnull for this API. The connected effect-to-calculation-to-storage path, including preservation of supplied source castValue through property mutation, is not yet established by these fixtures. No mixed command is newly marked executable.
+
+## Combined energy experiment
+
+`runUltiEnergyExperiment` connects the effect loop, card/tag calculation and Awaker storage model, retaining energy between repetitions and duplicate target identities. Explicit target order and complete Awaker snapshots are required. Calculations use supplied static properties; callbacks are reported but not dispatched. The ordinary effect's source does not supply ignoreMax, so storage uses the normal cap. Non-Awaker targets remain unsupported.
+
+Run `node tools/run_ulti_energy.mjs research/examples/ulti-energy-experiment.json`. This deliberately synthetic example starts targets at 95 and 0 energy, uses a 100 maximum, neutral modifiers and parameters 10.1/1.1/1. The effect rounds to 11 energy over two repetitions for each target. Stored gains are 5, 0, 11, 11; final energies are 100 and 22. Source castValue remains 11 for every application, including the capped/no-gain cases. No player build or gameplay result is claimed.
+
+`tools/ulti_energy_source_oracle.py` adds 48 original gain/storage cases confirming source castValue preservation, including zero, and absence behavior. The gain helper accepts optional castValue accordingly. Tests cover the combined experiment and shared state, but do not turn separate component probes into connected original whole-effect evidence. Full mixed-command integration, VFX, triggers, property changes between applications and independent gameplay validation remain unfinished. The JSON CLI is offline; no website deployment has occurred.
+
+## Connected original effect-to-storage verification
+
+`tools/connected_ulti_energy_oracle.py` now executes the original BEGainUltiEnergy loop, command show/final calculation, utility, source creation, Awaker gain and property storage together in one Lua state. The 324 cases vary base, repetitions, starting energy, caster percentage, card presence/type match, and empty versus Strike/Skill tags. The authored combined experiment matches final stored energy, return value and ordered owner/send property callbacks.
+
+This supersedes the earlier lack of connected energy-path evidence for this exact scope. It covers one self-target Awakener and ordinary subtype. Role/property/dimension/card-match/tag inputs are supplied; original card matching and automatic build assembly are not established. Presentation is a no-op and callbacks are observed, not dispatched. Multi-target behavior retains separate loop probes and authored composition tests, not this connected proof. No full skill command, trigger interaction or independent gameplay observation is validated by these fixtures.

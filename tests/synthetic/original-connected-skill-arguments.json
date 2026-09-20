@@ -1,0 +1,4696 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleCmdServer": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+    "FuncTable": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3",
+    "BattleApi": "22d7e4cdc4746a1c3b543a97a5d68cca4b7b184c92ef9d4d19651da8189db15c"
+  },
+  "formulaExpressions": {
+    "BattleFomula1": "(( SkillLevel-1 )*20+100)/100*GrowArgValue",
+    "BattleFomula2": "GrowArgValue+(SkillLevel-1)"
+  },
+  "scope": "Original GetSkillArgs -> __CalcBaseSkillArgs with original compiled growth/parameter closures, one Lua state. Selected coefficient lists/Para supplied, member storage and expression-environment/closure lookup adapted, descriptions absent. No original skill routing, parser, attack/level derivation, card execution or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 1
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 1
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 1
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 1
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          0.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 1
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          0.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 1
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          0.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 1
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          2.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 1
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          2.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 1
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          2.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 1
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          14.0,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 1
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 1
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 1
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          0.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 1
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          0.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 1
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          0.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 1
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          56.0,
+          2.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 1
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          2.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 1
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          2.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 1
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          26.0,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 1
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 1
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 1
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          0.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 1
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          0.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 1
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          0.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 1
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          104.0,
+          2.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 1
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          2.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 1
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          2.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 1
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          31.0,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 1
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 1
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 1
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          0.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 1
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          0.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 1
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          0.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 1
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          121.0,
+          2.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 1
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          2.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 1
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          2.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 2
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          6.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.12
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 2
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          6.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.12
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 2
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          6.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.12
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 2
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          1.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 2
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          1.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 2
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          1.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 2
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          3.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.48
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 3.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 2
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          3.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.48
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 3.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 2
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          3.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.48
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 3.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 2
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          17.0,
+          6.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.12
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 2
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          6.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.12
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 2
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          6.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.12
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 2
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          1.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 2
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          1.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 2
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          1.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 2
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          67.0,
+          3.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.48
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 3.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 2
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          3.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.48
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 3.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 2
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          3.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.48
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 3.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 2
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          31.0,
+          6.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.12
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 2
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          6.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.12
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 2
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          6.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.12
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 2
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          1.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 2
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          1.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 2
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          1.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 2
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          124.0,
+          3.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.48
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 3.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 2
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          3.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.48
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 3.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 2
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          3.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.48
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 3.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 2
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          37.0,
+          6.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.12
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 2
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          6.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.12
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 2
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          6.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.12
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 6.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 2
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          1.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 2
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          1.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 2
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          1.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 2
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          145.0,
+          3.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.48
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 3.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 2
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          3.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.48
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 3.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 2
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          3.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.48
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 3.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 6
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          10.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.2
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 6
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          10.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.2
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 6
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          10.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.2
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 6
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 6
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 6
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 6
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          7.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.8
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 7.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 6
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          7.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.8
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 7.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 6
+        },
+        "attack": 0,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          7.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.8
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 7.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 6
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          28.0,
+          10.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.2
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 6
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          10.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.2
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 6
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          10.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.2
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 6
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 6
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 6
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 6
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          111.0,
+          7.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.8
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 7.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 6
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          7.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.8
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 7.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 6
+        },
+        "attack": 138,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          7.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.8
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 7.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 6
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          52.0,
+          10.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.2
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 6
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          10.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.2
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 6
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          10.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.2
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 6
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 6
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 6
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 6
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          207.0,
+          7.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.8
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 7.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 6
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          7.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.8
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 7.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 6
+        },
+        "attack": 258,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          7.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.8
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 7.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 6
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          61.0,
+          10.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.2
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 6
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          10.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.2
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.1,
+            5
+          ],
+          "skillLevel": 6
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          10.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.1
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.2
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 5.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 6
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 6
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0,
+            0
+          ],
+          "skillLevel": 6
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          5.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 0.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 6
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": []
+      },
+      "expected": {
+        "arguments": [
+          241.0,
+          7.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.8
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 7.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 6
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.0,
+          7.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.8
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 7.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "growth": {
+          "formulaNames": [
+            "BattleFomula1",
+            "BattleFomula2"
+          ],
+          "originalCoefficients": [
+            0.4,
+            2
+          ],
+          "skillLevel": 6
+        },
+        "attack": 300.25,
+        "parameterExpression": "BattleAtkForce*GrowArgValue1,GrowArgValue2",
+        "overrides": [
+          0.5
+        ]
+      },
+      "expected": {
+        "arguments": [
+          0.5,
+          7.0
+        ],
+        "memberWrites": [
+          {
+            "name": "GrowArgValue",
+            "value": 0.4
+          },
+          {
+            "name": "GrowArgValue1",
+            "value": 0.8
+          },
+          {
+            "name": "GrowArgValue",
+            "value": 2.0
+          },
+          {
+            "name": "GrowArgValue2",
+            "value": 7.0
+          }
+        ]
+      }
+    }
+  ]
+}

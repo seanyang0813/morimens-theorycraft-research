@@ -1,0 +1,3446 @@
+{
+  "build": "pc-res144-build51",
+  "entries": [
+    {
+      "id": "PC144:ConnectedUltiEnergyEffectStorage",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Connected energy effect repetition, calculation, source assembly and actual Awaker/property storage match authored final energy and ordered callback payloads",
+      "sources": [
+        {
+          "module": "BEGainUltiEnergy",
+          "member": "DoEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "eaa49d0dcbeb60d4894c725e97cc35eb37c840c47ffe287f8d77f0d63e3993e2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4995052228846730064_BEGainUltiEnergy.lua"
+        },
+        {
+          "module": "BattleEffectServer",
+          "member": "GetPropertyChangeSource",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\3210192007477895712_BattleEffectServer.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "GetRealUltiEnergy,__GetShowUltiEnergy,__GetFinalUltiEnergy",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        },
+        {
+          "module": "BattleUtilServer",
+          "member": "ShowUltiEnergyFormula",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2744136527417000302_BattleUtilServer.lua"
+        },
+        {
+          "module": "BattleUnitAwaker",
+          "member": "GainUltiEnergy",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "a6703d8ea024ebb938789e9d3b22b725dad5137842db88729ac6c401c409fbc5",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2527921886044457143_BattleUnitAwaker.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "GetMaxUltiEnergy,ChangeProperty,AddProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        },
+        {
+          "module": "BattleConst",
+          "member": "SkillType2UltiPer",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7904900691744414154_BattleConst.lua"
+        }
+      ],
+      "tests": [
+        "tests/ulti-energy-experiment.test.mjs"
+      ],
+      "scope": "324 connected original runs in one Lua state. One self-target Awaker, ordinary subtype; explicit role/property/dimension/card-match/tag adapters; card presence and two tags varied. Superclass presentation no-op, owner/send callbacks observed only. No multiple-target connected proof, listeners, complete command or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:UltiEnergySourcePreservation",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Incoming castValue including numeric zero is preserved through gain/storage and no-gain paths; absent castValue is assigned only on positive property mutation",
+      "sources": [
+        {
+          "module": "BattleUnitAwaker",
+          "member": "GainUltiEnergy",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "a6703d8ea024ebb938789e9d3b22b725dad5137842db88729ac6c401c409fbc5",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2527921886044457143_BattleUnitAwaker.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "ChangeProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/ulti-energy-gain.test.mjs"
+      ],
+      "scope": "48 connected original gain/storage cases with absent/zero/fractional/positive source castValue. Other adapters as gain-storage probe; no effect source construction, listener dispatch or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:UltiEnergyEffect",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Energy effect ceilings base/repetitions once, recalculates each application in target-major order and creates fresh source identity/castValue/showText metadata",
+      "sources": [
+        {
+          "module": "BEGainUltiEnergy",
+          "member": "DoEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "eaa49d0dcbeb60d4894c725e97cc35eb37c840c47ffe287f8d77f0d63e3993e2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4995052228846730064_BEGainUltiEnergy.lua"
+        },
+        {
+          "module": "BattleEffectServer",
+          "member": "GetPropertyChangeSource",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\3210192007477895712_BattleEffectServer.lua"
+        },
+        {
+          "module": "BattleConst",
+          "member": "PropertyChangeReason.AttrModify",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7904900691744414154_BattleConst.lua"
+        }
+      ],
+      "tests": [
+        "tests/ulti-energy-effect.test.mjs"
+      ],
+      "scope": "120 original effect/source-method cases with no-op presentation superclass, changing calculation adapter and gain observer. Numeric/null parameters, explicit targets and nonnull source identities. No actual formula/storage callbacks, listener dispatch or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:UltiEnergyGainStorage",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Awaker ultimate-energy gain preserves maximum calculation, floor-based cap check, ceiling, positive-only mutation and second property cap; reported cast value can differ from stored gain",
+      "sources": [
+        {
+          "module": "BattleUnitAwaker",
+          "member": "GainUltiEnergy",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "a6703d8ea024ebb938789e9d3b22b725dad5137842db88729ac6c401c409fbc5",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2527921886044457143_BattleUnitAwaker.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "GetMaxUltiEnergy,ChangeProperty,AddProperty,BeforeAdd,AfterAdd",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/ulti-energy-gain.test.mjs"
+      ],
+      "scope": "252 connected original gain/maximum/property-storage cases with explicit initialized properties and ignoreMax flag. GetProperty adapter, owner/send callback observers. No calculation/effect repetition, other source fields, listener dispatch or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:CardUltiEnergyCalculation",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Ordinary ultimate-energy calculation preserves card flat/percentage bonuses, eligible matching-card outside bonus and multiplicative skill-tag factors including duplicates",
+      "sources": [
+        {
+          "module": "BattleCmdServer",
+          "member": "GetRealUltiEnergy,__GetShowUltiEnergy,__GetFinalUltiEnergy",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        },
+        {
+          "module": "BattleUtilServer",
+          "member": "ShowUltiEnergyFormula",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2744136527417000302_BattleUtilServer.lua"
+        },
+        {
+          "module": "BattleConst",
+          "member": "SkillType2UltiPer",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7904900691744414154_BattleConst.lua"
+        }
+      ],
+      "tests": [
+        "tests/card-ulti-energy-calculation.test.mjs"
+      ],
+      "scope": "144 connected original cases with card presence/type-match and caster eligibility adapters, explicit properties/dimension and all four mapped skill tags. No original CardTypeMatch, build/property/tag derivation, gain storage/events or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:UltiEnergyCalculation",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Ordinary no-card ultimate-energy calculation combines caster flat/multiplicative properties and dimension with epsilon ceiling/minimum, then target percentage/flat and ceiling without minimum",
+      "sources": [
+        {
+          "module": "BattleCmdServer",
+          "member": "GetRealUltiEnergy,__GetShowUltiEnergy,__GetFinalUltiEnergy",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        },
+        {
+          "module": "BattleUtilServer",
+          "member": "ShowUltiEnergyFormula",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2744136527417000302_BattleUtilServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/ulti-energy-calculation.test.mjs"
+      ],
+      "scope": "144 connected original cases; no card, empty skill tags, ordinary subtype, Awaker/Monster caster adapter, explicit properties/dimension and zero argument bonus. No gain application, cap/storage, repeated effects, events or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:FrontEnemyTarget",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "FrontEnemy prioritizes locked then taunt targets, otherwise chooses smallest absolute field position among eligible opposing roles",
+      "sources": [
+        {
+          "module": "BattleCmdParser",
+          "member": "GenerateTargetsExp FrontEnemy",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6247644512047908854_BattleCmdParser.lua"
+        },
+        {
+          "module": "BattleRoleMgrServer",
+          "member": "GetAliveRoleListByCamp,GetPosSortedRoleByCamp",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "0bd1b2e9992feb6c51672cec81fe5282c7ab67c112cb62f38c144dd9ba2ce427",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4865875098926777096_BattleRoleMgrServer.lua"
+        },
+        {
+          "module": "BattleConst",
+          "member": "BattleCamp",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7904900691744414154_BattleConst.lua"
+        }
+      ],
+      "tests": [
+        "tests/front-enemy-target.test.mjs"
+      ],
+      "scope": "48 connected original selector/filter/sort cases across both camps. Supplied lock/taunt lookup and role HP/death/position/property adapters; identity expression wrapper. No automatic lock/taunt derivation, equal-position ordering or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:BasicCommandTargets",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "CmdCaster, PlayerRole, UpperTarget and LastTarget preserve original raw-list selection and lookup order for explicit parser context",
+      "sources": [
+        {
+          "module": "BattleCmdParser",
+          "member": "GenerateTargetsExp and GenerateTargetFunc",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6247644512047908854_BattleCmdParser.lua"
+        },
+        {
+          "module": "BattleCmdTargetsExp",
+          "member": "GetTargetList",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9856a6fd84de8f41aa11d8113e2590f75280b7a228716c604bc440bc8cf31ce8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\8454953066853720944_BattleCmdTargetsExp.lua"
+        }
+      ],
+      "tests": [
+        "tests/basic-command-targets.test.mjs"
+      ],
+      "scope": "72 original selector/GetTargetList cases with role/camp/effect adapters and identity expression constructor. No original InitGetter/filtering, automatic context derivation, front-enemy selection or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:CommandRowOrder",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "GenerateEffectList follows contiguous row indices despite differing BaseSortID values; skip-phase zeros delay unless NotAwakerCardPerform is nonempty",
+      "sources": [
+        {
+          "module": "BattleCmdServer",
+          "member": "GenerateEffectList",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        }
+      ],
+      "tests": [
+        "tools/command_row_order_oracle.py",
+        "tests/import-command-rows.test.mjs"
+      ],
+      "scope": "6 original method cases with delay, loop-check, argument/parser and effect-construction adapters. No actual effect execution, full importer equivalence or gameplay. Authored importer preserves BaseSortID separately for current restricted profile",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:EffectPresentationRng",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "VFX presentation on player targets calls the battle engine rand object once per nonempty Awakener list before recording chosen targets",
+      "sources": [
+        {
+          "module": "BattleEffectServer",
+          "member": "PlayEffectSfx",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\3210192007477895712_BattleEffectServer.lua"
+        }
+      ],
+      "tests": [
+        "tools/effect_vfx_rng_oracle.py"
+      ],
+      "scope": "10 original method probes with player target adapters, explicit Awakener groups, random callback choosing last index and record observer. No PRNG state/algorithm or downstream gameplay; random-stream impact remains unresolved",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:CommandDelays",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Command delays accumulate numeric milliseconds, use supplied absolute cast markers, retroactively clamp prior times and return deltas; pre/nested commands skip cast-time lookup",
+      "sources": [
+        {
+          "module": "BattleCmdServer",
+          "member": "GetEffectDelayTimes",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/command-delays.test.mjs"
+      ],
+      "scope": "96 original method executions with explicit pre/nested flags and cast-time callback results. No original animation lookup, GenerateEffectList skip-phase override, effect generation, scheduling or gameplay. Authored numeric-string support excludes hexadecimal forms",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:StateImmunityCatalog",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "Original specific-immunity mapping resolves four properties and five state IDs; all 6973 exported states retain explicit buff/debuff/untyped classification",
+      "sources": [
+        {
+          "module": "BattleConst",
+          "member": "PropertyImmueState,BuffType",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7904900691744414154_BattleConst.lua"
+        },
+        {
+          "module": "BattleApi",
+          "member": "immue_state_vulnerable,immue_state_weak,immue_state_posion,immue_state_frail",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "22d7e4cdc4746a1c3b543a97a5d68cca4b7b184c92ef9d4d19651da8189db15c",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\-6894225089628909939_BattleApi.lua"
+        },
+        {
+          "module": "State",
+          "member": "IsBuff",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
+        }
+      ],
+      "tests": [
+        "tests/state-immunity-catalog.test.mjs"
+      ],
+      "scope": "Original BC table enumeration plus literal numeric API join and complete exported state classification. Authored resolver requires explicit target properties. No automatic property derivation or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:StateImmunity",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "State immunity distinguishes buff/debuff/untyped states, short-circuits broad immunity and preserves specific-state property-read order",
+      "sources": [
+        {
+          "module": "BEAddStateParent",
+          "member": "CheckImmue",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "00871a473b5c4ced3824c28afb88fc3cfe6cbfca01d23bc2a0d3bac6afa0f8b3",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-8360262448756959271_BEAddStateParent.lua"
+        },
+        {
+          "module": "BattleConst",
+          "member": "BuffType,PropertyImmueState",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7904900691744414154_BattleConst.lua"
+        }
+      ],
+      "tests": [
+        "tests/state-immunity.test.mjs"
+      ],
+      "scope": "144 original CheckImmue cases with supplied state config/properties, synthetic specific mapping and expression adapter, and tip observer. No automatic property derivation, original expression lookup, enclosing AddState or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:StateLimitCatalog",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "Active BC mappings include poison statistics and poison/counterattack total limits; similarly named counterattack non-total API entry is not active in this mapping",
+      "sources": [
+        {
+          "module": "BattleConst",
+          "member": "StateLayerLimit,StateLayerLimitTotal,StateLayerStatics",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7904900691744414154_BattleConst.lua"
+        },
+        {
+          "module": "BattleApi",
+          "member": "be_state_layer_limit_posion,be_state_layer_statics_posion,be_state_layer_limit_posion_max,be_state_layer_limit_retaliate_max,be_state_layer_limit_retaliate",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "22d7e4cdc4746a1c3b543a97a5d68cca4b7b184c92ef9d4d19651da8189db15c",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\-6894225089628909939_BattleApi.lua"
+        },
+        {
+          "module": "State",
+          "member": "76447,76448",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
+        }
+      ],
+      "tests": [
+        "tests/state-limit-catalog.test.mjs"
+      ],
+      "scope": "Original BC table read plus literal config join and authored explicit-property resolver. No statistics-property writer/reset established by exact-reference audit; no dynamic/native completeness claim or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:StateLayerLimits",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Statistics and total state-layer limit methods use positive matching limits, remaining allowance and ceiling; total checks ignore absent/deleted state layers",
+      "sources": [
+        {
+          "module": "BattleUnitBase",
+          "member": "CalcStateLayerLimit,CalcStateLayerLimitTotal",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        }
+      ],
+      "tests": [
+        "tests/state-layer-limits.test.mjs"
+      ],
+      "scope": "432 original method cases with synthetic single-entry BC mapping, state-expression IDs and property/state getters. No original multi-rule ordering, property derivation/statistics updates, connected AddState execution or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:DimensionFinalValue",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Final effect adjustment scales positive values by the resolved Camp1 player dimension percentage and ceils; nonpositive values skip lookup, and missing player preserves original failure",
+      "sources": [
+        {
+          "module": "BattleEffectServer",
+          "member": "CalFinalVal,GetDimensionFixPer",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\3210192007477895712_BattleEffectServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/dimension-final-value.test.mjs"
+      ],
+      "scope": "144 connected original method cases with supplied caster/role/camp/player context and property getter. No automatic context/property derivation, full state pipeline, complete battle or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:StateRemovalMutationBridge",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "State lifecycle removal reverses retained contributions through actual property storage once, preserving deletion and callback ordering",
+      "sources": [
+        {
+          "module": "BattleStateServer",
+          "member": "LifeEnd,RemoveProperty,ChangeOwnerProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6839215435199190924_BattleStateServer.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "ChangeProperty,AddProperty,SubProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/state-removal-mutation-bridge.test.mjs"
+      ],
+      "scope": "432 connected original state property setup then repeated LifeEnd cases. Nonunique non-card/non-player owner, supplied expression/property/ban context, record/log/event/callback observers; event identity stub. No manager cleanup, listener dispatch, automatic expiry or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:LiveStateLookup",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "State-layer expression lookup returns the first matching live state layer, or zero for absent target/state; deleted entries are ignored",
+      "sources": [
+        {
+          "module": "BattleCmdTargetsExp",
+          "member": "GetStateLayer",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9856a6fd84de8f41aa11d8113e2590f75280b7a228716c604bc440bc8cf31ce8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\8454953066853720944_BattleCmdTargetsExp.lua"
+        },
+        {
+          "module": "BattleStateMgrServer",
+          "member": "GetState",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "dc7653a427f1fe0bfd21b7495980cc173f4cb298e7dd7086a224ee40640c11a4",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-1150872242716671007_BattleStateMgrServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/live-state-lookup.test.mjs"
+      ],
+      "scope": "24 connected original expression/manager cases with supplied first target and Lua registry tables. No original parser target binding, lifecycle execution, full sequence or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:StateConstructor",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Numeric state construction caps stored layer without rewriting initial changedLayer/caster attribution, preserves supplied recovery data, and orders parser/trigger/property phases",
+      "sources": [
+        {
+          "module": "BattleStateServer",
+          "member": "ctor,InitStateParams,AfterInit",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6839215435199190924_BattleStateServer.lua"
+        },
+        {
+          "module": "BattleStateData",
+          "member": "Create",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "3d24986198cdab349ed790e58756292c086f7e3d8ffc76f5d61e9fdc15c21e26",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\5434623280894533174_BattleStateData.lua"
+        }
+      ],
+      "tests": [
+        "tests/state-constructor.test.mjs"
+      ],
+      "scope": "96 original constructor/data/parameter/AfterInit cases. Supplied UID/parser/max; superclass no-op; trigger/log/property observers; identity deepclone adapter. No copying proof, string/list parameters, actual parser/triggers/properties, manager integration or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:StateManagerCreation",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "State manager preserves death/layer eligibility, live-state merge lookup, registry insertion and initialization/record/on-add ordering",
+      "sources": [
+        {
+          "module": "BattleStateMgrServer",
+          "member": "CreateState,__CreateState,GetState",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "dc7653a427f1fe0bfd21b7495980cc173f4cb298e7dd7086a224ee40640c11a4",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-1150872242716671007_BattleStateMgrServer.lua"
+        },
+        {
+          "module": "BattleConst",
+          "member": "RoleType,StateType,StateDeathHandling",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7904900691744414154_BattleConst.lua"
+        }
+      ],
+      "tests": [
+        "tests/state-manager-creation.test.mjs"
+      ],
+      "scope": "864 connected original manager cases with real registry lookup/append. Supplied role/death/unique flags; constructor adapter and merge/init/serialize/record/event/stats observers; event identity stub. No actual state constructor, callback execution or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:AddStateLayer",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Existing-state merge updates caster/cached trigger attribution before cap checks and credits actual stack gains, preserving callback order",
+      "sources": [
+        {
+          "module": "BattleStateServer",
+          "member": "AddLayer",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6839215435199190924_BattleStateServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/add-state-layer.test.mjs"
+      ],
+      "scope": "144 original method cases with real layer/caster/source table mutation. Supplied maximum and resolved trigger caster; property/argument/record/log/LifeEnd observers. Negative direct probes do not establish CreateState reachability. No manager eligibility, construction, callback execution or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:CombatPropertyMutation",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Explicit non-resource combat properties preserve numeric storage, asymmetric crit-add amplification, zero-request behavior and callback payloads",
+      "sources": [
+        {
+          "module": "BattlePropertyServer",
+          "member": "ChangeProperty,AddProperty,SubProperty,BeforeAdd,BeforeSub,AfterAdd,AfterSub",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        },
+        {
+          "module": "BattleConst",
+          "member": "PropertyOfCritAdd,PropertyOfCritDamageAdd",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7904900691744414154_BattleConst.lua"
+        }
+      ],
+      "tests": [
+        "tests/combat-property-mutation.test.mjs"
+      ],
+      "scope": "1350 original cases across 15 allowed properties. Existing numeric storage and supplied crit amplification; callback observers. No resource/mastery/HP mutation, listener dispatch or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:StatePropertyMutationBridge",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "State contribution initialization and updates reach original numeric property storage through recipient routing, retaining separate contribution bookkeeping",
+      "sources": [
+        {
+          "module": "BattleStateServer",
+          "member": "InitProperty,UpdatePropertyWhenLayerChanges,CalcSpecialValue,ChangeOwnerProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6839215435199190924_BattleStateServer.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "ChangeProperty,AddProperty,SubProperty,BeforeAdd,BeforeSub,AfterAdd,AfterSub",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/state-property-mutation-bridge.test.mjs"
+      ],
+      "scope": "432 connected original cases for basic_damage_per/vulnerable_per. One non-card/non-player owner, existing non-Awakener caster, supplied expressions/flags/getters, initial property 10; callback observers. No full state construction, expression execution, listener dispatch, damage or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:StatePropertyContributions",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "State property initialization rounds base plus special bonus; layer updates use rounded expressions or unrounded increases in retained special maxima, preserving stored contributions under skip/ban",
+      "sources": [
+        {
+          "module": "BattleStateServer",
+          "member": "InitProperty,UpdatePropertyWhenLayerChanges,CalcSpecialValue,ChangeOwnerProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6839215435199190924_BattleStateServer.lua"
+        },
+        {
+          "module": "BattleConst",
+          "member": "StateSpecialProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7904900691744414154_BattleConst.lua"
+        },
+        {
+          "module": "BattleApi",
+          "member": "basic_damage_per,vulnerable_per",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "22d7e4cdc4746a1c3b543a97a5d68cca4b7b184c92ef9d4d19651da8189db15c",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\-6894225089628909939_BattleApi.lua"
+        }
+      ],
+      "tests": [
+        "tests/state-property-contribution.test.mjs"
+      ],
+      "scope": "432 connected original cases, one non-card/non-player owner and existing non-Awakener caster. Supplied expression results/property values/ban flags; mutations observed. No PvE player-special branch, property-server mutation, state construction or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:StateLayerPipeline",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Connected state-layer percentage stages preserve trigger/skip/direct eligibility, property-read order and final ceiling",
+      "sources": [
+        {
+          "module": "BEAddStateParent",
+          "member": "__CalcStateLayer,__CalcDirectCmdStateLayer,ApplyCasterStateLayerPer,ApplyTargetStateLayerPer,ApplyUltiStateLayerPer,ApplyCmdCardStateLayerPer,ApplyCardStateLayerPer,ApplyUltiFixedStateLayerPer,ApplyCmdCardFixedStateLayerPer,ApplyCardFixedStateLayerPer,FixStateLayerByStateId",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "00871a473b5c4ced3824c28afb88fc3cfe6cbfca01d23bc2a0d3bac6afa0f8b3",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-8360262448756959271_BEAddStateParent.lua"
+        }
+      ],
+      "tests": [
+        "tests/state-layer-pipeline.test.mjs"
+      ],
+      "scope": "392 connected original pipeline cases. Synthetic ordered property families/state mappings and supplied property/card/role/type context; CalFinalVal adapter. No trigger-state-owned card selection, actual property derivation, state creation or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:AddStateRequest",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "State-add requests preserve initial ceiling, immunity ordering and sequential limit overwrite behavior before creation",
+      "sources": [
+        {
+          "module": "BEAddState",
+          "member": "DoEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "1465ac7c4f7b101ded98c429e9bb089ebabaad7c48a4b6f4c4519419e6eec133",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4458723640044465522_BEAddState.lua"
+        },
+        {
+          "module": "BEAddStateParent",
+          "member": "AddState",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "00871a473b5c4ced3824c28afb88fc3cfe6cbfca01d23bc2a0d3bac6afa0f8b3",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-8360262448756959271_BEAddStateParent.lua"
+        }
+      ],
+      "tests": [
+        "tests/add-state-request.test.mjs"
+      ],
+      "scope": "150 connected original method cases for one non-card target. Supplied immunity, calculated layers and limit results; CreateState observer. No actual state creation, properties, events or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:CardStateMultipliers",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Ordinary and fixed card state multipliers add eligible linked character percentages within each multiplier, preserve duplicate matches and do not round internally",
+      "sources": [
+        {
+          "module": "BEAddStateParent",
+          "member": "ApplyCardStateLayerPer,ApplyCardFixedStateLayerPer",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "00871a473b5c4ced3824c28afb88fc3cfe6cbfca01d23bc2a0d3bac6afa0f8b3",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-8360262448756959271_BEAddStateParent.lua"
+        }
+      ],
+      "tests": [
+        "tests/card-state-multiplier.test.mjs"
+      ],
+      "scope": "128 original method cases with synthetic property families/state mappings and explicit card, caster, type and property adapters. No original card selection, enclosing layer pipeline, state creation or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:ConnectedSkillArguments",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Connected original numeric argument construction preserves growth-member order, parameter evaluation, ceiling and explicit overrides",
+      "sources": [
+        {
+          "module": "BattleCmdServer",
+          "member": "GetSkillArgs,__CalcBaseSkillArgs",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        },
+        {
+          "module": "FuncTable",
+          "member": "BattleFomula1/2 and BattleAtkForce*GrowArgValue1,GrowArgValue2 closures",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\9079617640149979602_FuncTable.lua"
+        },
+        {
+          "module": "BattleApi",
+          "member": "BattleFomula1,BattleFomula2",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "22d7e4cdc4746a1c3b543a97a5d68cca4b7b184c92ef9d4d19651da8189db15c",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\-6894225089628909939_BattleApi.lua"
+        }
+      ],
+      "tests": [
+        "tests/skill-growth.test.mjs"
+      ],
+      "scope": "108 connected original cases in one Lua state. Selected lists/Para, member storage and expression environment/lookup adapted; descriptions absent. No original parser, skill routing, attack/level derivation, complete card execution or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:SkillGrowthExpressions",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "All exported BattleFomula growth expressions match original compiled arithmetic for explicit skill levels and coefficients",
+      "sources": [
+        {
+          "module": "BattleApi",
+          "member": "106 BattleFomula Data expressions",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "22d7e4cdc4746a1c3b543a97a5d68cca4b7b184c92ef9d4d19651da8189db15c",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\-6894225089628909939_BattleApi.lua"
+        },
+        {
+          "module": "FuncTable",
+          "member": "compiled BattleFomula expressions",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\9079617640149979602_FuncTable.lua"
+        }
+      ],
+      "tests": [
+        "tests/skill-growth.test.mjs"
+      ],
+      "scope": "1272 original closure cases. Explicit SkillLevel and GrowArgValue; no original parser/member lookup, skill-level derivation or gameplay. Authored argument-assembly composition tested separately",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:SkillCoefficientLists",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Homogeneous coefficient lists pass through or select a progression-keyed list, preserving missing combined variants",
+      "sources": [
+        {
+          "module": "BattleUtilServer",
+          "member": "GetTQList,GetMatchTQ",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2744136527417000302_BattleUtilServer.lua"
+        },
+        {
+          "module": "BattleConst",
+          "member": "BREAKTHROUGH_AND_POTENCY_CONST",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7904900691744414154_BattleConst.lua"
+        },
+        {
+          "module": "Skill",
+          "member": "CoefficientTypelist and OriginalCoefficient for 3997,4163,4638,57342",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\2015861756545847808_Skill.lua"
+        }
+      ],
+      "tests": [
+        "tests/skill-list.test.mjs"
+      ],
+      "scope": "44 original list-selection cases; table.next alias and identity table.clone adapter. No proof of original copy semantics, mixed-table behavior, enclosing list-field routing, growth formulas, card execution or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:ScalarSkillFieldRouting",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Scalar skill lookup prioritizes temporary conditional fields, routes selected PvP fields through conditional selection, and otherwise applies role-dependent progression selection",
+      "sources": [
+        {
+          "module": "BattleCmdServer",
+          "member": "GetSkillConfigTQText",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        },
+        {
+          "module": "BattleUtilServer",
+          "member": "GetTQText,GetMatchTQ,GetTrueConditionByCmd",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2744136527417000302_BattleUtilServer.lua"
+        },
+        {
+          "module": "BattleConst",
+          "member": "SkillCondListField",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7904900691744414154_BattleConst.lua"
+        }
+      ],
+      "tests": [
+        "tests/skill-field.test.mjs"
+      ],
+      "scope": "64 connected original method cases with supplied skill tables, role/progression getters and condition results. No real data preprocessing, list fields, character mapping, full card execution or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:ConditionalSkillVariant",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Dense scalar conditional lists select the last matching entry; boolean/literal true and positive numeric results match with observed reverse evaluation order",
+      "sources": [
+        {
+          "module": "BattleUtilServer",
+          "member": "GetTrueConditionByCmd,GetTrueConditionIndexByCmd,IsCondMatch",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2744136527417000302_BattleUtilServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/conditional-variant.test.mjs"
+      ],
+      "scope": "39 original method-chain cases with supplied boolean/numeric/nil expression results and numeric selected values. No original expression environment, actual skill-field routing, sparse/nested lists or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:SkillProgressionVariant",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Scalar progression selection independently maximizes eligible breakthrough and potency thresholds, preserving missing combined keys",
+      "sources": [
+        {
+          "module": "BattleUtilServer",
+          "member": "GetMatchTQ,GetTQText",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2744136527417000302_BattleUtilServer.lua"
+        },
+        {
+          "module": "BattleConst",
+          "member": "BREAKTHROUGH_AND_POTENCY_CONST",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7904900691744414154_BattleConst.lua"
+        },
+        {
+          "module": "Skill",
+          "member": "24 scalar numeric CmdList maps",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\2015861756545847808_Skill.lua"
+        }
+      ],
+      "tests": [
+        "tests/skill-variant.test.mjs"
+      ],
+      "scope": "300 original method cases over 24 exported numeric maps plus a sparse synthetic map. Explicit progression inputs; no conditional/PvP/list routing, user-facing progression mapping, complete skill execution or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:CommandConditions",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Selected command condition booleans and short-circuit state-query order match original compiled functions",
+      "sources": [
+        {
+          "module": "FuncTable",
+          "member": "Conditions referenced by Cmd 80572,81060,117337",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\9079617640149979602_FuncTable.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "80572,81060,117337 Cond fields",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "CheckCondition strict-true gate (source inspection)",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/command-conditions.test.mjs"
+      ],
+      "scope": "84 original compiled-expression cases over seven conditions, supplied state getters. No original parser, CheckCondition execution, state storage, row scheduler or gameplay. General grammar and strict gate have separate authored/source checks",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:StateQueryCommandExpression",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Selected skill damage parameter expression preserves numeric state-query order and arithmetic",
+      "sources": [
+        {
+          "module": "FuncTable",
+          "member": "BattleAtkForce*GrowArgValue1*(1+CmdCaster.GetStateLayer(45713)/100)*(1+CmdCaster.GetStateLayer(119813)/100),3",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\9079617640149979602_FuncTable.lua"
+        }
+      ],
+      "tests": [
+        "tests/command-expressions.test.mjs"
+      ],
+      "scope": "16 original compiled-expression cases with supplied numeric state getter. No original parser, state lookup, skill selection, complete command or gameplay. Authored scheduler integration checked separately",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:NumericCommandExpressions",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Selected numeric command expression lists and property arithmetic match original compiled functions under explicit environments",
+      "sources": [
+        {
+          "module": "FuncTable",
+          "member": "Arg1; Arg1,Arg2; Arg1,1,0,ParaPlus1; UpperTarget.physique*4*1.5; CmdCaster.max_hp; BattleAtkForce*GrowArgValue1",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\9079617640149979602_FuncTable.lua"
+        }
+      ],
+      "tests": [
+        "tests/command-expressions.test.mjs"
+      ],
+      "scope": "24 original compiled-function cases across six expressions. Numeric environments supplied; no original parser lookup, conditions, calls, card execution or gameplay. Authored live-argument scheduler composition tested separately",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:ActiveDamageInitializationAndBinding",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Ordinary active damage initializes rounded repeat count from additive and percentage modifiers, retains initial parameter bonus, and refreshes numeric base before each living-target hit",
+      "sources": [
+        {
+          "module": "BEActiveDamage",
+          "member": "DoEffect,GetDamageSubTypeValue,Damage2SingleTarget",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "6d87f4da91293c019579f5d586a093763d3fb1051d6efed8652cdbc3b114e208",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3933469113754588179_BEActiveDamage.lua"
+        }
+      ],
+      "tests": [
+        "tests/active-damage-command.test.mjs"
+      ],
+      "scope": "113 original initialization cases and 8 separate repeated-target cases; no-op superclass, supplied properties/params, subtype identity, identity GetRealDmg and observational BeHit. Scheduled authored composition tested separately, not connected original execution, full formula, HP or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:CommandArgumentLookup",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Numeric ArgN lookup preserves supplied zero and fractions, evaluates fallback on each absent lookup, and defaults absent fallback entries to zero",
+      "sources": [
+        {
+          "module": "BattleCmdParser",
+          "member": "GetGlobalValue Arg branch",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6247644512047908854_BattleCmdParser.lua"
+        }
+      ],
+      "tests": [
+        "tests/command-arguments.test.mjs"
+      ],
+      "scope": "20 original parser cases, 80 lookups; supplied numeric arrays with absent entries and observable fallback adapter, string.replace adapter. Positive integer indices only; no expression execution, command effect binding or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:ConnectedCardPayment",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Before-use payment branch feeds original player payment and energy property mutation, preserving requested cost versus actual energy loss",
+      "sources": [
+        {
+          "module": "BEBeforeUseCard",
+          "member": "__CostEnergy",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b660610845cc1181bab671a07d5df91814b2b39419aed2d4ba826bee2be8699c",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7020487249631624131_BEBeforeUseCard.lua"
+        },
+        {
+          "module": "BattleUnitPlayer",
+          "member": "EnergyEnough,ConsumeEnergy",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "ca4e9847ac558a6c8e81a80461869ce2a6c72b0e8e75caf63b9c4dc9afb1b52e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\8953225705542082565_BattleUnitPlayer.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "SubProperty,BeforeSub,AfterSub",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        },
+        {
+          "module": "BattleCardServer",
+          "member": "GetVariableCostMode,ResolveVariableConsumeCost",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7042619747436697877_BattleCardServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/connected-card-payment.test.mjs"
+      ],
+      "scope": "192 connected original cases in one Lua state; supplied use cost/command flags, one-field clone and role/property adapters, callback observers. No full DoEffect, cost derivation, play checks, listeners or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:PvePlayDispatchGate",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Ordinary PvE play dispatch is gated by waiting effects, running root effects and battle finish, with fifth-wait robot intervention",
+      "sources": [
+        {
+          "module": "BattleEngine",
+          "member": "OnReceiveCommand,lg_UseCard",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "0ee07c8fd06f29787f8139306b55d16c726eaf8cabcd1ad0b128d907c8dbbeea",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7402197778903831940_BattleEngine.lua"
+        },
+        {
+          "module": "BattleCommand",
+          "member": "IgnoreWaitingCommands,ResumeCommands,lg_UseCard",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "7b5748cdbb422a88051e49568e35266fedea4ec75ae4ee127216fc3a9c3e2480",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6566275209587717652_BattleCommand.lua"
+        }
+      ],
+      "tests": [
+        "tests/command-gate.test.mjs"
+      ],
+      "scope": "24 original cases with supplied effect/finish state, Camp2 to bypass play-count limit, missing-card dispatch stop, observational robot/timeout hooks. No valid card execution, turn advance or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:PveCardPlayCheck",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Non-keeper PvE CanUseCard applies hand/state/prohibition/energy checks and resets ignore allowance when ordinary cost is affordable; X skips that energy gate",
+      "sources": [
+        {
+          "module": "BattleUnitBase",
+          "member": "CanUseCard",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BattleConst",
+          "member": "CardFailedReason",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7904900691744414154_BattleConst.lua"
+        }
+      ],
+      "tests": [
+        "tests/card-play-check.test.mjs"
+      ],
+      "scope": "90 original cases with supplied card/property/EnergyEnough results. Excludes turn gate, keeper branch, PvP targets, forced plays, payment and gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:EnergyPayment",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "ConsumeEnergy clamps actual energy loss through property subtraction while reporting the requested cost, with -1 resolved to available energy",
+      "sources": [
+        {
+          "module": "BattleUnitPlayer",
+          "member": "ConsumeEnergy",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "ca4e9847ac558a6c8e81a80461869ce2a6c72b0e8e75caf63b9c4dc9afb1b52e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\8953225705542082565_BattleUnitPlayer.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "SubProperty,BeforeSub,AfterSub,RefreshMaxLimit",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/energy-payment.test.mjs"
+      ],
+      "scope": "30 connected original cases with energy 0..99; one-field clone and GetProperty adapters, observational callbacks. No event listeners, before-use branch integration, legality or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:CardPaymentBranches",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Attached actions bypass payment; forced X cards resolve variable payment before IgnoreCost; partial and allow-ignore branches select explicit requests",
+      "sources": [
+        {
+          "module": "BEBeforeUseCard",
+          "member": "__CostEnergy",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b660610845cc1181bab671a07d5df91814b2b39419aed2d4ba826bee2be8699c",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7020487249631624131_BEBeforeUseCard.lua"
+        },
+        {
+          "module": "BattleCardServer",
+          "member": "IsXCost,GetVariableCostMode,ResolveVariableConsumeCost",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7042619747436697877_BattleCardServer.lua"
+        },
+        {
+          "module": "BattleUtilServer",
+          "member": "ParseVariableCost",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2744136527417000302_BattleUtilServer.lua"
+        },
+        {
+          "module": "BattleConst",
+          "member": "ForceConsumeMode",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7904900691744414154_BattleConst.lua"
+        }
+      ],
+      "tests": [
+        "tests/card-payment-plan.test.mjs"
+      ],
+      "scope": "144 original branch cases with supplied EnergyEnough and a ConsumeEnergy spy returning requested amount. No actual resource mutation, events, play eligibility or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:CardCostResolution",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Card base/use cost honors keeper, fixed-switch and variable-cost precedence; X and Xn consumption resolve from supplied energy",
+      "sources": [
+        {
+          "module": "BattleCardServer",
+          "member": "GetBaseCost,GetUseCost,GetFixedCost,GetVariableCostMode,ResolveVariableConsumeCost",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7042619747436697877_BattleCardServer.lua"
+        },
+        {
+          "module": "BattleConst",
+          "member": "GetActiveCardFixedCost",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7904900691744414154_BattleConst.lua"
+        },
+        {
+          "module": "BattleUtilServer",
+          "member": "ParseVariableCost",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2744136527417000302_BattleUtilServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/card-cost.test.mjs"
+      ],
+      "scope": "108 original method-chain cases with supplied config cost, origin, modifiers, keeper and PvP decisions. No modifier derivation, payment, play legality or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:PvePropertyInputBoundary",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "PvE spawn routes copyProperties to player and attrs to characters; non-primary fallback fills absent fields while preserving supplied zero and fractional values",
+      "sources": [
+        {
+          "module": "PVEGameplay",
+          "member": "SpawnCampRoles,LoadAwakerConfigProperties,CalcInitProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5da43c24bf5d09b7ad360e74842d033af7d844f982126d0e6730dfc6188b5b09",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\1915675209980446780_PVEGameplay.lua"
+        }
+      ],
+      "tests": [
+        "tools/pve_property_input_oracle.py"
+      ],
+      "scope": "6 original method-chain assertions with synthetic config and spawn observers at levels 70/90. Primary/HP values supplied; no actual role construction, later hooks, server assembly or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:PropertyInitialization",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Numeric property construction ceilings supplied values without deriving missing final mastery or recomputing an explicitly supplied final mastery",
+      "sources": [
+        {
+          "module": "BattlePropertyServer",
+          "member": "ctor",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/property-initialization.test.mjs"
+      ],
+      "scope": "24 original constructor cases; no-op base constructor and supplied owner/data/engine tables. Numeric map only; role initialization, post-construction hooks and gameplay excluded",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:OldEmbersArgumentBridge",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Matching original Passive/Fixed hit trigger payload feeds the state half-damage expression and original Arg1 fallback without rounding half-integers upward",
+      "sources": [
+        {
+          "module": "BEPassiveDamage",
+          "member": "__DoMultiEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f4ba266131c50ae01bea054e4fefd0cf89f7af2d31acba86123355b65cf2c784",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-5405454180892933935_BEPassiveDamage.lua"
+        },
+        {
+          "module": "BEFixedDamage",
+          "member": "__DoMultiEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f2b15141a02bd1c251364d969159b0556a280522604b7d02400c2cf12b75c280",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\6276950535989090767_BEFixedDamage.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "BeHit",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BSTAfterPassiveDamage",
+          "member": "OnBeDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "519147ce5f5afd330d6569862ff314ede58a41a4b64833bdef027282eccf4ad9",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6857770939533574707_BSTAfterPassiveDamage.lua"
+        },
+        {
+          "module": "BSTAfterFixedDamage",
+          "member": "OnBeDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "2e13d8ca6092853a4b60d0ee6e152c881cca1dbadf408e51ee20b748f6a7241f",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-9063320896984891584_BSTAfterFixedDamage.lua"
+        },
+        {
+          "module": "BattleCmdParser",
+          "member": "GetGlobalValue",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6247644512047908854_BattleCmdParser.lua"
+        },
+        {
+          "module": "FuncTable",
+          "member": "TriggerValue*0.5",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\9079617640149979602_FuncTable.lua"
+        },
+        {
+          "module": "State",
+          "member": "80575.TriggerPara2",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
+        }
+      ],
+      "tests": [
+        "tests/old-embers-argument-bridge.test.mjs"
+      ],
+      "scope": "32 original hit/handler/expression/Arg1 cases with retained Lua payloads. Direct calls, supplied eligibility, empty skillArgs, GetValueListByCmd and string.replace adapters. No automatic event dispatch, state callback, row execution or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:StatePropertyRemoval",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "RemoveProperty reverses stored signed contributions through ban-aware owner/team routing without clearing stored values",
+      "sources": [
+        {
+          "module": "BattleStateServer",
+          "member": "RemoveProperty,ChangeOwnerProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6839215435199190924_BattleStateServer.lua"
+        },
+        {
+          "module": "BattleApi",
+          "member": "AWAKER_ATTR property classification",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "22d7e4cdc4746a1c3b543a97a5d68cca4b7b184c92ef9d4d19651da8189db15c",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\-6894225089628909939_BattleApi.lua"
+        },
+        {
+          "module": "BattleConst",
+          "member": "ApiType",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7904900691744414154_BattleConst.lua"
+        }
+      ],
+      "tests": [
+        "tests/state-property-removal.test.mjs"
+      ],
+      "scope": "96 original connected removal/routing cases with non-card owner and one contribution. Recipient mutations observed; actual property updates, card cost recording, multi-property iteration and gameplay excluded",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:StateLifeEnd",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "LifeEnd marks deletion before property/record/event calls and suppresses repeated completion",
+      "sources": [
+        {
+          "module": "BattleStateServer",
+          "member": "LifeEnd",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6839215435199190924_BattleStateServer.lua"
+        },
+        {
+          "module": "BattleLogicEvent",
+          "member": "StateLifeEnd",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "cef7477d60a84d8ac4f4b097436a39628d37ff5c54bd8f44d08828d75ad80c4a",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-1123830645501780752_BattleLogicEvent.lua"
+        }
+      ],
+      "tests": [
+        "tests/state-life-end.test.mjs"
+      ],
+      "scope": "8 original cases with unique-state decision and side-effect observers; separate code-derived reentrancy test. Property removal, registry mutation, event dispatch and gameplay remain unverified",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:SubStateLayer",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Stack-subtraction effect rounds abs(amount) upward and state SubLayer clamps to zero then requests lifecycle completion after property/record callbacks",
+      "sources": [
+        {
+          "module": "BESubStateLayer",
+          "member": "DoEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b2763469ed0278b671bf02f6353bd7249a814299b41b4b63d40149655fcc581d",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4218923432050173021_BESubStateLayer.lua"
+        },
+        {
+          "module": "BattleStateServer",
+          "member": "SubLayer",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6839215435199190924_BattleStateServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/sub-state-layer.test.mjs"
+      ],
+      "scope": "36 connected effect/state cases with absent caster attribution; base effect, state lookup, property changes, record and LifeEnd use adapters. Actual removal/events and gameplay excluded",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:OldEmbersExpressions",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Old Embers row conditions and parameter expressions observe live layer values across branch markers, depletion and blockers",
+      "sources": [
+        {
+          "module": "FuncTable",
+          "member": "Cmd80572/81060 conditions and parameters",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\9079617640149979602_FuncTable.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "80572,81060",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        }
+      ],
+      "tests": [
+        "tests/old-embers-expressions.test.mjs"
+      ],
+      "scope": "64 original expression sequences with Python row iteration and marker/stack mutation adapters; HP effects recorded only. No original parser, scheduler, state-effect execution or gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:HitTriggerBridge",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Original hit payload carries incoming damage into matching None-mode handlers despite shield or damage immunity, while category filters reject Pure",
+      "sources": [
+        {
+          "module": "BEPassiveDamage",
+          "member": "__DoMultiEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f4ba266131c50ae01bea054e4fefd0cf89f7af2d31acba86123355b65cf2c784",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-5405454180892933935_BEPassiveDamage.lua"
+        },
+        {
+          "module": "BEFixedDamage",
+          "member": "__DoMultiEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f2b15141a02bd1c251364d969159b0556a280522604b7d02400c2cf12b75c280",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\6276950535989090767_BEFixedDamage.lua"
+        },
+        {
+          "module": "BEPureDamage",
+          "member": "__DoMultiEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "1a8c11026251e91c3d5f9838f8c69dffabf91ba6889ab27dc4893fd8a93771bc",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-8781082574782529232_BEPureDamage.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "BeHit",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "HP mutation",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        },
+        {
+          "module": "BSTAfterBeActiveDamage",
+          "member": "OnBeDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "319488a45104726febcdf9bc66c1cdf04ced2064ce533cedfece43dacb96eea9",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-2981779977152243601_BSTAfterBeActiveDamage.lua"
+        },
+        {
+          "module": "BSTAfterPassiveDamage",
+          "member": "OnBeDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "519147ce5f5afd330d6569862ff314ede58a41a4b64833bdef027282eccf4ad9",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6857770939533574707_BSTAfterPassiveDamage.lua"
+        },
+        {
+          "module": "BSTAfterFixedDamage",
+          "member": "OnBeDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "2e13d8ca6092853a4b60d0ee6e152c881cca1dbadf408e51ee20b748f6a7241f",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-9063320896984891584_BSTAfterFixedDamage.lua"
+        }
+      ],
+      "tests": [
+        "tests/hit-trigger-bridge.test.mjs"
+      ],
+      "scope": "54 original hit-to-handler cases using the unchanged Lua payload table. Direct calls, supplied eligibility and role lookup; no registration, dispatch, state callback, command rows or gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:HitTriggerValues",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Numeric BeHit payload preserves incoming castDamage separately from actual HP loss and exposes original shield, overflow and prevention fields",
+      "sources": [
+        {
+          "module": "BattleUnitBase",
+          "member": "BeHit loseHpConfig construction",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BattleUnitUtil",
+          "member": "resolved hit helpers",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b664734d7f12a5009b36727d2c3dfde75295b6e2be03edb37c3cf98ee74a1d04",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-2996011540817531336_BattleUnitUtil.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "ordinary HP mutation",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/hit-trigger-values.test.mjs"
+      ],
+      "scope": "Comparison with existing original BeHit fixtures plus authored timeline exposure. Actor/command identities, reason, dispatch and downstream trigger execution are not reconstructed",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:ResolvedHitTimeline",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Restricted sequential Passive, Fixed and Pure hits preserve HP and shield transitions on a shared target",
+      "sources": [
+        {
+          "module": "BEPassiveDamage",
+          "member": "__DoMultiEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f4ba266131c50ae01bea054e4fefd0cf89f7af2d31acba86123355b65cf2c784",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-5405454180892933935_BEPassiveDamage.lua"
+        },
+        {
+          "module": "BEFixedDamage",
+          "member": "__DoMultiEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f2b15141a02bd1c251364d969159b0556a280522604b7d02400c2cf12b75c280",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\6276950535989090767_BEFixedDamage.lua"
+        },
+        {
+          "module": "BEPureDamage",
+          "member": "__DoMultiEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "1a8c11026251e91c3d5f9838f8c69dffabf91ba6889ab27dc4893fd8a93771bc",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-8781082574782529232_BEPureDamage.lua"
+        },
+        {
+          "module": "BattleEffectServer",
+          "member": "CalFinalVal,GetDamageSubType",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\3210192007477895712_BattleEffectServer.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "BeHit",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BattleUnitUtil",
+          "member": "hit helpers",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b664734d7f12a5009b36727d2c3dfde75295b6e2be03edb37c3cf98ee74a1d04",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-2996011540817531336_BattleUnitUtil.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "HP/shield mutations",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/resolved-hit-timeline.test.mjs"
+      ],
+      "scope": "24 original retained-Lua-state timelines with explicit effect calls and no-op damage events, statistics and animation. Harness stops at zero HP. No action legality, scheduler, intervening effects, death handling or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:MasteryPropertyMutation",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Stored mastery changes recompute ceil-adjusted final mastery and notify derived-property changes before source-property changes",
+      "sources": [
+        {
+          "module": "BattlePropertyServer",
+          "member": "ChangeProperty,AddProperty,SubProperty,AfterAdd,AfterSub,SetProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/mastery-property.test.mjs"
+      ],
+      "scope": "130 original mutations with explicit nonnegative properties. Observational callbacks and non-player owner; excludes constructor, keeper-skill refresh, team assembly and gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:AttributeDisplayModifiers",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Primary display percentage helpers use plain ceil; absent increase bypasses rounding and physique break factor while zero remains present",
+      "sources": [
+        {
+          "module": "AttrUtils",
+          "member": "GetAwakerFinalAttr,GetAwakerPhysique",
+          "bundle": "pc\\downloaded\\gamescript.ab",
+          "sha256": "b00369326c56e98ec47aed7bd437b6aabc2e96e42e1bf12659076acb656f1f86",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\gamescript\\-1387708608666140836_AttrUtils.lua"
+        },
+        {
+          "module": "AwakerAttrModel",
+          "member": "baseAttrs display call site only",
+          "bundle": "pc\\downloaded\\gamescript.ab",
+          "sha256": "b99397f86f6b6ceb1094011ca5772a8ca8e189165e1fa715028cf02d02018ab8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\gamescript\\-772056257850526642_AwakerAttrModel.lua"
+        }
+      ],
+      "tests": [
+        "tests/attribute-modifiers.test.mjs"
+      ],
+      "scope": "135 original helper cases with supplied base, fractional increase and physique break factor. No modifier origin, Soulforge activation, final battle assembly or gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:PotencyAttributeAccumulation",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Additional potency attribute preview accumulates ordered contributions from the first Attr_Promote node through an eligible selected endpoint",
+      "sources": [
+        {
+          "module": "AwakerDataUtils",
+          "member": "InitAwakerPotencyMap,GetAwakerPotencyList,GetPotencyAddAttrs",
+          "bundle": "pc\\downloaded\\gamescript.ab",
+          "sha256": "00ea89a618099cd29952033fc5c59c452ec86e2799f3f45752cd5b48da31a4a0",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\gamescript\\8160461218729261677_AwakerDataUtils.lua"
+        },
+        {
+          "module": "AwakerPotency",
+          "member": "ordered progression entries",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "734f67b8118fb546a9d65d316687d8b570ba0b3705eeb441ffe20c1d906c9126",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\2185033942400882886_AwakerPotency.lua"
+        },
+        {
+          "module": "ActorAttrType",
+          "member": "attribute names",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "45ef44ee7d59e7a7f0a978602ff7967b8c1582c598abcd20b0eb24f04ab0a996",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\-1347477437086681121_ActorAttrType.lua"
+        }
+      ],
+      "tests": [
+        "tests/potency-stats.test.mjs"
+      ],
+      "scope": "960 original cases across 60 characters, with explicit enum labels, table.next alias, localization identity and unused owned-character lookup adapter. Not level growth, account acquisition, final stats or gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:PrimaryStatLookup",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Character primary stats resolve through quality-offset upgrade lookup and attribute talent rank before original formula execution",
+      "sources": [
+        {
+          "module": "AwakerDataUtils",
+          "member": "GetAwakerBaseAttrValue,GetUpgradeConfig,PreMakeUpgradeConfig,GetTalentAttrLv",
+          "bundle": "pc\\downloaded\\gamescript.ab",
+          "sha256": "00ea89a618099cd29952033fc5c59c452ec86e2799f3f45752cd5b48da31a4a0",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\gamescript\\8160461218729261677_AwakerDataUtils.lua"
+        },
+        {
+          "module": "FuncTable",
+          "member": "AwakerUpgrade expressions",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\9079617640149979602_FuncTable.lua"
+        },
+        {
+          "module": "AwakerConfig",
+          "member": "60 uniquely matched characters",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "167ebd584b4b6620b40e53a6918a4c97a715abb19f5d72f4a58feb7d689373a5",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\4520843779213429262_AwakerConfig.lua"
+        },
+        {
+          "module": "AwakerUpgrade",
+          "member": "level-indexed growth formulas",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "67a680485c0032031bdf4ebee481cf8dc614e13c14b9844d44ef7a32edc9a661",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\6965753349738001507_AwakerUpgrade.lua"
+        },
+        {
+          "module": "AwakerTalent",
+          "member": "attribute talent ranks",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "3478b2c9c377ca8832a474c5c712e936068818baa79d0a78bd0859ed150e6e0c",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\-2175630233196323073_AwakerTalent.lua"
+        },
+        {
+          "module": "Constant",
+          "member": "AwakerUpgradeLevel quality offsets",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "6f9876d9577b2e043351ff9c41887996a269787e16900e238fb1d4f0eb852694",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\-7001733389984667866_Constant.lua"
+        }
+      ],
+      "tests": [
+        "tests/client-build-stats.test.mjs"
+      ],
+      "scope": "2700 original connected lookup cases across 60 characters, five levels and ranks 0/1/5. Constant getter and compiled-function selector adapters; excludes ambiguous Jenkin identity, Soulforge, full battle assembly and gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:PrimaryStatFormulaRounding",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Original primary-stat upgrade expressions preserve floating-point operation order and plain ceil, producing one-point differences from catalog epsilon rounding at tested boundaries",
+      "sources": [
+        {
+          "module": "FuncTable",
+          "member": "AwakerUpgrade primary-stat expressions",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\9079617640149979602_FuncTable.lua"
+        },
+        {
+          "module": "AwakerUpgrade",
+          "member": "primary-stat growth formulas",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "67a680485c0032031bdf4ebee481cf8dc614e13c14b9844d44ef7a32edc9a661",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\6965753349738001507_AwakerUpgrade.lua"
+        },
+        {
+          "module": "AwakerConfig",
+          "member": "explicit base and extra values",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "167ebd584b4b6620b40e53a6918a4c97a715abb19f5d72f4a58feb7d689373a5",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\4520843779213429262_AwakerConfig.lua"
+        },
+        {
+          "module": "AwakerDataUtils",
+          "member": "GetAwakerBaseAttrValue lookup context only",
+          "bundle": "pc\\downloaded\\gamescript.ab",
+          "sha256": "00ea89a618099cd29952033fc5c59c452ec86e2799f3f45752cd5b48da31a4a0",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\gamescript\\8160461218729261677_AwakerDataUtils.lua"
+        }
+      ],
+      "tests": [
+        "tests/client-primary-stats.test.mjs"
+      ],
+      "scope": "360 original compiled expression executions: 120 cross-source discrepancies and 240 adjacent-level controls. Explicit inputs; excludes full character/quality/talent lookup, Soulforge, final battle properties and gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:CachedStateCallback",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Cached state callback checks hidden/deleted/dead-owner guards, clears parser values before judgment, rejects false/zero judgments, then queues target generation, phase and trigger-end event",
+      "sources": [
+        {
+          "module": "BattleStateServer",
+          "member": "Trigger",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6839215435199190924_BattleStateServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/state-callback.test.mjs"
+      ],
+      "scope": "12 original cached-command cases; unbanned, non-relic branch, explicit owner/caster/condition adapters, effect creation observed. First command construction and actual effect execution remain untested; no gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:EffectDeathCondition",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Internal effect death check honors ignoreDead, checks associated player for PVE skill/state provenance, and checks caster existence in PVP",
+      "sources": [
+        {
+          "module": "BattleEffectServer",
+          "member": "__CheckDeadCondition,TryDoEffect,CheckCondition",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\3210192007477895712_BattleEffectServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/effect-death-condition.test.mjs"
+      ],
+      "scope": "15 original internal predicate cases with explicit object/player adapters. Earlier TryDoEffect caster presence is separate. Old Embers continuation composition is code-derived, not an original full command or gameplay execution",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:StateOwnerTargets",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "StateOwner lookup obtains state.owner and target getter/setter retain the list in cmdParser.upperTargets without adding dead-target filtering",
+      "sources": [
+        {
+          "module": "BattleCmdParser",
+          "member": "GenerateTargetsExp,GenerateTargetFunc.StateOwner",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6247644512047908854_BattleCmdParser.lua"
+        },
+        {
+          "module": "BattleCmdTargetsExp",
+          "member": "ctor,GetTargetList",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9856a6fd84de8f41aa11d8113e2590f75280b7a228716c604bc440bc8cf31ce8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\8454953066853720944_BattleCmdTargetsExp.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "SetUpperTargets,GetUpperTargets",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/state-owner-target.test.mjs"
+      ],
+      "scope": "5 original parser/getter/setter sequences with explicit lookup and expression constructor adapters; InitGetter and BEGenerateTargets effect not executed. No eligibility, phase execution or gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:SkillPhaseStart",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Phase start reactivates the command, reads targets/time, optionally enters before phase, forwards timeline/trigger payload, then invokes after-create hook",
+      "sources": [
+        {
+          "module": "BECreateSkillPhase",
+          "member": "DoEffect,AfterEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "0517f4daffda3ed3939ecfa33c7ebeeffa4a01aa137fb2e3951fb0996da9958e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\4770387938002218566_BECreateSkillPhase.lua"
+        }
+      ],
+      "tests": [
+        "tests/skill-phase.test.mjs"
+      ],
+      "scope": "4 original DoEffect cases with base no-op and observed command/event hooks; non-yielding start/finish scheduler composition is code-derived. Target generation, hook implementations, time advancement and gameplay validation remain external",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:SkillPhaseFinish",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "After child effects drain, phase finishing marks command deleted, clears command upperTargets and stats while retaining parser upperTargets, emits finish hook and resumes children; subsequent empty passes end without repeating cleanup",
+      "sources": [
+        {
+          "module": "BECreateSkillPhase",
+          "member": "AfterEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "0517f4daffda3ed3939ecfa33c7ebeeffa4a01aa137fb2e3951fb0996da9958e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\4770387938002218566_BECreateSkillPhase.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "OnEnterFinishPhase,SetIsDeleted,ClearStats",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/skill-phase-finish.test.mjs"
+      ],
+      "scope": "4 original phase-finish sequences with original command cleanup; explicit child-empty states, scheduler and finish event observed only. Not full phase execution or gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:StateCommandLifecycle",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "State callbacks queue target generation and skill-phase execution before StateTriggerEnd; the phase wraps command execution with before/finish hooks and potential time advancement",
+      "sources": [
+        {
+          "module": "BattleStateServer",
+          "member": "Trigger",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6839215435199190924_BattleStateServer.lua"
+        },
+        {
+          "module": "BEGenerateTargets",
+          "member": "DoEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "98e9478b0c58ad70c586a3dda05e68bd826577694bb2627e67fc38b96145005d",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4001796867815749104_BEGenerateTargets.lua"
+        },
+        {
+          "module": "BECreateSkillPhase",
+          "member": "DoEffect,AfterEffect,EffectEnd",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "0517f4daffda3ed3939ecfa33c7ebeeffa4a01aa137fb2e3951fb0996da9958e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\4770387938002218566_BECreateSkillPhase.lua"
+        },
+        {
+          "module": "State",
+          "member": "80575",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
+        }
+      ],
+      "scope": "Source-derived lifecycle trace; no connected runtime oracle, generic command executor or gameplay validation. Existing Old Embers row scheduler omits these lifecycle hooks",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:StateTriggerEligibility",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Deleted states reject triggering; a monster owner with a supplied target UID matches its own UID before ally/enemy camp checks",
+      "sources": [
+        {
+          "module": "BattleStateTriggerServer",
+          "member": "TryTrigger",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b21b29209c0f0ccd206b6bb7e8355665faded1a64f062ae326c0e501fbbbfa7d",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\1687241811396676100_BattleStateTriggerServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/trigger-eligibility.test.mjs"
+      ],
+      "scope": "64 original predicate executions with explicit owner type/camp and deletion state, including absent and zero UID. Damage-handler composition is code-derived; callback/command eligibility and state reconstruction remain outside scope",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:DamageTriggerPayloads",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Damage handlers filter categories and construct distinct incoming/actual damage payloads; generic eligibility precedes category checks and Tentacle relies on event registration",
+      "sources": [
+        {
+          "module": "BSTAfterBeActiveDamage",
+          "member": "OnBeDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "319488a45104726febcdf9bc66c1cdf04ced2064ce533cedfece43dacb96eea9",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-2981779977152243601_BSTAfterBeActiveDamage.lua"
+        },
+        {
+          "module": "BSTAfterPassiveDamage",
+          "member": "OnBeDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "519147ce5f5afd330d6569862ff314ede58a41a4b64833bdef027282eccf4ad9",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6857770939533574707_BSTAfterPassiveDamage.lua"
+        },
+        {
+          "module": "BSTAfterFixedDamage",
+          "member": "OnBeDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "2e13d8ca6092853a4b60d0ee6e152c881cca1dbadf408e51ee20b748f6a7241f",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-9063320896984891584_BSTAfterFixedDamage.lua"
+        },
+        {
+          "module": "BSTAfterAttackedByTentacle",
+          "member": "OnAttackedByTentacle",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "17621490e50303433e5fcf3d5bb741e6e49f276939b7dbbf952854bdeca1dc09",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\1415685056025603168_BSTAfterAttackedByTentacle.lua"
+        }
+      ],
+      "tests": [
+        "tests/damage-triggers.test.mjs"
+      ],
+      "scope": "240 original handler-body cases with explicit target/caster and TryTrigger decision; payload capture only. Includes intentionally mismatched direct calls; no registration or generic state/command execution and no gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:OldEmbersScheduledComposition",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "Old Embers command rows can be advanced after ordinary descendants, while attached effects retain root placement; subsequent row conditions observe intervening state changes",
+      "sources": [
+        {
+          "module": "Cmd",
+          "member": "80572,81060",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "BattleEffectServer",
+          "member": "AddRunningSubEffect,AfterEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\3210192007477895712_BattleEffectServer.lua"
+        },
+        {
+          "module": "BEAttachPostAction",
+          "member": "AddRunningSubEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "866523f8c030dbeb2c1405430bff1f9c8fd3bce69df04ccfa637a6e3dbc462a4",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-2276572718946656157_BEAttachPostAction.lua"
+        }
+      ],
+      "tests": [
+        "tests/old-embers-command.test.mjs"
+      ],
+      "scope": "Code-derived composition of recovered command iterator, scheduler, HP-loss helper and event dispatcher; synthetic state application and eligibility adapters. No original full command execution or gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:CheckDeathEffectCreation",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Eligible zero-HP nondead roles request fatal-damage then death effects, with different metadata and no HP recheck between creation calls",
+      "sources": [
+        {
+          "module": "BattleUnitBase",
+          "member": "CheckDeathEvent",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BERoleDie",
+          "member": "DoEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "072f3e1c051a91d773297fd0de5e6fb01240f9ca319dd8bba9379c3435a6ace1",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3438006396381427909_BERoleDie.lua"
+        }
+      ],
+      "tests": [
+        "tests/check-death.test.mjs"
+      ],
+      "scope": "7 original CheckDeathEvent cases with observed effect creation and explicit eligibility/dead/HP adapters. Additional scheduler/revival composition is code-derived, not original integrated execution. No gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:DamageEventOrder",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Post-hit damage events follow category-specific order; death checking precedes a live HP recheck for kill events",
+      "sources": [
+        {
+          "module": "BattleUnitBase",
+          "member": "DoDamageEvent",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BattleLogicEvent",
+          "member": "damage and kill identifiers",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "cef7477d60a84d8ac4f4b097436a39628d37ff5c54bd8f44d08828d75ad80c4a",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-1123830645501780752_BattleLogicEvent.lua"
+        }
+      ],
+      "tests": [
+        "tests/damage-events.test.mjs"
+      ],
+      "scope": "35 original routing executions with event creation observed, explicit fightback predicate, and controlled CheckDeathEvent HP response. No listener/scheduler execution or actual death processing; synthetic flag combinations include unreachable standard effect outputs",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:ConnectedEffectHp",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Passive, Fixed and Pure pre-hit calculations connect to shared immunity, shield, limit and ordinary HP mutation paths",
+      "sources": [
+        {
+          "module": "BEPassiveDamage",
+          "member": "__DoMultiEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f4ba266131c50ae01bea054e4fefd0cf89f7af2d31acba86123355b65cf2c784",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-5405454180892933935_BEPassiveDamage.lua"
+        },
+        {
+          "module": "BEFixedDamage",
+          "member": "__DoMultiEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f2b15141a02bd1c251364d969159b0556a280522604b7d02400c2cf12b75c280",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\6276950535989090767_BEFixedDamage.lua"
+        },
+        {
+          "module": "BEPureDamage",
+          "member": "__DoMultiEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "1a8c11026251e91c3d5f9838f8c69dffabf91ba6889ab27dc4893fd8a93771bc",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-8781082574782529232_BEPureDamage.lua"
+        },
+        {
+          "module": "BattleEffectServer",
+          "member": "CalFinalVal,GetDamageSubType",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\3210192007477895712_BattleEffectServer.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "BeHit,ImmueDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BattleUnitUtil",
+          "member": "hit helpers",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b664734d7f12a5009b36727d2c3dfde75295b6e2be03edb37c3cf98ee74a1d04",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-2996011540817531336_BattleUnitUtil.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "SubProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/effect-hp-connected.test.mjs"
+      ],
+      "scope": "25 original effect-to-BeHit-to-HP executions in one Lua state, one living target and ordinary/Puncture subtypes (Pure ordinary only). Explicit properties and dimension adapter; property callbacks observed, statistics/animation/damage-event hooks disabled. No scheduler, state reconstruction or gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:ActivePreventionEligibility",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Active prevention requires Active category, no applicable immunity, and a present caster; positive caster PreventActiveDamage or target PreventBeActiveDamage enables it",
+      "sources": [
+        {
+          "module": "BattleUnitUtil",
+          "member": "CheckPreventActiveDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b664734d7f12a5009b36727d2c3dfde75295b6e2be03edb37c3cf98ee74a1d04",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-2996011540817531336_BattleUnitUtil.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "BeHit",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "SubProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/active-prevention.test.mjs"
+      ],
+      "scope": "180 original BeHit cases across categories, caster presence, immunity, and negative/zero/positive prevention properties. Adapter returns one role table with independent caster/target property keys; callbacks observed, downstream events disabled. API composition excludes unsupported Tentacle offense; no gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:DamageImmunity",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Puncture immunity takes precedence; otherwise Puncture bypasses general and category immunity; ordinary subtype checks general and matching category properties only",
+      "sources": [
+        {
+          "module": "BattleUnitBase",
+          "member": "ImmueDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        }
+      ],
+      "tests": [
+        "tests/immunity.test.mjs",
+        "tests/fixed-pure-pipeline.test.mjs"
+      ],
+      "scope": "270 original predicate cases across five categories, subtype 0/Puncture, negative/zero/positive properties and enabled unrelated-category immunities; explicit properties, no state reconstruction or gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:PassiveBeHitHp",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Passive BeHit uses the common shield/cap/HP path but rejects Active-prevention eligibility",
+      "sources": [
+        {
+          "module": "BattleUnitBase",
+          "member": "BeHit,ImmueDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BattleUnitUtil",
+          "member": "CheckPreventActiveDamage,CalcBlockedDamage,ApplyIncomingDamageLimitsBeforeHpLoss",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b664734d7f12a5009b36727d2c3dfde75295b6e2be03edb37c3cf98ee74a1d04",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-2996011540817531336_BattleUnitUtil.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "ChangeProperty,SubProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/passive-pipeline.test.mjs"
+      ],
+      "scope": "7 original BeHit cases with Passive category and explicit properties; callbacks observed, event/animation/record hooks disabled. API composition reuses separately tested Passive pre-hit path; no end-to-end original effect execution or gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:OldEmbersEffectSteps",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "Old Embers sets separate branch markers and rechecks exclusions at later HP/stack effects; depleted branch reads current layers and then removes the state",
+      "sources": [
+        {
+          "module": "Cmd",
+          "member": "80572,81060",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "State",
+          "member": "80593,80594",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
+        },
+        {
+          "module": "BattleEffectServer",
+          "member": "TryDoEffect,CheckCondition,GenParams",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\3210192007477895712_BattleEffectServer.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "CheckCondition",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/old-embers-steps.test.mjs"
+      ],
+      "scope": "Code-derived live command iterator for normal parsed effects; explicit state getter and caller-executed effects/descendants. No original-runtime command execution, target/death gating or gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:HpAttributeLoss",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "HP attribute loss ceils the signed request before immunity/cap, skips zero-HP targets, distinguishes requested from actual delta, and emits attribute-change events even for an immune zero change",
+      "sources": [
+        {
+          "module": "BEChangeAttr",
+          "member": "DoEffect,GetFixValueByPropertyType",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "21202e200b1adb5c2e9b3cb2210059d654beb6381c7069dc1ebf26c2492e0708",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-5344258984392380910_BEChangeAttr.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "ChangeProperty,SubProperty,BeforeSub,AfterSub",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/hp-attribute-loss.test.mjs"
+      ],
+      "scope": "10 original HP-loss effect cases with original property mutation; base/source metadata stubbed, non-card target and observational event/death adapters. Old Embers composition is code-derived; no listener execution, stack mutation or gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:FatalDamageControlFlow",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Fatal-damage processing rechecks HP after pre-resistance and pre-death events, can return after revival, and distinguishes resistance from ordinary death events",
+      "sources": [
+        {
+          "module": "BERoleDeadlyDamage",
+          "member": "DoEffect,AddRunningSubEffect,SubEffectEnd",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "faae1ab17077e9ca643648c8f4262478c1fda8f224d0f4d7afb8a8c64343c3fa",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\755909732791295149_BERoleDeadlyDamage.lua"
+        },
+        {
+          "module": "BERoleDie",
+          "member": "DoEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "072f3e1c051a91d773297fd0de5e6fb01240f9ca319dd8bba9379c3435a6ace1",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3438006396381427909_BERoleDie.lua"
+        },
+        {
+          "module": "BattleUnitMonster",
+          "member": "PreCheckDeathEvent",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "8704bf4b9b11a78ee36a919d011ff09298d2ee88cf20274f3da076468dedc0d1",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-640241009398581107_BattleUnitMonster.lua"
+        }
+      ],
+      "tests": [
+        "tests/deadly-damage.test.mjs"
+      ],
+      "scope": "8 original DoEffect cases with synchronous event/role adapters; base effect and logging stubbed. Immediate-child scheduler mode is source-derived and composition-tested, not executed by this oracle. Actual revive-state implementations, RoleDie and gameplay remain unvalidated",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:OrdinaryBeHitHp",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Ordinary Active BeHit distinguishes incoming damage, capped HP request, actual HP lost, shield loss and overflow diagnostic",
+      "sources": [
+        {
+          "module": "BattleUnitBase",
+          "member": "BeHit,ImmueDamage,GetProperty,SetProperty,SubProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BattleUnitUtil",
+          "member": "CheckPreventActiveDamage,CalcBlockedDamage,ApplyPreventBeActiveDamageRetainHp,ApplyIncomingDamageLimitsBeforeHpLoss",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b664734d7f12a5009b36727d2c3dfde75295b6e2be03edb37c3cf98ee74a1d04",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-2996011540817531336_BattleUnitUtil.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "GetProperty,SetProperty,ChangeProperty,SubProperty,BeforeSub,AfterSub",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/ordinary-active-hp.test.mjs"
+      ],
+      "scope": "18 original-runtime cases through property mutation; observational owner/sender callbacks, no-op recording/animation/damage-event hooks. Serialized numerical records compare +0 and -0 equally. No event/death execution or gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:PhaseCapCommands",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "Ghost-faced dog phase states count HP lost, retain one phase layer at threshold, install immunity and change monster skill; first transition installs second phase",
+      "sources": [
+        {
+          "module": "State",
+          "member": "60409,60408,60407,46441",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "60406,60405",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "BESubStateLayer",
+          "member": "DoEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b2763469ed0278b671bf02f6353bd7249a814299b41b4b63d40149655fcc581d",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4218923432050173021_BESubStateLayer.lua"
+        }
+      ],
+      "tests": [
+        "tests/phase-cap.test.mjs"
+      ],
+      "scope": "Code-derived integer-state transition and synthetic queue composition; no original-runtime phase-command execution or gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:PveInitialPlayerProperties",
+      "status": "CONFIRMED_FROM_CODE",
+      "claim": "PVEGameplay passes battleInitData.copyProperties to the player, separately from Awakener attrs; property construction ceils supplied values",
+      "sources": [
+        {
+          "module": "PVEGameplay",
+          "member": "OnInitBattle,SpawnCampRoles",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5da43c24bf5d09b7ad360e74842d033af7d844f982126d0e6730dfc6188b5b09",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\1915675209980446780_PVEGameplay.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "ctor",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "ctor",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        }
+      ],
+      "scope": "Client initialization boundary only; does not reconstruct upstream copyProperties aggregation or supply the user scenario mastery",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:SingularityBeaconEligibility",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Before-card temporary Beacon eligibility uses command-card tags, absence of existing Beacon, and unused or additional Shuttle admissions",
+      "sources": [
+        {
+          "module": "FuncTable",
+          "member": "State126900.Judgement4 expression",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\9079617640149979602_FuncTable.lua"
+        },
+        {
+          "module": "State",
+          "member": "126900",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
+        },
+        {
+          "module": "Skill",
+          "member": "122485,122486,126484,122483",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\2015861756545847808_Skill.lua"
+        }
+      ],
+      "tests": [
+        "tests/singularity-beacon.test.mjs"
+      ],
+      "scope": "24 original expression cases with explicit card/state getter adapters and actual skill tags; excludes event dispatch and after-use command execution",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:MouchettePursuitBeforeCardGate",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "Cmd123160 supplies isTriggerBST=0 for Mouchette pursuit; attached temporary card is created but BeforeUseCard event is suppressed",
+      "sources": [
+        {
+          "module": "Cmd",
+          "member": "123160",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "BEAttachPostAction",
+          "member": "__DoMultiEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "866523f8c030dbeb2c1405430bff1f9c8fd3bce69df04ccfa637a6e3dbc462a4",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-2276572718946656157_BEAttachPostAction.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "UseAttachPostCard",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "IsTriggerBST,IsAttachPost",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        },
+        {
+          "module": "BattleEffectServer",
+          "member": "IsTriggerBST",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\3210192007477895712_BattleEffectServer.lua"
+        },
+        {
+          "module": "BEBeforeUseCard",
+          "member": "__FireBeforeUseCard",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b660610845cc1181bab671a07d5df91814b2b39419aed2d4ba826bee2be8699c",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7020487249631624131_BEBeforeUseCard.lua"
+        }
+      ],
+      "scope": "Source trace only; no original-runtime end-to-end event sequence or gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:SingularityLayers",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Prism and temporary Beacon independently ceil 15 and 25 times (1+final player mastery*0.0005)",
+      "sources": [
+        {
+          "module": "FuncTable",
+          "member": "Cmd133367 and Cmd134388 parameter expressions",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\9079617640149979602_FuncTable.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "133367,134388",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        }
+      ],
+      "tests": [
+        "tests/singularity-layers-runtime.test.mjs"
+      ],
+      "scope": "19 original FuncTable expression vectors with explicit final mastery; excludes team assembly, state dispatch, timing and gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:PureUltraMastery",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "State72023 conditionally invokes Cmd71973 to add 100 layers of State71974; mastery property changes recompute ceil(master*(100+percent)/100)",
+      "sources": [
+        {
+          "module": "State",
+          "member": "72023,71974",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "71973",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "AfterAdd,AfterSub",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/singularity-realm.test.mjs"
+      ],
+      "scope": "Code-derived property resolver only; no automatic party composition or initial player property reconstruction",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:EffectOrder",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Child descendants precede next repetition; attached actions append at root behind existing siblings; child battle termination prevents later repetitions",
+      "sources": [
+        {
+          "module": "BattleEffectServer",
+          "member": "PreTrigger,AfterEffect,RunSubEffect,RunNextMultiEffect,EffectEnd",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\3210192007477895712_BattleEffectServer.lua"
+        },
+        {
+          "module": "BEAttachPostAction",
+          "member": "PreTrigger",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "866523f8c030dbeb2c1405430bff1f9c8fd3bce69df04ccfa637a6e3dbc462a4",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-2276572718946656157_BEAttachPostAction.lua"
+        }
+      ],
+      "tests": [
+        "tests/effect-order.test.mjs"
+      ],
+      "scope": "2 original-runtime synthetic effect-tree scenarios; explicit manager adapters and always-eligible TryDoEffect; no yield, random targets, real damage or full initialization",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:EventListenerDispatch",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Ascending listener priority with stable ordinary ties, head insertion before equal ties, and shared-record removal versus deferred addition during dispatch",
+      "sources": [
+        {
+          "module": "BattleEventMgr",
+          "member": "RegisterEvent,RegisterEventToHead,UnregisterEvent,SendEvent",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "64fc30976751226fbe929e3125ee74b0a41bda0bde49a65466d0c501441b1bb4",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\98749159597393842_BattleEventMgr.lua"
+        },
+        {
+          "module": "Table",
+          "member": "clone",
+          "bundle": "pc\\downloaded\\foundation.ab",
+          "sha256": "c737ed8080146ef1b4a871c0b96362212072d1e2381a4d8c486e75d1ad73ecc4",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\foundation\\586514840016226504_Table.lua"
+        }
+      ],
+      "tests": [
+        "tests/event-dispatch.test.mjs"
+      ],
+      "scope": "5 original-runtime scenarios, each dispatched twice; synthetic callbacks, original table.clone; excludes scheduler, eligibility and command execution",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:HpOwnerEvents",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "HP callback queues RoleHpChanged then RoleHpperChanged with one shared payload extended between calls; max_hp changes queue only RoleHpperChanged",
+      "sources": [
+        {
+          "module": "BattleUnitBase",
+          "member": "OnPropertyChange_Hp",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BattleLogicEvent",
+          "member": "RoleHpChanged,RoleHpperChanged",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "cef7477d60a84d8ac4f4b097436a39628d37ff5c54bd8f44d08828d75ad80c4a",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-1123830645501780752_BattleLogicEvent.lua"
+        },
+        {
+          "module": "BattleEngine",
+          "member": "CreateEventEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "0ee07c8fd06f29787f8139306b55d16c726eaf8cabcd1ad0b128d907c8dbbeea",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7402197778903831940_BattleEngine.lua"
+        },
+        {
+          "module": "BattleEffectMgrServer",
+          "member": "CreateEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9a94157af60365d26188b578ca7f69987503b980ce51a420765eca45b4b8ab41",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\5828893898592423491_BattleEffectMgrServer.lua"
+        },
+        {
+          "module": "BattleEffectServer",
+          "member": "ctor",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\3210192007477895712_BattleEffectServer.lua"
+        },
+        {
+          "module": "BESendEvent",
+          "member": "DoEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "6fe50acfc2be35b8bb2ea63f6de784b47f8570f9d085cc6313b9d27ecb819a71",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7713642783529985766_BESendEvent.lua"
+        }
+      ],
+      "tests": [
+        "tests/hp-events.test.mjs"
+      ],
+      "scope": "5 original owner-callback cases with property getters and reference-preserving CreateEventEffect spy; downstream reference retention traced from code, not scheduler execution",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:OrdinaryHpSubtraction",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Ordinary HP subtraction floors at zero, retains fractional values, calls owner before sender, and invokes both callbacks even at zero delta",
+      "sources": [
+        {
+          "module": "BattlePropertyServer",
+          "member": "SubProperty,BeforeSub,GetSubPropertyValueFunc,AfterSub,RefreshMaxLimit",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/hp-property.test.mjs"
+      ],
+      "scope": "16 original-runtime boundary cases; non-mutating owner/sender spies, explicit HP and nonnegative request; no constructor, event dispatch, BeHit or death execution",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:SkillArgumentNormalization",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Ordinary numeric skill arguments ceil before dense explicit overrides; GenerateEffectList stores arguments for later ArgN lookup",
+      "sources": [
+        {
+          "module": "BattleCmdServer",
+          "member": "GetSkillArgs,GenerateEffectList",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        },
+        {
+          "module": "BattleCmdParser",
+          "member": "UpdateSkillArgs,GetGlobalValue",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6247644512047908854_BattleCmdParser.lua"
+        }
+      ],
+      "tests": [
+        "tests/skill-arguments.test.mjs"
+      ],
+      "scope": "24 numeric normalization cases; controlled base-argument outputs, no description, expression evaluation or scheduler execution",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:HpEventsAndMultiHit",
+      "status": "CONFIRMED_FROM_CODE",
+      "claim": "Ordinary HP subtraction floors at zero; HP callbacks enqueue event effects; child effects are processed before next repetition, while attached actions use root parent",
+      "sources": [
+        {
+          "module": "BattlePropertyServer",
+          "member": "SubProperty,BeforeSub,AfterSub",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "BeHit,OnPropertyChange_Hp",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BattleEngine",
+          "member": "CreateEventEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "0ee07c8fd06f29787f8139306b55d16c726eaf8cabcd1ad0b128d907c8dbbeea",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7402197778903831940_BattleEngine.lua"
+        },
+        {
+          "module": "BattleEffectMgrServer",
+          "member": "CreateEffect,GetParentEffectUid",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9a94157af60365d26188b578ca7f69987503b980ce51a420765eca45b4b8ab41",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\5828893898592423491_BattleEffectMgrServer.lua"
+        },
+        {
+          "module": "BattleEffectServer",
+          "member": "PreTrigger,AfterEffect,RunSubEffect,RunNextMultiEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\3210192007477895712_BattleEffectServer.lua"
+        },
+        {
+          "module": "BESendEvent",
+          "member": "DoEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "6fe50acfc2be35b8bb2ea63f6de784b47f8570f9d085cc6313b9d27ecb819a71",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7713642783529985766_BESendEvent.lua"
+        },
+        {
+          "module": "BEActiveDamage",
+          "member": "DoEffect,__DoMultiEffect,Damage2SingleTarget",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "6d87f4da91293c019579f5d586a093763d3fb1051d6efed8652cdbc3b114e208",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3933469113754588179_BEActiveDamage.lua"
+        },
+        {
+          "module": "BEAttachPostAction",
+          "member": "PreTrigger",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "866523f8c030dbeb2c1405430bff1f9c8fd3bce69df04ccfa637a6e3dbc462a4",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-2276572718946656157_BEAttachPostAction.lua"
+        }
+      ],
+      "gameplayValidation": false,
+      "limitations": "No full event executor test, overrides or skill-argument snapshot reconstruction"
+    },
+    {
+      "id": "PC144:DamageCapLifecycle",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "Damage-limit statistics are state-specific; phase states add actual HP delta through callbacks, while separate per-hit cap states do not supply that counter lifecycle",
+      "sources": [
+        {
+          "module": "State",
+          "member": "60407,60408,60409,67251,131118,142072,118112,118116,118117",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "60405,60406,118310",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "BSTHpChanged",
+          "member": "OnRoleHpChanged",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "42bbd004f18fd1df3b5b9b4ef484eec1b2cbd3ebdb1789a8c748d0660755fcd3",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7646804855693878600_BSTHpChanged.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "OnPropertyChange_Hp",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BattleStateServer",
+          "member": "InitProperty,UpdatePropertyWhenLayerChanges,RemoveProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6839215435199190924_BattleStateServer.lua"
+        },
+        {
+          "module": "BattleUnitUtil",
+          "member": "ApplyIncomingDamageLimitsBeforeHpLoss",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b664734d7f12a5009b36727d2c3dfde75295b6e2be03edb37c3cf98ee74a1d04",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-2996011540817531336_BattleUnitUtil.lua"
+        }
+      ],
+      "gameplayValidation": false,
+      "limitations": "No full phase initialization, event queue runtime or independent gameplay transition test"
+    },
+    {
+      "id": "PC144:HitLimitHelpers",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Shield/Puncture resolution, optional retained-HP threshold, remaining damage-budget cap and property-driven death-resistance adjustment",
+      "sources": [
+        {
+          "module": "BattleUnitUtil",
+          "member": "CalcBlockedDamage,ApplyPreventBeActiveDamageRetainHp,ApplyIncomingDamageLimitsBeforeHpLoss",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b664734d7f12a5009b36727d2c3dfde75295b6e2be03edb37c3cf98ee74a1d04",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-2996011540817531336_BattleUnitUtil.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "BeHit",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        }
+      ],
+      "tests": [
+        "tests/hit-limits.test.mjs"
+      ],
+      "scope": "282 explicit synthetic cases; living target; no immunity determination, HP mutation, callbacks or event/death execution",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:MouchetteFollowupCommand",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "State-triggered Dramatic Encounter uses a fresh card command; separate attachPostParam.isTriggerBST suppresses AfterUseCard recursion without blanket suppression of card damage modifiers",
+      "sources": [
+        {
+          "module": "Cmd",
+          "member": "123160,123163",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "Skill",
+          "member": "123159",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\2015861756545847808_Skill.lua"
+        },
+        {
+          "module": "BEAttachPostAction",
+          "member": "__DoMultiEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "866523f8c030dbeb2c1405430bff1f9c8fd3bce69df04ccfa637a6e3dbc462a4",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-2276572718946656157_BEAttachPostAction.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "UseAttachPostCard",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BattleCardServer",
+          "member": "InitCmdServer,CardTypeMatch",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7042619747436697877_BattleCardServer.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "IsStateTriggerAdd,IsTriggerBST",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        },
+        {
+          "module": "BattleEffectServer",
+          "member": "IsTriggerBST",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\3210192007477895712_BattleEffectServer.lua"
+        },
+        {
+          "module": "BEAfterUseCard",
+          "member": "__FireAfterUseCard,__SendAfterAttachPostAction",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "4c1df164c66d8b6bf43b5739320f2b9b21acc398af0bb9d47aed82f98bc39763",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\218182698319224860_BEAfterUseCard.lua"
+        }
+      ],
+      "gameplayValidation": false,
+      "limitations": "No end-to-end effect queue execution, card property initialization or gameplay prediction"
+    },
+    {
+      "id": "PC144:CardTargetCrit",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Card and Strike-tag critical contributions add before crit scaling; conditional instruction-card target slot and block/barrier card bonus",
+      "sources": [
+        {
+          "module": "BattleCmdServer",
+          "member": "__GetFinalDamage,GetTargetBeDmgPerMul",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        },
+        {
+          "module": "BattleConst",
+          "member": "SkillType2CritDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7904900691744414154_BattleConst.lua"
+        }
+      ],
+      "tests": [
+        "tests/card-target.test.mjs"
+      ],
+      "scope": "282 synthetic original-runtime cases; Strike-only card, ordinary subtype; flags and conditional helpers supplied; no full barrier-list resolution or HP",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:CardOffensiveSetup",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Explicit card properties prepare offensive utility inputs, with Strike outside cap, instruction-card factors, positive STR scaling and selective state-trigger-add suppression",
+      "sources": [
+        {
+          "module": "BattleCmdServer",
+          "member": "__GetShowDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        },
+        {
+          "module": "BattleUtilServer",
+          "member": "ShowDamageFormula",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2744136527417000302_BattleUtilServer.lua"
+        },
+        {
+          "module": "BattleConst",
+          "member": "SkillType and property maps",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7904900691744414154_BattleConst.lua"
+        }
+      ],
+      "tests": [
+        "tests/card-setup.test.mjs"
+      ],
+      "scope": "330 synthetic original-runtime comparisons; PvE Awakener, non-Awake tags, ordinary subtype, explicit card flags and properties; no state restoration or target/HP resolution",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:StatePropertyRouting",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Player-owned AWAKER_ATTR state changes fan out to current Awakeners in PvE; other changes affect owner, with ban/ignoreBan gating",
+      "sources": [
+        {
+          "module": "BattleStateServer",
+          "member": "ChangeOwnerProperty,InitProperty,RemoveProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6839215435199190924_BattleStateServer.lua"
+        },
+        {
+          "module": "BattleApi",
+          "member": "strikecard_damage_plus,i_damage_per_strikecard,damage_plus,basic_damage_per",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "22d7e4cdc4746a1c3b543a97a5d68cca4b7b184c92ef9d4d19651da8189db15c",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\-6894225089628909939_BattleApi.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "GetProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "__GetShowDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        }
+      ],
+      "tests": [
+        "tools/state_property_routing_oracle.py"
+      ],
+      "scope": "288 original-method routing assertions with mocked roles/mode/team and intercepted mutations; no full state initialization or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:OffensiveSetup",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "PvE no-card offensive preparation maps explicit properties and skill tags into utility inputs, including positive STR scaling and conditional base offsets",
+      "sources": [
+        {
+          "module": "BattleCmdServer",
+          "member": "__GetShowDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        },
+        {
+          "module": "BattleUtilServer",
+          "member": "ShowDamageFormula",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2744136527417000302_BattleUtilServer.lua"
+        },
+        {
+          "module": "BattleConst",
+          "member": "SkillType2InsideDamagePer,SkillType2OutsideDamagePer,SkillType2DamagePer",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7904900691744414154_BattleConst.lua"
+        }
+      ],
+      "tests": [
+        "tests/offensive-setup.test.mjs"
+      ],
+      "scope": "549 synthetic original-runtime cases; no card instance, ordinary formula subtype, not state-trigger-add; properties supplied explicitly",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:MouchetteStacking",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "Separate flat Strike, inside Strike, outside Strike and boss-specific properties; skill-tag factors multiply while same-property layers add",
+      "sources": [
+        {
+          "module": "AwakerTalent",
+          "member": "122481 level 10",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "3478b2c9c377ca8832a474c5c712e936068818baa79d0a78bd0859ed150e6e0c",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\-2175630233196323073_AwakerTalent.lua"
+        },
+        {
+          "module": "Skill",
+          "member": "122483,122484,123159",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\2015861756545847808_Skill.lua"
+        },
+        {
+          "module": "State",
+          "member": "123168,122504,123703,124656,124034,124037,123172,123165,123307",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "123700,124651,123160,123163",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "BattleConst",
+          "member": "SkillType2InsideDamagePer,SkillType2OutsideDamagePer",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7904900691744414154_BattleConst.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "__GetShowDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        }
+      ],
+      "gameplayValidation": false,
+      "limitations": "No full Mouchette event simulation; replay state eligibility and supplied attributes unresolved"
+    },
+    {
+      "id": "PC144:CopiedCardAttribution",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "History copies preserve skill identity and special-owner metadata; card owner determines command caster, and skill statistics use command caster and skill ID",
+      "sources": [
+        {
+          "module": "Skill",
+          "member": "122483",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\2015861756545847808_Skill.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "122499",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "BattleCmdParser",
+          "member": "GetCopyHistoryCard",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6247644512047908854_BattleCmdParser.lua"
+        },
+        {
+          "module": "BattleCardMgrServer",
+          "member": "InsertBoutHistory,GetHistoryCard,AddNewCard",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "2237271bdbb3cb34aa16cff08ee0f202382e6c9b3f1613c1477168e0a3b021c9",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\8738875055289474891_BattleCardMgrServer.lua"
+        },
+        {
+          "module": "BECreateCard",
+          "member": "DoEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f068ef334f66ac38cbc48c4829a3bb26d05476c904e0b562c00561fc80e7d3f6",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\5242717354017070139_BECreateCard.lua"
+        },
+        {
+          "module": "BattleCardServer",
+          "member": "InitOwner,InitCmdServer",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7042619747436697877_BattleCardServer.lua"
+        },
+        {
+          "module": "BattleStatsMgr",
+          "member": "ProcessRoleStats",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "fbbdc0851748f6d295bd7dbe2d25605436e7e131e5262fbaad1205b4566509df",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2218058380785605685_BattleStatsMgr.lua"
+        },
+        {
+          "module": "BattleStatPackMgr",
+          "member": "AddBattleStatPackSkillStats",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "d654e518ca1e433291c3005c31beb2cb2f4ae016eff2c639dd142d84179c6ff7",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4073475027066378117_BattleStatPackMgr.lua"
+        }
+      ],
+      "gameplayValidation": false,
+      "limitations": "Actual replay card identity and animation binding unresolved; history state-filter branch not runtime tested"
+    },
+    {
+      "id": "PC144:PassivePreHit",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Three Passive target multipliers, ceiling, positive-only dimension modifier, second ceiling and minimum one before BeHit; dead targets skipped",
+      "sources": [
+        {
+          "module": "BEPassiveDamage",
+          "member": "__DoMultiEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f4ba266131c50ae01bea054e4fefd0cf89f7af2d31acba86123355b65cf2c784",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-5405454180892933935_BEPassiveDamage.lua"
+        },
+        {
+          "module": "BattleEffectServer",
+          "member": "CalFinalVal,GetDamageSubType",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\3210192007477895712_BattleEffectServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/passive-oracle.test.mjs"
+      ],
+      "scope": "1052 synthetic original-runtime cases with explicit property and dimension getters; not HP resolution",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:ArachneFateCut",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "Fate Cut accumulates state 134285; its recovered threshold is strictly greater than HP, with a guarded Passive-damage command and temporary target-property changes",
+      "sources": [
+        {
+          "module": "Skill",
+          "member": "133381",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\2015861756545847808_Skill.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "133382,133387,135033",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "State",
+          "member": "134230,135034,134285,136627,150842,150839,150841,139115",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
+        },
+        {
+          "module": "BEPassiveDamage",
+          "member": "DoEffect,__DoMultiEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f4ba266131c50ae01bea054e4fefd0cf89f7af2d31acba86123355b65cf2c784",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-5405454180892933935_BEPassiveDamage.lua"
+        }
+      ],
+      "gameplayValidation": false,
+      "limitations": "No independent threshold test, original-runtime oracle, or full callback/death-resolution trace"
+    },
+    {
+      "id": "PC144:BattleUtilServer.ShowDamageFormula",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Offensive utility arithmetic and rounding; not final HP loss",
+      "sources": [
+        {
+          "module": "BattleUtilServer",
+          "member": "ShowDamageFormula",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2744136527417000302_BattleUtilServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/oracle.test.mjs"
+      ],
+      "scope": "2262 explicit synthetic input vectors"
+    },
+    {
+      "id": "PC144:BattleCmdServer.__GetFinalDamage",
+      "status": "CONFIRMED_FROM_CODE",
+      "claim": "Active critical and target arithmetic before hit resolution",
+      "sources": [
+        {
+          "module": "BattleCmdServer",
+          "member": "__GetFinalDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "GetTargetBeDmgPerMul",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/target-oracle.test.mjs"
+      ],
+      "runtimeSupport": {
+        "status": "SUPPORTED_BY_RUNTIME_TEST",
+        "cases": 2097,
+        "scope": "No card or skill tags; target slots 1\u20133; original state-trigger-add helper branch; excludes HP resolution"
+      }
+    },
+    {
+      "id": "PC144:PsychicTrauma",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "Changed layers add three percentage points to be_damage_per2; distinct from vulnerable_per",
+      "sources": [
+        {
+          "module": "State",
+          "member": "80331,80335",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
+        },
+        {
+          "module": "BattleStateServer",
+          "member": "InitProperty,UpdatePropertyWhenLayerChanges",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6839215435199190924_BattleStateServer.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "GetTargetBeDmgPerMul",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        }
+      ],
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:OldEmbers",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "Boss resource uses incoming castDamage and triggers a separate HP attribute change; category-dependent amount and distinct stack/HP rounding",
+      "sources": [
+        {
+          "module": "State",
+          "member": "80575,80787,66314,62317",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "80572,80573,81060",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "BEChangeAttr",
+          "member": "DoEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "21202e200b1adb5c2e9b3cb2210059d654beb6381c7069dc1ebf26c2492e0708",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-5344258984392380910_BEChangeAttr.lua"
+        },
+        {
+          "module": "BESubStateLayer",
+          "member": "DoEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b2763469ed0278b671bf02f6353bd7249a814299b41b4b63d40149655fcc581d",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4218923432050173021_BESubStateLayer.lua"
+        },
+        {
+          "module": "BSTAfterBeActiveDamage",
+          "member": "OnBeDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "319488a45104726febcdf9bc66c1cdf04ced2064ce533cedfece43dacb96eea9",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-2981779977152243601_BSTAfterBeActiveDamage.lua"
+        },
+        {
+          "module": "BSTAfterPassiveDamage",
+          "member": "OnBeDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "519147ce5f5afd330d6569862ff314ede58a41a4b64833bdef027282eccf4ad9",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6857770939533574707_BSTAfterPassiveDamage.lua"
+        },
+        {
+          "module": "BSTAfterFixedDamage",
+          "member": "OnBeDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "2e13d8ca6092853a4b60d0ee6e152c881cca1dbadf408e51ee20b748f6a7241f",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-9063320896984891584_BSTAfterFixedDamage.lua"
+        },
+        {
+          "module": "BSTAfterAttackedByTentacle",
+          "member": "trigger handler",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "17621490e50303433e5fcf3d5bb741e6e49f276939b7dbbf952854bdeca1dc09",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\1415685056025603168_BSTAfterAttackedByTentacle.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "BeHit,DoDamageEvent",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        }
+      ],
+      "tests": [
+        "tests/old-embers.test.mjs"
+      ],
+      "testScope": "Code-derived arithmetic diagnostics only; no original-runtime oracle or gameplay validation",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:DamageStatistics",
+      "status": "CONFIRMED_FROM_CODE",
+      "claim": "Incoming damage and real HP loss are distinct; HP-change statistics use castValue with ownership-dependent player attribution",
+      "sources": [
+        {
+          "module": "BattleStatsMgr",
+          "member": "OnDoDamage,OnBEChangeAttrHp,CalcCamp1PlayerDoDamage,AddPlayerDoDamageByCmd",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "fbbdc0851748f6d295bd7dbe2d25605436e7e131e5262fbaad1205b4566509df",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2218058380785605685_BattleStatsMgr.lua"
+        }
+      ],
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:ArachneStrike",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "Skill 126484 uses BattleFomula1 and Cmd 133374; the main Active effect is followed by a conditional attached action, so the full action is state-dependent",
+      "sources": [
+        {
+          "module": "AwakerConfig",
+          "member": "77918",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "167ebd584b4b6620b40e53a6918a4c97a715abb19f5d72f4a58feb7d689373a5",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\4520843779213429262_AwakerConfig.lua"
+        },
+        {
+          "module": "Skill",
+          "member": "126484",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\2015861756545847808_Skill.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "133374",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "State",
+          "member": "81028,134234,134222,135036",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
+        },
+        {
+          "module": "BattleApi",
+          "member": "BattleFomula1,BattleAtkForce",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "22d7e4cdc4746a1c3b543a97a5d68cca4b7b184c92ef9d4d19651da8189db15c",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\-6894225089628909939_BattleApi.lua"
+        }
+      ],
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:RecordAttributeRounding",
+      "status": "CONFIRMED_FROM_CODE",
+      "claim": "Record summary adds recorded attributes and equipment/set values, then ceils for display; combat property initialization has its own ceil boundary",
+      "sources": [
+        {
+          "module": "CopySettleModel",
+          "member": "Update_settleAwakerAttrsMap,GetAttrShowStr",
+          "bundle": "pc\\downloaded\\gamescript.ab",
+          "sha256": "581de3bf98f78f2d024a3633f81c0f8319ee8bc2306ae9e457bcdadd7a7f1345",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\gamescript\\-2505023895531664120_CopySettleModel.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "constructor property component",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "ctor",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        }
+      ],
+      "gameplayValidation": false
+    }
+  ]
+}

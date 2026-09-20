@@ -1,0 +1,234 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BEActiveDamage": "6d87f4da91293c019579f5d586a093763d3fb1051d6efed8652cdbc3b114e208"
+  },
+  "scope": "Original Damage2SingleTarget repeatedly invoked on one effect; GenParams supplies changing numeric base, GetRealDmg is an identity observer, BeHit records attack only. No real damage formula, HP mutation, command expression execution, scheduling, card or state-add variant.",
+  "fixtures": [
+    {
+      "input": {
+        "values": [
+          1.25,
+          8.75
+        ],
+        "dead": false,
+        "crit": false
+      },
+      "expected": {
+        "events": [
+          "GenParams",
+          {
+            "GetRealDmg": 1.25,
+            "paraPlus": 7.5
+          },
+          "BeHit",
+          "GenParams",
+          {
+            "GetRealDmg": 8.75,
+            "paraPlus": 7.5
+          },
+          "BeHit"
+        ],
+        "attacks": [
+          {
+            "damageVal": 1.25,
+            "isCrit": false
+          },
+          {
+            "damageVal": 8.75,
+            "isCrit": false
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "values": [
+          1.25,
+          8.75
+        ],
+        "dead": false,
+        "crit": true
+      },
+      "expected": {
+        "events": [
+          "GenParams",
+          {
+            "GetRealDmg": 1.25,
+            "paraPlus": 7.5
+          },
+          "BeHit",
+          "GenParams",
+          {
+            "GetRealDmg": 8.75,
+            "paraPlus": 7.5
+          },
+          "BeHit"
+        ],
+        "attacks": [
+          {
+            "damageVal": 1.25,
+            "isCrit": true
+          },
+          {
+            "damageVal": 8.75,
+            "isCrit": true
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "values": [
+          1.25,
+          8.75
+        ],
+        "dead": true,
+        "crit": false
+      },
+      "expected": {
+        "events": [],
+        "attacks": []
+      }
+    },
+    {
+      "input": {
+        "values": [
+          1.25,
+          8.75
+        ],
+        "dead": true,
+        "crit": true
+      },
+      "expected": {
+        "events": [],
+        "attacks": []
+      }
+    },
+    {
+      "input": {
+        "values": [
+          -4,
+          0,
+          3.5
+        ],
+        "dead": false,
+        "crit": false
+      },
+      "expected": {
+        "events": [
+          "GenParams",
+          {
+            "GetRealDmg": -4.0,
+            "paraPlus": 7.5
+          },
+          "BeHit",
+          "GenParams",
+          {
+            "GetRealDmg": 0.0,
+            "paraPlus": 7.5
+          },
+          "BeHit",
+          "GenParams",
+          {
+            "GetRealDmg": 3.5,
+            "paraPlus": 7.5
+          },
+          "BeHit"
+        ],
+        "attacks": [
+          {
+            "damageVal": 0.0,
+            "isCrit": false
+          },
+          {
+            "damageVal": 0.0,
+            "isCrit": false
+          },
+          {
+            "damageVal": 3.5,
+            "isCrit": false
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "values": [
+          -4,
+          0,
+          3.5
+        ],
+        "dead": false,
+        "crit": true
+      },
+      "expected": {
+        "events": [
+          "GenParams",
+          {
+            "GetRealDmg": -4.0,
+            "paraPlus": 7.5
+          },
+          "BeHit",
+          "GenParams",
+          {
+            "GetRealDmg": 0.0,
+            "paraPlus": 7.5
+          },
+          "BeHit",
+          "GenParams",
+          {
+            "GetRealDmg": 3.5,
+            "paraPlus": 7.5
+          },
+          "BeHit"
+        ],
+        "attacks": [
+          {
+            "damageVal": 0.0,
+            "isCrit": true
+          },
+          {
+            "damageVal": 0.0,
+            "isCrit": true
+          },
+          {
+            "damageVal": 3.5,
+            "isCrit": true
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "values": [
+          -4,
+          0,
+          3.5
+        ],
+        "dead": true,
+        "crit": false
+      },
+      "expected": {
+        "events": [],
+        "attacks": []
+      }
+    },
+    {
+      "input": {
+        "values": [
+          -4,
+          0,
+          3.5
+        ],
+        "dead": true,
+        "crit": true
+      },
+      "expected": {
+        "events": [],
+        "attacks": []
+      }
+    }
+  ]
+}

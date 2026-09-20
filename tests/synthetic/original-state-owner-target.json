@@ -1,0 +1,84 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original GenerateTargetsExp StateOwner branch, GetTargetList, command SetUpperTargets/GetUpperTargets, with state lookup and expression constructor adapters. Constructor retains the supplied target table; InitGetter is not executed. No BEGenerateTargets effect, phase execution or gameplay validation.",
+  "sourceHashes": {
+    "BattleCmdParser": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d",
+    "BattleCmdTargetsExp": "9856a6fd84de8f41aa11d8113e2590f75280b7a228716c604bc440bc8cf31ce8",
+    "BattleCmdServer": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b"
+  },
+  "fixtures": [
+    {
+      "input": {
+        "stateUid": 123,
+        "stateExists": true,
+        "ownerExists": true
+      },
+      "expected": {
+        "targets": [
+          7.0
+        ],
+        "lookups": [
+          123.0
+        ],
+        "errorCount": 0
+      }
+    },
+    {
+      "input": {
+        "stateUid": 123,
+        "stateExists": false,
+        "ownerExists": false
+      },
+      "expected": {
+        "targets": [],
+        "lookups": [
+          123.0
+        ],
+        "errorCount": 1
+      }
+    },
+    {
+      "input": {
+        "stateUid": null,
+        "stateExists": true,
+        "ownerExists": true
+      },
+      "expected": {
+        "targets": [],
+        "lookups": [],
+        "errorCount": 0
+      }
+    },
+    {
+      "input": {
+        "stateUid": 0,
+        "stateExists": true,
+        "ownerExists": true
+      },
+      "expected": {
+        "targets": [
+          7.0
+        ],
+        "lookups": [
+          0.0
+        ],
+        "errorCount": 0
+      }
+    },
+    {
+      "input": {
+        "stateUid": 123,
+        "stateExists": true,
+        "ownerExists": false
+      },
+      "expected": {
+        "targets": [],
+        "lookups": [
+          123.0
+        ],
+        "errorCount": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,363 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleCmdTargetsExp": "9856a6fd84de8f41aa11d8113e2590f75280b7a228716c604bc440bc8cf31ce8",
+    "BattleStateMgrServer": "dc7653a427f1fe0bfd21b7495980cc173f4cb298e7dd7086a224ee40640c11a4"
+  },
+  "scope": "24 connected original target-expression GetStateLayer -> manager GetState cases. Supplied first target and real Lua registry tables; missing/deleted/duplicate/mismatched states. No original parser target binding, state lifecycle or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "hasTarget": false,
+        "states": [],
+        "query": 1
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "hasTarget": false,
+        "states": [],
+        "query": 2
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "hasTarget": false,
+        "states": [
+          {
+            "stateId": 1,
+            "layer": 3,
+            "deleted": false
+          }
+        ],
+        "query": 1
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "hasTarget": false,
+        "states": [
+          {
+            "stateId": 1,
+            "layer": 3,
+            "deleted": false
+          }
+        ],
+        "query": 2
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "hasTarget": false,
+        "states": [
+          {
+            "stateId": 1,
+            "layer": 8,
+            "deleted": true
+          },
+          {
+            "stateId": 1,
+            "layer": 2.5,
+            "deleted": false
+          }
+        ],
+        "query": 1
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "hasTarget": false,
+        "states": [
+          {
+            "stateId": 1,
+            "layer": 8,
+            "deleted": true
+          },
+          {
+            "stateId": 1,
+            "layer": 2.5,
+            "deleted": false
+          }
+        ],
+        "query": 2
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "hasTarget": false,
+        "states": [
+          {
+            "stateId": 1,
+            "layer": 3,
+            "deleted": false
+          },
+          {
+            "stateId": 1,
+            "layer": 7,
+            "deleted": false
+          }
+        ],
+        "query": 1
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "hasTarget": false,
+        "states": [
+          {
+            "stateId": 1,
+            "layer": 3,
+            "deleted": false
+          },
+          {
+            "stateId": 1,
+            "layer": 7,
+            "deleted": false
+          }
+        ],
+        "query": 2
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "hasTarget": false,
+        "states": [
+          {
+            "stateId": 1,
+            "layer": 0,
+            "deleted": false
+          }
+        ],
+        "query": 1
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "hasTarget": false,
+        "states": [
+          {
+            "stateId": 1,
+            "layer": 0,
+            "deleted": false
+          }
+        ],
+        "query": 2
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "hasTarget": false,
+        "states": [
+          {
+            "stateId": 2,
+            "layer": 4,
+            "deleted": false
+          }
+        ],
+        "query": 1
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "hasTarget": false,
+        "states": [
+          {
+            "stateId": 2,
+            "layer": 4,
+            "deleted": false
+          }
+        ],
+        "query": 2
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "hasTarget": true,
+        "states": [],
+        "query": 1
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "hasTarget": true,
+        "states": [],
+        "query": 2
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "hasTarget": true,
+        "states": [
+          {
+            "stateId": 1,
+            "layer": 3,
+            "deleted": false
+          }
+        ],
+        "query": 1
+      },
+      "expected": 3.0
+    },
+    {
+      "input": {
+        "hasTarget": true,
+        "states": [
+          {
+            "stateId": 1,
+            "layer": 3,
+            "deleted": false
+          }
+        ],
+        "query": 2
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "hasTarget": true,
+        "states": [
+          {
+            "stateId": 1,
+            "layer": 8,
+            "deleted": true
+          },
+          {
+            "stateId": 1,
+            "layer": 2.5,
+            "deleted": false
+          }
+        ],
+        "query": 1
+      },
+      "expected": 2.5
+    },
+    {
+      "input": {
+        "hasTarget": true,
+        "states": [
+          {
+            "stateId": 1,
+            "layer": 8,
+            "deleted": true
+          },
+          {
+            "stateId": 1,
+            "layer": 2.5,
+            "deleted": false
+          }
+        ],
+        "query": 2
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "hasTarget": true,
+        "states": [
+          {
+            "stateId": 1,
+            "layer": 3,
+            "deleted": false
+          },
+          {
+            "stateId": 1,
+            "layer": 7,
+            "deleted": false
+          }
+        ],
+        "query": 1
+      },
+      "expected": 3.0
+    },
+    {
+      "input": {
+        "hasTarget": true,
+        "states": [
+          {
+            "stateId": 1,
+            "layer": 3,
+            "deleted": false
+          },
+          {
+            "stateId": 1,
+            "layer": 7,
+            "deleted": false
+          }
+        ],
+        "query": 2
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "hasTarget": true,
+        "states": [
+          {
+            "stateId": 1,
+            "layer": 0,
+            "deleted": false
+          }
+        ],
+        "query": 1
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "hasTarget": true,
+        "states": [
+          {
+            "stateId": 1,
+            "layer": 0,
+            "deleted": false
+          }
+        ],
+        "query": 2
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "hasTarget": true,
+        "states": [
+          {
+            "stateId": 2,
+            "layer": 4,
+            "deleted": false
+          }
+        ],
+        "query": 1
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "hasTarget": true,
+        "states": [
+          {
+            "stateId": 2,
+            "layer": 4,
+            "deleted": false
+          }
+        ],
+        "query": 2
+      },
+      "expected": 4.0
+    }
+  ]
+}

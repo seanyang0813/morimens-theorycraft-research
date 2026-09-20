@@ -1,0 +1,154 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original phase DoEffect; base DoEffect no-op, command hooks and after-create hook observed, logging stubbed. Target/trigger payload tokens check forwarding; no commands, events or scheduler execution.",
+  "sourceHash": "0517f4daffda3ed3939ecfa33c7ebeeffa4a01aa137fb2e3951fb0996da9958e",
+  "fixtures": [
+    {
+      "input": {
+        "skipPhase": false,
+        "skipTimeline": false
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          [
+            "SetIsDeleted",
+            false
+          ],
+          [
+            "GetUpperTargets"
+          ],
+          [
+            "GetCurPassTime"
+          ],
+          [
+            "GetSkillCastTime"
+          ],
+          [
+            "OnEnterBeforePhase",
+            7.0
+          ],
+          [
+            "SendNotAwakerTimeline",
+            false
+          ],
+          [
+            "TriggerCmd",
+            42.0,
+            false
+          ],
+          [
+            "AfterCreateSkillPhase"
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "skipPhase": false,
+        "skipTimeline": true
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          [
+            "SetIsDeleted",
+            false
+          ],
+          [
+            "GetUpperTargets"
+          ],
+          [
+            "GetCurPassTime"
+          ],
+          [
+            "GetSkillCastTime"
+          ],
+          [
+            "OnEnterBeforePhase",
+            7.0
+          ],
+          [
+            "SendNotAwakerTimeline",
+            true
+          ],
+          [
+            "TriggerCmd",
+            42.0,
+            false
+          ],
+          [
+            "AfterCreateSkillPhase"
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "skipPhase": true,
+        "skipTimeline": false
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          [
+            "SetIsDeleted",
+            false
+          ],
+          [
+            "GetUpperTargets"
+          ],
+          [
+            "GetCurPassTime"
+          ],
+          [
+            "SendNotAwakerTimeline",
+            false
+          ],
+          [
+            "TriggerCmd",
+            42.0,
+            true
+          ],
+          [
+            "AfterCreateSkillPhase"
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "skipPhase": true,
+        "skipTimeline": true
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          [
+            "SetIsDeleted",
+            false
+          ],
+          [
+            "GetUpperTargets"
+          ],
+          [
+            "GetCurPassTime"
+          ],
+          [
+            "SendNotAwakerTimeline",
+            true
+          ],
+          [
+            "TriggerCmd",
+            42.0,
+            true
+          ],
+          [
+            "AfterCreateSkillPhase"
+          ]
+        ]
+      }
+    }
+  ]
+}

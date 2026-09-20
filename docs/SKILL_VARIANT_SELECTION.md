@@ -1,0 +1,9 @@
+# Progression-based skill field selection
+
+`engine/skill-variant.mjs` implements the numeric-key GetMatchTQ / scalar GetTQText boundary for PC res144 build51. Keys encode breakthrough-skill threshold * 1000 + potency threshold. The resolver accepts explicit breakSkillLevel and potencyLevel; these must not be silently equated with user-facing skill level, Exalt rank, Soulforge or other progression labels.
+
+The original selects the largest eligible breakthrough component and largest eligible potency component independently across every key. It then looks up the combined key. It does not select the largest eligible existing pair. For `{0:10,1000:20,3:30}` at levels 1/3, it chooses key 1003 and returns nil because that entry is missing. The authored result preserves this as MISSING_VARIANT with value null. Supplied zero is a present value.
+
+`tools/skill_variant_oracle.py` executes original GetMatchTQ and GetTQText for all 24 scalar numeric CmdList maps in the exported Skill table and one sparse synthetic control, at 12 progression combinations each. All 300 cases are compared in the authored tests; four sparse-map cases select missing entries. The radix is read from original BattleConst, not assumed by the fixture generator. The authored resolver also accepts scalar strings as source-supported behavior, but this fixture set covers numeric selections only.
+
+This is not a blanket resolver for all table-valued skill fields. Conditional tables, PvP field routing, temp-prefixed fields, list-valued fields, ownership/progression mapping and the enclosing original skill lookup are not reconstructed here. In particular, the command inventory's 645 table references include forms that must not be treated as progression maps. Nested/conditional objects are rejected. No complete skill, build or damage prediction is validated by this selection helper.

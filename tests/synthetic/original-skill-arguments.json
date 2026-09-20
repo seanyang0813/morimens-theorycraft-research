@@ -1,0 +1,376 @@
+{
+  "scope": "Original GetSkillArgs with controlled numeric __CalcBaseSkillArgs output and no skillConfigId/description; dense createCardArgs prefix only; no expression evaluation or scheduler",
+  "sourceHash": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+  "fixtures": [
+    {
+      "input": {
+        "raw": [
+          49.5,
+          2
+        ],
+        "override": []
+      },
+      "expected": [
+        50.0,
+        2.0
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          49.5,
+          2
+        ],
+        "override": [
+          0
+        ]
+      },
+      "expected": [
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          49.5,
+          2
+        ],
+        "override": [
+          0.5
+        ]
+      },
+      "expected": [
+        0.5,
+        2.0
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          49.5,
+          2
+        ],
+        "override": [
+          123.25,
+          4.5
+        ]
+      },
+      "expected": [
+        123.25,
+        4.5
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          59.4,
+          3
+        ],
+        "override": []
+      },
+      "expected": [
+        60.0,
+        3.0
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          59.4,
+          3
+        ],
+        "override": [
+          0
+        ]
+      },
+      "expected": [
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          59.4,
+          3
+        ],
+        "override": [
+          0.5
+        ]
+      },
+      "expected": [
+        0.5,
+        3.0
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          59.4,
+          3
+        ],
+        "override": [
+          123.25,
+          4.5
+        ]
+      },
+      "expected": [
+        123.25,
+        4.5
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          27.6,
+          1
+        ],
+        "override": []
+      },
+      "expected": [
+        28.0,
+        1.0
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          27.6,
+          1
+        ],
+        "override": [
+          0
+        ]
+      },
+      "expected": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          27.6,
+          1
+        ],
+        "override": [
+          0.5
+        ]
+      },
+      "expected": [
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          27.6,
+          1
+        ],
+        "override": [
+          123.25,
+          4.5
+        ]
+      },
+      "expected": [
+        123.25,
+        4.5
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          -1.2,
+          0,
+          1.00000001
+        ],
+        "override": []
+      },
+      "expected": [
+        -1.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          -1.2,
+          0,
+          1.00000001
+        ],
+        "override": [
+          0
+        ]
+      },
+      "expected": [
+        0.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          -1.2,
+          0,
+          1.00000001
+        ],
+        "override": [
+          0.5
+        ]
+      },
+      "expected": [
+        0.5,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          -1.2,
+          0,
+          1.00000001
+        ],
+        "override": [
+          123.25,
+          4.5
+        ]
+      },
+      "expected": [
+        123.25,
+        4.5,
+        2.0
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          0,
+          100,
+          250
+        ],
+        "override": []
+      },
+      "expected": [
+        0.0,
+        100.0,
+        250.0
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          0,
+          100,
+          250
+        ],
+        "override": [
+          0
+        ]
+      },
+      "expected": [
+        0.0,
+        100.0,
+        250.0
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          0,
+          100,
+          250
+        ],
+        "override": [
+          0.5
+        ]
+      },
+      "expected": [
+        0.5,
+        100.0,
+        250.0
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          0,
+          100,
+          250
+        ],
+        "override": [
+          123.25,
+          4.5
+        ]
+      },
+      "expected": [
+        123.25,
+        4.5,
+        250.0
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          412.5,
+          495
+        ],
+        "override": []
+      },
+      "expected": [
+        413.0,
+        495.0
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          412.5,
+          495
+        ],
+        "override": [
+          0
+        ]
+      },
+      "expected": [
+        0.0,
+        495.0
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          412.5,
+          495
+        ],
+        "override": [
+          0.5
+        ]
+      },
+      "expected": [
+        0.5,
+        495.0
+      ]
+    },
+    {
+      "input": {
+        "raw": [
+          412.5,
+          495
+        ],
+        "override": [
+          123.25,
+          4.5
+        ]
+      },
+      "expected": [
+        123.25,
+        4.5
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4501 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "radix": 1000,
+  "scope": "Original GetMatchTQ and GetTQText over all exported scalar numeric CmdList variant maps plus one sparse synthetic map, at explicit progression inputs. No conditional tables, GetTQList, card/character progression mapping, command execution or gameplay.",
+  "sourceHashes": {
+    "BattleUtilServer": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+    "Skill": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8"
+  },
+  "fixtures": [
+    {
+      "skillId": "4114",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 71665
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4114",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 71665
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 71665.0
+      }
+    },
+    {
+      "skillId": "4114",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 71665
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 71665.0
+      }
+    },
+    {
+      "skillId": "4114",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 71665
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 71665.0
+      }
+    },
+    {
+      "skillId": "4114",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 71665
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4114",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 71665
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 71665.0
+      }
+    },
+    {
+      "skillId": "4114",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 71665
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 71665.0
+      }
+    },
+    {
+      "skillId": "4114",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 71665
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 71665.0
+      }
+    },
+    {
+      "skillId": "4114",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 71665
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4114",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 71665
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 71665.0
+      }
+    },
+    {
+      "skillId": "4114",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 71665
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 71665.0
+      }
+    },
+    {
+      "skillId": "4114",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 71665
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 71665.0
+      }
+    },
+    {
+      "skillId": "4134",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 44721
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4134",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 44721
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 44721.0
+      }
+    },
+    {
+      "skillId": "4134",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 44721
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 44721.0
+      }
+    },
+    {
+      "skillId": "4134",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 44721
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 44721.0
+      }
+    },
+    {
+      "skillId": "4134",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 44721
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4134",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 44721
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 44721.0
+      }
+    },
+    {
+      "skillId": "4134",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 44721
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 44721.0
+      }
+    },
+    {
+      "skillId": "4134",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 44721
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 44721.0
+      }
+    },
+    {
+      "skillId": "4134",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 44721
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4134",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 44721
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 44721.0
+      }
+    },
+    {
+      "skillId": "4134",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 44721
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 44721.0
+      }
+    },
+    {
+      "skillId": "4134",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 44721
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 44721.0
+      }
+    },
+    {
+      "skillId": "4163",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 57564
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4163",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 57564
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4163",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 57564
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 3.0,
+        "value": 57564.0
+      }
+    },
+    {
+      "skillId": "4163",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 57564
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 3.0,
+        "value": 57564.0
+      }
+    },
+    {
+      "skillId": "4163",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 57564
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4163",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 57564
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4163",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 57564
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 3.0,
+        "value": 57564.0
+      }
+    },
+    {
+      "skillId": "4163",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 57564
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 3.0,
+        "value": 57564.0
+      }
+    },
+    {
+      "skillId": "4163",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 57564
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4163",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 57564
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4163",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 57564
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 3.0,
+        "value": 57564.0
+      }
+    },
+    {
+      "skillId": "4163",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 57564
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 3.0,
+        "value": 57564.0
+      }
+    },
+    {
+      "skillId": "4169",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 1205
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4169",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 1205
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4169",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 1205
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 1205.0
+      }
+    },
+    {
+      "skillId": "4169",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 1205
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 1205.0
+      }
+    },
+    {
+      "skillId": "4169",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 1205
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4169",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 1205
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4169",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 1205
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 1205.0
+      }
+    },
+    {
+      "skillId": "4169",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 1205
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 1205.0
+      }
+    },
+    {
+      "skillId": "4169",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 1205
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4169",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 1205
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4169",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 1205
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 1205.0
+      }
+    },
+    {
+      "skillId": "4169",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 1205
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 1205.0
+      }
+    },
+    {
+      "skillId": "4178",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 1279
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4178",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 1279
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 1279.0
+      }
+    },
+    {
+      "skillId": "4178",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 1279
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 1279.0
+      }
+    },
+    {
+      "skillId": "4178",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 1279
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 1279.0
+      }
+    },
+    {
+      "skillId": "4178",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 1279
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4178",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 1279
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 1279.0
+      }
+    },
+    {
+      "skillId": "4178",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 1279
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 1279.0
+      }
+    },
+    {
+      "skillId": "4178",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 1279
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 1279.0
+      }
+    },
+    {
+      "skillId": "4178",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 1279
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4178",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 1279
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 1279.0
+      }
+    },
+    {
+      "skillId": "4178",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 1279
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 1279.0
+      }
+    },
+    {
+      "skillId": "4178",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 1279
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 1279.0
+      }
+    },
+    {
+      "skillId": "4234",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 49123
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4234",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 49123
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 49123.0
+      }
+    },
+    {
+      "skillId": "4234",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 49123
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 49123.0
+      }
+    },
+    {
+      "skillId": "4234",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 49123
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 49123.0
+      }
+    },
+    {
+      "skillId": "4234",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 49123
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4234",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 49123
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 49123.0
+      }
+    },
+    {
+      "skillId": "4234",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 49123
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 49123.0
+      }
+    },
+    {
+      "skillId": "4234",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 49123
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 49123.0
+      }
+    },
+    {
+      "skillId": "4234",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 49123
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4234",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 49123
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 49123.0
+      }
+    },
+    {
+      "skillId": "4234",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 49123
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 49123.0
+      }
+    },
+    {
+      "skillId": "4234",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 49123
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 49123.0
+      }
+    },
+    {
+      "skillId": "4244",
+      "input": {
+        "variants": {
+          "0": 834
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4244",
+      "input": {
+        "variants": {
+          "0": 834
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4244",
+      "input": {
+        "variants": {
+          "0": 834
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4244",
+      "input": {
+        "variants": {
+          "0": 834
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4244",
+      "input": {
+        "variants": {
+          "0": 834
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4244",
+      "input": {
+        "variants": {
+          "0": 834
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4244",
+      "input": {
+        "variants": {
+          "0": 834
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4244",
+      "input": {
+        "variants": {
+          "0": 834
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4244",
+      "input": {
+        "variants": {
+          "0": 834
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4244",
+      "input": {
+        "variants": {
+          "0": 834
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4244",
+      "input": {
+        "variants": {
+          "0": 834
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4244",
+      "input": {
+        "variants": {
+          "0": 834
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4344",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 55482
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4344",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 55482
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4344",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 55482
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 55482.0
+      }
+    },
+    {
+      "skillId": "4344",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 55482
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 55482.0
+      }
+    },
+    {
+      "skillId": "4344",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 55482
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4344",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 55482
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4344",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 55482
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 55482.0
+      }
+    },
+    {
+      "skillId": "4344",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 55482
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 55482.0
+      }
+    },
+    {
+      "skillId": "4344",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 55482
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4344",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 55482
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4344",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 55482
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 55482.0
+      }
+    },
+    {
+      "skillId": "4344",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 55482
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 55482.0
+      }
+    },
+    {
+      "skillId": "4360",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 49107
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4360",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 49107
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 49107.0
+      }
+    },
+    {
+      "skillId": "4360",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 49107
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 49107.0
+      }
+    },
+    {
+      "skillId": "4360",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 49107
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 49107.0
+      }
+    },
+    {
+      "skillId": "4360",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 49107
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4360",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 49107
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 49107.0
+      }
+    },
+    {
+      "skillId": "4360",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 49107
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 49107.0
+      }
+    },
+    {
+      "skillId": "4360",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 49107
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 49107.0
+      }
+    },
+    {
+      "skillId": "4360",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 49107
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4360",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 49107
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 49107.0
+      }
+    },
+    {
+      "skillId": "4360",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 49107
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 49107.0
+      }
+    },
+    {
+      "skillId": "4360",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 49107
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 49107.0
+      }
+    },
+    {
+      "skillId": "4366",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 981
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4366",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 981
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 981.0
+      }
+    },
+    {
+      "skillId": "4366",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 981
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 981.0
+      }
+    },
+    {
+      "skillId": "4366",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 981
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 981.0
+      }
+    },
+    {
+      "skillId": "4366",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 981
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4366",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 981
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 981.0
+      }
+    },
+    {
+      "skillId": "4366",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 981
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 981.0
+      }
+    },
+    {
+      "skillId": "4366",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 981
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 981.0
+      }
+    },
+    {
+      "skillId": "4366",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 981
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4366",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 981
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 981.0
+      }
+    },
+    {
+      "skillId": "4366",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 981
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 981.0
+      }
+    },
+    {
+      "skillId": "4366",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 981
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 981.0
+      }
+    },
+    {
+      "skillId": "4404",
+      "input": {
+        "variants": {
+          "0": 834,
+          "3": 48818
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4404",
+      "input": {
+        "variants": {
+          "0": 834,
+          "3": 48818
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4404",
+      "input": {
+        "variants": {
+          "0": 834,
+          "3": 48818
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 3.0,
+        "value": 48818.0
+      }
+    },
+    {
+      "skillId": "4404",
+      "input": {
+        "variants": {
+          "0": 834,
+          "3": 48818
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 3.0,
+        "value": 48818.0
+      }
+    },
+    {
+      "skillId": "4404",
+      "input": {
+        "variants": {
+          "0": 834,
+          "3": 48818
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4404",
+      "input": {
+        "variants": {
+          "0": 834,
+          "3": 48818
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4404",
+      "input": {
+        "variants": {
+          "0": 834,
+          "3": 48818
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 3.0,
+        "value": 48818.0
+      }
+    },
+    {
+      "skillId": "4404",
+      "input": {
+        "variants": {
+          "0": 834,
+          "3": 48818
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 3.0,
+        "value": 48818.0
+      }
+    },
+    {
+      "skillId": "4404",
+      "input": {
+        "variants": {
+          "0": 834,
+          "3": 48818
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4404",
+      "input": {
+        "variants": {
+          "0": 834,
+          "3": 48818
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4404",
+      "input": {
+        "variants": {
+          "0": 834,
+          "3": 48818
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 3.0,
+        "value": 48818.0
+      }
+    },
+    {
+      "skillId": "4404",
+      "input": {
+        "variants": {
+          "0": 834,
+          "3": 48818
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 3.0,
+        "value": 48818.0
+      }
+    },
+    {
+      "skillId": "4429",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 48820
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4429",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 48820
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4429",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 48820
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 3.0,
+        "value": 48820.0
+      }
+    },
+    {
+      "skillId": "4429",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 48820
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 3.0,
+        "value": 48820.0
+      }
+    },
+    {
+      "skillId": "4429",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 48820
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4429",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 48820
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4429",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 48820
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 3.0,
+        "value": 48820.0
+      }
+    },
+    {
+      "skillId": "4429",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 48820
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 3.0,
+        "value": 48820.0
+      }
+    },
+    {
+      "skillId": "4429",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 48820
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4429",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 48820
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4429",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 48820
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 3.0,
+        "value": 48820.0
+      }
+    },
+    {
+      "skillId": "4429",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "3": 48820
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 3.0,
+        "value": 48820.0
+      }
+    },
+    {
+      "skillId": "4501",
+      "input": {
+        "variants": {
+          "0": 834,
+          "15": 126646
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4501",
+      "input": {
+        "variants": {
+          "0": 834,
+          "15": 126646
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4501",
+      "input": {
+        "variants": {
+          "0": 834,
+          "15": 126646
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4501",
+      "input": {
+        "variants": {
+          "0": 834,
+          "15": 126646
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4501",
+      "input": {
+        "variants": {
+          "0": 834,
+          "15": 126646
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4501",
+      "input": {
+        "variants": {
+          "0": 834,
+          "15": 126646
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4501",
+      "input": {
+        "variants": {
+          "0": 834,
+          "15": 126646
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4501",
+      "input": {
+        "variants": {
+          "0": 834,
+          "15": 126646
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4501",
+      "input": {
+        "variants": {
+          "0": 834,
+          "15": 126646
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4501",
+      "input": {
+        "variants": {
+          "0": 834,
+          "15": 126646
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4501",
+      "input": {
+        "variants": {
+          "0": 834,
+          "15": 126646
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4501",
+      "input": {
+        "variants": {
+          "0": 834,
+          "15": 126646
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4744",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 57565
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4744",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 57565
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4744",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 57565
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 57565.0
+      }
+    },
+    {
+      "skillId": "4744",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 57565
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 57565.0
+      }
+    },
+    {
+      "skillId": "4744",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 57565
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4744",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 57565
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4744",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 57565
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 57565.0
+      }
+    },
+    {
+      "skillId": "4744",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 57565
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 57565.0
+      }
+    },
+    {
+      "skillId": "4744",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 57565
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4744",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 57565
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4744",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 57565
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 57565.0
+      }
+    },
+    {
+      "skillId": "4744",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 57565
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 57565.0
+      }
+    },
+    {
+      "skillId": "4778",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 797
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4778",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 797
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 797.0
+      }
+    },
+    {
+      "skillId": "4778",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 797
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 797.0
+      }
+    },
+    {
+      "skillId": "4778",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 797
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 797.0
+      }
+    },
+    {
+      "skillId": "4778",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 797
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4778",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 797
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 797.0
+      }
+    },
+    {
+      "skillId": "4778",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 797
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 797.0
+      }
+    },
+    {
+      "skillId": "4778",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 797
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 797.0
+      }
+    },
+    {
+      "skillId": "4778",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 797
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4778",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 797
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 797.0
+      }
+    },
+    {
+      "skillId": "4778",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 797
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 797.0
+      }
+    },
+    {
+      "skillId": "4778",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 797
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 797.0
+      }
+    },
+    {
+      "skillId": "4545",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 19581
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4545",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 19581
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4545",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 19581
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 19581.0
+      }
+    },
+    {
+      "skillId": "4545",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 19581
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 19581.0
+      }
+    },
+    {
+      "skillId": "4545",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 19581
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4545",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 19581
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4545",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 19581
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 19581.0
+      }
+    },
+    {
+      "skillId": "4545",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 19581
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 19581.0
+      }
+    },
+    {
+      "skillId": "4545",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 19581
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4545",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 19581
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4545",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 19581
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 19581.0
+      }
+    },
+    {
+      "skillId": "4545",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 19581
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 19581.0
+      }
+    },
+    {
+      "skillId": "4111",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 2382
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4111",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 2382
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 2382.0
+      }
+    },
+    {
+      "skillId": "4111",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 2382
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 2382.0
+      }
+    },
+    {
+      "skillId": "4111",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 2382
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 2382.0
+      }
+    },
+    {
+      "skillId": "4111",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 2382
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4111",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 2382
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 2382.0
+      }
+    },
+    {
+      "skillId": "4111",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 2382
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 2382.0
+      }
+    },
+    {
+      "skillId": "4111",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 2382
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 2382.0
+      }
+    },
+    {
+      "skillId": "4111",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 2382
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4111",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 2382
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 2382.0
+      }
+    },
+    {
+      "skillId": "4111",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 2382
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 2382.0
+      }
+    },
+    {
+      "skillId": "4111",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "1": 2382
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 2382.0
+      }
+    },
+    {
+      "skillId": "4603",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 1897
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4603",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 1897
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4603",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 1897
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 1897.0
+      }
+    },
+    {
+      "skillId": "4603",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 1897
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 1897.0
+      }
+    },
+    {
+      "skillId": "4603",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 1897
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4603",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 1897
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4603",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 1897
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 1897.0
+      }
+    },
+    {
+      "skillId": "4603",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 1897
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 1897.0
+      }
+    },
+    {
+      "skillId": "4603",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 1897
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4603",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 1897
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4603",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 1897
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 1897.0
+      }
+    },
+    {
+      "skillId": "4603",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 1897
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 1897.0
+      }
+    },
+    {
+      "skillId": "4666",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 2015
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4666",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 2015
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4666",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 2015
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 2015.0
+      }
+    },
+    {
+      "skillId": "4666",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 2015
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 2015.0
+      }
+    },
+    {
+      "skillId": "4666",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 2015
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4666",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 2015
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4666",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 2015
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 2015.0
+      }
+    },
+    {
+      "skillId": "4666",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 2015
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 2015.0
+      }
+    },
+    {
+      "skillId": "4666",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 2015
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4666",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 2015
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4666",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 2015
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 2015.0
+      }
+    },
+    {
+      "skillId": "4666",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "2": 2015
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 2015.0
+      }
+    },
+    {
+      "skillId": "4785",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 49272
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4785",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 49272
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4785",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 49272
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 49272.0
+      }
+    },
+    {
+      "skillId": "4785",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 49272
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 49272.0
+      }
+    },
+    {
+      "skillId": "4785",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 49272
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4785",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 49272
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4785",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 49272
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 49272.0
+      }
+    },
+    {
+      "skillId": "4785",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 49272
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 49272.0
+      }
+    },
+    {
+      "skillId": "4785",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 49272
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4785",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 49272
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "4785",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 49272
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 49272.0
+      }
+    },
+    {
+      "skillId": "4785",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 49272
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 49272.0
+      }
+    },
+    {
+      "skillId": "3951",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 78656
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "3951",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 78656
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "3951",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 78656
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 78656.0
+      }
+    },
+    {
+      "skillId": "3951",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 78656
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 78656.0
+      }
+    },
+    {
+      "skillId": "3951",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 78656
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "3951",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 78656
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "3951",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 78656
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 78656.0
+      }
+    },
+    {
+      "skillId": "3951",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 78656
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 78656.0
+      }
+    },
+    {
+      "skillId": "3951",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 78656
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "3951",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 78656
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "3951",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 78656
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 78656.0
+      }
+    },
+    {
+      "skillId": "3951",
+      "input": {
+        "variants": {
+          "0": 834,
+          "2": 78656
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 2.0,
+        "value": 78656.0
+      }
+    },
+    {
+      "skillId": "3961",
+      "input": {
+        "variants": {
+          "0": 2112
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "3961",
+      "input": {
+        "variants": {
+          "0": 2112
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "3961",
+      "input": {
+        "variants": {
+          "0": 2112
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "3961",
+      "input": {
+        "variants": {
+          "0": 2112
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "3961",
+      "input": {
+        "variants": {
+          "0": 2112
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "3961",
+      "input": {
+        "variants": {
+          "0": 2112
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "3961",
+      "input": {
+        "variants": {
+          "0": 2112
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "3961",
+      "input": {
+        "variants": {
+          "0": 2112
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "3961",
+      "input": {
+        "variants": {
+          "0": 2112
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "3961",
+      "input": {
+        "variants": {
+          "0": 2112
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "3961",
+      "input": {
+        "variants": {
+          "0": 2112
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "3961",
+      "input": {
+        "variants": {
+          "0": 2112
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "3972",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 47097
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "3972",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 47097
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 47097.0
+      }
+    },
+    {
+      "skillId": "3972",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 47097
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 47097.0
+      }
+    },
+    {
+      "skillId": "3972",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 47097
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 47097.0
+      }
+    },
+    {
+      "skillId": "3972",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 47097
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "3972",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 47097
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 47097.0
+      }
+    },
+    {
+      "skillId": "3972",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 47097
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 47097.0
+      }
+    },
+    {
+      "skillId": "3972",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 47097
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 47097.0
+      }
+    },
+    {
+      "skillId": "3972",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 47097
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 834.0
+      }
+    },
+    {
+      "skillId": "3972",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 47097
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 47097.0
+      }
+    },
+    {
+      "skillId": "3972",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 47097
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 47097.0
+      }
+    },
+    {
+      "skillId": "3972",
+      "input": {
+        "variants": {
+          "0": 834,
+          "1": 47097
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1.0,
+        "value": 47097.0
+      }
+    },
+    {
+      "skillId": "4036",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "15": 126648
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4036",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "15": 126648
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4036",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "15": 126648
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4036",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "15": 126648
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4036",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "15": 126648
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4036",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "15": 126648
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4036",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "15": 126648
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4036",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "15": 126648
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4036",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "15": 126648
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4036",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "15": 126648
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4036",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "15": 126648
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "4036",
+      "input": {
+        "variants": {
+          "0": 2112,
+          "15": 126648
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 2112.0
+      }
+    },
+    {
+      "skillId": "synthetic-sparse",
+      "input": {
+        "variants": {
+          "0": 10,
+          "1000": 20,
+          "3": 30
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 10.0
+      }
+    },
+    {
+      "skillId": "synthetic-sparse",
+      "input": {
+        "variants": {
+          "0": 10,
+          "1000": 20,
+          "3": 30
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 0.0,
+        "value": 10.0
+      }
+    },
+    {
+      "skillId": "synthetic-sparse",
+      "input": {
+        "variants": {
+          "0": 10,
+          "1000": 20,
+          "3": 30
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 3.0,
+        "value": 30.0
+      }
+    },
+    {
+      "skillId": "synthetic-sparse",
+      "input": {
+        "variants": {
+          "0": 10,
+          "1000": 20,
+          "3": 30
+        },
+        "breakSkillLevel": 0,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 3.0,
+        "value": 30.0
+      }
+    },
+    {
+      "skillId": "synthetic-sparse",
+      "input": {
+        "variants": {
+          "0": 10,
+          "1000": 20,
+          "3": 30
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 1000.0,
+        "value": 20.0
+      }
+    },
+    {
+      "skillId": "synthetic-sparse",
+      "input": {
+        "variants": {
+          "0": 10,
+          "1000": 20,
+          "3": 30
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1000.0,
+        "value": 20.0
+      }
+    },
+    {
+      "skillId": "synthetic-sparse",
+      "input": {
+        "variants": {
+          "0": 10,
+          "1000": 20,
+          "3": 30
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1003.0,
+        "value": null
+      }
+    },
+    {
+      "skillId": "synthetic-sparse",
+      "input": {
+        "variants": {
+          "0": 10,
+          "1000": 20,
+          "3": 30
+        },
+        "breakSkillLevel": 1,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1003.0,
+        "value": null
+      }
+    },
+    {
+      "skillId": "synthetic-sparse",
+      "input": {
+        "variants": {
+          "0": 10,
+          "1000": 20,
+          "3": 30
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 0
+      },
+      "expected": {
+        "matchKey": 1000.0,
+        "value": 20.0
+      }
+    },
+    {
+      "skillId": "synthetic-sparse",
+      "input": {
+        "variants": {
+          "0": 10,
+          "1000": 20,
+          "3": 30
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 1
+      },
+      "expected": {
+        "matchKey": 1000.0,
+        "value": 20.0
+      }
+    },
+    {
+      "skillId": "synthetic-sparse",
+      "input": {
+        "variants": {
+          "0": 10,
+          "1000": 20,
+          "3": 30
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 3
+      },
+      "expected": {
+        "matchKey": 1003.0,
+        "value": null
+      }
+    },
+    {
+      "skillId": "synthetic-sparse",
+      "input": {
+        "variants": {
+          "0": 10,
+          "1000": 20,
+          "3": 30
+        },
+        "breakSkillLevel": 2,
+        "potencyLevel": 6
+      },
+      "expected": {
+        "matchKey": 1003.0,
+        "value": null
+      }
+    }
+  ]
+}

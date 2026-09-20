@@ -1,0 +1,307 @@
+{
+  "scope": "Original BEChangeAttr.DoEffect/GetFixValueByPropertyType HP-loss branch with original ChangeProperty/SubProperty. Base DoEffect and source-metadata creation stubbed; role type is non-card, callbacks/event enqueue/death checks observed only. No command selection, state layers, listener execution or gameplay validation.",
+  "sourceHashes": {
+    "BEChangeAttr": "21202e200b1adb5c2e9b3cb2210059d654beb6381c7069dc1ebf26c2492e0708",
+    "BattlePropertyServer": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76"
+  },
+  "fixtures": [
+    {
+      "input": {
+        "hp": 10,
+        "rawValue": -9,
+        "immunity": 0,
+        "limit": 0
+      },
+      "expected": {
+        "hpAfter": 1.0,
+        "propertyCallbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 10.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -9.0,
+            "new": 1.0
+          }
+        ],
+        "events": [
+          {
+            "name": "HpDown",
+            "castValue": -9.0,
+            "deltaValue": -9.0,
+            "overflowValue": 0.0
+          },
+          {
+            "name": "BEChangeAttrHp",
+            "castValue": -9.0,
+            "deltaValue": -9.0,
+            "overflowValue": 0.0
+          }
+        ],
+        "deathChecks": 1
+      }
+    },
+    {
+      "input": {
+        "hp": 10,
+        "rawValue": -30,
+        "immunity": 0,
+        "limit": 0
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "propertyCallbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 10.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -10.0,
+            "new": 0.0
+          }
+        ],
+        "events": [
+          {
+            "name": "HpDown",
+            "castValue": -30.0,
+            "deltaValue": -10.0,
+            "overflowValue": 0.0
+          },
+          {
+            "name": "BEChangeAttrHp",
+            "castValue": -30.0,
+            "deltaValue": -10.0,
+            "overflowValue": 0.0
+          }
+        ],
+        "deathChecks": 1
+      }
+    },
+    {
+      "input": {
+        "hp": 10,
+        "rawValue": -4.5,
+        "immunity": 0,
+        "limit": 0
+      },
+      "expected": {
+        "hpAfter": 6.0,
+        "propertyCallbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 10.0,
+            "new": 6.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -4.0,
+            "new": 6.0
+          }
+        ],
+        "events": [
+          {
+            "name": "HpDown",
+            "castValue": -4.0,
+            "deltaValue": -4.0,
+            "overflowValue": 0.0
+          },
+          {
+            "name": "BEChangeAttrHp",
+            "castValue": -4.0,
+            "deltaValue": -4.0,
+            "overflowValue": 0.0
+          }
+        ],
+        "deathChecks": 1
+      }
+    },
+    {
+      "input": {
+        "hp": 10,
+        "rawValue": -0.5,
+        "immunity": 0,
+        "limit": 0
+      },
+      "expected": {
+        "hpAfter": 10.0,
+        "propertyCallbacks": [],
+        "events": [
+          {
+            "name": "BEChangeAttrHp",
+            "castValue": 0.0,
+            "deltaValue": 0.0,
+            "overflowValue": 0.0
+          }
+        ],
+        "deathChecks": 1
+      }
+    },
+    {
+      "input": {
+        "hp": 10,
+        "rawValue": 0,
+        "immunity": 0,
+        "limit": 0
+      },
+      "expected": {
+        "hpAfter": 10.0,
+        "propertyCallbacks": [],
+        "events": [
+          {
+            "name": "BEChangeAttrHp",
+            "castValue": 0.0,
+            "deltaValue": 0.0,
+            "overflowValue": 0.0
+          }
+        ],
+        "deathChecks": 1
+      }
+    },
+    {
+      "input": {
+        "hp": 10,
+        "rawValue": -9,
+        "immunity": 1,
+        "limit": 0
+      },
+      "expected": {
+        "hpAfter": 10.0,
+        "propertyCallbacks": [],
+        "events": [
+          {
+            "name": "BEChangeAttrHp",
+            "castValue": 0.0,
+            "deltaValue": 0.0,
+            "overflowValue": 0.0
+          }
+        ],
+        "deathChecks": 1
+      }
+    },
+    {
+      "input": {
+        "hp": 10,
+        "rawValue": -9,
+        "immunity": 0,
+        "limit": 2.5
+      },
+      "expected": {
+        "hpAfter": 7.5,
+        "propertyCallbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 10.0,
+            "new": 7.5
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -2.5,
+            "new": 7.5
+          }
+        ],
+        "events": [
+          {
+            "name": "HpDown",
+            "castValue": -2.5,
+            "deltaValue": -2.5,
+            "overflowValue": 0.0
+          },
+          {
+            "name": "BEChangeAttrHp",
+            "castValue": -2.5,
+            "deltaValue": -2.5,
+            "overflowValue": 0.0
+          }
+        ],
+        "deathChecks": 1
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "rawValue": -9,
+        "immunity": 0,
+        "limit": 0
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "propertyCallbacks": [],
+        "events": [],
+        "deathChecks": 0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "rawValue": -9,
+        "immunity": 0,
+        "limit": 0
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "propertyCallbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 0.5,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -0.5,
+            "new": 0.0
+          }
+        ],
+        "events": [
+          {
+            "name": "HpDown",
+            "castValue": -9.0,
+            "deltaValue": -0.5,
+            "overflowValue": 0.0
+          },
+          {
+            "name": "BEChangeAttrHp",
+            "castValue": -9.0,
+            "deltaValue": -0.5,
+            "overflowValue": 0.0
+          }
+        ],
+        "deathChecks": 1
+      }
+    },
+    {
+      "input": {
+        "hp": 10,
+        "rawValue": -9,
+        "immunity": 1,
+        "limit": 2
+      },
+      "expected": {
+        "hpAfter": 10.0,
+        "propertyCallbacks": [],
+        "events": [
+          {
+            "name": "BEChangeAttrHp",
+            "castValue": 0.0,
+            "deltaValue": 0.0,
+            "overflowValue": 0.0
+          }
+        ],
+        "deathChecks": 1
+      }
+    }
+  ]
+}

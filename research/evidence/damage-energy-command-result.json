@@ -1,0 +1,981 @@
+{
+  "status": "EXPERIMENTAL",
+  "build": "pc-res144-build51",
+  "finalDamage": null,
+  "support": {
+    "status": "STATIC_COMPATIBILITY_INSPECTION",
+    "profile": "damage-and-energy",
+    "importMetadata": [
+      {
+        "rowId": "1",
+        "BaseSortID": 582
+      }
+    ],
+    "normalizedRows": [
+      {
+        "id": "1",
+        "Para": "Arg1",
+        "Type": "BEActiveDamage",
+        "Target": "UpperTarget"
+      },
+      {
+        "id": "2",
+        "Type": "BEGainUltiEnergy",
+        "Para": "Arg2",
+        "Target": "CmdCaster"
+      }
+    ],
+    "rowCount": 2,
+    "rows": [
+      {
+        "id": "1",
+        "type": "BEActiveDamage",
+        "target": "UpperTarget",
+        "blockers": []
+      },
+      {
+        "id": "2",
+        "type": "BEGainUltiEnergy",
+        "target": "CmdCaster",
+        "blockers": []
+      }
+    ],
+    "structurallyCompatible": true,
+    "executable": false,
+    "remainingRuntimeChecks": [
+      "Numeric bindings and condition outcomes",
+      "Damage subtype and ParaPlus restrictions",
+      "Resolved offense, target modifiers, immunity and repetition inputs",
+      "Costs, lifecycle, state changes and trigger listeners",
+      "Original row construction and ordering"
+    ],
+    "limitations": [
+      "Checks current authored experiment compatibility, not correctness of the game command",
+      "No row is dropped; compilation does not evaluate expressions or prove runtime support",
+      "Not a gameplay prediction or full skill execution"
+    ]
+  },
+  "completed": true,
+  "stop": null,
+  "targetAfter": {
+    "hp": 880,
+    "block": 0
+  },
+  "casterEnergyAfter": 100,
+  "modeledHpLost": 120,
+  "actions": [
+    {
+      "rowId": "1",
+      "type": "damage",
+      "result": {
+        "schemaVersion": 1,
+        "status": "EXPERIMENTAL",
+        "build": "pc-res144-build51",
+        "finalDamage": null,
+        "scope": "Numeric active command rows, supplied resolved modifiers, one target, no intervening effects",
+        "completed": true,
+        "stop": null,
+        "initialTarget": {
+          "hp": 1000,
+          "block": 0
+        },
+        "targetAfter": {
+          "hp": 880,
+          "block": 0
+        },
+        "modeledHpLost": 120,
+        "hits": [
+          {
+            "id": "1/hit-1",
+            "rowId": "1",
+            "before": {
+              "hp": 1000,
+              "block": 0
+            },
+            "after": {
+              "hp": 880,
+              "block": 0
+            },
+            "modeledHpLost": 120,
+            "calculation": {
+              "mode": "experimental",
+              "build": "pc-res144-build51",
+              "damageType": "ACTIVE",
+              "status": "EXPERIMENTAL",
+              "message": "Exact verified result unavailable.",
+              "finalDamage": null,
+              "experimentalModels": [
+                {
+                  "name": "Recovered Active pre-hit formula, explicitly resolved inputs",
+                  "scope": "Before shield and HP resolution; not a verified gameplay prediction",
+                  "preHitDamage": 120,
+                  "trace": [
+                    {
+                      "stage": "base",
+                      "value": 120
+                    },
+                    {
+                      "stage": "flat contributions",
+                      "value": 0
+                    },
+                    {
+                      "stage": "offensive subtotal",
+                      "value": 120
+                    },
+                    {
+                      "stage": "ceil(x - 0.00001), minimum 1",
+                      "value": 120
+                    },
+                    {
+                      "stage": "reduction product",
+                      "value": 1
+                    },
+                    {
+                      "stage": "floor(x + 0.00001), minimum 1",
+                      "value": 120
+                    },
+                    {
+                      "stage": "crit bonus",
+                      "value": 0
+                    },
+                    {
+                      "stage": "after crit",
+                      "value": 120
+                    },
+                    {
+                      "stage": "target products and flat addition",
+                      "value": 120
+                    },
+                    {
+                      "stage": "ceil, minimum 1",
+                      "value": 120
+                    }
+                  ],
+                  "evidence": [
+                    "PC144:BattleUtilServer.ShowDamageFormula",
+                    "PC144:BattleCmdServer.__GetFinalDamage"
+                  ]
+                },
+                {
+                  "name": "ACTIVE incoming-hit request",
+                  "scope": "Resolved immunity decision, shield and limit helpers; before HP mutation and callbacks",
+                  "incomingDamage": 120,
+                  "immune": false,
+                  "shield": [
+                    120,
+                    0,
+                    0,
+                    false,
+                    false,
+                    0
+                  ],
+                  "afterRetain": 120,
+                  "converted": 0,
+                  "hpLossRequest": 120,
+                  "deathResistApplied": false,
+                  "evidence": [
+                    "PC144:HitLimitHelpers"
+                  ]
+                },
+                {
+                  "name": "Ordinary HP subtraction",
+                  "scope": "One explicit ordinary HP mutation; callback descriptors only, no combat event/death execution",
+                  "incomingDamage": 120,
+                  "hpLossRequest": 120,
+                  "hpBefore": 1000,
+                  "hpAfter": 880,
+                  "modeledHpLost": 120,
+                  "shieldAfter": 0,
+                  "overflowDiagnostic": null,
+                  "callbackDescriptors": [
+                    {
+                      "kind": "owner",
+                      "property": "hp",
+                      "old": 1000,
+                      "new": 880
+                    },
+                    {
+                      "kind": "send",
+                      "property": "hp",
+                      "delta": -120,
+                      "new": 880
+                    }
+                  ],
+                  "evidence": [
+                    "PC144:OrdinaryHpSubtraction",
+                    "PC144:HitLimitHelpers"
+                  ]
+                }
+              ],
+              "trace": [
+                {
+                  "stage": "base",
+                  "value": 120
+                },
+                {
+                  "stage": "flat contributions",
+                  "value": 0
+                },
+                {
+                  "stage": "offensive subtotal",
+                  "value": 120
+                },
+                {
+                  "stage": "ceil(x - 0.00001), minimum 1",
+                  "value": 120
+                },
+                {
+                  "stage": "reduction product",
+                  "value": 1
+                },
+                {
+                  "stage": "floor(x + 0.00001), minimum 1",
+                  "value": 120
+                }
+              ],
+              "evidence": [
+                "PC144:BattleUtilServer.ShowDamageFormula",
+                "PC144:BattleCmdServer.__GetFinalDamage",
+                "PC144:HitLimitHelpers",
+                "PC144:OrdinaryHpSubtraction"
+              ],
+              "unresolvedDependencies": [
+                "Resolved inputs have not been tied to a fully reconstructed gameplay scenario",
+                "Independent gameplay holdouts have not passed",
+                "HP-dependent combat callbacks, statistics and death execution are not performed by this API",
+                "Immunity decision is supplied, not reconstructed",
+                "Prevention eligibility is supplied, not reconstructed",
+                "Limit properties are supplied, not reconstructed"
+              ],
+              "offensiveUtility": {
+                "showDamage": 120,
+                "diagnosticBaseDamage": 120,
+                "trace": [
+                  {
+                    "stage": "base",
+                    "value": 120
+                  },
+                  {
+                    "stage": "flat contributions",
+                    "value": 0
+                  },
+                  {
+                    "stage": "offensive subtotal",
+                    "value": 120
+                  },
+                  {
+                    "stage": "ceil(x - 0.00001), minimum 1",
+                    "value": 120
+                  },
+                  {
+                    "stage": "reduction product",
+                    "value": 1
+                  },
+                  {
+                    "stage": "floor(x + 0.00001), minimum 1",
+                    "value": 120
+                  }
+                ],
+                "evidence": [
+                  "PC144:BattleUtilServer.ShowDamageFormula"
+                ],
+                "status": "SUPPORTED_BY_RUNTIME_TEST"
+              },
+              "hitTriggerValues": {
+                "changeVal": 120,
+                "curHp": 880,
+                "oldHp": 1000,
+                "immueDamage": false,
+                "originVal": 120,
+                "castDamage": 120,
+                "realDamage": 120,
+                "unBlockedDamage": 120,
+                "blockedDamage": 0,
+                "blockLose": 0,
+                "isBlockedDamage": false,
+                "isBlockedAllDamage": false,
+                "overflowDamage": null,
+                "pvp_death_resist": false,
+                "isPreventActiveDamage": false,
+                "convertDamageVal": 0
+              }
+            }
+          }
+        ],
+        "command": {
+          "status": "EXPERIMENTAL",
+          "finalDamage": null,
+          "completed": true,
+          "stop": null,
+          "trace": [
+            {
+              "rowId": "1",
+              "type": "BEActiveDamage",
+              "condition": null,
+              "executed": true,
+              "parameterEvaluations": [
+                {
+                  "values": [
+                    120
+                  ],
+                  "reads": [
+                    {
+                      "name": "Arg1",
+                      "value": 120
+                    }
+                  ],
+                  "calls": []
+                },
+                {
+                  "values": [
+                    120
+                  ],
+                  "reads": [
+                    {
+                      "name": "Arg1",
+                      "value": 120
+                    }
+                  ],
+                  "calls": []
+                }
+              ],
+              "result": {
+                "status": "EXPERIMENTAL",
+                "initialization": {
+                  "baseTimes": 1,
+                  "afterAddition": 1,
+                  "totalEffectTimes": 1
+                },
+                "paraPlus": null,
+                "damageSubType": 0,
+                "trace": [
+                  {
+                    "hitIndex": 1,
+                    "parameters": [
+                      120
+                    ],
+                    "attack": {
+                      "damageVal": 120,
+                      "isCrit": false,
+                      "damageSubType": 0
+                    },
+                    "result": {
+                      "hitId": "1/hit-1"
+                    }
+                  }
+                ],
+                "stop": null,
+                "unresolvedDependencies": [
+                  "Supplied expression, target, damage, crit and hit adapters",
+                  "No automatic retargeting, state-add variant, delay or complete lifecycle",
+                  "Component composition, not connected original execution or gameplay validation"
+                ]
+              }
+            }
+          ],
+          "unresolvedDependencies": [
+            "Explicit target resolution, effect handlers and continuation decisions",
+            "No original command construction, delays, interruption, yielding or full lifecycle",
+            "Component composition, not connected original command execution or gameplay validation"
+          ]
+        },
+        "unresolvedDependencies": [
+          "Resolved inputs have not been tied to a fully reconstructed gameplay scenario",
+          "Independent gameplay holdouts have not passed",
+          "HP-dependent combat callbacks, statistics and death execution are not performed by this API",
+          "Immunity decision is supplied, not reconstructed",
+          "Prevention eligibility is supplied, not reconstructed",
+          "Limit properties are supplied, not reconstructed",
+          "Explicit target resolution, effect handlers and continuation decisions",
+          "No original command construction, delays, interruption, yielding or full lifecycle",
+          "Component composition, not connected original command execution or gameplay validation",
+          "No card costs, automatic skill/build assembly, ParaPlus, state changes, random targeting, caps or death handling",
+          "Supplied numeric variables except live UpperTarget.hp; no original command-to-damage execution or independent gameplay validation"
+        ]
+      }
+    },
+    {
+      "rowId": "2",
+      "type": "energy",
+      "result": {
+        "schemaVersion": 1,
+        "build": "pc-res144-build51",
+        "status": "EXPERIMENTAL",
+        "finalDamage": null,
+        "targetsAfter": [
+          {
+            "uid": 7,
+            "energy": 100
+          }
+        ],
+        "effect": {
+          "returned": true,
+          "initialization": {
+            "base": 10,
+            "times": 1,
+            "showText": true
+          },
+          "applications": [
+            {
+              "target": 7,
+              "repetition": 1,
+              "value": 10,
+              "source": {
+                "castRoleUid": 7,
+                "reason": 3,
+                "cmdServerUid": 2,
+                "castValue": 10,
+                "skillConfigId": 3,
+                "showText": true
+              },
+              "result": {
+                "energyBefore": 95,
+                "calculation": {
+                  "value": 10,
+                  "propertyReads": [
+                    "ulti_energy_per",
+                    "i_ulti_energy_per",
+                    "ulti_energy_efficiency",
+                    "ulti_energy_plus",
+                    "gain_ulti_energy_per",
+                    "gain_ulti_energy_plus"
+                  ],
+                  "trace": {
+                    "scaled": 10,
+                    "roundingEpsilon": 0.00001,
+                    "showValue": 10,
+                    "targetValue": 10,
+                    "tagFactor": 1,
+                    "tagFactors": []
+                  },
+                  "scope": "Ordinary subtype; explicit card/type/caster/tag context, properties and dimension",
+                  "unresolvedDependencies": [
+                    "Automatic card/caster eligibility, skill tags and property derivation",
+                    "Gain effect repetition, Awaker cap/storage and event callbacks",
+                    "Independent gameplay validation"
+                  ]
+                },
+                "storage": {
+                  "returned": 100,
+                  "energyAfter": 100,
+                  "energyGained": 5,
+                  "maximum": 100,
+                  "castValue": 10,
+                  "events": [
+                    {
+                      "kind": "owner",
+                      "property": "ulti_energy",
+                      "old": 95,
+                      "new": 100
+                    },
+                    {
+                      "kind": "send",
+                      "property": "ulti_energy",
+                      "delta": 5,
+                      "new": 100
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          "unresolvedDependencies": [
+            "Presentation superclass omitted; VFX may consume RNG",
+            "Explicit calculation/gain callbacks and source identities",
+            "No full command lifecycle or independent gameplay validation"
+          ]
+        },
+        "unresolvedDependencies": [
+          "Presentation superclass omitted; VFX may consume RNG",
+          "Explicit calculation/gain callbacks and source identities",
+          "No full command lifecycle or independent gameplay validation",
+          "Connected original energy-path checks cover one self-target Awaker with observed callbacks; no full command or gameplay validation",
+          "Explicit static properties, card/type/tag decisions and Awaker targets; no automatic build or target assembly",
+          "No callbacks dispatched, no VFX, no other state/resource effects; within one effect only"
+        ]
+      }
+    }
+  ],
+  "command": {
+    "status": "EXPERIMENTAL",
+    "finalDamage": null,
+    "completed": true,
+    "stop": null,
+    "trace": [
+      {
+        "rowId": "1",
+        "type": "BEActiveDamage",
+        "condition": null,
+        "executed": true,
+        "parameterEvaluations": [
+          {
+            "values": [
+              120
+            ],
+            "reads": [
+              {
+                "name": "Arg1",
+                "value": 120
+              }
+            ],
+            "calls": []
+          }
+        ],
+        "result": {
+          "schemaVersion": 1,
+          "status": "EXPERIMENTAL",
+          "build": "pc-res144-build51",
+          "finalDamage": null,
+          "scope": "Numeric active command rows, supplied resolved modifiers, one target, no intervening effects",
+          "completed": true,
+          "stop": null,
+          "initialTarget": {
+            "hp": 1000,
+            "block": 0
+          },
+          "targetAfter": {
+            "hp": 880,
+            "block": 0
+          },
+          "modeledHpLost": 120,
+          "hits": [
+            {
+              "id": "1/hit-1",
+              "rowId": "1",
+              "before": {
+                "hp": 1000,
+                "block": 0
+              },
+              "after": {
+                "hp": 880,
+                "block": 0
+              },
+              "modeledHpLost": 120,
+              "calculation": {
+                "mode": "experimental",
+                "build": "pc-res144-build51",
+                "damageType": "ACTIVE",
+                "status": "EXPERIMENTAL",
+                "message": "Exact verified result unavailable.",
+                "finalDamage": null,
+                "experimentalModels": [
+                  {
+                    "name": "Recovered Active pre-hit formula, explicitly resolved inputs",
+                    "scope": "Before shield and HP resolution; not a verified gameplay prediction",
+                    "preHitDamage": 120,
+                    "trace": [
+                      {
+                        "stage": "base",
+                        "value": 120
+                      },
+                      {
+                        "stage": "flat contributions",
+                        "value": 0
+                      },
+                      {
+                        "stage": "offensive subtotal",
+                        "value": 120
+                      },
+                      {
+                        "stage": "ceil(x - 0.00001), minimum 1",
+                        "value": 120
+                      },
+                      {
+                        "stage": "reduction product",
+                        "value": 1
+                      },
+                      {
+                        "stage": "floor(x + 0.00001), minimum 1",
+                        "value": 120
+                      },
+                      {
+                        "stage": "crit bonus",
+                        "value": 0
+                      },
+                      {
+                        "stage": "after crit",
+                        "value": 120
+                      },
+                      {
+                        "stage": "target products and flat addition",
+                        "value": 120
+                      },
+                      {
+                        "stage": "ceil, minimum 1",
+                        "value": 120
+                      }
+                    ],
+                    "evidence": [
+                      "PC144:BattleUtilServer.ShowDamageFormula",
+                      "PC144:BattleCmdServer.__GetFinalDamage"
+                    ]
+                  },
+                  {
+                    "name": "ACTIVE incoming-hit request",
+                    "scope": "Resolved immunity decision, shield and limit helpers; before HP mutation and callbacks",
+                    "incomingDamage": 120,
+                    "immune": false,
+                    "shield": [
+                      120,
+                      0,
+                      0,
+                      false,
+                      false,
+                      0
+                    ],
+                    "afterRetain": 120,
+                    "converted": 0,
+                    "hpLossRequest": 120,
+                    "deathResistApplied": false,
+                    "evidence": [
+                      "PC144:HitLimitHelpers"
+                    ]
+                  },
+                  {
+                    "name": "Ordinary HP subtraction",
+                    "scope": "One explicit ordinary HP mutation; callback descriptors only, no combat event/death execution",
+                    "incomingDamage": 120,
+                    "hpLossRequest": 120,
+                    "hpBefore": 1000,
+                    "hpAfter": 880,
+                    "modeledHpLost": 120,
+                    "shieldAfter": 0,
+                    "overflowDiagnostic": null,
+                    "callbackDescriptors": [
+                      {
+                        "kind": "owner",
+                        "property": "hp",
+                        "old": 1000,
+                        "new": 880
+                      },
+                      {
+                        "kind": "send",
+                        "property": "hp",
+                        "delta": -120,
+                        "new": 880
+                      }
+                    ],
+                    "evidence": [
+                      "PC144:OrdinaryHpSubtraction",
+                      "PC144:HitLimitHelpers"
+                    ]
+                  }
+                ],
+                "trace": [
+                  {
+                    "stage": "base",
+                    "value": 120
+                  },
+                  {
+                    "stage": "flat contributions",
+                    "value": 0
+                  },
+                  {
+                    "stage": "offensive subtotal",
+                    "value": 120
+                  },
+                  {
+                    "stage": "ceil(x - 0.00001), minimum 1",
+                    "value": 120
+                  },
+                  {
+                    "stage": "reduction product",
+                    "value": 1
+                  },
+                  {
+                    "stage": "floor(x + 0.00001), minimum 1",
+                    "value": 120
+                  }
+                ],
+                "evidence": [
+                  "PC144:BattleUtilServer.ShowDamageFormula",
+                  "PC144:BattleCmdServer.__GetFinalDamage",
+                  "PC144:HitLimitHelpers",
+                  "PC144:OrdinaryHpSubtraction"
+                ],
+                "unresolvedDependencies": [
+                  "Resolved inputs have not been tied to a fully reconstructed gameplay scenario",
+                  "Independent gameplay holdouts have not passed",
+                  "HP-dependent combat callbacks, statistics and death execution are not performed by this API",
+                  "Immunity decision is supplied, not reconstructed",
+                  "Prevention eligibility is supplied, not reconstructed",
+                  "Limit properties are supplied, not reconstructed"
+                ],
+                "offensiveUtility": {
+                  "showDamage": 120,
+                  "diagnosticBaseDamage": 120,
+                  "trace": [
+                    {
+                      "stage": "base",
+                      "value": 120
+                    },
+                    {
+                      "stage": "flat contributions",
+                      "value": 0
+                    },
+                    {
+                      "stage": "offensive subtotal",
+                      "value": 120
+                    },
+                    {
+                      "stage": "ceil(x - 0.00001), minimum 1",
+                      "value": 120
+                    },
+                    {
+                      "stage": "reduction product",
+                      "value": 1
+                    },
+                    {
+                      "stage": "floor(x + 0.00001), minimum 1",
+                      "value": 120
+                    }
+                  ],
+                  "evidence": [
+                    "PC144:BattleUtilServer.ShowDamageFormula"
+                  ],
+                  "status": "SUPPORTED_BY_RUNTIME_TEST"
+                },
+                "hitTriggerValues": {
+                  "changeVal": 120,
+                  "curHp": 880,
+                  "oldHp": 1000,
+                  "immueDamage": false,
+                  "originVal": 120,
+                  "castDamage": 120,
+                  "realDamage": 120,
+                  "unBlockedDamage": 120,
+                  "blockedDamage": 0,
+                  "blockLose": 0,
+                  "isBlockedDamage": false,
+                  "isBlockedAllDamage": false,
+                  "overflowDamage": null,
+                  "pvp_death_resist": false,
+                  "isPreventActiveDamage": false,
+                  "convertDamageVal": 0
+                }
+              }
+            }
+          ],
+          "command": {
+            "status": "EXPERIMENTAL",
+            "finalDamage": null,
+            "completed": true,
+            "stop": null,
+            "trace": [
+              {
+                "rowId": "1",
+                "type": "BEActiveDamage",
+                "condition": null,
+                "executed": true,
+                "parameterEvaluations": [
+                  {
+                    "values": [
+                      120
+                    ],
+                    "reads": [
+                      {
+                        "name": "Arg1",
+                        "value": 120
+                      }
+                    ],
+                    "calls": []
+                  },
+                  {
+                    "values": [
+                      120
+                    ],
+                    "reads": [
+                      {
+                        "name": "Arg1",
+                        "value": 120
+                      }
+                    ],
+                    "calls": []
+                  }
+                ],
+                "result": {
+                  "status": "EXPERIMENTAL",
+                  "initialization": {
+                    "baseTimes": 1,
+                    "afterAddition": 1,
+                    "totalEffectTimes": 1
+                  },
+                  "paraPlus": null,
+                  "damageSubType": 0,
+                  "trace": [
+                    {
+                      "hitIndex": 1,
+                      "parameters": [
+                        120
+                      ],
+                      "attack": {
+                        "damageVal": 120,
+                        "isCrit": false,
+                        "damageSubType": 0
+                      },
+                      "result": {
+                        "hitId": "1/hit-1"
+                      }
+                    }
+                  ],
+                  "stop": null,
+                  "unresolvedDependencies": [
+                    "Supplied expression, target, damage, crit and hit adapters",
+                    "No automatic retargeting, state-add variant, delay or complete lifecycle",
+                    "Component composition, not connected original execution or gameplay validation"
+                  ]
+                }
+              }
+            ],
+            "unresolvedDependencies": [
+              "Explicit target resolution, effect handlers and continuation decisions",
+              "No original command construction, delays, interruption, yielding or full lifecycle",
+              "Component composition, not connected original command execution or gameplay validation"
+            ]
+          },
+          "unresolvedDependencies": [
+            "Resolved inputs have not been tied to a fully reconstructed gameplay scenario",
+            "Independent gameplay holdouts have not passed",
+            "HP-dependent combat callbacks, statistics and death execution are not performed by this API",
+            "Immunity decision is supplied, not reconstructed",
+            "Prevention eligibility is supplied, not reconstructed",
+            "Limit properties are supplied, not reconstructed",
+            "Explicit target resolution, effect handlers and continuation decisions",
+            "No original command construction, delays, interruption, yielding or full lifecycle",
+            "Component composition, not connected original command execution or gameplay validation",
+            "No card costs, automatic skill/build assembly, ParaPlus, state changes, random targeting, caps or death handling",
+            "Supplied numeric variables except live UpperTarget.hp; no original command-to-damage execution or independent gameplay validation"
+          ]
+        }
+      },
+      {
+        "rowId": "2",
+        "type": "BEGainUltiEnergy",
+        "condition": null,
+        "executed": true,
+        "parameterEvaluations": [
+          {
+            "values": [
+              10
+            ],
+            "reads": [
+              {
+                "name": "Arg2",
+                "value": 10
+              }
+            ],
+            "calls": []
+          }
+        ],
+        "result": {
+          "schemaVersion": 1,
+          "build": "pc-res144-build51",
+          "status": "EXPERIMENTAL",
+          "finalDamage": null,
+          "targetsAfter": [
+            {
+              "uid": 7,
+              "energy": 100
+            }
+          ],
+          "effect": {
+            "returned": true,
+            "initialization": {
+              "base": 10,
+              "times": 1,
+              "showText": true
+            },
+            "applications": [
+              {
+                "target": 7,
+                "repetition": 1,
+                "value": 10,
+                "source": {
+                  "castRoleUid": 7,
+                  "reason": 3,
+                  "cmdServerUid": 2,
+                  "castValue": 10,
+                  "skillConfigId": 3,
+                  "showText": true
+                },
+                "result": {
+                  "energyBefore": 95,
+                  "calculation": {
+                    "value": 10,
+                    "propertyReads": [
+                      "ulti_energy_per",
+                      "i_ulti_energy_per",
+                      "ulti_energy_efficiency",
+                      "ulti_energy_plus",
+                      "gain_ulti_energy_per",
+                      "gain_ulti_energy_plus"
+                    ],
+                    "trace": {
+                      "scaled": 10,
+                      "roundingEpsilon": 0.00001,
+                      "showValue": 10,
+                      "targetValue": 10,
+                      "tagFactor": 1,
+                      "tagFactors": []
+                    },
+                    "scope": "Ordinary subtype; explicit card/type/caster/tag context, properties and dimension",
+                    "unresolvedDependencies": [
+                      "Automatic card/caster eligibility, skill tags and property derivation",
+                      "Gain effect repetition, Awaker cap/storage and event callbacks",
+                      "Independent gameplay validation"
+                    ]
+                  },
+                  "storage": {
+                    "returned": 100,
+                    "energyAfter": 100,
+                    "energyGained": 5,
+                    "maximum": 100,
+                    "castValue": 10,
+                    "events": [
+                      {
+                        "kind": "owner",
+                        "property": "ulti_energy",
+                        "old": 95,
+                        "new": 100
+                      },
+                      {
+                        "kind": "send",
+                        "property": "ulti_energy",
+                        "delta": 5,
+                        "new": 100
+                      }
+                    ]
+                  }
+                }
+              }
+            ],
+            "unresolvedDependencies": [
+              "Presentation superclass omitted; VFX may consume RNG",
+              "Explicit calculation/gain callbacks and source identities",
+              "No full command lifecycle or independent gameplay validation"
+            ]
+          },
+          "unresolvedDependencies": [
+            "Presentation superclass omitted; VFX may consume RNG",
+            "Explicit calculation/gain callbacks and source identities",
+            "No full command lifecycle or independent gameplay validation",
+            "Connected original energy-path checks cover one self-target Awaker with observed callbacks; no full command or gameplay validation",
+            "Explicit static properties, card/type/tag decisions and Awaker targets; no automatic build or target assembly",
+            "No callbacks dispatched, no VFX, no other state/resource effects; within one effect only"
+          ]
+        }
+      }
+    ],
+    "unresolvedDependencies": [
+      "Explicit target resolution, effect handlers and continuation decisions",
+      "No original command construction, delays, interruption, yielding or full lifecycle",
+      "Component composition, not connected original command execution or gameplay validation"
+    ]
+  },
+  "unresolvedDependencies": [
+    "Authored mixed-command composition, not connected original mixed command or gameplay validation",
+    "Explicit caster/build/target snapshots; no automatic targeting, card costs, state changes, triggers, VFX or timing",
+    "Only active damage to UpperTarget and energy gain to CmdCaster; death requires separate resolution",
+    "Numeric variables with live target HP and caster energy; no external expression functions"
+  ]
+}

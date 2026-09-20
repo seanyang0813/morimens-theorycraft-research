@@ -1,0 +1,5219 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original effect __DoMultiEffect; explicit property and dimension adapters; intercepted BeHit; no HP, events, or statistics",
+  "sourceHashes": {
+    "BEFixedDamage": "f2b15141a02bd1c251364d969159b0556a280522604b7d02400c2cf12b75c280",
+    "BattleEffectServer": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e"
+  },
+  "fixtures": [
+    {
+      "id": "fixed-0",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "fixed-1",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": true,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": null
+    },
+    {
+      "id": "fixed-2",
+      "input": {
+        "baseDamage": -150,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-3",
+      "input": {
+        "baseDamage": -100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-4",
+      "input": {
+        "baseDamage": -99.9,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-5",
+      "input": {
+        "baseDamage": -0.1,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-6",
+      "input": {
+        "baseDamage": 0,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-7",
+      "input": {
+        "baseDamage": 0.1,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-8",
+      "input": {
+        "baseDamage": 1,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-9",
+      "input": {
+        "baseDamage": 33.333,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 34.0
+    },
+    {
+      "id": "fixed-10",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "fixed-11",
+      "input": {
+        "baseDamage": 1000,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1000.0
+    },
+    {
+      "id": "fixed-12",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-13",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-14",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": -99.9,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-15",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": -0.1,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "fixed-16",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "fixed-17",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0.1,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 101.0
+    },
+    {
+      "id": "fixed-18",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 1,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 101.0
+    },
+    {
+      "id": "fixed-19",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 33.333,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 134.0
+    },
+    {
+      "id": "fixed-20",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 200.0
+    },
+    {
+      "id": "fixed-21",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 1000,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1100.0
+    },
+    {
+      "id": "fixed-22",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -150,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-23",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-24",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -99.9,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-25",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -0.1,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "fixed-26",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "fixed-27",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 101.0
+    },
+    {
+      "id": "fixed-28",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 1,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 101.0
+    },
+    {
+      "id": "fixed-29",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 33.333,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 134.0
+    },
+    {
+      "id": "fixed-30",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 100,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 200.0
+    },
+    {
+      "id": "fixed-31",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 1000,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1100.0
+    },
+    {
+      "id": "fixed-32",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -150,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-33",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -100,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-34",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -99.9,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-35",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -0.1,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "fixed-36",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "fixed-37",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0.1,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 101.0
+    },
+    {
+      "id": "fixed-38",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 1,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 101.0
+    },
+    {
+      "id": "fixed-39",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 33.333,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 134.0
+    },
+    {
+      "id": "fixed-40",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 100,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 200.0
+    },
+    {
+      "id": "fixed-41",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 1000,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1100.0
+    },
+    {
+      "id": "fixed-42",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": -150,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-43",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-44",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": -99.9,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-45",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": -0.1,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "fixed-46",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "fixed-47",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0.1,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 101.0
+    },
+    {
+      "id": "fixed-48",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 1,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 101.0
+    },
+    {
+      "id": "fixed-49",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 33.333,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 134.0
+    },
+    {
+      "id": "fixed-50",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 100,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 200.0
+    },
+    {
+      "id": "fixed-51",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 1000,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1100.0
+    },
+    {
+      "id": "fixed-52",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": -150,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-53",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": -100,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-54",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": -99.9,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-55",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": -0.1,
+        "fixed5": 0
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "fixed-56",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "fixed-57",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0.1,
+        "fixed5": 0
+      },
+      "expected": 101.0
+    },
+    {
+      "id": "fixed-58",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 1,
+        "fixed5": 0
+      },
+      "expected": 101.0
+    },
+    {
+      "id": "fixed-59",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 33.333,
+        "fixed5": 0
+      },
+      "expected": 134.0
+    },
+    {
+      "id": "fixed-60",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 100,
+        "fixed5": 0
+      },
+      "expected": 200.0
+    },
+    {
+      "id": "fixed-61",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 1000,
+        "fixed5": 0
+      },
+      "expected": 1100.0
+    },
+    {
+      "id": "fixed-62",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": -150
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-63",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-64",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": -99.9
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-65",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": -0.1
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "fixed-66",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 100.0
+    },
+    {
+      "id": "fixed-67",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0.1
+      },
+      "expected": 101.0
+    },
+    {
+      "id": "fixed-68",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 1
+      },
+      "expected": 101.0
+    },
+    {
+      "id": "fixed-69",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 33.333
+      },
+      "expected": 134.0
+    },
+    {
+      "id": "fixed-70",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 100
+      },
+      "expected": 200.0
+    },
+    {
+      "id": "fixed-71",
+      "input": {
+        "baseDamage": 100,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 1000
+      },
+      "expected": 1100.0
+    },
+    {
+      "id": "fixed-72",
+      "input": {
+        "baseDamage": 87062.20371498246,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": -100,
+        "fixed3": -100,
+        "fixed4": -25,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-73",
+      "input": {
+        "baseDamage": 34819.96015851481,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-74",
+      "input": {
+        "baseDamage": 70147.90124261261,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": -25,
+        "fixed3": -100,
+        "fixed4": 50,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-75",
+      "input": {
+        "baseDamage": 19730.19761191662,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0.1,
+        "fixed3": 50,
+        "fixed4": 50,
+        "fixed5": 50
+      },
+      "expected": 66657.0
+    },
+    {
+      "id": "fixed-76",
+      "input": {
+        "baseDamage": 65281.21226248813,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0.1,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-77",
+      "input": {
+        "baseDamage": 90994.1376709164,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 50,
+        "fixed3": 50,
+        "fixed4": 0.1,
+        "fixed5": -25
+      },
+      "expected": 230560.0
+    },
+    {
+      "id": "fixed-78",
+      "input": {
+        "baseDamage": 18187.12572720266,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": -100,
+        "fixed3": -25,
+        "fixed4": 50,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-79",
+      "input": {
+        "baseDamage": 39562.60683640178,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -25,
+        "fixed3": -25,
+        "fixed4": -100,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-80",
+      "input": {
+        "baseDamage": 91818.46576273716,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -100,
+        "fixed3": 50,
+        "fixed4": 0.1,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-81",
+      "input": {
+        "baseDamage": 67079.90297860255,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": -100,
+        "fixed3": -25,
+        "fixed4": 0,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-82",
+      "input": {
+        "baseDamage": 724.2630995822094,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 50,
+        "fixed3": -25,
+        "fixed4": -25,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-83",
+      "input": {
+        "baseDamage": 13473.57809665743,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -25,
+        "fixed3": 50,
+        "fixed4": 0.1,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-84",
+      "input": {
+        "baseDamage": 26391.126904012857,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": -100,
+        "fixed3": -25,
+        "fixed4": -25,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-85",
+      "input": {
+        "baseDamage": 81179.6230761517,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": -25,
+        "fixed3": 0,
+        "fixed4": -100,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-86",
+      "input": {
+        "baseDamage": 32104.745391576842,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 50,
+        "fixed3": 50,
+        "fixed4": 0,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-87",
+      "input": {
+        "baseDamage": 82775.77984496426,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0.1,
+        "fixed3": 50,
+        "fixed4": 0.1,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-88",
+      "input": {
+        "baseDamage": 13007.611857194594,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 50,
+        "fixed3": 0,
+        "fixed4": -25,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-89",
+      "input": {
+        "baseDamage": 25957.551715242556,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0.1,
+        "fixed3": -25,
+        "fixed4": 50,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-90",
+      "input": {
+        "baseDamage": 58812.9012145605,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0,
+        "fixed3": -100,
+        "fixed4": 50,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-91",
+      "input": {
+        "baseDamage": 67642.55063649268,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -25,
+        "fixed3": 50,
+        "fixed4": 50,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-92",
+      "input": {
+        "baseDamage": 21147.8258667139,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0.1,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-93",
+      "input": {
+        "baseDamage": 92245.91813618423,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -25,
+        "fixed3": -100,
+        "fixed4": 0.1,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-94",
+      "input": {
+        "baseDamage": 6374.84411590921,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -25,
+        "fixed3": 0,
+        "fixed4": 50,
+        "fixed5": 0.1
+      },
+      "expected": 14374.0
+    },
+    {
+      "id": "fixed-95",
+      "input": {
+        "baseDamage": 30987.852532164074,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 0.1,
+        "fixed3": 0.1,
+        "fixed4": 0,
+        "fixed5": 0.1
+      },
+      "expected": 23311.0
+    },
+    {
+      "id": "fixed-96",
+      "input": {
+        "baseDamage": 42800.39260210111,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 50,
+        "fixed3": -25,
+        "fixed4": 0.1,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-97",
+      "input": {
+        "baseDamage": 85475.49986310564,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0,
+        "fixed3": 50,
+        "fixed4": 0,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-98",
+      "input": {
+        "baseDamage": 91570.79177503617,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0.1,
+        "fixed3": 0,
+        "fixed4": -25,
+        "fixed5": -25
+      },
+      "expected": 154682.0
+    },
+    {
+      "id": "fixed-99",
+      "input": {
+        "baseDamage": 52827.513922572485,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 50,
+        "fixed3": 50,
+        "fixed4": -100,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-100",
+      "input": {
+        "baseDamage": 98617.40784001791,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -100,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-101",
+      "input": {
+        "baseDamage": 71006.67921642543,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 50,
+        "fixed3": 50,
+        "fixed4": -25,
+        "fixed5": 0.1
+      },
+      "expected": 240128.0
+    },
+    {
+      "id": "fixed-102",
+      "input": {
+        "baseDamage": 15794.049104519674,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -100,
+        "fixed3": -25,
+        "fixed4": -100,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-103",
+      "input": {
+        "baseDamage": 31350.901387031983,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0,
+        "fixed3": 50,
+        "fixed4": 50,
+        "fixed5": 0.1
+      },
+      "expected": 70681.0
+    },
+    {
+      "id": "fixed-104",
+      "input": {
+        "baseDamage": 87469.50482890295,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 50,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-105",
+      "input": {
+        "baseDamage": 59346.92003168621,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 50,
+        "fixed3": -100,
+        "fixed4": 0.1,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-106",
+      "input": {
+        "baseDamage": 19911.07718873076,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": -25,
+        "fixed3": 0.1,
+        "fixed4": 0,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-107",
+      "input": {
+        "baseDamage": 87679.52639846361,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 50,
+        "fixed3": 50,
+        "fixed4": 50,
+        "fixed5": 50
+      },
+      "expected": 665817.0
+    },
+    {
+      "id": "fixed-108",
+      "input": {
+        "baseDamage": 10374.354321704022,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": -25,
+        "fixed3": -25,
+        "fixed4": 0.1,
+        "fixed5": 50
+      },
+      "expected": 8215.0
+    },
+    {
+      "id": "fixed-109",
+      "input": {
+        "baseDamage": 81908.27789305724,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 0.1,
+        "fixed3": -25,
+        "fixed4": 0,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-110",
+      "input": {
+        "baseDamage": 63444.171376370854,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 50,
+        "fixed3": -25,
+        "fixed4": -25,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-111",
+      "input": {
+        "baseDamage": 97568.70796435444,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -100,
+        "fixed3": -25,
+        "fixed4": 0.1,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-112",
+      "input": {
+        "baseDamage": 70871.86774947471,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -100,
+        "fixed3": 50,
+        "fixed4": 0.1,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-113",
+      "input": {
+        "baseDamage": 99819.9933397855,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": -25,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-114",
+      "input": {
+        "baseDamage": 41144.278067318985,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0.1,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-115",
+      "input": {
+        "baseDamage": 30433.250469224502,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0,
+        "fixed3": 0.1,
+        "fixed4": -100,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-116",
+      "input": {
+        "baseDamage": 51161.45309113977,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0.1,
+        "fixed3": 50,
+        "fixed4": 50,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-117",
+      "input": {
+        "baseDamage": 89282.38474650652,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 0.1,
+        "fixed3": -25,
+        "fixed4": -100,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-118",
+      "input": {
+        "baseDamage": 24310.131988711055,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0.1,
+        "fixed3": 0,
+        "fixed4": -25,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-119",
+      "input": {
+        "baseDamage": 27584.747980175616,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": -100,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-120",
+      "input": {
+        "baseDamage": 37762.95466960456,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 0,
+        "fixed3": 50,
+        "fixed4": -100,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-121",
+      "input": {
+        "baseDamage": 36881.14562935832,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": -100,
+        "fixed3": 0.1,
+        "fixed4": -25,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-122",
+      "input": {
+        "baseDamage": 31312.573179156323,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 50,
+        "fixed3": -25,
+        "fixed4": 0.1,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-123",
+      "input": {
+        "baseDamage": 2156.048442499022,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0.1,
+        "fixed3": 0,
+        "fixed4": 0.1,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-124",
+      "input": {
+        "baseDamage": 48011.155883199164,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": -100,
+        "fixed3": 0.1,
+        "fixed4": 0.1,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-125",
+      "input": {
+        "baseDamage": 96336.94384625221,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -25,
+        "fixed3": -25,
+        "fixed4": -100,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-126",
+      "input": {
+        "baseDamage": 84946.09612629462,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": -100,
+        "fixed3": 0,
+        "fixed4": 0.1,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-127",
+      "input": {
+        "baseDamage": 47899.43302462528,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0.1,
+        "fixed5": -25
+      },
+      "expected": 44952.0
+    },
+    {
+      "id": "fixed-128",
+      "input": {
+        "baseDamage": 65751.4642114964,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0.1,
+        "fixed3": 0.1,
+        "fixed4": 50,
+        "fixed5": 0
+      },
+      "expected": 197848.0
+    },
+    {
+      "id": "fixed-129",
+      "input": {
+        "baseDamage": 41386.09950211479,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": -25,
+        "fixed3": -25,
+        "fixed4": -100,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-130",
+      "input": {
+        "baseDamage": 96662.39307091388,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0.1,
+        "fixed3": 0.1,
+        "fixed4": 0.1,
+        "fixed5": 0
+      },
+      "expected": 121313.0
+    },
+    {
+      "id": "fixed-131",
+      "input": {
+        "baseDamage": 43319.70058998554,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 0.1,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-132",
+      "input": {
+        "baseDamage": 97313.09869456083,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0.1,
+        "fixed3": 50,
+        "fixed4": 50,
+        "fixed5": 0
+      },
+      "expected": 274242.0
+    },
+    {
+      "id": "fixed-133",
+      "input": {
+        "baseDamage": 19825.066067417967,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0.1,
+        "fixed3": 50,
+        "fixed4": -25,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-134",
+      "input": {
+        "baseDamage": 65895.8685227804,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0.1,
+        "fixed3": 0.1,
+        "fixed4": 0,
+        "fixed5": -25
+      },
+      "expected": 24786.0
+    },
+    {
+      "id": "fixed-135",
+      "input": {
+        "baseDamage": 3373.7652772230254,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 50,
+        "fixed3": 0,
+        "fixed4": 0.1,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-136",
+      "input": {
+        "baseDamage": 63370.42984547262,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -25,
+        "fixed3": 0.1,
+        "fixed4": 0.1,
+        "fixed5": 50
+      },
+      "expected": 35718.0
+    },
+    {
+      "id": "fixed-137",
+      "input": {
+        "baseDamage": 76465.5853180956,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -25,
+        "fixed3": 50,
+        "fixed4": 0.1,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-138",
+      "input": {
+        "baseDamage": 2182.3279699210057,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0,
+        "fixed3": -100,
+        "fixed4": 0.1,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-139",
+      "input": {
+        "baseDamage": 61064.6688687595,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 0.1,
+        "fixed3": 0.1,
+        "fixed4": 0.1,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-140",
+      "input": {
+        "baseDamage": 54430.034488723446,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": -25,
+        "fixed3": -100,
+        "fixed4": -25,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-141",
+      "input": {
+        "baseDamage": 89570.26882168448,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0,
+        "fixed3": 50,
+        "fixed4": 50,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-142",
+      "input": {
+        "baseDamage": 63401.616654997866,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 50,
+        "fixed3": 0.1,
+        "fixed4": 0.1,
+        "fixed5": 0.1
+      },
+      "expected": 71542.0
+    },
+    {
+      "id": "fixed-143",
+      "input": {
+        "baseDamage": 4415.615230897675,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0.1,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-144",
+      "input": {
+        "baseDamage": 30668.999700870267,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -100,
+        "fixed3": 0.1,
+        "fixed4": 0.1,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-145",
+      "input": {
+        "baseDamage": 38590.47529482465,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -100,
+        "fixed3": -25,
+        "fixed4": 0.1,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-146",
+      "input": {
+        "baseDamage": 20487.410307390826,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -100,
+        "fixed3": -25,
+        "fixed4": -100,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-147",
+      "input": {
+        "baseDamage": 55403.440682281456,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 50,
+        "fixed3": 0,
+        "fixed4": 50,
+        "fixed5": 0
+      },
+      "expected": 62329.0
+    },
+    {
+      "id": "fixed-148",
+      "input": {
+        "baseDamage": 89853.38614849205,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 50,
+        "fixed3": 0.1,
+        "fixed4": 0,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-149",
+      "input": {
+        "baseDamage": 83343.76397499052,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -25,
+        "fixed3": 0.1,
+        "fixed4": -100,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-150",
+      "input": {
+        "baseDamage": 50876.83835762002,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": -100,
+        "fixed3": 50,
+        "fixed4": -100,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-151",
+      "input": {
+        "baseDamage": 41263.817931640646,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0.1,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-152",
+      "input": {
+        "baseDamage": 19937.67390008035,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -25,
+        "fixed3": 0.1,
+        "fixed4": 50,
+        "fixed5": 0.1
+      },
+      "expected": 28123.0
+    },
+    {
+      "id": "fixed-153",
+      "input": {
+        "baseDamage": 13137.136486233529,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 0.1,
+        "fixed3": 0.1,
+        "fixed4": 50,
+        "fixed5": 0.1
+      },
+      "expected": 18530.0
+    },
+    {
+      "id": "fixed-154",
+      "input": {
+        "baseDamage": 1844.9791416919572,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -25,
+        "fixed3": -100,
+        "fixed4": 50,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-155",
+      "input": {
+        "baseDamage": 41998.39986472111,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -100,
+        "fixed3": -25,
+        "fixed4": -100,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-156",
+      "input": {
+        "baseDamage": 5480.08411949041,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 50,
+        "fixed3": 0.1,
+        "fixed4": 0,
+        "fixed5": -25
+      },
+      "expected": 4629.0
+    },
+    {
+      "id": "fixed-157",
+      "input": {
+        "baseDamage": 1420.8193407966223,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -100,
+        "fixed3": 0.1,
+        "fixed4": 0,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-158",
+      "input": {
+        "baseDamage": 41251.47557558074,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 50,
+        "fixed3": -25,
+        "fixed4": -100,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-159",
+      "input": {
+        "baseDamage": 583.5968244140055,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 50,
+        "fixed3": 0.1,
+        "fixed4": -25,
+        "fixed5": 50
+      },
+      "expected": 370.0
+    },
+    {
+      "id": "fixed-160",
+      "input": {
+        "baseDamage": 47619.29009656804,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0.1,
+        "fixed3": -25,
+        "fixed4": 50,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-161",
+      "input": {
+        "baseDamage": 4027.1353563873745,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -25,
+        "fixed3": 50,
+        "fixed4": 0.1,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-162",
+      "input": {
+        "baseDamage": 73423.80785442343,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -100,
+        "fixed3": -100,
+        "fixed4": 50,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-163",
+      "input": {
+        "baseDamage": 25384.964128514606,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": -25,
+        "fixed5": 50
+      },
+      "expected": 28587.0
+    },
+    {
+      "id": "fixed-164",
+      "input": {
+        "baseDamage": 89177.58127995266,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0,
+        "fixed3": -25,
+        "fixed4": 0,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-165",
+      "input": {
+        "baseDamage": 69365.4179137947,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0.1,
+        "fixed3": 0,
+        "fixed4": -25,
+        "fixed5": -25
+      },
+      "expected": 39097.0
+    },
+    {
+      "id": "fixed-166",
+      "input": {
+        "baseDamage": 62479.141669174176,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 50,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-167",
+      "input": {
+        "baseDamage": 9321.630723775823,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0.1,
+        "fixed3": -25,
+        "fixed4": 50,
+        "fixed5": 50
+      },
+      "expected": 19703.0
+    },
+    {
+      "id": "fixed-168",
+      "input": {
+        "baseDamage": 95433.94153727655,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0,
+        "fixed3": -25,
+        "fixed4": -25,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-169",
+      "input": {
+        "baseDamage": 8525.166580033692,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 50,
+        "fixed3": 0.1,
+        "fixed4": 50,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-170",
+      "input": {
+        "baseDamage": 66489.69968283834,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0.1,
+        "fixed3": 0,
+        "fixed4": -100,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-171",
+      "input": {
+        "baseDamage": 95858.38045842943,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0,
+        "fixed3": -100,
+        "fixed4": 50,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-172",
+      "input": {
+        "baseDamage": 13696.377295242237,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -100,
+        "fixed3": 50,
+        "fixed4": 0.1,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-173",
+      "input": {
+        "baseDamage": 53600.817693693265,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -25,
+        "fixed3": -25,
+        "fixed4": -100,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-174",
+      "input": {
+        "baseDamage": 60547.71483776016,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -25,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-175",
+      "input": {
+        "baseDamage": 89177.29581865226,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 50,
+        "fixed3": -25,
+        "fixed4": -25,
+        "fixed5": 0
+      },
+      "expected": 141083.0
+    },
+    {
+      "id": "fixed-176",
+      "input": {
+        "baseDamage": 70197.85309082441,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 50,
+        "fixed3": -25,
+        "fixed4": 50,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-177",
+      "input": {
+        "baseDamage": 17753.966131430225,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 50,
+        "fixed3": 0.1,
+        "fixed4": -25,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-178",
+      "input": {
+        "baseDamage": 7508.385376264378,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": -25,
+        "fixed3": 0,
+        "fixed4": 0.1,
+        "fixed5": 50
+      },
+      "expected": 6342.0
+    },
+    {
+      "id": "fixed-179",
+      "input": {
+        "baseDamage": 7737.0975179508505,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0,
+        "fixed3": -25,
+        "fixed4": -25,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-180",
+      "input": {
+        "baseDamage": 21590.42153974265,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -25,
+        "fixed3": 50,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 30393.0
+    },
+    {
+      "id": "fixed-181",
+      "input": {
+        "baseDamage": 2269.9238789968435,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0,
+        "fixed3": -100,
+        "fixed4": 50,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-182",
+      "input": {
+        "baseDamage": 82898.54122351758,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 50,
+        "fixed3": 50,
+        "fixed4": 0,
+        "fixed5": -25
+      },
+      "expected": 104919.0
+    },
+    {
+      "id": "fixed-183",
+      "input": {
+        "baseDamage": 82491.02133551535,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0.1,
+        "fixed3": -25,
+        "fixed4": -25,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-184",
+      "input": {
+        "baseDamage": 93661.5115923488,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 0.1,
+        "fixed3": 0,
+        "fixed4": 50,
+        "fixed5": 0.1
+      },
+      "expected": 211162.0
+    },
+    {
+      "id": "fixed-185",
+      "input": {
+        "baseDamage": 93208.7621712477,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -25,
+        "fixed3": -25,
+        "fixed4": 50,
+        "fixed5": 0
+      },
+      "expected": 78724.0
+    },
+    {
+      "id": "fixed-186",
+      "input": {
+        "baseDamage": 93865.35939216365,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0,
+        "fixed3": -100,
+        "fixed4": 50,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-187",
+      "input": {
+        "baseDamage": 52339.080666551105,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": -25,
+        "fixed3": -25,
+        "fixed4": 0,
+        "fixed5": 50
+      },
+      "expected": 66242.0
+    },
+    {
+      "id": "fixed-188",
+      "input": {
+        "baseDamage": 84891.59345005495,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -25,
+        "fixed3": 0.1,
+        "fixed4": -100,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-189",
+      "input": {
+        "baseDamage": 24795.636193687347,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -100,
+        "fixed3": 50,
+        "fixed4": -25,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-190",
+      "input": {
+        "baseDamage": 70941.3972915219,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -25,
+        "fixed3": 50,
+        "fixed4": -25,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-191",
+      "input": {
+        "baseDamage": 49931.78974405671,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -25,
+        "fixed3": 0.1,
+        "fixed4": 0.1,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-192",
+      "input": {
+        "baseDamage": 48864.646535637,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0,
+        "fixed3": 50,
+        "fixed4": 0.1,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-193",
+      "input": {
+        "baseDamage": 76592.6666038663,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0,
+        "fixed3": -25,
+        "fixed4": -25,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-194",
+      "input": {
+        "baseDamage": 89888.23536710515,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": -25,
+        "fixed3": 0,
+        "fixed4": -25,
+        "fixed5": -25
+      },
+      "expected": 35553.0
+    },
+    {
+      "id": "fixed-195",
+      "input": {
+        "baseDamage": 99622.95807219103,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 50,
+        "fixed3": -100,
+        "fixed4": -25,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-196",
+      "input": {
+        "baseDamage": 62252.81789992023,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0,
+        "fixed3": 50,
+        "fixed4": 0,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-197",
+      "input": {
+        "baseDamage": 41451.781202172955,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": -25,
+        "fixed3": 0,
+        "fixed4": -25,
+        "fixed5": 0
+      },
+      "expected": 8744.0
+    },
+    {
+      "id": "fixed-198",
+      "input": {
+        "baseDamage": 93418.23556672168,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -25,
+        "fixed3": -25,
+        "fixed4": 50,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-199",
+      "input": {
+        "baseDamage": 11611.656001615973,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -25,
+        "fixed3": 50,
+        "fixed4": 50,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-200",
+      "input": {
+        "baseDamage": 98974.80354721745,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": -100,
+        "fixed3": 0.1,
+        "fixed4": -25,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-201",
+      "input": {
+        "baseDamage": 45918.14567822583,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 50,
+        "fixed3": -25,
+        "fixed4": -100,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-202",
+      "input": {
+        "baseDamage": 8849.960916974595,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0.1,
+        "fixed3": 50,
+        "fixed4": 0,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-203",
+      "input": {
+        "baseDamage": 21956.658580248903,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 50,
+        "fixed3": 0,
+        "fixed4": 50,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-204",
+      "input": {
+        "baseDamage": 99133.53144829553,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 50,
+        "fixed3": -25,
+        "fixed4": 0,
+        "fixed5": -25
+      },
+      "expected": 62733.0
+    },
+    {
+      "id": "fixed-205",
+      "input": {
+        "baseDamage": 87086.26329861429,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 50,
+        "fixed4": 0.1,
+        "fixed5": 0.1
+      },
+      "expected": 261782.0
+    },
+    {
+      "id": "fixed-206",
+      "input": {
+        "baseDamage": 99436.64583551229,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": -25,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-207",
+      "input": {
+        "baseDamage": 19045.51847679521,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -25,
+        "fixed3": -100,
+        "fixed4": 50,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-208",
+      "input": {
+        "baseDamage": 87192.58730131313,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0.1,
+        "fixed3": 0,
+        "fixed4": -100,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-209",
+      "input": {
+        "baseDamage": 10918.462184358503,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0,
+        "fixed3": -100,
+        "fixed4": -25,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-210",
+      "input": {
+        "baseDamage": 92929.05179125321,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 0.1,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0.1
+      },
+      "expected": 87297.0
+    },
+    {
+      "id": "fixed-211",
+      "input": {
+        "baseDamage": 73237.62392727696,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -100,
+        "fixed3": -100,
+        "fixed4": 50,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-212",
+      "input": {
+        "baseDamage": 68160.9385903954,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0.1,
+        "fixed3": -25,
+        "fixed4": -25,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-213",
+      "input": {
+        "baseDamage": 84125.82822865687,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -100,
+        "fixed3": 50,
+        "fixed4": 0.1,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-214",
+      "input": {
+        "baseDamage": 74094.19191328397,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 50,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-215",
+      "input": {
+        "baseDamage": 88663.6324101174,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": -100,
+        "fixed3": 0.1,
+        "fixed4": -100,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-216",
+      "input": {
+        "baseDamage": 12346.17143521356,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0.1,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-217",
+      "input": {
+        "baseDamage": 57388.64832072151,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": -100,
+        "fixed3": -25,
+        "fixed4": -100,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-218",
+      "input": {
+        "baseDamage": 14503.534018561646,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": -25,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-219",
+      "input": {
+        "baseDamage": 15623.292334448532,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0.1,
+        "fixed3": -25,
+        "fixed4": 0,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-220",
+      "input": {
+        "baseDamage": 92368.77744751725,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -25,
+        "fixed3": -25,
+        "fixed4": -100,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-221",
+      "input": {
+        "baseDamage": 99769.55909867153,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 0,
+        "fixed3": 0.1,
+        "fixed4": 0,
+        "fixed5": -25
+      },
+      "expected": 56177.0
+    },
+    {
+      "id": "fixed-222",
+      "input": {
+        "baseDamage": 97999.98023220559,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -100,
+        "fixed3": 50,
+        "fixed4": 0,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-223",
+      "input": {
+        "baseDamage": 17972.058362963784,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0.1,
+        "fixed5": -25
+      },
+      "expected": 20240.0
+    },
+    {
+      "id": "fixed-224",
+      "input": {
+        "baseDamage": 31443.29064581435,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -25,
+        "fixed3": 0.1,
+        "fixed4": -25,
+        "fixed5": 0
+      },
+      "expected": 35446.0
+    },
+    {
+      "id": "fixed-225",
+      "input": {
+        "baseDamage": 55027.3924089449,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0.1,
+        "fixed3": 0,
+        "fixed4": 0.1,
+        "fixed5": 0
+      },
+      "expected": 55138.0
+    },
+    {
+      "id": "fixed-226",
+      "input": {
+        "baseDamage": 50918.37425518233,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0.1,
+        "fixed3": 0,
+        "fixed4": 50,
+        "fixed5": 0
+      },
+      "expected": 76454.0
+    },
+    {
+      "id": "fixed-227",
+      "input": {
+        "baseDamage": 869.8429453612168,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -25,
+        "fixed3": -25,
+        "fixed4": -25,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-228",
+      "input": {
+        "baseDamage": 84938.95151726472,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": -25,
+        "fixed5": -25
+      },
+      "expected": 71668.0
+    },
+    {
+      "id": "fixed-229",
+      "input": {
+        "baseDamage": 92946.74789259383,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -100,
+        "fixed3": 0.1,
+        "fixed4": -100,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-230",
+      "input": {
+        "baseDamage": 61673.70441973014,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 50,
+        "fixed3": 0.1,
+        "fixed4": -100,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-231",
+      "input": {
+        "baseDamage": 56162.793373788045,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0,
+        "fixed3": -100,
+        "fixed4": -25,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-232",
+      "input": {
+        "baseDamage": 96854.10354466092,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -100,
+        "fixed3": -100,
+        "fixed4": 50,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-233",
+      "input": {
+        "baseDamage": 58813.8651434263,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 50,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-234",
+      "input": {
+        "baseDamage": 14774.813523445082,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0,
+        "fixed3": 0.1,
+        "fixed4": 0.1,
+        "fixed5": 0.1
+      },
+      "expected": 44458.0
+    },
+    {
+      "id": "fixed-235",
+      "input": {
+        "baseDamage": 51761.427806181884,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0.1,
+        "fixed3": -25,
+        "fixed4": -100,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-236",
+      "input": {
+        "baseDamage": 3261.168944536658,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 50,
+        "fixed3": 50,
+        "fixed4": 50,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-237",
+      "input": {
+        "baseDamage": 57374.702442253176,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0.1,
+        "fixed3": 0.1,
+        "fixed4": -25,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-238",
+      "input": {
+        "baseDamage": 24664.47697548105,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": -25,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-239",
+      "input": {
+        "baseDamage": 72782.59770012701,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -100,
+        "fixed3": 50,
+        "fixed4": -25,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-240",
+      "input": {
+        "baseDamage": 68392.07060996196,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 50,
+        "fixed3": 0.1,
+        "fixed4": -25,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-241",
+      "input": {
+        "baseDamage": 99710.86432611982,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0,
+        "fixed3": -25,
+        "fixed4": 0,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-242",
+      "input": {
+        "baseDamage": 40077.2309641772,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 50,
+        "fixed3": 50,
+        "fixed4": -25,
+        "fixed5": 0.1
+      },
+      "expected": 67698.0
+    },
+    {
+      "id": "fixed-243",
+      "input": {
+        "baseDamage": 22661.956070732766,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 50,
+        "fixed3": 0.1,
+        "fixed4": -100,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-244",
+      "input": {
+        "baseDamage": 65804.25028399253,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-245",
+      "input": {
+        "baseDamage": 88746.28375451095,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 50,
+        "fixed3": 0,
+        "fixed4": 50,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-246",
+      "input": {
+        "baseDamage": 33086.55405855608,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -100,
+        "fixed3": 0,
+        "fixed4": -25,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-247",
+      "input": {
+        "baseDamage": 93113.5718680125,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0,
+        "fixed3": -25,
+        "fixed4": 0.1,
+        "fixed5": -25
+      },
+      "expected": 52482.0
+    },
+    {
+      "id": "fixed-248",
+      "input": {
+        "baseDamage": 15131.022711622394,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0,
+        "fixed3": -25,
+        "fixed4": 50,
+        "fixed5": 0.1
+      },
+      "expected": 12780.0
+    },
+    {
+      "id": "fixed-249",
+      "input": {
+        "baseDamage": 76696.6871614419,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0.1,
+        "fixed3": -100,
+        "fixed4": -100,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-250",
+      "input": {
+        "baseDamage": 10069.739362614517,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0,
+        "fixed3": -25,
+        "fixed4": 0,
+        "fixed5": -25
+      },
+      "expected": 16994.0
+    },
+    {
+      "id": "fixed-251",
+      "input": {
+        "baseDamage": 81426.97847982486,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": -100,
+        "fixed3": 0,
+        "fixed4": -100,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-252",
+      "input": {
+        "baseDamage": 97504.28967527044,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": -25,
+        "fixed3": 0.1,
+        "fixed4": -100,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-253",
+      "input": {
+        "baseDamage": 72234.92237381409,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0.1,
+        "fixed3": 50,
+        "fixed4": -25,
+        "fixed5": 50
+      },
+      "expected": 366056.0
+    },
+    {
+      "id": "fixed-254",
+      "input": {
+        "baseDamage": 89183.19783149907,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": -100,
+        "fixed3": 50,
+        "fixed4": -25,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-255",
+      "input": {
+        "baseDamage": 78767.73559107563,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0.1,
+        "fixed3": -25,
+        "fixed4": -25,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-256",
+      "input": {
+        "baseDamage": 7024.455709440062,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 0.1,
+        "fixed3": 0.1,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 2640.0
+    },
+    {
+      "id": "fixed-257",
+      "input": {
+        "baseDamage": 94269.00337075128,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 50,
+        "fixed3": 50,
+        "fixed4": 50,
+        "fixed5": 0.1
+      },
+      "expected": 955430.0
+    },
+    {
+      "id": "fixed-258",
+      "input": {
+        "baseDamage": 19626.55828031445,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -25,
+        "fixed3": 50,
+        "fixed4": -25,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-259",
+      "input": {
+        "baseDamage": 89023.53915790458,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 50,
+        "fixed3": 50,
+        "fixed4": -25,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-260",
+      "input": {
+        "baseDamage": 86985.4719191794,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 50,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-261",
+      "input": {
+        "baseDamage": 42449.55865916105,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0.1,
+        "fixed3": -25,
+        "fixed4": 0.1,
+        "fixed5": 50
+      },
+      "expected": 71777.0
+    },
+    {
+      "id": "fixed-262",
+      "input": {
+        "baseDamage": 46925.16854840448,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -100,
+        "fixed3": -25,
+        "fixed4": -100,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-263",
+      "input": {
+        "baseDamage": 13186.776635238275,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -100,
+        "fixed3": -100,
+        "fixed4": 50,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-264",
+      "input": {
+        "baseDamage": 79622.10720554138,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 50,
+        "fixed3": 0.1,
+        "fixed4": 50,
+        "fixed5": 0
+      },
+      "expected": 268994.0
+    },
+    {
+      "id": "fixed-265",
+      "input": {
+        "baseDamage": 85247.88506168277,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": -25,
+        "fixed3": -25,
+        "fixed4": 0.1,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-266",
+      "input": {
+        "baseDamage": 69619.68261466683,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0,
+        "fixed3": 50,
+        "fixed4": -100,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-267",
+      "input": {
+        "baseDamage": 59634.04194522416,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -25,
+        "fixed3": -25,
+        "fixed4": -100,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-268",
+      "input": {
+        "baseDamage": 30625.63010334005,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -100,
+        "fixed3": -25,
+        "fixed4": -100,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-269",
+      "input": {
+        "baseDamage": 10163.680838238959,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0,
+        "fixed3": 0.1,
+        "fixed4": 0,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-270",
+      "input": {
+        "baseDamage": 90549.76911652082,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 50,
+        "fixed3": -100,
+        "fixed4": -100,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-271",
+      "input": {
+        "baseDamage": 32311.09069747274,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0.1,
+        "fixed3": 0.1,
+        "fixed4": 0,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-272",
+      "input": {
+        "baseDamage": 20537.07171442941,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 0,
+        "fixed3": 50,
+        "fixed4": 0.1,
+        "fixed5": -25
+      },
+      "expected": 21683.0
+    },
+    {
+      "id": "fixed-273",
+      "input": {
+        "baseDamage": 43513.1383921678,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 0.1,
+        "fixed3": 50,
+        "fixed4": -100,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-274",
+      "input": {
+        "baseDamage": 6412.620224675952,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0,
+        "fixed3": 0.1,
+        "fixed4": 50,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-275",
+      "input": {
+        "baseDamage": 26192.475321986734,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0.1,
+        "fixed3": -100,
+        "fixed4": -100,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-276",
+      "input": {
+        "baseDamage": 74553.02446567864,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -100,
+        "fixed3": 0,
+        "fixed4": 0.1,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-277",
+      "input": {
+        "baseDamage": 89260.01101703828,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 50,
+        "fixed3": 50,
+        "fixed4": -25,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-278",
+      "input": {
+        "baseDamage": 49523.310829165675,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -100,
+        "fixed3": 0.1,
+        "fixed4": -100,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-279",
+      "input": {
+        "baseDamage": 48603.83533394906,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0,
+        "fixed3": -100,
+        "fixed4": -100,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-280",
+      "input": {
+        "baseDamage": 90080.2824179718,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 50,
+        "fixed3": 0.1,
+        "fixed4": -100,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-281",
+      "input": {
+        "baseDamage": 8089.925831713079,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0.1,
+        "fixed3": -25,
+        "fixed4": 50,
+        "fixed5": 0
+      },
+      "expected": 4556.0
+    },
+    {
+      "id": "fixed-282",
+      "input": {
+        "baseDamage": 20019.900245039746,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0.1,
+        "fixed3": -100,
+        "fixed4": 50,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-283",
+      "input": {
+        "baseDamage": 68365.2292772894,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": -25,
+        "fixed3": 0.1,
+        "fixed4": 50,
+        "fixed5": -25
+      },
+      "expected": 21653.0
+    },
+    {
+      "id": "fixed-284",
+      "input": {
+        "baseDamage": 20753.07063031603,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 0.1,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-285",
+      "input": {
+        "baseDamage": 3259.574731126376,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 50,
+        "fixed3": -25,
+        "fixed4": 0,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-286",
+      "input": {
+        "baseDamage": 75497.02451876597,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 50,
+        "fixed3": 0.1,
+        "fixed4": 0.1,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-287",
+      "input": {
+        "baseDamage": 36102.48789191728,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 50,
+        "fixed3": 0.1,
+        "fixed4": 50,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-288",
+      "input": {
+        "baseDamage": 87784.3144825764,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0.1,
+        "fixed3": -25,
+        "fixed4": -25,
+        "fixed5": 0.1
+      },
+      "expected": 148434.0
+    },
+    {
+      "id": "fixed-289",
+      "input": {
+        "baseDamage": 54157.668815075114,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0.1,
+        "fixed3": 0.1,
+        "fixed4": 50,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-290",
+      "input": {
+        "baseDamage": 75146.99198958979,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 50,
+        "fixed3": 0,
+        "fixed4": -100,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-291",
+      "input": {
+        "baseDamage": 95088.49494546236,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 50,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-292",
+      "input": {
+        "baseDamage": 77617.88997093789,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0,
+        "fixed3": 0.1,
+        "fixed4": -25,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-293",
+      "input": {
+        "baseDamage": 31596.46455514066,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": -100,
+        "fixed3": 0,
+        "fixed4": 50,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-294",
+      "input": {
+        "baseDamage": 9690.197570144886,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0.1,
+        "fixed3": -100,
+        "fixed4": -100,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-295",
+      "input": {
+        "baseDamage": 11343.09345576692,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 0.1,
+        "fixed3": -25,
+        "fixed4": -100,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-296",
+      "input": {
+        "baseDamage": 6502.342219000303,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 50,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-297",
+      "input": {
+        "baseDamage": 5623.25293696223,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0.1,
+        "fixed3": -100,
+        "fixed4": -25,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-298",
+      "input": {
+        "baseDamage": 41421.26044429855,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -100,
+        "fixed3": -100,
+        "fixed4": -100,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-299",
+      "input": {
+        "baseDamage": 2141.4814672558996,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 50,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-300",
+      "input": {
+        "baseDamage": 99920.98804038006,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": -25,
+        "fixed3": 0.1,
+        "fixed4": -100,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-301",
+      "input": {
+        "baseDamage": 53371.89489999354,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 50,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-302",
+      "input": {
+        "baseDamage": 49899.0736275736,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0.1,
+        "fixed3": -25,
+        "fixed4": 0,
+        "fixed5": 50
+      },
+      "expected": 56193.0
+    },
+    {
+      "id": "fixed-303",
+      "input": {
+        "baseDamage": 92616.76245864609,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": -25,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-304",
+      "input": {
+        "baseDamage": 6964.972947936398,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -100,
+        "fixed3": 0,
+        "fixed4": 50,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-305",
+      "input": {
+        "baseDamage": 37642.06213054213,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 50,
+        "fixed3": 0.1,
+        "fixed4": -100,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-306",
+      "input": {
+        "baseDamage": 97645.94864921876,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0.1,
+        "fixed3": 50,
+        "fixed4": 0,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-307",
+      "input": {
+        "baseDamage": 65489.40809172463,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -25,
+        "fixed3": -25,
+        "fixed4": -25,
+        "fixed5": 50
+      },
+      "expected": 41484.0
+    },
+    {
+      "id": "fixed-308",
+      "input": {
+        "baseDamage": 72703.4207482328,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -100,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-309",
+      "input": {
+        "baseDamage": 534.1400003169337,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": -100,
+        "fixed3": 0.1,
+        "fixed4": 0.1,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-310",
+      "input": {
+        "baseDamage": 52656.35015352839,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -100,
+        "fixed3": 0.1,
+        "fixed4": 0.1,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-311",
+      "input": {
+        "baseDamage": 5953.5856188910875,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0,
+        "fixed3": 50,
+        "fixed4": 0.1,
+        "fixed5": -25
+      },
+      "expected": 8390.0
+    },
+    {
+      "id": "fixed-312",
+      "input": {
+        "baseDamage": 81928.47467597187,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 0.1,
+        "fixed3": -25,
+        "fixed4": -25,
+        "fixed5": 0
+      },
+      "expected": 69198.0
+    },
+    {
+      "id": "fixed-313",
+      "input": {
+        "baseDamage": 92451.81855863954,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0,
+        "fixed3": -25,
+        "fixed4": 50,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-314",
+      "input": {
+        "baseDamage": 42842.039842327285,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -100,
+        "fixed3": 50,
+        "fixed4": 50,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-315",
+      "input": {
+        "baseDamage": 12667.996534463431,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -25,
+        "fixed3": 50,
+        "fixed4": -100,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-316",
+      "input": {
+        "baseDamage": 17642.35521516773,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 50,
+        "fixed3": 0.1,
+        "fixed4": 50,
+        "fixed5": 0.1
+      },
+      "expected": 119326.0
+    },
+    {
+      "id": "fixed-317",
+      "input": {
+        "baseDamage": 94619.25576449583,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0.1,
+        "fixed3": -100,
+        "fixed4": 50,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-318",
+      "input": {
+        "baseDamage": 87783.65662407024,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -100,
+        "fixed3": 0,
+        "fixed4": 0.1,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-319",
+      "input": {
+        "baseDamage": 90705.90107457053,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -25,
+        "fixed3": 50,
+        "fixed4": 0,
+        "fixed5": -25
+      },
+      "expected": 38267.0
+    },
+    {
+      "id": "fixed-320",
+      "input": {
+        "baseDamage": 53156.602623589686,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 50,
+        "fixed3": 50,
+        "fixed4": 50,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-321",
+      "input": {
+        "baseDamage": 67110.61728909361,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0.1,
+        "fixed3": -25,
+        "fixed4": -25,
+        "fixed5": 0
+      },
+      "expected": 47283.0
+    },
+    {
+      "id": "fixed-322",
+      "input": {
+        "baseDamage": 89108.35354209204,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 0.1,
+        "fixed3": -100,
+        "fixed4": -100,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-323",
+      "input": {
+        "baseDamage": 75752.01220891008,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0.1,
+        "fixed3": 50,
+        "fixed4": 0,
+        "fixed5": -25
+      },
+      "expected": 85307.0
+    },
+    {
+      "id": "fixed-324",
+      "input": {
+        "baseDamage": 71171.13800042575,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 50,
+        "fixed3": 0.1,
+        "fixed4": -100,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-325",
+      "input": {
+        "baseDamage": 42248.79387599651,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -25,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-326",
+      "input": {
+        "baseDamage": 18145.90275096755,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -100,
+        "fixed3": -25,
+        "fixed4": 50,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-327",
+      "input": {
+        "baseDamage": 93900.70832419943,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 50,
+        "fixed5": 50
+      },
+      "expected": 633830.0
+    },
+    {
+      "id": "fixed-328",
+      "input": {
+        "baseDamage": 73206.7721941452,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -100,
+        "fixed3": 0.1,
+        "fixed4": 50,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-329",
+      "input": {
+        "baseDamage": 76121.84166082117,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0,
+        "fixed3": 50,
+        "fixed4": 0.1,
+        "fixed5": 50
+      },
+      "expected": 214522.0
+    },
+    {
+      "id": "fixed-330",
+      "input": {
+        "baseDamage": 6586.851372505868,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": -25,
+        "fixed3": 0.1,
+        "fixed4": 50,
+        "fixed5": 0.1
+      },
+      "expected": 22276.0
+    },
+    {
+      "id": "fixed-331",
+      "input": {
+        "baseDamage": 82192.52393055358,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0.1,
+        "fixed3": 0.1,
+        "fixed4": -25,
+        "fixed5": 0
+      },
+      "expected": 77288.0
+    },
+    {
+      "id": "fixed-332",
+      "input": {
+        "baseDamage": 93875.3232613941,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0,
+        "fixed3": 0.1,
+        "fixed4": 50,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-333",
+      "input": {
+        "baseDamage": 7440.459281714297,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -25,
+        "fixed3": 0.1,
+        "fixed4": -100,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-334",
+      "input": {
+        "baseDamage": 6772.664589619754,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 50,
+        "fixed5": 50
+      },
+      "expected": 45716.0
+    },
+    {
+      "id": "fixed-335",
+      "input": {
+        "baseDamage": 32296.330820088308,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -100,
+        "fixed3": 50,
+        "fixed4": -25,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-336",
+      "input": {
+        "baseDamage": 80526.90289885773,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": -25,
+        "fixed3": 50,
+        "fixed4": 50,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-337",
+      "input": {
+        "baseDamage": 38746.57244149973,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0,
+        "fixed3": 0.1,
+        "fixed4": 50,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-338",
+      "input": {
+        "baseDamage": 99638.36688004038,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 50,
+        "fixed3": -25,
+        "fixed4": -25,
+        "fixed5": 0.1
+      },
+      "expected": 168308.0
+    },
+    {
+      "id": "fixed-339",
+      "input": {
+        "baseDamage": 37186.60405258351,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -100,
+        "fixed3": -100,
+        "fixed4": -25,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-340",
+      "input": {
+        "baseDamage": 2020.5106772126783,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 50,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 6062.0
+    },
+    {
+      "id": "fixed-341",
+      "input": {
+        "baseDamage": 65416.77634566382,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -25,
+        "fixed3": -100,
+        "fixed4": -100,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-342",
+      "input": {
+        "baseDamage": 97886.36506978488,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -25,
+        "fixed3": 0,
+        "fixed4": 50,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-343",
+      "input": {
+        "baseDamage": 76353.72059683023,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -25,
+        "fixed3": -25,
+        "fixed4": -100,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-344",
+      "input": {
+        "baseDamage": 865.0341981967412,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": 50,
+        "fixed4": -25,
+        "fixed5": 0.1
+      },
+      "expected": 1219.0
+    },
+    {
+      "id": "fixed-345",
+      "input": {
+        "baseDamage": 36732.299745369346,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0,
+        "fixed3": -100,
+        "fixed4": -100,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-346",
+      "input": {
+        "baseDamage": 6748.999888622754,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0.1,
+        "fixed3": -25,
+        "fixed4": -25,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-347",
+      "input": {
+        "baseDamage": 82311.30135375181,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 0,
+        "fixed3": -25,
+        "fixed4": 50,
+        "fixed5": 50
+      },
+      "expected": 138901.0
+    },
+    {
+      "id": "fixed-348",
+      "input": {
+        "baseDamage": 93922.85583428363,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -100,
+        "fixed3": -25,
+        "fixed4": 0.1,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-349",
+      "input": {
+        "baseDamage": 72197.91743948254,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -25,
+        "fixed3": 0,
+        "fixed4": -25,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-350",
+      "input": {
+        "baseDamage": 19819.441715542136,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -25,
+        "fixed3": 50,
+        "fixed4": -100,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-351",
+      "input": {
+        "baseDamage": 73104.62231644477,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -100,
+        "fixed3": -100,
+        "fixed4": -100,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-352",
+      "input": {
+        "baseDamage": 13501.92924989067,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": -100,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-353",
+      "input": {
+        "baseDamage": 12392.710013603017,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 50,
+        "fixed5": -25
+      },
+      "expected": 5229.0
+    },
+    {
+      "id": "fixed-354",
+      "input": {
+        "baseDamage": 5241.502215485978,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-355",
+      "input": {
+        "baseDamage": 88484.3252256782,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -100,
+        "fixed3": 50,
+        "fixed4": 50,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-356",
+      "input": {
+        "baseDamage": 65511.17602629129,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -100,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-357",
+      "input": {
+        "baseDamage": 97784.99413480125,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -25,
+        "fixed2": -100,
+        "fixed3": 0.1,
+        "fixed4": -25,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-358",
+      "input": {
+        "baseDamage": 89464.19372810837,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 0,
+        "fixed3": 0.1,
+        "fixed4": 50,
+        "fixed5": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-359",
+      "input": {
+        "baseDamage": 26326.486535021162,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0,
+        "fixed3": 0,
+        "fixed4": -100,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-360",
+      "input": {
+        "baseDamage": 73648.33045652966,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -100,
+        "fixed3": -100,
+        "fixed4": 50,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-361",
+      "input": {
+        "baseDamage": 83919.63796776309,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 0.1,
+        "fixed3": -100,
+        "fixed4": 0.1,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-362",
+      "input": {
+        "baseDamage": 64065.190604498595,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": 50,
+        "fixed3": 50,
+        "fixed4": -25,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-363",
+      "input": {
+        "baseDamage": 12205.093684637228,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 50,
+        "fixed3": 0.1,
+        "fixed4": 0.1,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-364",
+      "input": {
+        "baseDamage": 79831.23597865511,
+        "dimensionFixPer": -50,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": -25,
+        "fixed3": -100,
+        "fixed4": -25,
+        "fixed5": 50
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-365",
+      "input": {
+        "baseDamage": 50523.32982656493,
+        "dimensionFixPer": 100,
+        "targetDead": false,
+        "fixed1": 50,
+        "fixed2": 50,
+        "fixed3": 50,
+        "fixed4": 0.1,
+        "fixed5": 50
+      },
+      "expected": 512062.0
+    },
+    {
+      "id": "fixed-366",
+      "input": {
+        "baseDamage": 81225.86596013728,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": -100,
+        "fixed2": -100,
+        "fixed3": 0.1,
+        "fixed4": 50,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-367",
+      "input": {
+        "baseDamage": 93477.63809977255,
+        "dimensionFixPer": -100,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 50,
+        "fixed3": -100,
+        "fixed4": 0,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-368",
+      "input": {
+        "baseDamage": 10933.98284512631,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": 0,
+        "fixed3": -25,
+        "fixed4": 0,
+        "fixed5": -25
+      },
+      "expected": 7697.0
+    },
+    {
+      "id": "fixed-369",
+      "input": {
+        "baseDamage": 70302.22430401576,
+        "dimensionFixPer": 0,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 50,
+        "fixed3": -100,
+        "fixed4": -25,
+        "fixed5": -25
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-370",
+      "input": {
+        "baseDamage": 95262.50766476907,
+        "dimensionFixPer": -150,
+        "targetDead": false,
+        "fixed1": 0.1,
+        "fixed2": -25,
+        "fixed3": 0,
+        "fixed4": -100,
+        "fixed5": 0.1
+      },
+      "expected": 1.0
+    },
+    {
+      "id": "fixed-371",
+      "input": {
+        "baseDamage": 54470.66314069046,
+        "dimensionFixPer": 25,
+        "targetDead": false,
+        "fixed1": 0,
+        "fixed2": 50,
+        "fixed3": 0,
+        "fixed4": 0.1,
+        "fixed5": 0.1
+      },
+      "expected": 102338.0
+    }
+  ]
+}

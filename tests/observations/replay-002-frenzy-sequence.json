@@ -1,0 +1,44 @@
+{
+  "id": "replay-002-frenzy-sequence",
+  "kind": "REAL_GAME_OBSERVATION",
+  "status": "INCOMPLETE_SEQUENCE",
+  "holdout": false,
+  "source": "In-game Rongzai Jinqu, Star chapter wave 1 Frenzy, Banana, displayed 2026/9/20 3:22",
+  "version": {"viewingClient": "PC downloaded res144 build51", "recordedCombatBuild": null},
+  "visibleState": {
+    "boss": "食尸鬼卫队长", "bossLevel": 95, "bossTurn": 2,
+    "before": {"oldEmbers": 594509, "vulnerableDuration": 2, "vulnerablePercent": 50, "bossHpLabel": "10472K", "playerStrength": 63},
+    "after": {"oldEmbers": 552052, "vulnerableDuration": 3, "vulnerablePercent": 50, "weakDuration": 1, "bossHpLabel": "10294K", "playerStrength": 89},
+    "floatingNumbers": [
+      {"value": 22110, "appearance": "orange, upper overlapping label"},
+      {"value": 22362, "appearance": "orange, lower overlapping label"},
+      {"value": 67086, "appearance": "red, lower overlapping label"}
+    ]
+  },
+  "separateStatisticsObservation": {
+    "character": "阿拉克涅", "scope": "boss battle, turn 1",
+    "strikeLevel": 6, "strikeCreditedDamage": 2205, "oldEmbersCreditedDamage": 6615,
+    "totalCreditedDamage": 8820,
+    "interpretation": "Observed aggregate ratio is consistent with the recovered 3x Old Embers HP-change rule. It does not establish hit count, event pairing, full Strike inputs, or actual HP loss."
+  },
+  "assumedState": {},
+  "uncertainState": [
+    "The floating labels overlap and may represent different events; their pairing is not established",
+    "Other actions occurred between the before and after snapshots",
+    "Exact HP values are unavailable from abbreviated labels",
+    "Skill identity, full pre-hit inputs and recorded combat build are not established",
+    "Statistics labels may update at a different point than rendered attacks"
+  ],
+  "observedDamage": null,
+  "predictedDamage": null,
+  "difference": null,
+  "mechanicsExercised": ["Frenzy boss Old Embers", "multiple visible hit labels", "Vulnerable duration change"],
+  "evidence": [
+    "research/observations/replay-002-frenzy/boss-turn2-before.png",
+    "research/observations/replay-002-frenzy/turn2-hit-overlap.png",
+    "research/observations/replay-002-frenzy/boss-turn2-after.png",
+    "research/observations/replay-002-frenzy/arachne-boss-sources.png",
+    "research/observations/replay-002-frenzy/arachne-boss-rounds.png",
+    "research/observations/replay-002-frenzy/arachne-boss-turn1-sources.png"
+  ]
+}

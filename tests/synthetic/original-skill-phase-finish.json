@@ -1,0 +1,128 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original phase AfterEffect plus original command OnEnterFinishPhase/SetIsDeleted/ClearStats; child-empty sequence explicit, event/RunSubEffect/EffectEnd observed rather than executed. No full phase scheduler or gameplay validation.",
+  "sourceHashes": {
+    "BECreateSkillPhase": "0517f4daffda3ed3939ecfa33c7ebeeffa4a01aa137fb2e3951fb0996da9958e",
+    "BattleCmdServer": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b"
+  },
+  "fixtures": [
+    {
+      "input": {
+        "deleted": false,
+        "emptySequence": [
+          false,
+          true,
+          true
+        ]
+      },
+      "expected": {
+        "trace": [
+          "RunSubEffect",
+          "SkillCmdFinish",
+          "RunSubEffect",
+          "EffectEnd"
+        ],
+        "snapshots": [
+          {
+            "returned": true,
+            "deleted": false,
+            "targetsCleared": false,
+            "statsCleared": false,
+            "parserTarget": 9.0
+          },
+          {
+            "returned": true,
+            "deleted": true,
+            "targetsCleared": true,
+            "statsCleared": true,
+            "parserTarget": 9.0
+          },
+          {
+            "returned": false,
+            "deleted": true,
+            "targetsCleared": true,
+            "statsCleared": true,
+            "parserTarget": 9.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "deleted": true,
+        "emptySequence": [
+          false,
+          true
+        ]
+      },
+      "expected": {
+        "trace": [
+          "RunSubEffect",
+          "EffectEnd"
+        ],
+        "snapshots": [
+          {
+            "returned": true,
+            "deleted": true,
+            "targetsCleared": false,
+            "statsCleared": false,
+            "parserTarget": 9.0
+          },
+          {
+            "returned": false,
+            "deleted": true,
+            "targetsCleared": false,
+            "statsCleared": false,
+            "parserTarget": 9.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "deleted": false,
+        "emptySequence": [
+          true
+        ]
+      },
+      "expected": {
+        "trace": [
+          "SkillCmdFinish",
+          "RunSubEffect"
+        ],
+        "snapshots": [
+          {
+            "returned": true,
+            "deleted": true,
+            "targetsCleared": true,
+            "statsCleared": true,
+            "parserTarget": 9.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "deleted": true,
+        "emptySequence": [
+          true
+        ]
+      },
+      "expected": {
+        "trace": [
+          "EffectEnd"
+        ],
+        "snapshots": [
+          {
+            "returned": false,
+            "deleted": true,
+            "targetsCleared": false,
+            "statsCleared": false,
+            "parserTarget": 9.0
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Card command reconstruction priorities
+
+Run `tools/inspect_command_coverage.py` to regenerate `research/evidence/command-coverage-inventory.json`. The report hashes both exported source tables and partitions every skill into a direct integer command link, an unresolved reference, or a missing direct reference. It does not evaluate expressions or select progression/conditional alternatives.
+
+The current PC exports contain 7,539 commands and 3,593 skills. There are 2,885 direct links, 708 unresolved references (645 tables and 63 absent values), and no missing direct integer references. Across all command rows, state addition appears 8,651 times, card creation 1,927 times and active damage 1,033 times. These are static row counts, not gameplay frequency or support percentages.
+
+For direct skill links tagged Card_*, state addition contributes 1,764 row references, card creation 356, ultimate-energy gain 302, state removal 270, nested command execution 162 and active damage 149. Reused commands count once per referring skill in this view. Nested commands and triggered states are not expanded, so these totals are not full dependencies.
+
+Only seven directly linked card-tagged skills reference commands consisting entirely of active-damage rows: 4147, 4808, 4641, 4638, 57342, 117314 and 3997. This does not establish that those cards are simple or supported: their arguments can depend on live states, progression, random targets and row conditions. For example command 117337 selects damage rows through opposing state conditions; command 786 uses RandomEnemy. Skill 3997 / command 2350 is a small one-row candidate for testing the command bridge, not a representative finished build.
+
+The generic engine should therefore prioritize command expression binding and state lifecycle execution, followed by generated cards and nested commands. Expanding isolated character formulas would leave the most prevalent command behavior unhandled. A supported handler must retain row identity, resolve conditions and arguments from live state, respect target selection and scheduling, and fail explicitly on unresolved dependencies. A card must never be marked supported merely because its top-level command contains a known damage effect.
+
+Current evidence: source table inventory plus partition and conditional-reference exclusion checks. No original command execution or independent gameplay validation is claimed by this report. It is local research metadata and is not automatically added to the public website assets.

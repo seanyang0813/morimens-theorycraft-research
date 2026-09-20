@@ -1,0 +1,181 @@
+{
+  "scope": "Original FuncTable expressions used by Cmd133367 and Cmd134388, with explicit final player mastery and original Lua math. No state dispatch, team stat assembly, timing or gameplay verification.",
+  "sourceHash": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3",
+  "expressions": {
+    "prism": "133368,math.ceil(15*(1+PlayerRole.occupation_master_final*0.0005))",
+    "beacon": "134389,math.ceil(25*(1+PlayerRole.occupation_master_final*0.0005))"
+  },
+  "fixtures": [
+    {
+      "finalRealmMastery": 0,
+      "expected": {
+        "prism": 15.0,
+        "prismStateId": 133368.0,
+        "beacon": 25.0,
+        "beaconStateId": 134389.0
+      }
+    },
+    {
+      "finalRealmMastery": 1,
+      "expected": {
+        "prism": 16.0,
+        "prismStateId": 133368.0,
+        "beacon": 26.0,
+        "beaconStateId": 134389.0
+      }
+    },
+    {
+      "finalRealmMastery": 24,
+      "expected": {
+        "prism": 16.0,
+        "prismStateId": 133368.0,
+        "beacon": 26.0,
+        "beaconStateId": 134389.0
+      }
+    },
+    {
+      "finalRealmMastery": 48,
+      "expected": {
+        "prism": 16.0,
+        "prismStateId": 133368.0,
+        "beacon": 26.0,
+        "beaconStateId": 134389.0
+      }
+    },
+    {
+      "finalRealmMastery": 72,
+      "expected": {
+        "prism": 16.0,
+        "prismStateId": 133368.0,
+        "beacon": 26.0,
+        "beaconStateId": 134389.0
+      }
+    },
+    {
+      "finalRealmMastery": 96,
+      "expected": {
+        "prism": 16.0,
+        "prismStateId": 133368.0,
+        "beacon": 27.0,
+        "beaconStateId": 134389.0
+      }
+    },
+    {
+      "finalRealmMastery": 144,
+      "expected": {
+        "prism": 17.0,
+        "prismStateId": 133368.0,
+        "beacon": 27.0,
+        "beaconStateId": 134389.0
+      }
+    },
+    {
+      "finalRealmMastery": 192,
+      "expected": {
+        "prism": 17.0,
+        "prismStateId": 133368.0,
+        "beacon": 28.0,
+        "beaconStateId": 134389.0
+      }
+    },
+    {
+      "finalRealmMastery": 79,
+      "expected": {
+        "prism": 16.0,
+        "prismStateId": 133368.0,
+        "beacon": 26.0,
+        "beaconStateId": 134389.0
+      }
+    },
+    {
+      "finalRealmMastery": 80,
+      "expected": {
+        "prism": 16.0,
+        "prismStateId": 133368.0,
+        "beacon": 26.0,
+        "beaconStateId": 134389.0
+      }
+    },
+    {
+      "finalRealmMastery": 81,
+      "expected": {
+        "prism": 16.0,
+        "prismStateId": 133368.0,
+        "beacon": 27.0,
+        "beaconStateId": 134389.0
+      }
+    },
+    {
+      "finalRealmMastery": 133,
+      "expected": {
+        "prism": 16.0,
+        "prismStateId": 133368.0,
+        "beacon": 27.0,
+        "beaconStateId": 134389.0
+      }
+    },
+    {
+      "finalRealmMastery": 134,
+      "expected": {
+        "prism": 17.0,
+        "prismStateId": 133368.0,
+        "beacon": 27.0,
+        "beaconStateId": 134389.0
+      }
+    },
+    {
+      "finalRealmMastery": 159,
+      "expected": {
+        "prism": 17.0,
+        "prismStateId": 133368.0,
+        "beacon": 27.0,
+        "beaconStateId": 134389.0
+      }
+    },
+    {
+      "finalRealmMastery": 160,
+      "expected": {
+        "prism": 17.0,
+        "prismStateId": 133368.0,
+        "beacon": 27.0,
+        "beaconStateId": 134389.0
+      }
+    },
+    {
+      "finalRealmMastery": 161,
+      "expected": {
+        "prism": 17.0,
+        "prismStateId": 133368.0,
+        "beacon": 28.0,
+        "beaconStateId": 134389.0
+      }
+    },
+    {
+      "finalRealmMastery": 1999,
+      "expected": {
+        "prism": 30.0,
+        "prismStateId": 133368.0,
+        "beacon": 50.0,
+        "beaconStateId": 134389.0
+      }
+    },
+    {
+      "finalRealmMastery": 2000,
+      "expected": {
+        "prism": 30.0,
+        "prismStateId": 133368.0,
+        "beacon": 50.0,
+        "beaconStateId": 134389.0
+      }
+    },
+    {
+      "finalRealmMastery": 2001,
+      "expected": {
+        "prism": 31.0,
+        "prismStateId": 133368.0,
+        "beacon": 51.0,
+        "beaconStateId": 134389.0
+      }
+    }
+  ]
+}

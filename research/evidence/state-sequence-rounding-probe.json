@@ -1,0 +1,29 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "showDamage": 100,
+  "input": {
+    "awakerCritDamage": 0,
+    "cardCritDamage": 0,
+    "skillTypeCritDamage": 0,
+    "awakerCardCritDamage": 0,
+    "critDamagePer": 0,
+    "beDamagePer": 0,
+    "beDamagePer2": 9,
+    "beDamagePer3": 0,
+    "beDamagePer4": 0,
+    "beDamagePer5": 0,
+    "vulnerablePer": 0,
+    "enemyTypeDmgPer": 0,
+    "enemyBuffDmgPer": 0,
+    "enemyDebuffDmgPer": 0,
+    "enemyBlockDmgPer": 0,
+    "enemyBlockBarrierDmgPer": 0,
+    "cardBlockBarrierPer": 0,
+    "beDamagePlus": 0,
+    "isCrit": false,
+    "enemyStateDmgMultiplier": 1
+  },
+  "expected": 110.0,
+  "sourceHash": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+  "scope": "Original target formula only, supplied target modifier 9, same adapters as TargetOracle; no gameplay"
+}

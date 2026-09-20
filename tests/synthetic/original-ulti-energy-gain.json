@@ -1,0 +1,6473 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleUnitAwaker": "a6703d8ea024ebb938789e9d3b22b725dad5137842db88729ac6c401c409fbc5",
+    "BattlePropertyServer": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76"
+  },
+  "scope": "252 connected original GainUltiEnergy/GetMaxUltiEnergy/ChangeProperty/AddProperty cases. Explicit initialized properties, source ignoreMax flag and GetProperty adapter. Property owner/send callbacks observed, not dispatched. No calculation effect, other source fields, full battle or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "energy": 0,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 0.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 0.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 0.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 0.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 0.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 0.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 0.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 0.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 0.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 0.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 0.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 0.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 1.0,
+        "energyAfter": 1.0,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 1.0,
+        "energyAfter": 1.0,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 1.0,
+        "energyAfter": 1.0,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 1.0,
+        "energyAfter": 1.0,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 0.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 0.0,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 1.0,
+        "energyAfter": 1.0,
+        "energyGained": 1.0,
+        "maximum": 0.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 1.0,
+        "energyAfter": 1.0,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 1.0,
+        "energyAfter": 1.0,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 1.0,
+        "energyAfter": 1.0,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 1.0,
+        "energyAfter": 1.0,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 0.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 0.0,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 1.0,
+        "energyAfter": 1.0,
+        "energyGained": 1.0,
+        "maximum": 0.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 1.0,
+        "energyAfter": 1.0,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 1.0,
+        "energyAfter": 1.0,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 1.0,
+        "energyAfter": 1.0,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 1.0,
+        "energyAfter": 1.0,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 0.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 0.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 10.0,
+        "energyAfter": 10.0,
+        "energyGained": 10.0,
+        "maximum": 100.0,
+        "castValue": 10.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 10.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 10.0,
+            "new": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 10.0,
+        "energyAfter": 10.0,
+        "energyGained": 10.0,
+        "maximum": 100.0,
+        "castValue": 10.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 10.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 10.0,
+            "new": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 10.0,
+        "energyAfter": 10.0,
+        "energyGained": 10.0,
+        "maximum": 113.0,
+        "castValue": 10.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 10.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 10.0,
+            "new": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 10.0,
+        "energyAfter": 10.0,
+        "energyGained": 10.0,
+        "maximum": 113.0,
+        "castValue": 10.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 10.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 10.0,
+            "new": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 0.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 0.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 100.0,
+        "maximum": 100.0,
+        "castValue": 100.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 100.0,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 100.0,
+        "maximum": 100.0,
+        "castValue": 100.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 100.0,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 113.0,
+        "energyAfter": 113.0,
+        "energyGained": 113.0,
+        "maximum": 113.0,
+        "castValue": 113.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 113.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 113.0,
+            "new": 113.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 113.0,
+        "energyAfter": 113.0,
+        "energyGained": 113.0,
+        "maximum": 113.0,
+        "castValue": 113.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 0.0,
+            "new": 113.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 113.0,
+            "new": 113.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 0.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 0,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 0.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.0,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.0,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.0,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.0,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.0,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.0,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.0,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.0,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.0,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.0,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.0,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.0,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.0,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.0,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 109.0,
+        "energyAfter": 109.0,
+        "energyGained": 10.0,
+        "maximum": 113.0,
+        "castValue": 10.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.0,
+            "new": 109.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 10.0,
+            "new": 109.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 109.0,
+        "energyAfter": 109.0,
+        "energyGained": 10.0,
+        "maximum": 113.0,
+        "castValue": 10.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.0,
+            "new": 109.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 10.0,
+            "new": 109.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.0,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.0,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 113.0,
+        "energyAfter": 113.0,
+        "energyGained": 14.0,
+        "maximum": 113.0,
+        "castValue": 14.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.0,
+            "new": 113.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 14.0,
+            "new": 113.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 113.0,
+        "energyAfter": 113.0,
+        "energyGained": 14.0,
+        "maximum": 113.0,
+        "castValue": 14.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.0,
+            "new": 113.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 14.0,
+            "new": 113.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.5,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.5,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 0.5,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 100.5,
+        "energyAfter": 100.5,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.5,
+            "new": 100.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 100.5,
+        "energyAfter": 100.5,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.5,
+            "new": 100.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 100.5,
+        "energyAfter": 100.5,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.5,
+            "new": 100.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.5,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.5,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 0.5,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 100.5,
+        "energyAfter": 100.5,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.5,
+            "new": 100.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 100.5,
+        "energyAfter": 100.5,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.5,
+            "new": 100.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 100.5,
+        "energyAfter": 100.5,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.5,
+            "new": 100.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.5,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.5,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 0.5,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 100.5,
+        "energyAfter": 100.5,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.5,
+            "new": 100.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 100.5,
+        "energyAfter": 100.5,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.5,
+            "new": 100.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 100.5,
+        "energyAfter": 100.5,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.5,
+            "new": 100.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.5,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.5,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 0.5,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 100.5,
+        "energyAfter": 100.5,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.5,
+            "new": 100.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 109.5,
+        "energyAfter": 109.5,
+        "energyGained": 10.0,
+        "maximum": 113.0,
+        "castValue": 10.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.5,
+            "new": 109.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 10.0,
+            "new": 109.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 109.5,
+        "energyAfter": 109.5,
+        "energyGained": 10.0,
+        "maximum": 113.0,
+        "castValue": 10.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.5,
+            "new": 109.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 10.0,
+            "new": 109.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.5,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.5,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 0.5,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 100.5,
+        "energyAfter": 100.5,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.5,
+            "new": 100.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 100.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 113.0,
+        "energyAfter": 113.0,
+        "energyGained": 13.5,
+        "maximum": 113.0,
+        "castValue": 14.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.5,
+            "new": 113.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 13.5,
+            "new": 113.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 113.5,
+        "energyAfter": 113.5,
+        "energyGained": 14.0,
+        "maximum": 113.0,
+        "castValue": 14.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 99.5,
+            "new": 113.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 14.0,
+            "new": 113.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 99.5,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 99.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.0,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 0.0,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 101.0,
+        "energyAfter": 101.0,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.0,
+            "new": 101.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 101.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 101.0,
+        "energyAfter": 101.0,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.0,
+            "new": 101.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 101.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 101.0,
+        "energyAfter": 101.0,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.0,
+            "new": 101.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 101.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 100.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.0,
+            "new": 100.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 0.0,
+            "new": 100.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 101.0,
+        "energyAfter": 101.0,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.0,
+            "new": 101.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 101.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 101.0,
+        "energyAfter": 101.0,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.0,
+            "new": 101.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 101.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 101.0,
+        "energyAfter": 101.0,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.0,
+            "new": 101.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 101.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 101.0,
+        "energyAfter": 101.0,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.0,
+            "new": 101.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 101.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 101.0,
+        "energyAfter": 101.0,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.0,
+            "new": 101.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 101.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 110.0,
+        "energyAfter": 110.0,
+        "energyGained": 10.0,
+        "maximum": 113.0,
+        "castValue": 10.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.0,
+            "new": 110.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 10.0,
+            "new": 110.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 110.0,
+        "energyAfter": 110.0,
+        "energyGained": 10.0,
+        "maximum": 113.0,
+        "castValue": 10.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.0,
+            "new": 110.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 10.0,
+            "new": 110.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 113.0,
+        "energyAfter": 113.0,
+        "energyGained": 13.0,
+        "maximum": 113.0,
+        "castValue": 13.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.0,
+            "new": 113.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 13.0,
+            "new": 113.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 113.0,
+        "energyAfter": 113.0,
+        "energyGained": 13.0,
+        "maximum": 113.0,
+        "castValue": 13.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.0,
+            "new": 113.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 13.0,
+            "new": 113.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 100.5,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.5,
+            "new": 100.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 0.0,
+            "new": 100.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 101.5,
+        "energyAfter": 101.5,
+        "energyGained": 1.0,
+        "maximum": 100.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.5,
+            "new": 101.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 101.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 101.5,
+        "energyAfter": 101.5,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.5,
+            "new": 101.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 101.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 101.5,
+        "energyAfter": 101.5,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.5,
+            "new": 101.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 101.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 101.5,
+        "energyAfter": 101.5,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.5,
+            "new": 101.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 101.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 101.5,
+        "energyAfter": 101.5,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.5,
+            "new": 101.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 101.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 101.5,
+        "energyAfter": 101.5,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.5,
+            "new": 101.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 101.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 101.5,
+        "energyAfter": 101.5,
+        "energyGained": 1.0,
+        "maximum": 113.0,
+        "castValue": 1.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.5,
+            "new": 101.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 1.0,
+            "new": 101.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 110.5,
+        "energyAfter": 110.5,
+        "energyGained": 10.0,
+        "maximum": 113.0,
+        "castValue": 10.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.5,
+            "new": 110.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 10.0,
+            "new": 110.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 110.5,
+        "energyAfter": 110.5,
+        "energyGained": 10.0,
+        "maximum": 113.0,
+        "castValue": 10.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.5,
+            "new": 110.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 10.0,
+            "new": 110.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 113.0,
+        "energyAfter": 113.0,
+        "energyGained": 12.5,
+        "maximum": 113.0,
+        "castValue": 13.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.5,
+            "new": 113.0
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 12.5,
+            "new": 113.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 113.5,
+        "energyAfter": 113.5,
+        "energyGained": 13.0,
+        "maximum": 113.0,
+        "castValue": 13.0,
+        "events": [
+          {
+            "kind": "owner",
+            "property": "ulti_energy",
+            "old": 100.5,
+            "new": 113.5
+          },
+          {
+            "kind": "send",
+            "property": "ulti_energy",
+            "delta": 13.0,
+            "new": 113.5
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 100.5,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 100.5,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": -1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 0,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 0.1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 0.5,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 1,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 10,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 100.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 100,
+          "ulti_energy_cost_per": -20,
+          "ulti_energy_cost_flat": 10,
+          "ulti_energy_max_per": 25
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 113.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": false
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "energy": 120,
+        "request": 200,
+        "maximumProperties": {
+          "ulti_energy_max": 0,
+          "ulti_energy_cost_per": 0,
+          "ulti_energy_cost_flat": 0,
+          "ulti_energy_max_per": 0
+        },
+        "ignoreMax": true
+      },
+      "expected": {
+        "returned": 0.0,
+        "energyAfter": 120.0,
+        "energyGained": 0.0,
+        "maximum": 0.0,
+        "castValue": null,
+        "events": []
+      }
+    }
+  ]
+}

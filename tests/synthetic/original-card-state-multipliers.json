@@ -1,0 +1,2426 @@
+{
+  "build": "pc-res144-build51",
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "sourceHashes": {
+    "BEAddStateParent": "00871a473b5c4ced3824c28afb88fc3cfe6cbfca01d23bc2a0d3bac6afa0f8b3"
+  },
+  "scope": "Original card and fixed-card multiplier methods. Synthetic BC property family and state mapping; supplied card selection, card type, caster presence and properties. No full layer pipeline, rounding, state creation or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "fixed": false,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 2.2,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 3.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 2.2,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 3.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 2.2,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 3.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 2.2,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 3.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 2.2,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 3.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 2.2,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 3.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 3.3000000000000003,
+        "reads": [
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": [
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": [
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.8,
+        "reads": [
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 4.95,
+        "reads": [
+          "cardProperty",
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": [
+          "cardProperty",
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": [
+          "cardProperty",
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -3.9199999999999995,
+        "reads": [
+          "cardProperty",
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 2.2,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 3.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          7
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 2.2,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          7
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 3.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          7
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          7
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          2669
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 3.3000000000000003,
+        "reads": [
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          2669
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": [
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          2669
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": [
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          2669
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.8,
+        "reads": [
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 4.95,
+        "reads": [
+          "cardProperty",
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": [
+          "cardProperty",
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": [
+          "cardProperty",
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -3.9199999999999995,
+        "reads": [
+          "cardProperty",
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 2.2,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 3.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 2.2,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 3.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 3.8500000000000005,
+        "reads": [
+          "cardProperty",
+          "casterProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 1.5,
+        "reads": [
+          "cardProperty",
+          "casterProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": [
+          "cardProperty",
+          "casterProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.5999999999999996,
+        "reads": [
+          "cardProperty",
+          "casterProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 6.737500000000001,
+        "reads": [
+          "cardProperty",
+          "casterProperty",
+          "cardProperty",
+          "casterProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 0.75,
+        "reads": [
+          "cardProperty",
+          "casterProperty",
+          "cardProperty",
+          "casterProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": [
+          "cardProperty",
+          "casterProperty",
+          "cardProperty",
+          "casterProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": false,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -3.379999999999999,
+        "reads": [
+          "cardProperty",
+          "casterProperty",
+          "cardProperty",
+          "casterProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 2.2,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 3.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 2.2,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 3.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 2.2,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 3.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 2.2,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 3.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": false,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 2.2,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 3.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 2.2,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 3.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 3.3000000000000003,
+        "reads": [
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": [
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": [
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.8,
+        "reads": [
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 4.95,
+        "reads": [
+          "cardProperty",
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": [
+          "cardProperty",
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": [
+          "cardProperty",
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": false,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -3.9199999999999995,
+        "reads": [
+          "cardProperty",
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 2.2,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 3.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          7
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 2.2,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          7
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 3.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          7
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          7
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          2669
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 3.3000000000000003,
+        "reads": [
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          2669
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": [
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          2669
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": [
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          2669
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.8,
+        "reads": [
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 4.95,
+        "reads": [
+          "cardProperty",
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": [
+          "cardProperty",
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": [
+          "cardProperty",
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": false,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -3.9199999999999995,
+        "reads": [
+          "cardProperty",
+          "cardProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 2.2,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 3.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 2.2,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 3.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          7
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.0,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 3.8500000000000005,
+        "reads": [
+          "cardProperty",
+          "casterProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 1.5,
+        "reads": [
+          "cardProperty",
+          "casterProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": [
+          "cardProperty",
+          "casterProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -2.5999999999999996,
+        "reads": [
+          "cardProperty",
+          "casterProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 2.2,
+        "property": 50,
+        "n2": 25
+      },
+      "expected": {
+        "layer": 6.737500000000001,
+        "reads": [
+          "cardProperty",
+          "casterProperty",
+          "cardProperty",
+          "casterProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 3,
+        "property": -100,
+        "n2": 50
+      },
+      "expected": {
+        "layer": 0.75,
+        "reads": [
+          "cardProperty",
+          "casterProperty",
+          "cardProperty",
+          "casterProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": 0,
+        "property": 20,
+        "n2": 30
+      },
+      "expected": {
+        "layer": 0.0,
+        "reads": [
+          "cardProperty",
+          "casterProperty",
+          "cardProperty",
+          "casterProperty"
+        ]
+      }
+    },
+    {
+      "input": {
+        "fixed": true,
+        "card": true,
+        "caster": true,
+        "instruction": true,
+        "ids": [
+          2669,
+          2669
+        ],
+        "layer": -2,
+        "property": 40,
+        "n2": -10
+      },
+      "expected": {
+        "layer": -3.379999999999999,
+        "reads": [
+          "cardProperty",
+          "casterProperty",
+          "cardProperty",
+          "casterProperty"
+        ]
+      }
+    }
+  ]
+}

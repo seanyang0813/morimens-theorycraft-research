@@ -1,0 +1,34 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {calculateDamage,build} from '../engine/calculate-damage.mjs';
+const fixtures=JSON.parse(readFileSync(new URL('./synthetic/original-fixed-pure-hp.json',import.meta.url))).fixtures;
+for(const {input:v,expected} of fixtures){
+  const category=v.damageType.toUpperCase();
+  const effect={build,category,baseDamage:v.damage,targetDead:false};
+  if(category==='FIXED')Object.assign(effect,{dimensionFixPer:0,fixed1:0,fixed2:0,fixed3:0,fixed4:0,fixed5:0});
+  const hitResolution={immune:expected.immueDamage,preventEligible:false,block:v.block,puncture:v.puncture,hp:v.hp,retainHp:v.retainHp,limit:v.limit,usedLimit:v.usedLimit,deathResist:v.deathResist};
+  const input={mode:'experimental',build,damageType:category,effect,hitResolution};
+  const result=calculateDamage(input),request=result.experimentalModels[1],hp=result.experimentalModels[2];
+  assert.equal(request.incomingDamage,expected.castDamage);
+  assert.equal(request.hpLossRequest,expected.changeVal);
+  assert.equal(hp.hpAfter,expected.curHp);assert.equal(hp.modeledHpLost,expected.realDamage);
+  assert.equal(hp.shieldAfter,expected.blockAfter);assert.equal(hp.overflowDiagnostic,expected.overflowDamage);
+  assert.equal(expected.isPreventActiveDamage,false);assert.equal(request.converted,0);
+  assert.equal(result.finalDamage,null);
+  const {immune,...propertyHit}=hitResolution;
+  propertyHit.immunityProperties={general:Number(v.immune),punctureImmunity:0,categoryImmunities:{Active:0,Passive:0,Fixed:0,Pure:0,Tentacle:0}};
+  const fromProperties=calculateDamage({...input,hitResolution:propertyHit});
+  assert.equal(fromProperties.immunity.immune,expected.immueDamage);
+  assert.equal(fromProperties.experimentalModels[2].hpAfter,expected.curHp);
+  assert.equal(fromProperties.experimentalModels[2].shieldAfter,expected.blockAfter);
+  assert.throws(()=>calculateDamage({...input,hitResolution:{...propertyHit,immune}}),/exactly one/);
+  assert.deepEqual(calculateDamage({...input,mode:'strict'}).experimentalModels,[]);
+  assert.throws(()=>calculateDamage({...input,target:{}}));
+  assert.throws(()=>calculateDamage({...input,hitResolution:{...hitResolution,immune:false,preventEligible:true}}));
+  assert.throws(()=>calculateDamage({...input,effect:{...effect,build:'android'}}));
+  assert.throws(()=>calculateDamage({...input,effect:{...effect,targetDead:true}}));
+  if(category==='PURE')assert.throws(()=>calculateDamage({...input,hitResolution:{...hitResolution,puncture:true}}));
+}
+const skipped=calculateDamage({mode:'experimental',build,damageType:'PURE',effect:{build,category:'PURE',targetDead:false,baseDamage:0}});
+assert.equal(skipped.finalDamage,null);assert.deepEqual(skipped.experimentalModels,[]);
+console.log(`Passed ${fixtures.length} Fixed/Pure original HP comparisons and API boundary checks`);

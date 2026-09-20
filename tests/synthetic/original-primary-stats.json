@@ -1,0 +1,5781 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original FuncTable closures for all cross-source discrepant cases and adjacent levels. Explicit primary base/extra and talent bonus inputs; original Lua math. Excludes complete AwakerDataUtils lookup, Soulforge, final battle properties, and gameplay validation.",
+  "sourceHashes": {
+    "FuncTable": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3",
+    "catalog": "439e01e929634ef2e3d6d48ae66ee8d31e94d9b7548faac0fd7e49df10cba219",
+    "characters": "cff6c329450dcc655adcf79380645727f3c1c4a79cc134faeeab82a3a20e3c13",
+    "upgrades": "7a22109a154257c1973ad59b94d804efeb47be9c5da43095116e52d4ae521d7c",
+    "constants": "b0ed369aca9517413588ab832de487c90181cd2c78e9fa20f0d982cc5c9f8785",
+    "talents": "4d12de9f5d8ba69800252490972e599b434f6f2e215ec98a34d400f3392a79d4",
+    "clientReader": "00ea89a618099cd29952033fc5c59c452ec86e2799f3f45752cd5b48da31a4a0"
+  },
+  "summary": {
+    "cases": 360,
+    "candidateDiscrepancies": 120,
+    "confirmedDiscrepancies": 120
+  },
+  "fixtures": [
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 13,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(6.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 13,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 14,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(7+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 14,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 15,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(7.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 15,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 15,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(7.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 15,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 16,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(8+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 16,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 17,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(8.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 17,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 17,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(8.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 17,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 18,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(9+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 18,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 19,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(9.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 19,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 19,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(9.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 19,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 20,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(10+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 20,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 21,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(10.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 21,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 21,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(10.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 21,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 22,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(11+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 22,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 23,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(11.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 23,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 23,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(11.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 23,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 24,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(12+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 24,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 25,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(12.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 25,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 57,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(28.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 57,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 58,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(29+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 58,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 59,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(29.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 59,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 59,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(29.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 59,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 60,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(30+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 60,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 61,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(30.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 61,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 61,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(30.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 61,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 62,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(31+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 62,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 63,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(31.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 63,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 63,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(31.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 63,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 64,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(32+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 64,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 65,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(32.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 65,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 65,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(32.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 65,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 66,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(33+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 66,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 67,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(33.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 67,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 67,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(33.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 67,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 68,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(34+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 68,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "level": 69,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(34.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 25,
+        "physique_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 69,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 13,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(6.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 13,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 14,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(7+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 14,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 15,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(7.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 15,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 15,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(7.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 15,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 16,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(8+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 16,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 17,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(8.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 17,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 17,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(8.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 17,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 18,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(9+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 18,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 19,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(9.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 19,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 19,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(9.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 19,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 20,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(10+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 20,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 21,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(10.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 21,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 21,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(10.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 21,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 22,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(11+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 22,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 23,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(11.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 23,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 23,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(11.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 23,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 24,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(12+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 24,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 25,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(12.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 25,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 57,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(28.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 57,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 58,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(29+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 58,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 59,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(29.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 59,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 59,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(29.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 59,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 60,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(30+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 60,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 61,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(30.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 61,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 61,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(30.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 61,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 62,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(31+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 62,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 63,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(31.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 63,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 63,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(31.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 63,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 64,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(32+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 64,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 65,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(32.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 65,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 65,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(32.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 65,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 66,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(33+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 66,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 67,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(33.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 67,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 67,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(33.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 67,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 68,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(34+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 68,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "level": 69,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(34.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 69,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 13,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(6.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 13,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 14,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(7+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 14,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 15,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(7.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 15,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 15,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(7.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 15,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 16,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(8+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 16,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 17,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(8.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 17,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 17,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(8.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 17,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 18,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(9+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 18,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 19,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(9.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 19,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 19,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(9.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 19,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 20,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(10+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 20,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 21,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(10.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 21,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 21,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(10.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 21,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 22,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(11+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 22,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 23,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(11.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 23,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 23,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(11.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 23,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 24,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(12+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 24,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 25,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(12.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 25,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 57,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(28.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 57,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 58,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(29+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 58,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 59,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(29.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 59,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 59,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(29.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 59,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 60,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(30+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 60,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 61,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(30.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 61,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 61,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(30.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 61,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 62,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(31+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 62,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 63,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(31.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 63,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 63,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(31.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 63,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 64,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(32+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 64,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 65,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(32.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 65,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 65,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(32.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 65,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 66,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(33+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 66,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 67,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(33.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 67,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 67,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(33.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 67,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 68,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(34+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 68,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "level": 69,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(34.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 69,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 13,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(6.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 13,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 14,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(7+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 14,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 15,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(7.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 15,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 15,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(7.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 15,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 16,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(8+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 16,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 17,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(8.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 17,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 17,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(8.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 17,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 18,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(9+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 18,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 19,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(9.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 19,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 19,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(9.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 19,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 20,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(10+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 20,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 21,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(10.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 21,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 21,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(10.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 21,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 22,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(11+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 22,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 23,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(11.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 23,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 23,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(11.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 23,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 24,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(12+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 24,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 25,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(12.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 25,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 57,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(28.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 57,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 58,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(29+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 58,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 59,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(29.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 59,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 59,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(29.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 59,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 60,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(30+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 60,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 61,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(30.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 61,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 61,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(30.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 61,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 62,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(31+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 62,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 63,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(31.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 63,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 63,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(31.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 63,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 64,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(32+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 64,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 65,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(32.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 65,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 65,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(32.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 65,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 66,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(33+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 66,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 67,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(33.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 67,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 67,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(33.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 67,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 68,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(34+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 68,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "level": 69,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(34.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 69,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 13,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(6.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 13,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 14,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(7+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 14,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 15,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(7.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 15,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 15,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(7.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 15,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 16,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(8+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 16,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 17,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(8.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 17,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 17,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(8.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 17,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 18,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(9+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 18,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 19,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(9.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 19,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 19,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(9.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 19,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 20,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(10+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 20,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 21,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(10.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 21,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 21,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(10.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 21,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 22,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(11+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 22,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 23,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(11.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 23,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 23,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(11.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 23,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 24,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(12+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 24,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 25,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(12.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 25,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 57,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(28.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 57,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 58,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(29+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 58,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 59,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(29.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 59,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 59,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(29.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 59,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 60,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(30+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 60,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 61,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(30.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 61,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 61,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(30.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 61,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 62,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(31+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 62,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 63,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(31.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 63,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 63,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(31.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 63,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 64,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(32+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 64,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 65,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(32.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 65,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 65,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(32.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 65,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 66,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(33+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 66,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 67,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(33.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 67,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 67,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(33.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 67,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 68,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(34+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 68,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "level": 69,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(34.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 69,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 13,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(6.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 13,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 14,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(7+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 14,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 15,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(7.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 15,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 15,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(7.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 15,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 16,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(8+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 16,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 17,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(8.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 17,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 17,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(8.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 17,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 18,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(9+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 18,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 19,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(9.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 19,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 19,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(9.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 19,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 20,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(10+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 20,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 21,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(10.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 21,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 21,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(10.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 21,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 22,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(11+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 22,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 23,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(11.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 23,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 23,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(11.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 23,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 24,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(12+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 24,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 25,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(12.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 25,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 57,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(28.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 57,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 58,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(29+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 58,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 59,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(29.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 59,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 59,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(29.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 59,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 60,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(30+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 60,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 61,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(30.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 61,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 61,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(30.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 61,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 62,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(31+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 62,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 63,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(31.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 63,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 63,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(31.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 63,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 64,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(32+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 64,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 65,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(32.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 65,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 65,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(32.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 65,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 66,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(33+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 66,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 67,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(33.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 67,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 67,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(33.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 67,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 68,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(34+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 68,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "level": 69,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(34.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 25,
+        "atk_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 69,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 13,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(6.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 13,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 14,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(7+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 14,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 15,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(7.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 15,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 13,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(6.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 13,
+      "expected": 97.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 14,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(7+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 14,
+      "expected": 100.0,
+      "catalogValueAtMismatch": 99
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 15,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(7.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 15,
+      "expected": 102.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 15,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(7.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 15,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 16,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(8+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 16,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 17,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(8.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 17,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 15,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(7.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 15,
+      "expected": 97.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 16,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(8+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 16,
+      "expected": 100.0,
+      "catalogValueAtMismatch": 99
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 17,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(8.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 17,
+      "expected": 102.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 17,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(8.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 17,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 18,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(9+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 18,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 19,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(9.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 19,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 17,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(8.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 17,
+      "expected": 97.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 18,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(9+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 18,
+      "expected": 100.0,
+      "catalogValueAtMismatch": 99
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 19,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(9.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 19,
+      "expected": 102.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 19,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(9.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 19,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 20,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(10+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 20,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 21,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(10.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 21,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 19,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(9.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 19,
+      "expected": 97.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 20,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(10+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 20,
+      "expected": 100.0,
+      "catalogValueAtMismatch": 99
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 21,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(10.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 21,
+      "expected": 102.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 21,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(10.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 21,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 22,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(11+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 22,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 23,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(11.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 23,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 21,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(10.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 21,
+      "expected": 97.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 22,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(11+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 22,
+      "expected": 100.0,
+      "catalogValueAtMismatch": 99
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 23,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(11.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 23,
+      "expected": 102.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 23,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(11.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 23,
+      "expected": 54.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 24,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(12+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 24,
+      "expected": 56.0,
+      "catalogValueAtMismatch": 55
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 25,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(12.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 25,
+      "expected": 57.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 23,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(11.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 23,
+      "expected": 97.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 24,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(12+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 24,
+      "expected": 100.0,
+      "catalogValueAtMismatch": 99
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 25,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(12.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 25,
+      "expected": 102.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 57,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(28.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 57,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 58,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(29+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 58,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 59,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(29.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 59,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 57,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(28.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 57,
+      "expected": 196.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 58,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(29+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 58,
+      "expected": 199.0,
+      "catalogValueAtMismatch": 198
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 59,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(29.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 59,
+      "expected": 201.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 59,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(29.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 59,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 60,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(30+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 60,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 61,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(30.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 61,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 59,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(29.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 59,
+      "expected": 196.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 60,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(30+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 60,
+      "expected": 199.0,
+      "catalogValueAtMismatch": 198
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 61,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(30.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 61,
+      "expected": 201.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 61,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(30.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 61,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 62,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(31+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 62,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 63,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(31.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 63,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 61,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(30.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 61,
+      "expected": 196.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 62,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(31+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 62,
+      "expected": 199.0,
+      "catalogValueAtMismatch": 198
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 63,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(31.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 63,
+      "expected": 201.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 63,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(31.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 63,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 64,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(32+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 64,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 65,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(32.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 65,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 63,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(31.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 63,
+      "expected": 196.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 64,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(32+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 64,
+      "expected": 199.0,
+      "catalogValueAtMismatch": 198
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 65,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(32.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 65,
+      "expected": 201.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 65,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(32.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 65,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 66,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(33+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 66,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 67,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(33.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 67,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 65,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(32.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 65,
+      "expected": 196.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 66,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(33+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 66,
+      "expected": 199.0,
+      "catalogValueAtMismatch": 198
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 67,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(33.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 67,
+      "expected": 201.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 67,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(33.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 67,
+      "expected": 109.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 68,
+      "stat": "DEF",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(def*(1+(34+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 68,
+      "expected": 111.0,
+      "catalogValueAtMismatch": 110
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 69,
+      "stat": "DEF",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(def*(1+(34.5+talent_attr_lv*0.5)/10)+def_extra)",
+      "values": {
+        "def": 25,
+        "def_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 69,
+      "expected": 112.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 67,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(33.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 67,
+      "expected": 196.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 68,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(34+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 68,
+      "expected": 199.0,
+      "catalogValueAtMismatch": 198
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 69,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(34.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 69,
+      "expected": 201.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 77,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(38.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 77,
+      "expected": 241.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 78,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(39+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 78,
+      "expected": 244.0,
+      "catalogValueAtMismatch": 243
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 79,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(39.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 79,
+      "expected": 246.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 79,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(39.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 79,
+      "expected": 241.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 80,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(40+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 80,
+      "expected": 244.0,
+      "catalogValueAtMismatch": 243
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 81,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(40.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 81,
+      "expected": 246.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 81,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(40.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 81,
+      "expected": 241.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 82,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(41+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 82,
+      "expected": 244.0,
+      "catalogValueAtMismatch": 243
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 83,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(41.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 83,
+      "expected": 246.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 83,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(41.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 83,
+      "expected": 241.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 84,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(42+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 84,
+      "expected": 244.0,
+      "catalogValueAtMismatch": 243
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 85,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(42.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 85,
+      "expected": 246.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 85,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(42.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 85,
+      "expected": 241.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 86,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(43+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 86,
+      "expected": 244.0,
+      "catalogValueAtMismatch": 243
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 87,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(43.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 87,
+      "expected": 246.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 87,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(43.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 87,
+      "expected": 241.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 88,
+      "stat": "CON",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(physique*(1+(44+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 88,
+      "expected": 244.0,
+      "catalogValueAtMismatch": 243
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "level": 89,
+      "stat": "CON",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(physique*(1+(44.5+talent_attr_lv*0.5)/10)+physique_extra)",
+      "values": {
+        "physique": 45,
+        "physique_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 89,
+      "expected": 246.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 13,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(6.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 13,
+      "expected": 97.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 14,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(7+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 14,
+      "expected": 100.0,
+      "catalogValueAtMismatch": 99
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 15,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(7.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 15,
+      "expected": 102.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 15,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(7.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 15,
+      "expected": 97.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 16,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(8+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 16,
+      "expected": 100.0,
+      "catalogValueAtMismatch": 99
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 17,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(8.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 17,
+      "expected": 102.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 17,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(8.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 17,
+      "expected": 97.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 18,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(9+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 18,
+      "expected": 100.0,
+      "catalogValueAtMismatch": 99
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 19,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(9.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 19,
+      "expected": 102.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 19,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(9.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 19,
+      "expected": 97.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 20,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(10+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 20,
+      "expected": 100.0,
+      "catalogValueAtMismatch": 99
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 21,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(10.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 21,
+      "expected": 102.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 21,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(10.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 21,
+      "expected": 97.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 22,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(11+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 22,
+      "expected": 100.0,
+      "catalogValueAtMismatch": 99
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 23,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(11.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 23,
+      "expected": 102.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 23,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(11.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 23,
+      "expected": 97.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 24,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(12+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 24,
+      "expected": 100.0,
+      "catalogValueAtMismatch": 99
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 25,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(12.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 25,
+      "expected": 102.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 57,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(28.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 57,
+      "expected": 196.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 58,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(29+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 58,
+      "expected": 199.0,
+      "catalogValueAtMismatch": 198
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 59,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(29.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 59,
+      "expected": 201.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 59,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(29.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 59,
+      "expected": 196.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 60,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(30+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 60,
+      "expected": 199.0,
+      "catalogValueAtMismatch": 198
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 61,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(30.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 61,
+      "expected": 201.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 61,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(30.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 61,
+      "expected": 196.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 62,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(31+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 62,
+      "expected": 199.0,
+      "catalogValueAtMismatch": 198
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 63,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(31.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 63,
+      "expected": 201.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 63,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(31.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 63,
+      "expected": 196.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 64,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(32+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 64,
+      "expected": 199.0,
+      "catalogValueAtMismatch": 198
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 65,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(32.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 65,
+      "expected": 201.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 65,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(32.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 65,
+      "expected": 196.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 66,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(33+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 66,
+      "expected": 199.0,
+      "catalogValueAtMismatch": 198
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 67,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(33.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 67,
+      "expected": 201.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 67,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(33.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 67,
+      "expected": 196.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 68,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(34+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 68,
+      "expected": 199.0,
+      "catalogValueAtMismatch": 198
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 69,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(34.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 69,
+      "expected": 201.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 77,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(38.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 77,
+      "expected": 241.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 78,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(39+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 78,
+      "expected": 244.0,
+      "catalogValueAtMismatch": 243
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 79,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(39.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 10
+      },
+      "upgradeLevel": 79,
+      "expected": 246.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 79,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(39.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 79,
+      "expected": 241.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 80,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(40+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 80,
+      "expected": 244.0,
+      "catalogValueAtMismatch": 243
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 81,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(40.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 8
+      },
+      "upgradeLevel": 81,
+      "expected": 246.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 81,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(40.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 81,
+      "expected": 241.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 82,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(41+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 82,
+      "expected": 244.0,
+      "catalogValueAtMismatch": 243
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 83,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(41.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 6
+      },
+      "upgradeLevel": 83,
+      "expected": 246.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 83,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(41.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 83,
+      "expected": 241.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 84,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(42+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 84,
+      "expected": 244.0,
+      "catalogValueAtMismatch": 243
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 85,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(42.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 4
+      },
+      "upgradeLevel": 85,
+      "expected": 246.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 85,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(42.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 85,
+      "expected": 241.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 86,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(43+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 86,
+      "expected": 244.0,
+      "catalogValueAtMismatch": 243
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 87,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(43.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 2
+      },
+      "upgradeLevel": 87,
+      "expected": 246.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 87,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(43.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 87,
+      "expected": 241.0,
+      "catalogValueAtMismatch": null
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 88,
+      "stat": "ATK",
+      "isAuditMismatch": true,
+      "expression": "math.ceil(atk*(1+(44+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 88,
+      "expected": 244.0,
+      "catalogValueAtMismatch": 243
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "level": 89,
+      "stat": "ATK",
+      "isAuditMismatch": false,
+      "expression": "math.ceil(atk*(1+(44.5+talent_attr_lv*0.5)/10)+atk_extra)",
+      "values": {
+        "atk": 45,
+        "atk_extra": 0,
+        "talent_attr_lv": 0
+      },
+      "upgradeLevel": 89,
+      "expected": 246.0,
+      "catalogValueAtMismatch": null
+    }
+  ]
+}

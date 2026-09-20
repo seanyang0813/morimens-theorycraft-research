@@ -1,0 +1,368 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original BattlePropertyServer.ctor with no-op Super.ctor, supplied owner/data/engine tables, numeric property map. Does not execute role constructors or any post-construction mutation.",
+  "sourceHash": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+  "fixtures": [
+    {
+      "input": {
+        "occupation_master": 0,
+        "occupation_master_final_per": 0,
+        "hp": 99.25,
+        "block": -0.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 0.0,
+        "occupation_master_final_per": 0.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 0,
+        "occupation_master_final_per": 0,
+        "hp": 99.25,
+        "block": -0.25,
+        "occupation_master_final": 7.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 0.0,
+        "occupation_master_final": 8.0,
+        "occupation_master_final_per": 0.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 0,
+        "occupation_master_final_per": 50.25,
+        "hp": 99.25,
+        "block": -0.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 0.0,
+        "occupation_master_final_per": 51.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 0,
+        "occupation_master_final_per": 50.25,
+        "hp": 99.25,
+        "block": -0.25,
+        "occupation_master_final": 7.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 0.0,
+        "occupation_master_final": 8.0,
+        "occupation_master_final_per": 51.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 0,
+        "occupation_master_final_per": 100,
+        "hp": 99.25,
+        "block": -0.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 0.0,
+        "occupation_master_final_per": 100.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 0,
+        "occupation_master_final_per": 100,
+        "hp": 99.25,
+        "block": -0.25,
+        "occupation_master_final": 7.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 0.0,
+        "occupation_master_final": 8.0,
+        "occupation_master_final_per": 100.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 0.25,
+        "occupation_master_final_per": 0,
+        "hp": 99.25,
+        "block": -0.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 1.0,
+        "occupation_master_final_per": 0.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 0.25,
+        "occupation_master_final_per": 0,
+        "hp": 99.25,
+        "block": -0.25,
+        "occupation_master_final": 7.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 1.0,
+        "occupation_master_final": 8.0,
+        "occupation_master_final_per": 0.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 0.25,
+        "occupation_master_final_per": 50.25,
+        "hp": 99.25,
+        "block": -0.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 1.0,
+        "occupation_master_final_per": 51.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 0.25,
+        "occupation_master_final_per": 50.25,
+        "hp": 99.25,
+        "block": -0.25,
+        "occupation_master_final": 7.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 1.0,
+        "occupation_master_final": 8.0,
+        "occupation_master_final_per": 51.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 0.25,
+        "occupation_master_final_per": 100,
+        "hp": 99.25,
+        "block": -0.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 1.0,
+        "occupation_master_final_per": 100.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 0.25,
+        "occupation_master_final_per": 100,
+        "hp": 99.25,
+        "block": -0.25,
+        "occupation_master_final": 7.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 1.0,
+        "occupation_master_final": 8.0,
+        "occupation_master_final_per": 100.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 72,
+        "occupation_master_final_per": 0,
+        "hp": 99.25,
+        "block": -0.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 72.0,
+        "occupation_master_final_per": 0.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 72,
+        "occupation_master_final_per": 0,
+        "hp": 99.25,
+        "block": -0.25,
+        "occupation_master_final": 7.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 72.0,
+        "occupation_master_final": 8.0,
+        "occupation_master_final_per": 0.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 72,
+        "occupation_master_final_per": 50.25,
+        "hp": 99.25,
+        "block": -0.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 72.0,
+        "occupation_master_final_per": 51.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 72,
+        "occupation_master_final_per": 50.25,
+        "hp": 99.25,
+        "block": -0.25,
+        "occupation_master_final": 7.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 72.0,
+        "occupation_master_final": 8.0,
+        "occupation_master_final_per": 51.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 72,
+        "occupation_master_final_per": 100,
+        "hp": 99.25,
+        "block": -0.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 72.0,
+        "occupation_master_final_per": 100.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 72,
+        "occupation_master_final_per": 100,
+        "hp": 99.25,
+        "block": -0.25,
+        "occupation_master_final": 7.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 72.0,
+        "occupation_master_final": 8.0,
+        "occupation_master_final_per": 100.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 100.1,
+        "occupation_master_final_per": 0,
+        "hp": 99.25,
+        "block": -0.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 101.0,
+        "occupation_master_final_per": 0.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 100.1,
+        "occupation_master_final_per": 0,
+        "hp": 99.25,
+        "block": -0.25,
+        "occupation_master_final": 7.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 101.0,
+        "occupation_master_final": 8.0,
+        "occupation_master_final_per": 0.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 100.1,
+        "occupation_master_final_per": 50.25,
+        "hp": 99.25,
+        "block": -0.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 101.0,
+        "occupation_master_final_per": 51.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 100.1,
+        "occupation_master_final_per": 50.25,
+        "hp": 99.25,
+        "block": -0.25,
+        "occupation_master_final": 7.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 101.0,
+        "occupation_master_final": 8.0,
+        "occupation_master_final_per": 51.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 100.1,
+        "occupation_master_final_per": 100,
+        "hp": 99.25,
+        "block": -0.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 101.0,
+        "occupation_master_final_per": 100.0
+      }
+    },
+    {
+      "input": {
+        "occupation_master": 100.1,
+        "occupation_master_final_per": 100,
+        "hp": 99.25,
+        "block": -0.25,
+        "occupation_master_final": 7.25
+      },
+      "expected": {
+        "block": 0.0,
+        "hp": 100.0,
+        "occupation_master": 101.0,
+        "occupation_master_final": 8.0,
+        "occupation_master_final_per": 100.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,730 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original DoDamageEvent; event creation observed, CheckDeathEvent replaced by explicit HP response, fightback predicate supplied. No listeners, scheduler or actual death execution. Some flag combinations intentionally exercise routing only and are not reachable standard effect outputs.",
+  "sourceHashes": {
+    "BattleUnitBase": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+    "BattleLogicEvent": "cef7477d60a84d8ac4f4b097436a39628d37ff5c54bd8f44d08828d75ad80c4a"
+  },
+  "fixtures": [
+    {
+      "input": {
+        "hp": 100,
+        "hpAfterDeathCheck": null,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": false,
+        "fightBack": false,
+        "category": "Active"
+      },
+      "expected": {
+        "trace": [
+          "DoDamage",
+          "BeDamage",
+          "CheckDeathEvent"
+        ],
+        "hpAfter": 100
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "hpAfterDeathCheck": null,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": false,
+        "fightBack": false,
+        "category": "Active"
+      },
+      "expected": {
+        "trace": [
+          "DoDamage",
+          "BeDamage",
+          "CheckDeathEvent",
+          "ActiveDamageKill"
+        ],
+        "hpAfter": 0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "hpAfterDeathCheck": null,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": true,
+        "fightBack": true,
+        "category": "Active"
+      },
+      "expected": {
+        "trace": [
+          "DoDamage",
+          "BeDamage",
+          "CheckDeathEvent",
+          "ActiveDamageKill",
+          "CritKill"
+        ],
+        "hpAfter": 0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "hpAfterDeathCheck": 10,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": true,
+        "fightBack": true,
+        "category": "Active"
+      },
+      "expected": {
+        "trace": [
+          "DoDamage",
+          "BeDamage",
+          "CheckDeathEvent"
+        ],
+        "hpAfter": 10
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "hpAfterDeathCheck": 0,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": false,
+        "fightBack": false,
+        "category": "Active"
+      },
+      "expected": {
+        "trace": [
+          "DoDamage",
+          "BeDamage",
+          "CheckDeathEvent",
+          "ActiveDamageKill"
+        ],
+        "hpAfter": 0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "hpAfterDeathCheck": null,
+        "battleFinished": false,
+        "prevented": true,
+        "deathResist": true,
+        "crit": false,
+        "fightBack": false,
+        "category": "Active"
+      },
+      "expected": {
+        "trace": [
+          "DoPreventedActiveDamage",
+          "PreventBeActiveDamage",
+          "DoDamage",
+          "BeDamage",
+          "PVPDeathResist",
+          "CheckDeathEvent"
+        ],
+        "hpAfter": 100
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "hpAfterDeathCheck": null,
+        "battleFinished": true,
+        "prevented": false,
+        "deathResist": false,
+        "crit": false,
+        "fightBack": false,
+        "category": "Active"
+      },
+      "expected": {
+        "trace": [],
+        "hpAfter": 0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "hpAfterDeathCheck": null,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": false,
+        "fightBack": false,
+        "category": "Passive"
+      },
+      "expected": {
+        "trace": [
+          "DoDamage",
+          "BeDamage",
+          "CheckDeathEvent"
+        ],
+        "hpAfter": 100
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "hpAfterDeathCheck": null,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": false,
+        "fightBack": false,
+        "category": "Passive"
+      },
+      "expected": {
+        "trace": [
+          "DoDamage",
+          "BeDamage",
+          "CheckDeathEvent"
+        ],
+        "hpAfter": 0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "hpAfterDeathCheck": null,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": true,
+        "fightBack": true,
+        "category": "Passive"
+      },
+      "expected": {
+        "trace": [
+          "DoDamage",
+          "BeDamage",
+          "CheckDeathEvent",
+          "CritKill",
+          "FightBackKill"
+        ],
+        "hpAfter": 0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "hpAfterDeathCheck": 10,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": true,
+        "fightBack": true,
+        "category": "Passive"
+      },
+      "expected": {
+        "trace": [
+          "DoDamage",
+          "BeDamage",
+          "CheckDeathEvent"
+        ],
+        "hpAfter": 10
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "hpAfterDeathCheck": 0,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": false,
+        "fightBack": false,
+        "category": "Passive"
+      },
+      "expected": {
+        "trace": [
+          "DoDamage",
+          "BeDamage",
+          "CheckDeathEvent"
+        ],
+        "hpAfter": 0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "hpAfterDeathCheck": null,
+        "battleFinished": false,
+        "prevented": true,
+        "deathResist": true,
+        "crit": false,
+        "fightBack": false,
+        "category": "Passive"
+      },
+      "expected": {
+        "trace": [
+          "DoPreventedActiveDamage",
+          "PreventBeActiveDamage",
+          "DoDamage",
+          "BeDamage",
+          "PVPDeathResist",
+          "CheckDeathEvent"
+        ],
+        "hpAfter": 100
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "hpAfterDeathCheck": null,
+        "battleFinished": true,
+        "prevented": false,
+        "deathResist": false,
+        "crit": false,
+        "fightBack": false,
+        "category": "Passive"
+      },
+      "expected": {
+        "trace": [],
+        "hpAfter": 0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "hpAfterDeathCheck": null,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": false,
+        "fightBack": false,
+        "category": "Fixed"
+      },
+      "expected": {
+        "trace": [
+          "DoDamage",
+          "BeDamage",
+          "CheckDeathEvent"
+        ],
+        "hpAfter": 100
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "hpAfterDeathCheck": null,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": false,
+        "fightBack": false,
+        "category": "Fixed"
+      },
+      "expected": {
+        "trace": [
+          "DoDamage",
+          "BeDamage",
+          "CheckDeathEvent",
+          "FixedDamageKill"
+        ],
+        "hpAfter": 0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "hpAfterDeathCheck": null,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": true,
+        "fightBack": true,
+        "category": "Fixed"
+      },
+      "expected": {
+        "trace": [
+          "DoDamage",
+          "BeDamage",
+          "CheckDeathEvent",
+          "FixedDamageKill",
+          "CritKill"
+        ],
+        "hpAfter": 0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "hpAfterDeathCheck": 10,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": true,
+        "fightBack": true,
+        "category": "Fixed"
+      },
+      "expected": {
+        "trace": [
+          "DoDamage",
+          "BeDamage",
+          "CheckDeathEvent"
+        ],
+        "hpAfter": 10
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "hpAfterDeathCheck": 0,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": false,
+        "fightBack": false,
+        "category": "Fixed"
+      },
+      "expected": {
+        "trace": [
+          "DoDamage",
+          "BeDamage",
+          "CheckDeathEvent",
+          "FixedDamageKill"
+        ],
+        "hpAfter": 0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "hpAfterDeathCheck": null,
+        "battleFinished": false,
+        "prevented": true,
+        "deathResist": true,
+        "crit": false,
+        "fightBack": false,
+        "category": "Fixed"
+      },
+      "expected": {
+        "trace": [
+          "DoPreventedActiveDamage",
+          "PreventBeActiveDamage",
+          "DoDamage",
+          "BeDamage",
+          "PVPDeathResist",
+          "CheckDeathEvent"
+        ],
+        "hpAfter": 100
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "hpAfterDeathCheck": null,
+        "battleFinished": true,
+        "prevented": false,
+        "deathResist": false,
+        "crit": false,
+        "fightBack": false,
+        "category": "Fixed"
+      },
+      "expected": {
+        "trace": [],
+        "hpAfter": 0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "hpAfterDeathCheck": null,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": false,
+        "fightBack": false,
+        "category": "Pure"
+      },
+      "expected": {
+        "trace": [
+          "DoDamage",
+          "BeDamage",
+          "CheckDeathEvent"
+        ],
+        "hpAfter": 100
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "hpAfterDeathCheck": null,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": false,
+        "fightBack": false,
+        "category": "Pure"
+      },
+      "expected": {
+        "trace": [
+          "DoDamage",
+          "BeDamage",
+          "CheckDeathEvent"
+        ],
+        "hpAfter": 0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "hpAfterDeathCheck": null,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": true,
+        "fightBack": true,
+        "category": "Pure"
+      },
+      "expected": {
+        "trace": [
+          "DoDamage",
+          "BeDamage",
+          "CheckDeathEvent",
+          "CritKill"
+        ],
+        "hpAfter": 0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "hpAfterDeathCheck": 10,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": true,
+        "fightBack": true,
+        "category": "Pure"
+      },
+      "expected": {
+        "trace": [
+          "DoDamage",
+          "BeDamage",
+          "CheckDeathEvent"
+        ],
+        "hpAfter": 10
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "hpAfterDeathCheck": 0,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": false,
+        "fightBack": false,
+        "category": "Pure"
+      },
+      "expected": {
+        "trace": [
+          "DoDamage",
+          "BeDamage",
+          "CheckDeathEvent"
+        ],
+        "hpAfter": 0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "hpAfterDeathCheck": null,
+        "battleFinished": false,
+        "prevented": true,
+        "deathResist": true,
+        "crit": false,
+        "fightBack": false,
+        "category": "Pure"
+      },
+      "expected": {
+        "trace": [
+          "DoPreventedActiveDamage",
+          "PreventBeActiveDamage",
+          "DoDamage",
+          "BeDamage",
+          "PVPDeathResist",
+          "CheckDeathEvent"
+        ],
+        "hpAfter": 100
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "hpAfterDeathCheck": null,
+        "battleFinished": true,
+        "prevented": false,
+        "deathResist": false,
+        "crit": false,
+        "fightBack": false,
+        "category": "Pure"
+      },
+      "expected": {
+        "trace": [],
+        "hpAfter": 0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "hpAfterDeathCheck": null,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": false,
+        "fightBack": false,
+        "category": "Tentacle"
+      },
+      "expected": {
+        "trace": [
+          "TentacleAttack",
+          "AttackedByTentacle",
+          "DoTentacleDamage",
+          "BeDamage",
+          "CheckDeathEvent"
+        ],
+        "hpAfter": 100
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "hpAfterDeathCheck": null,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": false,
+        "fightBack": false,
+        "category": "Tentacle"
+      },
+      "expected": {
+        "trace": [
+          "TentacleAttack",
+          "AttackedByTentacle",
+          "DoTentacleDamage",
+          "BeDamage",
+          "CheckDeathEvent"
+        ],
+        "hpAfter": 0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "hpAfterDeathCheck": null,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": true,
+        "fightBack": true,
+        "category": "Tentacle"
+      },
+      "expected": {
+        "trace": [
+          "TentacleAttack",
+          "AttackedByTentacle",
+          "DoTentacleDamage",
+          "BeDamage",
+          "CheckDeathEvent",
+          "CritKill"
+        ],
+        "hpAfter": 0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "hpAfterDeathCheck": 10,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": true,
+        "fightBack": true,
+        "category": "Tentacle"
+      },
+      "expected": {
+        "trace": [
+          "TentacleAttack",
+          "AttackedByTentacle",
+          "DoTentacleDamage",
+          "BeDamage",
+          "CheckDeathEvent"
+        ],
+        "hpAfter": 10
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "hpAfterDeathCheck": 0,
+        "battleFinished": false,
+        "prevented": false,
+        "deathResist": false,
+        "crit": false,
+        "fightBack": false,
+        "category": "Tentacle"
+      },
+      "expected": {
+        "trace": [
+          "TentacleAttack",
+          "AttackedByTentacle",
+          "DoTentacleDamage",
+          "BeDamage",
+          "CheckDeathEvent"
+        ],
+        "hpAfter": 0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "hpAfterDeathCheck": null,
+        "battleFinished": false,
+        "prevented": true,
+        "deathResist": true,
+        "crit": false,
+        "fightBack": false,
+        "category": "Tentacle"
+      },
+      "expected": {
+        "trace": [
+          "DoPreventedActiveDamage",
+          "PreventBeActiveDamage",
+          "TentacleAttack",
+          "AttackedByTentacle",
+          "DoTentacleDamage",
+          "BeDamage",
+          "PVPDeathResist",
+          "CheckDeathEvent"
+        ],
+        "hpAfter": 100
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "hpAfterDeathCheck": null,
+        "battleFinished": true,
+        "prevented": false,
+        "deathResist": false,
+        "crit": false,
+        "fightBack": false,
+        "category": "Tentacle"
+      },
+      "expected": {
+        "trace": [],
+        "hpAfter": 0
+      }
+    }
+  ]
+}

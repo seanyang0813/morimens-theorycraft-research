@@ -1,0 +1,5544 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleCmdServer": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+    "BattleUtilServer": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+  },
+  "scope": "144 connected ordinary-subtype GetRealUltiEnergy cases with card presence/type-match and caster eligibility adapters, explicit properties/dimension and supplied tags using original mapping. Includes duplicate tags. No actual CardTypeMatch, property/build derivation, gain storage/events or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 21.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 21.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 21.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 21.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 21.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 21.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 21.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 21.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 21.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 21.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 21.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": false,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 21.0,
+        "propertyReads": [
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 10.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 10.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 55.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 55.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 13.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 13.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 69.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 69.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 18.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_skillcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 18.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_skillcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 102.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_skillcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 102.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_skillcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 16.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 16.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 85.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 85.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 12.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_defendcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 12.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_defendcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 64.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_defendcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 64.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_defendcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 13.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_ultiskill",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 13.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_ultiskill",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 75.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_ultiskill",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": null,
+        "casterEligible": true,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 75.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_ultiskill",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 7.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 9.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 25.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 31.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 7.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 9.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 25.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 31.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 7.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 9.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 25.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 31.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 7.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 9.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 25.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 31.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 7.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 9.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 25.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 31.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 7.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 9.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 25.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 31.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 24.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 30.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 69.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 85.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 30.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 36.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 85.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 106.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 43.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_skillcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 54.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_skillcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 127.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_skillcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 159.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_skillcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 36.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 45.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 106.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 132.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 27.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_defendcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 34.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_defendcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 79.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_defendcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 97.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_defendcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 31.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_ultiskill",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 39.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_ultiskill",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 93.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_ultiskill",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": false
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 115.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_ultiskill",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 7.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 9.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 25.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 31.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 7.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 9.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 25.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 31.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 7.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 9.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 25.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 31.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 7.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 9.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 25.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 31.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 7.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 9.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 25.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 31.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 7.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 9.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 25.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": false,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 31.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 33.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 40.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 96.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 118.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 40.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 49.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 118.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 148.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 60.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_skillcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 73.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_skillcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 177.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_skillcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 220.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_skillcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 49.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 61.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 148.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Strike",
+          "Card_Strike"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 184.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_strikecard",
+          "ulti_per_strikecard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 37.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_defendcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 46.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_defendcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 109.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_defendcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Card_Defend"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 136.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_defendcard",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 43.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_ultiskill",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 54.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_ultiskill",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 0,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 129.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_ultiskill",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "card": {
+          "matchesEnergyCardTypes": true
+        },
+        "casterEligible": true,
+        "skillTags": [
+          "Ulti_Skill"
+        ],
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1,
+          "card_ulti_per": 25,
+          "card_ulti_plus": 3,
+          "o_ulti_energy_per": 40,
+          "ulti_per_strikecard": 25,
+          "ulti_per_skillcard": 50,
+          "ulti_per_defendcard": 15,
+          "ulti_per_ultiskill": 35
+        }
+      },
+      "expected": {
+        "value": 160.0,
+        "propertyReads": [
+          "card_ulti_per",
+          "card_ulti_plus",
+          "o_ulti_energy_per",
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_per_ultiskill",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "replay-001-colleen-strike",
+  "kind": "REAL_GAME_OBSERVATION",
+  "status": "INCOMPLETE_STATE",
+  "holdout": false,
+  "source": "In-game Rongzai Jinqu record, Star chapter wave 1 Normal, Goodluck, displayed 2026/9/19 23:46",
+  "version": {"viewingClient": "PC downloaded res144 build51", "recordedCombatBuild": null},
+  "visibleState": {"character": "Colleen", "level": 50, "card": "Strike", "cardLevel": 3, "bossTurn": 1, "recordCritRatePercent": 8, "recordCritDamagePercent": 51},
+  "assumedState": {},
+  "uncertainState": ["raw base coefficient", "pre-hit STR", "conditional equipment and relic effects", "target modifiers and exact crit flag", "recorded combat build"],
+  "observedDamage": 318,
+  "predictedDamage": null,
+  "difference": null,
+  "mechanicsExercised": ["Strike", "Active damage candidate"],
+  "evidence": ["research/observations/replay-001/record.png", "research/observations/replay-001/colleen-strike.png", "research/observations/replay-001/colleen-round.png"]
+}

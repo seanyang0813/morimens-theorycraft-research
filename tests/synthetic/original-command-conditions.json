@@ -1,0 +1,2384 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "FuncTable": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3",
+    "Cmd": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2"
+  },
+  "scope": "Original compiled conditions from commands 80572,81060,117337; supplied state-query adapters with observed call order. No original parser, CheckCondition gate, state implementation, row execution or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)==0",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 0,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)==0",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 0,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)==0",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 0,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)==0",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 1,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)==0",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 1,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)==0",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 1,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)==0",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 0,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)==0",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 0,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)==0",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 0,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)==0",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 1,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)==0",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 1,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)==0",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 1,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)>0",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 0,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)>0",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 0,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)>0",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 0,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)>0",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 1,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)>0",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 1,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)>0",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 1,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)>0",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 0,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)>0",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 0,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)>0",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 0,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)>0",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 1,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)>0",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 1,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "CmdCaster.GetStateLayer(117365)>0",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 1,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "CmdCaster.GetStateLayer",
+            "args": [
+              117365
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)<Arg1",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 0,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)<Arg1",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 0,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)<Arg1",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 0,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)<Arg1",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 1,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)<Arg1",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 1,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)<Arg1",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 1,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)<Arg1",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 0,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)<Arg1",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 0,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)<Arg1",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 0,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)<Arg1",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 1,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)<Arg1",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 1,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)<Arg1",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 1,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)>=Arg1",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 0,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)>=Arg1",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 0,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)>=Arg1",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 0,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)>=Arg1",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 1,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)>=Arg1",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 1,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)>=Arg1",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 1,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)>=Arg1",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 0,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)>=Arg1",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 0,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)>=Arg1",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 0,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)>=Arg1",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 1,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)>=Arg1",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 1,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80575)>=Arg1",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 1,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80575
+            ],
+            "value": 3
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0  and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 0,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0  and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 0,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0  and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 0,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0  and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 1,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0  and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 1,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0  and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 1,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0  and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 0,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 1
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              66314
+            ],
+            "value": 0
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              62317
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0  and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 0,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 1
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              66314
+            ],
+            "value": 0
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              62317
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0  and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 0,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 1
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              66314
+            ],
+            "value": 0
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              62317
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0  and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 1,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 1
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              66314
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0  and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 1,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 1
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              66314
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0  and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 1,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 1
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              66314
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 0,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 0,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 0,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 1,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 1,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 1,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 0,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 1
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              66314
+            ],
+            "value": 0
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              62317
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 0,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 1
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              66314
+            ],
+            "value": 0
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              62317
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 0,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 1
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              66314
+            ],
+            "value": 0
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              62317
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 1,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 1
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              66314
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 1,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 1
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              66314
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80593)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 1,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80593
+            ],
+            "value": 1
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              66314
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80594)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 0,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80594
+            ],
+            "value": 1
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              66314
+            ],
+            "value": 0
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              62317
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80594)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 0,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80594
+            ],
+            "value": 1
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              66314
+            ],
+            "value": 0
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              62317
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80594)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 0,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": true,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80594
+            ],
+            "value": 1
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              66314
+            ],
+            "value": 0
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              62317
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80594)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 1,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80594
+            ],
+            "value": 1
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              66314
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80594)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 1,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80594
+            ],
+            "value": 1
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              66314
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80594)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 0,
+          "80594": 1,
+          "66314": 1,
+          "62317": 0,
+          "117365": 0
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80594
+            ],
+            "value": 1
+          },
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              66314
+            ],
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80594)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 0,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80594
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80594)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 0,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80594
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80594)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 0,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80594
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80594)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 0,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 1,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80594
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80594)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 2.5,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 1,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80594
+            ],
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "expression": "UpperTarget.GetStateLayer(80594)>0 and UpperTarget.GetStateLayer(66314)==0 and UpperTarget.GetStateLayer(62317)==0",
+        "argument": 100,
+        "layers": {
+          "80575": 3,
+          "80593": 1,
+          "80594": 0,
+          "66314": 1,
+          "62317": 0,
+          "117365": 1
+        }
+      },
+      "expected": {
+        "passed": false,
+        "calls": [
+          {
+            "name": "UpperTarget.GetStateLayer",
+            "args": [
+              80594
+            ],
+            "value": 0
+          }
+        ]
+      }
+    }
+  ]
+}

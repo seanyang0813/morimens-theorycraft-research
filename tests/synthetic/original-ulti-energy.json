@@ -1,0 +1,3611 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleCmdServer": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+    "BattleUtilServer": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007"
+  },
+  "scope": "144 connected GetRealUltiEnergy/show utility/final cases. No card, empty skill tags, ordinary subtype, Awaker/Monster caster adapter, explicit properties/dimension, zero argument bonus. No gain/storage effect, event dispatch or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 2.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 2.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 2.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 2.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 2.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 2.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 2.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 2.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 2.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 2.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 2.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 2.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 2.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 2.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 2.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 2.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": -3,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 3.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 4.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 4.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 6.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 4.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 6.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 5.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 7.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 4.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 6.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 4.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 6.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 5.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 7.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 5.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 7.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 0.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 4.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 6.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 5.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 7.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 5.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 7.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 6.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 9.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 5.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 7.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 6.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 9.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -1.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 6.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 9.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -2.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 7.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 0,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 10.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -5.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 14.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 21.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -6.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 16.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 24.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -7.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 17.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 25.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -9.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 21.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 31.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -7.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 17.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 25.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -8.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 20.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 30.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -9.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 21.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 31.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -11.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 25.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 0,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 37.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -8.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 20.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 30.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -10.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 23.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 34.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -11.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 25.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 37.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -13.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 30.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 0,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 45.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -10.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 24.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 36.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -13.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 29.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 0,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 43.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -14.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 31.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 0,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 46.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": -150,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": -17.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 0,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 37.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    },
+    {
+      "input": {
+        "base": 10.2,
+        "dimension": 20,
+        "properties": {
+          "ulti_energy_per": 50,
+          "i_ulti_energy_per": 25,
+          "ulti_energy_efficiency": 30,
+          "ulti_energy_plus": 2,
+          "gain_ulti_energy_per": 50,
+          "gain_ulti_energy_plus": 1
+        }
+      },
+      "expected": {
+        "value": 55.0,
+        "propertyReads": [
+          "ulti_energy_per",
+          "i_ulti_energy_per",
+          "ulti_energy_efficiency",
+          "ulti_energy_plus",
+          "gain_ulti_energy_per",
+          "gain_ulti_energy_plus"
+        ]
+      }
+    }
+  ]
+}

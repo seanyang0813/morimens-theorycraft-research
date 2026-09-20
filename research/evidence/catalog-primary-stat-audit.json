@@ -1,0 +1,2499 @@
+{
+  "kind": "CROSS_SOURCE_CONFIG_AUDIT",
+  "build": "pc-res144-build51",
+  "scope": "Resource-ID matching with explicit _AF asset suffix; restricted parsing of original upgrade formulas evaluated with Python double arithmetic. Not original Lua execution, final battle stats, Soulforge verification or gameplay validation. Boundary differences require original-runtime investigation.",
+  "sourceHashes": {
+    "catalog": "439e01e929634ef2e3d6d48ae66ee8d31e94d9b7548faac0fd7e49df10cba219",
+    "characters": "cff6c329450dcc655adcf79380645727f3c1c4a79cc134faeeab82a3a20e3c13",
+    "upgrades": "7a22109a154257c1973ad59b94d804efeb47be9c5da43095116e52d4ae521d7c",
+    "constants": "b0ed369aca9517413588ab832de487c90181cd2c78e9fa20f0d982cc5c9f8785",
+    "talents": "4d12de9f5d8ba69800252490972e599b434f6f2e215ec98a34d400f3392a79d4",
+    "clientReader": "00ea89a618099cd29952033fc5c59c452ec86e2799f3f45752cd5b48da31a4a0"
+  },
+  "characters": [
+    {
+      "catalogId": "awakener-0001",
+      "name": "\"24\"",
+      "resourceId": "C06",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15601,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139531,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0002",
+      "name": "Agrippa",
+      "resourceId": "B06",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15600,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139540,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0003",
+      "name": "Aigis",
+      "resourceId": "B03",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [
+        {
+          "level": 14,
+          "stat": "CON",
+          "bonusLevels": 10,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(physique*(1+(7+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 16,
+          "stat": "CON",
+          "bonusLevels": 8,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(physique*(1+(8+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 18,
+          "stat": "CON",
+          "bonusLevels": 6,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(physique*(1+(9+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 20,
+          "stat": "CON",
+          "bonusLevels": 4,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(physique*(1+(10+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 22,
+          "stat": "CON",
+          "bonusLevels": 2,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(physique*(1+(11+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 24,
+          "stat": "CON",
+          "bonusLevels": 0,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(physique*(1+(12+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 58,
+          "stat": "CON",
+          "bonusLevels": 10,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(physique*(1+(29+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 60,
+          "stat": "CON",
+          "bonusLevels": 8,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(physique*(1+(30+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 62,
+          "stat": "CON",
+          "bonusLevels": 6,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(physique*(1+(31+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 64,
+          "stat": "CON",
+          "bonusLevels": 4,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(physique*(1+(32+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 66,
+          "stat": "CON",
+          "bonusLevels": 2,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(physique*(1+(33+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 68,
+          "stat": "CON",
+          "bonusLevels": 0,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(physique*(1+(34+talent_attr_lv*0.5)/10)+physique_extra)"
+        }
+      ],
+      "unsupported": [],
+      "clientId": 15591,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139527,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0004",
+      "name": "Alva",
+      "resourceId": "C11",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15588,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139508,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0005",
+      "name": "Aurita",
+      "resourceId": "O05",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15573,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139518,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0006",
+      "name": "Caecus",
+      "resourceId": "O04",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15594,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139530,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0007",
+      "name": "Casiah",
+      "resourceId": "D09",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15572,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139560,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0008",
+      "name": "Castor",
+      "resourceId": "D11",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 77923,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139515,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0009",
+      "name": "Celeste",
+      "resourceId": "O09",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15566,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139575,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0010",
+      "name": "Clementine",
+      "resourceId": "D13",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 77925,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139541,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0011",
+      "name": "Corposant",
+      "resourceId": "O10",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 77922,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139514,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0012",
+      "name": "Daffodil",
+      "resourceId": "D02",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15590,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139553,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0013",
+      "name": "Doll",
+      "resourceId": "C02",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15570,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139552,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0014",
+      "name": "Doresain",
+      "resourceId": "B10",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 95786,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139557,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0015",
+      "name": "Erica",
+      "resourceId": "D08",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15603,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139562,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0016",
+      "name": "Faint",
+      "resourceId": "B09",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15577,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139555,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0017",
+      "name": "Faros",
+      "resourceId": "O03",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15575,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139506,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0018",
+      "name": "Doll: Inferno",
+      "resourceId": "C02EX",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15602,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139520,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0019",
+      "name": "Helot: Catena",
+      "resourceId": "B05EX",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [
+        {
+          "level": 14,
+          "stat": "DEF",
+          "bonusLevels": 10,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(7+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 16,
+          "stat": "DEF",
+          "bonusLevels": 8,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(8+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 18,
+          "stat": "DEF",
+          "bonusLevels": 6,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(9+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 20,
+          "stat": "DEF",
+          "bonusLevels": 4,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(10+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 22,
+          "stat": "DEF",
+          "bonusLevels": 2,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(11+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 24,
+          "stat": "DEF",
+          "bonusLevels": 0,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(12+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 58,
+          "stat": "DEF",
+          "bonusLevels": 10,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(29+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 60,
+          "stat": "DEF",
+          "bonusLevels": 8,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(30+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 62,
+          "stat": "DEF",
+          "bonusLevels": 6,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(31+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 64,
+          "stat": "DEF",
+          "bonusLevels": 4,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(32+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 66,
+          "stat": "DEF",
+          "bonusLevels": 2,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(33+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 68,
+          "stat": "DEF",
+          "bonusLevels": 0,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(34+talent_attr_lv*0.5)/10)+def_extra)"
+        }
+      ],
+      "unsupported": [],
+      "clientId": 15567,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139550,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0020",
+      "name": "Ramona: Timeworn",
+      "resourceId": "C01EX",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15568,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139574,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0021",
+      "name": "Goliath",
+      "resourceId": "O06",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15564,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139567,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0022",
+      "name": "Hameln",
+      "resourceId": "D12",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 54117,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139529,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0023",
+      "name": "Helot",
+      "resourceId": "B05",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [
+        {
+          "level": 14,
+          "stat": "DEF",
+          "bonusLevels": 10,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(7+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 16,
+          "stat": "DEF",
+          "bonusLevels": 8,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(8+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 18,
+          "stat": "DEF",
+          "bonusLevels": 6,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(9+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 20,
+          "stat": "DEF",
+          "bonusLevels": 4,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(10+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 22,
+          "stat": "DEF",
+          "bonusLevels": 2,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(11+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 24,
+          "stat": "DEF",
+          "bonusLevels": 0,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(12+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 58,
+          "stat": "DEF",
+          "bonusLevels": 10,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(29+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 60,
+          "stat": "DEF",
+          "bonusLevels": 8,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(30+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 62,
+          "stat": "DEF",
+          "bonusLevels": 6,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(31+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 64,
+          "stat": "DEF",
+          "bonusLevels": 4,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(32+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 66,
+          "stat": "DEF",
+          "bonusLevels": 2,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(33+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 68,
+          "stat": "DEF",
+          "bonusLevels": 0,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(34+talent_attr_lv*0.5)/10)+def_extra)"
+        }
+      ],
+      "unsupported": [],
+      "clientId": 15587,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139568,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0024",
+      "name": "Horla",
+      "resourceId": "D06",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15583,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139544,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0025",
+      "name": "Jenkin",
+      "resourceId": "D07",
+      "matchCount": 7,
+      "comparisons": 0,
+      "mismatches": [],
+      "unsupported": []
+    },
+    {
+      "catalogId": "awakener-0026",
+      "name": "Karen",
+      "resourceId": "C12",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15571,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139510,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0027",
+      "name": "Kathigu-Ra",
+      "resourceId": "C16",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 77913,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139548,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0028",
+      "name": "Leigh",
+      "resourceId": "B08",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15597,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139521,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0029",
+      "name": "Lily",
+      "resourceId": "C10",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15581,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139569,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0030",
+      "name": "Liz",
+      "resourceId": "D01",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15562,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139566,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0031",
+      "name": "Lotan",
+      "resourceId": "C04",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15569,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139556,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0032",
+      "name": "Miryam",
+      "resourceId": "O07",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15582,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139573,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0033",
+      "name": "Mouchette",
+      "resourceId": "C17",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 94450,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139526,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0034",
+      "name": "Murphy",
+      "resourceId": "O02",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15576,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139513,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0035",
+      "name": "Murphy: Fauxborn",
+      "resourceId": "O02EX",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15589,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139542,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0036",
+      "name": "Nautila",
+      "resourceId": "C07",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15565,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139528,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0037",
+      "name": "Nymphaea",
+      "resourceId": "C08",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15580,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139507,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0038",
+      "name": "Ogier",
+      "resourceId": "C03",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15585,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139563,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0039",
+      "name": "Pandia",
+      "resourceId": "C09",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15560,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139509,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0040",
+      "name": "Pickman",
+      "resourceId": "B12",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 77926,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139547,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0041",
+      "name": "Pollux",
+      "resourceId": "D14",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 77917,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139543,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0042",
+      "name": "Ramona",
+      "resourceId": "C01",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15595,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139545,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0043",
+      "name": "Ryker",
+      "resourceId": "C05",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15604,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139565,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0044",
+      "name": "Salvador",
+      "resourceId": "B02",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15599,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139525,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0045",
+      "name": "Sanga",
+      "resourceId": "O08",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [
+        {
+          "level": 14,
+          "stat": "ATK",
+          "bonusLevels": 10,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(atk*(1+(7+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 16,
+          "stat": "ATK",
+          "bonusLevels": 8,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(atk*(1+(8+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 18,
+          "stat": "ATK",
+          "bonusLevels": 6,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(atk*(1+(9+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 20,
+          "stat": "ATK",
+          "bonusLevels": 4,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(atk*(1+(10+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 22,
+          "stat": "ATK",
+          "bonusLevels": 2,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(atk*(1+(11+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 24,
+          "stat": "ATK",
+          "bonusLevels": 0,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(atk*(1+(12+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 58,
+          "stat": "ATK",
+          "bonusLevels": 10,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(atk*(1+(29+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 60,
+          "stat": "ATK",
+          "bonusLevels": 8,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(atk*(1+(30+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 62,
+          "stat": "ATK",
+          "bonusLevels": 6,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(atk*(1+(31+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 64,
+          "stat": "ATK",
+          "bonusLevels": 4,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(atk*(1+(32+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 66,
+          "stat": "ATK",
+          "bonusLevels": 2,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(atk*(1+(33+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 68,
+          "stat": "ATK",
+          "bonusLevels": 0,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(atk*(1+(34+talent_attr_lv*0.5)/10)+atk_extra)"
+        }
+      ],
+      "unsupported": [],
+      "clientId": 15592,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139532,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0046",
+      "name": "Sorel",
+      "resourceId": "B04",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15584,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139571,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0047",
+      "name": "Tawil",
+      "resourceId": "C15",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 54116,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139537,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0048",
+      "name": "Thais",
+      "resourceId": "B01",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15596,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139539,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0049",
+      "name": "Tinct",
+      "resourceId": "D03",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [
+        {
+          "level": 14,
+          "stat": "DEF",
+          "bonusLevels": 10,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(7+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 16,
+          "stat": "DEF",
+          "bonusLevels": 8,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(8+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 18,
+          "stat": "DEF",
+          "bonusLevels": 6,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(9+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 20,
+          "stat": "DEF",
+          "bonusLevels": 4,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(10+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 22,
+          "stat": "DEF",
+          "bonusLevels": 2,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(11+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 24,
+          "stat": "DEF",
+          "bonusLevels": 0,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(12+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 58,
+          "stat": "DEF",
+          "bonusLevels": 10,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(29+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 60,
+          "stat": "DEF",
+          "bonusLevels": 8,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(30+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 62,
+          "stat": "DEF",
+          "bonusLevels": 6,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(31+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 64,
+          "stat": "DEF",
+          "bonusLevels": 4,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(32+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 66,
+          "stat": "DEF",
+          "bonusLevels": 2,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(33+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 68,
+          "stat": "DEF",
+          "bonusLevels": 0,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(34+talent_attr_lv*0.5)/10)+def_extra)"
+        }
+      ],
+      "unsupported": [],
+      "clientId": 15574,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139572,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0050",
+      "name": "Tulu",
+      "resourceId": "O01",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15563,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139559,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0051",
+      "name": "Uvhash",
+      "resourceId": "B07",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15598,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139512,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0052",
+      "name": "Wanda",
+      "resourceId": "D04",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 15586,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139523,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0053",
+      "name": "Winkle",
+      "resourceId": "D05",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [
+        {
+          "level": 14,
+          "stat": "ATK",
+          "bonusLevels": 10,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(atk*(1+(7+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 16,
+          "stat": "ATK",
+          "bonusLevels": 8,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(atk*(1+(8+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 18,
+          "stat": "ATK",
+          "bonusLevels": 6,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(atk*(1+(9+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 20,
+          "stat": "ATK",
+          "bonusLevels": 4,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(atk*(1+(10+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 22,
+          "stat": "ATK",
+          "bonusLevels": 2,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(atk*(1+(11+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 24,
+          "stat": "ATK",
+          "bonusLevels": 0,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(atk*(1+(12+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 58,
+          "stat": "ATK",
+          "bonusLevels": 10,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(atk*(1+(29+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 60,
+          "stat": "ATK",
+          "bonusLevels": 8,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(atk*(1+(30+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 62,
+          "stat": "ATK",
+          "bonusLevels": 6,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(atk*(1+(31+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 64,
+          "stat": "ATK",
+          "bonusLevels": 4,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(atk*(1+(32+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 66,
+          "stat": "ATK",
+          "bonusLevels": 2,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(atk*(1+(33+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 68,
+          "stat": "ATK",
+          "bonusLevels": 0,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(atk*(1+(34+talent_attr_lv*0.5)/10)+atk_extra)"
+        }
+      ],
+      "unsupported": [],
+      "clientId": 15579,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139564,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0054",
+      "name": "Xu",
+      "resourceId": "B14",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [
+        {
+          "level": 14,
+          "stat": "DEF",
+          "bonusLevels": 10,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(7+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 14,
+          "stat": "CON",
+          "bonusLevels": 10,
+          "clientFormulaValue": 100,
+          "catalogValue": 99,
+          "clientRaw": 99.00000000000001,
+          "formula": "math.ceil(physique*(1+(7+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 16,
+          "stat": "DEF",
+          "bonusLevels": 8,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(8+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 16,
+          "stat": "CON",
+          "bonusLevels": 8,
+          "clientFormulaValue": 100,
+          "catalogValue": 99,
+          "clientRaw": 99.00000000000001,
+          "formula": "math.ceil(physique*(1+(8+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 18,
+          "stat": "DEF",
+          "bonusLevels": 6,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(9+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 18,
+          "stat": "CON",
+          "bonusLevels": 6,
+          "clientFormulaValue": 100,
+          "catalogValue": 99,
+          "clientRaw": 99.00000000000001,
+          "formula": "math.ceil(physique*(1+(9+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 20,
+          "stat": "DEF",
+          "bonusLevels": 4,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(10+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 20,
+          "stat": "CON",
+          "bonusLevels": 4,
+          "clientFormulaValue": 100,
+          "catalogValue": 99,
+          "clientRaw": 99.00000000000001,
+          "formula": "math.ceil(physique*(1+(10+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 22,
+          "stat": "DEF",
+          "bonusLevels": 2,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(11+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 22,
+          "stat": "CON",
+          "bonusLevels": 2,
+          "clientFormulaValue": 100,
+          "catalogValue": 99,
+          "clientRaw": 99.00000000000001,
+          "formula": "math.ceil(physique*(1+(11+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 24,
+          "stat": "DEF",
+          "bonusLevels": 0,
+          "clientFormulaValue": 56,
+          "catalogValue": 55,
+          "clientRaw": 55.00000000000001,
+          "formula": "math.ceil(def*(1+(12+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 24,
+          "stat": "CON",
+          "bonusLevels": 0,
+          "clientFormulaValue": 100,
+          "catalogValue": 99,
+          "clientRaw": 99.00000000000001,
+          "formula": "math.ceil(physique*(1+(12+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 58,
+          "stat": "DEF",
+          "bonusLevels": 10,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(29+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 58,
+          "stat": "CON",
+          "bonusLevels": 10,
+          "clientFormulaValue": 199,
+          "catalogValue": 198,
+          "clientRaw": 198.00000000000003,
+          "formula": "math.ceil(physique*(1+(29+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 60,
+          "stat": "DEF",
+          "bonusLevels": 8,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(30+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 60,
+          "stat": "CON",
+          "bonusLevels": 8,
+          "clientFormulaValue": 199,
+          "catalogValue": 198,
+          "clientRaw": 198.00000000000003,
+          "formula": "math.ceil(physique*(1+(30+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 62,
+          "stat": "DEF",
+          "bonusLevels": 6,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(31+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 62,
+          "stat": "CON",
+          "bonusLevels": 6,
+          "clientFormulaValue": 199,
+          "catalogValue": 198,
+          "clientRaw": 198.00000000000003,
+          "formula": "math.ceil(physique*(1+(31+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 64,
+          "stat": "DEF",
+          "bonusLevels": 4,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(32+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 64,
+          "stat": "CON",
+          "bonusLevels": 4,
+          "clientFormulaValue": 199,
+          "catalogValue": 198,
+          "clientRaw": 198.00000000000003,
+          "formula": "math.ceil(physique*(1+(32+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 66,
+          "stat": "DEF",
+          "bonusLevels": 2,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(33+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 66,
+          "stat": "CON",
+          "bonusLevels": 2,
+          "clientFormulaValue": 199,
+          "catalogValue": 198,
+          "clientRaw": 198.00000000000003,
+          "formula": "math.ceil(physique*(1+(33+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 68,
+          "stat": "DEF",
+          "bonusLevels": 0,
+          "clientFormulaValue": 111,
+          "catalogValue": 110,
+          "clientRaw": 110.00000000000001,
+          "formula": "math.ceil(def*(1+(34+talent_attr_lv*0.5)/10)+def_extra)"
+        },
+        {
+          "level": 68,
+          "stat": "CON",
+          "bonusLevels": 0,
+          "clientFormulaValue": 199,
+          "catalogValue": 198,
+          "clientRaw": 198.00000000000003,
+          "formula": "math.ceil(physique*(1+(34+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 78,
+          "stat": "CON",
+          "bonusLevels": 10,
+          "clientFormulaValue": 244,
+          "catalogValue": 243,
+          "clientRaw": 243.00000000000003,
+          "formula": "math.ceil(physique*(1+(39+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 80,
+          "stat": "CON",
+          "bonusLevels": 8,
+          "clientFormulaValue": 244,
+          "catalogValue": 243,
+          "clientRaw": 243.00000000000003,
+          "formula": "math.ceil(physique*(1+(40+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 82,
+          "stat": "CON",
+          "bonusLevels": 6,
+          "clientFormulaValue": 244,
+          "catalogValue": 243,
+          "clientRaw": 243.00000000000003,
+          "formula": "math.ceil(physique*(1+(41+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 84,
+          "stat": "CON",
+          "bonusLevels": 4,
+          "clientFormulaValue": 244,
+          "catalogValue": 243,
+          "clientRaw": 243.00000000000003,
+          "formula": "math.ceil(physique*(1+(42+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 86,
+          "stat": "CON",
+          "bonusLevels": 2,
+          "clientFormulaValue": 244,
+          "catalogValue": 243,
+          "clientRaw": 243.00000000000003,
+          "formula": "math.ceil(physique*(1+(43+talent_attr_lv*0.5)/10)+physique_extra)"
+        },
+        {
+          "level": 88,
+          "stat": "CON",
+          "bonusLevels": 0,
+          "clientFormulaValue": 244,
+          "catalogValue": 243,
+          "clientRaw": 243.00000000000003,
+          "formula": "math.ceil(physique*(1+(44+talent_attr_lv*0.5)/10)+physique_extra)"
+        }
+      ],
+      "unsupported": [],
+      "clientId": 125346,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139519,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0055",
+      "name": "Vortice",
+      "resourceId": "O11",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 130901,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139551,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0056",
+      "name": "Arachne",
+      "resourceId": "D10",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 77918,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139558,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0057",
+      "name": "Saya",
+      "resourceId": "B15",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 130226,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139511,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0058",
+      "name": "Pontos",
+      "resourceId": "O13",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 141302,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 141305,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0059",
+      "name": "Lotan: Cetarchon",
+      "resourceId": "C04EX",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [
+        {
+          "level": 14,
+          "stat": "ATK",
+          "bonusLevels": 10,
+          "clientFormulaValue": 100,
+          "catalogValue": 99,
+          "clientRaw": 99.00000000000001,
+          "formula": "math.ceil(atk*(1+(7+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 16,
+          "stat": "ATK",
+          "bonusLevels": 8,
+          "clientFormulaValue": 100,
+          "catalogValue": 99,
+          "clientRaw": 99.00000000000001,
+          "formula": "math.ceil(atk*(1+(8+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 18,
+          "stat": "ATK",
+          "bonusLevels": 6,
+          "clientFormulaValue": 100,
+          "catalogValue": 99,
+          "clientRaw": 99.00000000000001,
+          "formula": "math.ceil(atk*(1+(9+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 20,
+          "stat": "ATK",
+          "bonusLevels": 4,
+          "clientFormulaValue": 100,
+          "catalogValue": 99,
+          "clientRaw": 99.00000000000001,
+          "formula": "math.ceil(atk*(1+(10+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 22,
+          "stat": "ATK",
+          "bonusLevels": 2,
+          "clientFormulaValue": 100,
+          "catalogValue": 99,
+          "clientRaw": 99.00000000000001,
+          "formula": "math.ceil(atk*(1+(11+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 24,
+          "stat": "ATK",
+          "bonusLevels": 0,
+          "clientFormulaValue": 100,
+          "catalogValue": 99,
+          "clientRaw": 99.00000000000001,
+          "formula": "math.ceil(atk*(1+(12+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 58,
+          "stat": "ATK",
+          "bonusLevels": 10,
+          "clientFormulaValue": 199,
+          "catalogValue": 198,
+          "clientRaw": 198.00000000000003,
+          "formula": "math.ceil(atk*(1+(29+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 60,
+          "stat": "ATK",
+          "bonusLevels": 8,
+          "clientFormulaValue": 199,
+          "catalogValue": 198,
+          "clientRaw": 198.00000000000003,
+          "formula": "math.ceil(atk*(1+(30+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 62,
+          "stat": "ATK",
+          "bonusLevels": 6,
+          "clientFormulaValue": 199,
+          "catalogValue": 198,
+          "clientRaw": 198.00000000000003,
+          "formula": "math.ceil(atk*(1+(31+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 64,
+          "stat": "ATK",
+          "bonusLevels": 4,
+          "clientFormulaValue": 199,
+          "catalogValue": 198,
+          "clientRaw": 198.00000000000003,
+          "formula": "math.ceil(atk*(1+(32+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 66,
+          "stat": "ATK",
+          "bonusLevels": 2,
+          "clientFormulaValue": 199,
+          "catalogValue": 198,
+          "clientRaw": 198.00000000000003,
+          "formula": "math.ceil(atk*(1+(33+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 68,
+          "stat": "ATK",
+          "bonusLevels": 0,
+          "clientFormulaValue": 199,
+          "catalogValue": 198,
+          "clientRaw": 198.00000000000003,
+          "formula": "math.ceil(atk*(1+(34+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 78,
+          "stat": "ATK",
+          "bonusLevels": 10,
+          "clientFormulaValue": 244,
+          "catalogValue": 243,
+          "clientRaw": 243.00000000000003,
+          "formula": "math.ceil(atk*(1+(39+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 80,
+          "stat": "ATK",
+          "bonusLevels": 8,
+          "clientFormulaValue": 244,
+          "catalogValue": 243,
+          "clientRaw": 243.00000000000003,
+          "formula": "math.ceil(atk*(1+(40+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 82,
+          "stat": "ATK",
+          "bonusLevels": 6,
+          "clientFormulaValue": 244,
+          "catalogValue": 243,
+          "clientRaw": 243.00000000000003,
+          "formula": "math.ceil(atk*(1+(41+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 84,
+          "stat": "ATK",
+          "bonusLevels": 4,
+          "clientFormulaValue": 244,
+          "catalogValue": 243,
+          "clientRaw": 243.00000000000003,
+          "formula": "math.ceil(atk*(1+(42+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 86,
+          "stat": "ATK",
+          "bonusLevels": 2,
+          "clientFormulaValue": 244,
+          "catalogValue": 243,
+          "clientRaw": 243.00000000000003,
+          "formula": "math.ceil(atk*(1+(43+talent_attr_lv*0.5)/10)+atk_extra)"
+        },
+        {
+          "level": 88,
+          "stat": "ATK",
+          "bonusLevels": 0,
+          "clientFormulaValue": 244,
+          "catalogValue": 243,
+          "clientRaw": 243.00000000000003,
+          "formula": "math.ceil(atk*(1+(44+talent_attr_lv*0.5)/10)+atk_extra)"
+        }
+      ],
+      "unsupported": [],
+      "clientId": 145363,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 145379,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0060",
+      "name": "Caraboo",
+      "resourceId": "B11",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 77921,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139549,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    },
+    {
+      "catalogId": "awakener-0061",
+      "name": "Ogier: Oathbound",
+      "resourceId": "C03EX",
+      "matchCount": 1,
+      "comparisons": 1620,
+      "mismatches": [],
+      "unsupported": [],
+      "clientId": 94451,
+      "qualityLevelOffset": 0,
+      "attributeTalents": [
+        {
+          "clientTalentId": 139533,
+          "bonusLevelsByRank": {
+            "1": 2,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 10
+          }
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "catalogCharacters": 61,
+    "uniqueMatches": 60,
+    "comparisons": 97200,
+    "mismatches": 120,
+    "unsupported": 0
+  }
+}

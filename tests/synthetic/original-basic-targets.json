@@ -1,0 +1,1550 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleCmdParser": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d",
+    "BattleCmdTargetsExp": "9856a6fd84de8f41aa11d8113e2590f75280b7a228716c604bc440bc8cf31ce8"
+  },
+  "scope": "72 original basic selector/GetTargetList cases; explicit role registry, camp, last effect and target lists. Expression constructor retains supplied list; original InitGetter/filtering, automatic camp/registry derivation and gameplay excluded.",
+  "fixtures": [
+    {
+      "input": {
+        "selector": "CmdCaster",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": null,
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetRoleByUid",
+            11.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "CmdCaster",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": null,
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetRoleByUid",
+            11.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "CmdCaster",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": null,
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetRoleByUid",
+            11.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "CmdCaster",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [],
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetRoleByUid",
+            11.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "CmdCaster",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [],
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetRoleByUid",
+            11.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "CmdCaster",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [],
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetRoleByUid",
+            11.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "CmdCaster",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetRoleByUid",
+            11.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "CmdCaster",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetRoleByUid",
+            11.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "CmdCaster",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetRoleByUid",
+            11.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "CmdCaster",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": null,
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [
+          11.0
+        ],
+        "reads": [
+          [
+            "GetRoleByUid",
+            11.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "CmdCaster",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": null,
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [
+          11.0
+        ],
+        "reads": [
+          [
+            "GetRoleByUid",
+            11.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "CmdCaster",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": null,
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [
+          11.0
+        ],
+        "reads": [
+          [
+            "GetRoleByUid",
+            11.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "CmdCaster",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [],
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [
+          11.0
+        ],
+        "reads": [
+          [
+            "GetRoleByUid",
+            11.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "CmdCaster",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [],
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [
+          11.0
+        ],
+        "reads": [
+          [
+            "GetRoleByUid",
+            11.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "CmdCaster",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [],
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [
+          11.0
+        ],
+        "reads": [
+          [
+            "GetRoleByUid",
+            11.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "CmdCaster",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [
+          11.0
+        ],
+        "reads": [
+          [
+            "GetRoleByUid",
+            11.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "CmdCaster",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [
+          11.0
+        ],
+        "reads": [
+          [
+            "GetRoleByUid",
+            11.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "CmdCaster",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [
+          11.0
+        ],
+        "reads": [
+          [
+            "GetRoleByUid",
+            11.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "UpperTarget",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": null,
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "selector": "UpperTarget",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": null,
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "selector": "UpperTarget",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": null,
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "selector": "UpperTarget",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [],
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [],
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "selector": "UpperTarget",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [],
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [],
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "selector": "UpperTarget",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [],
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [],
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "selector": "UpperTarget",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [
+          31.0,
+          32.0
+        ],
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "selector": "UpperTarget",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [
+          31.0,
+          32.0
+        ],
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "selector": "UpperTarget",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [
+          31.0,
+          32.0
+        ],
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "selector": "UpperTarget",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": null,
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "selector": "UpperTarget",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": null,
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "selector": "UpperTarget",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": null,
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": null,
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "selector": "UpperTarget",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [],
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [],
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "selector": "UpperTarget",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [],
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [],
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "selector": "UpperTarget",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [],
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [],
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "selector": "UpperTarget",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [
+          31.0,
+          32.0
+        ],
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "selector": "UpperTarget",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [
+          31.0,
+          32.0
+        ],
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "selector": "UpperTarget",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [
+          31.0,
+          32.0
+        ],
+        "reads": []
+      }
+    },
+    {
+      "input": {
+        "selector": "PlayerRole",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": null,
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetCasterCamp"
+          ],
+          [
+            "GetPlayer",
+            1.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "PlayerRole",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": null,
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetCasterCamp"
+          ],
+          [
+            "GetPlayer",
+            1.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "PlayerRole",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": null,
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetCasterCamp"
+          ],
+          [
+            "GetPlayer",
+            1.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "PlayerRole",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [],
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetCasterCamp"
+          ],
+          [
+            "GetPlayer",
+            1.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "PlayerRole",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [],
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetCasterCamp"
+          ],
+          [
+            "GetPlayer",
+            1.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "PlayerRole",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [],
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetCasterCamp"
+          ],
+          [
+            "GetPlayer",
+            1.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "PlayerRole",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetCasterCamp"
+          ],
+          [
+            "GetPlayer",
+            1.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "PlayerRole",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetCasterCamp"
+          ],
+          [
+            "GetPlayer",
+            1.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "PlayerRole",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetCasterCamp"
+          ],
+          [
+            "GetPlayer",
+            1.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "PlayerRole",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": null,
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [
+          12.0
+        ],
+        "reads": [
+          [
+            "GetCasterCamp"
+          ],
+          [
+            "GetPlayer",
+            1.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "PlayerRole",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": null,
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [
+          12.0
+        ],
+        "reads": [
+          [
+            "GetCasterCamp"
+          ],
+          [
+            "GetPlayer",
+            1.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "PlayerRole",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": null,
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [
+          12.0
+        ],
+        "reads": [
+          [
+            "GetCasterCamp"
+          ],
+          [
+            "GetPlayer",
+            1.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "PlayerRole",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [],
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [
+          12.0
+        ],
+        "reads": [
+          [
+            "GetCasterCamp"
+          ],
+          [
+            "GetPlayer",
+            1.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "PlayerRole",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [],
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [
+          12.0
+        ],
+        "reads": [
+          [
+            "GetCasterCamp"
+          ],
+          [
+            "GetPlayer",
+            1.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "PlayerRole",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [],
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [
+          12.0
+        ],
+        "reads": [
+          [
+            "GetCasterCamp"
+          ],
+          [
+            "GetPlayer",
+            1.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "PlayerRole",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [
+          12.0
+        ],
+        "reads": [
+          [
+            "GetCasterCamp"
+          ],
+          [
+            "GetPlayer",
+            1.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "PlayerRole",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [
+          12.0
+        ],
+        "reads": [
+          [
+            "GetCasterCamp"
+          ],
+          [
+            "GetPlayer",
+            1.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "PlayerRole",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [
+          12.0
+        ],
+        "reads": [
+          [
+            "GetCasterCamp"
+          ],
+          [
+            "GetPlayer",
+            1.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "LastTarget",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": null,
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetObj",
+            22.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "LastTarget",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": null,
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetObj",
+            22.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "LastTarget",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": null,
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetObj",
+            22.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "LastTarget",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [],
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetObj",
+            22.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "LastTarget",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [],
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetObj",
+            22.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "LastTarget",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [],
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetObj",
+            22.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "LastTarget",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetObj",
+            22.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "LastTarget",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetObj",
+            22.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "LastTarget",
+        "caster": null,
+        "player": null,
+        "effectExists": false,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetObj",
+            22.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "LastTarget",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": null,
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetObj",
+            22.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "LastTarget",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": null,
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetObj",
+            22.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "LastTarget",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": null,
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [
+          41.0,
+          42.0
+        ],
+        "reads": [
+          [
+            "GetObj",
+            22.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "LastTarget",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [],
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetObj",
+            22.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "LastTarget",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [],
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetObj",
+            22.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "LastTarget",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [],
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [
+          41.0,
+          42.0
+        ],
+        "reads": [
+          [
+            "GetObj",
+            22.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "LastTarget",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": null
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetObj",
+            22.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "LastTarget",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": []
+      },
+      "expected": {
+        "targets": [],
+        "reads": [
+          [
+            "GetObj",
+            22.0
+          ]
+        ]
+      }
+    },
+    {
+      "input": {
+        "selector": "LastTarget",
+        "caster": 11,
+        "player": 12,
+        "effectExists": true,
+        "upperTargets": [
+          31,
+          32
+        ],
+        "lastTargets": [
+          41,
+          42
+        ]
+      },
+      "expected": {
+        "targets": [
+          41.0,
+          42.0
+        ],
+        "reads": [
+          [
+            "GetObj",
+            22.0
+          ]
+        ]
+      }
+    }
+  ]
+}

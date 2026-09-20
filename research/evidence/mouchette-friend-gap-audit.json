@@ -1,0 +1,16 @@
+{
+  "baseline": 97228,
+  "rangeRatios": [
+    5.142551528366314,
+    10.285103056732629
+  ],
+  "e2WithUncappedOldEmbers": 388912,
+  "e3NoOtherChanges": 133829,
+  "e3WithUncappedOldEmbers": 535316,
+  "conditions": [
+    "E3 is a counterfactual, not the approved E2 setup",
+    "Old Embers requires eligibility, sufficient stacks and HP, no HP-change immunity or cap",
+    "Excludes Fate Cut, extra Prism, equipment and all other changes"
+  ],
+  "arachneCorrection": "Season marker 134234 can trigger attached action 133381 from Strike; being unroused alone does not exclude it"
+}

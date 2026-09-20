@@ -1,0 +1,2123 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "name": "SKeyDB",
+    "revision": "a2ff07765b2e0c78af827577f881054dbe224d8d",
+    "url": "https://github.com/dansa/SKeyDB/tree/a2ff07765b2e0c78af827577f881054dbe224d8d",
+    "license": "CC BY-NC-SA 4.0",
+    "files": {
+      "awakeners.json": {
+        "sha256": "439e01e929634ef2e3d6d48ae66ee8d31e94d9b7548faac0fd7e49df10cba219"
+      },
+      "wheels.json": {
+        "sha256": "186f784906c15ad11c7e6f34d746158b712e40903297440ba5fc99ec2f9a06d3"
+      },
+      "awakener-level-scaling.ts": {
+        "sha256": "f9fe29387bb14a06d11690681cd4f4bd11800e6cd1a2757f8e17da50e8cc0987"
+      },
+      "wheel-mainstat-scaling.ts": {
+        "sha256": "d56bb072e97b2463b71fc59cd9ade1693f9a8c9e63b2c07622fa0a0e620cfc97"
+      },
+      "wheel-enhance.ts": {
+        "sha256": "ff973d95b91f268e8c2fb003fa9e4810a2fa43e58e453aaac522ba089e1e11d6"
+      },
+      "gameplay-math.json": {
+        "sha256": "b07384c19d4b2a27f37df8bcbdc3be99d6e12014c1d54839068baccf693e5f45"
+      }
+    }
+  },
+  "characters": [
+    {
+      "id": "awakener-0001",
+      "name": "\"24\"",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.65,
+        "ATK": 2.1,
+        "DEF": 0.95
+      }
+    },
+    {
+      "id": "awakener-0002",
+      "name": "Agrippa",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.65,
+        "ATK": 1.4,
+        "DEF": 1.7
+      }
+    },
+    {
+      "id": "awakener-0003",
+      "name": "Aigis",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.25,
+        "ATK": 1.5,
+        "DEF": 1.35
+      }
+    },
+    {
+      "id": "awakener-0004",
+      "name": "Alva",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.5,
+        "ATK": 1.6,
+        "DEF": 1.75
+      }
+    },
+    {
+      "id": "awakener-0056",
+      "name": "Arachne",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.6,
+        "ATK": 1.15,
+        "DEF": 1.55
+      }
+    },
+    {
+      "id": "awakener-0005",
+      "name": "Aurita",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.2,
+        "ATK": 1.3,
+        "DEF": 1.15
+      }
+    },
+    {
+      "id": "awakener-0006",
+      "name": "Caecus",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.95,
+        "ATK": 1.55,
+        "DEF": 1.7
+      }
+    },
+    {
+      "id": "awakener-0060",
+      "name": "Caraboo",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1,
+        "ATK": 1.2,
+        "DEF": 1.65
+      }
+    },
+    {
+      "id": "awakener-0007",
+      "name": "Casiah",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.35,
+        "ATK": 1.4,
+        "DEF": 1.2
+      }
+    },
+    {
+      "id": "awakener-0008",
+      "name": "Castor",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.65,
+        "ATK": 1.5,
+        "DEF": 1.75
+      }
+    },
+    {
+      "id": "awakener-0009",
+      "name": "Celeste",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1,
+        "ATK": 0.95,
+        "DEF": 1
+      }
+    },
+    {
+      "id": "awakener-0010",
+      "name": "Clementine",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.4,
+        "ATK": 1.65,
+        "DEF": 1.35
+      }
+    },
+    {
+      "id": "awakener-0011",
+      "name": "Corposant",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.6,
+        "ATK": 1.4,
+        "DEF": 1.65
+      }
+    },
+    {
+      "id": "awakener-0012",
+      "name": "Daffodil",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.55,
+        "ATK": 1.95,
+        "DEF": 1.45
+      }
+    },
+    {
+      "id": "awakener-0013",
+      "name": "Doll",
+      "realm": "CHAOS",
+      "rarity": "SR",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.1,
+        "ATK": 0.9,
+        "DEF": 1.2
+      }
+    },
+    {
+      "id": "awakener-0018",
+      "name": "Doll: Inferno",
+      "realm": "CHAOS",
+      "rarity": "Genesis",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.1,
+        "ATK": 0.9,
+        "DEF": 1.2
+      }
+    },
+    {
+      "id": "awakener-0014",
+      "name": "Doresain",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.65,
+        "ATK": 1.75,
+        "DEF": 1.45
+      }
+    },
+    {
+      "id": "awakener-0015",
+      "name": "Erica",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.85,
+        "ATK": 1.8,
+        "DEF": 1.8
+      }
+    },
+    {
+      "id": "awakener-0016",
+      "name": "Faint",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.3,
+        "ATK": 1,
+        "DEF": 1.55
+      }
+    },
+    {
+      "id": "awakener-0017",
+      "name": "Faros",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.2,
+        "ATK": 1.3,
+        "DEF": 1.5
+      }
+    },
+    {
+      "id": "awakener-0021",
+      "name": "Goliath",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 2.05,
+        "ATK": 2,
+        "DEF": 1.65
+      }
+    },
+    {
+      "id": "awakener-0022",
+      "name": "Hameln",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.5,
+        "ATK": 1.55,
+        "DEF": 1.45
+      }
+    },
+    {
+      "id": "awakener-0023",
+      "name": "Helot",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.75,
+        "ATK": 1.7,
+        "DEF": 1.25
+      }
+    },
+    {
+      "id": "awakener-0019",
+      "name": "Helot: Catena",
+      "realm": "CARO",
+      "rarity": "Genesis",
+      "type": "ASSAULT",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.75,
+        "ATK": 1.7,
+        "DEF": 1.25
+      }
+    },
+    {
+      "id": "awakener-0024",
+      "name": "Horla",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.15,
+        "ATK": 1.2,
+        "DEF": 1.05
+      }
+    },
+    {
+      "id": "awakener-0025",
+      "name": "Jenkin",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.25,
+        "ATK": 1.75,
+        "DEF": 1.3
+      }
+    },
+    {
+      "id": "awakener-0026",
+      "name": "Karen",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.4,
+        "ATK": 1.2,
+        "DEF": 1.35
+      }
+    },
+    {
+      "id": "awakener-0027",
+      "name": "Kathigu-Ra",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.55,
+        "ATK": 1.85,
+        "DEF": 1.4
+      }
+    },
+    {
+      "id": "awakener-0028",
+      "name": "Leigh",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 0.9,
+        "ATK": 0.9,
+        "DEF": 0.9
+      }
+    },
+    {
+      "id": "awakener-0029",
+      "name": "Lily",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.8,
+        "ATK": 1.3,
+        "DEF": 1.8
+      }
+    },
+    {
+      "id": "awakener-0030",
+      "name": "Liz",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.35,
+        "ATK": 1.85,
+        "DEF": 1.45
+      }
+    },
+    {
+      "id": "awakener-0031",
+      "name": "Lotan",
+      "realm": "CHAOS",
+      "rarity": "SR",
+      "type": "ASSAULT",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.6,
+        "ATK": 1.65,
+        "DEF": 1.4
+      }
+    },
+    {
+      "id": "awakener-0059",
+      "name": "Lotan: Cetarchon",
+      "realm": "CHAOS",
+      "rarity": "Genesis",
+      "type": "ASSAULT",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.3,
+        "ATK": 2.25,
+        "DEF": 1.35
+      }
+    },
+    {
+      "id": "awakener-0032",
+      "name": "Miryam",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.05,
+        "ATK": 1.65,
+        "DEF": 0.9
+      }
+    },
+    {
+      "id": "awakener-0033",
+      "name": "Mouchette",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.4,
+        "ATK": 1.65,
+        "DEF": 1.4
+      }
+    },
+    {
+      "id": "awakener-0034",
+      "name": "Murphy",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.45,
+        "ATK": 1.55,
+        "DEF": 1.75
+      }
+    },
+    {
+      "id": "awakener-0035",
+      "name": "Murphy: Fauxborn",
+      "realm": "AEQUOR",
+      "rarity": "Genesis",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.1,
+        "ATK": 1.35,
+        "DEF": 1.3
+      }
+    },
+    {
+      "id": "awakener-0036",
+      "name": "Nautila",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.9,
+        "ATK": 1.15,
+        "DEF": 2
+      }
+    },
+    {
+      "id": "awakener-0037",
+      "name": "Nymphaea",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 0.95,
+        "ATK": 1.5,
+        "DEF": 1
+      }
+    },
+    {
+      "id": "awakener-0038",
+      "name": "Ogier",
+      "realm": "CHAOS",
+      "rarity": "SR",
+      "type": "WARDEN",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.7,
+        "ATK": 1.45,
+        "DEF": 1.85
+      }
+    },
+    {
+      "id": "awakener-0061",
+      "name": "Ogier: Oathbound",
+      "realm": "CHAOS",
+      "rarity": "Genesis",
+      "type": "WARDEN",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.55,
+        "ATK": 1.9,
+        "DEF": 1.6
+      }
+    },
+    {
+      "id": "awakener-0039",
+      "name": "Pandia",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.5,
+        "ATK": 1.75,
+        "DEF": 1.55
+      }
+    },
+    {
+      "id": "awakener-0040",
+      "name": "Pickman",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.6,
+        "ATK": 1.45,
+        "DEF": 1.6
+      }
+    },
+    {
+      "id": "awakener-0041",
+      "name": "Pollux",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.55,
+        "ATK": 1.75,
+        "DEF": 1.5
+      }
+    },
+    {
+      "id": "awakener-0058",
+      "name": "Pontos",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 2,
+        "ATK": 1.45,
+        "DEF": 1.95
+      }
+    },
+    {
+      "id": "awakener-0042",
+      "name": "Ramona",
+      "realm": "CHAOS",
+      "rarity": "SR",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.5,
+        "ATK": 1.5,
+        "DEF": 1.5
+      }
+    },
+    {
+      "id": "awakener-0020",
+      "name": "Ramona: Timeworn",
+      "realm": "CHAOS",
+      "rarity": "Genesis",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.5,
+        "ATK": 1.5,
+        "DEF": 1.5
+      }
+    },
+    {
+      "id": "awakener-0043",
+      "name": "Ryker",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 2,
+        "ATK": 1.65,
+        "DEF": 1.6
+      }
+    },
+    {
+      "id": "awakener-0044",
+      "name": "Salvador",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 2.1,
+        "ATK": 1.35,
+        "DEF": 2.1
+      }
+    },
+    {
+      "id": "awakener-0045",
+      "name": "Sanga",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.6,
+        "ATK": 1.25,
+        "DEF": 1.9
+      }
+    },
+    {
+      "id": "awakener-0057",
+      "name": "Saya",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.15,
+        "ATK": 1.15,
+        "DEF": 1.1
+      }
+    },
+    {
+      "id": "awakener-0046",
+      "name": "Sorel",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.45,
+        "ATK": 2.05,
+        "DEF": 1.05
+      }
+    },
+    {
+      "id": "awakener-0047",
+      "name": "Tawil",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.5,
+        "ATK": 1.5,
+        "DEF": 1.5
+      }
+    },
+    {
+      "id": "awakener-0048",
+      "name": "Thais",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.55,
+        "ATK": 1.5,
+        "DEF": 1.4
+      }
+    },
+    {
+      "id": "awakener-0049",
+      "name": "Tinct",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.3,
+        "ATK": 1.2,
+        "DEF": 1.25
+      }
+    },
+    {
+      "id": "awakener-0050",
+      "name": "Tulu",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.7,
+        "ATK": 1.9,
+        "DEF": 1.5
+      }
+    },
+    {
+      "id": "awakener-0051",
+      "name": "Uvhash",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.8,
+        "ATK": 1.7,
+        "DEF": 1.5
+      }
+    },
+    {
+      "id": "awakener-0055",
+      "name": "Vortice",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.65,
+        "ATK": 2,
+        "DEF": 1.35
+      }
+    },
+    {
+      "id": "awakener-0052",
+      "name": "Wanda",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.75,
+        "ATK": 1.1,
+        "DEF": 2.05
+      }
+    },
+    {
+      "id": "awakener-0053",
+      "name": "Winkle",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 1.4,
+        "ATK": 1.25,
+        "DEF": 1.6
+      }
+    },
+    {
+      "id": "awakener-0054",
+      "name": "Xu",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "primaryScalingBase": 20,
+      "statScaling": {
+        "CON": 2.25,
+        "ATK": 1.35,
+        "DEF": 1.25
+      }
+    }
+  ],
+  "wheels": [
+    {
+      "id": "wheel-0093",
+      "name": "35mm Magic",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "ownerAwakenerId": "awakener-0029"
+    },
+    {
+      "id": "wheel-0020",
+      "name": "Aberrant Devour",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "ownerAwakenerId": "awakener-0001"
+    },
+    {
+      "id": "wheel-0082",
+      "name": "Adventurer's Pack",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "SIGIL_YIELD"
+    },
+    {
+      "id": "wheel-0074",
+      "name": "Aged",
+      "realm": "NEUTRAL",
+      "rarity": "R",
+      "mainstatKey": "CRIT_DMG"
+    },
+    {
+      "id": "wheel-0028",
+      "name": "Amber-Tinted Death",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_DMG",
+      "ownerAwakenerId": "awakener-0027"
+    },
+    {
+      "id": "wheel-0052",
+      "name": "Amidst the Downpour",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "mainstatKey": "DMG_AMP",
+      "ownerAwakenerId": "awakener-0017"
+    },
+    {
+      "id": "wheel-0083",
+      "name": "Analysis of Death",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "CRIT_RATE"
+    },
+    {
+      "id": "wheel-0125",
+      "name": "Annihilated Rebirth",
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "ALIEMUS_REGEN"
+    },
+    {
+      "id": "wheel-0122",
+      "name": "Birth of a Soul",
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "REALM_MASTERY"
+    },
+    {
+      "id": "wheel-0055",
+      "name": "Blade of the Titan",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_RATE",
+      "ownerAwakenerId": "awakener-0021"
+    },
+    {
+      "id": "wheel-0070",
+      "name": "Blessing",
+      "realm": "NEUTRAL",
+      "rarity": "R",
+      "mainstatKey": "DMG_AMP"
+    },
+    {
+      "id": "wheel-0008",
+      "name": "Bloody Feast",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_DMG",
+      "ownerAwakenerId": "awakener-0051"
+    },
+    {
+      "id": "wheel-0107",
+      "name": "Blue Stone Throne",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "ownerAwakenerId": "awakener-0050"
+    },
+    {
+      "id": "wheel-0111",
+      "name": "Blue-Ringed Toxin",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "ownerAwakenerId": "awakener-0035"
+    },
+    {
+      "id": "wheel-0004",
+      "name": "By Rose Alone",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_RATE",
+      "ownerAwakenerId": "awakener-0046"
+    },
+    {
+      "id": "wheel-0018",
+      "name": "Celestial Beast",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_DMG",
+      "ownerAwakenerId": "awakener-0031"
+    },
+    {
+      "id": "wheel-0172",
+      "name": "Cetus Occasus",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "SIGIL_YIELD",
+      "ownerAwakenerId": "awakener-0059"
+    },
+    {
+      "id": "wheel-0005",
+      "name": "Chains Unbound",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "mainstatKey": "DMG_AMP",
+      "ownerAwakenerId": "awakener-0023"
+    },
+    {
+      "id": "wheel-0081",
+      "name": "Cloaked in the Night",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "DEATH_RESISTANCE"
+    },
+    {
+      "id": "wheel-0169",
+      "name": "Compass to False North",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "CRIT_DMG",
+      "ownerAwakenerId": "awakener-0058"
+    },
+    {
+      "id": "wheel-0037",
+      "name": "Core Meltdown",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "ownerAwakenerId": "awakener-0015"
+    },
+    {
+      "id": "wheel-0046",
+      "name": "Countdown Moment",
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "KEYFLARE_REGEN"
+    },
+    {
+      "id": "wheel-0087",
+      "name": "Critical Point",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "CRIT_DMG"
+    },
+    {
+      "id": "wheel-0079",
+      "name": "Cursed Binding",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "DMG_AMP"
+    },
+    {
+      "id": "wheel-0180",
+      "name": "Darker than Darkness",
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_RATE"
+    },
+    {
+      "id": "wheel-0089",
+      "name": "Data is Flesh",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "REALM_MASTERY"
+    },
+    {
+      "id": "wheel-0045",
+      "name": "Dear Papa Noel",
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "DEATH_RESISTANCE"
+    },
+    {
+      "id": "wheel-0057",
+      "name": "Death of Ms. Coral",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "ownerAwakenerId": "awakener-0045"
+    },
+    {
+      "id": "wheel-0015",
+      "name": "Deathless Ascent",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "ownerAwakenerId": "awakener-0013"
+    },
+    {
+      "id": "wheel-0098",
+      "name": "Deep Sea's Call",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "CRIT_DMG",
+      "ownerAwakenerId": "awakener-0032"
+    },
+    {
+      "id": "wheel-0065",
+      "name": "Delirium",
+      "realm": "NEUTRAL",
+      "rarity": "R",
+      "mainstatKey": "DMG_AMP"
+    },
+    {
+      "id": "wheel-0029",
+      "name": "Doomsday Rampage",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "ownerAwakenerId": "awakener-0033"
+    },
+    {
+      "id": "wheel-0054",
+      "name": "Dream of the Sea",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_RATE",
+      "ownerAwakenerId": "awakener-0005"
+    },
+    {
+      "id": "wheel-0170",
+      "name": "Dreaming of Wonderland",
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "DMG_AMP",
+      "ownerAwakenerId": "awakener-0029"
+    },
+    {
+      "id": "wheel-0023",
+      "name": "Drifting in Desire",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_RATE",
+      "ownerAwakenerId": "awakener-0039"
+    },
+    {
+      "id": "wheel-0006",
+      "name": "Drowning in Crimson",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "mainstatKey": "DMG_AMP",
+      "ownerAwakenerId": "awakener-0019"
+    },
+    {
+      "id": "wheel-0123",
+      "name": "Dusk and Dawn",
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "DEATH_RESISTANCE"
+    },
+    {
+      "id": "wheel-0077",
+      "name": "Duty's Gravitas",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "REALM_MASTERY"
+    },
+    {
+      "id": "wheel-0078",
+      "name": "Elevated Focus",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "KEYFLARE_REGEN"
+    },
+    {
+      "id": "wheel-0064",
+      "name": "Emerge",
+      "realm": "NEUTRAL",
+      "rarity": "R",
+      "mainstatKey": "SIGIL_YIELD"
+    },
+    {
+      "id": "wheel-0068",
+      "name": "Epiphany",
+      "realm": "NEUTRAL",
+      "rarity": "R",
+      "mainstatKey": "REALM_MASTERY"
+    },
+    {
+      "id": "wheel-0040",
+      "name": "Eternal Requiem",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "ownerAwakenerId": "awakener-0022"
+    },
+    {
+      "id": "wheel-0128",
+      "name": "Eternal Weave",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "mainstatKey": "REALM_MASTERY",
+      "ownerAwakenerId": "awakener-0056"
+    },
+    {
+      "id": "wheel-0178",
+      "name": "Ever Sunward",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_RATE",
+      "ownerAwakenerId": "awakener-0061"
+    },
+    {
+      "id": "wheel-0072",
+      "name": "Exile",
+      "realm": "NEUTRAL",
+      "rarity": "R",
+      "mainstatKey": "REALM_MASTERY"
+    },
+    {
+      "id": "wheel-0174",
+      "name": "Falling Upward",
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "REALM_MASTERY"
+    },
+    {
+      "id": "wheel-0103",
+      "name": "Fate Roulette",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "SIGIL_YIELD",
+      "ownerAwakenerId": "awakener-0043"
+    },
+    {
+      "id": "wheel-0063",
+      "name": "Favor",
+      "realm": "NEUTRAL",
+      "rarity": "R",
+      "mainstatKey": "CRIT_RATE"
+    },
+    {
+      "id": "wheel-0053",
+      "name": "Fin of Sorrow",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "mainstatKey": "SIGIL_YIELD",
+      "ownerAwakenerId": "awakener-0006"
+    },
+    {
+      "id": "wheel-0059",
+      "name": "Flamebound Navigator",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "ownerAwakenerId": "awakener-0011"
+    },
+    {
+      "id": "wheel-0030",
+      "name": "Fouetté",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_RATE",
+      "ownerAwakenerId": "awakener-0030"
+    },
+    {
+      "id": "wheel-0167",
+      "name": "Fragrant Morphogenesis",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "mainstatKey": "SIGIL_YIELD",
+      "ownerAwakenerId": "awakener-0057"
+    },
+    {
+      "id": "wheel-0062",
+      "name": "Frenzy",
+      "realm": "NEUTRAL",
+      "rarity": "R",
+      "mainstatKey": "KEYFLARE_REGEN"
+    },
+    {
+      "id": "wheel-0104",
+      "name": "Gateway of Truth",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "ownerAwakenerId": "awakener-0047"
+    },
+    {
+      "id": "wheel-0022",
+      "name": "Gift of Decay",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "DMG_AMP",
+      "ownerAwakenerId": "awakener-0037"
+    },
+    {
+      "id": "wheel-0061",
+      "name": "Gluttony",
+      "realm": "NEUTRAL",
+      "rarity": "R",
+      "mainstatKey": "ALIEMUS_REGEN"
+    },
+    {
+      "id": "wheel-0024",
+      "name": "Grace Through Pain",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "ownerAwakenerId": "awakener-0029"
+    },
+    {
+      "id": "wheel-0136",
+      "name": "Greed",
+      "realm": "NEUTRAL",
+      "rarity": "R",
+      "mainstatKey": "ALIEMUS_REGEN"
+    },
+    {
+      "id": "wheel-0092",
+      "name": "Hand of Oblivion",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "CRIT_RATE"
+    },
+    {
+      "id": "wheel-0038",
+      "name": "Happy Magic Show",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "mainstatKey": "REALM_MASTERY",
+      "ownerAwakenerId": "awakener-0007"
+    },
+    {
+      "id": "wheel-0017",
+      "name": "Heart of a Knight",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "SIGIL_YIELD",
+      "ownerAwakenerId": "awakener-0038"
+    },
+    {
+      "id": "wheel-0124",
+      "name": "Heart of Silver",
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "KEYFLARE_REGEN"
+    },
+    {
+      "id": "wheel-0175",
+      "name": "Honeyed Deceit",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "mainstatKey": "REALM_MASTERY",
+      "ownerAwakenerId": "awakener-0060"
+    },
+    {
+      "id": "wheel-0067",
+      "name": "Hope",
+      "realm": "NEUTRAL",
+      "rarity": "R",
+      "mainstatKey": "CRIT_RATE"
+    },
+    {
+      "id": "wheel-0019",
+      "name": "Hour of Fortune",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "SIGIL_YIELD",
+      "ownerAwakenerId": "awakener-0043"
+    },
+    {
+      "id": "wheel-0050",
+      "name": "Hymn of the Sovereign",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "ownerAwakenerId": "awakener-0050"
+    },
+    {
+      "id": "wheel-0137",
+      "name": "Hypnotic Pendulum",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "ownerAwakenerId": "awakener-0010"
+    },
+    {
+      "id": "wheel-0116",
+      "name": "Impending Sun",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "CRIT_DMG",
+      "ownerAwakenerId": "awakener-0027"
+    },
+    {
+      "id": "wheel-0119",
+      "name": "Imprisoned Madness",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "REALM_MASTERY",
+      "ownerAwakenerId": "awakener-0055"
+    },
+    {
+      "id": "wheel-0034",
+      "name": "Incalculable Factor",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "ownerAwakenerId": "awakener-0053"
+    },
+    {
+      "id": "wheel-0076",
+      "name": "Insight",
+      "realm": "NEUTRAL",
+      "rarity": "R",
+      "mainstatKey": "SIGIL_YIELD"
+    },
+    {
+      "id": "wheel-0099",
+      "name": "Kiss of Farewell",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "ownerAwakenerId": "awakener-0048"
+    },
+    {
+      "id": "wheel-0011",
+      "name": "Kiss of Repose",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_DMG",
+      "ownerAwakenerId": "awakener-0014"
+    },
+    {
+      "id": "wheel-0117",
+      "name": "Light of Intellect",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "ownerAwakenerId": "awakener-0033"
+    },
+    {
+      "id": "wheel-0112",
+      "name": "Lone Feather",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "DMG_AMP",
+      "ownerAwakenerId": "awakener-0008"
+    },
+    {
+      "id": "wheel-0010",
+      "name": "Lullaby Devoured",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "ownerAwakenerId": "awakener-0016"
+    },
+    {
+      "id": "wheel-0109",
+      "name": "Macabre Delicacies",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "CRIT_DMG",
+      "ownerAwakenerId": "awakener-0014"
+    },
+    {
+      "id": "wheel-0118",
+      "name": "Magnolia's Lure",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "DMG_AMP",
+      "ownerAwakenerId": "awakener-0054"
+    },
+    {
+      "id": "wheel-0095",
+      "name": "Man in the Mirror",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "SIGIL_YIELD",
+      "ownerAwakenerId": "awakener-0044"
+    },
+    {
+      "id": "wheel-0016",
+      "name": "Manikin of Oblivion",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "ownerAwakenerId": "awakener-0018"
+    },
+    {
+      "id": "wheel-0021",
+      "name": "Memory Spiral",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "REALM_MASTERY",
+      "ownerAwakenerId": "awakener-0036"
+    },
+    {
+      "id": "wheel-0085",
+      "name": "Memory Syndrome",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "DEATH_RESISTANCE"
+    },
+    {
+      "id": "wheel-0001",
+      "name": "Merciful Nurturing",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "ownerAwakenerId": "awakener-0048"
+    },
+    {
+      "id": "wheel-0101",
+      "name": "Million Loving Gaze",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "CRIT_RATE",
+      "ownerAwakenerId": "awakener-0046"
+    },
+    {
+      "id": "wheel-0086",
+      "name": "Mind Barrier",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "ALIEMUS_REGEN"
+    },
+    {
+      "id": "wheel-0090",
+      "name": "Moment of Reunion",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "KEYFLARE_REGEN"
+    },
+    {
+      "id": "wheel-0168",
+      "name": "Muddied Fairy Tale",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "SIGIL_YIELD",
+      "ownerAwakenerId": "awakener-0057"
+    },
+    {
+      "id": "wheel-0114",
+      "name": "Navigator at Sea",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "ownerAwakenerId": "awakener-0011"
+    },
+    {
+      "id": "wheel-0105",
+      "name": "Never-Ending Performance",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "CRIT_RATE",
+      "ownerAwakenerId": "awakener-0022"
+    },
+    {
+      "id": "wheel-0088",
+      "name": "Nobleman's Staff",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "ALIEMUS_REGEN"
+    },
+    {
+      "id": "wheel-0007",
+      "name": "Pale Descendant",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "mainstatKey": "SIGIL_YIELD",
+      "ownerAwakenerId": "awakener-0002"
+    },
+    {
+      "id": "wheel-0012",
+      "name": "Paradoxical Realism",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "ownerAwakenerId": "awakener-0040"
+    },
+    {
+      "id": "wheel-0036",
+      "name": "Path Forsaken",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_RATE",
+      "ownerAwakenerId": "awakener-0025"
+    },
+    {
+      "id": "wheel-0100",
+      "name": "Poetic Bygone Days",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "ownerAwakenerId": "awakener-0024"
+    },
+    {
+      "id": "wheel-0056",
+      "name": "Power of the Pious",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_DMG",
+      "ownerAwakenerId": "awakener-0032"
+    },
+    {
+      "id": "wheel-0130",
+      "name": "Private Afternoon",
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_DMG"
+    },
+    {
+      "id": "wheel-0069",
+      "name": "Punishment",
+      "realm": "NEUTRAL",
+      "rarity": "R",
+      "mainstatKey": "DEATH_RESISTANCE"
+    },
+    {
+      "id": "wheel-0033",
+      "name": "Queen's Edict",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "mainstatKey": "DMG_AMP",
+      "ownerAwakenerId": "awakener-0052"
+    },
+    {
+      "id": "wheel-0014",
+      "name": "Rewinding Time",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "ownerAwakenerId": "awakener-0042"
+    },
+    {
+      "id": "wheel-0049",
+      "name": "Roses in Mud",
+      "realm": "NEUTRAL",
+      "rarity": "N",
+      "mainstatKey": "KEYFLARE_REGEN"
+    },
+    {
+      "id": "wheel-0132",
+      "name": "Rota Fortunae",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "REALM_MASTERY",
+      "ownerAwakenerId": "awakener-0056"
+    },
+    {
+      "id": "wheel-0058",
+      "name": "Sail of Providence",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "mainstatKey": "REALM_MASTERY",
+      "ownerAwakenerId": "awakener-0009"
+    },
+    {
+      "id": "wheel-0165",
+      "name": "Sakura Reveries",
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "REALM_MASTERY"
+    },
+    {
+      "id": "wheel-0044",
+      "name": "School Day",
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "SIGIL_YIELD"
+    },
+    {
+      "id": "wheel-0176",
+      "name": "Serene Truth",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "REALM_MASTERY",
+      "ownerAwakenerId": "awakener-0060"
+    },
+    {
+      "id": "wheel-0080",
+      "name": "Sever and Scar",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "DMG_AMP"
+    },
+    {
+      "id": "wheel-0179",
+      "name": "Shadowed by the Past",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "CRIT_RATE",
+      "ownerAwakenerId": "awakener-0061"
+    },
+    {
+      "id": "wheel-0106",
+      "name": "Shepherd's Staff",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "ownerAwakenerId": "awakener-0018"
+    },
+    {
+      "id": "wheel-0051",
+      "name": "Shrouded Birth",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "ownerAwakenerId": "awakener-0034"
+    },
+    {
+      "id": "wheel-0026",
+      "name": "Silent Banquet",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "ownerAwakenerId": "awakener-0026"
+    },
+    {
+      "id": "wheel-0096",
+      "name": "Silver Cod's Determination",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "CRIT_RATE",
+      "ownerAwakenerId": "awakener-0001"
+    },
+    {
+      "id": "wheel-0102",
+      "name": "Slumber Beneath the Glacier",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "ownerAwakenerId": "awakener-0034"
+    },
+    {
+      "id": "wheel-0032",
+      "name": "Song of the Bound",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "mainstatKey": "SIGIL_YIELD",
+      "ownerAwakenerId": "awakener-0049"
+    },
+    {
+      "id": "wheel-0177",
+      "name": "Soul Synchronization",
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "SIGIL_YIELD"
+    },
+    {
+      "id": "wheel-0043",
+      "name": "Special Training",
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_RATE"
+    },
+    {
+      "id": "wheel-0120",
+      "name": "Spring in Yakutsk",
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "KEYFLARE_REGEN"
+    },
+    {
+      "id": "wheel-0047",
+      "name": "Stakes of Wisdom",
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_DMG"
+    },
+    {
+      "id": "wheel-0073",
+      "name": "Suction",
+      "realm": "NEUTRAL",
+      "rarity": "R",
+      "mainstatKey": "CRIT_DMG"
+    },
+    {
+      "id": "wheel-0121",
+      "name": "Sunfall",
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "DMG_AMP"
+    },
+    {
+      "id": "wheel-0002",
+      "name": "Tablet of Scriptures",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "mainstatKey": "SIGIL_YIELD",
+      "ownerAwakenerId": "awakener-0044"
+    },
+    {
+      "id": "wheel-0113",
+      "name": "The Divus' Visage",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "CRIT_RATE",
+      "ownerAwakenerId": "awakener-0041"
+    },
+    {
+      "id": "wheel-0060",
+      "name": "The Faraway Eden",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "mainstatKey": "REALM_MASTERY",
+      "ownerAwakenerId": "awakener-0055"
+    },
+    {
+      "id": "wheel-0094",
+      "name": "The Gaze of Isarawu",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "DMG_AMP",
+      "ownerAwakenerId": "awakener-0052"
+    },
+    {
+      "id": "wheel-0009",
+      "name": "The Glutton's Tale",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "mainstatKey": "REALM_MASTERY",
+      "ownerAwakenerId": "awakener-0028"
+    },
+    {
+      "id": "wheel-0091",
+      "name": "The Land of Nonexistence",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "SIGIL_YIELD"
+    },
+    {
+      "id": "wheel-0035",
+      "name": "The Last Verse",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "ownerAwakenerId": "awakener-0024"
+    },
+    {
+      "id": "wheel-0171",
+      "name": "The Living Cage",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_DMG",
+      "ownerAwakenerId": "awakener-0058"
+    },
+    {
+      "id": "wheel-0115",
+      "name": "Thirsting Brush",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "ALIEMUS_REGEN",
+      "ownerAwakenerId": "awakener-0040"
+    },
+    {
+      "id": "wheel-0097",
+      "name": "Til the Snow Melts",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "DMG_AMP",
+      "ownerAwakenerId": "awakener-0019"
+    },
+    {
+      "id": "wheel-0084",
+      "name": "To My Dearest Friend",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "CRIT_DMG"
+    },
+    {
+      "id": "wheel-0166",
+      "name": "To the Stars",
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "SIGIL_YIELD"
+    },
+    {
+      "id": "wheel-0031",
+      "name": "Treasured Rarity",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_DMG",
+      "ownerAwakenerId": "awakener-0012"
+    },
+    {
+      "id": "wheel-0042",
+      "name": "Twisted Knight Ballad",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_RATE",
+      "ownerAwakenerId": "awakener-0041"
+    },
+    {
+      "id": "wheel-0039",
+      "name": "Unbearable Freedom",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "mainstatKey": "DMG_AMP",
+      "ownerAwakenerId": "awakener-0008"
+    },
+    {
+      "id": "wheel-0173",
+      "name": "Undying Hungerbone",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "SIGIL_YIELD",
+      "ownerAwakenerId": "awakener-0059"
+    },
+    {
+      "id": "wheel-0048",
+      "name": "Unsent Flowers",
+      "realm": "NEUTRAL",
+      "rarity": "N",
+      "mainstatKey": "KEYFLARE_REGEN"
+    },
+    {
+      "id": "wheel-0131",
+      "name": "Uteri Somnia",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "ownerAwakenerId": "awakener-0035"
+    },
+    {
+      "id": "wheel-0013",
+      "name": "Vain Regrets",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "mainstatKey": "DMG_AMP",
+      "ownerAwakenerId": "awakener-0054"
+    },
+    {
+      "id": "wheel-0041",
+      "name": "Veiled Anguish",
+      "realm": "ULTRA",
+      "rarity": "SSR",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "ownerAwakenerId": "awakener-0010"
+    },
+    {
+      "id": "wheel-0071",
+      "name": "Vitality",
+      "realm": "NEUTRAL",
+      "rarity": "R",
+      "mainstatKey": "KEYFLARE_REGEN"
+    },
+    {
+      "id": "wheel-0126",
+      "name": "We Will Meet Again",
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "REALM_MASTERY"
+    },
+    {
+      "id": "wheel-0027",
+      "name": "Wheel Unseen",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "ownerAwakenerId": "awakener-0047"
+    },
+    {
+      "id": "wheel-0066",
+      "name": "Whisper",
+      "realm": "NEUTRAL",
+      "rarity": "R",
+      "mainstatKey": "DEATH_RESISTANCE"
+    },
+    {
+      "id": "wheel-0025",
+      "name": "Will Unyielding",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "DEATH_RESISTANCE",
+      "ownerAwakenerId": "awakener-0004"
+    },
+    {
+      "id": "wheel-0003",
+      "name": "Winter's Requiem",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "mainstatKey": "KEYFLARE_REGEN",
+      "ownerAwakenerId": "awakener-0003"
+    },
+    {
+      "id": "wheel-0110",
+      "name": "Witch's Wide-brimmed Hat",
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "DMG_AMP",
+      "ownerAwakenerId": "awakener-0012"
+    }
+  ],
+  "wheelMainstatScaling": {
+    "growthStartLevel": 4,
+    "series": [
+      {
+        "seriesKey": "N:KEYFLARE_REGEN",
+        "rarity": "N",
+        "mainstatKey": "KEYFLARE_REGEN",
+        "baseValue": "5.4",
+        "perLevel": "0"
+      },
+      {
+        "seriesKey": "R:ALIEMUS_REGEN",
+        "rarity": "R",
+        "mainstatKey": "ALIEMUS_REGEN",
+        "baseValue": "1.2",
+        "perLevel": "0.2"
+      },
+      {
+        "seriesKey": "R:CRIT_DMG",
+        "rarity": "R",
+        "mainstatKey": "CRIT_DMG",
+        "baseValue": "3.6%",
+        "perLevel": "0.6%"
+      },
+      {
+        "seriesKey": "R:CRIT_RATE",
+        "rarity": "R",
+        "mainstatKey": "CRIT_RATE",
+        "baseValue": "2.4%",
+        "perLevel": "0.4%"
+      },
+      {
+        "seriesKey": "R:DEATH_RESISTANCE",
+        "rarity": "R",
+        "mainstatKey": "DEATH_RESISTANCE",
+        "baseValue": "8.4%",
+        "perLevel": "1.4%"
+      },
+      {
+        "seriesKey": "R:DMG_AMP",
+        "rarity": "R",
+        "mainstatKey": "DMG_AMP",
+        "baseValue": "2.4%",
+        "perLevel": "0.4%"
+      },
+      {
+        "seriesKey": "R:KEYFLARE_REGEN",
+        "rarity": "R",
+        "mainstatKey": "KEYFLARE_REGEN",
+        "baseValue": "3.6",
+        "perLevel": "0.6"
+      },
+      {
+        "seriesKey": "R:REALM_MASTERY",
+        "rarity": "R",
+        "mainstatKey": "REALM_MASTERY",
+        "baseValue": "6",
+        "perLevel": "1"
+      },
+      {
+        "seriesKey": "R:SIGIL_YIELD",
+        "rarity": "R",
+        "mainstatKey": "SIGIL_YIELD",
+        "baseValue": "1.8%",
+        "perLevel": "0.3%"
+      },
+      {
+        "seriesKey": "SR:ALIEMUS_REGEN",
+        "rarity": "SR",
+        "mainstatKey": "ALIEMUS_REGEN",
+        "baseValue": "3.6",
+        "perLevel": "0.3"
+      },
+      {
+        "seriesKey": "SR:CRIT_DMG",
+        "rarity": "SR",
+        "mainstatKey": "CRIT_DMG",
+        "baseValue": "10.8%",
+        "perLevel": "0.9%"
+      },
+      {
+        "seriesKey": "SR:CRIT_RATE",
+        "rarity": "SR",
+        "mainstatKey": "CRIT_RATE",
+        "baseValue": "7.2%",
+        "perLevel": "0.6%"
+      },
+      {
+        "seriesKey": "SR:DEATH_RESISTANCE",
+        "rarity": "SR",
+        "mainstatKey": "DEATH_RESISTANCE",
+        "baseValue": "25.2%",
+        "perLevel": "2.1%"
+      },
+      {
+        "seriesKey": "SR:DMG_AMP",
+        "rarity": "SR",
+        "mainstatKey": "DMG_AMP",
+        "baseValue": "7.2%",
+        "perLevel": "0.6%"
+      },
+      {
+        "seriesKey": "SR:KEYFLARE_REGEN",
+        "rarity": "SR",
+        "mainstatKey": "KEYFLARE_REGEN",
+        "baseValue": "10.8",
+        "perLevel": "0.9"
+      },
+      {
+        "seriesKey": "SR:REALM_MASTERY",
+        "rarity": "SR",
+        "mainstatKey": "REALM_MASTERY",
+        "baseValue": "18",
+        "perLevel": "1.5"
+      },
+      {
+        "seriesKey": "SR:SIGIL_YIELD",
+        "rarity": "SR",
+        "mainstatKey": "SIGIL_YIELD",
+        "baseValue": "5.4%",
+        "perLevel": "0.45%"
+      },
+      {
+        "seriesKey": "SSR:ALIEMUS_REGEN",
+        "rarity": "SSR",
+        "mainstatKey": "ALIEMUS_REGEN",
+        "baseValue": "7.2",
+        "perLevel": "0.6"
+      },
+      {
+        "seriesKey": "SSR:CRIT_DMG",
+        "rarity": "SSR",
+        "mainstatKey": "CRIT_DMG",
+        "baseValue": "21.6%",
+        "perLevel": "1.8%"
+      },
+      {
+        "seriesKey": "SSR:CRIT_RATE",
+        "rarity": "SSR",
+        "mainstatKey": "CRIT_RATE",
+        "baseValue": "14.4%",
+        "perLevel": "1.2%"
+      },
+      {
+        "seriesKey": "SSR:DEATH_RESISTANCE",
+        "rarity": "SSR",
+        "mainstatKey": "DEATH_RESISTANCE",
+        "baseValue": "50.4%",
+        "perLevel": "4.2%"
+      },
+      {
+        "seriesKey": "SSR:DMG_AMP",
+        "rarity": "SSR",
+        "mainstatKey": "DMG_AMP",
+        "baseValue": "14.4%",
+        "perLevel": "1.2%"
+      },
+      {
+        "seriesKey": "SSR:KEYFLARE_REGEN",
+        "rarity": "SSR",
+        "mainstatKey": "KEYFLARE_REGEN",
+        "baseValue": "21.6",
+        "perLevel": "1.8"
+      },
+      {
+        "seriesKey": "SSR:REALM_MASTERY",
+        "rarity": "SSR",
+        "mainstatKey": "REALM_MASTERY",
+        "baseValue": "36",
+        "perLevel": "3"
+      },
+      {
+        "seriesKey": "SSR:SIGIL_YIELD",
+        "rarity": "SSR",
+        "mainstatKey": "SIGIL_YIELD",
+        "baseValue": "10.8%",
+        "perLevel": "0.9%"
+      }
+    ]
+  },
+  "scope": "Selection identities and primary-stat growth coefficients. Inclusion does not establish combat implementation, equipment legality or current live-game availability."
+}

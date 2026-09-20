@@ -1,0 +1,387 @@
+{
+  "generatedAtUtc": "2026-09-20T04:48:38.438498+00:00",
+  "publicationStatus": "NOT_READY",
+  "publicationAuthorized": false,
+  "automatedSuite": {
+    "testFiles": 120,
+    "passed": true,
+    "exitCode": 0,
+    "log": "research\\evidence\\latest-test-suite.tap",
+    "logSha256": "c09699b6bf02bd03b44889fea2ab5aa063bb8ab40177da4a8f49c28f3b14a248"
+  },
+  "realObservations": {
+    "records": 2,
+    "eligibleForReview": 0,
+    "holdoutsEligibleForReview": 0,
+    "rows": [
+      {
+        "id": "replay-001-colleen-strike",
+        "holdout": false,
+        "observed": 318,
+        "predicted": null,
+        "recomputed": null,
+        "difference": null,
+        "eligibleForReview": false,
+        "reasons": [
+          "State/sequence reconstruction incomplete",
+          "Recorded combat build unknown",
+          "Unresolved input state",
+          "No finite observed/predicted pair",
+          "Prediction replay: No executable prediction contract"
+        ],
+        "evidenceFiles": [
+          {
+            "path": "research/observations/replay-001/record.png",
+            "sha256": "47d1403036f5a025cb9266658d058741dd5660df66c1f7420fbad0d3453b903a"
+          },
+          {
+            "path": "research/observations/replay-001/colleen-strike.png",
+            "sha256": "b4da32cf95e5f87954b09bf6e8ca51396316c101ece95d2d690c5d4527c5586a"
+          },
+          {
+            "path": "research/observations/replay-001/colleen-round.png",
+            "sha256": "43dfed74685e24fba29d19d21dc470a724ca9308e83c79a563c8cfcb5bac1d2f"
+          }
+        ]
+      },
+      {
+        "id": "replay-002-frenzy-sequence",
+        "holdout": false,
+        "observed": null,
+        "predicted": null,
+        "recomputed": null,
+        "difference": null,
+        "eligibleForReview": false,
+        "reasons": [
+          "State/sequence reconstruction incomplete",
+          "Recorded combat build unknown",
+          "Unresolved input state",
+          "No finite observed/predicted pair",
+          "Prediction replay: No executable prediction contract"
+        ],
+        "evidenceFiles": [
+          {
+            "path": "research/observations/replay-002-frenzy/boss-turn2-before.png",
+            "sha256": "2c91c49fb37a77387900ff21fdfad5607a06f70c3cdeaeecf3465333e051f522"
+          },
+          {
+            "path": "research/observations/replay-002-frenzy/turn2-hit-overlap.png",
+            "sha256": "0518f227d2d1a5a967e7b7ab09e5c5513a286be31f0d2a1dcfaaa62492d9bf13"
+          },
+          {
+            "path": "research/observations/replay-002-frenzy/boss-turn2-after.png",
+            "sha256": "3bca878e41560fc5b0bb21ce86e0e29373b315783c9afa6d624e1da1f8f9bd79"
+          },
+          {
+            "path": "research/observations/replay-002-frenzy/arachne-boss-sources.png",
+            "sha256": "c6a377a7f37349278cf023900a3faced6601b028f267eb2958889888f69cc7d5"
+          },
+          {
+            "path": "research/observations/replay-002-frenzy/arachne-boss-rounds.png",
+            "sha256": "4b2f473b3acb4a2508753c1f5f2be9f0d92f2e92cdca1bf829f112246734d12e"
+          },
+          {
+            "path": "research/observations/replay-002-frenzy/arachne-boss-turn1-sources.png",
+            "sha256": "84ab0fd07d47f5f60edc69cafdbb1552cfd9dd2e3fdd7734eef72a588f878828"
+          }
+        ]
+      }
+    ]
+  },
+  "websiteEngineCopies": [
+    {
+      "module": "build-plan.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "experiments.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "calculate-damage.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "show-damage.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "active-target.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "card-offensive-setup.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "offensive-setup.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "hit-limits.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "skill-arguments.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "hp-property.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "passive-prehit.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "fixed-pure-prehit.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "immunity.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "active-prevention.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "singularity-realm.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "wheel-stats.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "client-primary-stats.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "client-build-stats.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "hit-trigger-values.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "resolved-hit-timeline.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "research-timeline.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "old-embers-hit-timeline.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "sub-state-layer.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "hp-attribute-loss.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "old-embers-activation.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "old-embers-command.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "old-embers-steps.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "skill-phase.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "skill-phase-finish.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "state-owner-target.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "state-callback.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "trigger-eligibility.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "damage-triggers.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "effect-order.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "timeline-experiments.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "command-rows.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "command-expressions.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "card-action-example.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "card-action-timeline.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "active-command-experiment.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "active-damage-command.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "card-use-resources.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "energy-payment.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "card-payment-plan.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "card-play-check.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "card-cost.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "card-resource-timeline.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "state-sequence-experiment.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "state-sequence-example.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "state-constructor.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "state-manager-creation.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "add-state-layer.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "state-property-contribution.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "combat-property-mutation.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "live-state-lookup.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "state-life-end.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "state-property-removal.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "add-state-request.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "state-layer-pipeline.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "card-state-multiplier.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "dimension-final-value.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "state-layer-limits.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "state-immunity.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "damage-energy-command.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "damage-energy-example.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "inspect-command-support.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "import-command-rows.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "ulti-energy-experiment.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "ulti-energy-calculation.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "ulti-energy-effect.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "ulti-energy-gain.mjs",
+      "matchesResearchEngine": true
+    }
+  ],
+  "blockingReasons": [
+    "No fully reconstructed real observation with matching prediction",
+    "No independently frozen, reconstructed holdout with matching prediction",
+    "Supported-scenario core-mechanic coverage and source traceability require a complete evidence review; this checkpoint cannot authorize publication"
+  ],
+  "limitations": [
+    "Matching reported values alone cannot establish input provenance or validate a formula",
+    "Synthetic runtime comparisons are not gameplay fixtures or holdouts",
+    "No browser QA, source coverage review or deployed-site verification is performed by this script"
+  ]
+}

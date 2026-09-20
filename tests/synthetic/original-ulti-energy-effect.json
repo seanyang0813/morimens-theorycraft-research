@@ -1,0 +1,3668 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BEGainUltiEnergy": "eaa49d0dcbeb60d4894c725e97cc35eb37c840c47ffe287f8d77f0d63e3993e2",
+    "BattleEffectServer": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+  },
+  "scope": "120 original DoEffect/GetPropertyChangeSource cases with no-op superclass presentation, changing calculation adapter and gain observer. Explicit target list and source identity. No actual formula/storage/listeners or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          null,
+          null
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          null,
+          null
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          null,
+          null
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 2.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 2.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          null,
+          0
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          null,
+          0
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          null,
+          0
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 2.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 2.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          null,
+          1
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          null,
+          1
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          null,
+          1
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 2.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 2.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          null,
+          2
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          null,
+          2
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          null,
+          2
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 2.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 2.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          -0.1,
+          null
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          -0.1,
+          null
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          -0.1,
+          null
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          -0.1,
+          0
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          -0.1,
+          0
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          -0.1,
+          0
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          -0.1,
+          1
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          -0.1,
+          1
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          -0.1,
+          1
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          -0.1,
+          2
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          -0.1,
+          2
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          -0.1,
+          2
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0,
+          null
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0,
+          null
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0,
+          null
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0,
+          0
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0,
+          0
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0,
+          0
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0,
+          1
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0,
+          1
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0,
+          1
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0,
+          2
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0,
+          2
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0,
+          2
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0.1,
+          null
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0.1,
+          null
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0.1,
+          null
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 2.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 2.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0.1,
+          0
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0.1,
+          0
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0.1,
+          0
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 2.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 2.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0.1,
+          1
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0.1,
+          1
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0.1,
+          1
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 2.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 2.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0.1,
+          2
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0.1,
+          2
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          0.1,
+          2
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 2.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 2.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          1.1,
+          null
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          1.1,
+          null
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 2.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 2.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          1.1,
+          null
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 2.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 2.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 3.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 3.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 4.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 4.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          1.1,
+          0
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          1.1,
+          0
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 2.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 2.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          1.1,
+          0
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 2.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 2.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 3.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 3.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 4.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 4.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          1.1,
+          1
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          1.1,
+          1
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 2.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 2.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          1.1,
+          1
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 2.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 2.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 3.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 3.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 4.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 4.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          1.1,
+          2
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          1.1,
+          2
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 2.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 2.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          -0.1,
+          1.1,
+          2
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 1.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 1.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 2.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 2.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 3.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 3.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 0.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 4.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 4.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          null,
+          null
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          null,
+          null
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          null,
+          null
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 13.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 13.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          null,
+          0
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          null,
+          0
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          null,
+          0
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 13.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 13.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          null,
+          1
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          null,
+          1
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          null,
+          1
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 13.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 13.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          null,
+          2
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          null,
+          2
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          null,
+          2
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 13.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 13.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          -0.1,
+          null
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          -0.1,
+          null
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          -0.1,
+          null
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          -0.1,
+          0
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          -0.1,
+          0
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          -0.1,
+          0
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          -0.1,
+          1
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          -0.1,
+          1
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          -0.1,
+          1
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          -0.1,
+          2
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          -0.1,
+          2
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          -0.1,
+          2
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0,
+          null
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0,
+          null
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0,
+          null
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0,
+          0
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0,
+          0
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0,
+          0
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0,
+          1
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0,
+          1
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0,
+          1
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0,
+          2
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0,
+          2
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0,
+          2
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0.1,
+          null
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0.1,
+          null
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0.1,
+          null
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 13.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 13.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0.1,
+          0
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0.1,
+          0
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0.1,
+          0
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 13.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 13.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0.1,
+          1
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0.1,
+          1
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0.1,
+          1
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 13.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 13.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0.1,
+          2
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0.1,
+          2
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          0.1,
+          2
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 13.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 13.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          1.1,
+          null
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          1.1,
+          null
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 13.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 13.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          1.1,
+          null
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 13.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 13.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 14.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 14.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 15.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 15.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          1.1,
+          0
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          1.1,
+          0
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 13.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 13.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          1.1,
+          0
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 13.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 13.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 14.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 14.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 15.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 15.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          1.1,
+          1
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          1.1,
+          1
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 13.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 13.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          1.1,
+          1
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 13.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 13.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 14.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 14.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 15.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 15.0,
+              "skillConfigId": 3.0,
+              "showText": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          1.1,
+          2
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          1.1,
+          2
+        ],
+        "targets": [
+          7
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 13.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 13.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          10.1,
+          1.1,
+          2
+        ],
+        "targets": [
+          7,
+          8
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 12.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 12.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 7.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 7,
+            "value": 13.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 13.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 14.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 14.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          },
+          {
+            "stage": "calculate",
+            "target": 8.0,
+            "base": 11.0
+          },
+          {
+            "stage": "gain",
+            "target": 8,
+            "value": 15.0,
+            "source": {
+              "castRoleUid": 1.0,
+              "reason": 3.0,
+              "cmdServerUid": 2.0,
+              "castValue": 15.0,
+              "skillConfigId": 3.0,
+              "showText": false
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,955 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "AttrUtils": "b00369326c56e98ec47aed7bd437b6aabc2e96e42e1bf12659076acb656f1f86"
+  },
+  "scope": "Original GetAwakerFinalAttr and GetAwakerPhysique with explicit inputs. Increase is a fraction, not percentage points. Missing increase bypasses both rounding and physique break multiplier. Does not establish origin of modifiers or server/battle stat assembly.",
+  "fixtures": [
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 0,
+      "increase": null,
+      "breakRate": null,
+      "expected": 0.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 0,
+      "increase": null,
+      "breakRate": 1,
+      "expected": 0.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 0,
+      "increase": null,
+      "breakRate": 1.5,
+      "expected": 0.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 0,
+      "increase": 0,
+      "breakRate": null,
+      "expected": 0.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 0,
+      "increase": 0,
+      "breakRate": 1,
+      "expected": 0.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 0,
+      "increase": 0,
+      "breakRate": 1.5,
+      "expected": 0.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 0,
+      "increase": 0.1,
+      "breakRate": null,
+      "expected": 0.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 0,
+      "increase": 0.1,
+      "breakRate": 1,
+      "expected": 0.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 0,
+      "increase": 0.1,
+      "breakRate": 1.5,
+      "expected": 0.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 0,
+      "increase": 0.3,
+      "breakRate": null,
+      "expected": 0.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 0,
+      "increase": 0.3,
+      "breakRate": 1,
+      "expected": 0.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 0,
+      "increase": 0.3,
+      "breakRate": 1.5,
+      "expected": 0.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 0,
+      "increase": -0.1,
+      "breakRate": null,
+      "expected": 0.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 0,
+      "increase": -0.1,
+      "breakRate": 1,
+      "expected": 0.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 0,
+      "increase": -0.1,
+      "breakRate": 1.5,
+      "expected": 0.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 1,
+      "increase": null,
+      "breakRate": null,
+      "expected": 1.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 1,
+      "increase": null,
+      "breakRate": 1,
+      "expected": 1.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 1,
+      "increase": null,
+      "breakRate": 1.5,
+      "expected": 1.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 1,
+      "increase": 0,
+      "breakRate": null,
+      "expected": 1.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 1,
+      "increase": 0,
+      "breakRate": 1,
+      "expected": 1.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 1,
+      "increase": 0,
+      "breakRate": 1.5,
+      "expected": 2.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 1,
+      "increase": 0.1,
+      "breakRate": null,
+      "expected": 2.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 1,
+      "increase": 0.1,
+      "breakRate": 1,
+      "expected": 2.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 1,
+      "increase": 0.1,
+      "breakRate": 1.5,
+      "expected": 2.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 1,
+      "increase": 0.3,
+      "breakRate": null,
+      "expected": 2.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 1,
+      "increase": 0.3,
+      "breakRate": 1,
+      "expected": 2.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 1,
+      "increase": 0.3,
+      "breakRate": 1.5,
+      "expected": 2.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 1,
+      "increase": -0.1,
+      "breakRate": null,
+      "expected": 1.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 1,
+      "increase": -0.1,
+      "breakRate": 1,
+      "expected": 1.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 1,
+      "increase": -0.1,
+      "breakRate": 1.5,
+      "expected": 2.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 25,
+      "increase": null,
+      "breakRate": null,
+      "expected": 25.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 25,
+      "increase": null,
+      "breakRate": 1,
+      "expected": 25.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 25,
+      "increase": null,
+      "breakRate": 1.5,
+      "expected": 25.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 25,
+      "increase": 0,
+      "breakRate": null,
+      "expected": 25.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 25,
+      "increase": 0,
+      "breakRate": 1,
+      "expected": 25.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 25,
+      "increase": 0,
+      "breakRate": 1.5,
+      "expected": 38.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 25,
+      "increase": 0.1,
+      "breakRate": null,
+      "expected": 28.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 25,
+      "increase": 0.1,
+      "breakRate": 1,
+      "expected": 28.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 25,
+      "increase": 0.1,
+      "breakRate": 1.5,
+      "expected": 42.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 25,
+      "increase": 0.3,
+      "breakRate": null,
+      "expected": 33.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 25,
+      "increase": 0.3,
+      "breakRate": 1,
+      "expected": 33.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 25,
+      "increase": 0.3,
+      "breakRate": 1.5,
+      "expected": 49.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 25,
+      "increase": -0.1,
+      "breakRate": null,
+      "expected": 23.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 25,
+      "increase": -0.1,
+      "breakRate": 1,
+      "expected": 23.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 25,
+      "increase": -0.1,
+      "breakRate": 1.5,
+      "expected": 34.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 50,
+      "increase": null,
+      "breakRate": null,
+      "expected": 50.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 50,
+      "increase": null,
+      "breakRate": 1,
+      "expected": 50.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 50,
+      "increase": null,
+      "breakRate": 1.5,
+      "expected": 50.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 50,
+      "increase": 0,
+      "breakRate": null,
+      "expected": 50.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 50,
+      "increase": 0,
+      "breakRate": 1,
+      "expected": 50.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 50,
+      "increase": 0,
+      "breakRate": 1.5,
+      "expected": 75.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 50,
+      "increase": 0.1,
+      "breakRate": null,
+      "expected": 56.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 50,
+      "increase": 0.1,
+      "breakRate": 1,
+      "expected": 56.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 50,
+      "increase": 0.1,
+      "breakRate": 1.5,
+      "expected": 83.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 50,
+      "increase": 0.3,
+      "breakRate": null,
+      "expected": 65.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 50,
+      "increase": 0.3,
+      "breakRate": 1,
+      "expected": 65.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 50,
+      "increase": 0.3,
+      "breakRate": 1.5,
+      "expected": 98.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 50,
+      "increase": -0.1,
+      "breakRate": null,
+      "expected": 45.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 50,
+      "increase": -0.1,
+      "breakRate": 1,
+      "expected": 45.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 50,
+      "increase": -0.1,
+      "breakRate": 1.5,
+      "expected": 68.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 55,
+      "increase": null,
+      "breakRate": null,
+      "expected": 55.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 55,
+      "increase": null,
+      "breakRate": 1,
+      "expected": 55.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 55,
+      "increase": null,
+      "breakRate": 1.5,
+      "expected": 55.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 55,
+      "increase": 0,
+      "breakRate": null,
+      "expected": 55.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 55,
+      "increase": 0,
+      "breakRate": 1,
+      "expected": 55.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 55,
+      "increase": 0,
+      "breakRate": 1.5,
+      "expected": 83.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 55,
+      "increase": 0.1,
+      "breakRate": null,
+      "expected": 61.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 55,
+      "increase": 0.1,
+      "breakRate": 1,
+      "expected": 61.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 55,
+      "increase": 0.1,
+      "breakRate": 1.5,
+      "expected": 91.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 55,
+      "increase": 0.3,
+      "breakRate": null,
+      "expected": 72.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 55,
+      "increase": 0.3,
+      "breakRate": 1,
+      "expected": 72.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 55,
+      "increase": 0.3,
+      "breakRate": 1.5,
+      "expected": 108.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 55,
+      "increase": -0.1,
+      "breakRate": null,
+      "expected": 50.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 55,
+      "increase": -0.1,
+      "breakRate": 1,
+      "expected": 50.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 55,
+      "increase": -0.1,
+      "breakRate": 1.5,
+      "expected": 75.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 138,
+      "increase": null,
+      "breakRate": null,
+      "expected": 138.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 138,
+      "increase": null,
+      "breakRate": 1,
+      "expected": 138.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 138,
+      "increase": null,
+      "breakRate": 1.5,
+      "expected": 138.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 138,
+      "increase": 0,
+      "breakRate": null,
+      "expected": 138.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 138,
+      "increase": 0,
+      "breakRate": 1,
+      "expected": 138.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 138,
+      "increase": 0,
+      "breakRate": 1.5,
+      "expected": 207.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 138,
+      "increase": 0.1,
+      "breakRate": null,
+      "expected": 152.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 138,
+      "increase": 0.1,
+      "breakRate": 1,
+      "expected": 152.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 138,
+      "increase": 0.1,
+      "breakRate": 1.5,
+      "expected": 228.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 138,
+      "increase": 0.3,
+      "breakRate": null,
+      "expected": 180.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 138,
+      "increase": 0.3,
+      "breakRate": 1,
+      "expected": 180.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 138,
+      "increase": 0.3,
+      "breakRate": 1.5,
+      "expected": 270.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 138,
+      "increase": -0.1,
+      "breakRate": null,
+      "expected": 125.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 138,
+      "increase": -0.1,
+      "breakRate": 1,
+      "expected": 125.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 138,
+      "increase": -0.1,
+      "breakRate": 1.5,
+      "expected": 187.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 198,
+      "increase": null,
+      "breakRate": null,
+      "expected": 198.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 198,
+      "increase": null,
+      "breakRate": 1,
+      "expected": 198.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 198,
+      "increase": null,
+      "breakRate": 1.5,
+      "expected": 198.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 198,
+      "increase": 0,
+      "breakRate": null,
+      "expected": 198.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 198,
+      "increase": 0,
+      "breakRate": 1,
+      "expected": 198.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 198,
+      "increase": 0,
+      "breakRate": 1.5,
+      "expected": 297.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 198,
+      "increase": 0.1,
+      "breakRate": null,
+      "expected": 218.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 198,
+      "increase": 0.1,
+      "breakRate": 1,
+      "expected": 218.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 198,
+      "increase": 0.1,
+      "breakRate": 1.5,
+      "expected": 327.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 198,
+      "increase": 0.3,
+      "breakRate": null,
+      "expected": 258.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 198,
+      "increase": 0.3,
+      "breakRate": 1,
+      "expected": 258.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 198,
+      "increase": 0.3,
+      "breakRate": 1.5,
+      "expected": 387.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 198,
+      "increase": -0.1,
+      "breakRate": null,
+      "expected": 179.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 198,
+      "increase": -0.1,
+      "breakRate": 1,
+      "expected": 179.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 198,
+      "increase": -0.1,
+      "breakRate": 1.5,
+      "expected": 268.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 258,
+      "increase": null,
+      "breakRate": null,
+      "expected": 258.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 258,
+      "increase": null,
+      "breakRate": 1,
+      "expected": 258.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 258,
+      "increase": null,
+      "breakRate": 1.5,
+      "expected": 258.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 258,
+      "increase": 0,
+      "breakRate": null,
+      "expected": 258.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 258,
+      "increase": 0,
+      "breakRate": 1,
+      "expected": 258.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 258,
+      "increase": 0,
+      "breakRate": 1.5,
+      "expected": 387.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 258,
+      "increase": 0.1,
+      "breakRate": null,
+      "expected": 284.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 258,
+      "increase": 0.1,
+      "breakRate": 1,
+      "expected": 284.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 258,
+      "increase": 0.1,
+      "breakRate": 1.5,
+      "expected": 426.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 258,
+      "increase": 0.3,
+      "breakRate": null,
+      "expected": 336.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 258,
+      "increase": 0.3,
+      "breakRate": 1,
+      "expected": 336.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 258,
+      "increase": 0.3,
+      "breakRate": 1.5,
+      "expected": 504.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 258,
+      "increase": -0.1,
+      "breakRate": null,
+      "expected": 233.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 258,
+      "increase": -0.1,
+      "breakRate": 1,
+      "expected": 233.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 258,
+      "increase": -0.1,
+      "breakRate": 1.5,
+      "expected": 349.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 1.25,
+      "increase": null,
+      "breakRate": null,
+      "expected": 1.25
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 1.25,
+      "increase": null,
+      "breakRate": 1,
+      "expected": 1.25
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 1.25,
+      "increase": null,
+      "breakRate": 1.5,
+      "expected": 1.25
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 1.25,
+      "increase": 0,
+      "breakRate": null,
+      "expected": 2.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 1.25,
+      "increase": 0,
+      "breakRate": 1,
+      "expected": 2.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 1.25,
+      "increase": 0,
+      "breakRate": 1.5,
+      "expected": 2.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 1.25,
+      "increase": 0.1,
+      "breakRate": null,
+      "expected": 2.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 1.25,
+      "increase": 0.1,
+      "breakRate": 1,
+      "expected": 2.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 1.25,
+      "increase": 0.1,
+      "breakRate": 1.5,
+      "expected": 3.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 1.25,
+      "increase": 0.3,
+      "breakRate": null,
+      "expected": 2.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 1.25,
+      "increase": 0.3,
+      "breakRate": 1,
+      "expected": 2.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 1.25,
+      "increase": 0.3,
+      "breakRate": 1.5,
+      "expected": 3.0
+    },
+    {
+      "method": "GetAwakerFinalAttr",
+      "base": 1.25,
+      "increase": -0.1,
+      "breakRate": null,
+      "expected": 2.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 1.25,
+      "increase": -0.1,
+      "breakRate": 1,
+      "expected": 2.0
+    },
+    {
+      "method": "GetAwakerPhysique",
+      "base": 1.25,
+      "increase": -0.1,
+      "breakRate": 1.5,
+      "expected": 2.0
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "build": "pc-res144-build51",
+  "status": "STATIC_ROUTING_AUDIT",
+  "sourceSha256": "dd47c38241edb513c71bd09e6f1f9a8ecdbfc7080f59b0c12a300ac7be2f7a2d",
+  "skillCount": 3593,
+  "commandReferenceCounts": {
+    "directScalar": 2885,
+    "nestedConditionalMarkedPvp": 621,
+    "scalarProgressionMap": 24,
+    "absent": 63
+  },
+  "temporaryFieldCounts": {
+    "tempBattleDesc": 74,
+    "tempOverLimitUtlSkillDesc": 10,
+    "tempIcon": 4,
+    "tempName": 11
+  },
+  "unmarkedNestedSkillIds": [],
+  "limitations": [
+    "Exported table shape/flags only, not condition evaluation or skill execution",
+    "Inspected ResourceCache.GetLine clones source rows; owner hook and other mutation paths are not exhaustively audited",
+    "No independent gameplay validation"
+  ]
+}

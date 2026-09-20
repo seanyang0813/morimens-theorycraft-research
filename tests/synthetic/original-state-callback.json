@@ -1,0 +1,211 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original BattleStateServer.Trigger using a cached command. Explicit owner/death/caster adapters, IsBan false, no relic source, condition result supplied; parser clearing and effect/event requests observed. No new command constructor, command execution or gameplay validation.",
+  "sourceHash": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+  "fixtures": [
+    {
+      "input": {
+        "hidden": 0,
+        "deleted": false,
+        "ignoreDeleted": false,
+        "card": false,
+        "dead": false,
+        "prohibitDead": false,
+        "configured": true,
+        "commandExists": true,
+        "judgment": null
+      },
+      "expected": [
+        "ClearMemberValues",
+        "BEGenerateTargets",
+        "BECreateSkillPhase",
+        "StateTriggerEnd"
+      ]
+    },
+    {
+      "input": {
+        "hidden": 1,
+        "deleted": false,
+        "ignoreDeleted": false,
+        "card": false,
+        "dead": false,
+        "prohibitDead": false,
+        "configured": true,
+        "commandExists": true,
+        "judgment": null
+      },
+      "expected": []
+    },
+    {
+      "input": {
+        "hidden": 0,
+        "deleted": true,
+        "ignoreDeleted": false,
+        "card": false,
+        "dead": false,
+        "prohibitDead": false,
+        "configured": true,
+        "commandExists": true,
+        "judgment": null
+      },
+      "expected": []
+    },
+    {
+      "input": {
+        "hidden": 0,
+        "deleted": true,
+        "ignoreDeleted": true,
+        "card": false,
+        "dead": false,
+        "prohibitDead": false,
+        "configured": true,
+        "commandExists": true,
+        "judgment": null
+      },
+      "expected": [
+        "ClearMemberValues",
+        "BEGenerateTargets",
+        "BECreateSkillPhase",
+        "StateTriggerEnd"
+      ]
+    },
+    {
+      "input": {
+        "hidden": 0,
+        "deleted": false,
+        "ignoreDeleted": false,
+        "card": false,
+        "dead": true,
+        "prohibitDead": true,
+        "configured": true,
+        "commandExists": true,
+        "judgment": null
+      },
+      "expected": []
+    },
+    {
+      "input": {
+        "hidden": 0,
+        "deleted": false,
+        "ignoreDeleted": false,
+        "card": true,
+        "dead": true,
+        "prohibitDead": true,
+        "configured": true,
+        "commandExists": true,
+        "judgment": null
+      },
+      "expected": [
+        "ClearMemberValues",
+        "BEGenerateTargets",
+        "BECreateSkillPhase",
+        "StateTriggerEnd"
+      ]
+    },
+    {
+      "input": {
+        "hidden": 0,
+        "deleted": false,
+        "ignoreDeleted": false,
+        "card": false,
+        "dead": false,
+        "prohibitDead": false,
+        "configured": false,
+        "commandExists": true,
+        "judgment": null
+      },
+      "expected": []
+    },
+    {
+      "input": {
+        "hidden": 0,
+        "deleted": false,
+        "ignoreDeleted": false,
+        "card": false,
+        "dead": false,
+        "prohibitDead": false,
+        "configured": true,
+        "commandExists": false,
+        "judgment": null
+      },
+      "expected": [
+        "ClearMemberValues"
+      ]
+    },
+    {
+      "input": {
+        "hidden": 0,
+        "deleted": false,
+        "ignoreDeleted": false,
+        "card": false,
+        "dead": false,
+        "prohibitDead": false,
+        "configured": true,
+        "commandExists": true,
+        "judgment": false
+      },
+      "expected": [
+        "ClearMemberValues",
+        "CheckCondition"
+      ]
+    },
+    {
+      "input": {
+        "hidden": 0,
+        "deleted": false,
+        "ignoreDeleted": false,
+        "card": false,
+        "dead": false,
+        "prohibitDead": false,
+        "configured": true,
+        "commandExists": true,
+        "judgment": 0
+      },
+      "expected": [
+        "ClearMemberValues",
+        "CheckCondition"
+      ]
+    },
+    {
+      "input": {
+        "hidden": 0,
+        "deleted": false,
+        "ignoreDeleted": false,
+        "card": false,
+        "dead": false,
+        "prohibitDead": false,
+        "configured": true,
+        "commandExists": true,
+        "judgment": -1
+      },
+      "expected": [
+        "ClearMemberValues",
+        "CheckCondition",
+        "BEGenerateTargets",
+        "BECreateSkillPhase",
+        "StateTriggerEnd"
+      ]
+    },
+    {
+      "input": {
+        "hidden": 0,
+        "deleted": false,
+        "ignoreDeleted": false,
+        "card": false,
+        "dead": false,
+        "prohibitDead": false,
+        "configured": true,
+        "commandExists": true,
+        "judgment": true
+      },
+      "expected": [
+        "ClearMemberValues",
+        "CheckCondition",
+        "BEGenerateTargets",
+        "BECreateSkillPhase",
+        "StateTriggerEnd"
+      ]
+    }
+  ]
+}

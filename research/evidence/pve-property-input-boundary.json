@@ -1,0 +1,210 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original SpawnCampRoles -> LoadAwakerConfigProperties -> non-primary CalcInitProperty with synthetic configuration and spawn observers. Supplied primary/HP values avoid primary growth; no actual role construction, subsequent hooks, server assembly or gameplay.",
+  "sourceHash": "5da43c24bf5d09b7ad360e74842d033af7d844f982126d0e6730dfc6188b5b09",
+  "fixtures": [
+    {
+      "input": {
+        "level": 70,
+        "player": {
+          "occupation_master": 200.5,
+          "occupation_master_final": 901.25
+        },
+        "awaker": {
+          "physique": 100,
+          "physique_per": 0,
+          "hp": 0
+        }
+      },
+      "expected": [
+        {
+          "role": "player",
+          "properties": {
+            "occupation_master": 200.5,
+            "occupation_master_final": 901.25
+          }
+        },
+        {
+          "role": "awaker",
+          "properties": {
+            "occupation_master": 13.0,
+            "occupation_master_final_per": 26.0,
+            "hp": 0.0,
+            "physique": 100.0,
+            "physique_per": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "input": {
+        "level": 70,
+        "player": {
+          "occupation_master": 200.5,
+          "occupation_master_final": 901.25
+        },
+        "awaker": {
+          "physique": 100,
+          "physique_per": 0,
+          "hp": 0,
+          "occupation_master": 0
+        }
+      },
+      "expected": [
+        {
+          "role": "player",
+          "properties": {
+            "occupation_master": 200.5,
+            "occupation_master_final": 901.25
+          }
+        },
+        {
+          "role": "awaker",
+          "properties": {
+            "occupation_master": 0.0,
+            "occupation_master_final_per": 26.0,
+            "hp": 0.0,
+            "physique": 100.0,
+            "physique_per": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "input": {
+        "level": 70,
+        "player": {
+          "occupation_master": 200.5,
+          "occupation_master_final": 901.25
+        },
+        "awaker": {
+          "physique": 100,
+          "physique_per": 0,
+          "hp": 0,
+          "occupation_master": 44.5
+        }
+      },
+      "expected": [
+        {
+          "role": "player",
+          "properties": {
+            "occupation_master": 200.5,
+            "occupation_master_final": 901.25
+          }
+        },
+        {
+          "role": "awaker",
+          "properties": {
+            "occupation_master": 44.5,
+            "occupation_master_final_per": 26.0,
+            "hp": 0.0,
+            "physique": 100.0,
+            "physique_per": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "input": {
+        "level": 90,
+        "player": {
+          "occupation_master": 200.5,
+          "occupation_master_final": 901.25
+        },
+        "awaker": {
+          "physique": 100,
+          "physique_per": 0,
+          "hp": 0
+        }
+      },
+      "expected": [
+        {
+          "role": "player",
+          "properties": {
+            "occupation_master": 200.5,
+            "occupation_master_final": 901.25
+          }
+        },
+        {
+          "role": "awaker",
+          "properties": {
+            "occupation_master": 13.0,
+            "occupation_master_final_per": 26.0,
+            "hp": 0.0,
+            "physique": 100.0,
+            "physique_per": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "input": {
+        "level": 90,
+        "player": {
+          "occupation_master": 200.5,
+          "occupation_master_final": 901.25
+        },
+        "awaker": {
+          "physique": 100,
+          "physique_per": 0,
+          "hp": 0,
+          "occupation_master": 0
+        }
+      },
+      "expected": [
+        {
+          "role": "player",
+          "properties": {
+            "occupation_master": 200.5,
+            "occupation_master_final": 901.25
+          }
+        },
+        {
+          "role": "awaker",
+          "properties": {
+            "occupation_master": 0.0,
+            "occupation_master_final_per": 26.0,
+            "hp": 0.0,
+            "physique": 100.0,
+            "physique_per": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "input": {
+        "level": 90,
+        "player": {
+          "occupation_master": 200.5,
+          "occupation_master_final": 901.25
+        },
+        "awaker": {
+          "physique": 100,
+          "physique_per": 0,
+          "hp": 0,
+          "occupation_master": 44.5
+        }
+      },
+      "expected": [
+        {
+          "role": "player",
+          "properties": {
+            "occupation_master": 200.5,
+            "occupation_master_final": 901.25
+          }
+        },
+        {
+          "role": "awaker",
+          "properties": {
+            "occupation_master": 44.5,
+            "occupation_master_final_per": 26.0,
+            "hp": 0.0,
+            "physique": 100.0,
+            "physique_per": 0.0
+          }
+        }
+      ]
+    }
+  ]
+}

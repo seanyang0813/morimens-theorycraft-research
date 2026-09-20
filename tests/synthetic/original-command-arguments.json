@@ -1,0 +1,519 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "Original GetGlobalValue ArgN branch; numeric skillArgs and fallback list supplied, string.replace adapter. No expression evaluation, command execution or gameplay.",
+  "sourceHashes": {
+    "BattleCmdParser": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d"
+  },
+  "fixtures": [
+    {
+      "input": {
+        "skillArgs": [],
+        "fallbackValues": [],
+        "indices": [
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      "expected": {
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "fallbackReads": 4
+      }
+    },
+    {
+      "input": {
+        "skillArgs": [],
+        "fallbackValues": [
+          8
+        ],
+        "indices": [
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      "expected": {
+        "values": [
+          8.0,
+          0.0,
+          0.0,
+          8.0
+        ],
+        "fallbackReads": 4
+      }
+    },
+    {
+      "input": {
+        "skillArgs": [],
+        "fallbackValues": [
+          0,
+          2.75
+        ],
+        "indices": [
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      "expected": {
+        "values": [
+          0.0,
+          2.75,
+          0.0,
+          0.0
+        ],
+        "fallbackReads": 4
+      }
+    },
+    {
+      "input": {
+        "skillArgs": [],
+        "fallbackValues": [
+          -1,
+          0,
+          4.5
+        ],
+        "indices": [
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      "expected": {
+        "values": [
+          -1.0,
+          0.0,
+          4.5,
+          -1.0
+        ],
+        "fallbackReads": 4
+      }
+    },
+    {
+      "input": {
+        "skillArgs": [
+          0
+        ],
+        "fallbackValues": [],
+        "indices": [
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      "expected": {
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "fallbackReads": 2
+      }
+    },
+    {
+      "input": {
+        "skillArgs": [
+          0
+        ],
+        "fallbackValues": [
+          8
+        ],
+        "indices": [
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      "expected": {
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "fallbackReads": 2
+      }
+    },
+    {
+      "input": {
+        "skillArgs": [
+          0
+        ],
+        "fallbackValues": [
+          0,
+          2.75
+        ],
+        "indices": [
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      "expected": {
+        "values": [
+          0.0,
+          2.75,
+          0.0,
+          0.0
+        ],
+        "fallbackReads": 2
+      }
+    },
+    {
+      "input": {
+        "skillArgs": [
+          0
+        ],
+        "fallbackValues": [
+          -1,
+          0,
+          4.5
+        ],
+        "indices": [
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      "expected": {
+        "values": [
+          0.0,
+          0.0,
+          4.5,
+          0.0
+        ],
+        "fallbackReads": 2
+      }
+    },
+    {
+      "input": {
+        "skillArgs": [
+          1.25
+        ],
+        "fallbackValues": [],
+        "indices": [
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      "expected": {
+        "values": [
+          1.25,
+          0.0,
+          0.0,
+          1.25
+        ],
+        "fallbackReads": 2
+      }
+    },
+    {
+      "input": {
+        "skillArgs": [
+          1.25
+        ],
+        "fallbackValues": [
+          8
+        ],
+        "indices": [
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      "expected": {
+        "values": [
+          1.25,
+          0.0,
+          0.0,
+          1.25
+        ],
+        "fallbackReads": 2
+      }
+    },
+    {
+      "input": {
+        "skillArgs": [
+          1.25
+        ],
+        "fallbackValues": [
+          0,
+          2.75
+        ],
+        "indices": [
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      "expected": {
+        "values": [
+          1.25,
+          2.75,
+          0.0,
+          1.25
+        ],
+        "fallbackReads": 2
+      }
+    },
+    {
+      "input": {
+        "skillArgs": [
+          1.25
+        ],
+        "fallbackValues": [
+          -1,
+          0,
+          4.5
+        ],
+        "indices": [
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      "expected": {
+        "values": [
+          1.25,
+          0.0,
+          4.5,
+          1.25
+        ],
+        "fallbackReads": 2
+      }
+    },
+    {
+      "input": {
+        "skillArgs": [
+          null,
+          -2.5
+        ],
+        "fallbackValues": [],
+        "indices": [
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      "expected": {
+        "values": [
+          0.0,
+          -2.5,
+          0.0,
+          0.0
+        ],
+        "fallbackReads": 3
+      }
+    },
+    {
+      "input": {
+        "skillArgs": [
+          null,
+          -2.5
+        ],
+        "fallbackValues": [
+          8
+        ],
+        "indices": [
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      "expected": {
+        "values": [
+          8.0,
+          -2.5,
+          0.0,
+          8.0
+        ],
+        "fallbackReads": 3
+      }
+    },
+    {
+      "input": {
+        "skillArgs": [
+          null,
+          -2.5
+        ],
+        "fallbackValues": [
+          0,
+          2.75
+        ],
+        "indices": [
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      "expected": {
+        "values": [
+          0.0,
+          -2.5,
+          0.0,
+          0.0
+        ],
+        "fallbackReads": 3
+      }
+    },
+    {
+      "input": {
+        "skillArgs": [
+          null,
+          -2.5
+        ],
+        "fallbackValues": [
+          -1,
+          0,
+          4.5
+        ],
+        "indices": [
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      "expected": {
+        "values": [
+          -1.0,
+          -2.5,
+          4.5,
+          -1.0
+        ],
+        "fallbackReads": 3
+      }
+    },
+    {
+      "input": {
+        "skillArgs": [
+          0,
+          0,
+          3
+        ],
+        "fallbackValues": [],
+        "indices": [
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      "expected": {
+        "values": [
+          0.0,
+          0.0,
+          3.0,
+          0.0
+        ],
+        "fallbackReads": 0
+      }
+    },
+    {
+      "input": {
+        "skillArgs": [
+          0,
+          0,
+          3
+        ],
+        "fallbackValues": [
+          8
+        ],
+        "indices": [
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      "expected": {
+        "values": [
+          0.0,
+          0.0,
+          3.0,
+          0.0
+        ],
+        "fallbackReads": 0
+      }
+    },
+    {
+      "input": {
+        "skillArgs": [
+          0,
+          0,
+          3
+        ],
+        "fallbackValues": [
+          0,
+          2.75
+        ],
+        "indices": [
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      "expected": {
+        "values": [
+          0.0,
+          0.0,
+          3.0,
+          0.0
+        ],
+        "fallbackReads": 0
+      }
+    },
+    {
+      "input": {
+        "skillArgs": [
+          0,
+          0,
+          3
+        ],
+        "fallbackValues": [
+          -1,
+          0,
+          4.5
+        ],
+        "indices": [
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      "expected": {
+        "values": [
+          0.0,
+          0.0,
+          3.0,
+          0.0
+        ],
+        "fallbackReads": 0
+      }
+    }
+  ]
+}

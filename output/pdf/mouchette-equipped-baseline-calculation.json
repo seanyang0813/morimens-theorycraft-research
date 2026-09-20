@@ -1,0 +1,1851 @@
+{
+  "status": "INCOMPLETE_TEAM_REALM_RECONSTRUCTION",
+  "build": "pc-res144-build51",
+  "sourceCommit": "a2ff07765b2e0c78af827577f881054dbe224d8d",
+  "setup": {
+    "level": 90,
+    "skillLevel": 6,
+    "gnosticLevel": 5,
+    "mouchetteEnlighten": 2,
+    "mouchetteSoulforge": 10,
+    "mouchetteRoused": true,
+    "arachneRoused": false,
+    "critRate": 100,
+    "critDamageStat": 150,
+    "STR": 0,
+    "mode": "Astral Reign",
+    "target": "one Dominator; no additional modifiers",
+    "sequence": "[Arachne Strike -> Mortal Blast] x5 after Rouse and Exalt",
+    "startingPursuitProgress": 0,
+    "startingInsideStrikeLayers": 0,
+    "cardSupply": "five Mortal Blasts and five Strikes explicitly supplied",
+    "exaltOpeningDamageIncluded": false,
+    "teamDamageAmplificationPercent": 150,
+    "mouchetteWheel": "Doomsday Rampage, maximum effect values",
+    "critInterpretation": "100% rate and 150% Crit DMG remain supplied final stats, including equipment/talent contributions",
+    "startingWheelStacks": 0
+  },
+  "attackM": 258,
+  "attackA": 138,
+  "flat": 645,
+  "basePercent": 35,
+  "bossPercent": 50,
+  "rounds": [
+    {
+      "round": 1,
+      "aHit": {
+        "owner": "Arachne",
+        "kind": "strike",
+        "layers": 0,
+        "coefficient": 20,
+        "raw": 27.6,
+        "argument": 28,
+        "utilityInputs": {
+          "value": 28,
+          "awakerOutsideDamagePer": 0,
+          "awakerInsideBasicDamagePer": 0,
+          "playerOutsideDamagePer": 0,
+          "cardOutsideDmgPer": 0,
+          "curCardDamagePer": 0,
+          "basicDamagePer": 150,
+          "cardDamagePlus": 0,
+          "strength": 0,
+          "ultiDamgePlus": 0,
+          "strikecard_damage_plus": 645,
+          "skillArgsPlus": 0,
+          "awakerDamagePlus": 0,
+          "skillTypeOutsideDmgPer": 1.35,
+          "skillTypeDmgPer": 1,
+          "roleEnhancePer": 0,
+          "roleWeakPer": 0,
+          "awakerInsideDamagePer": 0,
+          "awakerInsideDamagePer1": 0,
+          "awakerInsideDamagePer2": 0,
+          "awakerInsideDamagePer3": 0,
+          "awakerInsideDamagePer4": 0,
+          "awakerInsideDamagePer5": 0,
+          "awakerInsideDamagePer6": 0,
+          "awakerInsideDamagePer7": 0,
+          "awakerInsideDamagePer8": 0,
+          "playerInsideDamagePer": 0,
+          "dimension_fix_per": 0,
+          "cardInsideDmgPer": 0,
+          "cardDamagePer2": 0,
+          "cardDamagePer3": 0,
+          "card_damage_per3_n2": 0,
+          "awaker_CmdCard_dmg_per": 0,
+          "awaker_ulti_dmg_per": 0,
+          "skillTypeInsideDmgPer": 1,
+          "spellboundDmgPer": 0,
+          "spellboundDmgPer2": 0,
+          "spellboundDmgPer3": 0,
+          "spellboundDmgPer4": 0,
+          "spellboundDmgPer5": 0
+        },
+        "target": {
+          "isCrit": true,
+          "awakerCritDamage": 150,
+          "cardCritDamage": 0,
+          "skillTypeCritDamage": 0,
+          "awakerCardCritDamage": 0,
+          "critDamagePer": 0,
+          "beDamagePer": 0,
+          "beDamagePer2": 0,
+          "beDamagePer3": 0,
+          "beDamagePer4": 0,
+          "beDamagePer5": 0,
+          "vulnerablePer": 0,
+          "enemyTypeDmgPer": 0,
+          "enemyBuffDmgPer": 0,
+          "enemyDebuffDmgPer": 0,
+          "enemyBlockDmgPer": 0,
+          "enemyBlockBarrierDmgPer": 0,
+          "cardBlockBarrierPer": 0,
+          "enemyStateDmgMultiplier": 1,
+          "beDamagePlus": 0
+        },
+        "showDamage": 740,
+        "preHitDamage": 1850,
+        "trace": [
+          {
+            "stage": "base",
+            "value": 94.5
+          },
+          {
+            "stage": "flat contributions",
+            "value": 645
+          },
+          {
+            "stage": "offensive subtotal",
+            "value": 739.5
+          },
+          {
+            "stage": "ceil(x - 0.00001), minimum 1",
+            "value": 740
+          },
+          {
+            "stage": "reduction product",
+            "value": 1
+          },
+          {
+            "stage": "floor(x + 0.00001), minimum 1",
+            "value": 740
+          },
+          {
+            "stage": "crit bonus",
+            "value": 150
+          },
+          {
+            "stage": "after crit",
+            "value": 1850
+          },
+          {
+            "stage": "target products and flat addition",
+            "value": 1850
+          },
+          {
+            "stage": "ceil, minimum 1",
+            "value": 1850
+          }
+        ],
+        "wheelStacks": 0,
+        "wheelFlat": 0
+      },
+      "blast": {
+        "owner": "Mouchette",
+        "kind": "blast",
+        "layers": 0,
+        "coefficient": 30,
+        "raw": 77.4,
+        "argument": 78,
+        "utilityInputs": {
+          "value": 78,
+          "awakerOutsideDamagePer": 0,
+          "awakerInsideBasicDamagePer": 0,
+          "playerOutsideDamagePer": 0,
+          "cardOutsideDmgPer": 0,
+          "curCardDamagePer": 0,
+          "basicDamagePer": 150,
+          "cardDamagePlus": 0,
+          "strength": 0,
+          "ultiDamgePlus": 0,
+          "strikecard_damage_plus": 710,
+          "skillArgsPlus": 0,
+          "awakerDamagePlus": 0,
+          "skillTypeOutsideDmgPer": 1.35,
+          "skillTypeDmgPer": 1,
+          "roleEnhancePer": 0,
+          "roleWeakPer": 0,
+          "awakerInsideDamagePer": 0,
+          "awakerInsideDamagePer1": 0,
+          "awakerInsideDamagePer2": 0,
+          "awakerInsideDamagePer3": 0,
+          "awakerInsideDamagePer4": 0,
+          "awakerInsideDamagePer5": 0,
+          "awakerInsideDamagePer6": 0,
+          "awakerInsideDamagePer7": 0,
+          "awakerInsideDamagePer8": 0,
+          "playerInsideDamagePer": 0,
+          "dimension_fix_per": 0,
+          "cardInsideDmgPer": 0,
+          "cardDamagePer2": 0,
+          "cardDamagePer3": 0,
+          "card_damage_per3_n2": 0,
+          "awaker_CmdCard_dmg_per": 0,
+          "awaker_ulti_dmg_per": 0,
+          "skillTypeInsideDmgPer": 1,
+          "spellboundDmgPer": 0,
+          "spellboundDmgPer2": 0,
+          "spellboundDmgPer3": 0,
+          "spellboundDmgPer4": 0,
+          "spellboundDmgPer5": 0
+        },
+        "target": {
+          "isCrit": true,
+          "awakerCritDamage": 150,
+          "cardCritDamage": 0,
+          "skillTypeCritDamage": 0,
+          "awakerCardCritDamage": 0,
+          "critDamagePer": 0,
+          "beDamagePer": 0,
+          "beDamagePer2": 0,
+          "beDamagePer3": 0,
+          "beDamagePer4": 0,
+          "beDamagePer5": 0,
+          "vulnerablePer": 0,
+          "enemyTypeDmgPer": 50,
+          "enemyBuffDmgPer": 0,
+          "enemyDebuffDmgPer": 0,
+          "enemyBlockDmgPer": 0,
+          "enemyBlockBarrierDmgPer": 0,
+          "cardBlockBarrierPer": 0,
+          "enemyStateDmgMultiplier": 1,
+          "beDamagePlus": 0
+        },
+        "showDamage": 974,
+        "preHitDamage": 3653,
+        "trace": [
+          {
+            "stage": "base",
+            "value": 263.25000000000006
+          },
+          {
+            "stage": "flat contributions",
+            "value": 710
+          },
+          {
+            "stage": "offensive subtotal",
+            "value": 973.25
+          },
+          {
+            "stage": "ceil(x - 0.00001), minimum 1",
+            "value": 974
+          },
+          {
+            "stage": "reduction product",
+            "value": 1
+          },
+          {
+            "stage": "floor(x + 0.00001), minimum 1",
+            "value": 974
+          },
+          {
+            "stage": "crit bonus",
+            "value": 150
+          },
+          {
+            "stage": "after crit",
+            "value": 2435
+          },
+          {
+            "stage": "target products and flat addition",
+            "value": 3652.5
+          },
+          {
+            "stage": "ceil, minimum 1",
+            "value": 3653
+          }
+        ],
+        "wheelStacks": 1,
+        "wheelFlat": 65
+      },
+      "pursuit": {
+        "owner": "Mouchette",
+        "kind": "follow",
+        "layers": 0,
+        "coefficient": 30,
+        "raw": 77.4,
+        "argument": 78,
+        "utilityInputs": {
+          "value": 78,
+          "awakerOutsideDamagePer": 0,
+          "awakerInsideBasicDamagePer": 0,
+          "playerOutsideDamagePer": 0,
+          "cardOutsideDmgPer": 0,
+          "curCardDamagePer": 0,
+          "basicDamagePer": 150,
+          "cardDamagePlus": 0,
+          "strength": 0,
+          "ultiDamgePlus": 0,
+          "strikecard_damage_plus": 775,
+          "skillArgsPlus": 0,
+          "awakerDamagePlus": 0,
+          "skillTypeOutsideDmgPer": 2.16,
+          "skillTypeDmgPer": 1,
+          "roleEnhancePer": 0,
+          "roleWeakPer": 0,
+          "awakerInsideDamagePer": 0,
+          "awakerInsideDamagePer1": 0,
+          "awakerInsideDamagePer2": 0,
+          "awakerInsideDamagePer3": 0,
+          "awakerInsideDamagePer4": 0,
+          "awakerInsideDamagePer5": 0,
+          "awakerInsideDamagePer6": 0,
+          "awakerInsideDamagePer7": 0,
+          "awakerInsideDamagePer8": 0,
+          "playerInsideDamagePer": 0,
+          "dimension_fix_per": 0,
+          "cardInsideDmgPer": 0,
+          "cardDamagePer2": 0,
+          "cardDamagePer3": 0,
+          "card_damage_per3_n2": 0,
+          "awaker_CmdCard_dmg_per": 0,
+          "awaker_ulti_dmg_per": 0,
+          "skillTypeInsideDmgPer": 1,
+          "spellboundDmgPer": 0,
+          "spellboundDmgPer2": 0,
+          "spellboundDmgPer3": 0,
+          "spellboundDmgPer4": 0,
+          "spellboundDmgPer5": 0
+        },
+        "target": {
+          "isCrit": true,
+          "awakerCritDamage": 150,
+          "cardCritDamage": 0,
+          "skillTypeCritDamage": 0,
+          "awakerCardCritDamage": 0,
+          "critDamagePer": 0,
+          "beDamagePer": 0,
+          "beDamagePer2": 0,
+          "beDamagePer3": 0,
+          "beDamagePer4": 0,
+          "beDamagePer5": 0,
+          "vulnerablePer": 0,
+          "enemyTypeDmgPer": 50,
+          "enemyBuffDmgPer": 0,
+          "enemyDebuffDmgPer": 0,
+          "enemyBlockDmgPer": 0,
+          "enemyBlockBarrierDmgPer": 0,
+          "cardBlockBarrierPer": 0,
+          "enemyStateDmgMultiplier": 1,
+          "beDamagePlus": 0
+        },
+        "showDamage": 1197,
+        "preHitDamage": 4489,
+        "trace": [
+          {
+            "stage": "base",
+            "value": 421.2
+          },
+          {
+            "stage": "flat contributions",
+            "value": 775
+          },
+          {
+            "stage": "offensive subtotal",
+            "value": 1196.2
+          },
+          {
+            "stage": "ceil(x - 0.00001), minimum 1",
+            "value": 1197
+          },
+          {
+            "stage": "reduction product",
+            "value": 1
+          },
+          {
+            "stage": "floor(x + 0.00001), minimum 1",
+            "value": 1197
+          },
+          {
+            "stage": "crit bonus",
+            "value": 150
+          },
+          {
+            "stage": "after crit",
+            "value": 2992.5
+          },
+          {
+            "stage": "target products and flat addition",
+            "value": 4488.75
+          },
+          {
+            "stage": "ceil, minimum 1",
+            "value": 4489
+          }
+        ],
+        "wheelStacks": 2,
+        "wheelFlat": 130
+      },
+      "arachneTotal": 1850,
+      "blastTotal": 7306,
+      "pursuitTotal": 13467,
+      "total": 22623
+    },
+    {
+      "round": 2,
+      "aHit": {
+        "owner": "Arachne",
+        "kind": "strike",
+        "layers": 0,
+        "coefficient": 20,
+        "raw": 27.6,
+        "argument": 28,
+        "utilityInputs": {
+          "value": 28,
+          "awakerOutsideDamagePer": 0,
+          "awakerInsideBasicDamagePer": 0,
+          "playerOutsideDamagePer": 0,
+          "cardOutsideDmgPer": 0,
+          "curCardDamagePer": 0,
+          "basicDamagePer": 150,
+          "cardDamagePlus": 0,
+          "strength": 0,
+          "ultiDamgePlus": 0,
+          "strikecard_damage_plus": 645,
+          "skillArgsPlus": 0,
+          "awakerDamagePlus": 0,
+          "skillTypeOutsideDmgPer": 1.35,
+          "skillTypeDmgPer": 1,
+          "roleEnhancePer": 0,
+          "roleWeakPer": 0,
+          "awakerInsideDamagePer": 0,
+          "awakerInsideDamagePer1": 0,
+          "awakerInsideDamagePer2": 0,
+          "awakerInsideDamagePer3": 0,
+          "awakerInsideDamagePer4": 0,
+          "awakerInsideDamagePer5": 0,
+          "awakerInsideDamagePer6": 0,
+          "awakerInsideDamagePer7": 0,
+          "awakerInsideDamagePer8": 0,
+          "playerInsideDamagePer": 0,
+          "dimension_fix_per": 0,
+          "cardInsideDmgPer": 0,
+          "cardDamagePer2": 0,
+          "cardDamagePer3": 0,
+          "card_damage_per3_n2": 0,
+          "awaker_CmdCard_dmg_per": 0,
+          "awaker_ulti_dmg_per": 0,
+          "skillTypeInsideDmgPer": 1,
+          "spellboundDmgPer": 0,
+          "spellboundDmgPer2": 0,
+          "spellboundDmgPer3": 0,
+          "spellboundDmgPer4": 0,
+          "spellboundDmgPer5": 0
+        },
+        "target": {
+          "isCrit": true,
+          "awakerCritDamage": 150,
+          "cardCritDamage": 0,
+          "skillTypeCritDamage": 0,
+          "awakerCardCritDamage": 0,
+          "critDamagePer": 0,
+          "beDamagePer": 0,
+          "beDamagePer2": 0,
+          "beDamagePer3": 0,
+          "beDamagePer4": 0,
+          "beDamagePer5": 0,
+          "vulnerablePer": 0,
+          "enemyTypeDmgPer": 0,
+          "enemyBuffDmgPer": 0,
+          "enemyDebuffDmgPer": 0,
+          "enemyBlockDmgPer": 0,
+          "enemyBlockBarrierDmgPer": 0,
+          "cardBlockBarrierPer": 0,
+          "enemyStateDmgMultiplier": 1,
+          "beDamagePlus": 0
+        },
+        "showDamage": 740,
+        "preHitDamage": 1850,
+        "trace": [
+          {
+            "stage": "base",
+            "value": 94.5
+          },
+          {
+            "stage": "flat contributions",
+            "value": 645
+          },
+          {
+            "stage": "offensive subtotal",
+            "value": 739.5
+          },
+          {
+            "stage": "ceil(x - 0.00001), minimum 1",
+            "value": 740
+          },
+          {
+            "stage": "reduction product",
+            "value": 1
+          },
+          {
+            "stage": "floor(x + 0.00001), minimum 1",
+            "value": 740
+          },
+          {
+            "stage": "crit bonus",
+            "value": 150
+          },
+          {
+            "stage": "after crit",
+            "value": 1850
+          },
+          {
+            "stage": "target products and flat addition",
+            "value": 1850
+          },
+          {
+            "stage": "ceil, minimum 1",
+            "value": 1850
+          }
+        ],
+        "wheelStacks": 2,
+        "wheelFlat": 0
+      },
+      "blast": {
+        "owner": "Mouchette",
+        "kind": "blast",
+        "layers": 1,
+        "coefficient": 30,
+        "raw": 77.4,
+        "argument": 78,
+        "utilityInputs": {
+          "value": 78,
+          "awakerOutsideDamagePer": 0,
+          "awakerInsideBasicDamagePer": 0,
+          "playerOutsideDamagePer": 0,
+          "cardOutsideDmgPer": 0,
+          "curCardDamagePer": 0,
+          "basicDamagePer": 150,
+          "cardDamagePlus": 0,
+          "strength": 0,
+          "ultiDamgePlus": 0,
+          "strikecard_damage_plus": 840,
+          "skillArgsPlus": 0,
+          "awakerDamagePlus": 0,
+          "skillTypeOutsideDmgPer": 1.35,
+          "skillTypeDmgPer": 1,
+          "roleEnhancePer": 0,
+          "roleWeakPer": 0,
+          "awakerInsideDamagePer": 0,
+          "awakerInsideDamagePer1": 0,
+          "awakerInsideDamagePer2": 0,
+          "awakerInsideDamagePer3": 0,
+          "awakerInsideDamagePer4": 0,
+          "awakerInsideDamagePer5": 0,
+          "awakerInsideDamagePer6": 0,
+          "awakerInsideDamagePer7": 0,
+          "awakerInsideDamagePer8": 0,
+          "playerInsideDamagePer": 0,
+          "dimension_fix_per": 0,
+          "cardInsideDmgPer": 0,
+          "cardDamagePer2": 0,
+          "cardDamagePer3": 0,
+          "card_damage_per3_n2": 0,
+          "awaker_CmdCard_dmg_per": 0,
+          "awaker_ulti_dmg_per": 0,
+          "skillTypeInsideDmgPer": 1.25,
+          "spellboundDmgPer": 0,
+          "spellboundDmgPer2": 0,
+          "spellboundDmgPer3": 0,
+          "spellboundDmgPer4": 0,
+          "spellboundDmgPer5": 0
+        },
+        "target": {
+          "isCrit": true,
+          "awakerCritDamage": 150,
+          "cardCritDamage": 0,
+          "skillTypeCritDamage": 0,
+          "awakerCardCritDamage": 0,
+          "critDamagePer": 0,
+          "beDamagePer": 0,
+          "beDamagePer2": 0,
+          "beDamagePer3": 0,
+          "beDamagePer4": 0,
+          "beDamagePer5": 0,
+          "vulnerablePer": 0,
+          "enemyTypeDmgPer": 50,
+          "enemyBuffDmgPer": 0,
+          "enemyDebuffDmgPer": 0,
+          "enemyBlockDmgPer": 0,
+          "enemyBlockBarrierDmgPer": 0,
+          "cardBlockBarrierPer": 0,
+          "enemyStateDmgMultiplier": 1,
+          "beDamagePlus": 0
+        },
+        "showDamage": 1380,
+        "preHitDamage": 5175,
+        "trace": [
+          {
+            "stage": "base",
+            "value": 263.25000000000006
+          },
+          {
+            "stage": "flat contributions",
+            "value": 840
+          },
+          {
+            "stage": "offensive subtotal",
+            "value": 1379.0625
+          },
+          {
+            "stage": "ceil(x - 0.00001), minimum 1",
+            "value": 1380
+          },
+          {
+            "stage": "reduction product",
+            "value": 1
+          },
+          {
+            "stage": "floor(x + 0.00001), minimum 1",
+            "value": 1380
+          },
+          {
+            "stage": "crit bonus",
+            "value": 150
+          },
+          {
+            "stage": "after crit",
+            "value": 3450
+          },
+          {
+            "stage": "target products and flat addition",
+            "value": 5175
+          },
+          {
+            "stage": "ceil, minimum 1",
+            "value": 5175
+          }
+        ],
+        "wheelStacks": 3,
+        "wheelFlat": 195
+      },
+      "pursuit": {
+        "owner": "Mouchette",
+        "kind": "follow",
+        "layers": 1,
+        "coefficient": 30,
+        "raw": 77.4,
+        "argument": 78,
+        "utilityInputs": {
+          "value": 78,
+          "awakerOutsideDamagePer": 0,
+          "awakerInsideBasicDamagePer": 0,
+          "playerOutsideDamagePer": 0,
+          "cardOutsideDmgPer": 0,
+          "curCardDamagePer": 0,
+          "basicDamagePer": 150,
+          "cardDamagePlus": 0,
+          "strength": 0,
+          "ultiDamgePlus": 0,
+          "strikecard_damage_plus": 905,
+          "skillArgsPlus": 0,
+          "awakerDamagePlus": 0,
+          "skillTypeOutsideDmgPer": 2.16,
+          "skillTypeDmgPer": 1,
+          "roleEnhancePer": 0,
+          "roleWeakPer": 0,
+          "awakerInsideDamagePer": 0,
+          "awakerInsideDamagePer1": 0,
+          "awakerInsideDamagePer2": 0,
+          "awakerInsideDamagePer3": 0,
+          "awakerInsideDamagePer4": 0,
+          "awakerInsideDamagePer5": 0,
+          "awakerInsideDamagePer6": 0,
+          "awakerInsideDamagePer7": 0,
+          "awakerInsideDamagePer8": 0,
+          "playerInsideDamagePer": 0,
+          "dimension_fix_per": 0,
+          "cardInsideDmgPer": 0,
+          "cardDamagePer2": 0,
+          "cardDamagePer3": 0,
+          "card_damage_per3_n2": 0,
+          "awaker_CmdCard_dmg_per": 0,
+          "awaker_ulti_dmg_per": 0,
+          "skillTypeInsideDmgPer": 1.25,
+          "spellboundDmgPer": 0,
+          "spellboundDmgPer2": 0,
+          "spellboundDmgPer3": 0,
+          "spellboundDmgPer4": 0,
+          "spellboundDmgPer5": 0
+        },
+        "target": {
+          "isCrit": true,
+          "awakerCritDamage": 150,
+          "cardCritDamage": 0,
+          "skillTypeCritDamage": 0,
+          "awakerCardCritDamage": 0,
+          "critDamagePer": 0,
+          "beDamagePer": 0,
+          "beDamagePer2": 0,
+          "beDamagePer3": 0,
+          "beDamagePer4": 0,
+          "beDamagePer5": 0,
+          "vulnerablePer": 0,
+          "enemyTypeDmgPer": 50,
+          "enemyBuffDmgPer": 0,
+          "enemyDebuffDmgPer": 0,
+          "enemyBlockDmgPer": 0,
+          "enemyBlockBarrierDmgPer": 0,
+          "cardBlockBarrierPer": 0,
+          "enemyStateDmgMultiplier": 1,
+          "beDamagePlus": 0
+        },
+        "showDamage": 1658,
+        "preHitDamage": 6218,
+        "trace": [
+          {
+            "stage": "base",
+            "value": 421.2
+          },
+          {
+            "stage": "flat contributions",
+            "value": 905
+          },
+          {
+            "stage": "offensive subtotal",
+            "value": 1657.75
+          },
+          {
+            "stage": "ceil(x - 0.00001), minimum 1",
+            "value": 1658
+          },
+          {
+            "stage": "reduction product",
+            "value": 1
+          },
+          {
+            "stage": "floor(x + 0.00001), minimum 1",
+            "value": 1658
+          },
+          {
+            "stage": "crit bonus",
+            "value": 150
+          },
+          {
+            "stage": "after crit",
+            "value": 4145
+          },
+          {
+            "stage": "target products and flat addition",
+            "value": 6217.5
+          },
+          {
+            "stage": "ceil, minimum 1",
+            "value": 6218
+          }
+        ],
+        "wheelStacks": 4,
+        "wheelFlat": 260
+      },
+      "arachneTotal": 1850,
+      "blastTotal": 10350,
+      "pursuitTotal": 18654,
+      "total": 30854
+    },
+    {
+      "round": 3,
+      "aHit": {
+        "owner": "Arachne",
+        "kind": "strike",
+        "layers": 0,
+        "coefficient": 20,
+        "raw": 27.6,
+        "argument": 28,
+        "utilityInputs": {
+          "value": 28,
+          "awakerOutsideDamagePer": 0,
+          "awakerInsideBasicDamagePer": 0,
+          "playerOutsideDamagePer": 0,
+          "cardOutsideDmgPer": 0,
+          "curCardDamagePer": 0,
+          "basicDamagePer": 150,
+          "cardDamagePlus": 0,
+          "strength": 0,
+          "ultiDamgePlus": 0,
+          "strikecard_damage_plus": 645,
+          "skillArgsPlus": 0,
+          "awakerDamagePlus": 0,
+          "skillTypeOutsideDmgPer": 1.35,
+          "skillTypeDmgPer": 1,
+          "roleEnhancePer": 0,
+          "roleWeakPer": 0,
+          "awakerInsideDamagePer": 0,
+          "awakerInsideDamagePer1": 0,
+          "awakerInsideDamagePer2": 0,
+          "awakerInsideDamagePer3": 0,
+          "awakerInsideDamagePer4": 0,
+          "awakerInsideDamagePer5": 0,
+          "awakerInsideDamagePer6": 0,
+          "awakerInsideDamagePer7": 0,
+          "awakerInsideDamagePer8": 0,
+          "playerInsideDamagePer": 0,
+          "dimension_fix_per": 0,
+          "cardInsideDmgPer": 0,
+          "cardDamagePer2": 0,
+          "cardDamagePer3": 0,
+          "card_damage_per3_n2": 0,
+          "awaker_CmdCard_dmg_per": 0,
+          "awaker_ulti_dmg_per": 0,
+          "skillTypeInsideDmgPer": 1,
+          "spellboundDmgPer": 0,
+          "spellboundDmgPer2": 0,
+          "spellboundDmgPer3": 0,
+          "spellboundDmgPer4": 0,
+          "spellboundDmgPer5": 0
+        },
+        "target": {
+          "isCrit": true,
+          "awakerCritDamage": 150,
+          "cardCritDamage": 0,
+          "skillTypeCritDamage": 0,
+          "awakerCardCritDamage": 0,
+          "critDamagePer": 0,
+          "beDamagePer": 0,
+          "beDamagePer2": 0,
+          "beDamagePer3": 0,
+          "beDamagePer4": 0,
+          "beDamagePer5": 0,
+          "vulnerablePer": 0,
+          "enemyTypeDmgPer": 0,
+          "enemyBuffDmgPer": 0,
+          "enemyDebuffDmgPer": 0,
+          "enemyBlockDmgPer": 0,
+          "enemyBlockBarrierDmgPer": 0,
+          "cardBlockBarrierPer": 0,
+          "enemyStateDmgMultiplier": 1,
+          "beDamagePlus": 0
+        },
+        "showDamage": 740,
+        "preHitDamage": 1850,
+        "trace": [
+          {
+            "stage": "base",
+            "value": 94.5
+          },
+          {
+            "stage": "flat contributions",
+            "value": 645
+          },
+          {
+            "stage": "offensive subtotal",
+            "value": 739.5
+          },
+          {
+            "stage": "ceil(x - 0.00001), minimum 1",
+            "value": 740
+          },
+          {
+            "stage": "reduction product",
+            "value": 1
+          },
+          {
+            "stage": "floor(x + 0.00001), minimum 1",
+            "value": 740
+          },
+          {
+            "stage": "crit bonus",
+            "value": 150
+          },
+          {
+            "stage": "after crit",
+            "value": 1850
+          },
+          {
+            "stage": "target products and flat addition",
+            "value": 1850
+          },
+          {
+            "stage": "ceil, minimum 1",
+            "value": 1850
+          }
+        ],
+        "wheelStacks": 4,
+        "wheelFlat": 0
+      },
+      "blast": {
+        "owner": "Mouchette",
+        "kind": "blast",
+        "layers": 2,
+        "coefficient": 30,
+        "raw": 77.4,
+        "argument": 78,
+        "utilityInputs": {
+          "value": 78,
+          "awakerOutsideDamagePer": 0,
+          "awakerInsideBasicDamagePer": 0,
+          "playerOutsideDamagePer": 0,
+          "cardOutsideDmgPer": 0,
+          "curCardDamagePer": 0,
+          "basicDamagePer": 150,
+          "cardDamagePlus": 0,
+          "strength": 0,
+          "ultiDamgePlus": 0,
+          "strikecard_damage_plus": 970,
+          "skillArgsPlus": 0,
+          "awakerDamagePlus": 0,
+          "skillTypeOutsideDmgPer": 1.35,
+          "skillTypeDmgPer": 1,
+          "roleEnhancePer": 0,
+          "roleWeakPer": 0,
+          "awakerInsideDamagePer": 0,
+          "awakerInsideDamagePer1": 0,
+          "awakerInsideDamagePer2": 0,
+          "awakerInsideDamagePer3": 0,
+          "awakerInsideDamagePer4": 0,
+          "awakerInsideDamagePer5": 0,
+          "awakerInsideDamagePer6": 0,
+          "awakerInsideDamagePer7": 0,
+          "awakerInsideDamagePer8": 0,
+          "playerInsideDamagePer": 0,
+          "dimension_fix_per": 0,
+          "cardInsideDmgPer": 0,
+          "cardDamagePer2": 0,
+          "cardDamagePer3": 0,
+          "card_damage_per3_n2": 0,
+          "awaker_CmdCard_dmg_per": 0,
+          "awaker_ulti_dmg_per": 0,
+          "skillTypeInsideDmgPer": 1.5,
+          "spellboundDmgPer": 0,
+          "spellboundDmgPer2": 0,
+          "spellboundDmgPer3": 0,
+          "spellboundDmgPer4": 0,
+          "spellboundDmgPer5": 0
+        },
+        "target": {
+          "isCrit": true,
+          "awakerCritDamage": 150,
+          "cardCritDamage": 0,
+          "skillTypeCritDamage": 0,
+          "awakerCardCritDamage": 0,
+          "critDamagePer": 0,
+          "beDamagePer": 0,
+          "beDamagePer2": 0,
+          "beDamagePer3": 0,
+          "beDamagePer4": 0,
+          "beDamagePer5": 0,
+          "vulnerablePer": 0,
+          "enemyTypeDmgPer": 50,
+          "enemyBuffDmgPer": 0,
+          "enemyDebuffDmgPer": 0,
+          "enemyBlockDmgPer": 0,
+          "enemyBlockBarrierDmgPer": 0,
+          "cardBlockBarrierPer": 0,
+          "enemyStateDmgMultiplier": 1,
+          "beDamagePlus": 0
+        },
+        "showDamage": 1850,
+        "preHitDamage": 6938,
+        "trace": [
+          {
+            "stage": "base",
+            "value": 263.25000000000006
+          },
+          {
+            "stage": "flat contributions",
+            "value": 970
+          },
+          {
+            "stage": "offensive subtotal",
+            "value": 1849.875
+          },
+          {
+            "stage": "ceil(x - 0.00001), minimum 1",
+            "value": 1850
+          },
+          {
+            "stage": "reduction product",
+            "value": 1
+          },
+          {
+            "stage": "floor(x + 0.00001), minimum 1",
+            "value": 1850
+          },
+          {
+            "stage": "crit bonus",
+            "value": 150
+          },
+          {
+            "stage": "after crit",
+            "value": 4625
+          },
+          {
+            "stage": "target products and flat addition",
+            "value": 6937.5
+          },
+          {
+            "stage": "ceil, minimum 1",
+            "value": 6938
+          }
+        ],
+        "wheelStacks": 5,
+        "wheelFlat": 325
+      },
+      "pursuit": {
+        "owner": "Mouchette",
+        "kind": "follow",
+        "layers": 2,
+        "coefficient": 30,
+        "raw": 77.4,
+        "argument": 78,
+        "utilityInputs": {
+          "value": 78,
+          "awakerOutsideDamagePer": 0,
+          "awakerInsideBasicDamagePer": 0,
+          "playerOutsideDamagePer": 0,
+          "cardOutsideDmgPer": 0,
+          "curCardDamagePer": 0,
+          "basicDamagePer": 150,
+          "cardDamagePlus": 0,
+          "strength": 0,
+          "ultiDamgePlus": 0,
+          "strikecard_damage_plus": 1035,
+          "skillArgsPlus": 0,
+          "awakerDamagePlus": 0,
+          "skillTypeOutsideDmgPer": 2.16,
+          "skillTypeDmgPer": 1,
+          "roleEnhancePer": 0,
+          "roleWeakPer": 0,
+          "awakerInsideDamagePer": 0,
+          "awakerInsideDamagePer1": 0,
+          "awakerInsideDamagePer2": 0,
+          "awakerInsideDamagePer3": 0,
+          "awakerInsideDamagePer4": 0,
+          "awakerInsideDamagePer5": 0,
+          "awakerInsideDamagePer6": 0,
+          "awakerInsideDamagePer7": 0,
+          "awakerInsideDamagePer8": 0,
+          "playerInsideDamagePer": 0,
+          "dimension_fix_per": 0,
+          "cardInsideDmgPer": 0,
+          "cardDamagePer2": 0,
+          "cardDamagePer3": 0,
+          "card_damage_per3_n2": 0,
+          "awaker_CmdCard_dmg_per": 0,
+          "awaker_ulti_dmg_per": 0,
+          "skillTypeInsideDmgPer": 1.5,
+          "spellboundDmgPer": 0,
+          "spellboundDmgPer2": 0,
+          "spellboundDmgPer3": 0,
+          "spellboundDmgPer4": 0,
+          "spellboundDmgPer5": 0
+        },
+        "target": {
+          "isCrit": true,
+          "awakerCritDamage": 150,
+          "cardCritDamage": 0,
+          "skillTypeCritDamage": 0,
+          "awakerCardCritDamage": 0,
+          "critDamagePer": 0,
+          "beDamagePer": 0,
+          "beDamagePer2": 0,
+          "beDamagePer3": 0,
+          "beDamagePer4": 0,
+          "beDamagePer5": 0,
+          "vulnerablePer": 0,
+          "enemyTypeDmgPer": 50,
+          "enemyBuffDmgPer": 0,
+          "enemyDebuffDmgPer": 0,
+          "enemyBlockDmgPer": 0,
+          "enemyBlockBarrierDmgPer": 0,
+          "cardBlockBarrierPer": 0,
+          "enemyStateDmgMultiplier": 1,
+          "beDamagePlus": 0
+        },
+        "showDamage": 2185,
+        "preHitDamage": 8194,
+        "trace": [
+          {
+            "stage": "base",
+            "value": 421.2
+          },
+          {
+            "stage": "flat contributions",
+            "value": 1035
+          },
+          {
+            "stage": "offensive subtotal",
+            "value": 2184.3
+          },
+          {
+            "stage": "ceil(x - 0.00001), minimum 1",
+            "value": 2185
+          },
+          {
+            "stage": "reduction product",
+            "value": 1
+          },
+          {
+            "stage": "floor(x + 0.00001), minimum 1",
+            "value": 2185
+          },
+          {
+            "stage": "crit bonus",
+            "value": 150
+          },
+          {
+            "stage": "after crit",
+            "value": 5462.5
+          },
+          {
+            "stage": "target products and flat addition",
+            "value": 8193.75
+          },
+          {
+            "stage": "ceil, minimum 1",
+            "value": 8194
+          }
+        ],
+        "wheelStacks": 6,
+        "wheelFlat": 390
+      },
+      "arachneTotal": 1850,
+      "blastTotal": 13876,
+      "pursuitTotal": 24582,
+      "total": 40308
+    },
+    {
+      "round": 4,
+      "aHit": {
+        "owner": "Arachne",
+        "kind": "strike",
+        "layers": 0,
+        "coefficient": 20,
+        "raw": 27.6,
+        "argument": 28,
+        "utilityInputs": {
+          "value": 28,
+          "awakerOutsideDamagePer": 0,
+          "awakerInsideBasicDamagePer": 0,
+          "playerOutsideDamagePer": 0,
+          "cardOutsideDmgPer": 0,
+          "curCardDamagePer": 0,
+          "basicDamagePer": 150,
+          "cardDamagePlus": 0,
+          "strength": 0,
+          "ultiDamgePlus": 0,
+          "strikecard_damage_plus": 645,
+          "skillArgsPlus": 0,
+          "awakerDamagePlus": 0,
+          "skillTypeOutsideDmgPer": 1.35,
+          "skillTypeDmgPer": 1,
+          "roleEnhancePer": 0,
+          "roleWeakPer": 0,
+          "awakerInsideDamagePer": 0,
+          "awakerInsideDamagePer1": 0,
+          "awakerInsideDamagePer2": 0,
+          "awakerInsideDamagePer3": 0,
+          "awakerInsideDamagePer4": 0,
+          "awakerInsideDamagePer5": 0,
+          "awakerInsideDamagePer6": 0,
+          "awakerInsideDamagePer7": 0,
+          "awakerInsideDamagePer8": 0,
+          "playerInsideDamagePer": 0,
+          "dimension_fix_per": 0,
+          "cardInsideDmgPer": 0,
+          "cardDamagePer2": 0,
+          "cardDamagePer3": 0,
+          "card_damage_per3_n2": 0,
+          "awaker_CmdCard_dmg_per": 0,
+          "awaker_ulti_dmg_per": 0,
+          "skillTypeInsideDmgPer": 1,
+          "spellboundDmgPer": 0,
+          "spellboundDmgPer2": 0,
+          "spellboundDmgPer3": 0,
+          "spellboundDmgPer4": 0,
+          "spellboundDmgPer5": 0
+        },
+        "target": {
+          "isCrit": true,
+          "awakerCritDamage": 150,
+          "cardCritDamage": 0,
+          "skillTypeCritDamage": 0,
+          "awakerCardCritDamage": 0,
+          "critDamagePer": 0,
+          "beDamagePer": 0,
+          "beDamagePer2": 0,
+          "beDamagePer3": 0,
+          "beDamagePer4": 0,
+          "beDamagePer5": 0,
+          "vulnerablePer": 0,
+          "enemyTypeDmgPer": 0,
+          "enemyBuffDmgPer": 0,
+          "enemyDebuffDmgPer": 0,
+          "enemyBlockDmgPer": 0,
+          "enemyBlockBarrierDmgPer": 0,
+          "cardBlockBarrierPer": 0,
+          "enemyStateDmgMultiplier": 1,
+          "beDamagePlus": 0
+        },
+        "showDamage": 740,
+        "preHitDamage": 1850,
+        "trace": [
+          {
+            "stage": "base",
+            "value": 94.5
+          },
+          {
+            "stage": "flat contributions",
+            "value": 645
+          },
+          {
+            "stage": "offensive subtotal",
+            "value": 739.5
+          },
+          {
+            "stage": "ceil(x - 0.00001), minimum 1",
+            "value": 740
+          },
+          {
+            "stage": "reduction product",
+            "value": 1
+          },
+          {
+            "stage": "floor(x + 0.00001), minimum 1",
+            "value": 740
+          },
+          {
+            "stage": "crit bonus",
+            "value": 150
+          },
+          {
+            "stage": "after crit",
+            "value": 1850
+          },
+          {
+            "stage": "target products and flat addition",
+            "value": 1850
+          },
+          {
+            "stage": "ceil, minimum 1",
+            "value": 1850
+          }
+        ],
+        "wheelStacks": 6,
+        "wheelFlat": 0
+      },
+      "blast": {
+        "owner": "Mouchette",
+        "kind": "blast",
+        "layers": 3,
+        "coefficient": 30,
+        "raw": 77.4,
+        "argument": 78,
+        "utilityInputs": {
+          "value": 78,
+          "awakerOutsideDamagePer": 0,
+          "awakerInsideBasicDamagePer": 0,
+          "playerOutsideDamagePer": 0,
+          "cardOutsideDmgPer": 0,
+          "curCardDamagePer": 0,
+          "basicDamagePer": 150,
+          "cardDamagePlus": 0,
+          "strength": 0,
+          "ultiDamgePlus": 0,
+          "strikecard_damage_plus": 1100,
+          "skillArgsPlus": 0,
+          "awakerDamagePlus": 0,
+          "skillTypeOutsideDmgPer": 1.35,
+          "skillTypeDmgPer": 1,
+          "roleEnhancePer": 0,
+          "roleWeakPer": 0,
+          "awakerInsideDamagePer": 0,
+          "awakerInsideDamagePer1": 0,
+          "awakerInsideDamagePer2": 0,
+          "awakerInsideDamagePer3": 0,
+          "awakerInsideDamagePer4": 0,
+          "awakerInsideDamagePer5": 0,
+          "awakerInsideDamagePer6": 0,
+          "awakerInsideDamagePer7": 0,
+          "awakerInsideDamagePer8": 0,
+          "playerInsideDamagePer": 0,
+          "dimension_fix_per": 0,
+          "cardInsideDmgPer": 0,
+          "cardDamagePer2": 0,
+          "cardDamagePer3": 0,
+          "card_damage_per3_n2": 0,
+          "awaker_CmdCard_dmg_per": 0,
+          "awaker_ulti_dmg_per": 0,
+          "skillTypeInsideDmgPer": 1.75,
+          "spellboundDmgPer": 0,
+          "spellboundDmgPer2": 0,
+          "spellboundDmgPer3": 0,
+          "spellboundDmgPer4": 0,
+          "spellboundDmgPer5": 0
+        },
+        "target": {
+          "isCrit": true,
+          "awakerCritDamage": 150,
+          "cardCritDamage": 0,
+          "skillTypeCritDamage": 0,
+          "awakerCardCritDamage": 0,
+          "critDamagePer": 0,
+          "beDamagePer": 0,
+          "beDamagePer2": 0,
+          "beDamagePer3": 0,
+          "beDamagePer4": 0,
+          "beDamagePer5": 0,
+          "vulnerablePer": 0,
+          "enemyTypeDmgPer": 50,
+          "enemyBuffDmgPer": 0,
+          "enemyDebuffDmgPer": 0,
+          "enemyBlockDmgPer": 0,
+          "enemyBlockBarrierDmgPer": 0,
+          "cardBlockBarrierPer": 0,
+          "enemyStateDmgMultiplier": 1,
+          "beDamagePlus": 0
+        },
+        "showDamage": 2386,
+        "preHitDamage": 8948,
+        "trace": [
+          {
+            "stage": "base",
+            "value": 263.25000000000006
+          },
+          {
+            "stage": "flat contributions",
+            "value": 1100
+          },
+          {
+            "stage": "offensive subtotal",
+            "value": 2385.6875
+          },
+          {
+            "stage": "ceil(x - 0.00001), minimum 1",
+            "value": 2386
+          },
+          {
+            "stage": "reduction product",
+            "value": 1
+          },
+          {
+            "stage": "floor(x + 0.00001), minimum 1",
+            "value": 2386
+          },
+          {
+            "stage": "crit bonus",
+            "value": 150
+          },
+          {
+            "stage": "after crit",
+            "value": 5965
+          },
+          {
+            "stage": "target products and flat addition",
+            "value": 8947.5
+          },
+          {
+            "stage": "ceil, minimum 1",
+            "value": 8948
+          }
+        ],
+        "wheelStacks": 7,
+        "wheelFlat": 455
+      },
+      "pursuit": {
+        "owner": "Mouchette",
+        "kind": "follow",
+        "layers": 3,
+        "coefficient": 30,
+        "raw": 77.4,
+        "argument": 78,
+        "utilityInputs": {
+          "value": 78,
+          "awakerOutsideDamagePer": 0,
+          "awakerInsideBasicDamagePer": 0,
+          "playerOutsideDamagePer": 0,
+          "cardOutsideDmgPer": 0,
+          "curCardDamagePer": 0,
+          "basicDamagePer": 150,
+          "cardDamagePlus": 0,
+          "strength": 0,
+          "ultiDamgePlus": 0,
+          "strikecard_damage_plus": 1165,
+          "skillArgsPlus": 0,
+          "awakerDamagePlus": 0,
+          "skillTypeOutsideDmgPer": 2.16,
+          "skillTypeDmgPer": 1,
+          "roleEnhancePer": 0,
+          "roleWeakPer": 0,
+          "awakerInsideDamagePer": 0,
+          "awakerInsideDamagePer1": 0,
+          "awakerInsideDamagePer2": 0,
+          "awakerInsideDamagePer3": 0,
+          "awakerInsideDamagePer4": 0,
+          "awakerInsideDamagePer5": 0,
+          "awakerInsideDamagePer6": 0,
+          "awakerInsideDamagePer7": 0,
+          "awakerInsideDamagePer8": 0,
+          "playerInsideDamagePer": 0,
+          "dimension_fix_per": 0,
+          "cardInsideDmgPer": 0,
+          "cardDamagePer2": 0,
+          "cardDamagePer3": 0,
+          "card_damage_per3_n2": 0,
+          "awaker_CmdCard_dmg_per": 0,
+          "awaker_ulti_dmg_per": 0,
+          "skillTypeInsideDmgPer": 1.75,
+          "spellboundDmgPer": 0,
+          "spellboundDmgPer2": 0,
+          "spellboundDmgPer3": 0,
+          "spellboundDmgPer4": 0,
+          "spellboundDmgPer5": 0
+        },
+        "target": {
+          "isCrit": true,
+          "awakerCritDamage": 150,
+          "cardCritDamage": 0,
+          "skillTypeCritDamage": 0,
+          "awakerCardCritDamage": 0,
+          "critDamagePer": 0,
+          "beDamagePer": 0,
+          "beDamagePer2": 0,
+          "beDamagePer3": 0,
+          "beDamagePer4": 0,
+          "beDamagePer5": 0,
+          "vulnerablePer": 0,
+          "enemyTypeDmgPer": 50,
+          "enemyBuffDmgPer": 0,
+          "enemyDebuffDmgPer": 0,
+          "enemyBlockDmgPer": 0,
+          "enemyBlockBarrierDmgPer": 0,
+          "cardBlockBarrierPer": 0,
+          "enemyStateDmgMultiplier": 1,
+          "beDamagePlus": 0
+        },
+        "showDamage": 2776,
+        "preHitDamage": 10410,
+        "trace": [
+          {
+            "stage": "base",
+            "value": 421.2
+          },
+          {
+            "stage": "flat contributions",
+            "value": 1165
+          },
+          {
+            "stage": "offensive subtotal",
+            "value": 2775.85
+          },
+          {
+            "stage": "ceil(x - 0.00001), minimum 1",
+            "value": 2776
+          },
+          {
+            "stage": "reduction product",
+            "value": 1
+          },
+          {
+            "stage": "floor(x + 0.00001), minimum 1",
+            "value": 2776
+          },
+          {
+            "stage": "crit bonus",
+            "value": 150
+          },
+          {
+            "stage": "after crit",
+            "value": 6940
+          },
+          {
+            "stage": "target products and flat addition",
+            "value": 10410
+          },
+          {
+            "stage": "ceil, minimum 1",
+            "value": 10410
+          }
+        ],
+        "wheelStacks": 8,
+        "wheelFlat": 520
+      },
+      "arachneTotal": 1850,
+      "blastTotal": 17896,
+      "pursuitTotal": 31230,
+      "total": 50976
+    },
+    {
+      "round": 5,
+      "aHit": {
+        "owner": "Arachne",
+        "kind": "strike",
+        "layers": 0,
+        "coefficient": 20,
+        "raw": 27.6,
+        "argument": 28,
+        "utilityInputs": {
+          "value": 28,
+          "awakerOutsideDamagePer": 0,
+          "awakerInsideBasicDamagePer": 0,
+          "playerOutsideDamagePer": 0,
+          "cardOutsideDmgPer": 0,
+          "curCardDamagePer": 0,
+          "basicDamagePer": 150,
+          "cardDamagePlus": 0,
+          "strength": 0,
+          "ultiDamgePlus": 0,
+          "strikecard_damage_plus": 645,
+          "skillArgsPlus": 0,
+          "awakerDamagePlus": 0,
+          "skillTypeOutsideDmgPer": 1.35,
+          "skillTypeDmgPer": 1,
+          "roleEnhancePer": 0,
+          "roleWeakPer": 0,
+          "awakerInsideDamagePer": 0,
+          "awakerInsideDamagePer1": 0,
+          "awakerInsideDamagePer2": 0,
+          "awakerInsideDamagePer3": 0,
+          "awakerInsideDamagePer4": 0,
+          "awakerInsideDamagePer5": 0,
+          "awakerInsideDamagePer6": 0,
+          "awakerInsideDamagePer7": 0,
+          "awakerInsideDamagePer8": 0,
+          "playerInsideDamagePer": 0,
+          "dimension_fix_per": 0,
+          "cardInsideDmgPer": 0,
+          "cardDamagePer2": 0,
+          "cardDamagePer3": 0,
+          "card_damage_per3_n2": 0,
+          "awaker_CmdCard_dmg_per": 0,
+          "awaker_ulti_dmg_per": 0,
+          "skillTypeInsideDmgPer": 1,
+          "spellboundDmgPer": 0,
+          "spellboundDmgPer2": 0,
+          "spellboundDmgPer3": 0,
+          "spellboundDmgPer4": 0,
+          "spellboundDmgPer5": 0
+        },
+        "target": {
+          "isCrit": true,
+          "awakerCritDamage": 150,
+          "cardCritDamage": 0,
+          "skillTypeCritDamage": 0,
+          "awakerCardCritDamage": 0,
+          "critDamagePer": 0,
+          "beDamagePer": 0,
+          "beDamagePer2": 0,
+          "beDamagePer3": 0,
+          "beDamagePer4": 0,
+          "beDamagePer5": 0,
+          "vulnerablePer": 0,
+          "enemyTypeDmgPer": 0,
+          "enemyBuffDmgPer": 0,
+          "enemyDebuffDmgPer": 0,
+          "enemyBlockDmgPer": 0,
+          "enemyBlockBarrierDmgPer": 0,
+          "cardBlockBarrierPer": 0,
+          "enemyStateDmgMultiplier": 1,
+          "beDamagePlus": 0
+        },
+        "showDamage": 740,
+        "preHitDamage": 1850,
+        "trace": [
+          {
+            "stage": "base",
+            "value": 94.5
+          },
+          {
+            "stage": "flat contributions",
+            "value": 645
+          },
+          {
+            "stage": "offensive subtotal",
+            "value": 739.5
+          },
+          {
+            "stage": "ceil(x - 0.00001), minimum 1",
+            "value": 740
+          },
+          {
+            "stage": "reduction product",
+            "value": 1
+          },
+          {
+            "stage": "floor(x + 0.00001), minimum 1",
+            "value": 740
+          },
+          {
+            "stage": "crit bonus",
+            "value": 150
+          },
+          {
+            "stage": "after crit",
+            "value": 1850
+          },
+          {
+            "stage": "target products and flat addition",
+            "value": 1850
+          },
+          {
+            "stage": "ceil, minimum 1",
+            "value": 1850
+          }
+        ],
+        "wheelStacks": 8,
+        "wheelFlat": 0
+      },
+      "blast": {
+        "owner": "Mouchette",
+        "kind": "blast",
+        "layers": 4,
+        "coefficient": 30,
+        "raw": 77.4,
+        "argument": 78,
+        "utilityInputs": {
+          "value": 78,
+          "awakerOutsideDamagePer": 0,
+          "awakerInsideBasicDamagePer": 0,
+          "playerOutsideDamagePer": 0,
+          "cardOutsideDmgPer": 0,
+          "curCardDamagePer": 0,
+          "basicDamagePer": 150,
+          "cardDamagePlus": 0,
+          "strength": 0,
+          "ultiDamgePlus": 0,
+          "strikecard_damage_plus": 1165,
+          "skillArgsPlus": 0,
+          "awakerDamagePlus": 0,
+          "skillTypeOutsideDmgPer": 1.35,
+          "skillTypeDmgPer": 1,
+          "roleEnhancePer": 0,
+          "roleWeakPer": 0,
+          "awakerInsideDamagePer": 0,
+          "awakerInsideDamagePer1": 0,
+          "awakerInsideDamagePer2": 0,
+          "awakerInsideDamagePer3": 0,
+          "awakerInsideDamagePer4": 0,
+          "awakerInsideDamagePer5": 0,
+          "awakerInsideDamagePer6": 0,
+          "awakerInsideDamagePer7": 0,
+          "awakerInsideDamagePer8": 0,
+          "playerInsideDamagePer": 0,
+          "dimension_fix_per": 0,
+          "cardInsideDmgPer": 0,
+          "cardDamagePer2": 0,
+          "cardDamagePer3": 0,
+          "card_damage_per3_n2": 0,
+          "awaker_CmdCard_dmg_per": 0,
+          "awaker_ulti_dmg_per": 0,
+          "skillTypeInsideDmgPer": 2,
+          "spellboundDmgPer": 0,
+          "spellboundDmgPer2": 0,
+          "spellboundDmgPer3": 0,
+          "spellboundDmgPer4": 0,
+          "spellboundDmgPer5": 0
+        },
+        "target": {
+          "isCrit": true,
+          "awakerCritDamage": 150,
+          "cardCritDamage": 0,
+          "skillTypeCritDamage": 0,
+          "awakerCardCritDamage": 0,
+          "critDamagePer": 0,
+          "beDamagePer": 0,
+          "beDamagePer2": 0,
+          "beDamagePer3": 0,
+          "beDamagePer4": 0,
+          "beDamagePer5": 0,
+          "vulnerablePer": 0,
+          "enemyTypeDmgPer": 50,
+          "enemyBuffDmgPer": 0,
+          "enemyDebuffDmgPer": 0,
+          "enemyBlockDmgPer": 0,
+          "enemyBlockBarrierDmgPer": 0,
+          "cardBlockBarrierPer": 0,
+          "enemyStateDmgMultiplier": 1,
+          "beDamagePlus": 0
+        },
+        "showDamage": 2857,
+        "preHitDamage": 10714,
+        "trace": [
+          {
+            "stage": "base",
+            "value": 263.25000000000006
+          },
+          {
+            "stage": "flat contributions",
+            "value": 1165
+          },
+          {
+            "stage": "offensive subtotal",
+            "value": 2856.5
+          },
+          {
+            "stage": "ceil(x - 0.00001), minimum 1",
+            "value": 2857
+          },
+          {
+            "stage": "reduction product",
+            "value": 1
+          },
+          {
+            "stage": "floor(x + 0.00001), minimum 1",
+            "value": 2857
+          },
+          {
+            "stage": "crit bonus",
+            "value": 150
+          },
+          {
+            "stage": "after crit",
+            "value": 7142.5
+          },
+          {
+            "stage": "target products and flat addition",
+            "value": 10713.75
+          },
+          {
+            "stage": "ceil, minimum 1",
+            "value": 10714
+          }
+        ],
+        "wheelStacks": 8,
+        "wheelFlat": 520
+      },
+      "pursuit": null,
+      "arachneTotal": 1850,
+      "blastTotal": 21428,
+      "pursuitTotal": 0,
+      "total": 23278
+    }
+  ],
+  "totals": {
+    "arachne": 9250,
+    "blast": 70856,
+    "pursuit": 87933,
+    "mouchette": 158789,
+    "combined": 168039
+  },
+  "sourceHashes": {
+    "research/external/skeydb/awakener-0033.json": "36d2d3df356e50641c58cd461811828fd9f275ebb388aaf15bf61114a66b1f7e",
+    "research/external/skeydb/awakener-0056.json": "e192aa1002ad61c6c7230ce5d5090a9093c91d0895e4b40d383dbeb20c6a977e",
+    "research/external/skeydb/talent.mouchette.gnostic-potential.json": "e4d7622edc9bd9269458030ee09e598b1b12d3a0c9276fda53470816565d2b0f",
+    "research/external/skeydb/talent.mouchette.soulforge-aptitude.json": "ec48ee33ae8dbbba5f14661d06b758c47ced018217140b800fe59c112860a1e2",
+    "research/external/skeydb/skill.mouchette.mortal-blast.json": "a839a00535cefa032013628cc306d6f631498748fc028e57182b09203ac120c3",
+    "research/external/skeydb/skill.mouchette.shining-tornado.json": "884c9d26f284b83e58e3b116edf6e10901d8d5e2ede5fe126e4b614a3552c9fc",
+    "research/external/skeydb/skill.arachne.strike.json": "bbe6c12fb735a4e54c4387fcfd8a39756961578f1c9bb40cf5b8ff1e4e938e59",
+    "research/external/skeydb/derived.mouchette.dramatic-encounter.json": "d249937027aa61dba819fbb3da29022d9439c428ad8d319478e0fb66fb46cba5"
+  },
+  "limitations": [
+    "Conditional pre-hit calculation, not independent gameplay validation",
+    "Target must survive all attacks for the complete sequence",
+    "No additional relic, equipment, target mitigation, cap or triggered damage",
+    "Full event queue is not executed; configured follow-up order is used",
+    "Wheel stacks use after-play order; attached pursuit runs after both after-card listener command branches",
+    "Wheel main stat is Death Resistance; specified final crit values are held fixed, not increased again"
+  ],
+  "wheel": {
+    "id": "wheel-0029",
+    "name": "Doomsday Rampage",
+    "pursuitBasePercent": 60,
+    "flatPerStrike": 65,
+    "cap": 8,
+    "sourceHash": "0b3496cc299f7607e4f4ee6d6b6a49977a71e3d0af7212356dd20366199f2929"
+  },
+  "arithmeticVerification": {
+    "status": "PASS",
+    "scope": "14 resolved per-hit records checked through original ShowDamageFormula and no-card target adapter; all omitted card crit/target fields are zero in this baseline. Does not execute skills, follow-up scheduling, HP mutation or gameplay.",
+    "sourceHashes": {
+      "BattleUtilServer": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+      "BattleCmdServer": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b"
+    },
+    "checks": [
+      {
+        "round": 1,
+        "event": "aHit",
+        "showDamage": 740.0,
+        "preHitDamage": 1850.0
+      },
+      {
+        "round": 1,
+        "event": "blast",
+        "showDamage": 974.0,
+        "preHitDamage": 3653.0
+      },
+      {
+        "round": 1,
+        "event": "pursuit",
+        "showDamage": 1197.0,
+        "preHitDamage": 4489.0
+      },
+      {
+        "round": 2,
+        "event": "aHit",
+        "showDamage": 740.0,
+        "preHitDamage": 1850.0
+      },
+      {
+        "round": 2,
+        "event": "blast",
+        "showDamage": 1380.0,
+        "preHitDamage": 5175.0
+      },
+      {
+        "round": 2,
+        "event": "pursuit",
+        "showDamage": 1658.0,
+        "preHitDamage": 6218.0
+      },
+      {
+        "round": 3,
+        "event": "aHit",
+        "showDamage": 740.0,
+        "preHitDamage": 1850.0
+      },
+      {
+        "round": 3,
+        "event": "blast",
+        "showDamage": 1850.0,
+        "preHitDamage": 6938.0
+      },
+      {
+        "round": 3,
+        "event": "pursuit",
+        "showDamage": 2185.0,
+        "preHitDamage": 8194.0
+      },
+      {
+        "round": 4,
+        "event": "aHit",
+        "showDamage": 740.0,
+        "preHitDamage": 1850.0
+      },
+      {
+        "round": 4,
+        "event": "blast",
+        "showDamage": 2386.0,
+        "preHitDamage": 8948.0
+      },
+      {
+        "round": 4,
+        "event": "pursuit",
+        "showDamage": 2776.0,
+        "preHitDamage": 10410.0
+      },
+      {
+        "round": 5,
+        "event": "aHit",
+        "showDamage": 740.0,
+        "preHitDamage": 1850.0
+      },
+      {
+        "round": 5,
+        "event": "blast",
+        "showDamage": 2857.0,
+        "preHitDamage": 10714.0
+      }
+    ]
+  },
+  "scopeWarning": "Arithmetic reference only: intrinsic Arachne Prism and Dimension Shuttle are omitted. Not a complete equipped-team prediction."
+}

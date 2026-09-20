@@ -1,0 +1,1426 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "scope": "One original __DoMultiEffect iteration directly calls original BeHit and original HP property mutation in one Lua state. Explicit living target, ordinary/Puncture subtypes (Pure ordinary only), property/dimension adapters. No scheduler, state reconstruction, record statistics, animation or damage-event execution.",
+  "sourceHashes": {
+    "BEPassiveDamage": "f4ba266131c50ae01bea054e4fefd0cf89f7af2d31acba86123355b65cf2c784",
+    "BEFixedDamage": "f2b15141a02bd1c251364d969159b0556a280522604b7d02400c2cf12b75c280",
+    "BEPureDamage": "1a8c11026251e91c3d5f9838f8c69dffabf91ba6889ab27dc4893fd8a93771bc",
+    "BattleEffectServer": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+    "BattleUnitBase": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+    "BattleUnitUtil": "b664734d7f12a5009b36727d2c3dfde75295b6e2be03edb37c3cf98ee74a1d04",
+    "BattlePropertyServer": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76"
+  },
+  "fixtures": [
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 0,
+        "puncture": false,
+        "hp": 1000,
+        "immune": false,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Passive",
+        "effectProperties": {
+          "be_passive_damage_per": 50,
+          "be_passive_damage_per2": 20,
+          "be_passive_damage_per3": -10
+        }
+      },
+      "expected": {
+        "changeVal": 205.0,
+        "curHp": 795.0,
+        "oldHp": 1000.0,
+        "immueDamage": false,
+        "realDamage": 205.0,
+        "castDamage": 205.0,
+        "blockedDamage": 0.0,
+        "blockLose": 0.0,
+        "overflowDamage": null,
+        "isBlockedDamage": false,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1000.0,
+            "new": 795.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -205.0,
+            "new": 795.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 100,
+        "puncture": false,
+        "hp": 1000,
+        "immune": false,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Passive",
+        "effectProperties": {
+          "be_passive_damage_per": 50,
+          "be_passive_damage_per2": 20,
+          "be_passive_damage_per3": -10
+        }
+      },
+      "expected": {
+        "changeVal": 105.0,
+        "curHp": 895.0,
+        "oldHp": 1000.0,
+        "immueDamage": false,
+        "realDamage": 105.0,
+        "castDamage": 205.0,
+        "blockedDamage": 100.0,
+        "blockLose": 100.0,
+        "overflowDamage": null,
+        "isBlockedDamage": true,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "block",
+            "old": 100.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "block",
+            "delta": -100.0,
+            "new": 0.0
+          },
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1000.0,
+            "new": 895.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -105.0,
+            "new": 895.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 1000,
+        "puncture": false,
+        "hp": 1000,
+        "immune": false,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Passive",
+        "effectProperties": {
+          "be_passive_damage_per": 50,
+          "be_passive_damage_per2": 20,
+          "be_passive_damage_per3": -10
+        }
+      },
+      "expected": {
+        "changeVal": 0.0,
+        "curHp": 1000.0,
+        "oldHp": 1000.0,
+        "immueDamage": false,
+        "realDamage": 0.0,
+        "castDamage": 205.0,
+        "blockedDamage": -795.0,
+        "blockLose": 205.0,
+        "overflowDamage": null,
+        "isBlockedDamage": true,
+        "isBlockedAllDamage": true,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 795.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "block",
+            "old": 1000.0,
+            "new": 795.0
+          },
+          {
+            "kind": "send",
+            "property": "block",
+            "delta": -205.0,
+            "new": 795.0
+          },
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1000.0,
+            "new": 1000.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": 0.0,
+            "new": 1000.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 0,
+        "puncture": false,
+        "hp": 1000,
+        "immune": true,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Passive",
+        "effectProperties": {
+          "be_passive_damage_per": 50,
+          "be_passive_damage_per2": 20,
+          "be_passive_damage_per3": -10
+        }
+      },
+      "expected": {
+        "changeVal": 0.0,
+        "curHp": 1000.0,
+        "oldHp": 1000.0,
+        "immueDamage": true,
+        "realDamage": 0.0,
+        "castDamage": 205.0,
+        "blockedDamage": 0.0,
+        "blockLose": 0.0,
+        "overflowDamage": null,
+        "isBlockedDamage": false,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1000.0,
+            "new": 1000.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": 0.0,
+            "new": 1000.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 0,
+        "puncture": false,
+        "hp": 1000,
+        "immune": false,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 90,
+        "usedLimit": 70,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Passive",
+        "effectProperties": {
+          "be_passive_damage_per": 50,
+          "be_passive_damage_per2": 20,
+          "be_passive_damage_per3": -10
+        }
+      },
+      "expected": {
+        "changeVal": 20.0,
+        "curHp": 980.0,
+        "oldHp": 1000.0,
+        "immueDamage": false,
+        "realDamage": 20.0,
+        "castDamage": 205.0,
+        "blockedDamage": 0.0,
+        "blockLose": 0.0,
+        "overflowDamage": null,
+        "isBlockedDamage": false,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1000.0,
+            "new": 980.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -20.0,
+            "new": 980.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 0,
+        "puncture": false,
+        "hp": 10,
+        "immune": false,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Passive",
+        "effectProperties": {
+          "be_passive_damage_per": 50,
+          "be_passive_damage_per2": 20,
+          "be_passive_damage_per3": -10
+        }
+      },
+      "expected": {
+        "changeVal": 205.0,
+        "curHp": 0.0,
+        "oldHp": 10.0,
+        "immueDamage": false,
+        "realDamage": 10.0,
+        "castDamage": 205.0,
+        "blockedDamage": 0.0,
+        "blockLose": 0.0,
+        "overflowDamage": 195.0,
+        "isBlockedDamage": false,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 10.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -10.0,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 0,
+        "puncture": false,
+        "hp": 10,
+        "immune": false,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 1,
+        "dimensionFixPer": 25,
+        "damageType": "Passive",
+        "effectProperties": {
+          "be_passive_damage_per": 50,
+          "be_passive_damage_per2": 20,
+          "be_passive_damage_per3": -10
+        }
+      },
+      "expected": {
+        "changeVal": 9.0,
+        "curHp": 1.0,
+        "oldHp": 10.0,
+        "immueDamage": false,
+        "realDamage": 9.0,
+        "castDamage": 205.0,
+        "blockedDamage": 0.0,
+        "blockLose": 0.0,
+        "overflowDamage": null,
+        "isBlockedDamage": false,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": true,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 10.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -9.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 100,
+        "puncture": true,
+        "hp": 1000,
+        "immune": false,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Passive",
+        "effectProperties": {
+          "be_passive_damage_per": 50,
+          "be_passive_damage_per2": 20,
+          "be_passive_damage_per3": -10
+        }
+      },
+      "expected": {
+        "changeVal": 205.0,
+        "curHp": 795.0,
+        "oldHp": 1000.0,
+        "immueDamage": false,
+        "realDamage": 205.0,
+        "castDamage": 205.0,
+        "blockedDamage": 0.0,
+        "blockLose": 100.0,
+        "overflowDamage": null,
+        "isBlockedDamage": true,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "block",
+            "old": 100.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "block",
+            "delta": -100.0,
+            "new": 0.0
+          },
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1000.0,
+            "new": 795.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -205.0,
+            "new": 795.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 100,
+        "puncture": true,
+        "hp": 1000,
+        "immune": true,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Passive",
+        "effectProperties": {
+          "be_passive_damage_per": 50,
+          "be_passive_damage_per2": 20,
+          "be_passive_damage_per3": -10
+        }
+      },
+      "expected": {
+        "changeVal": 205.0,
+        "curHp": 795.0,
+        "oldHp": 1000.0,
+        "immueDamage": false,
+        "realDamage": 205.0,
+        "castDamage": 205.0,
+        "blockedDamage": 0.0,
+        "blockLose": 100.0,
+        "overflowDamage": null,
+        "isBlockedDamage": true,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "block",
+            "old": 100.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "block",
+            "delta": -100.0,
+            "new": 0.0
+          },
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1000.0,
+            "new": 795.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -205.0,
+            "new": 795.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 0,
+        "puncture": false,
+        "hp": 1000,
+        "immune": false,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Fixed",
+        "effectProperties": {
+          "be_fixed_damage_per1": 50,
+          "be_fixed_damage_per2": 20,
+          "be_fixed_damage_per3": -10,
+          "be_fixed_damage_per4": 15,
+          "be_fixed_damage_per5": 25
+        }
+      },
+      "expected": {
+        "changeVal": 295.0,
+        "curHp": 705.0,
+        "oldHp": 1000.0,
+        "immueDamage": false,
+        "realDamage": 295.0,
+        "castDamage": 295.0,
+        "blockedDamage": 0.0,
+        "blockLose": 0.0,
+        "overflowDamage": null,
+        "isBlockedDamage": false,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1000.0,
+            "new": 705.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -295.0,
+            "new": 705.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 100,
+        "puncture": false,
+        "hp": 1000,
+        "immune": false,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Fixed",
+        "effectProperties": {
+          "be_fixed_damage_per1": 50,
+          "be_fixed_damage_per2": 20,
+          "be_fixed_damage_per3": -10,
+          "be_fixed_damage_per4": 15,
+          "be_fixed_damage_per5": 25
+        }
+      },
+      "expected": {
+        "changeVal": 195.0,
+        "curHp": 805.0,
+        "oldHp": 1000.0,
+        "immueDamage": false,
+        "realDamage": 195.0,
+        "castDamage": 295.0,
+        "blockedDamage": 100.0,
+        "blockLose": 100.0,
+        "overflowDamage": null,
+        "isBlockedDamage": true,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "block",
+            "old": 100.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "block",
+            "delta": -100.0,
+            "new": 0.0
+          },
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1000.0,
+            "new": 805.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -195.0,
+            "new": 805.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 1000,
+        "puncture": false,
+        "hp": 1000,
+        "immune": false,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Fixed",
+        "effectProperties": {
+          "be_fixed_damage_per1": 50,
+          "be_fixed_damage_per2": 20,
+          "be_fixed_damage_per3": -10,
+          "be_fixed_damage_per4": 15,
+          "be_fixed_damage_per5": 25
+        }
+      },
+      "expected": {
+        "changeVal": 0.0,
+        "curHp": 1000.0,
+        "oldHp": 1000.0,
+        "immueDamage": false,
+        "realDamage": 0.0,
+        "castDamage": 295.0,
+        "blockedDamage": -705.0,
+        "blockLose": 295.0,
+        "overflowDamage": null,
+        "isBlockedDamage": true,
+        "isBlockedAllDamage": true,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 705.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "block",
+            "old": 1000.0,
+            "new": 705.0
+          },
+          {
+            "kind": "send",
+            "property": "block",
+            "delta": -295.0,
+            "new": 705.0
+          },
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1000.0,
+            "new": 1000.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": 0.0,
+            "new": 1000.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 0,
+        "puncture": false,
+        "hp": 1000,
+        "immune": true,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Fixed",
+        "effectProperties": {
+          "be_fixed_damage_per1": 50,
+          "be_fixed_damage_per2": 20,
+          "be_fixed_damage_per3": -10,
+          "be_fixed_damage_per4": 15,
+          "be_fixed_damage_per5": 25
+        }
+      },
+      "expected": {
+        "changeVal": 0.0,
+        "curHp": 1000.0,
+        "oldHp": 1000.0,
+        "immueDamage": true,
+        "realDamage": 0.0,
+        "castDamage": 295.0,
+        "blockedDamage": 0.0,
+        "blockLose": 0.0,
+        "overflowDamage": null,
+        "isBlockedDamage": false,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1000.0,
+            "new": 1000.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": 0.0,
+            "new": 1000.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 0,
+        "puncture": false,
+        "hp": 1000,
+        "immune": false,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 90,
+        "usedLimit": 70,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Fixed",
+        "effectProperties": {
+          "be_fixed_damage_per1": 50,
+          "be_fixed_damage_per2": 20,
+          "be_fixed_damage_per3": -10,
+          "be_fixed_damage_per4": 15,
+          "be_fixed_damage_per5": 25
+        }
+      },
+      "expected": {
+        "changeVal": 20.0,
+        "curHp": 980.0,
+        "oldHp": 1000.0,
+        "immueDamage": false,
+        "realDamage": 20.0,
+        "castDamage": 295.0,
+        "blockedDamage": 0.0,
+        "blockLose": 0.0,
+        "overflowDamage": null,
+        "isBlockedDamage": false,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1000.0,
+            "new": 980.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -20.0,
+            "new": 980.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 0,
+        "puncture": false,
+        "hp": 10,
+        "immune": false,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Fixed",
+        "effectProperties": {
+          "be_fixed_damage_per1": 50,
+          "be_fixed_damage_per2": 20,
+          "be_fixed_damage_per3": -10,
+          "be_fixed_damage_per4": 15,
+          "be_fixed_damage_per5": 25
+        }
+      },
+      "expected": {
+        "changeVal": 295.0,
+        "curHp": 0.0,
+        "oldHp": 10.0,
+        "immueDamage": false,
+        "realDamage": 10.0,
+        "castDamage": 295.0,
+        "blockedDamage": 0.0,
+        "blockLose": 0.0,
+        "overflowDamage": 285.0,
+        "isBlockedDamage": false,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 10.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -10.0,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 0,
+        "puncture": false,
+        "hp": 10,
+        "immune": false,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 1,
+        "dimensionFixPer": 25,
+        "damageType": "Fixed",
+        "effectProperties": {
+          "be_fixed_damage_per1": 50,
+          "be_fixed_damage_per2": 20,
+          "be_fixed_damage_per3": -10,
+          "be_fixed_damage_per4": 15,
+          "be_fixed_damage_per5": 25
+        }
+      },
+      "expected": {
+        "changeVal": 9.0,
+        "curHp": 1.0,
+        "oldHp": 10.0,
+        "immueDamage": false,
+        "realDamage": 9.0,
+        "castDamage": 295.0,
+        "blockedDamage": 0.0,
+        "blockLose": 0.0,
+        "overflowDamage": null,
+        "isBlockedDamage": false,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": true,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 10.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -9.0,
+            "new": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 100,
+        "puncture": true,
+        "hp": 1000,
+        "immune": false,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Fixed",
+        "effectProperties": {
+          "be_fixed_damage_per1": 50,
+          "be_fixed_damage_per2": 20,
+          "be_fixed_damage_per3": -10,
+          "be_fixed_damage_per4": 15,
+          "be_fixed_damage_per5": 25
+        }
+      },
+      "expected": {
+        "changeVal": 295.0,
+        "curHp": 705.0,
+        "oldHp": 1000.0,
+        "immueDamage": false,
+        "realDamage": 295.0,
+        "castDamage": 295.0,
+        "blockedDamage": 0.0,
+        "blockLose": 100.0,
+        "overflowDamage": null,
+        "isBlockedDamage": true,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "block",
+            "old": 100.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "block",
+            "delta": -100.0,
+            "new": 0.0
+          },
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1000.0,
+            "new": 705.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -295.0,
+            "new": 705.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 100,
+        "puncture": true,
+        "hp": 1000,
+        "immune": true,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Fixed",
+        "effectProperties": {
+          "be_fixed_damage_per1": 50,
+          "be_fixed_damage_per2": 20,
+          "be_fixed_damage_per3": -10,
+          "be_fixed_damage_per4": 15,
+          "be_fixed_damage_per5": 25
+        }
+      },
+      "expected": {
+        "changeVal": 295.0,
+        "curHp": 705.0,
+        "oldHp": 1000.0,
+        "immueDamage": false,
+        "realDamage": 295.0,
+        "castDamage": 295.0,
+        "blockedDamage": 0.0,
+        "blockLose": 100.0,
+        "overflowDamage": null,
+        "isBlockedDamage": true,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "block",
+            "old": 100.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "block",
+            "delta": -100.0,
+            "new": 0.0
+          },
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1000.0,
+            "new": 705.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -295.0,
+            "new": 705.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 0,
+        "puncture": false,
+        "hp": 1000,
+        "immune": false,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Pure",
+        "effectProperties": {}
+      },
+      "expected": {
+        "changeVal": 102.0,
+        "curHp": 898.0,
+        "oldHp": 1000.0,
+        "immueDamage": false,
+        "realDamage": 102.0,
+        "castDamage": 102.0,
+        "blockedDamage": 0.0,
+        "blockLose": 0.0,
+        "overflowDamage": null,
+        "isBlockedDamage": false,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1000.0,
+            "new": 898.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -102.0,
+            "new": 898.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 100,
+        "puncture": false,
+        "hp": 1000,
+        "immune": false,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Pure",
+        "effectProperties": {}
+      },
+      "expected": {
+        "changeVal": 2.0,
+        "curHp": 998.0,
+        "oldHp": 1000.0,
+        "immueDamage": false,
+        "realDamage": 2.0,
+        "castDamage": 102.0,
+        "blockedDamage": 100.0,
+        "blockLose": 100.0,
+        "overflowDamage": null,
+        "isBlockedDamage": true,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "block",
+            "old": 100.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "block",
+            "delta": -100.0,
+            "new": 0.0
+          },
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1000.0,
+            "new": 998.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -2.0,
+            "new": 998.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 1000,
+        "puncture": false,
+        "hp": 1000,
+        "immune": false,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Pure",
+        "effectProperties": {}
+      },
+      "expected": {
+        "changeVal": 0.0,
+        "curHp": 1000.0,
+        "oldHp": 1000.0,
+        "immueDamage": false,
+        "realDamage": 0.0,
+        "castDamage": 102.0,
+        "blockedDamage": -898.0,
+        "blockLose": 102.0,
+        "overflowDamage": null,
+        "isBlockedDamage": true,
+        "isBlockedAllDamage": true,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 898.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "block",
+            "old": 1000.0,
+            "new": 898.0
+          },
+          {
+            "kind": "send",
+            "property": "block",
+            "delta": -102.0,
+            "new": 898.0
+          },
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1000.0,
+            "new": 1000.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": 0.0,
+            "new": 1000.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 0,
+        "puncture": false,
+        "hp": 1000,
+        "immune": true,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Pure",
+        "effectProperties": {}
+      },
+      "expected": {
+        "changeVal": 0.0,
+        "curHp": 1000.0,
+        "oldHp": 1000.0,
+        "immueDamage": true,
+        "realDamage": 0.0,
+        "castDamage": 102.0,
+        "blockedDamage": 0.0,
+        "blockLose": 0.0,
+        "overflowDamage": null,
+        "isBlockedDamage": false,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1000.0,
+            "new": 1000.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": 0.0,
+            "new": 1000.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 0,
+        "puncture": false,
+        "hp": 1000,
+        "immune": false,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 90,
+        "usedLimit": 70,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Pure",
+        "effectProperties": {}
+      },
+      "expected": {
+        "changeVal": 20.0,
+        "curHp": 980.0,
+        "oldHp": 1000.0,
+        "immueDamage": false,
+        "realDamage": 20.0,
+        "castDamage": 102.0,
+        "blockedDamage": 0.0,
+        "blockLose": 0.0,
+        "overflowDamage": null,
+        "isBlockedDamage": false,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 1000.0,
+            "new": 980.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -20.0,
+            "new": 980.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 0,
+        "puncture": false,
+        "hp": 10,
+        "immune": false,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 0,
+        "dimensionFixPer": 25,
+        "damageType": "Pure",
+        "effectProperties": {}
+      },
+      "expected": {
+        "changeVal": 102.0,
+        "curHp": 0.0,
+        "oldHp": 10.0,
+        "immueDamage": false,
+        "realDamage": 10.0,
+        "castDamage": 102.0,
+        "blockedDamage": 0.0,
+        "blockLose": 0.0,
+        "overflowDamage": 92.0,
+        "isBlockedDamage": false,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": false,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 10.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -10.0,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "damage": 101.1,
+        "block": 0,
+        "puncture": false,
+        "hp": 10,
+        "immune": false,
+        "preventEligible": false,
+        "retainHp": 0,
+        "limit": 0,
+        "usedLimit": 0,
+        "deathResist": 1,
+        "dimensionFixPer": 25,
+        "damageType": "Pure",
+        "effectProperties": {}
+      },
+      "expected": {
+        "changeVal": 9.0,
+        "curHp": 1.0,
+        "oldHp": 10.0,
+        "immueDamage": false,
+        "realDamage": 9.0,
+        "castDamage": 102.0,
+        "blockedDamage": 0.0,
+        "blockLose": 0.0,
+        "overflowDamage": null,
+        "isBlockedDamage": false,
+        "isBlockedAllDamage": false,
+        "pvp_death_resist": true,
+        "isPreventActiveDamage": false,
+        "convertDamageVal": 0.0,
+        "blockAfter": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "hp",
+            "old": 10.0,
+            "new": 1.0
+          },
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -9.0,
+            "new": 1.0
+          }
+        ]
+      }
+    }
+  ]
+}

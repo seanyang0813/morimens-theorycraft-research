@@ -1,0 +1,64 @@
+{
+  "kind": "PARTIAL_GAMEPLAY_SEQUENCE",
+  "record": "replay-002-frenzy",
+  "turn": 1,
+  "status": "INCOMPLETE_STATE",
+  "holdout": false,
+  "predictedDamage": null,
+  "observations": [
+    {
+      "file": "turn1-state-strength50.png",
+      "strength": 50,
+      "temporaryStrength": 13,
+      "battleStrength": 37,
+      "strikeFlatBonusDisplayed": 653,
+      "prismStacks": 17,
+      "prismDamageBonusPercentDisplayed": 34
+    },
+    {
+      "file": "turn1-state-strength63.png",
+      "strength": 63,
+      "temporaryStrength": 26,
+      "battleStrength": 37,
+      "strikeFlatBonusDisplayed": 653,
+      "strikeCountDisplayed": 1
+    },
+    {
+      "file": "turn1-boss-680010.png",
+      "oldEmbers": 680010,
+      "vulnerableStacks": 1,
+      "vulnerablePercentDisplayed": 50
+    },
+    {
+      "file": "turn1-floating6615.png",
+      "floatingNumber": 6615,
+      "bossHpAbbreviated": "13895K",
+      "limitation": "Moxia animation visible; this frame alone cannot identify the source of the floating number."
+    }
+  ],
+  "limitations": [
+    "No complete per-hit state reconstruction",
+    "No critical flag established",
+    "Animation, command owner and statistics owner may differ; copied-card attribution unresolved",
+    "Resource 677805 was captured on an earlier viewing, not as the immediate paused successor in this viewing",
+    "Queued animations and effects can finish after pause; no single-step guarantee"
+  ],
+  "files": [
+    {
+      "path": "research\\observations\\replay-002-frenzy\\turn1-state-strength50.png",
+      "sha256": "bd8c53ed38310010aa8e69b0b62b8c3228bd7891fbfa222442799c3801079f96"
+    },
+    {
+      "path": "research\\observations\\replay-002-frenzy\\turn1-state-strength63.png",
+      "sha256": "88bd116974195e5ee30e61a8558f94513b01538d38b60d1c17f50143f2b2b52b"
+    },
+    {
+      "path": "research\\observations\\replay-002-frenzy\\turn1-boss-680010.png",
+      "sha256": "37385d04a61cbca8b1571b87407bb30f7ccd62f22455e0e7e2b159b00fa2a709"
+    },
+    {
+      "path": "research\\observations\\replay-002-frenzy\\turn1-floating6615.png",
+      "sha256": "8424f4b88505c50e93d2626454851f725559b3b5b7c44dda9c5dd27d46eb9f03"
+    }
+  ]
+}
