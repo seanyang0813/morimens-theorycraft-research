@@ -73,3 +73,12 @@ test('ordered energy fails closed without caster context or with an unsupported 
   v.energy=base.energy;v.command.data_list['2'].Cond='true';
   assert.throws(()=>runOrderedStateCommand(v),/conditional state and energy/i);
 });
+
+test('a later damage row reads ultimate energy changed by an earlier row',()=>{
+  const v=input();
+  v.command={data_list:{1:{Type:'BEActiveDamage',Target:'UpperTarget',Para:'100'},2:{Type:'BEGainUltiEnergy',Target:'CmdCaster',Para:'10'},3:{Type:'BEActiveDamage',Target:'UpperTarget',Para:'CmdCaster.ulti_energy'},4:{Type:'BEAddState',Target:'UpperTarget',Para:'19534'}}};
+  v.energy=read('../research/examples/damage-energy-command.json').energy;v.energy.target.energy=5;
+  const r=runOrderedStateCommand(v);
+  assert.equal(r.casterEnergyAfter,15);assert.equal(r.modeledHpLost,115);
+  assert.deepEqual(r.calculation.trace.filter(step=>step.type==='attack').map(step=>step.result.modeledHpLost),[100,15]);
+});

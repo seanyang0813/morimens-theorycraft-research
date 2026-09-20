@@ -8,6 +8,6 @@ The first connected real command fixture is Cmd45948. Its first row applies Stat
 
 Removal reverses the stored property contribution once. Layer subtraction follows the recovered `SubLayer` order: reduce layers, update a `ChangedLayer` contribution, record the change, and run life end if the state reaches zero. Caster-layer attribution remains excluded.
 
-The same ordered runner can now execute the three effect types in actual Cmd57564: damage, caster ultimate-energy gain and caster State2669. Energy uses the recovered capped gain boundary. Live caster energy is deliberately unavailable to command expressions until that binding is reconstructed.
+The same ordered runner can now execute the three effect types in actual Cmd57564: damage, caster ultimate-energy gain and caster State2669. Energy uses the recovered capped gain boundary. A later damage row may read `CmdCaster.ulti_energy`, using the value after earlier supported energy rows execute. State-mutation expressions still require supplied static variables.
 
 The runner rejects unsupported effects, unknown row fields, conditional state rows, automatic target acquisition and mismatched state owners or layers. State-row expressions currently use supplied numeric variables; live state queries are connected for later damage rows. This is an authored component composition, not an independently validated gameplay prediction or a complete command VM.

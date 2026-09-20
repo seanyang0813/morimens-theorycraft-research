@@ -83,7 +83,8 @@ export function runStateSequenceExperiment(value){
     for(const [key,binding] of Object.entries(actorOffenseBindings))offense[binding]=properties.actor[key];
     for(const [key,binding] of Object.entries(actorTargetBindings))targetModifiers[binding]=properties.actor[key];
     for(const [key,binding] of Object.entries(bindings.target))targetModifiers[binding]=properties.target[key];
-    return {...input.attackBase,schemaVersion:1,kind:'morimens-active-command-experiment',build,interveningEffects:'assumed-absent',rows,offense,targetModifiers,targetState:target};
+    const variables={...input.attackBase.variables,...(hasEnergy?{'CmdCaster.ulti_energy':casterEnergy}:{})};
+    return {...input.attackBase,schemaVersion:1,kind:'morimens-active-command-experiment',build,interveningEffects:'assumed-absent',rows,variables,offense,targetModifiers,targetState:target};
   };
   const changeProperties=(d,state,operation,initial)=>{
     for(const p of d.properties){
@@ -177,5 +178,5 @@ export function runStateSequenceExperiment(value){
     operation.managerTrace=manager.trace;operation.state=manager.state?JSON.parse(JSON.stringify(manager.state)):null;trace.push(operation);
   }
   return {schemaVersion:1,status:'EXPERIMENTAL',build,finalDamage:null,completed:stop===null,stop,properties,targetAfter:target,casterEnergyAfter:casterEnergy,modeledHpLost:input.attackBase.targetState.hp-target.hp,
-    states:[...registry.values()].flat(),trace,unresolvedDependencies:['Authored component composition, not connected original full battle execution or independent gameplay validation','addState uses already-resolved layers; applyState uses explicit immunity, modifier mappings, dimension role/player context and supplied limit results, not automatic property/rule derivation','Layer subtraction excludes caster attribution; no trigger listeners, expiry, death handling, team/card property routing or source attribution; within one turn only','State queries use explicit static inputs or explicitly bound live registry owners; no automatic parser target binding or build/skill assembly','Damage eligibility modifiers outside the five bound properties remain explicitly supplied','Ultimate-energy steps use explicit caster/build/card context and do not expose live energy to command expressions']};
+    states:[...registry.values()].flat(),trace,unresolvedDependencies:['Authored component composition, not connected original full battle execution or independent gameplay validation','addState uses already-resolved layers; applyState uses explicit immunity, modifier mappings, dimension role/player context and supplied limit results, not automatic property/rule derivation','Layer subtraction excludes caster attribution; no trigger listeners, expiry, death handling, team/card property routing or source attribution; within one turn only','State queries use explicit static inputs or explicitly bound live registry owners; no automatic parser target binding or build/skill assembly','Damage eligibility modifiers outside the five bound properties remain explicitly supplied','Ultimate-energy steps use explicit caster/build/card context; later attack rows read live CmdCaster.ulti_energy, while state-mutation expressions do not']};
 }
