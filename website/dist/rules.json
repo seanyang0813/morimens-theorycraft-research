@@ -26,6 +26,39 @@
       ]
     },
     {
+      "id": "PC144:TargetDamageEligibility",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "Monster battle tags select overlapping monster damage properties; ten configured live-state IDs select multiplicative state damage properties; state 3638 enables both owner and card block-barrier damage branches",
+      "scope": "Literal build-144 API/constant mappings and authored resolver tests. Buff/debuff presence remains an explicit captured flag. No original-runtime method execution, automatic state-manager capture, property derivation, complete hit or gameplay",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "BattleUnitBase",
+          "member": "GetDamagePer2MonsterType,GetDamagePer2HasStateValue,GetDamagePer2BlockBarrier",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "__GetFinalDamage",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b"
+        },
+        {
+          "module": "BattleApi",
+          "member": "damage_per2monster_*,damage_per2enemy_has_*,damage_per2petrify_resist,damage_per2block_barrier,card_damage_per2block_barrier",
+          "sha256": "22d7e4cdc4746a1c3b543a97a5d68cca4b7b184c92ef9d4d19651da8189db15c"
+        },
+        {
+          "module": "Constant",
+          "member": "DamagePer2HasState",
+          "sha256": "6f9876d9577b2e043351ff9c41887996a269787e16900e238fb1d4f0eb852694"
+        }
+      ],
+      "checks": [
+        "tests/target-damage-eligibility.test.mjs",
+        "tests/battle-property-snapshot-damage.test.mjs"
+      ]
+    },
+    {
       "id": "PC144:ConnectedUltiEnergyEffectStorage",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "Connected energy effect repetition, calculation, source assembly and actual Awaker/property storage match authored final energy and ordered callback payloads",

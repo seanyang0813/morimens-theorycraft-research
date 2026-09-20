@@ -70,6 +70,7 @@
   "observation-scenario.mjs",
   "battle-property-snapshot-damage.mjs",
   "crit-resolution.mjs",
+  "target-damage-eligibility.mjs",
   "inspect-command-support.mjs",
   "import-command-rows.mjs",
   "ulti-energy-experiment.mjs",
