@@ -2,6 +2,67 @@
   "build": "pc-res144-build51",
   "entries": [
     {
+      "id": "PC144:ReplayNativeCodec",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "The copied PC client native LZ4 and cmsgpack modules round-trip nested replay-shaped data and allow offline expansion of outer replay payloads and record chunks",
+      "sources": [
+        {
+          "module": "BattleReplayPlayer",
+          "member": "DealReplayContent,UnZipList",
+          "bundle": "pc\\downloaded\\gamescript.ab",
+          "sha256": "3637d629c0ec30d4fff41618c62f2694e5a462577a6eba2e838154dc413a3f14",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\gamescript\\-4817828394417630722_BattleReplayPlayer.lua"
+        }
+      ],
+      "tests": [
+        "tests/replay-codec.test.mjs"
+      ],
+      "scope": "One synthetic nested replay round-trip through exported luaopen_lz4 and luaopen_cmsgpack from the copied PC xlua.dll. Decoder requires an explicitly supplied local JSON container and explicit compStr byte convention. No real replay decoded, no network/auth/process memory, and no proof of server container encoding",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:ReplayProtocolCatalog",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Original replay protocol tables expose 29 unique numeric battle commands and 101 unique numeric render events, including initialization, cut, property, state, card, target and hit records",
+      "sources": [
+        {
+          "module": "BattleCommand",
+          "member": "complete numeric table",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "7b5748cdbb422a88051e49568e35266fedea4ec75ae4ee127216fc3a9c3e2480",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6566275209587717652_BattleCommand.lua"
+        },
+        {
+          "module": "BattleRenderEvent",
+          "member": "complete numeric table",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "192c99c371dd363fae96ccb8c6125bfeb2da54cbb827959942b632222e817aad",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-468153165601549005_BattleRenderEvent.lua"
+        },
+        {
+          "module": "BattleRecord",
+          "member": "recorded event payload constructors",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "aee64145e334f212666d259b6960d16e9a2b9bec751fee9fdba46fa63b8febf1",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\8168586524479805375_BattleRecord.lua"
+        },
+        {
+          "module": "BattleEngine",
+          "member": "rd_InitBattle payload",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "0ee07c8fd06f29787f8139306b55d16c726eaf8cabcd1ad0b128d907c8dbbeea",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7402197778903831940_BattleEngine.lua"
+        }
+      ],
+      "tests": [
+        "tools/build_replay_protocol_catalog.py",
+        "tests/replay-protocol.test.mjs",
+        "tests/replay-index.test.mjs"
+      ],
+      "scope": "Original BattleCommand and BattleRenderEvent tables enumerated in copied Lua runtime; nested nonnumeric helper entries retained only as exclusions. Authored replay index tested on a synthetic decoded stream. Payload fields follow inspected record constructors; no real replay decoded or gameplay validation",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC144:CritResolution",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "Critical-hit resolution preserves card, Awakener and player certain-crit rules, strict HP-ratio thresholds, additive card/caster/player/tag chance, caster percentage scaling, target anti-crit, ceiling and the inclusive 1-100 roll comparison",

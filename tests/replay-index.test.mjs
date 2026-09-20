@@ -1,0 +1,9 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {spawnSync} from 'node:child_process';
+
+test('decoded replay index preserves initialization and chronological evidence events',()=>{
+  const code=`import json\nfrom tools.replay_index import build_replay_index\nc=json.load(open('research/evidence/replay-protocol.json',encoding='utf-8'))\na={'schemaVersion':1,'kind':'MORIMENS_DECODED_REPLAY','inputSha256':'abc','decoded':{'battleDat':{'stageId':9},'unZippedRecord':[{'time':0,'msgId':c['commands']['rd_InitBattle'],'msgData':{'battleUuid':'u','roleDataList':[{'uid':1,'properties':{'crit':100}}],'monsterDataList':[{'uid':2,'properties':{'hp':999}}],'cardDataList':[{'uid':3}]}},{'time':1,'msgId':c['commands']['rd_BattleCut'],'msgData':{'frameList':[{'time':1.1,'eventId':c['renderEvents']['UseCard'],'data':{'cardUid':3,'camp':1}},{'time':1.2,'eventId':c['renderEvents']['PropertyChanged'],'data':{'uid':2,'propertyType':'hp','value':900,'changedValue':-99}},{'time':1.3,'eventId':c['renderEvents']['AddState'],'data':{'ownerUid':2,'tid':2934}},{'time':1.4,'eventId':c['renderEvents']['BeHit'],'data':{'roleUid':2,'beHitConfig':{'damage':99}}}]}}]}}\nprint(json.dumps(build_replay_index(a,c),separators=(',',':')))\n`;
+  const run=spawnSync('python',['-c',code],{encoding:'utf8'});assert.equal(run.status,0,run.stderr);const result=JSON.parse(run.stdout);
+  assert.equal(result.initializations[0].roleDataList[0].properties.crit,100);assert.equal(result.events.length,4);assert.equal(result.cardUses[0].data.cardUid,3);assert.equal(result.propertyChanges[0].data.value,900);assert.equal(result.stateEvents[0].eventName,'AddState');assert.equal(result.hits[0].data.beHitConfig.damage,99);assert.deepEqual(result.unknownEvents,[]);
+});

@@ -11,6 +11,8 @@ The next capture should resolve one high-difficulty action before expanding cove
 5. Capture displayed hit damage, statistics attribution, exact HP change and resource change separately. A match in one does not establish the others. Account for queued effects finishing after pause.
 6. Reconstruct a regression observation first. Reserve a new unseen result as a holdout; the already viewed replay outcomes cannot become blind holdouts retrospectively.
 
+If the game provides an explicit replay export, preserve its original bytes first. Decode it with `tools/decode_battle_replay.py`, then build a chronological evidence index with `tools/index_decoded_replay.py`. Both outputs belong under ignored `research/observations/`. The native-codec path avoids manually reading thousands of property/state changes from the interface, but it remains unvalidated on a real server replay until an export is supplied.
+
 If the interface cannot expose a necessary value, leave that record incomplete and select another controlled action or source. Do not fit unknown modifiers to a displayed total.
 
 Separate pending friend-scenario input: final team Realm Mastery. This is not permission to substitute the Frenzy record's Lv80 character stats for the approved Lv90 example.
