@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-theorycraft-request",
+  "requestId": "synthetic-catalog-active-energy-snapshot",
+  "operation": "run-prepared-snapshot-active-skill",
+  "input": {
+    "schemaVersion": 2,
+    "kind": "morimens-prepared-snapshot-active-skill",
+    "build": "pc-res144-build51",
+    "preparation": {
+      "skillId": 4046,
+      "skillLevel": 6,
+      "isAwaker": true,
+      "breakSkillLevel": 0,
+      "potencyLevel": 0,
+      "overrides": [],
+      "variables": {"BattleAtkForce": 100},
+      "conditionResults": {},
+      "stateQueries": {}
+    },
+    "targetBinding": {"expression": "FrontEnemy", "resolution": "supplied-single-UpperTarget"},
+    "lifecycle": "assumed-absent",
+    "snapshot": {
+      "snapshotStage": "battle-property-server-live",
+      "snapshotCompleteness": "complete-map",
+      "casterProperties": {"crit": 0, "crit_damage": 0, "crit_damage_from_strikecard": 0, "crit_damage_per": 0},
+      "playerProperties": {"dimension_fix_per": 0},
+      "initialTargetProperties": {"hp": 1000, "max_hp": 1000, "block": 0, "be_damage_per": 0, "vulnerable_per": 0},
+      "cardProperties": {},
+      "targetBattleTag": "Monster",
+      "targetStateIds": [],
+      "critRolls": [null]
+    },
+    "repeatModifiers": {"plus": 0, "per": 0},
+    "energy": {
+      "source": {"castRoleUid": 7, "cmdServerUid": 2},
+      "target": {
+        "uid": 7,
+        "role": "Awaker",
+        "energy": 95,
+        "maximumProperties": {"ulti_energy_max": 100, "ulti_energy_cost_per": 0, "ulti_energy_cost_flat": 0, "ulti_energy_max_per": 0},
+        "calculation": {
+          "dimension": 0,
+          "properties": {"card_ulti_per": 0, "card_ulti_plus": 0, "o_ulti_energy_per": 0, "ulti_energy_per": 0, "i_ulti_energy_per": 0, "ulti_energy_efficiency": 0, "ulti_per_strikecard": 0, "ulti_energy_plus": 0, "gain_ulti_energy_per": 0, "gain_ulti_energy_plus": 0},
+          "matchesEnergyCardTypes": true,
+          "casterEligible": true
+        }
+      }
+    }
+  }
+}

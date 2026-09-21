@@ -6,10 +6,18 @@ The bridge is deliberately strict. It accepts a catalog-tagged Awakener damage c
 
 The returned `derivedSequenceInput` makes the handoff auditable: it shows the catalog-derived base value, `skillArgsPlus`, and hit count that reached the property engine. `paraPlus` preserves the selected field, expression reads, function calls and generated bindings. `sourceHashes` bind the preparation to the four loaded exports. The result remains `EXPERIMENTAL` with `finalDamage: null`; costs, card construction, target acquisition, triggers, state changes, callbacks, statistics, retargeting, and death execution are still outside this path.
 
+Schema 2 accepts the common two-row command shape `BEActiveDamage → BEGainUltiEnergy`. It evaluates both rows from the same prepared bindings, finishes the complete-property damage repetitions, then executes the ordinary energy calculation and capped self-storage. If damage reaches zero HP, execution stops before the energy row because death handling may change the remaining command lifecycle. Energy properties, starting/cap state, caster eligibility and the unresolved original `CardTypeMatch` decision remain explicit inputs. Catalog skill tags and `skillConfigId` are derived rather than supplied.
+
 Run the synthetic component example with:
 
 ```text
 node tools/run_theorycraft_request.mjs --input research/examples/theorycraft-prepared-snapshot-active-skill.json
+```
+
+The damage-plus-energy example is:
+
+```text
+node tools/run_theorycraft_request.mjs --input research/examples/theorycraft-prepared-snapshot-active-energy-skill.json
 ```
 
 The example's attack and property maps are controlled test inputs. They are not a reconstructed character build, leaderboard observation, cheese report, or gameplay verification.
