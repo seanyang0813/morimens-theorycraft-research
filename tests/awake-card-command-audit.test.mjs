@@ -23,4 +23,12 @@ test('Awake card audit separates command mechanics from direct damage assembly',
   assert.equal(audit.data.builds['pc-res144-build51'].commandRows,314);
   assert.equal(audit.data.builds['pc-res150-build51'].commandRows,315);
   assert.equal(audit.data.builds['pc-res150-build51'].effectTypeCounts.BERemoveState,1);
+  for(const row of Object.values(audit.data.builds)){
+    assert.equal(row.literalNestedCommands,3);
+    assert.equal(row.literalNestedCommandRows,11);
+    assert.equal(row.literalNestedMissingCommands,0);
+    assert.equal(row.literalNestedDamageRows,1);
+    assert.deepEqual(row.literalNestedDamageTypeCounts,{BEPassiveDamage:1});
+    assert.equal(row.dynamicRunCardRows,1);
+  }
 });

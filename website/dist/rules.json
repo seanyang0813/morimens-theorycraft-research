@@ -3674,14 +3674,14 @@
     {
       "id": "PC144-PC150:AwakeCardCommandBoundary",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
-      "claim": "Both inspected PC catalogs contain 69 Awake skills linked to 64 commands and zero directly linked damage-effect rows; resource 150 adds one RemoveState row",
-      "scope": "Direct CmdList/tempCmdList rows only. Nested execute/run-card/customized commands and resulting states/resources may cause later damage; no runtime execution or gameplay validation.",
+      "claim": "Both inspected PC catalogs contain 69 Awake skills linked to 64 commands and zero directly linked damage rows; one-level literal traversal reaches one conditional Passive-damage row in each build",
+      "scope": "Direct rows plus one-level literal ExecuteCmd/CustomizedSeparateExecuteCmd references. Dynamic RunCardCmd, recursive state-trigger graphs, conditions, targets, runtime execution and gameplay remain unresolved.",
       "gameplayValidation": false,
       "sources": [
         {
           "module": "PC Awake-card catalog audit",
-          "member": "Skill-to-Cmd direct effect inventory",
-          "sha256": "0c98549272665d2f794d8c339fd149b54e489f5d4e63badd946d2e2ae975aeba"
+          "member": "Skill-to-Cmd direct inventory and one-level literal command traversal",
+          "sha256": "165b22607c5fe59b544e2469c06aa2c73ba9623e1252e7020e015ad451ed2d42"
         }
       ],
       "checks": [

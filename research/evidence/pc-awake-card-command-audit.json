@@ -23,7 +23,20 @@
       },
       "missingCommands": 0,
       "directDamageRows": 0,
-      "directDamageTypeCounts": {}
+      "directDamageTypeCounts": {},
+      "literalNestedCommands": 3,
+      "literalNestedCommandRows": 11,
+      "literalNestedEffectTypeCounts": {
+        "BEAddState": 5,
+        "BEPassiveDamage": 1,
+        "BERemoveState": 5
+      },
+      "literalNestedMissingCommands": 0,
+      "literalNestedDamageRows": 1,
+      "literalNestedDamageTypeCounts": {
+        "BEPassiveDamage": 1
+      },
+      "dynamicRunCardRows": 1
     },
     "pc-res150-build51": {
       "awakeSkills": 69,
@@ -47,7 +60,20 @@
       },
       "missingCommands": 0,
       "directDamageRows": 0,
-      "directDamageTypeCounts": {}
+      "directDamageTypeCounts": {},
+      "literalNestedCommands": 3,
+      "literalNestedCommandRows": 11,
+      "literalNestedEffectTypeCounts": {
+        "BEAddState": 5,
+        "BEPassiveDamage": 1,
+        "BERemoveState": 5
+      },
+      "literalNestedMissingCommands": 0,
+      "literalNestedDamageRows": 1,
+      "literalNestedDamageTypeCounts": {
+        "BEPassiveDamage": 1
+      },
+      "dynamicRunCardRows": 1
     }
   },
   "sourceHashes": {
@@ -64,10 +90,10 @@
       "cmdChunk": "b318acfcedb2291bba4896dbfb157cdb006afd3985d048793c71dbf72a9c6494"
     }
   },
-  "claimBoundary": "Card_Awake is a command-category audit. Absence of direct damage rows does not make its state, resource, card, tentacle or nested-command effects supported by the simulator.",
+  "claimBoundary": "Card_Awake has no directly linked damage rows, but literal one-level nested commands include Passive damage. State, resource, card, tentacle and dynamic run-card effects remain separate simulator work.",
   "limitations": [
-    "Effect type is read from directly linked command rows only",
-    "Nested execute/run-card/custom commands require separate traversal",
-    "No runtime execution or gameplay validation"
+    "Literal ExecuteCmd/CustomizedSeparateExecuteCmd references are followed one level",
+    "RunCardCmd depends on a selected card and remains unresolved",
+    "No recursive state-trigger graph, runtime execution or gameplay validation"
   ]
 }

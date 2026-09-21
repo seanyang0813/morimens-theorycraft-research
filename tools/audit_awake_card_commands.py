@@ -4,6 +4,7 @@ from collections import Counter
 import argparse
 import hashlib
 import json
+import re
 import UnityPy
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -21,7 +22,7 @@ def values(value):
 
 
 def audit(skills,commands):
-    selected=[];command_ids=set();effects=Counter();missing=[]
+    selected=[];command_ids=set();effects=Counter();missing=[];linked_rows=[]
     for skill_id,skill in skills.items():
         if 'Card_Awake' not in values(skill.get('Type')):continue
         selected.append(skill_id)
@@ -30,11 +31,29 @@ def audit(skills,commands):
                 command_id=str(command_id);command_ids.add(command_id);command=commands.get(command_id)
                 if not isinstance(command,dict):missing.append(command_id);continue
                 for row in values(command.get('data_list')):
-                    if isinstance(row,dict):effects[str(row.get('Type'))]+=1
+                    if isinstance(row,dict):effects[str(row.get('Type'))]+=1;linked_rows.append(row)
     direct={name:count for name,count in effects.items() if name in DAMAGE_TYPES}
+    nested_ids=set();dynamic_run_card=0
+    for row in linked_rows:
+        if row.get('Type')=='BERunCardCmd':dynamic_run_card+=1;continue
+        if row.get('Type') not in ('BEExecuteCmd','BECustomizedSeparateExecuteCmd'):continue
+        match=re.match(r'^\s*(\d+)',str(row.get('Para','')))
+        if match:nested_ids.add(match.group(1))
+    nested_effects=Counter();nested_missing=[]
+    for command_id in nested_ids:
+        command=commands.get(command_id)
+        if not isinstance(command,dict):nested_missing.append(command_id);continue
+        for row in values(command.get('data_list')):
+            if isinstance(row,dict):nested_effects[str(row.get('Type'))]+=1
+    nested_damage={name:count for name,count in nested_effects.items() if name in DAMAGE_TYPES}
     return {'awakeSkills':len(selected),'linkedCommands':len(command_ids),'commandRows':sum(effects.values()),
             'effectTypeCounts':dict(sorted(effects.items())),'missingCommands':len(missing),
-            'directDamageRows':sum(direct.values()),'directDamageTypeCounts':dict(sorted(direct.items()))}
+            'directDamageRows':sum(direct.values()),'directDamageTypeCounts':dict(sorted(direct.items())),
+            'literalNestedCommands':len(nested_ids),'literalNestedCommandRows':sum(nested_effects.values()),
+            'literalNestedEffectTypeCounts':dict(sorted(nested_effects.items())),
+            'literalNestedMissingCommands':len(nested_missing),'literalNestedDamageRows':sum(nested_damage.values()),
+            'literalNestedDamageTypeCounts':dict(sorted(nested_damage.items())),
+            'dynamicRunCardRows':dynamic_run_card}
 
 
 def main():
@@ -65,8 +84,8 @@ def main():
             chunk=current/f'{name}.lua' if build=='pc-res150-build51' else None
             if chunk:sources[build][name.lower()+'Chunk']=sha(chunk)
     report={'schemaVersion':1,'kind':'MORIMENS_AWAKE_CARD_COMMAND_AUDIT','builds':builds,'sourceHashes':sources,
-            'claimBoundary':'Card_Awake is a command-category audit. Absence of direct damage rows does not make its state, resource, card, tentacle or nested-command effects supported by the simulator.',
-            'limitations':['Effect type is read from directly linked command rows only','Nested execute/run-card/custom commands require separate traversal','No runtime execution or gameplay validation']}
+            'claimBoundary':'Card_Awake has no directly linked damage rows, but literal one-level nested commands include Passive damage. State, resource, card, tentacle and dynamic run-card effects remain separate simulator work.',
+            'limitations':['Literal ExecuteCmd/CustomizedSeparateExecuteCmd references are followed one level','RunCardCmd depends on a selected card and remains unresolved','No recursive state-trigger graph, runtime execution or gameplay validation']}
     output.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
     print(json.dumps({'builds':builds,'output':str(output.relative_to(ROOT))},indent=2))
 
