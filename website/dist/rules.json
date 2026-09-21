@@ -4148,6 +4148,41 @@
       ]
     },
     {
+      "id": "PC144:CatalogGeneratedCardArgumentPlan",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "A catalog-backed generated-card plan resolves a real skill command and numeric base arguments from hashed Skill/BattleApi exports before applying copied card argument overrides",
+      "scope": "Authored composition over separately tested progression, numeric expression, normalization and command-request boundaries. The real resource-144 Arachne Strike fixture resolves command 133374 and explicit attack/state inputs. Build/progression/live-state inputs and hashed exports remain caller supplied; nonnumeric parameters, command execution, gameplay and holdout validation are excluded.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Skill",
+          "member": "126484",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8"
+        },
+        {
+          "module": "BattleApi",
+          "member": "BattleFomula1,BattleFomula2",
+          "sha256": "22d7e4cdc4746a1c3b543a97a5d68cca4b7b184c92ef9d4d19651da8189db15c"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "GetSkillArgs,__CalcBaseSkillArgs",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b"
+        },
+        {
+          "module": "BattleCardServer",
+          "member": "InitCmdServer",
+          "sha256": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53"
+        }
+      ],
+      "checks": [
+        "engine/catalog-card-command-plan.mjs",
+        "tests/catalog-card-command-plan.test.mjs",
+        "tests/skill-growth.test.mjs",
+        "tests/card-command-plan.test.mjs"
+      ]
+    },
+    {
       "id": "PC144:GeneratedCardPipeline",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
       "claim": "The authored generated-card pipeline composes tested request construction, Draw/Hand mutation, owner resolution, command-constructor requests and main-command Arg bindings while retaining each boundary trace and unresolved dependency",

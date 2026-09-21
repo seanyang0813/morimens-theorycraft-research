@@ -1,13 +1,13 @@
 {
-  "generatedAtUtc": "2026-09-21T16:09:38.616359+00:00",
+  "generatedAtUtc": "2026-09-21T16:13:33.955616+00:00",
   "publicationStatus": "NOT_READY",
   "publicationAuthorized": false,
   "automatedSuite": {
-    "testFiles": 203,
+    "testFiles": 204,
     "passed": true,
     "exitCode": 0,
     "log": "research\\evidence\\latest-test-suite.tap",
-    "logSha256": "b61677a2383ef6c6a8305674da0c2034f8b045b8a41cc6d1017aab00f3f89028"
+    "logSha256": "c2dcc5bee2277ef0947057a8aebc9122c310e87814cf1a8dd9f07aabd64c13f4"
   },
   "realObservations": {
     "records": 3,
@@ -363,6 +363,30 @@
       "matchesResearchEngine": true
     },
     {
+      "module": "skill-variant.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "conditional-variant.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "skill-field.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "skill-list.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "skill-growth.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "prepare-skill-command.mjs",
+      "matchesResearchEngine": true
+    },
+    {
       "module": "card-action-example.mjs",
       "matchesResearchEngine": true
     },
@@ -392,6 +416,10 @@
     },
     {
       "module": "card-command-plan.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "catalog-card-command-plan.mjs",
       "matchesResearchEngine": true
     },
     {
