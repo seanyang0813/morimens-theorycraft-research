@@ -44,7 +44,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -118,7 +118,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -192,7 +192,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -266,7 +266,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -340,7 +340,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -414,7 +414,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -488,7 +488,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -562,7 +562,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -636,7 +636,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -710,7 +710,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -784,7 +784,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -858,7 +858,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -932,7 +932,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -1006,7 +1006,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -1080,7 +1080,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -1154,7 +1154,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -1227,7 +1227,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -1301,7 +1301,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -1375,7 +1375,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -1449,7 +1449,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -1523,7 +1523,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -1596,7 +1596,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -1670,7 +1670,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -1744,7 +1744,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -1818,7 +1818,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -1892,7 +1892,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -1965,7 +1965,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -2039,7 +2039,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -2113,7 +2113,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -2187,7 +2187,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -2396,7 +2396,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -2470,7 +2470,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -2679,7 +2679,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -2753,7 +2753,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -2962,7 +2962,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -3036,7 +3036,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -3245,7 +3245,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -3318,7 +3318,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -3527,7 +3527,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -3600,7 +3600,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -3809,7 +3809,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -3882,7 +3882,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -4136,7 +4136,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -4390,7 +4390,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -4644,7 +4644,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -4718,7 +4718,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -4785,7 +4785,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -4852,7 +4852,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -4919,7 +4919,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -4986,7 +4986,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -5053,7 +5053,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -5120,7 +5120,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -5187,7 +5187,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -5254,7 +5254,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -5321,7 +5321,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -5388,7 +5388,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -5455,7 +5455,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -5522,7 +5522,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -5589,7 +5589,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -5656,7 +5656,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -5723,7 +5723,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -5789,7 +5789,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -5856,7 +5856,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -5923,7 +5923,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -5990,7 +5990,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -6057,7 +6057,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -6123,7 +6123,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -6190,7 +6190,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -6257,7 +6257,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -6324,7 +6324,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -6391,7 +6391,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -6457,7 +6457,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -6524,7 +6524,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -6591,7 +6591,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -6658,7 +6658,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -6857,7 +6857,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -6924,7 +6924,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -7123,7 +7123,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -7190,7 +7190,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -7389,7 +7389,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -7456,7 +7456,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -7655,7 +7655,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -7721,7 +7721,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -7920,7 +7920,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -7986,7 +7986,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -8185,7 +8185,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -8251,7 +8251,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -8494,7 +8494,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -8737,7 +8737,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -8980,7 +8980,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -9047,7 +9047,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -9121,7 +9121,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -9195,7 +9195,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -9269,7 +9269,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -9343,7 +9343,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -9417,7 +9417,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -9491,7 +9491,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -9565,7 +9565,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -9639,7 +9639,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -9713,7 +9713,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -9787,7 +9787,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -9861,7 +9861,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -9935,7 +9935,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -10009,7 +10009,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -10083,7 +10083,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -10157,7 +10157,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -10230,7 +10230,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -10304,7 +10304,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -10378,7 +10378,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -10452,7 +10452,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -10526,7 +10526,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -10599,7 +10599,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -10673,7 +10673,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -10747,7 +10747,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -10821,7 +10821,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -10895,7 +10895,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -10968,7 +10968,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -11042,7 +11042,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -11116,7 +11116,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -11190,7 +11190,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -11399,7 +11399,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -11473,7 +11473,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -11682,7 +11682,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -11756,7 +11756,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -11965,7 +11965,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -12039,7 +12039,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -12248,7 +12248,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -12321,7 +12321,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -12530,7 +12530,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -12603,7 +12603,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -12812,7 +12812,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -12885,7 +12885,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -13139,7 +13139,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -13393,7 +13393,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -13647,7 +13647,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -13721,7 +13721,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -13788,7 +13788,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -13855,7 +13855,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -13922,7 +13922,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -13989,7 +13989,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -14056,7 +14056,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -14123,7 +14123,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -14190,7 +14190,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -14257,7 +14257,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -14324,7 +14324,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -14391,7 +14391,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -14458,7 +14458,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -14525,7 +14525,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -14592,7 +14592,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -14659,7 +14659,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -14726,7 +14726,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -14792,7 +14792,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -14859,7 +14859,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -14926,7 +14926,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -14993,7 +14993,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -15060,7 +15060,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -15126,7 +15126,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -15193,7 +15193,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -15260,7 +15260,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -15327,7 +15327,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -15394,7 +15394,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -15460,7 +15460,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -15527,7 +15527,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -15594,7 +15594,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -15661,7 +15661,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -15860,7 +15860,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -15927,7 +15927,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -16126,7 +16126,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -16193,7 +16193,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -16392,7 +16392,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -16459,7 +16459,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -16658,7 +16658,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -16724,7 +16724,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -16923,7 +16923,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -16989,7 +16989,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -17188,7 +17188,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -17254,7 +17254,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -17497,7 +17497,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -17740,7 +17740,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -17983,7 +17983,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -18050,7 +18050,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -18124,7 +18124,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -18198,7 +18198,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -18272,7 +18272,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -18346,7 +18346,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -18420,7 +18420,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -18494,7 +18494,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -18568,7 +18568,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -18642,7 +18642,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -18716,7 +18716,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -18790,7 +18790,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -18864,7 +18864,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -18938,7 +18938,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -19012,7 +19012,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -19086,7 +19086,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -19160,7 +19160,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -19233,7 +19233,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -19307,7 +19307,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -19381,7 +19381,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -19455,7 +19455,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -19529,7 +19529,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -19602,7 +19602,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -19676,7 +19676,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -19750,7 +19750,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -19824,7 +19824,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -19898,7 +19898,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -19971,7 +19971,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -20045,7 +20045,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -20119,7 +20119,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -20193,7 +20193,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -20402,7 +20402,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -20476,7 +20476,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -20685,7 +20685,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -20759,7 +20759,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -20968,7 +20968,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -21042,7 +21042,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -21251,7 +21251,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -21324,7 +21324,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -21533,7 +21533,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -21606,7 +21606,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -21815,7 +21815,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -21888,7 +21888,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -22142,7 +22142,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -22396,7 +22396,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -22650,7 +22650,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -22724,7 +22724,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -22791,7 +22791,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -22858,7 +22858,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -22925,7 +22925,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -22992,7 +22992,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -23059,7 +23059,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -23126,7 +23126,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -23193,7 +23193,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -23260,7 +23260,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -23327,7 +23327,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -23394,7 +23394,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -23461,7 +23461,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -23528,7 +23528,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -23595,7 +23595,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -23662,7 +23662,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -23729,7 +23729,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -23795,7 +23795,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -23862,7 +23862,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -23929,7 +23929,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -23996,7 +23996,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -24063,7 +24063,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -24129,7 +24129,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -24196,7 +24196,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -24263,7 +24263,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -24330,7 +24330,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -24397,7 +24397,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -24463,7 +24463,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -24530,7 +24530,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -24597,7 +24597,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -24664,7 +24664,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -24863,7 +24863,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -24930,7 +24930,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -25129,7 +25129,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -25196,7 +25196,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -25395,7 +25395,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -25462,7 +25462,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -25661,7 +25661,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -25727,7 +25727,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -25926,7 +25926,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -25992,7 +25992,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -26191,7 +26191,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -26257,7 +26257,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -26500,7 +26500,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -26743,7 +26743,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -26986,7 +26986,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "method": "execute installed MonsterBehaviorComp against inherited ChangeSkill/SetIntention fixtures",
+  "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+  "sourceHashes": {
+    "fixture": "ea04287f251d9fe6307dd0918febfb1acc1d3bfdb4073d0432b6415a4663a826",
+    "installedShareBundle": "b62601a3391a5999ebb196dec5e52c0660d95c19655ac3b19f13299806c38907",
+    "baselineMonsterBehaviorComp": "cad2c52acb7a365557c8a2fc67e00ce4acaff8beded611412a86510679f7ee2c",
+    "currentMonsterBehaviorComp": "8a7293d948d9ae70ff44e96eb6caf000fb2b0f9a68e0da8228eb896503d73cf7"
+  },
+  "moduleStatus": "CHANGED",
+  "fixtures": 20,
+  "exactMatches": 20,
+  "mismatches": [],
+  "scope": "Actual installed MonsterBehaviorComp ChangeSkill and SetIntention executed against the inherited original-runtime fixture domain.",
+  "limitations": [
+    "Command constructor, skill table and event/log/preview endpoints are bounded adapters",
+    "No ActByIntention, transition skill execution, turn advancement, gameplay or holdout credit"
+  ]
+}

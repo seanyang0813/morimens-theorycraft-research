@@ -61,6 +61,15 @@ test('agent API exposes bounded card-order search without a global optimum claim
   assert.match(response.result.unresolvedDependencies.at(-2),/supplied resolved actions/);
 });
 
+test('agent API exposes monster intent insertion as theorycraft state mutation',()=>{
+  const input={state:{intention:902,intentionRun:false,tempSkillList:[],hasIntentionCommand:true},skillId:60397,changeType:1};
+  const response=runTheorycraftRequest(request('apply-monster-skill-change',input));
+  assert.equal(response.analysisTrack,'theorycrafting');
+  assert.equal(response.result.state.intention,60397);
+  assert.deepEqual(response.result.state.tempSkillList,[{intention:902,changeType:1}]);
+  assert.ok(!response.result.effects.some(effect=>effect.type==='executeIntention'));
+});
+
 test('agent API exposes real exported skill preparation through explicit versioned context',()=>{
   const read=name=>{const bytes=readFileSync(new URL(`../research/extracted/config/${name}.json`,import.meta.url));return {data:JSON.parse(bytes),sha256:createHash('sha256').update(bytes).digest('hex')};};
   const skill=read('Skill'),battleApi=read('BattleApi'),command=read('Cmd');

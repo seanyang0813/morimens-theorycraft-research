@@ -24,7 +24,7 @@ export function resolvePhaseHpLoss(state,hpLoss){
   if(next.phaseLayers===1){
     next.immune=true;operations.push({type:'addState',stateId:46441,layers:1});
     const skillId=state.phaseId===60409?60397:60398;
-    operations.push({type:'changeMonsterSkill',skillId,slot:1});
+    operations.push({type:'changeMonsterSkill',skillId,changeType:1});
     if(state.phaseId===60409){
       next.phaseId=60408;next.phaseLayers=Math.ceil(state.maxHp*.33)+1;
       operations.push({type:'addState',stateId:60408,layers:next.phaseLayers});
@@ -61,5 +61,5 @@ export function simulatePhaseCapHits(input){
   },{repetitions:hits.length});
   order.run();
   if(events.errors.length)throw events.errors[0].error;
-  return {status:'EXPERIMENTAL',finalDamage:null,modeledHpLost:initialHp-hp,ending:{hp,block,phase},trace,evidence:['PC144:PhaseCapCommands','PC144:PhaseCapExpressions','PC144:PhaseTransitionEffects','PC144:PhaseLiveLayerEffects','PC144:ConnectedStateCreation','PC144:ConnectedCounterPropertyCreation','PC144:ConnectedPhasePropertyCreation','PC144:JoinedPhaseCommandEffects','PC144:ConnectedHpPhaseCapCommand','PC144:EffectOrder','PC144:OrdinaryHpSubtraction','PC144:HpOwnerEvents'],limitations:['Explicit initial state, ordinary non-puncture Active hits, integer HP and layers only','State eligibility assumed; no hidden/deleted/banned owner or other coexisting states','Transition skills recorded, not executed; no turn advancement or immunity-clear callbacks','No general death processing, statistics or independent gameplay validation']};
+  return {status:'EXPERIMENTAL',finalDamage:null,modeledHpLost:initialHp-hp,ending:{hp,block,phase},trace,evidence:['PC144:PhaseCapCommands','PC144:PhaseCapExpressions','PC144:PhaseTransitionEffects','PC144:MonsterSkillChange','PC144:PhaseLiveLayerEffects','PC144:ConnectedStateCreation','PC144:ConnectedCounterPropertyCreation','PC144:ConnectedPhasePropertyCreation','PC144:JoinedPhaseCommandEffects','PC144:ConnectedHpPhaseCapCommand','PC144:EffectOrder','PC144:OrdinaryHpSubtraction','PC144:HpOwnerEvents'],limitations:['Explicit initial state, ordinary non-puncture Active hits, integer HP and layers only','State eligibility assumed; no hidden/deleted/banned owner or other coexisting states','Transition intent mutation is modeled separately; no turn advancement, transition-skill execution or immunity-clear callbacks','No general death processing, statistics or independent gameplay validation']};
 }

@@ -34,10 +34,10 @@ class PhaseTransitionEffectOracle(StateManagerOracle):
         for target_index in range(1,target_count+1):
             self.table(L,0,3);self.number(L,target_index);self.setfield(L,-2,b'uid');self.table(L,0,2)
             def change_skill(state,index=target_index):
-                self.trace.append({'event':'changeSkill','target':index,'skillId':self.tonumber(state,2,None),'slot':self.tonumber(state,3,None)});return 0
+                self.trace.append({'event':'changeSkill','target':index,'skillId':self.tonumber(state,2,None),'changeType':self.tonumber(state,3,None)});return 0
             self.method('ChangeSkill',change_skill);self.setfield(L,-2,b'monsterBehaviorComp');self.rawseti(L,-2,target_index)
         self.setfield(L,-2,b'targets')
-        self.table(L,2,0);self.number(L,case['skillId'] if case['effect']=='skill' else state_id);self.rawseti(L,-2,1);self.number(L,case['slot'] if case['effect']=='skill' else case['extraRemoveParam']);self.rawseti(L,-2,2);self.setfield(L,-2,b'params')
+        self.table(L,2,0);self.number(L,case['skillId'] if case['effect']=='skill' else state_id);self.rawseti(L,-2,1);self.number(L,case['changeType'] if case['effect']=='skill' else case['extraRemoveParam']);self.rawseti(L,-2,2);self.setfield(L,-2,b'params')
         self.setglobal(L,b'_phase_effect_self')
 
         self.getglobal(L,b'_manager_class');self.table(L,0,target_count)
@@ -67,11 +67,11 @@ class PhaseTransitionEffectOracle(StateManagerOracle):
 def main():
     oracle=PhaseTransitionEffectOracle();fixtures=[]
     for targets,status,state_id,extra in itertools.product((0,1,2),('absent','live','deleted'),(60407,60409),(0,125)):
-        case={'effect':'remove','targets':targets,'stateStatus':status,'stateId':state_id,'skillId':60397,'slot':1,'extraRemoveParam':extra};fixtures.append({'input':case,'expected':oracle.run(case)})
-    for targets,skill_id,slot in itertools.product((0,1,2),(60397,60398),(1,2)):
-        case={'effect':'skill','targets':targets,'stateStatus':'absent','stateId':60409,'skillId':skill_id,'slot':slot,'extraRemoveParam':0};fixtures.append({'input':case,'expected':oracle.run(case)})
+        case={'effect':'remove','targets':targets,'stateStatus':status,'stateId':state_id,'skillId':60397,'changeType':1,'extraRemoveParam':extra};fixtures.append({'input':case,'expected':oracle.run(case)})
+    for targets,skill_id,change_type in itertools.product((0,1,2),(60397,60398),(0,1)):
+        case={'effect':'skill','targets':targets,'stateStatus':'absent','stateId':60409,'skillId':skill_id,'changeType':change_type,'extraRemoveParam':0};fixtures.append({'input':case,'expected':oracle.run(case)})
     output=ROOT/'tests/synthetic/original-phase-transition-effects.json'
-    output.write_text(json.dumps({'kind':'SYNTHETIC_ORIGINAL_RUNTIME','build':'pc-res144-build51','sourceHashes':{name:oracle.assets[name+'.lua']['sha256'] for name in ('BERemoveState','BEMonsterChangeSkill','BattleStateMgrServer')},'scope':'Original BERemoveState.DoEffect connected to original BattleStateMgrServer.GetState/RemoveState and original BEMonsterChangeSkill.DoEffect. Explicit target registry; state LifeEnd and event creation are observers. Covers zero/one/two targets, absent/live/deleted states, both phase skill IDs/slots and extra remove parameters. No original state LifeEnd body, property removal, skill component internals, scheduler, gameplay or holdout credit.','fixtures':fixtures},indent=2)+'\n',encoding='utf-8',newline='\n')
+    output.write_text(json.dumps({'kind':'SYNTHETIC_ORIGINAL_RUNTIME','build':'pc-res144-build51','sourceHashes':{name:oracle.assets[name+'.lua']['sha256'] for name in ('BERemoveState','BEMonsterChangeSkill','BattleStateMgrServer')},'scope':'Original BERemoveState.DoEffect connected to original BattleStateMgrServer.GetState/RemoveState and original BEMonsterChangeSkill.DoEffect. Explicit target registry; state LifeEnd and event creation are observers. Covers zero/one/two targets, absent/live/deleted states, both phase skill IDs/change types and extra remove parameters. No original state LifeEnd body, property removal, skill component internals, scheduler, gameplay or holdout credit.','fixtures':fixtures},indent=2)+'\n',encoding='utf-8',newline='\n')
     print('Generated',len(fixtures),'phase-transition effect cases')
 
 

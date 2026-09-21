@@ -1,0 +1,566 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "MonsterBehaviorComp": "cad2c52acb7a365557c8a2fc67e00ce4acaff8beded611412a86510679f7ee2c",
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+  },
+  "scope": "Original MonsterBehaviorComp.ChangeSkill and SetIntention. Covers Substitute/Insert, idle/running/absent prior intention, empty/nonempty temporary queue and old-command disposal. BattleCmdServer construction, skill table, event/log/preview endpoints are explicit observers/adapters. Establishes intent mutation and command construction without ActByIntention execution; no transition skill body, turn advancement, gameplay or holdout credit.",
+  "fixtures": [
+    {
+      "domain": "ChangeSkill",
+      "input": {
+        "state": {
+          "intention": null,
+          "intentionRun": false,
+          "tempSkillList": []
+        },
+        "skillId": 60397,
+        "changeType": 0
+      },
+      "expected": {
+        "tempSkillList": [],
+        "trace": [
+          {
+            "event": "setIntention",
+            "skillId": 60397
+          }
+        ]
+      }
+    },
+    {
+      "domain": "ChangeSkill",
+      "input": {
+        "state": {
+          "intention": null,
+          "intentionRun": false,
+          "tempSkillList": [
+            {
+              "intention": 800,
+              "changeType": 1
+            }
+          ]
+        },
+        "skillId": 60397,
+        "changeType": 0
+      },
+      "expected": {
+        "tempSkillList": [],
+        "trace": [
+          {
+            "event": "setIntention",
+            "skillId": 60397
+          }
+        ]
+      }
+    },
+    {
+      "domain": "ChangeSkill",
+      "input": {
+        "state": {
+          "intention": null,
+          "intentionRun": false,
+          "tempSkillList": []
+        },
+        "skillId": 60397,
+        "changeType": 1
+      },
+      "expected": {
+        "tempSkillList": [],
+        "trace": [
+          {
+            "event": "setIntention",
+            "skillId": 60397
+          }
+        ]
+      }
+    },
+    {
+      "domain": "ChangeSkill",
+      "input": {
+        "state": {
+          "intention": null,
+          "intentionRun": false,
+          "tempSkillList": [
+            {
+              "intention": 800,
+              "changeType": 1
+            }
+          ]
+        },
+        "skillId": 60397,
+        "changeType": 1
+      },
+      "expected": {
+        "tempSkillList": [
+          {
+            "intention": 800,
+            "changeType": 1
+          }
+        ],
+        "trace": [
+          {
+            "event": "setIntention",
+            "skillId": 60397
+          }
+        ]
+      }
+    },
+    {
+      "domain": "ChangeSkill",
+      "input": {
+        "state": {
+          "intention": null,
+          "intentionRun": true,
+          "tempSkillList": []
+        },
+        "skillId": 60397,
+        "changeType": 0
+      },
+      "expected": {
+        "tempSkillList": [],
+        "trace": [
+          {
+            "event": "setIntention",
+            "skillId": 60397
+          }
+        ]
+      }
+    },
+    {
+      "domain": "ChangeSkill",
+      "input": {
+        "state": {
+          "intention": null,
+          "intentionRun": true,
+          "tempSkillList": [
+            {
+              "intention": 800,
+              "changeType": 1
+            }
+          ]
+        },
+        "skillId": 60397,
+        "changeType": 0
+      },
+      "expected": {
+        "tempSkillList": [],
+        "trace": [
+          {
+            "event": "setIntention",
+            "skillId": 60397
+          }
+        ]
+      }
+    },
+    {
+      "domain": "ChangeSkill",
+      "input": {
+        "state": {
+          "intention": null,
+          "intentionRun": true,
+          "tempSkillList": []
+        },
+        "skillId": 60397,
+        "changeType": 1
+      },
+      "expected": {
+        "tempSkillList": [],
+        "trace": [
+          {
+            "event": "setIntention",
+            "skillId": 60397
+          }
+        ]
+      }
+    },
+    {
+      "domain": "ChangeSkill",
+      "input": {
+        "state": {
+          "intention": null,
+          "intentionRun": true,
+          "tempSkillList": [
+            {
+              "intention": 800,
+              "changeType": 1
+            }
+          ]
+        },
+        "skillId": 60397,
+        "changeType": 1
+      },
+      "expected": {
+        "tempSkillList": [
+          {
+            "intention": 800,
+            "changeType": 1
+          }
+        ],
+        "trace": [
+          {
+            "event": "setIntention",
+            "skillId": 60397
+          }
+        ]
+      }
+    },
+    {
+      "domain": "ChangeSkill",
+      "input": {
+        "state": {
+          "intention": 902,
+          "intentionRun": false,
+          "tempSkillList": []
+        },
+        "skillId": 60397,
+        "changeType": 0
+      },
+      "expected": {
+        "tempSkillList": [],
+        "trace": [
+          {
+            "event": "setIntention",
+            "skillId": 60397
+          }
+        ]
+      }
+    },
+    {
+      "domain": "ChangeSkill",
+      "input": {
+        "state": {
+          "intention": 902,
+          "intentionRun": false,
+          "tempSkillList": [
+            {
+              "intention": 800,
+              "changeType": 1
+            }
+          ]
+        },
+        "skillId": 60397,
+        "changeType": 0
+      },
+      "expected": {
+        "tempSkillList": [],
+        "trace": [
+          {
+            "event": "setIntention",
+            "skillId": 60397
+          }
+        ]
+      }
+    },
+    {
+      "domain": "ChangeSkill",
+      "input": {
+        "state": {
+          "intention": 902,
+          "intentionRun": false,
+          "tempSkillList": []
+        },
+        "skillId": 60397,
+        "changeType": 1
+      },
+      "expected": {
+        "tempSkillList": [
+          {
+            "intention": 902,
+            "changeType": 1
+          }
+        ],
+        "trace": [
+          {
+            "event": "setIntention",
+            "skillId": 60397
+          }
+        ]
+      }
+    },
+    {
+      "domain": "ChangeSkill",
+      "input": {
+        "state": {
+          "intention": 902,
+          "intentionRun": false,
+          "tempSkillList": [
+            {
+              "intention": 800,
+              "changeType": 1
+            }
+          ]
+        },
+        "skillId": 60397,
+        "changeType": 1
+      },
+      "expected": {
+        "tempSkillList": [
+          {
+            "intention": 800,
+            "changeType": 1
+          },
+          {
+            "intention": 902,
+            "changeType": 1
+          }
+        ],
+        "trace": [
+          {
+            "event": "setIntention",
+            "skillId": 60397
+          }
+        ]
+      }
+    },
+    {
+      "domain": "ChangeSkill",
+      "input": {
+        "state": {
+          "intention": 902,
+          "intentionRun": true,
+          "tempSkillList": []
+        },
+        "skillId": 60397,
+        "changeType": 0
+      },
+      "expected": {
+        "tempSkillList": [],
+        "trace": [
+          {
+            "event": "setIntention",
+            "skillId": 60397
+          }
+        ]
+      }
+    },
+    {
+      "domain": "ChangeSkill",
+      "input": {
+        "state": {
+          "intention": 902,
+          "intentionRun": true,
+          "tempSkillList": [
+            {
+              "intention": 800,
+              "changeType": 1
+            }
+          ]
+        },
+        "skillId": 60397,
+        "changeType": 0
+      },
+      "expected": {
+        "tempSkillList": [],
+        "trace": [
+          {
+            "event": "setIntention",
+            "skillId": 60397
+          }
+        ]
+      }
+    },
+    {
+      "domain": "ChangeSkill",
+      "input": {
+        "state": {
+          "intention": 902,
+          "intentionRun": true,
+          "tempSkillList": []
+        },
+        "skillId": 60397,
+        "changeType": 1
+      },
+      "expected": {
+        "tempSkillList": [],
+        "trace": [
+          {
+            "event": "setIntention",
+            "skillId": 60397
+          }
+        ]
+      }
+    },
+    {
+      "domain": "ChangeSkill",
+      "input": {
+        "state": {
+          "intention": 902,
+          "intentionRun": true,
+          "tempSkillList": [
+            {
+              "intention": 800,
+              "changeType": 1
+            }
+          ]
+        },
+        "skillId": 60397,
+        "changeType": 1
+      },
+      "expected": {
+        "tempSkillList": [
+          {
+            "intention": 800,
+            "changeType": 1
+          }
+        ],
+        "trace": [
+          {
+            "event": "setIntention",
+            "skillId": 60397
+          }
+        ]
+      }
+    },
+    {
+      "domain": "SetIntention",
+      "input": {
+        "previousIntention": null,
+        "hasCommand": false,
+        "skillId": 60397
+      },
+      "expected": {
+        "fields": {
+          "lastIntention": null,
+          "intention": 60397,
+          "intentionRun": false
+        },
+        "trace": [
+          {
+            "event": "emitIntentionChanged"
+          },
+          {
+            "event": "logIntentionChanged"
+          },
+          {
+            "event": "resolveIntentionCommand"
+          },
+          {
+            "event": "constructIntentionCommand"
+          },
+          {
+            "event": "getSkillArgs"
+          },
+          {
+            "event": "refreshIntentionDamagePreview"
+          }
+        ],
+        "executedIntention": false
+      }
+    },
+    {
+      "domain": "SetIntention",
+      "input": {
+        "previousIntention": null,
+        "hasCommand": true,
+        "skillId": 60397
+      },
+      "expected": {
+        "fields": {
+          "lastIntention": null,
+          "intention": 60397,
+          "intentionRun": false
+        },
+        "trace": [
+          {
+            "event": "disposePreviousIntentionCommand"
+          },
+          {
+            "event": "emitIntentionChanged"
+          },
+          {
+            "event": "logIntentionChanged"
+          },
+          {
+            "event": "resolveIntentionCommand"
+          },
+          {
+            "event": "constructIntentionCommand"
+          },
+          {
+            "event": "getSkillArgs"
+          },
+          {
+            "event": "refreshIntentionDamagePreview"
+          }
+        ],
+        "executedIntention": false
+      }
+    },
+    {
+      "domain": "SetIntention",
+      "input": {
+        "previousIntention": 902,
+        "hasCommand": false,
+        "skillId": 60397
+      },
+      "expected": {
+        "fields": {
+          "lastIntention": 902,
+          "intention": 60397,
+          "intentionRun": false
+        },
+        "trace": [
+          {
+            "event": "emitIntentionChanged"
+          },
+          {
+            "event": "logIntentionChanged"
+          },
+          {
+            "event": "resolveIntentionCommand"
+          },
+          {
+            "event": "constructIntentionCommand"
+          },
+          {
+            "event": "getSkillArgs"
+          },
+          {
+            "event": "refreshIntentionDamagePreview"
+          }
+        ],
+        "executedIntention": false
+      }
+    },
+    {
+      "domain": "SetIntention",
+      "input": {
+        "previousIntention": 902,
+        "hasCommand": true,
+        "skillId": 60397
+      },
+      "expected": {
+        "fields": {
+          "lastIntention": 902,
+          "intention": 60397,
+          "intentionRun": false
+        },
+        "trace": [
+          {
+            "event": "disposePreviousIntentionCommand"
+          },
+          {
+            "event": "emitIntentionChanged"
+          },
+          {
+            "event": "logIntentionChanged"
+          },
+          {
+            "event": "resolveIntentionCommand"
+          },
+          {
+            "event": "constructIntentionCommand"
+          },
+          {
+            "event": "getSkillArgs"
+          },
+          {
+            "event": "refreshIntentionDamagePreview"
+          }
+        ],
+        "executedIntention": false
+      }
+    }
+  ]
+}

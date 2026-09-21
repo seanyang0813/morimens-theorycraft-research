@@ -173,7 +173,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -317,7 +317,7 @@
           {
             "event": "changeSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "event": "propertyDelta",
@@ -389,7 +389,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "addState",
@@ -533,7 +533,7 @@
           {
             "event": "changeSkill",
             "skillId": 60397,
-            "slot": 1
+            "changeType": 1
           },
           {
             "event": "propertyDelta",
@@ -718,7 +718,7 @@
           {
             "type": "changeMonsterSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "type": "removeState",
@@ -847,7 +847,7 @@
           {
             "event": "changeSkill",
             "skillId": 60398,
-            "slot": 1
+            "changeType": 1
           },
           {
             "event": "lifeEnd",

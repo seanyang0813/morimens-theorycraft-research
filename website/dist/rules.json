@@ -2931,8 +2931,8 @@
     {
       "id": "PC144:PhaseTransitionEffects",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
-      "claim": "Phase removal uses original manager lookup/removal and affects only live matching states; monster skill changes forward the configured skill and slot to every target",
-      "scope": "48 original-runtime cases over zero/one/two targets, absent/live/deleted states, both phase state/skill IDs, slots and extra remove parameters. State LifeEnd and event creation are observers; no property removal, skill-component internals, scheduler, gameplay or holdout credit.",
+      "claim": "Phase removal uses original manager lookup/removal and affects only live matching states; monster skill changes forward the configured skill and change type to every target",
+      "scope": "48 original-runtime cases over zero/one/two targets, absent/live/deleted states, both phase state/skill IDs, change types and extra remove parameters. State LifeEnd and event creation are observers; no property removal, skill-component internals, scheduler, gameplay or holdout credit.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -2954,6 +2954,29 @@
       "checks": [
         "tools/phase_transition_effect_oracle.py",
         "tests/phase-transition-effects.test.mjs"
+      ]
+    },
+    {
+      "id": "PC144:MonsterSkillChange",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Monster skill change type 0 clears queued temporary skills; type 1 queues an idle displayed intention before replacing it, while a running intention is not queued. SetIntention replaces the displayed intention, constructs its command and refreshes preview damage without executing the intention.",
+      "scope": "20 original-runtime cases across Substitute/Insert, absent/idle/running prior intent, empty/nonempty temporary queue and old-command disposal. Command constructor, skill table and event/log/preview endpoints are explicit adapters. No ActByIntention, transition skill execution, turn advancement, gameplay or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "MonsterBehaviorComp",
+          "member": "ChangeSkill,SetIntention",
+          "sha256": "cad2c52acb7a365557c8a2fc67e00ce4acaff8beded611412a86510679f7ee2c"
+        },
+        {
+          "module": "BattleConst",
+          "member": "MonsterSkillChangeType",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+        }
+      ],
+      "checks": [
+        "tools/monster_skill_change_oracle.py",
+        "tests/monster-skill-change.test.mjs"
       ]
     },
     {
@@ -4419,7 +4442,7 @@
         {
           "module": "PC resource-150 phase-cap expression runtime comparison",
           "member": "fixture-domain result",
-          "sha256": "355089b244f4c2513434a4b77799b62f2e7b0bcb50b2543cb1ab6ab06a6e18b6"
+          "sha256": "347f5ea56eac4456864863e2c85e1d438ba5b3d535b91aa14b8b8ba23bb9a10b"
         }
       ],
       "checks": [
@@ -4450,6 +4473,30 @@
         "tools/phase_transition_effect_oracle.py",
         "tools/verify_current_phase_transition_effects.py",
         "tests/phase-transition-effects.test.mjs"
+      ]
+    },
+    {
+      "id": "PC150:MonsterSkillChange",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "Changed resource-150 MonsterBehaviorComp reproduces all 20 inherited ChangeSkill and SetIntention fixtures exactly",
+      "scope": "Actual changed current component over Substitute/Insert, idle/running/absent prior intent, queue mutation and command replacement. Explicit command/skill/event/log/preview adapters. No ActByIntention, transition skill execution, turn advancement, gameplay or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 installed share bundle",
+          "member": "MonsterBehaviorComp hash",
+          "sha256": "b62601a3391a5999ebb196dec5e52c0660d95c19655ac3b19f13299806c38907"
+        },
+        {
+          "module": "PC resource-150 monster skill-change runtime comparison",
+          "member": "ChangeSkill and SetIntention fixture-domain result",
+          "sha256": "0a8bcdcb52bae35ba69786d7f47e1530527c58431bfe47ee948f69e1c7a92858"
+        }
+      ],
+      "checks": [
+        "tools/monster_skill_change_oracle.py",
+        "tools/verify_current_monster_skill_change.py",
+        "tests/monster-skill-change.test.mjs"
       ]
     },
     {

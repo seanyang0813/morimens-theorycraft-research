@@ -16,6 +16,7 @@ assert.equal(shield.trace[0].shieldLoss,75);
 const phase2=resolvePhaseHpLoss({...phase,phaseId:60408},330);
 assert.deepEqual(phase2.operations.map(o=>o.type),['addCounter','subtractPhase','addState','changeMonsterSkill','removeState','removeState']);
 assert.equal(phase2.operations[3].skillId,60398);
+assert.equal(phase2.operations[3].changeType,1);
 assert.equal(phase2.state.phaseId,0);assert.equal(phase2.state.counter,0);assert.equal(phase2.state.immune,true);
 assert.deepEqual(resolvePhaseHpLoss(phase,0),{state:phase,operations:[]});
 assert.throws(()=>resolvePhaseHpLoss(phase,.5),/integer/);

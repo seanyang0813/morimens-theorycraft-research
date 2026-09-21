@@ -18,10 +18,10 @@ test('installed resource 150 carries the effect fixtures forward byte-for-byte',
   assert.equal(current.status,'BYTE_IDENTICAL_FIXTURES_CARRIED_FORWARD');assert.equal(current.fixtures,48);assert.equal(current.carriedForward,48);
 });
 
-test('monster-skill effect forwards configured skill and slot for every target',()=>{
+test('monster-skill effect forwards configured skill and change type for every target',()=>{
   const rows=fixture.fixtures.filter(row=>row.input.effect==='skill');assert.ok(rows.length>0);
   for(const row of rows){
     const changes=row.expected.trace.filter(event=>event.event==='changeSkill');assert.equal(changes.length,row.input.targets);
-    assert.ok(changes.every(event=>event.skillId===row.input.skillId&&event.slot===row.input.slot));
+    assert.ok(changes.every(event=>event.skillId===row.input.skillId&&event.changeType===row.input.changeType));
   }
 });

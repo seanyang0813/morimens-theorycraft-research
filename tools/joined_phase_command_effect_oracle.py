@@ -66,7 +66,7 @@ class JoinedPhaseCommandEffectOracle(PhaseLiveLayerOracle):
         self.getglobal(L, b'_phase_target')
         self.table(L, 0, 1)
         def change_skill(state):
-            self.effect_trace.append({'event': 'changeSkill', 'skillId': int(self.tonumber(state, 2, None)), 'slot': int(self.tonumber(state, 3, None))})
+            self.effect_trace.append({'event': 'changeSkill', 'skillId': int(self.tonumber(state, 2, None)), 'changeType': int(self.tonumber(state, 3, None))})
             return 0
         self.method('ChangeSkill', change_skill)
         self.setfield(L, -2, b'monsterBehaviorComp')
@@ -222,7 +222,7 @@ class JoinedPhaseCommandEffectOracle(PhaseLiveLayerOracle):
                 operations.append({'type': 'removeState', 'stateId': state_id})
             elif row['Type'] == 'BEMonsterChangeSkill':
                 skill = state_id
-                operations.append({'type': 'changeMonsterSkill', 'skillId': state_id, 'slot': int(amount)})
+                operations.append({'type': 'changeMonsterSkill', 'skillId': state_id, 'changeType': int(amount)})
             return {state_id: value['layers'] for state_id, value in after.items()}
 
         before_schedule = self._state_snapshot()
