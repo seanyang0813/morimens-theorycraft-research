@@ -1,0 +1,172 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleCardServer": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53"
+  },
+  "scope": "Original BattleCardServer.InitCmdServer with observed BattleCmdServer constructor requests and GetSkillArgs call. No command constructor internals, execution, gameplay or holdout validation.",
+  "fixtures": [
+    {
+      "input": {
+        "name": "main-only",
+        "tid": 1001,
+        "ownerUid": 88,
+        "uid": 9001,
+        "level": 7,
+        "preCmdId": null,
+        "cmdId": 5001,
+        "createCardArgs": [
+          11,
+          22
+        ]
+      },
+      "expected": {
+        "requests": [
+          {
+            "skillLevel": 7.0,
+            "skillConfigId": 1001.0,
+            "cmdId": 5001.0,
+            "cardUid": 9001.0,
+            "isPreCmd": null,
+            "castRoleUid": 88.0,
+            "createCardArgs": [
+              11.0,
+              22.0
+            ]
+          }
+        ],
+        "preServerPresent": false,
+        "mainServerPresent": true,
+        "trace": [
+          "GetSkillArgs"
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "pre-and-main",
+        "tid": 1001,
+        "ownerUid": 88,
+        "uid": 9001,
+        "level": 7,
+        "preCmdId": 4001,
+        "cmdId": 5001,
+        "createCardArgs": [
+          11,
+          22
+        ]
+      },
+      "expected": {
+        "requests": [
+          {
+            "skillLevel": 7.0,
+            "skillConfigId": 1001.0,
+            "cmdId": 4001.0,
+            "cardUid": 9001.0,
+            "isPreCmd": true,
+            "castRoleUid": 88.0,
+            "createCardArgs": [
+              11.0,
+              22.0
+            ]
+          },
+          {
+            "skillLevel": 7.0,
+            "skillConfigId": 1001.0,
+            "cmdId": 5001.0,
+            "cardUid": 9001.0,
+            "isPreCmd": null,
+            "castRoleUid": 88.0,
+            "createCardArgs": [
+              11.0,
+              22.0
+            ]
+          }
+        ],
+        "preServerPresent": true,
+        "mainServerPresent": true,
+        "trace": [
+          "GetSkillArgs"
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "empty-args",
+        "tid": 1001,
+        "ownerUid": 88,
+        "uid": 9001,
+        "level": 7,
+        "preCmdId": null,
+        "cmdId": 5001,
+        "createCardArgs": []
+      },
+      "expected": {
+        "requests": [
+          {
+            "skillLevel": 7.0,
+            "skillConfigId": 1001.0,
+            "cmdId": 5001.0,
+            "cardUid": 9001.0,
+            "isPreCmd": null,
+            "castRoleUid": 88.0,
+            "createCardArgs": []
+          }
+        ],
+        "preServerPresent": false,
+        "mainServerPresent": true,
+        "trace": [
+          "GetSkillArgs"
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "zero-pre-is-present",
+        "tid": 1001,
+        "ownerUid": 88,
+        "uid": 9001,
+        "level": 7,
+        "preCmdId": 0,
+        "cmdId": 5001,
+        "createCardArgs": [
+          11,
+          22
+        ]
+      },
+      "expected": {
+        "requests": [
+          {
+            "skillLevel": 7.0,
+            "skillConfigId": 1001.0,
+            "cmdId": 0.0,
+            "cardUid": 9001.0,
+            "isPreCmd": true,
+            "castRoleUid": 88.0,
+            "createCardArgs": [
+              11.0,
+              22.0
+            ]
+          },
+          {
+            "skillLevel": 7.0,
+            "skillConfigId": 1001.0,
+            "cmdId": 5001.0,
+            "cardUid": 9001.0,
+            "isPreCmd": null,
+            "castRoleUid": 88.0,
+            "createCardArgs": [
+              11.0,
+              22.0
+            ]
+          }
+        ],
+        "preServerPresent": true,
+        "mainServerPresent": true,
+        "trace": [
+          "GetSkillArgs"
+        ]
+      }
+    }
+  ]
+}

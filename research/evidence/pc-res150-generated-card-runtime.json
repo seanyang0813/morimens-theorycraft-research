@@ -4,7 +4,7 @@
   "baselineBuild": "pc-res144-build51",
   "currentBuild": "pc-res150-build51",
   "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
-  "fixtures": 17,
+  "fixtures": 21,
   "domains": [
     {
       "domain": "create",
@@ -23,6 +23,12 @@
       "fixtures": 6,
       "exactMatch": true,
       "baselineFixtureSha256": "482fbcf26faa46e0c5882a2104abaa27d2a36b3515dbf9d8b641069ff4666421"
+    },
+    {
+      "domain": "command",
+      "fixtures": 4,
+      "exactMatch": true,
+      "baselineFixtureSha256": "5fb2271550abeca561df79714bdcafecbd6a81991980742ea42c2a805205d5c1"
     }
   ],
   "sourceHashes": {
@@ -30,10 +36,10 @@
     "BattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
     "BattleLogicEvent": "cef7477d60a84d8ac4f4b097436a39628d37ff5c54bd8f44d08828d75ad80c4a"
   },
-  "scope": "Current resource-150 BattleConst and BattleLogicEvent with byte-identical BECreateCard, BattleCardMgrServer and BattleCardServer over inherited request, selected deck-mutation and owner-resolution fixtures. Private modules are not published.",
+  "scope": "Current resource-150 BattleConst and BattleLogicEvent with byte-identical BECreateCard, BattleCardMgrServer and BattleCardServer over inherited request, selected deck-mutation, owner-resolution and command-constructor-request fixtures. Private modules are not published.",
   "limitations": [
     "Only the inherited synthetic fixture domains are covered",
-    "Ordinary Dimension/MonsterDimension capacity, random placement, constructor command/state initialization and listeners remain unresolved",
+    "Ordinary Dimension/MonsterDimension capacity, random placement, BattleCmdServer constructor internals, card state initialization and listeners remain unresolved",
     "No gameplay or holdout credit"
   ]
 }

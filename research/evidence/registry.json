@@ -5020,9 +5020,38 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC144:CardCommandInitialization",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "InitCmdServer constructs an optional pre-command before the main command, copies card/skill/owner/argument identity into each constructor request, marks only the pre-command and calls GetSkillArgs on the main command",
+      "sources": [
+        {
+          "module": "BattleCardServer",
+          "member": "InitCmdServer",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7042619747436697877_BattleCardServer.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "constructor,GetSkillArgs",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        }
+      ],
+      "tests": [
+        "tools/card_command_init_oracle.py",
+        "tests/card-command-init.test.mjs",
+        "tests/synthetic/original-card-command-init.json",
+        "docs/CARD_ATTRIBUTION.md"
+      ],
+      "scope": "Four original protected-runtime cases with an observed BattleCmdServer constructor boundary. Constructor internals, expression initialization, card states, effect execution, listeners, gameplay and holdout validation are excluded.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC144:GeneratedCardPipeline",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
-      "claim": "The authored generated-card pipeline composes tested request construction, Draw/Hand mutation and owner resolution while retaining each boundary trace and unresolved dependency",
+      "claim": "The authored generated-card pipeline composes tested request construction, Draw/Hand mutation, owner resolution and command-constructor requests while retaining each boundary trace and unresolved dependency",
       "sources": [
         {
           "module": "BECreateCard",
@@ -5040,7 +5069,7 @@
         },
         {
           "module": "BattleCardServer",
-          "member": "InitOwner",
+          "member": "InitOwner,InitCmdServer",
           "bundle": "pc\\downloaded\\share.ab",
           "sha256": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7042619747436697877_BattleCardServer.lua"
@@ -5052,7 +5081,7 @@
         "tests/generated-card-pipeline.test.mjs",
         "research/examples/generated-card-pipeline.json"
       ],
-      "scope": "Authored immutable composition of separately tested PC resource-144 boundaries. Caller supplies deck state, capacities, UID allocation, roster/source-card lookup results and owner context. Card command/state initialization, entry listeners, generated-card execution, gameplay and holdout validation are excluded.",
+      "scope": "Authored immutable composition of separately tested PC resource-144 boundaries. Caller supplies deck state, capacities, UID allocation, roster/source-card lookup results, owner context and selected command IDs. BattleCmdServer constructor internals, card state initialization, entry listeners, generated-card execution, gameplay and holdout validation are excluded.",
       "gameplayValidation": false
     },
     {
@@ -6070,7 +6099,7 @@
     {
       "id": "PC150:GeneratedCardPipeline",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
-      "claim": "Current resource-150 generated-card modules are byte-identical and reproduce all 17 inherited request, selected deck-mutation and owner-resolution fixtures with current dependencies",
+      "claim": "Current resource-150 generated-card modules are byte-identical and reproduce all 21 inherited request, selected deck-mutation, owner-resolution and command-initialization-request fixtures with current dependencies",
       "sources": [
         {
           "module": "PC resource-150 generated-card module comparison",
@@ -6080,9 +6109,9 @@
         },
         {
           "module": "PC resource-150 generated-card runtime comparison",
-          "member": "request, AddNewCard and InitOwner fixture domains",
+          "member": "request, AddNewCard, InitOwner and InitCmdServer fixture domains",
           "bundle": "copied XLua runtime; hashes only",
-          "sha256": "eb1a62d83875757de3239f4deeca73c73cad5c183e214ccdc145fbf96968a864"
+          "sha256": "928146f8c1f47799b5e563044547c28b19ffbb40d4c3bda2a78eec04bd6c2027"
         }
       ],
       "tests": [
@@ -6090,9 +6119,10 @@
         "tools/verify_current_generated_cards.py",
         "tests/current-generated-card-modules.test.mjs",
         "tests/current-generated-card-runtime.test.mjs",
-        "tests/generated-card-pipeline.test.mjs"
+        "tests/generated-card-pipeline.test.mjs",
+        "tests/card-command-init.test.mjs"
       ],
-      "scope": "Current BattleConst and BattleLogicEvent plus byte-identical generated-card modules over six BECreateCard, five AddNewCard and six InitOwner fixtures. Draw/Hand top/bottom mutation, hand overflow, extra-bout Dimension early exit and owner fallbacks are covered. Other deck capacities, random placement, constructor command/state initialization, listeners, gameplay and holdout validation are excluded.",
+      "scope": "Current BattleConst and BattleLogicEvent plus byte-identical generated-card modules over six BECreateCard, five AddNewCard, six InitOwner and four InitCmdServer fixtures. Draw/Hand top/bottom mutation, hand overflow, extra-bout Dimension early exit, owner fallbacks and command constructor payloads are covered. Other deck capacities, random placement, BattleCmdServer constructor internals, card state initialization, listeners, gameplay and holdout validation are excluded.",
       "gameplayValidation": false
     },
     {
