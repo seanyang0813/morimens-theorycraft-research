@@ -2159,10 +2159,51 @@
       ]
     },
     {
+      "id": "PC144:TriggerCmdEffectList",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "TriggerCmd advances the ordinary action index, replaces the effect list, builds command rows, and passes one shared trigger-data table to every child PreTrigger call",
+      "scope": "5 original-runtime cases covering pre-command action-index suppression, nil/explicit trigger data, skip-phase delays, skill/state logging and zero/one/two generated observer effects. Generated effects are adapters; no real effect execution, targets, events or gameplay.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "BattleCmdServer",
+          "member": "TriggerCmd,GenerateEffectList",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b"
+        }
+      ],
+      "checks": [
+        "tools/trigger_cmd_oracle.py",
+        "tests/trigger-cmd.test.mjs"
+      ]
+    },
+    {
+      "id": "PC144:ConnectedSkillPhaseStart",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "BECreateSkillPhase.DoEffect enters the phase hooks and then executes TriggerCmd through effect-list creation and child PreTrigger calls",
+      "scope": "4 connected original-runtime cases over skipPhase, skipTimeline, nil/explicit trigger payload and state logging. Timing/timeline, arguments, delays and effect construction are bounded observers; generated effects do not execute. No target generation, listener dispatch, finish-stage connection, gameplay or holdout.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "BECreateSkillPhase",
+          "member": "DoEffect,__FireAfterCreateSkillPhase",
+          "sha256": "0517f4daffda3ed3939ecfa33c7ebeeffa4a01aa137fb2e3951fb0996da9958e"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "TriggerCmd,GenerateEffectList,SetIsDeleted,GetUpperTargets",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b"
+        }
+      ],
+      "checks": [
+        "tools/connected_skill_phase_oracle.py",
+        "tests/trigger-cmd.test.mjs"
+      ]
+    },
+    {
       "id": "PC144:StateCommandLifecycle",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
       "claim": "State callbacks queue target generation and skill-phase execution before StateTriggerEnd; the phase wraps command execution with before/finish hooks and potential time advancement",
-      "scope": "Source-derived lifecycle trace; no connected runtime oracle, generic command executor or gameplay validation. Existing Old Embers row scheduler omits these lifecycle hooks",
+      "scope": "Source-derived lifecycle trace. Separate runtime evidence connects phase start through observer effect creation, but the State.Trigger entry, real generated effects, listener descendants, full finish/end path and gameplay remain unconnected. Existing Old Embers row scheduler omits these lifecycle hooks",
       "gameplayValidation": false,
       "sources": [
         {
@@ -3860,8 +3901,8 @@
     {
       "id": "PC150:SkillPhaseSelectedBoundary",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
-      "claim": "Resource 150 reproduces all 239 inherited phase-cleanup, target-handoff, argument, timing and command-row-order fixtures exactly",
-      "scope": "BattleCmdServer phase cleanup, skill-argument construction, delay planning and row ordering; BattleCmdParser StateOwner selection, target handoff and ArgN lookup. TriggerCmd body, target-expression initialization, event listener dispatch, complete card phases, gameplay and holdout credit remain outside scope.",
+      "claim": "Resource 150 reproduces all 248 inherited connected phase-start, TriggerCmd, cleanup, target-handoff, argument, timing and command-row-order fixtures exactly",
+      "scope": "BECreateSkillPhase start through BattleCmdServer TriggerCmd and observer effect construction; phase cleanup, skill arguments, delay planning and row ordering; BattleCmdParser StateOwner selection, target handoff and ArgN lookup. Real generated-effect execution, target-expression initialization, event listener dispatch, complete card phases, gameplay and holdout credit remain outside scope.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -3872,12 +3913,13 @@
         {
           "module": "PC resource-150 selected skill-phase runtime comparison",
           "member": "fixture-domain result",
-          "sha256": "e1f8d064771453b8b818909124e3f7df060c289dfccc8d2f28b9cc5fad1751e6"
+          "sha256": "c79dba8010fa163ae4dc897306c0cd03932bf123f09ef83cdbc002df739b3ba0"
         }
       ],
       "checks": [
         "tools/verify_current_skill_phase_boundary.py",
         "tests/current-skill-phase-boundary.test.mjs",
+        "tests/trigger-cmd.test.mjs",
         "tests/skill-phase-finish.test.mjs",
         "tests/state-owner-target.test.mjs",
         "tests/command-arguments.test.mjs",

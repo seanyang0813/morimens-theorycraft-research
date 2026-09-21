@@ -1,0 +1,304 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHash": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+  "scope": "Original TriggerCmd through original GenerateEffectList with explicit command data and bounded action-index, logging, argument, delay and effect-construction adapters. PreTrigger calls and trigger-data reuse observed. No real effect construction/execution, target generation, events, gameplay or holdout.",
+  "fixtures": [
+    {
+      "input": {
+        "name": "ordinary",
+        "isPreCmd": false,
+        "triggerPresent": true,
+        "skipPhase": false,
+        "skillPresent": true,
+        "statePresent": false,
+        "perform": "absent",
+        "rows": [
+          1,
+          2
+        ]
+      },
+      "expected": {
+        "trace": [
+          "IncreaseActionIndex",
+          "GetSkillTypeStr",
+          [
+            "Info",
+            {
+              "command": true,
+              "skill": true,
+              "state": false,
+              "type": true
+            }
+          ],
+          "CheckLoopCall",
+          "GetSkillArgs",
+          [
+            "UpdateSkillArgs",
+            2
+          ],
+          "GetEffectDelayTimes",
+          [
+            "GenerateEffectObj",
+            {
+              "rowId": 1.0,
+              "delay": 0.25,
+              "skipPhase": false,
+              "index": 1.0
+            }
+          ],
+          [
+            "GenerateEffectObj",
+            {
+              "rowId": 2.0,
+              "delay": 0.75,
+              "skipPhase": false,
+              "index": 2.0
+            }
+          ]
+        ],
+        "preTriggers": [
+          {
+            "effect": 1,
+            "seenProbe": null,
+            "token": 7.0
+          },
+          {
+            "effect": 2,
+            "seenProbe": 99.0,
+            "token": 7.0
+          }
+        ],
+        "effectCount": 2,
+        "triggerProbe": 99.0
+      }
+    },
+    {
+      "input": {
+        "name": "pre-command",
+        "isPreCmd": true,
+        "triggerPresent": true,
+        "skipPhase": false,
+        "skillPresent": true,
+        "statePresent": false,
+        "perform": "absent",
+        "rows": [
+          1
+        ]
+      },
+      "expected": {
+        "trace": [
+          "GetSkillTypeStr",
+          [
+            "Info",
+            {
+              "command": true,
+              "skill": true,
+              "state": false,
+              "type": true
+            }
+          ],
+          "CheckLoopCall",
+          "GetSkillArgs",
+          [
+            "UpdateSkillArgs",
+            2
+          ],
+          "GetEffectDelayTimes",
+          [
+            "GenerateEffectObj",
+            {
+              "rowId": 1.0,
+              "delay": 0.25,
+              "skipPhase": false,
+              "index": 1.0
+            }
+          ]
+        ],
+        "preTriggers": [
+          {
+            "effect": 1,
+            "seenProbe": null,
+            "token": 7.0
+          }
+        ],
+        "effectCount": 1,
+        "triggerProbe": 99.0
+      }
+    },
+    {
+      "input": {
+        "name": "skip-no-perform",
+        "isPreCmd": false,
+        "triggerPresent": false,
+        "skipPhase": true,
+        "skillPresent": true,
+        "statePresent": false,
+        "perform": "empty",
+        "rows": [
+          1,
+          2
+        ]
+      },
+      "expected": {
+        "trace": [
+          "IncreaseActionIndex",
+          "GetSkillTypeStr",
+          [
+            "Info",
+            {
+              "command": true,
+              "skill": true,
+              "state": false,
+              "type": true
+            }
+          ],
+          "CheckLoopCall",
+          "GetSkillArgs",
+          [
+            "UpdateSkillArgs",
+            2
+          ],
+          "GetEffectDelayTimes",
+          [
+            "GenerateEffectObj",
+            {
+              "rowId": 1.0,
+              "delay": 0.0,
+              "skipPhase": true,
+              "index": 1.0
+            }
+          ],
+          [
+            "GenerateEffectObj",
+            {
+              "rowId": 2.0,
+              "delay": 0.0,
+              "skipPhase": true,
+              "index": 2.0
+            }
+          ]
+        ],
+        "preTriggers": [
+          {
+            "effect": 1,
+            "seenProbe": null,
+            "token": null
+          },
+          {
+            "effect": 2,
+            "seenProbe": 99.0,
+            "token": null
+          }
+        ],
+        "effectCount": 2,
+        "triggerProbe": 99.0
+      }
+    },
+    {
+      "input": {
+        "name": "skip-with-perform",
+        "isPreCmd": false,
+        "triggerPresent": true,
+        "skipPhase": true,
+        "skillPresent": true,
+        "statePresent": true,
+        "perform": "nonempty",
+        "rows": [
+          1,
+          2
+        ]
+      },
+      "expected": {
+        "trace": [
+          "IncreaseActionIndex",
+          "GetSkillTypeStr",
+          [
+            "Info",
+            {
+              "command": true,
+              "skill": true,
+              "state": true,
+              "type": true
+            }
+          ],
+          "CheckLoopCall",
+          "GetSkillArgs",
+          [
+            "UpdateSkillArgs",
+            2
+          ],
+          "GetEffectDelayTimes",
+          [
+            "GenerateEffectObj",
+            {
+              "rowId": 1.0,
+              "delay": 0.25,
+              "skipPhase": true,
+              "index": 1.0
+            }
+          ],
+          [
+            "GenerateEffectObj",
+            {
+              "rowId": 2.0,
+              "delay": 0.75,
+              "skipPhase": true,
+              "index": 2.0
+            }
+          ]
+        ],
+        "preTriggers": [
+          {
+            "effect": 1,
+            "seenProbe": null,
+            "token": 7.0
+          },
+          {
+            "effect": 2,
+            "seenProbe": 99.0,
+            "token": 7.0
+          }
+        ],
+        "effectCount": 2,
+        "triggerProbe": 99.0
+      }
+    },
+    {
+      "input": {
+        "name": "state-only-empty",
+        "isPreCmd": false,
+        "triggerPresent": false,
+        "skipPhase": false,
+        "skillPresent": false,
+        "statePresent": true,
+        "perform": "absent",
+        "rows": []
+      },
+      "expected": {
+        "trace": [
+          "IncreaseActionIndex",
+          [
+            "Info",
+            {
+              "command": true,
+              "skill": false,
+              "state": true,
+              "type": false
+            }
+          ],
+          "CheckLoopCall",
+          "GetSkillArgs",
+          [
+            "UpdateSkillArgs",
+            2
+          ],
+          "GetEffectDelayTimes"
+        ],
+        "preTriggers": [],
+        "effectCount": 0,
+        "triggerProbe": null
+      }
+    }
+  ]
+}

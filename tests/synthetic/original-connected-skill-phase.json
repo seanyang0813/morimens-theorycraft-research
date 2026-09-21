@@ -1,0 +1,330 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BECreateSkillPhase": "0517f4daffda3ed3939ecfa33c7ebeeffa4a01aa137fb2e3951fb0996da9958e",
+    "BattleCmdServer": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b"
+  },
+  "scope": "Original BECreateSkillPhase.DoEffect connected to original BattleCmdServer.TriggerCmd and GenerateEffectList. Target handoff, timing/timeline hooks, logging, arguments, delays and effect construction are bounded observers; generated effects run only PreTrigger. No target generation, real effect execution, events, finish stage, gameplay or holdout.",
+  "fixtures": [
+    {
+      "input": {
+        "name": "ordinary",
+        "isPreCmd": false,
+        "triggerPresent": true,
+        "skipPhase": false,
+        "skipTimeline": false,
+        "skillPresent": true,
+        "statePresent": false,
+        "perform": "absent",
+        "rows": [
+          1,
+          2
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          "GetSkillCastTime",
+          [
+            "OnEnterBeforePhase",
+            55.0
+          ],
+          [
+            "SendNotAwakerTimeline",
+            false
+          ],
+          "IncreaseActionIndex",
+          "GetSkillTypeStr",
+          [
+            "Info",
+            {
+              "command": true,
+              "skill": true,
+              "state": false,
+              "type": true
+            }
+          ],
+          "CheckLoopCall",
+          "GetSkillArgs",
+          [
+            "UpdateSkillArgs",
+            2
+          ],
+          "GetEffectDelayTimes",
+          [
+            "GenerateEffectObj",
+            {
+              "rowId": 1.0,
+              "delay": 0.25,
+              "skipPhase": false,
+              "index": 1.0
+            }
+          ],
+          [
+            "GenerateEffectObj",
+            {
+              "rowId": 2.0,
+              "delay": 0.75,
+              "skipPhase": false,
+              "index": 2.0
+            }
+          ],
+          "LogBattleWithTab"
+        ],
+        "preTriggers": [
+          {
+            "effect": 1,
+            "seenProbe": null,
+            "token": 7.0
+          },
+          {
+            "effect": 2,
+            "seenProbe": 99.0,
+            "token": 7.0
+          }
+        ],
+        "effectCount": 2,
+        "commandDeleted": false
+      }
+    },
+    {
+      "input": {
+        "name": "skip-timeline",
+        "isPreCmd": false,
+        "triggerPresent": true,
+        "skipPhase": false,
+        "skipTimeline": true,
+        "skillPresent": true,
+        "statePresent": false,
+        "perform": "absent",
+        "rows": [
+          1,
+          2
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          "GetSkillCastTime",
+          [
+            "OnEnterBeforePhase",
+            55.0
+          ],
+          [
+            "SendNotAwakerTimeline",
+            true
+          ],
+          "IncreaseActionIndex",
+          "GetSkillTypeStr",
+          [
+            "Info",
+            {
+              "command": true,
+              "skill": true,
+              "state": false,
+              "type": true
+            }
+          ],
+          "CheckLoopCall",
+          "GetSkillArgs",
+          [
+            "UpdateSkillArgs",
+            2
+          ],
+          "GetEffectDelayTimes",
+          [
+            "GenerateEffectObj",
+            {
+              "rowId": 1.0,
+              "delay": 0.25,
+              "skipPhase": false,
+              "index": 1.0
+            }
+          ],
+          [
+            "GenerateEffectObj",
+            {
+              "rowId": 2.0,
+              "delay": 0.75,
+              "skipPhase": false,
+              "index": 2.0
+            }
+          ],
+          "LogBattleWithTab"
+        ],
+        "preTriggers": [
+          {
+            "effect": 1,
+            "seenProbe": null,
+            "token": 7.0
+          },
+          {
+            "effect": 2,
+            "seenProbe": 99.0,
+            "token": 7.0
+          }
+        ],
+        "effectCount": 2,
+        "commandDeleted": false
+      }
+    },
+    {
+      "input": {
+        "name": "skip-phase",
+        "isPreCmd": false,
+        "triggerPresent": false,
+        "skipPhase": true,
+        "skipTimeline": false,
+        "skillPresent": true,
+        "statePresent": false,
+        "perform": "empty",
+        "rows": [
+          1,
+          2
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          [
+            "SendNotAwakerTimeline",
+            false
+          ],
+          "IncreaseActionIndex",
+          "GetSkillTypeStr",
+          [
+            "Info",
+            {
+              "command": true,
+              "skill": true,
+              "state": false,
+              "type": true
+            }
+          ],
+          "CheckLoopCall",
+          "GetSkillArgs",
+          [
+            "UpdateSkillArgs",
+            2
+          ],
+          "GetEffectDelayTimes",
+          [
+            "GenerateEffectObj",
+            {
+              "rowId": 1.0,
+              "delay": 0.0,
+              "skipPhase": true,
+              "index": 1.0
+            }
+          ],
+          [
+            "GenerateEffectObj",
+            {
+              "rowId": 2.0,
+              "delay": 0.0,
+              "skipPhase": true,
+              "index": 2.0
+            }
+          ],
+          "LogBattleWithTab"
+        ],
+        "preTriggers": [
+          {
+            "effect": 1,
+            "seenProbe": null,
+            "token": null
+          },
+          {
+            "effect": 2,
+            "seenProbe": 99.0,
+            "token": null
+          }
+        ],
+        "effectCount": 2,
+        "commandDeleted": false
+      }
+    },
+    {
+      "input": {
+        "name": "state-skill",
+        "isPreCmd": false,
+        "triggerPresent": true,
+        "skipPhase": false,
+        "skipTimeline": false,
+        "skillPresent": true,
+        "statePresent": true,
+        "perform": "nonempty",
+        "rows": [
+          1,
+          2
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          "GetSkillCastTime",
+          [
+            "OnEnterBeforePhase",
+            55.0
+          ],
+          [
+            "SendNotAwakerTimeline",
+            false
+          ],
+          "IncreaseActionIndex",
+          "GetSkillTypeStr",
+          [
+            "Info",
+            {
+              "command": true,
+              "skill": true,
+              "state": true,
+              "type": true
+            }
+          ],
+          "CheckLoopCall",
+          "GetSkillArgs",
+          [
+            "UpdateSkillArgs",
+            2
+          ],
+          "GetEffectDelayTimes",
+          [
+            "GenerateEffectObj",
+            {
+              "rowId": 1.0,
+              "delay": 0.25,
+              "skipPhase": false,
+              "index": 1.0
+            }
+          ],
+          [
+            "GenerateEffectObj",
+            {
+              "rowId": 2.0,
+              "delay": 0.75,
+              "skipPhase": false,
+              "index": 2.0
+            }
+          ],
+          "LogBattleWithTab"
+        ],
+        "preTriggers": [
+          {
+            "effect": 1,
+            "seenProbe": null,
+            "token": 7.0
+          },
+          {
+            "effect": 2,
+            "seenProbe": 99.0,
+            "token": 7.0
+          }
+        ],
+        "effectCount": 2,
+        "commandDeleted": false
+      }
+    }
+  ]
+}
