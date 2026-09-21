@@ -9,7 +9,14 @@ const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&
 const clone=value=>JSON.parse(JSON.stringify(value));
 const topKeys=['schemaVersion','kind','build','preparation','targetBinding','lifecycle','snapshot','repeatModifiers'];
 const preparationKeys=['skillId','skillLevel','isAwaker','breakSkillLevel','potencyLevel','overrides','variables','conditionResults','stateQueries'];
-const snapshotKeys=['snapshotStage','snapshotCompleteness','casterProperties','playerProperties','initialTargetProperties','cardProperties','cardContext','tags','targetBattleTag','targetStateIds','critRolls'];
+const snapshotKeys=['snapshotStage','snapshotCompleteness','casterProperties','playerProperties','initialTargetProperties','cardProperties','targetBattleTag','targetStateIds','critRolls'];
+const supportedTags=new Set(['Card_Strike','Card_Skill','Ulti_Skill','Card_AttachPost']);
+const instructionTags=new Set(['Card_Strike','Card_Skill','Card_Defend','Card_Extend']);
+function dense(value,label){
+  if(Array.isArray(value)){if(!Array.from({length:value.length},(_,i)=>Object.hasOwn(value,i)).every(Boolean))throw new Error(`${label} must be dense`);return [...value];}
+  if(!value||typeof value!=='object'||Array.isArray(value))throw new Error(`${label} must be a dense Lua list`);
+  const keys=Object.keys(value).sort((a,b)=>Number(a)-Number(b));if(keys.some((key,i)=>key!==String(i+1)))throw new Error(`${label} must use contiguous one-based keys`);return keys.map(key=>value[key]);
+}
 
 // Strict catalog-to-snapshot bridge for the smallest recovered Active command shape.
 export function runPreparedSnapshotActiveSkill(value,source){
@@ -22,6 +29,10 @@ export function runPreparedSnapshotActiveSkill(value,source){
 
   const preparedResult=runPreparedSkillRequest({schemaVersion:2,kind:'morimens-prepared-skill-request',build:input.build,preparation:input.preparation,execution:null},source);
   const skill=source.skills[String(input.preparation.skillId)];
+  const catalogTypes=dense(skill.Type,'Skill type tags');
+  const tags=catalogTypes.filter(tag=>supportedTags.has(tag));
+  if(!tags.length||new Set(tags).size!==tags.length)throw new Error('Prepared snapshot Active bridge requires unique catalog-backed Awakener damage tags');
+  const cardContext={present:true,instructionCard:catalogTypes.some(tag=>instructionTags.has(tag)),stateTriggerAdd:false};
   const evaluate=expression=>{
     if(!Object.hasOwn(input.preparation.conditionResults,expression))throw new Error('Unresolved condition: '+expression);
     return input.preparation.conditionResults[expression];
@@ -50,8 +61,8 @@ export function runPreparedSnapshotActiveSkill(value,source){
   const repetition=initializeActiveDamageForBuild({build:input.build,repeat,plus:input.repeatModifiers.plus,per:input.repeatModifiers.per});
   if(!Array.isArray(input.snapshot.critRolls)||input.snapshot.critRolls.length!==repetition.totalEffectTimes)throw new Error('One explicit critical roll entry is required for every derived hit');
 
-  const hits=input.snapshot.critRolls.map((critRoll,index)=>({id:`derived-hit-${index+1}`,baseValue,skillArgsPlus:0,tags:input.snapshot.tags,cardProperties:input.snapshot.cardProperties,cardContext:input.snapshot.cardContext,targetContext:{critRoll,targetBattleTag:input.snapshot.targetBattleTag,targetStateIds:input.snapshot.targetStateIds},hitContext:{damageSubtype:'Ordinary'}}));
+  const hits=input.snapshot.critRolls.map((critRoll,index)=>({id:`derived-hit-${index+1}`,baseValue,skillArgsPlus:0,tags,cardProperties:input.snapshot.cardProperties,cardContext,targetContext:{critRoll,targetBattleTag:input.snapshot.targetBattleTag,targetStateIds:input.snapshot.targetStateIds},hitContext:{damageSubtype:'Ordinary'}}));
   const derivedSequenceInput={schemaVersion:1,kind:'morimens-snapshot-active-sequence',build:input.build,snapshotStage:input.snapshot.snapshotStage,snapshotCompleteness:input.snapshot.snapshotCompleteness,interveningEffects:'assumed-absent',casterProperties:input.snapshot.casterProperties,playerProperties:input.snapshot.playerProperties,initialTargetProperties:input.snapshot.initialTargetProperties,hits};
   const calculation=runSnapshotActiveSequence(derivedSequenceInput);
-  return {schemaVersion:1,kind:'morimens-prepared-snapshot-active-skill-result',analysisTrack:'theorycrafting',status:'EXPERIMENTAL',build:input.build,finalDamage:null,skillId:input.preparation.skillId,sourceHashes:preparedResult.sourceHashes,prepared:preparedResult.prepared,targetSelection:selectedTarget,command:{id:preparedResult.prepared.commandId,row,importMetadata:imported.metadata},parameterEvaluation,repetition,derivedSequenceInput,calculation,unresolvedDependencies:['Target selection is supplied as one resolved UpperTarget; the catalog target expression is checked but not executed','Costs, card construction, triggers, state changes, callbacks, statistics, retargeting and death execution are not simulated','Only a one-row unconditional ordinary Active command without ParaPlus is accepted','The result is a theorycraft model and has not passed an independent pre-outcome gameplay holdout']};
+  return {schemaVersion:1,kind:'morimens-prepared-snapshot-active-skill-result',analysisTrack:'theorycrafting',status:'EXPERIMENTAL',build:input.build,finalDamage:null,skillId:input.preparation.skillId,sourceHashes:preparedResult.sourceHashes,prepared:preparedResult.prepared,catalogTypes,tags,cardContext,targetSelection:selectedTarget,command:{id:preparedResult.prepared.commandId,row,importMetadata:imported.metadata},parameterEvaluation,repetition,derivedSequenceInput,calculation,unresolvedDependencies:['Target selection is supplied as one resolved UpperTarget; the catalog target expression is checked but not executed','Costs, card construction, triggers, state changes, callbacks, statistics, retargeting and death execution are not simulated','Only a catalog-tagged Awakener card with one unconditional ordinary Active row and no ParaPlus is accepted','The result is a theorycraft model and has not passed an independent pre-outcome gameplay holdout']};
 }

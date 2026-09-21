@@ -8,13 +8,13 @@
     "kind": "morimens-prepared-snapshot-active-skill",
     "build": "pc-res144-build51",
     "preparation": {
-      "skillId": 67183,
+      "skillId": 3997,
       "skillLevel": 1,
       "isAwaker": true,
       "breakSkillLevel": 0,
       "potencyLevel": 0,
       "overrides": [],
-      "variables": {"BattleAtkForce": 100},
+      "variables": {},
       "conditionResults": {},
       "stateQueries": {}
     },
@@ -27,8 +27,6 @@
       "playerProperties": {"dimension_fix_per": 0},
       "initialTargetProperties": {"hp": 1000, "max_hp": 1000, "block": 0, "be_damage_per": 0, "vulnerable_per": 0},
       "cardProperties": {},
-      "cardContext": {"present": false, "instructionCard": false, "stateTriggerAdd": false},
-      "tags": [],
       "targetBattleTag": "Monster",
       "targetStateIds": [],
       "critRolls": [null]

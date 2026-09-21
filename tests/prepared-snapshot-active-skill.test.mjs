@@ -18,19 +18,21 @@ function source(build){
 }
 function input(build='pc-res150-build51'){
   return {schemaVersion:1,kind:'morimens-prepared-snapshot-active-skill',build,
-    preparation:{skillId:67183,skillLevel:1,isAwaker:true,breakSkillLevel:0,potencyLevel:0,overrides:[],variables:{BattleAtkForce:100},conditionResults:{},stateQueries:{}},
+    preparation:{skillId:3997,skillLevel:1,isAwaker:true,breakSkillLevel:0,potencyLevel:0,overrides:[],variables:{},conditionResults:{},stateQueries:{}},
     targetBinding:{expression:'FrontEnemy',resolution:'supplied-single-UpperTarget'},lifecycle:'assumed-absent',
-    snapshot:{snapshotStage:'battle-property-server-live',snapshotCompleteness:'complete-map',casterProperties:{crit:0,crit_damage:0,crit_damage_per:0},playerProperties:{dimension_fix_per:0},initialTargetProperties:{hp:1000,max_hp:1000,block:0,be_damage_per:0,vulnerable_per:0},cardProperties:{},cardContext:{present:false,instructionCard:false,stateTriggerAdd:false},tags:[],targetBattleTag:'Monster',targetStateIds:[],critRolls:[null]},
+    snapshot:{snapshotStage:'battle-property-server-live',snapshotCompleteness:'complete-map',casterProperties:{crit:0,crit_damage:0,crit_damage_from_strikecard:0,crit_damage_per:0},playerProperties:{dimension_fix_per:0},initialTargetProperties:{hp:1000,max_hp:1000,block:0,be_damage_per:0,vulnerable_per:0},cardProperties:{},targetBattleTag:'Monster',targetStateIds:[],critRolls:[null]},
     repeatModifiers:{plus:0,per:0}};
 }
 
 for(const build of Object.keys(roots))test(`catalog-prepared ordinary Active skill reaches a complete-property sequence on ${build}`,()=>{
   const value=input(build),before=JSON.stringify(value),result=runPreparedSnapshotActiveSkill(value,source(build));
-  assert.equal(result.prepared.commandId,67209);
-  assert.deepEqual(result.parameterEvaluation.values,[50,1]);
+  assert.equal(result.prepared.commandId,2350);
+  assert.deepEqual(result.parameterEvaluation.values,[1]);
+  assert.deepEqual(result.tags,['Card_Strike']);
+  assert.deepEqual(result.cardContext,{present:true,instructionCard:true,stateTriggerAdd:false});
   assert.equal(result.repetition.totalEffectTimes,1);
-  assert.equal(result.calculation.modeledHpLost,50);
-  assert.equal(result.calculation.targetAfter.hp,950);
+  assert.equal(result.calculation.modeledHpLost,1);
+  assert.equal(result.calculation.targetAfter.hp,999);
   assert.equal(result.finalDamage,null);
   assert.match(result.sourceHashes.Skill,/^[0-9a-f]{64}$/);
   assert.equal(JSON.stringify(value),before);
@@ -41,7 +43,7 @@ test('catalog repeat initialization creates the exact derived hit count',()=>{
   const result=runPreparedSnapshotActiveSkill(value,source(value.build));
   assert.equal(result.repetition.totalEffectTimes,3);
   assert.equal(result.derivedSequenceInput.hits.length,3);
-  assert.equal(result.calculation.modeledHpLost,150);
+  assert.equal(result.calculation.modeledHpLost,3);
 });
 
 test('prepared snapshot bridge fails closed on target drift, critical omissions and caller schema drift',()=>{
@@ -52,8 +54,10 @@ test('prepared snapshot bridge fails closed on target drift, critical omissions 
 });
 
 test('prepared snapshot bridge rejects mixed commands and catalog ParaPlus before calculation',()=>{
-  const mixedSource=source('pc-res150-build51');mixedSource.commands['67209']={...mixedSource.commands['67209'],data_list:{...mixedSource.commands['67209'].data_list,2:{Type:'BEGainBlock',Target:'CmdCaster',Para:'1'}}};
+  const mixedSource=source('pc-res150-build51');mixedSource.commands['2350']={...mixedSource.commands['2350'],data_list:{...mixedSource.commands['2350'].data_list,2:{Type:'BEGainBlock',Target:'CmdCaster',Para:'1'}}};
   assert.throws(()=>runPreparedSnapshotActiveSkill(input(),mixedSource),/exactly one command row/);
-  const plusSource=source('pc-res150-build51');plusSource.skills['67183']={...plusSource.skills['67183'],ParaPlus:'1'};
+  const plusSource=source('pc-res150-build51');plusSource.skills['3997']={...plusSource.skills['3997'],ParaPlus:'1'};
   assert.throws(()=>runPreparedSnapshotActiveSkill(input(),plusSource),/ParaPlus/);
+  const monsterSource=source('pc-res150-build51'),monster=input();monster.preparation.skillId=67183;monster.preparation.variables={BattleAtkForce:100};
+  assert.throws(()=>runPreparedSnapshotActiveSkill(monster,monsterSource),/Awakener damage tags/);
 });
