@@ -17,6 +17,7 @@
         "plus": 0,
         "per": 0,
         "crit": false,
+        "critDamage": 50,
         "beforeDelay": 0.1,
         "multiDelay": 0.2,
         "skipPhase": false,
@@ -41,10 +42,11 @@
         "childPreTriggers": [
           null
         ],
+        "formulaOutputs": [
+          100.0,
+          100.0
+        ],
         "hitEvents": [
-          {
-            "getRealDmg": 100.0
-          },
           {
             "damageVal": 100.0,
             "isCrit": false
@@ -65,6 +67,7 @@
         "plus": 1,
         "per": 0,
         "crit": true,
+        "critDamage": 50,
         "beforeDelay": 0,
         "multiDelay": 0.2,
         "skipPhase": false,
@@ -93,19 +96,19 @@
           null,
           null
         ],
+        "formulaOutputs": [
+          100.0,
+          150.0,
+          100.0,
+          150.0
+        ],
         "hitEvents": [
           {
-            "getRealDmg": 100.0
-          },
-          {
-            "damageVal": 100.0,
+            "damageVal": 150.0,
             "isCrit": true
           },
           {
-            "getRealDmg": 100.0
-          },
-          {
-            "damageVal": 100.0,
+            "damageVal": 150.0,
             "isCrit": true
           }
         ],
@@ -126,6 +129,7 @@
         "plus": 0,
         "per": 50,
         "crit": false,
+        "critDamage": 50,
         "beforeDelay": 0.5,
         "multiDelay": 0.25,
         "skipPhase": false,
@@ -154,16 +158,16 @@
           null,
           null
         ],
+        "formulaOutputs": [
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
         "hitEvents": [
-          {
-            "getRealDmg": 100.0
-          },
           {
             "damageVal": 100.0,
             "isCrit": false
-          },
-          {
-            "getRealDmg": 100.0
           },
           {
             "damageVal": 100.0,
@@ -187,6 +191,7 @@
         "plus": 0,
         "per": 0,
         "crit": true,
+        "critDamage": 50,
         "beforeDelay": 0.5,
         "multiDelay": 0.25,
         "skipPhase": true,
@@ -215,19 +220,19 @@
           null,
           null
         ],
+        "formulaOutputs": [
+          100.0,
+          150.0,
+          100.0,
+          150.0
+        ],
         "hitEvents": [
           {
-            "getRealDmg": 100.0
-          },
-          {
-            "damageVal": 100.0,
+            "damageVal": 150.0,
             "isCrit": true
           },
           {
-            "getRealDmg": 100.0
-          },
-          {
-            "damageVal": 100.0,
+            "damageVal": 150.0,
             "isCrit": true
           }
         ],

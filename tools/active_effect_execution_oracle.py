@@ -2,10 +2,10 @@
 import ctypes as C
 import json
 
-from target_runtime_oracle import TargetOracle, ROOT
+from offensive_setup_oracle import SetupOracle, ROOT
 
 
-class ActiveEffectExecutionOracle(TargetOracle):
+class ActiveEffectExecutionOracle(SetupOracle):
     def __init__(self,asset_overrides=None):
         asset_overrides=asset_overrides or {};super().__init__(asset_overrides);L=self.state
         self.kind=self.lib.lua_type;self.kind.argtypes=[C.c_void_p,C.c_int];self.kind.restype=C.c_int
@@ -64,6 +64,7 @@ class ActiveEffectExecutionOracle(TargetOracle):
             else:self.errors.append(repr(name));self.nil(s)
             return 1
         self.callback(runtime_require);self.setglobal(L,b'require')
+        self.getglobal(L,b'table');self.method('contains',lambda s:(self.boolean(s,False),1)[1]);self.top(L,0)
         if self.errors:raise RuntimeError(self.errors)
 
     def _copy(self,s,source,names):
@@ -91,44 +92,56 @@ class ActiveEffectExecutionOracle(TargetOracle):
         for index,value in enumerate(values,1):self.number(s,value);self.rawset(s,-2,index)
 
     def run_active(self,v):
-        L=self.state;self.top(L,0);self.errors.clear();self.childConfigs=[];self.childPreTriggers=[];self.delays=[];self.hitEvents=[];self.nextUid=100
+        L=self.state;self.top(L,0);self.errors.clear();self.childConfigs=[];self.childPreTriggers=[];self.delays=[];self.hitEvents=[];self.formulaOutputs=[];self.nextUid=100
+        self.values={
+            'caster':{'damagetimes_plus':v['plus'],'damagetimes_per':v['per'],'crit_damage':v['critDamage'],'crit_damage_per':0},
+            'player':{},'tags':[],'dimensionFixPer':0,'skillArgsPlus':0,
+            'awakerCritDamage':v['critDamage'],'critDamagePer':0,'beDamagePer':0,'beDamagePer2':0,'beDamagePer3':0,
+            'vulnerablePer':0,'beDamagePlus':0,'enemyTypeDmgPer':0,'enemyStateDmgMultiplier':1,
+            'enemyBuffDmgPer':0,'enemyDebuffDmgPer':0,'enemyBlockDmgPer':0,'enemyBlockBarrierDmgPer':0,
+        }
         self.table(L,0,10)
         for name in ('CreateEffect','GetParentEffectUid','GetEffectByUid','SetRunningEffect'):
             self.getglobal(L,b'_active_manager_class');self.getfield(L,-1,name.encode());self.setfield(L,-3,name.encode());self.top(L,-2)
         self.table(L,0,0);self.setfield(L,-2,b'effectList');self.setglobal(L,b'_active_manager')
-        self.table(L,0,12)
+        self.table(L,0,18)
         def uid(s):self.nextUid+=1;self.number(s,self.nextUid);return 1
         self.method('GenObjUid',uid)
         def get_obj(s):
             value=int(self.tonumber(s,2,None))
-            if value==9:self.getglobal(s,b'_active_caster')
+            if value==1:self.getglobal(s,b'_active_caster')
             else:self.nil(s)
             return 1
         self.method('GetObj',get_obj);self.method('GetCurPassTime',lambda s:(self.number(s,12.5),1)[1])
         def add_time(s):self.delays.append(self.tonumber(s,2,None));return 0
         self.method('AddPassTime',add_time);self.method('Warn',lambda s:0);self.method('Error',lambda s:0)
+        self.method('IsPVE',lambda s:(self.boolean(s,True),1)[1]);self.method('IsPVP',lambda s:(self.boolean(s,False),1)[1])
+        def debug(s):
+            if self.kind(s,3)==3:self.formulaOutputs.append(self.tonumber(s,3,None))
+            return 0
+        self.method('Debug',debug);self.getglobal(L,b'_setup_roles');self.setfield(L,-2,b'roleMgr')
         self.table(L,0,3);self.method('GetConstant',lambda s:(self.number(s,v['multiDelay']),1)[1]);self.method('GetOriginalConstant',lambda s:(self.table(s,0,0),1)[1]);self.table(L,0,0);self.setfield(L,-2,b'BattleApi');self.setfield(L,-2,b'battleDT')
         self.getglobal(L,b'_active_manager');self.setfield(L,-2,b'effectMgr');self.setglobal(L,b'_active_engine')
         self.getglobal(L,b'_active_manager');self.getglobal(L,b'_active_engine');self.setfield(L,-2,b'battleEngine');self.top(L,0)
-        self.table(L,0,3);self.method('IsRoleType',lambda s:(self.boolean(s,False),1)[1]);self.method('IsDead',lambda s:(self.boolean(s,False),1)[1])
-        def prop(s):
-            key=self.string(s,2,None).decode();self.number(s,v['plus'] if key=='damagetimes_plus' else v['per']);return 1
-        self.method('GetProperty',prop);self.setglobal(L,b'_active_caster')
-        self.table(L,0,3);self.number(L,20);self.setfield(L,-2,b'uid');self.method('IsDead',lambda s:(self.boolean(s,False),1)[1])
+        self.getglobal(L,b'_setup_actor');self.method('IsDead',lambda s:(self.boolean(s,False),1)[1])
+        for name,key in [('GetDamagePer2MonsterType','enemyTypeDmgPer'),('GetDamagePer2HasState','enemyStateDmgMultiplier'),('GetDamagePer2BuffEnemy','enemyBuffDmgPer'),('GetDamagePer2DebuffEnemy','enemyDebuffDmgPer'),('GetDamagePer2Block','enemyBlockDmgPer'),('GetDamagePer2BlockBarrier','enemyBlockBarrierDmgPer')]:
+            self.method(name,lambda s,key=key:(self.number(s,self.values[key]),1)[1])
+        self.setglobal(L,b'_active_caster')
+        self.getglobal(L,b'_oracle_target');self.number(L,20);self.setfield(L,-2,b'uid');self.method('IsDead',lambda s:(self.boolean(s,False),1)[1])
         def be_hit(s):
             self.getfield(s,2,b'damageVal');damage=self.tonumber(s,-1,None);self.top(s,-2);self.getfield(s,2,b'isCrit');crit=bool(self.tobool(s,-1));self.top(s,-2)
             self.hitEvents.append({'damageVal':damage,'isCrit':crit});self.table(s,0,1);self.number(s,-damage);self.setfield(s,-2,b'changeVal');return 1
         self.method('BeHit',be_hit);self.setglobal(L,b'_active_target')
-        self.table(L,0,6);self.number(L,77);self.setfield(L,-2,b'uid');self.number(L,9);self.setfield(L,-2,b'castRoleUid')
+        self.table(L,0,16);self.number(L,77);self.setfield(L,-2,b'uid');self.number(L,1);self.setfield(L,-2,b'castRoleUid');self.number(L,0);self.setfield(L,-2,b'cardUid');self.getglobal(L,b'_active_engine');self.setfield(L,-2,b'battleEngine')
         def target_exp(s):
             self.table(s,0,1)
             def get_targets(state):self.table(state,1,0);self.getglobal(state,b'_active_target');self.rawset(state,-2,1);return 1
             self.method('GetTargetList',get_targets);return 1
         self.method('GenerateTargetsExp',target_exp);self.method('GetValueListByCmd',lambda s:(self._array(s,[v['baseDamage'],v['repeat'],0,0]),1)[1])
-        def real_damage(s):self.hitEvents.append({'getRealDmg':self.tonumber(s,2,None)});self.number(s,self.tonumber(s,2,None));return 1
-        self.method('GetRealDmg',real_damage);self.method('GetMemberValue',lambda s:(self.boolean(s,v['crit']),1)[1]);self.setglobal(L,b'_active_command')
+        self.method('CalcCrit',lambda s:(self.boolean(s,v['crit']),1)[1]);self.method('GetMemberValue',lambda s:(self.boolean(s,v['crit']),1)[1]);self.method('SetMemberValue',lambda s:0);self.method('GetDimensionFixPer',lambda s:(self.number(s,0),1)[1]);self.method('GetSkillArgsPlus',lambda s:(self.number(s,0),1)[1]);self.method('IsStateTriggerAdd',lambda s:(self.boolean(s,False),1)[1]);self.method('GetSkillType',lambda s:(self.table(s,0,0),1)[1])
+        self._copy(L,b'_oracle_cmd',('__GetShowDamage','__GetFinalDamage','GetTargetBeDmgPerMul','GetRealDmg'));self.setglobal(L,b'_active_command')
         self.table(L,0,3);self.pushstring(L,b'BEActiveDamage');self.setfield(L,-2,b'Type');self.pushstring(L,b'One');self.setfield(L,-2,b'Target');self.pushstring(L,b'synthetic');self.setfield(L,-2,b'Para');self.setglobal(L,b'_active_row')
-        self.table(L,0,9);self.pushstring(L,b'BEActiveDamage');self.setfield(L,-2,b'effectType');self.getglobal(L,b'_active_row');self.setfield(L,-2,b'cmdCfg');self.getglobal(L,b'_active_command');self.setfield(L,-2,b'cmdServer');self.number(L,1);self.setfield(L,-2,b'cmdIndex');self.number(L,v['beforeDelay']);self.setfield(L,-2,b'BeforeDelay');self.number(L,9);self.setfield(L,-2,b'castRoleUid');self.boolean(L,v['skipPhase']);self.setfield(L,-2,b'skipPhase');self.boolean(L,True);self.setfield(L,-2,b'isFromCmd');self.setglobal(L,b'_active_config')
+        self.table(L,0,9);self.pushstring(L,b'BEActiveDamage');self.setfield(L,-2,b'effectType');self.getglobal(L,b'_active_row');self.setfield(L,-2,b'cmdCfg');self.getglobal(L,b'_active_command');self.setfield(L,-2,b'cmdServer');self.number(L,1);self.setfield(L,-2,b'cmdIndex');self.number(L,v['beforeDelay']);self.setfield(L,-2,b'BeforeDelay');self.number(L,1);self.setfield(L,-2,b'castRoleUid');self.boolean(L,v['skipPhase']);self.setfield(L,-2,b'skipPhase');self.boolean(L,True);self.setfield(L,-2,b'isFromCmd');self.setglobal(L,b'_active_config')
         self.getglobal(L,b'_active_manager');self.getfield(L,-1,b'CreateEffect');self.getglobal(L,b'_active_manager');self.getglobal(L,b'_active_config');self.boolean(L,True);self.check(self.call(L,3,1,0,0,None));self.setglobal(L,b'_active_effect');self.top(L,0)
         self.getglobal(L,b'_active_effect');self.getfield(L,-1,b'PreTrigger');self.getglobal(L,b'_active_effect');self.table(L,0,1);self.number(L,7);self.setfield(L,-2,b'token');self.check(self.call(L,2,0,0,0,None));self.top(L,0)
         self.getglobal(L,b'_active_effect');self.getfield(L,-1,b'TryDoEffect');self.getglobal(L,b'_active_effect');self.check(self.call(L,1,1,0,0,None));eligible=bool(self.tobool(L,-1));self.top(L,0)
@@ -147,21 +160,21 @@ class ActiveEffectExecutionOracle(TargetOracle):
             self.getfield(L,-1,field.encode());result[field]=self.tonumber(L,-1,None) if self.kind(L,-1)==3 else None;self.top(L,-2)
         self.top(L,0);self.getglobal(L,b'_active_manager');self.getfield(L,-1,b'effectList');manager_count=self.length(L,-1);self.top(L,0)
         if self.errors:raise RuntimeError(self.errors)
-        return {'eligible':eligible,'executed':executed,'effect':result,'managerEffectCount':manager_count,'childConfigs':self.childConfigs,'childPreTriggers':self.childPreTriggers,'hitEvents':self.hitEvents,'delays':self.delays}
+        return {'eligible':eligible,'executed':executed,'effect':result,'managerEffectCount':manager_count,'childConfigs':self.childConfigs,'childPreTriggers':self.childPreTriggers,'formulaOutputs':self.formulaOutputs,'hitEvents':self.hitEvents,'delays':self.delays}
 
 
 CASES=[
- {'name':'one-hit','baseDamage':100,'repeat':1,'plus':0,'per':0,'crit':False,'beforeDelay':.1,'multiDelay':.2,'skipPhase':False,'extraRepeat':False},
- {'name':'flat-repeat','baseDamage':100,'repeat':2,'plus':1,'per':0,'crit':True,'beforeDelay':0,'multiDelay':.2,'skipPhase':False,'extraRepeat':True},
- {'name':'percent-repeat','baseDamage':100,'repeat':2,'plus':0,'per':50,'crit':False,'beforeDelay':.5,'multiDelay':.25,'skipPhase':False,'extraRepeat':True},
- {'name':'skip-phase','baseDamage':100,'repeat':2,'plus':0,'per':0,'crit':True,'beforeDelay':.5,'multiDelay':.25,'skipPhase':True,'extraRepeat':True},
+ {'name':'one-hit','baseDamage':100,'repeat':1,'plus':0,'per':0,'crit':False,'critDamage':50,'beforeDelay':.1,'multiDelay':.2,'skipPhase':False,'extraRepeat':False},
+ {'name':'flat-repeat','baseDamage':100,'repeat':2,'plus':1,'per':0,'crit':True,'critDamage':50,'beforeDelay':0,'multiDelay':.2,'skipPhase':False,'extraRepeat':True},
+ {'name':'percent-repeat','baseDamage':100,'repeat':2,'plus':0,'per':50,'crit':False,'critDamage':50,'beforeDelay':.5,'multiDelay':.25,'skipPhase':False,'extraRepeat':True},
+ {'name':'skip-phase','baseDamage':100,'repeat':2,'plus':0,'per':0,'crit':True,'critDamage':50,'beforeDelay':.5,'multiDelay':.25,'skipPhase':True,'extraRepeat':True},
 ]
 
 
 def main():
     oracle=ActiveEffectExecutionOracle();fixtures=[{'input':row,'expected':oracle.run_active(row)} for row in CASES]
     output=ROOT/'tests/synthetic/original-active-effect-execution.json'
-    output.write_text(json.dumps({'kind':'SYNTHETIC_ORIGINAL_RUNTIME','build':'pc-res144-build51','sourceHashes':{name:oracle.assets[name+'.lua']['sha256'] for name in ('BattleEffectMgrServer','BattleEffectServer','BEActiveDamage','BEFunctionEffect')},'scope':'Original effect-manager creation of BEActiveDamage and BEFunctionEffect, original constructors, PreTrigger, TryDoEffect target/parameter binding, Active initialization/repetition routing, Function DoEffect dispatch and Active Damage2SingleTarget. Explicit caster/target/command/engine adapters; GetRealDmg is an identity observer and BeHit records the request without original HP processing. No real damage formula, BeHit implementation, HP mutation, scheduler completion, gameplay or holdout.','fixtures':fixtures},indent=2)+'\n',encoding='utf-8',newline='\n');print('Generated',len(fixtures),'active-effect execution cases')
+    output.write_text(json.dumps({'kind':'SYNTHETIC_ORIGINAL_RUNTIME','build':'pc-res144-build51','sourceHashes':{name:oracle.assets[name+'.lua']['sha256'] for name in ('BattleEffectMgrServer','BattleEffectServer','BEActiveDamage','BEFunctionEffect','BattleCmdServer','BattleUtilServer','BattleConst')},'scope':'Original effect-manager creation of BEActiveDamage and BEFunctionEffect, original constructors, target/parameter binding, repetition routing, Function dispatch, Damage2SingleTarget and GetRealDmg through original offensive and final-target arithmetic. Explicit neutral PvE actor/player/target adapters and empty skill types; table.contains is an explicit false adapter for that empty list. BeHit records the request without original HP processing. No original BeHit/HP mutation, scheduler completion, gameplay or holdout.','fixtures':fixtures},indent=2)+'\n',encoding='utf-8',newline='\n');print('Generated',len(fixtures),'active-effect execution cases')
 
 
 if __name__=='__main__':main()

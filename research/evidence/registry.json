@@ -2666,7 +2666,7 @@
     {
       "id": "PC144:ActiveEffectExecutionBoundary",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
-      "claim": "Effect-manager construction of BEActiveDamage proceeds through original constructors, target/parameter binding and repetition routing; original BEFunctionEffect dispatch invokes original Damage2SingleTarget",
+      "claim": "Effect-manager construction of BEActiveDamage proceeds through original constructors and repetition routing; original BEFunctionEffect dispatch invokes original Damage2SingleTarget and GetRealDmg arithmetic",
       "sources": [
         {
           "module": "BattleEffectMgrServer",
@@ -2695,13 +2695,20 @@
           "bundle": "pc\\downloaded\\share.ab",
           "sha256": "9f13031ab24e39e7584ba021d0d1b2b7c8fb495e537f90a2bc1765bf5d9d5d53",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-5675893065681039937_BEFunctionEffect.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "GetRealDmg,__GetShowDamage,__GetFinalDamage,GetTargetBeDmgPerMul",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
         }
       ],
       "tests": [
         "tools/active_effect_execution_oracle.py",
         "tests/active-effect-execution.test.mjs"
       ],
-      "scope": "4 original-runtime positive-repeat cases with explicit caster, target, command and engine adapters. GetRealDmg is an identity observer and BeHit records the request. Real damage formula, original BeHit/HP, scheduler completion, gameplay and holdout remain outside scope.",
+      "scope": "4 original-runtime positive-repeat cases with explicit neutral PvE actor/player/target adapters and empty skill types. BeHit records the request. Original BeHit/HP, scheduler completion, gameplay and holdout remain outside scope.",
       "gameplayValidation": false
     },
     {
@@ -4774,7 +4781,7 @@
     {
       "id": "PC150:SkillPhaseSelectedBoundary",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
-      "claim": "Resource 150 reproduces all 256 inherited connected phase-start, TriggerCmd, effect-construction, Active/Function-effect, cleanup, target-handoff, argument, timing and command-row-order fixtures exactly",
+      "claim": "Resource 150 reproduces all 256 inherited connected phase-start, TriggerCmd, effect-construction, Active/Function-effect, formula, cleanup, target-handoff, argument, timing and command-row-order fixtures exactly",
       "sources": [
         {
           "module": "PC resource-150 skill-phase module comparison",
@@ -4786,7 +4793,7 @@
           "module": "PC resource-150 selected skill-phase runtime comparison",
           "member": "fixture-domain result",
           "bundle": "copied XLua runtime; hashes only",
-          "sha256": "258f1c14f78a054d0dab15a152329ee19e8311d2c92e7463700b4732c8665f1a"
+          "sha256": "ea1d31ac9eec18a73df0468cd96e7eddab1bd3fa7d59092ef871876c5c3839f1"
         }
       ],
       "tests": [
@@ -4801,7 +4808,7 @@
         "tests/command-delays.test.mjs",
         "tools/command_row_order_oracle.py"
       ],
-      "scope": "BECreateSkillPhase start through BattleCmdServer TriggerCmd and child PreTrigger; original GenerateEffectObj through original effect-manager creation; real BEActiveDamage/BEFunctionEffect construction, target/parameter binding, repetition routing and function dispatch into Damage2SingleTarget; phase cleanup, arguments, delay planning, row ordering and selected parser paths. GetRealDmg is an identity observer and BeHit records the request; real formula, original BeHit/HP, target-expression initialization, event listeners, complete card phases, gameplay and holdout credit remain outside scope.",
+      "scope": "BECreateSkillPhase start through BattleCmdServer TriggerCmd and child PreTrigger; original GenerateEffectObj through original effect-manager creation; real BEActiveDamage/BEFunctionEffect construction, target/parameter binding, repetition routing, function dispatch and GetRealDmg offensive/final-target arithmetic; phase cleanup, arguments, delay planning, row ordering and selected parser paths. Formula fixtures use explicit neutral PvE adapters and empty skill types; BeHit records the request. Original BeHit/HP, target-expression initialization, event listeners, complete card phases, gameplay and holdout credit remain outside scope.",
       "gameplayValidation": false
     },
     {

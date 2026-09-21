@@ -18,7 +18,7 @@
     "triggerFixture": "1dafc124510a38ab4d851f582c5b7048ddc9541afb8e7e3f95ef215c6ee0dbfe",
     "connectedPhaseFixture": "b4db7de615267dbebab1182211b8548c0424114da331522410b5e9b50dd65047",
     "constructionFixture": "7071b60e7cc7aaa23a5072cf297c62ae8be7a8c0dc3ec82416fd42040bf48ef0",
-    "activeExecutionFixture": "16ce04096efda50fe5f6b0312288eabebb6ce57b5a0a6c04e599de9424f85899",
+    "activeExecutionFixture": "eb3e14904968027346810de4aa5fc47c76ec9e06e0942c0440a10ce247913061",
     "currentBattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
     "currentBattleUtilServer": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
     "currentBattlePropertyServer": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5",
@@ -82,8 +82,8 @@
     }
   },
   "results": [],
-  "scope": "Resource-150 BattleCmdServer TriggerCmd through effect-list construction, original GenerateEffectObj to original effect-manager creation, real BEActiveDamage and BEFunctionEffect construction/PreTrigger/target and parameter binding/initialization/repetition routing/function dispatch into Damage2SingleTarget, phase cleanup, skill arguments, delay planning and row ordering plus BattleCmdParser StateOwner selection, target handoff and ArgN lookup.",
+  "scope": "Resource-150 BattleCmdServer TriggerCmd through effect-list construction, original GenerateEffectObj to original effect-manager creation, real BEActiveDamage and BEFunctionEffect construction/target and parameter binding/initialization/repetition routing/function dispatch into Damage2SingleTarget and GetRealDmg offensive/final-target arithmetic, phase cleanup, skill arguments, delay planning and row ordering plus BattleCmdParser StateOwner selection, target handoff and ArgN lookup.",
   "limitations": [
-    "GetRealDmg remains an identity observer and BeHit records the request; no real damage formula, original BeHit/HP, target-expression initialization, listener dispatch, complete card phase, gameplay or holdout credit"
+    "Formula fixtures use explicit neutral PvE actor/player/target adapters and empty skill types; BeHit records the request. No original BeHit/HP, target-expression initialization, listener dispatch, complete card phase, gameplay or holdout credit"
   ]
 }
