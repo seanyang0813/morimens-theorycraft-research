@@ -12,7 +12,8 @@ maximums, property expressions, caster role, skill level and initial properties
 are all supplied. Creation and merging use the separately tested state-property,
 layer-merge and property-mutation components. Unsupported properties, targets,
 conditions and effect types fail closed. Bubble rows emit a presentation record
-only for a Monster role, matching the baseline runtime body.
+only for a Monster role. The baseline and installed resource-150 modules are
+byte-identical and reproduce the same six runtime fixtures.
 
 Layer subtraction updates `ChangedLayer` contributions before life end. Reaching
 zero then reverses any retained non-layer contribution exactly once. Explicit

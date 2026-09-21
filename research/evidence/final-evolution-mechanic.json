@@ -212,11 +212,10 @@
       }
     }
   },
-  "scope": "Exact normalized selected Skill/Cmd/State rows in both pinned PC catalogs; BaseSortID transport/order metadata excluded. Skill-argument ceiling, add-state/property, HP-event behavior and the baseline BEMonsterBubble presentation-record body are established by separate registry evidence. This report does not execute command 60401 as one integrated command, clear events or transition-skill scheduling.",
+  "scope": "Exact normalized selected Skill/Cmd/State rows in both pinned PC catalogs; BaseSortID transport/order metadata excluded. Skill-argument ceiling, add-state/property, HP-event behavior and the cross-build-runtime-matched BEMonsterBubble presentation-record body are established by separate registry evidence. This report does not execute command 60401 through the original full scheduler, clear events or transition-skill scheduling.",
   "limitations": [
     "Per actual negative HP-change event, not every attempted hit",
-    "BEMonsterBubble baseline body is separately runtime-tested; no resource-150 runtime execution of that body",
-    "No full command scheduler, state-clear event execution, gameplay observation or holdout credit",
+    "No original full-command scheduler, state-clear event execution, gameplay observation or holdout credit",
     "No cheese, budget-comp or leaderboard claim"
   ]
 }

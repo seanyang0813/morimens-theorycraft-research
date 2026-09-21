@@ -6,7 +6,7 @@ from target_runtime_oracle import TargetOracle, ROOT
 
 
 class MonsterBubbleOracle(TargetOracle):
-    def __init__(self):
+    def __init__(self,bubble_asset=None):
         super().__init__()
         self.pushstring=self.lib.lua_pushstring;self.pushstring.argtypes=[C.c_void_p,C.c_char_p];self.pushstring.restype=C.c_void_p
         self.seti=self.lib.lua_seti;self.seti.argtypes=[C.c_void_p,C.c_int,C.c_ssize_t];self.seti.restype=None
@@ -28,7 +28,7 @@ class MonsterBubbleOracle(TargetOracle):
             else:self.errors.append('Unexpected dependency: '+repr(name));self.nil(s)
             return 1
         self.callback(require);self.setglobal(L,b'require')
-        self.module('BEMonsterBubble');self.setglobal(L,b'_bubble_class')
+        self.module('BEMonsterBubble',bubble_asset);self.setglobal(L,b'_bubble_class')
         if self.errors:raise RuntimeError(self.errors)
 
         self.getglobal(L,b'_oracle_bc');self.getfield(L,-1,b'RoleType');self.getfield(L,-1,b'Monster')

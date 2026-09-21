@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+  "moduleStatus": "IDENTICAL",
+  "fixtures": 6,
+  "exactMatches": 6,
+  "mismatches": [],
+  "sourceHashes": {
+    "baselineModule": "5e2fc3fd2041eb66bcf8a71a6deaa6e9ee0e68d5f4fe7e6f7e6149aaaa8f9c38",
+    "currentModule": "5e2fc3fd2041eb66bcf8a71a6deaa6e9ee0e68d5f4fe7e6f7e6149aaaa8f9c38",
+    "comparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
+    "installedShareBundle": "b62601a3391a5999ebb196dec5e52c0660d95c19655ac3b19f13299806c38907",
+    "fixture": "a08b154b095f9f185acb6bc23ac8396125a81e37637c485f720a798b5c2b89a9"
+  },
+  "scope": "Actual installed resource-150 BEMonsterBubble.DoEffect over inherited eligibility, default-time and record-routing fixtures.",
+  "limitations": [
+    "Explicit target/type and record-manager adapters",
+    "No scheduler, rendering client, gameplay or holdout credit"
+  ]
+}
