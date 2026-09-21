@@ -1,0 +1,311 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleUnitBase": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+  },
+  "scope": "Original ordinary BattleUnitBase UseCard/AppendUseCardEffectChain with explicit card, manager and effect observers across exits and target/pre-command variants. No effect execution, payment, after-use mutation, gameplay or holdout.",
+  "fixtures": [
+    {
+      "input": {
+        "name": "missing-card",
+        "hasCard": false,
+        "keeper": false,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "stateBlocked": false,
+        "hasCmd": true,
+        "hasPre": false,
+        "targets": false,
+        "wrapper": false
+      },
+      "expected": {
+        "returned": false,
+        "trace": [],
+        "upperTargets": [],
+        "memberWrites": [],
+        "effects": []
+      }
+    },
+    {
+      "input": {
+        "name": "keeper-route",
+        "hasCard": true,
+        "keeper": true,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "stateBlocked": false,
+        "hasCmd": true,
+        "hasPre": false,
+        "targets": false,
+        "wrapper": false
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          "keeper"
+        ],
+        "upperTargets": [],
+        "memberWrites": [],
+        "effects": []
+      }
+    },
+    {
+      "input": {
+        "name": "card-hard-block",
+        "hasCard": true,
+        "keeper": false,
+        "cardUseless": 1,
+        "ownerUseless": 0,
+        "stateBlocked": false,
+        "hasCmd": true,
+        "hasPre": false,
+        "targets": false,
+        "wrapper": false
+      },
+      "expected": {
+        "returned": false,
+        "trace": [],
+        "upperTargets": [],
+        "memberWrites": [
+          {
+            "name": "ForceConsumeMode",
+            "valueIsNil": true
+          }
+        ],
+        "effects": []
+      }
+    },
+    {
+      "input": {
+        "name": "owner-hard-block",
+        "hasCard": true,
+        "keeper": false,
+        "cardUseless": 0,
+        "ownerUseless": 1,
+        "stateBlocked": false,
+        "hasCmd": true,
+        "hasPre": false,
+        "targets": false,
+        "wrapper": false
+      },
+      "expected": {
+        "returned": false,
+        "trace": [],
+        "upperTargets": [],
+        "memberWrites": [
+          {
+            "name": "ForceConsumeMode",
+            "valueIsNil": true
+          }
+        ],
+        "effects": []
+      }
+    },
+    {
+      "input": {
+        "name": "state-hard-block",
+        "hasCard": true,
+        "keeper": false,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "stateBlocked": true,
+        "hasCmd": true,
+        "hasPre": false,
+        "targets": false,
+        "wrapper": false
+      },
+      "expected": {
+        "returned": false,
+        "trace": [],
+        "upperTargets": [],
+        "memberWrites": [
+          {
+            "name": "ForceConsumeMode",
+            "valueIsNil": true
+          }
+        ],
+        "effects": []
+      }
+    },
+    {
+      "input": {
+        "name": "generated-target-chain",
+        "hasCard": true,
+        "keeper": false,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "stateBlocked": false,
+        "hasCmd": true,
+        "hasPre": false,
+        "targets": false,
+        "wrapper": false
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          "caster:9",
+          "currentCard:9"
+        ],
+        "upperTargets": [],
+        "memberWrites": [],
+        "effects": [
+          {
+            "effectType": "BEGenerateTargets",
+            "castRoleUid": 9.0,
+            "cardUid": null,
+            "camp": 1.0,
+            "targetType": 123.0,
+            "cmdServer": "main"
+          },
+          {
+            "effectType": "BEBeforeUseCard",
+            "castRoleUid": 9.0,
+            "cardUid": 500.0,
+            "camp": null,
+            "targetType": null,
+            "cmdServer": "main"
+          },
+          {
+            "effectType": "BECreateSkillPhase",
+            "castRoleUid": 9.0,
+            "cardUid": 500.0,
+            "camp": null,
+            "targetType": null,
+            "cmdServer": "main"
+          },
+          {
+            "effectType": "BEAfterUseCard",
+            "castRoleUid": 9.0,
+            "cardUid": 500.0,
+            "camp": 1.0,
+            "targetType": null,
+            "cmdServer": null
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "explicit-target-pre-chain",
+        "hasCard": true,
+        "keeper": false,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "stateBlocked": false,
+        "hasCmd": true,
+        "hasPre": true,
+        "targets": true,
+        "wrapper": false
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          "caster:9",
+          "currentCard:9"
+        ],
+        "upperTargets": [
+          [
+            701.0,
+            702.0
+          ]
+        ],
+        "memberWrites": [],
+        "effects": [
+          {
+            "effectType": "BEBeforeUseCard",
+            "castRoleUid": 9.0,
+            "cardUid": 500.0,
+            "camp": null,
+            "targetType": null,
+            "cmdServer": "main"
+          },
+          {
+            "effectType": "BECreateSkillPhase",
+            "castRoleUid": 9.0,
+            "cardUid": 500.0,
+            "camp": null,
+            "targetType": null,
+            "cmdServer": "pre"
+          },
+          {
+            "effectType": "BECreateSkillPhase",
+            "castRoleUid": 9.0,
+            "cardUid": 500.0,
+            "camp": null,
+            "targetType": null,
+            "cmdServer": "main"
+          },
+          {
+            "effectType": "BEAfterUseCard",
+            "castRoleUid": 9.0,
+            "cardUid": 500.0,
+            "camp": 1.0,
+            "targetType": null,
+            "cmdServer": null
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "use-card-wrapper",
+        "hasCard": true,
+        "keeper": false,
+        "cardUseless": 0,
+        "ownerUseless": 0,
+        "stateBlocked": false,
+        "hasCmd": true,
+        "hasPre": false,
+        "targets": false,
+        "wrapper": true
+      },
+      "expected": {
+        "returned": null,
+        "trace": [
+          "runOrder",
+          "caster:9",
+          "currentCard:9",
+          "runOrderDone"
+        ],
+        "upperTargets": [],
+        "memberWrites": [],
+        "effects": [
+          {
+            "effectType": "BEGenerateTargets",
+            "castRoleUid": 9.0,
+            "cardUid": null,
+            "camp": 1.0,
+            "targetType": 123.0,
+            "cmdServer": "main"
+          },
+          {
+            "effectType": "BEBeforeUseCard",
+            "castRoleUid": 9.0,
+            "cardUid": 500.0,
+            "camp": null,
+            "targetType": null,
+            "cmdServer": "main"
+          },
+          {
+            "effectType": "BECreateSkillPhase",
+            "castRoleUid": 9.0,
+            "cardUid": 500.0,
+            "camp": null,
+            "targetType": null,
+            "cmdServer": "main"
+          },
+          {
+            "effectType": "BEAfterUseCard",
+            "castRoleUid": 9.0,
+            "cardUid": 500.0,
+            "camp": 1.0,
+            "targetType": null,
+            "cmdServer": null
+          }
+        ]
+      }
+    }
+  ]
+}

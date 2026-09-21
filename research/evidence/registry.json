@@ -4557,6 +4557,33 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC150:OrdinaryCardEffectChain",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "Resource 150 reproduces all 8 inherited ordinary UseCard/effect-chain construction fixtures exactly",
+      "sources": [
+        {
+          "module": "PC resource-150 card-module comparison",
+          "member": "BattleUnitBase equality and selected card-path hashes",
+          "bundle": "installed local client; hashes only",
+          "sha256": "d0c38c58404ebe0da4dfada285e96956b42bc4df86c7551e3be3d732ceccda9f"
+        },
+        {
+          "module": "PC resource-150 card-chain runtime comparison",
+          "member": "UseCard and AppendUseCardEffectChain fixture-domain result",
+          "bundle": "copied XLua runtime; hashes only",
+          "sha256": "ab7ea50f520ed5220a5667cbc06214036b72ea56369575c6bb1c71606b7b0aa3"
+        }
+      ],
+      "tests": [
+        "tools/card_effect_chain_oracle.py",
+        "tools/verify_current_card_effect_chain.py",
+        "tests/card-effect-chain.test.mjs",
+        "tests/current-pc-build-evidence.test.mjs"
+      ],
+      "scope": "Missing card, keeper routing, three hard-block exits, target generation, explicit target binding, optional pre-command and UseCard-to-RunEffectOrder wrapper. Keeper internals, effect execution, payment, after-use mutation, gameplay and holdout credit remain outside scope.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC150:BattleRecord.SelectedFrames",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
       "claim": "The installed resource-150 BattleRecord reproduces all 14 inherited selected replay-frame and queue fixtures exactly",

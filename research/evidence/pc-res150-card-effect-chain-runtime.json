@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "method": "BattleUnitBase.UseCard and AppendUseCardEffectChain ordinary subset",
+  "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+  "sourceHashes": {
+    "comparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
+    "cardModules": "d0c38c58404ebe0da4dfada285e96956b42bc4df86c7551e3be3d732ceccda9f",
+    "fixture": "a754ae03ec5b72228ec66abf046d1ba076027ae18bf5cd7f75888efe66708015",
+    "currentBattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+    "currentBattleUtilServer": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
+    "currentBattleCmdServer": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9",
+    "currentBattlePropertyServer": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5"
+  },
+  "fixtures": 8,
+  "exactMatches": 8,
+  "mismatches": 0,
+  "results": [],
+  "scope": "Byte-identical BattleUnitBase UseCard/effect-chain methods executed with resource-150 changed dependencies over inherited missing, blocked, target, pre-command and wrapper fixtures.",
+  "limitations": [
+    "Keeper internals are routed only",
+    "No effect execution, payment, after-use mutation, gameplay or holdout credit"
+  ]
+}
