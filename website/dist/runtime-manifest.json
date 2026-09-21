@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "6e9aa05f616313a1540ba4a88d0308c8ea96563d12ada4935022199714039920",
+  "fingerprint": "79f6fb471ca07ae5a4b057d4ad0464fd53d7e0b85e5b37670a0cfa03c27102c7",
   "files": {
     "build-catalog.json": "2d1188fadcaff7a1eb53af580c509756b21a3f003065c7c9036aa919958a1496",
     "client-build-data.json": "70a21813f8a491f521323971e6a6af9d1250102ad5bb76db8b16f80730fe7e34",
@@ -31,6 +31,7 @@
     "engine/client-primary-stats.mjs": "f841de44fef7a3ceb80e348582220cdb4ca453b5e3818812ece2aac38713f197",
     "engine/combat-property-mutation.mjs": "95a0b25ffbef54b94038722653fde8b9d588f7bbdb16c97da1b73684c470b52c",
     "engine/command-expressions.mjs": "13228f83821241b9812b9ad1198e96f9fba8963abbebd66c53a209a5cadc8131",
+    "engine/command-gate.mjs": "58ae3fc68adb7c70038539ee484052f3c6e23ad84a25ea23a81868efffde97db",
     "engine/command-rows.mjs": "f44d5bbb4036e84fe8c6c900dcb35ce719b60f460f424221faea970162e556ab",
     "engine/crit-resolution.mjs": "58841b28db82b3d4e2c8493616a64d8995650dbd9717f8296adf03b27ea91eae",
     "engine/damage-energy-command.mjs": "039aca152a761da8cb86483ee7e0b0cad517d5e8f61d46c0c259a2a7a5d5c782",
@@ -50,6 +51,7 @@
     "engine/immunity.mjs": "5a6dbfdb8f55098a7337d0c783efbdf7ebb6cddc89d9ab7d86a83df9fa538b6a",
     "engine/import-command-rows.mjs": "729b8ffb440ed4c47cbec10339e9cd2ba2fa0c7ec09c9859c6b9d0e60b29202f",
     "engine/inspect-command-support.mjs": "13db4f7c8772fb5a3e06a49a9bc8bb5b0b370fd5aa29923a71c7a25ba3aa77b9",
+    "engine/legal-card-actions.mjs": "92aad421c959d1b5360133fd4577d95c4634cef46868aff8c8d2f6ffe5f11d4b",
     "engine/live-state-lookup.mjs": "db44a2056b38ae9f758ee4c29ebb1a5da9e35fcb44a7a62b16d807c8e9703908",
     "engine/observation-scenario.mjs": "470388b56bf3e043e89177153155d87949769b57ae55efbf39d807461c3731be",
     "engine/offensive-setup.mjs": "6062e42db21a7288d27a1a963634c6014b70b3732fd755f944f0e85ed105342e",
@@ -93,7 +95,7 @@
     "engine/ulti-energy-experiment.mjs": "6de163423a1e99c6be4922093711a797fa3012554589484c4ae5fd864bc35973",
     "engine/ulti-energy-gain.mjs": "08a4f4f32a7700422d6999e19e0e58fb2cace3bcbf7d0a910a9bcacf3b520468",
     "engine/wheel-stats.mjs": "484a5b4a51fbbd9c4759b27457ae9eec71fceb0420354823f54654edfb78fadd",
-    "rules.json": "1448e127be8c2f3b09550d76fe7d785ca455c69678a693fa7f7832c3f5563048",
+    "rules.json": "01c5f364267d622def81f9884470ba02ad56a7cab72896cc2f4287a535030892",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af"
   }
 }

@@ -61,6 +61,13 @@ test('agent API exposes bounded card-order search without a global optimum claim
   assert.match(response.result.unresolvedDependencies.at(-2),/supplied resolved actions/);
 });
 
+test('agent API enumerates explicit legal card actions without executing them',()=>{
+  const conditions={cardExists:true,inHand:true,judgeCost:true,commandExists:true,dead:false,strike:false,allowIgnoreCost:false,cardUseless:0,ownerUseless:0,coma:0,comaImmunity:0,ownerForbid:0,playerForbid:0,ownerForbidStrike:0,playerForbidStrike:0};
+  const input={schemaVersion:1,kind:'morimens-legal-card-actions',build:'pc-res150-build51',energy:2,dispatch:{waiting:false,rootExists:false,finished:false,waitingTimes:0},cards:[{id:'card-a',cardInstanceId:'instance-a',costInput:{cfgCost:'2',originCost:2,delta:0,harmonize:0,fixedSwitches:{},keeper:false,keeperCost:null,pvp:false},conditions}]};
+  const response=runTheorycraftRequest(request('enumerate-legal-card-actions',input));
+  assert.equal(response.analysisTrack,'theorycrafting');assert.deepEqual(response.result.legalActionIds,['card-a']);assert.equal(response.result.actions[0].energyAfterIfPlayed,0);assert.equal(response.result.finalDamage,null);
+});
+
 test('agent API exposes monster intent insertion as theorycraft state mutation',()=>{
   const input={state:{intention:902,intentionRun:false,tempSkillList:[],hasIntentionCommand:true},skillId:60397,changeType:1};
   const response=runTheorycraftRequest(request('apply-monster-skill-change',input));

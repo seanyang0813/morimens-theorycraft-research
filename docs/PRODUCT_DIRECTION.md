@@ -22,6 +22,13 @@ Context sources:
 
 The first assembly slice is implemented as `assemble-build-components`: it joins recovered character primary-stat progression, explicit Season/Soulforge percentage promotion and catalog Wheel main stats into a provenance-bearing ledger. It reports missing inputs as typed issues. It is not a final property snapshot because advancement passive states, equipment and battle-start effects are still unresolved.
 
+The first agent-state enumeration slice is implemented as
+`enumerate-legal-card-actions`. Given explicit ordinary PvE dispatch state,
+energy, cards, costs and status properties, it returns every currently playable
+card plus gate diagnostics for rejected cards. It does not choose a target or
+execute an effect, so search code can distinguish action legality from outcome
+simulation.
+
 ### Human workbench
 
 The website should let a player:

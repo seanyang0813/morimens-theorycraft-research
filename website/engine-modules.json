@@ -51,6 +51,8 @@
   "fixed-pure-command-experiment.mjs",
   "active-damage-command.mjs",
   "card-use-resources.mjs",
+  "legal-card-actions.mjs",
+  "command-gate.mjs",
   "energy-payment.mjs",
   "card-payment-plan.mjs",
   "card-play-check.mjs",

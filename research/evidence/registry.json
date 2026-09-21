@@ -6371,6 +6371,57 @@
       "gameplayValidation": false
     },
     {
+      "id": "Theorycraft:LegalCardActionEnumeration",
+      "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
+      "claim": "The theorycraft API enumerates ordinary non-keeper PvE card actions from explicit dispatch, energy, hand and status state while retaining global and per-card rejection gates",
+      "sources": [
+        {
+          "module": "BattleEngine",
+          "member": "OnReceiveCommand,lg_UseCard",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "0ee07c8fd06f29787f8139306b55d16c726eaf8cabcd1ad0b128d907c8dbbeea",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7402197778903831940_BattleEngine.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "CanUseCard",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BEBeforeUseCard",
+          "member": "__CostEnergy",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b660610845cc1181bab671a07d5df91814b2b39419aed2d4ba826bee2be8699c",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7020487249631624131_BEBeforeUseCard.lua"
+        },
+        {
+          "module": "BattleUnitPlayer",
+          "member": "EnergyEnough,ConsumeEnergy",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "ca4e9847ac558a6c8e81a80461869ce2a6c72b0e8e75caf63b9c4dc9afb1b52e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\8953225705542082565_BattleUnitPlayer.lua"
+        },
+        {
+          "module": "BattleCardServer",
+          "member": "GetVariableCostMode,ResolveVariableConsumeCost",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7042619747436697877_BattleCardServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/command-gate.test.mjs",
+        "tests/card-play-check.test.mjs",
+        "tests/card-use-resources.test.mjs",
+        "tests/legal-card-actions.test.mjs",
+        "tests/theorycraft-api.test.mjs"
+      ],
+      "scope": "Authored read-only composition over separately runtime-matched dispatch, ordinary PvE CanUseCard, cost and payment boundaries. Explicit card/cost/status inputs; no target validation, Camp1 play limit, keeper/PvP/forced play, mutation, effects, turn transition, gameplay or cross-track claim.",
+      "gameplayValidation": false
+    },
+    {
       "id": "ANDROID83:ScriptGroupManifest",
       "status": "CONFIRMED_FROM_LOCAL_MANIFEST",
       "claim": "The packaged Android resource-83 manifest identifies seven Scripts-group bundles by filename, size, resource index and MD5; the hash interpretation is established by a direct bundled Android startup-archive match",

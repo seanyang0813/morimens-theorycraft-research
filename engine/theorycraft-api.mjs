@@ -10,6 +10,7 @@ import {searchCardOrders} from './card-order-search.mjs';
 import {runPreparedSkillRequest} from './prepared-skill-request.mjs';
 import {applyMonsterSkillChange} from './monster-skill-change.mjs';
 import {runRoleStateCommand} from './role-state-command.mjs';
+import {enumerateLegalCardActions} from './legal-card-actions.mjs';
 
 export const theorycraftOperations=Object.freeze([
   {name:'describe-capabilities',context:[],scope:'List supported versioned operations and evidence boundaries'},
@@ -26,6 +27,7 @@ export const theorycraftOperations=Object.freeze([
   {name:'prepare-skill-command',context:['skillCommandData'],scope:'Exported skill selection, argument preparation and optional supported command execution'},
   {name:'apply-monster-skill-change',context:[],scope:'Original-runtime-matched monster intent replacement/queue mutation without executing the selected skill'},
   {name:'run-role-state-command',context:[],scope:'Setup-only state and presentation rows over explicit role/property snapshots'},
+  {name:'enumerate-legal-card-actions',context:[],scope:'Ordinary PvE card dispatch, status and affordability enumeration from explicit state'},
 ]);
 
 export const theorycraftClaimBoundary=Object.freeze({
@@ -60,6 +62,7 @@ function execute(operation,input,context){
     return applyMonsterSkillChange(input.state,input.skillId,input.changeType);
   }
   if(operation==='run-role-state-command')return runRoleStateCommand(input);
+  if(operation==='enumerate-legal-card-actions')return enumerateLegalCardActions(input);
   throw new Error('Unsupported theorycraft operation');
 }
 

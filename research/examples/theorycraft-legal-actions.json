@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-theorycraft-request",
+  "requestId": "legal-actions-example",
+  "operation": "enumerate-legal-card-actions",
+  "input": {
+    "schemaVersion": 1,
+    "kind": "morimens-legal-card-actions",
+    "build": "pc-res150-build51",
+    "energy": 3,
+    "dispatch": {
+      "waiting": false,
+      "rootExists": false,
+      "finished": false,
+      "waitingTimes": 0
+    },
+    "cards": [
+      {
+        "id": "strike-a",
+        "cardInstanceId": "hand-1",
+        "costInput": {
+          "cfgCost": "2",
+          "originCost": 2,
+          "delta": 0,
+          "harmonize": 0,
+          "fixedSwitches": {},
+          "keeper": false,
+          "keeperCost": null,
+          "pvp": false
+        },
+        "conditions": {
+          "cardExists": true,
+          "inHand": true,
+          "judgeCost": true,
+          "commandExists": true,
+          "dead": false,
+          "strike": true,
+          "allowIgnoreCost": false,
+          "cardUseless": 0,
+          "ownerUseless": 0,
+          "coma": 0,
+          "comaImmunity": 0,
+          "ownerForbid": 0,
+          "playerForbid": 0,
+          "ownerForbidStrike": 0,
+          "playerForbidStrike": 0
+        }
+      },
+      {
+        "id": "expensive-b",
+        "cardInstanceId": "hand-2",
+        "costInput": {
+          "cfgCost": "4",
+          "originCost": 4,
+          "delta": 0,
+          "harmonize": 0,
+          "fixedSwitches": {},
+          "keeper": false,
+          "keeperCost": null,
+          "pvp": false
+        },
+        "conditions": {
+          "cardExists": true,
+          "inHand": true,
+          "judgeCost": true,
+          "commandExists": true,
+          "dead": false,
+          "strike": false,
+          "allowIgnoreCost": false,
+          "cardUseless": 0,
+          "ownerUseless": 0,
+          "coma": 0,
+          "comaImmunity": 0,
+          "ownerForbid": 0,
+          "playerForbid": 0,
+          "ownerForbidStrike": 0,
+          "playerForbidStrike": 0
+        }
+      }
+    ]
+  }
+}
