@@ -15,7 +15,7 @@ class JoinedPhaseCommandEffectOracle(PhaseLiveLayerOracle):
         60409: b'_phase_damage_state',
     }
 
-    def __init__(self, add_parent_asset=None, func_asset=None, parser_asset=None):
+    def __init__(self, add_parent_asset=None, func_asset=None, parser_asset=None, cmd_asset=None):
         super().__init__(add_parent_asset)
         L = self.state
         self.tobool = self.lib.lua_toboolean
@@ -55,7 +55,7 @@ class JoinedPhaseCommandEffectOracle(PhaseLiveLayerOracle):
         self.setglobal(L, b'_joined_remove_effect')
         self.module('BEMonsterChangeSkill')
         self.setglobal(L, b'_joined_skill_effect')
-        self.expressions = PhaseCommandParserOracle(func_asset, parser_asset)
+        self.expressions = PhaseCommandParserOracle(func_asset, parser_asset, cmd_asset)
         self.commands = json.loads((ROOT / 'research/extracted/config/Cmd.json').read_text(encoding='utf-8'))
         if self.errors:
             raise RuntimeError(self.errors)
@@ -197,22 +197,24 @@ class JoinedPhaseCommandEffectOracle(PhaseLiveLayerOracle):
         self._target_and_states(case)
         self._manager()
         rows = self.commands[str(case['commandId'])]['data_list']
-        last_condition = 0
+        self.expressions.begin(case['hpLoss'], case['maxHp'], {})
+        generated_rows = self.expressions.generate_rows(case['commandId'], rows)
         row_trace = []
         operations = []
         skill = None
-        for index, row in sorted(rows.items(), key=lambda item: int(item[0])):
+        ordered_rows = [row for _, row in sorted(rows.items(), key=lambda item: int(item[0]))]
+        for generated_index in generated_rows:
+            index = str(generated_index)
+            row = ordered_rows[generated_index - 1]
             snapshot = self._state_snapshot()
             self.expressions.layers = {state_id: value['layers'] for state_id, value in snapshot.items()}
             self.expressions.reads = []
             if 'Cond' in row:
-                result = self.expressions.expression(row['Cond'], case['hpLoss'], last_condition, case['maxHp'])
-                passed = result == [True]
-                last_condition = 1 if passed else 0
+                passed = self.expressions.check_condition(row['Cond'])
                 if not passed:
                     row_trace.append({'row': int(index), 'type': row['Type'], 'passed': False})
                     continue
-            params = self.expressions.expression(row['Para'], case['hpLoss'], last_condition, case['maxHp'])
+            params = self.expressions.evaluate(row['Para'])
             self._invoke(row['Type'], params)
             row_trace.append({'row': int(index), 'type': row['Type'], 'passed': True, 'params': params})
             state_id = int(params[0])
@@ -260,19 +262,20 @@ if __name__ == '__main__':
         {'maxHp': 12345, 'phaseId': 60408, 'phaseLayers': 126, 'counter': 999999990, 'hpLoss': 125, 'commandId': 60405},
     ]
     fixtures = [{'input': case, 'expected': oracle.run_joined(case)} for case in cases]
-    names = ('FuncTable', 'Cmd', 'BattleCmdParser', 'BEAddState', 'BEAddStateParent', 'BESubStateLayer', 'BERemoveState', 'BEMonsterChangeSkill', 'BattleStateMgrServer', 'BattleStateServer')
+    names = ('FuncTable', 'Cmd', 'BattleCmdServer', 'BattleCmdParser', 'BEAddState', 'BEAddStateParent', 'BESubStateLayer', 'BERemoveState', 'BEMonsterChangeSkill', 'BattleStateMgrServer', 'BattleStateServer')
     output = {
         'kind': 'SYNTHETIC_ORIGINAL_RUNTIME',
         'build': 'pc-res144-build51',
         'sourceHashes': {name: oracle.assets[name + '.lua']['sha256'] for name in names},
         'scope': (
             'Python row iterator sends command 60406/60405 Cond/Para strings through the original command '
-            'parser and original compiled closures, then joins their resolved values to '
+            'parser and original CheckCondition before joining resolved values to '
             'original add/subtract/remove/monster-skill effect bodies over one original manager registry and '
             'original existing-state layer methods. Destination states 46441/60408 and counter 60407 are '
             'pre-created live zero-layer adapters; LifeEnd marks deletion and other callbacks are observers. '
-            'The target expression exposes only max_hp and GetStateLayer. No original CheckCondition row '
-            'iterator/effect scheduler, state construction/property bodies, gameplay or holdout.'
+            'The target expression exposes only max_hp and GetStateLayer; GenerateEffectObj returns an inert '
+            'row token before Python executes the real bodies. No original effect scheduler, state '
+            'construction/property bodies, gameplay or holdout.'
         ),
         'fixtures': fixtures,
     }

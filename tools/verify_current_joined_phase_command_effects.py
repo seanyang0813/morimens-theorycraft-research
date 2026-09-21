@@ -17,11 +17,11 @@ def sha(path):
 def main():
     fixture_path = ROOT / 'tests/synthetic/original-joined-phase-command-effects.json'
     fixture = json.loads(fixture_path.read_text(encoding='utf-8'))
-    names = ('FuncTable', 'Cmd', 'BattleCmdParser', 'BEAddState', 'BEAddStateParent', 'BESubStateLayer', 'BERemoveState', 'BEMonsterChangeSkill', 'BattleStateMgrServer', 'BattleStateServer')
+    names = ('FuncTable', 'Cmd', 'BattleCmdServer', 'BattleCmdParser', 'BEAddState', 'BEAddStateParent', 'BESubStateLayer', 'BERemoveState', 'BEMonsterChangeSkill', 'BattleStateMgrServer', 'BattleStateServer')
     module_dir = ROOT / 'research/observations/current-res150-build51/modules'
     current_hashes = {name: sha(module_dir / f'{name}.lua') for name in names}
     changed = [name for name in names if current_hashes[name] != fixture['sourceHashes'][name]]
-    if changed != ['FuncTable', 'Cmd', 'BattleCmdParser', 'BEAddStateParent']:
+    if changed != ['FuncTable', 'Cmd', 'BattleCmdServer', 'BattleCmdParser', 'BEAddStateParent']:
         raise ValueError(f'Unexpected changed joined-phase modules: {changed}')
 
     program_files = Path(os.environ.get('ProgramFiles(x86)', r'C:\Program Files (x86)'))
@@ -48,6 +48,7 @@ def main():
         {'output': str(module_dir / 'BEAddStateParent.lua')},
         {'output': str(module_dir / 'FuncTable.lua')},
         {'output': str(module_dir / 'BattleCmdParser.lua')},
+        {'output': str(module_dir / 'BattleCmdServer.lua')},
     )
     mismatches = []
     for index, row in enumerate(fixture['fixtures']):
@@ -62,7 +63,7 @@ def main():
         'kind': 'MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON',
         'baselineBuild': 'pc-res144-build51',
         'currentBuild': 'pc-res150-build51',
-        'method': 'execute current BattleCmdParser, FuncTable and changed add parent against byte-identical effect/manager/state modules and catalog-equal rows',
+        'method': 'execute current BattleCmdServer CheckCondition, BattleCmdParser, FuncTable and changed add parent against byte-identical effect/manager/state modules and catalog-equal rows',
         'status': 'CURRENT_CHANGED_MODULES_RUNTIME_MATCH',
         'sourceHashes': {
             'fixture': sha(fixture_path),
@@ -76,11 +77,11 @@ def main():
         'fixtures': len(fixture['fixtures']),
         'matched': len(fixture['fixtures']),
         'mismatches': 0,
-        'scope': 'Installed current parser, expressions and add parent reproduce every inherited joined command-row/effect-body transition fixture.',
+        'scope': 'Installed current CheckCondition, parser, expressions and add parent reproduce every inherited joined command-row/effect-body transition fixture.',
         'limitations': [
-            'Python iterates catalog-equal rows; original parser resolves conditions and parameters before they are handed to effects',
+            'Original GenerateEffectList iterates catalog-equal rows; its GenerateEffectObj boundary returns inert row tokens, then original CheckCondition/parser resolve values before Python hands them to real effect bodies',
             'Destination states are pre-created live zero-layer adapters',
-            'Target-expression max HP/state-layer reads are a narrow adapter; no original CheckCondition iterator/effect scheduler, property bodies, gameplay or holdout credit',
+            'Target-expression max HP/state-layer reads are a narrow adapter; no original effect scheduler, property bodies, gameplay or holdout credit',
         ],
     }
     output = ROOT / 'research/evidence/pc-res150-joined-phase-command-effects-runtime.json'

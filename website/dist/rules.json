@@ -1190,8 +1190,8 @@
     {
       "id": "PC144:JoinedPhaseCommandEffects",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
-      "claim": "Original BattleCmdParser and compiled phase command conditions/parameters drive original add/subtract/remove/monster-skill effect bodies over one live manager registry, matching the authored first- and second-phase transition model",
-      "scope": "5 joined original-runtime cases covering nontransition, exact-boundary and over-boundary first/second phases. Python iterates rows; original parser resolves Cond/Para through a narrow target-expression max-HP/state-layer adapter. Destination/counter states are pre-created zero-layer adapters and callbacks are observers. No original CheckCondition iterator/scheduler, construction/property bodies in the same run, gameplay or holdout credit.",
+      "claim": "Original BattleCmdServer.GenerateEffectList/CheckCondition, BattleCmdParser and compiled phase command conditions/parameters drive original add/subtract/remove/monster-skill effect bodies over one live manager registry, matching the authored first- and second-phase transition model",
+      "scope": "5 joined original-runtime cases covering nontransition, exact-boundary and over-boundary first/second phases. Original GenerateEffectList supplies ordered row tokens and updates Arg1; its GenerateEffectObj boundary is inert, then Python invokes original CheckCondition/parser and real effect bodies through a narrow target-expression adapter. Destination/counter states are pre-created zero-layer adapters and callbacks are observers. No original effect construction/scheduler, construction/property bodies in the same run, gameplay or holdout credit.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -1200,8 +1200,13 @@
           "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2"
         },
         {
+          "module": "BattleCmdServer",
+          "member": "GenerateEffectList,CheckCondition,GetValueByCmd",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b"
+        },
+        {
           "module": "BattleCmdParser",
-          "member": "GetValueListByCmd,__GetValueByCmd,EnvMetaFunc,GetGlobalValue",
+          "member": "UpdateSkillArgs,GetValueListByCmd,__GetValueByCmd,EnvMetaFunc,GetGlobalValue",
           "sha256": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d"
         },
         {
@@ -4536,19 +4541,19 @@
     {
       "id": "PC150:JoinedPhaseCommandEffects",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
-      "claim": "Current BattleCmdParser, FuncTable and changed add-state parent reproduce all 5 joined command-condition/parameter through effect-body phase transition fixtures against catalog-equal 60406/60405 rows",
-      "scope": "Current parser/expressions and changed add parent with byte-identical effect/manager/state modules. Python iterates catalog-equal rows; target expression, zero-layer destinations and callbacks are bounded adapters. No original CheckCondition iterator/scheduler, gameplay or holdout credit.",
+      "claim": "Current BattleCmdServer.GenerateEffectList/CheckCondition, BattleCmdParser, FuncTable and changed add-state parent reproduce all 5 joined command-condition/parameter through effect-body phase transition fixtures against catalog-equal 60406/60405 rows",
+      "scope": "Current GenerateEffectList/CheckCondition/parser/expressions and changed add parent with byte-identical effect/manager/state modules. GenerateEffectObj row tokens, target expression, zero-layer destinations and callbacks are bounded adapters. No original effect construction/scheduler, gameplay or holdout credit.",
       "gameplayValidation": false,
       "sources": [
         {
           "module": "PC resource-150 installed share/config bundles",
-          "member": "BattleCmdParser, FuncTable, Cmd and participating effect/manager/state hashes",
+          "member": "BattleCmdServer, BattleCmdParser, FuncTable, Cmd and participating effect/manager/state hashes",
           "sha256": "95083098911cb6b1f54fcddb03e5dc797489bd080e55ddd9f72fc0da9b39a1e4"
         },
         {
           "module": "PC resource-150 joined phase command/effect comparison",
           "member": "fixture-domain result",
-          "sha256": "06066d441533cac455073c22601d59539eca3f56e6d8c3af25a3146e1a99d698"
+          "sha256": "c8d71ff68a1848c6e79fb76ffd33ef3bef04a82e53000612bf82226808fd086c"
         }
       ],
       "checks": [

@@ -12,10 +12,12 @@ from command_argument_oracle import ArgumentOracle
 class PhaseCommandParserOracle(ArgumentOracle):
     LUA_REGISTRYINDEX = -1001000
 
-    def __init__(self, func_asset=None, parser_asset=None):
+    def __init__(self, func_asset=None, parser_asset=None, cmd_asset=None):
         overrides = {'FuncTable': func_asset} if func_asset else {}
         if parser_asset:
             overrides['BattleCmdParser'] = parser_asset
+        if cmd_asset:
+            overrides['BattleCmdServer'] = cmd_asset
         super().__init__(overrides)
         L = self.state
         self.rawlen = self.lib.lua_rawlen
@@ -24,6 +26,9 @@ class PhaseCommandParserOracle(ArgumentOracle):
         self.gettop = self.lib.lua_gettop
         self.gettop.argtypes = [C.c_void_p]
         self.gettop.restype = C.c_int
+        self.settable = self.lib.lua_settable
+        self.settable.argtypes = [C.c_void_p, C.c_int]
+        self.settable.restype = None
 
         @C.CFUNCTYPE(C.c_int, C.c_void_p)
         def bound_call(state):
@@ -68,6 +73,7 @@ class PhaseCommandParserOracle(ArgumentOracle):
         self.module('FuncTable', func_asset)
         self.setglobal(L, b'_phase_parser_functions')
         self._install_subject()
+        self._install_command_subject()
 
     def _expression_object(self, state):
         self.table(state, 0, 3)
@@ -138,13 +144,108 @@ class PhaseCommandParserOracle(ArgumentOracle):
         self.setfield(L, -2, b'battleEngine')
         self.setglobal(L, b'_phase_parser_subject')
 
-    def expression(self, expression, argument, last_condition, max_hp):
-        if isinstance(expression, (int, float)):
-            return [expression]
+    def _install_command_subject(self):
+        L = self.state
+        self.top(L, 0)
+        self.table(L, 0, 5)
+        for name in ('GetValueByCmd', 'CheckCondition', 'GenerateEffectList'):
+            self.getglobal(L, b'_oracle_cmd')
+            self.getfield(L, -1, name.encode())
+            self.setfield(L, -3, name.encode())
+            self.top(L, -2)
+        self.getglobal(L, b'_phase_parser_subject')
+        self.setfield(L, -2, b'cmdParser')
+        self.number(L, 1); self.setfield(L, -2, b'skillConfigId')
+
+        self.method('CheckLoopCall', lambda state: (self.boolean(state, False), 1)[1])
+
+        def get_skill_args(state):
+            self.table(state, 1, 0)
+            self.number(state, self.argument)
+            self.rawseti(state, -2, 1)
+            return 1
+
+        def get_delays(state):
+            self.table(state, len(self.catalog_rows), 0)
+            for index in range(1, len(self.catalog_rows) + 1):
+                self.number(state, 0)
+                self.rawseti(state, -2, index)
+            return 1
+
+        def generate_effect(state):
+            self.generated_rows.append(int(self.tonumber(state, 5, None)))
+            self.table(state, 0, 0)
+            return 1
+
+        self.method('GetSkillArgs', get_skill_args)
+        self.method('GetEffectDelayTimes', get_delays)
+        self.method('GenerateEffectObj', generate_effect)
+        self.getglobal(L, b'_phase_parser_subject')
+        self.getfield(L, -1, b'battleEngine')
+        self.setglobal(L, b'_phase_shared_engine')
+        self.top(L, -2)
+        self.getglobal(L, b'_phase_shared_engine')
+        self.method('LogBattleWithTab', lambda state: 0)
+        self.setfield(L, -2, b'battleEngine')
+        self.setglobal(L, b'_phase_command_subject')
+
+    def begin(self, argument, max_hp, layers, last_condition=False):
         L = self.state
         self.errors.clear()
+        self.argument = argument
         self.max_hp = max_hp
+        self.layers = layers
+        self.reads = []
         self.top(L, 0)
+
+    def generate_rows(self, command_id, rows):
+        """Return row indices produced by original GenerateEffectList."""
+        L = self.state
+        ordered = [rows[key] for key in sorted(rows, key=int)]
+        self.catalog_rows = ordered
+        self.generated_rows = []
+        self.top(L, 0)
+        self.getglobal(L, b'_phase_parser_subject')
+        self.getglobal(L, b'_target_parser')
+        self.getfield(L, -1, b'UpdateSkillArgs')
+        self.setfield(L, -3, b'UpdateSkillArgs')
+        self.top(L, -2)
+
+        self.getglobal(L, b'_phase_command_subject')
+        self.number(L, command_id); self.setfield(L, -2, b'cmdId')
+        self.getfield(L, -1, b'battleEngine')
+        self.getfield(L, -1, b'battleDT')
+        self.table(L, 0, 1)
+        self.number(L, command_id)
+        self.table(L, 0, 1)
+        self.table(L, len(ordered), 0)
+        for index, row in enumerate(ordered, 1):
+            self.table(L, 0, len(row))
+            for key, value in row.items():
+                if isinstance(value, str): self.pushstring(L, value.encode())
+                elif isinstance(value, bool): self.boolean(L, value)
+                elif isinstance(value, (int, float)): self.number(L, value)
+                else: continue
+                self.setfield(L, -2, key.encode())
+            self.rawseti(L, -2, index)
+        self.setfield(L, -2, b'data_list')
+        self.settable(L, -3)
+        self.setfield(L, -2, b'Cmd')
+        self.table(L, 1, 0); self.table(L, 0, 0); self.rawseti(L, -2, 1)
+        self.setfield(L, -2, b'Skill')
+        self.top(L, 0)
+
+        self.getglobal(L, b'_oracle_cmd')
+        self.getfield(L, -1, b'GenerateEffectList')
+        self.getglobal(L, b'_phase_command_subject')
+        self.nil(L)
+        self.boolean(L, False)
+        self.check(self.call(L, 3, 1, 0, 0, None))
+        if self.errors:
+            raise RuntimeError(self.errors)
+        if self.generated_rows != list(range(1, len(ordered) + 1)):
+            raise RuntimeError('GenerateEffectList did not preserve configured row order')
+        return self.generated_rows
         self.getglobal(L, b'_phase_parser_subject')
         self.table(L, 1, 0)
         self.number(L, argument)
@@ -154,6 +255,11 @@ class PhaseCommandParserOracle(ArgumentOracle):
         self.setfield(L, -2, b'lastConditionRet')
         self.top(L, 0)
 
+    def evaluate(self, expression):
+        if isinstance(expression, (int, float)):
+            return [expression]
+        L = self.state
+        self.top(L, 0)
         self.getglobal(L, b'_target_parser')
         self.getfield(L, -1, b'GetValueListByCmd')
         self.getglobal(L, b'_phase_parser_subject')
@@ -173,3 +279,19 @@ class PhaseCommandParserOracle(ArgumentOracle):
                 raise ValueError('Unexpected parser expression result')
             self.top(L, -2)
         return values
+
+    def check_condition(self, expression):
+        L = self.state
+        self.top(L, 0)
+        self.getglobal(L, b'_oracle_cmd')
+        self.getfield(L, -1, b'CheckCondition')
+        self.getglobal(L, b'_phase_command_subject')
+        self.pushstring(L, expression.encode())
+        self.check(self.call(L, 2, 1, 0, 0, None))
+        if self.errors:
+            raise RuntimeError(self.errors)
+        return bool(self.tobool(L, -1))
+
+    def expression(self, expression, argument, last_condition, max_hp):
+        self.begin(argument, max_hp, getattr(self, 'layers', {}), last_condition)
+        return self.evaluate(expression)
