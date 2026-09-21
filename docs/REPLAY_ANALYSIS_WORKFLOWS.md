@@ -1,6 +1,6 @@
 # Replay analysis workflows
 
-The replay pipeline supports four separate jobs. They may reuse parsers and sanitized source records, but they do not share conclusions. Every report has exactly one analysis track, and evidence gathered for one track must not be presented as a result from another track.
+The replay pipeline supports four separate jobs. They may reuse parsers and sanitized source records, but they do not share conclusions. Every report has exactly one analysis track, and evidence gathered for one track must not be presented as a result from another track. Generated strategy summaries carry a machine-readable `claimBoundary` with the track's purpose, allowed claims, forbidden claims and the only permitted handoff to another track.
 
 A promising budget clear can start a new cheese investigation or theorycraft experiment, but that follow-up must be a separate artifact with its own question and evidence. A cheese trace can suggest a model rule, but it does not verify that rule. A theorycraft result becomes verification evidence only through the frozen-prediction chronology below.
 
@@ -14,9 +14,13 @@ Replay role data does not identify Wheel enhancement directly. If the leaderboar
 
 Look for unusual sequencing, repeated state transitions, resource loops, damage-cap routing, survival resets or other mechanics that explain a result. A cheese claim needs a trace of the relevant cards, states and outcomes. Popularity, low level or a high leaderboard position is not enough.
 
+Cheese analysis is an observational investigation. It can produce a mechanic hypothesis. It cannot produce an optimal-build claim, a forward damage result or formula verification. If the hypothesis is useful for build design, create a separate theorycraft artifact that cites it and lists any unsupported rule.
+
 ## Theorycrafting
 
 Use reconstructed rules to simulate builds and action sequences, including combinations absent from observed records. Every output must label unsupported branches and list the inputs that were supplied rather than recovered.
+
+Theorycrafting asks what a specified build or sequence should do under the model. It does not classify a replay as cheese and does not inherit verification status from a replay that inspired the experiment.
 
 ## Verification
 

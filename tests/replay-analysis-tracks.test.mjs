@@ -13,6 +13,9 @@ test('strategy summaries carry an explicit analysis track and comparison coordin
   const result=runPython(code);
   assert.equal(result.schemaVersion,2);
   assert.equal(result.analysisTrack,'cheese-analysis');
+  assert.match(result.claimBoundary.purpose,/unusual observed result/);
+  assert.ok(result.claimBoundary.mustNotClaim.includes('optimal general build'));
+  assert.match(result.claimBoundary.crossTrackUse,/separate theorycraft artifact/);
   assert.deepEqual([result.stage,result.wave,result.difficulty],['dtide-3',2,'hard']);
 });
 

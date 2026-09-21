@@ -9,6 +9,33 @@ ANALYSIS_TRACKS = (
     "budget-scouting", "cheese-analysis", "theorycrafting", "verification",
 )
 
+TRACK_CONTRACTS = {
+    "budget-scouting": {
+        "purpose": "Find low-investment clears for later investigation",
+        "mayClaim": ["observed roster, investment signals and sequence for the selected stage/wave/difficulty"],
+        "mustNotClaim": ["cheese mechanism", "simulated optimal build", "formula verification"],
+        "crossTrackUse": "May nominate a separate cheese or theorycraft artifact; the new artifact needs its own evidence",
+    },
+    "cheese-analysis": {
+        "purpose": "Explain an unusual observed result through a traceable mechanic or sequence",
+        "mayClaim": ["observed sequence, state transitions and outcomes included in this artifact"],
+        "mustNotClaim": ["optimal general build", "forward simulated result", "verified damage formula"],
+        "crossTrackUse": "May create a mechanic hypothesis for a separate theorycraft artifact; it does not verify that hypothesis",
+    },
+    "theorycrafting": {
+        "purpose": "Evaluate explicit builds and sequences with reconstructed rules",
+        "mayClaim": ["model result within the supplied inputs and supported rule scope"],
+        "mustNotClaim": ["observed cheese", "leaderboard prevalence", "independent gameplay verification"],
+        "crossTrackUse": "May consume cited mechanics from other tracks; every unsupported branch and supplied input remains explicit",
+    },
+    "verification": {
+        "purpose": "Test a frozen prediction against a separately revealed matching outcome",
+        "mayClaim": ["agreement or disagreement within the frozen prediction contract"],
+        "mustNotClaim": ["budget ranking", "cheese classification", "general optimality"],
+        "crossTrackUse": "Only the frozen-prediction chronology can promote a modeled claim to verification evidence",
+    },
+}
+
 
 def _skill_name(row):
     value = row.get("Name") if isinstance(row, dict) else None
@@ -115,6 +142,7 @@ def build_strategy_summary(index, resources, *, analysis_track, label=None, stag
         "kind": "MORIMENS_PRIVATE_STRATEGY_SUMMARY",
         "privacy": "Player, replay, role-instance and card-instance identifiers removed",
         "analysisTrack": analysis_track,
+        "claimBoundary": TRACK_CONTRACTS[analysis_track],
         "label": label,
         "stage": stage,
         "wave": wave,
