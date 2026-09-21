@@ -85,7 +85,11 @@ def main():
     report = build_budget_report(summaries)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
-    print(json.dumps({"candidateCount": len(rows), "frontierCount": len(frontier), "output": str(output.relative_to(ROOT))}, indent=2))
+    print(json.dumps({
+        "candidateCount": report["candidateCount"],
+        "frontierCount": report["frontierCount"],
+        "output": str(output.relative_to(ROOT)),
+    }, indent=2))
 
 
 if __name__ == "__main__":

@@ -1,6 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {spawnSync} from 'node:child_process';
+import {mkdtempSync,readFileSync,rmSync,writeFileSync} from 'node:fs';
+import {dirname,join,resolve} from 'node:path';
+import {fileURLToPath} from 'node:url';
 
 function runPython(code){
   const run=spawnSync('python',['-c',code],{encoding:'utf8'});
@@ -26,4 +29,22 @@ test('budget frontier accepts only one explicitly comparable budget-scouting gro
   assert.deepEqual(result.comparison,{stage:'dtide-3',wave:2,difficulty:'hard'});
   assert.match(result.errors[0],/only budget-scouting/);
   assert.match(result.errors[1],/not from the same/);
+});
+
+test('budget frontier CLI writes its report and returns report counts',()=>{
+  const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+  const privateRoot=join(root,'research','observations');
+  const dir=mkdtempSync(join(privateRoot,'budget-cli-test-'));
+  try{
+    const summary={schemaVersion:2,kind:'MORIMENS_PRIVATE_STRATEGY_SUMMARY',analysisTrack:'budget-scouting',stage:'dtide-3',wave:2,difficulty:'hard',investmentSignals:{characterLevelSum:70},roster:[],counts:{}};
+    const source=join(dir,'summary.json'),output=join(dir,'frontier.json');
+    writeFileSync(source,JSON.stringify(summary));
+    const run=spawnSync('python',['tools/rank_budget_replays.py','--summary',source,'--output',output],{cwd:root,encoding:'utf8'});
+    assert.equal(run.status,0,run.stderr);
+    const status=JSON.parse(run.stdout),report=JSON.parse(readFileSync(output,'utf8'));
+    assert.equal(status.candidateCount,1);
+    assert.equal(status.frontierCount,1);
+    assert.equal(report.analysisTrack,'budget-scouting');
+    assert.equal(report.frontier.length,1);
+  }finally{rmSync(dir,{recursive:true,force:true});}
 });
