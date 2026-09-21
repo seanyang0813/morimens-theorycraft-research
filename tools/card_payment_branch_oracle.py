@@ -3,8 +3,9 @@ import json
 from card_cost_oracle import CardCostOracle, ROOT
 
 class PaymentBranchOracle(CardCostOracle):
-    def __init__(self):
-        super().__init__();L=self.state
+    def __init__(self,asset_overrides=None):
+        asset_overrides=asset_overrides or {}
+        super().__init__(asset_overrides);L=self.state
         def require(s):
             name=self.string(s,1,None)
             if name==b'System.System':self.getglobal(s,b'_oracle_config_system')
@@ -12,7 +13,7 @@ class PaymentBranchOracle(CardCostOracle):
             elif name in [b'Battle.DbgEngine.Event.BattleLogicEvent',b'Battle.DbgEngine.Effect.BattleEffectServer']:self.table(s,0,0)
             else:self.errors.append(repr(name));self.nil(s)
             return 1
-        self.callback(require);self.setglobal(L,b'require');self.module('BEBeforeUseCard');self.setglobal(L,b'_payment_class')
+        self.callback(require);self.setglobal(L,b'require');self.module('BEBeforeUseCard',asset_overrides.get('BEBeforeUseCard'));self.setglobal(L,b'_payment_class')
 
     def evaluate(self,v,player_global=None):
         # Build a card with the original X-cost parsing and resolver.

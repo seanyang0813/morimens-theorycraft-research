@@ -4,8 +4,9 @@ import json
 from target_runtime_oracle import TargetOracle, ROOT
 
 class CardCostOracle(TargetOracle):
-    def __init__(self):
-        super().__init__();L=self.state
+    def __init__(self,asset_overrides=None):
+        asset_overrides=asset_overrides or {}
+        super().__init__(asset_overrides);L=self.state
         self.pushstring=self.lib.lua_pushstring;self.pushstring.argtypes=[C.c_void_p,C.c_char_p];self.pushstring.restype=C.c_char_p
         self.kind=self.lib.lua_type;self.kind.argtypes=[C.c_void_p,C.c_int];self.kind.restype=C.c_int
         def require(s):
@@ -15,7 +16,7 @@ class CardCostOracle(TargetOracle):
             elif name in [b'Battle.Ecs.BattleEntity',b'Battle.DbgEngine.Cmd.BattleCmdServer',b'Battle.DbgEngine.Event.BattleLogicEvent',b'Battle.DbgEngine.BattlePropertyServer',b'Battle.DbgEngine.DataCenter.BattleCardData',b'Battle.DbgEngine.Cmd.BattleCmdParser']:self.table(s,0,0)
             else:self.errors.append(repr(name));self.nil(s)
             return 1
-        self.callback(require);self.setglobal(L,b'require');self.module('BattleCardServer');self.setglobal(L,b'_cost_card')
+        self.callback(require);self.setglobal(L,b'require');self.module('BattleCardServer',asset_overrides.get('BattleCardServer'));self.setglobal(L,b'_cost_card')
 
     def push(self,s,value):
         if value is None:self.nil(s)

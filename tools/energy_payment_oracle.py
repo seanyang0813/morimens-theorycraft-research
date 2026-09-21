@@ -4,8 +4,9 @@ import json
 from hp_property_oracle import HpPropertyOracle,ROOT
 
 class EnergyOracle(HpPropertyOracle):
-    def __init__(self):
-        super().__init__();L=self.state
+    def __init__(self,asset_overrides=None):
+        asset_overrides=asset_overrides or {}
+        super().__init__(asset_overrides);L=self.state
         self.pushstring=self.lib.lua_pushstring;self.pushstring.argtypes=[C.c_void_p,C.c_char_p];self.pushstring.restype=C.c_char_p
         empty={b'Battle.DbgEngine.Role.BattleUnitBase',b'Battle.DbgEngine.Role.Component.SchoolCompPVE',b'Battle.DbgEngine.Role.Component.SchoolCompPVP',b'Battle.DbgEngine.Stats.BattleStatsMgrPVP',b'Battle.DbgEngine.Card.BattleKeeperSkillServer',b'Battle.DbgEngine.Cmd.BattleCmdParser'}
         def require(s):
@@ -17,7 +18,7 @@ class EnergyOracle(HpPropertyOracle):
             elif name in empty:self.table(s,0,0)
             else:self.errors.append(repr(name));self.nil(s)
             return 1
-        self.callback(require);self.setglobal(L,b'require');self.module('BattleUnitPlayer');self.setglobal(L,b'_energy_player_class')
+        self.callback(require);self.setglobal(L,b'require');self.module('BattleUnitPlayer',asset_overrides.get('BattleUnitPlayer'));self.setglobal(L,b'_energy_player_class')
         # Only castValue is supplied in the source data for this bounded probe.
         def clone(s):
             self.table(s,0,1);self.getfield(s,1,b'castValue');self.setfield(s,-2,b'castValue');return 1

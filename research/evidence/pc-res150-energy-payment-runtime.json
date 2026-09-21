@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "methods": [
+    "BattleUnitPlayer.ConsumeEnergy",
+    "BEBeforeUseCard.__CostEnergy through property mutation"
+  ],
+  "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+  "sourceHashes": {
+    "comparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
+    "cardModules": "d0c38c58404ebe0da4dfada285e96956b42bc4df86c7551e3be3d732ceccda9f",
+    "currentBattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+    "currentBattleUtilServer": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
+    "currentBattlePropertyServer": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5",
+    "currentBattleUnitPlayer": "14f007f69f6ce9e1d54cfb94ebd58da25f024a1262864c6e7f9af6292bceaf9f",
+    "consumeEnergyFixture": "87f292d13e337b0f581728f2d9e8a7ca7ef1b0c3625960b378164fbc5ef7358a",
+    "connectedBeforeUseFixture": "2d8303fdbe6df404b3bc33f5071067a0140464104b3fb1d46e7ebb2525a3d640"
+  },
+  "domains": {
+    "consumeEnergy": {
+      "fixtures": 30,
+      "exactMatches": 30,
+      "mismatches": 0
+    },
+    "connectedBeforeUse": {
+      "fixtures": 192,
+      "exactMatches": 192,
+      "mismatches": 0
+    }
+  },
+  "fixtures": 222,
+  "exactMatches": 222,
+  "mismatches": 0,
+  "results": [],
+  "scope": "Actual resource-150 changed player, property, utility and constants bytecode across inherited direct and connected energy-payment fixtures; unchanged card/before-use modules execute in the connected domain.",
+  "limitations": [
+    "No complete CanUseCard/UseCard chain, event listeners, effect tree, gameplay or holdout credit"
+  ]
+}

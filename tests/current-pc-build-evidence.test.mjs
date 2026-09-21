@@ -140,6 +140,23 @@ test('current PC use-card dispatch matches the inherited runtime domain',()=>{
   assert.equal(runtime.data.sourceHashes.currentBattleEngine,row.current[0].sha256);
 });
 
+test('current PC connected energy payment matches the inherited runtime domains',()=>{
+  const runtime=read('research/evidence/pc-res150-energy-payment-runtime.json');
+  const direct=read('tests/synthetic/original-energy-payment.json');
+  const connected=read('tests/synthetic/original-connected-card-payment.json');
+  const cardModules=read('research/evidence/pc-res150-card-modules.json');
+  assert.equal(runtime.data.status,'EXACT_MATCH_IN_FIXTURE_DOMAIN');
+  assert.equal(runtime.data.fixtures,direct.data.fixtures.length+connected.data.fixtures.length);
+  assert.deepEqual(runtime.data.domains,{consumeEnergy:{fixtures:30,exactMatches:30,mismatches:0},connectedBeforeUse:{fixtures:192,exactMatches:192,mismatches:0}});
+  assert.equal(runtime.data.exactMatches,runtime.data.fixtures);
+  assert.equal(runtime.data.mismatches,0);
+  assert.equal(runtime.data.sourceHashes.consumeEnergyFixture,hash(direct.bytes));
+  assert.equal(runtime.data.sourceHashes.connectedBeforeUseFixture,hash(connected.bytes));
+  assert.equal(runtime.data.sourceHashes.cardModules,hash(cardModules.bytes));
+  const player=cardModules.data.modules.find(row=>row.name==='BattleUnitPlayer.lua');
+  assert.equal(runtime.data.sourceHashes.currentBattleUnitPlayer,player.current.sha256);
+});
+
 test('current PC selected replay-record constructors match the inherited runtime domain',()=>{
   const comparison=read('research/evidence/pc-res144-to-res150-combat-build.json');
   const runtime=read('research/evidence/pc-res150-battle-record-runtime.json');

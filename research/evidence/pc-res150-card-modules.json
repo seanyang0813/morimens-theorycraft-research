@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CARD_MODULE_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "sourceHashes": {
+    "buildComparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
+    "bundles": {
+      "share.ab": {
+        "sha256": "b62601a3391a5999ebb196dec5e52c0660d95c19655ac3b19f13299806c38907",
+        "size": 876326
+      },
+      "gamescript.ab": {
+        "sha256": "06aac7bb4d39e8965b945ed0b2b20cb61e1ba253fc9aca4219e72c15105a9f34",
+        "size": 11897036
+      },
+      "foundation.ab": {
+        "sha256": "36e30bcd044b74043499183b5313bd6f4f9999f0d03aecce4751c3d87414f03d",
+        "size": 276987
+      }
+    }
+  },
+  "modules": [
+    {
+      "name": "BattleUnitBase.lua",
+      "status": "IDENTICAL",
+      "baseline": {
+        "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+        "size": 42806
+      },
+      "current": {
+        "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+        "size": 42806
+      }
+    },
+    {
+      "name": "BattleUnitPlayer.lua",
+      "status": "CHANGED_OR_MISSING",
+      "baseline": {
+        "sha256": "ca4e9847ac558a6c8e81a80461869ce2a6c72b0e8e75caf63b9c4dc9afb1b52e",
+        "size": 34731
+      },
+      "current": {
+        "sha256": "14f007f69f6ce9e1d54cfb94ebd58da25f024a1262864c6e7f9af6292bceaf9f",
+        "size": 35117
+      }
+    },
+    {
+      "name": "BattleCardMgrServer.lua",
+      "status": "IDENTICAL",
+      "baseline": {
+        "sha256": "2237271bdbb3cb34aa16cff08ee0f202382e6c9b3f1613c1477168e0a3b021c9",
+        "size": 33283
+      },
+      "current": {
+        "sha256": "2237271bdbb3cb34aa16cff08ee0f202382e6c9b3f1613c1477168e0a3b021c9",
+        "size": 33283
+      }
+    },
+    {
+      "name": "BattleCardServer.lua",
+      "status": "IDENTICAL",
+      "baseline": {
+        "sha256": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53",
+        "size": 31006
+      },
+      "current": {
+        "sha256": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53",
+        "size": 31006
+      }
+    },
+    {
+      "name": "BEBeforeUseCard.lua",
+      "status": "IDENTICAL",
+      "baseline": {
+        "sha256": "b660610845cc1181bab671a07d5df91814b2b39419aed2d4ba826bee2be8699c",
+        "size": 3937
+      },
+      "current": {
+        "sha256": "b660610845cc1181bab671a07d5df91814b2b39419aed2d4ba826bee2be8699c",
+        "size": 3937
+      }
+    },
+    {
+      "name": "BEAfterUseCard.lua",
+      "status": "IDENTICAL",
+      "baseline": {
+        "sha256": "4c1df164c66d8b6bf43b5739320f2b9b21acc398af0bb9d47aed82f98bc39763",
+        "size": 3260
+      },
+      "current": {
+        "sha256": "4c1df164c66d8b6bf43b5739320f2b9b21acc398af0bb9d47aed82f98bc39763",
+        "size": 3260
+      }
+    }
+  ],
+  "status": "REVALIDATION_REQUIRED",
+  "scope": "Hash-only comparison of selected card eligibility, payment, command-chain and after-use TextAssets. No module code, replay identifiers, account data or credentials.",
+  "limitations": [
+    "Selected-module equality does not prove every card or state behavior",
+    "BattleEngine dispatch is separate runtime evidence",
+    "Gameplay and holdout validation remain separate"
+  ]
+}
