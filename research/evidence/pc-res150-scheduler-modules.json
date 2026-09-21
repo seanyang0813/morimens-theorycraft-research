@@ -94,6 +94,30 @@
       }
     },
     {
+      "name": "BattleEventMgr.lua",
+      "status": "IDENTICAL",
+      "baseline": {
+        "sha256": "64fc30976751226fbe929e3125ee74b0a41bda0bde49a65466d0c501441b1bb4",
+        "size": 3133
+      },
+      "current": {
+        "sha256": "64fc30976751226fbe929e3125ee74b0a41bda0bde49a65466d0c501441b1bb4",
+        "size": 3133
+      }
+    },
+    {
+      "name": "Table.lua",
+      "status": "IDENTICAL",
+      "baseline": {
+        "sha256": "c737ed8080146ef1b4a871c0b96362212072d1e2381a4d8c486e75d1ad73ecc4",
+        "size": 14844
+      },
+      "current": {
+        "sha256": "c737ed8080146ef1b4a871c0b96362212072d1e2381a4d8c486e75d1ad73ecc4",
+        "size": 14844
+      }
+    },
+    {
       "name": "BERoleDeadlyDamage.lua",
       "status": "IDENTICAL",
       "baseline": {
@@ -132,7 +156,7 @@
   ],
   "status": "REVALIDATION_REQUIRED",
   "coreSchedulerStatus": "SELECTED_MODULES_IDENTICAL",
-  "identicalModules": 7,
+  "identicalModules": 9,
   "changedOrMissingModules": 2,
   "scope": "Hash-only comparison of selected effect scheduler, event-delivery and monster death-path TextAssets. No module code, replay identifiers, account data or credentials.",
   "limitations": [

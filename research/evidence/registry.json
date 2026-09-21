@@ -3478,6 +3478,62 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC144:ConnectedEventDelivery",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Event-effect requests preserve one payload table through effect construction and execution into listeners, with auto-operation defaulting and dispatcher priority order intact",
+      "sources": [
+        {
+          "module": "BattleEngine",
+          "member": "CreateEventEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "0ee07c8fd06f29787f8139306b55d16c726eaf8cabcd1ad0b128d907c8dbbeea",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7402197778903831940_BattleEngine.lua"
+        },
+        {
+          "module": "BattleEffectMgrServer",
+          "member": "CreateEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9a94157af60365d26188b578ca7f69987503b980ce51a420765eca45b4b8ab41",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\5828893898592423491_BattleEffectMgrServer.lua"
+        },
+        {
+          "module": "BattleEffectServer",
+          "member": "PreTrigger,TryDoEffect,XpcallDoEffect,EffectEnd",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\3210192007477895712_BattleEffectServer.lua"
+        },
+        {
+          "module": "BESendEvent",
+          "member": "DoEffect,EffectEnd",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "6fe50acfc2be35b8bb2ea63f6de784b47f8570f9d085cc6313b9d27ecb819a71",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7713642783529985766_BESendEvent.lua"
+        },
+        {
+          "module": "BattleEventMgr",
+          "member": "RegisterEvent,RegisterEventToHead,SendEvent",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "64fc30976751226fbe929e3125ee74b0a41bda0bde49a65466d0c501441b1bb4",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\98749159597393842_BattleEventMgr.lua"
+        },
+        {
+          "module": "Table",
+          "member": "clone",
+          "bundle": "pc\\downloaded\\foundation.ab",
+          "sha256": "c737ed8080146ef1b4a871c0b96362212072d1e2381a4d8c486e75d1ad73ecc4",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\foundation\\586514840016226504_Table.lua"
+        }
+      ],
+      "tests": [
+        "tools/connected_event_listener_oracle.py",
+        "tests/connected-event-listener.test.mjs",
+        "docs/CONNECTED_EVENT_DELIVERY.md"
+      ],
+      "scope": "4 connected original-runtime cases with explicit engine clock/UID/battle-state adapters and inert root-effect boundary. No listener-generated effects, state triggers, damage, gameplay or holdout credit.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC144:HpOwnerEvents",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "HP callback queues RoleHpChanged then RoleHpperChanged with one shared payload extended between calls; max_hp changes queue only RoleHpperChanged",
@@ -4574,6 +4630,32 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC150:ConnectedEventDelivery",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "The installed resource-150 request constructor and byte-identical event-delivery modules reproduce all 4 connected request-to-listener fixtures exactly",
+      "sources": [
+        {
+          "module": "PC resource-150 scheduler/event comparison",
+          "member": "effect, send-event, dispatcher and clone hashes",
+          "bundle": "installed local client; hashes only",
+          "sha256": "f577fff345b6c65853b145481cf2bcf58e88ba12051a4211a072ee74907bf014"
+        },
+        {
+          "module": "PC resource-150 connected event runtime comparison",
+          "member": "CreateEventEffect through listener callback fixture-domain result",
+          "bundle": "copied XLua runtime; hashes only",
+          "sha256": "d8e40ac709abd85220691c92bf9e5a3a14a2dc059c695c00fbf0267cffeedea3"
+        }
+      ],
+      "tests": [
+        "tools/connected_event_listener_oracle.py",
+        "tools/verify_current_connected_event_listener.py",
+        "tests/connected-event-listener.test.mjs"
+      ],
+      "scope": "Payload identity, auto-operation default/preservation, listener priority order and send-effect completion under explicit engine adapters and an inert root boundary. No listener-generated effects, state triggers, damage, gameplay or holdout credit.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC150:BattleEngine.RunEffectOrder",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
       "claim": "The installed resource-150 BattleEngine reproduces all 7 inherited RunEffectOrder orchestration fixtures exactly",
@@ -4915,22 +4997,23 @@
     {
       "id": "PC150:CoreSchedulerModuleEquality",
       "status": "CONFIRMED_FROM_IDENTICAL_CODE",
-      "claim": "Resource 150 retains byte-identical BattleEffectServer, BattleEffectMgrServer, BEFunctionEffect, BEAttachPostAction, BESendEvent, BattleLogicEvent and BERoleDeadlyDamage modules",
+      "claim": "Resource 150 retains byte-identical BattleEffectServer, BattleEffectMgrServer, BEFunctionEffect, BEAttachPostAction, BESendEvent, BattleLogicEvent, BattleEventMgr, Table and BERoleDeadlyDamage modules",
       "sources": [
         {
           "module": "PC resource-150 scheduler/death comparison",
           "member": "selected TextAsset content hashes",
           "bundle": "installed local client; hashes only",
-          "sha256": "688f8cf9a0339a075ee57c56114c9fcc3058894b17990ca6608f1f81f4910f72"
+          "sha256": "f577fff345b6c65853b145481cf2bcf58e88ba12051a4211a072ee74907bf014"
         }
       ],
       "tests": [
         "tools/compare_current_scheduler_modules.py",
         "tests/current-scheduler-modules.test.mjs",
         "tests/effect-order.test.mjs",
+        "tests/connected-event-listener.test.mjs",
         "tests/deadly-damage.test.mjs"
       ],
-      "scope": "Carries source/runtime evidence for these exact modules across builds, including tested child/repetition, root-attachment, selected event-request order and fatal-damage control flow. BERoleDie and BattleUnitMonster changed and require the separate scoped runtime comparison. Changed BattleEngine update/dispatch loop, listener execution, complete battle traversal, gameplay and holdout credit remain outside scope.",
+      "scope": "Carries source/runtime evidence for these exact modules across builds, including tested child/repetition, root-attachment, connected event request-to-listener delivery and fatal-damage control flow. BERoleDie and BattleUnitMonster changed and require the separate scoped runtime comparison. Complete battle traversal, listener-generated effects, gameplay and holdout credit remain outside scope.",
       "gameplayValidation": false
     },
     {
@@ -4942,7 +5025,7 @@
           "module": "PC resource-150 scheduler/death comparison",
           "member": "BERoleDie and BattleUnitMonster changed hashes",
           "bundle": "installed local client; hashes only",
-          "sha256": "688f8cf9a0339a075ee57c56114c9fcc3058894b17990ca6608f1f81f4910f72"
+          "sha256": "f577fff345b6c65853b145481cf2bcf58e88ba12051a4211a072ee74907bf014"
         },
         {
           "module": "PC resource-150 selected death runtime comparison",

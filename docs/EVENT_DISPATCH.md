@@ -1,6 +1,6 @@
 # Listener dispatch and state eligibility
 
-PC resource 144/build 51. This separates synchronous listener dispatch from the queued effect scheduler; both must be reproduced for multi-hit combat.
+PC resources 144 and 150/build 51. Synchronous listener dispatch is now connected to event-effect construction and execution; listener-generated effects and full multi-hit scheduling remain separate work.
 
 ## Runtime-tested listener ordering
 
@@ -9,6 +9,8 @@ BattleEventMgr registers listeners in ascending numeric eventPriority. Ordinary 
 SendEvent shallow-clones the listener array using the original foundation Table.lua helper. The callback records retain identity. Registering a listener during dispatch therefore does not add it to that dispatch, while unregistering an upcoming listener marks its shared record deleted and skips it. Unregistering and registering the same callback/target makes a new record; the removed record stays skipped, and the new record waits until a subsequent dispatch.
 
 `tools/event_dispatch_oracle.py` executes original registration, removal and dispatch methods with the original table.clone and synthetic callbacks. Five scenarios, each dispatched twice, establish ascending priority, stable ordinary ties, head insertion among ties, removal, addition and replacement during dispatch. `engine/event-dispatch.mjs` matches those traces in `tests/event-dispatch.test.mjs`. Callback-error continuation is translated from code but not part of these runtime cases. The subset does not implement the optional onEventCb hook, unregister-all helper, logging, scheduler or state eligibility.
+
+`tools/connected_event_listener_oracle.py` connects the original `BattleEngine.CreateEventEffect` request to original effect-manager construction, `BESendEvent` execution/completion and listener callbacks. Four cases prove payload-table identity, automatic-operation defaulting, explicit flag preservation and priority order through the connected path. Resource 150 reruns its changed `BattleEngine` against effect, dispatcher and clone modules proven byte-identical to resource 144; all four cases match. The harness uses explicit time, UID, battle-state and inert-root adapters. See `CONNECTED_EVENT_DELIVERY.md`.
 
 ## HP-listener eligibility and command creation (code trace only)
 

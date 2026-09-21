@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "method": "CreateEventEffect -> BESendEvent -> BattleEventMgr.SendEvent",
+  "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+  "sourceHashes": {
+    "comparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
+    "schedulerComparison": "f577fff345b6c65853b145481cf2bcf58e88ba12051a4211a072ee74907bf014",
+    "fixture": "755eaedb959815eaebac12b24668b522e213d1686f6cc133a8587e42d5a5a791",
+    "currentBattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+    "currentBattleEngine": "1823d5b962605ccd42ba605840490235fb0c9b5fd751a112625c30101a34535e"
+  },
+  "fixtures": 4,
+  "exactMatches": 4,
+  "mismatches": 0,
+  "results": [],
+  "scope": "Actual resource-150 BattleEngine request construction connected to hash-identical effect-manager, BESendEvent, dispatcher and clone bytecode. Covers payload identity, auto-operation flag preservation, listener priority order and effect completion with explicit clock/UID/battle-state adapters.",
+  "limitations": [
+    "Inert root-effect boundary",
+    "No listener-generated effects or state triggers",
+    "No damage, gameplay or holdout credit"
+  ]
+}
