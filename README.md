@@ -37,6 +37,8 @@ An explicitly exported PC replay can now be processed without running game logic
 
 The native decoder has passed a synthetic round trip, and the index/adapter have synthetic integration coverage. No actual server replay has been decoded yet. `docs/REPLAY_ACQUISITION_PATH.md` traces the authenticated client dependency from player record lookup to downloaded JSON without storing a player identifier or making a live request. See `docs/LOCAL_REPLAY_RECOVERY.md` and `docs/REPLAY_ACTION_CANDIDATE.md` for the explicit limits.
 
+The copied PC transport schema has also been inspected with the client's native `sproto.core`. It contains generic transport/login protocols rather than replay endpoint schemas and exposes no literal combat-build fingerprint. That negative result is reproducible through `tools/inspect_pc_protocol_bundle.py`; it means an old replay still needs independent version evidence before it can count as strict validation.
+
 The source-hashed static audit follows non-PvP supported-tag Awakener skills to their commands and currently finds all 121 linked commands containing ordinary Active damage have row shapes the PvE replay adapter can parse. This is potential replay-regression coverage only; it is not gameplay support or accuracy evidence.
 
 ## Evidence and next validation

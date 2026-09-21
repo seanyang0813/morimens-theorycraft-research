@@ -16,3 +16,9 @@ This establishes the data dependency, not permissionless access. The OSS request
 For an approved replay check, use the running client to open the player's record page, choose the intended high-difficulty record, and preserve the downloaded JSON bytes before decoding. Record the selected row's stage, record ID and battle UUID privately. The public evidence report should use a neutral observation ID and hashes rather than the player's UID.
 
 Once the original JSON is available, follow [`LOCAL_REPLAY_RECOVERY.md`](LOCAL_REPLAY_RECOVERY.md): decode under ignored `research/observations/`, index its event stream, build a fail-closed action candidate, and keep observed outcomes separate from scenario construction. Already viewed outcomes can be regression evidence but cannot become a blind holdout.
+
+## Historical build identification
+
+The packaged PC `sproto.ab` does not solve the historical-build problem. `tools/inspect_pc_protocol_bundle.py` validates the copied bundle key, applies the same in-memory UnityFS alignment compatibility override used for other client bundles, extracts the sole `proto.spb` TextAsset, and queries it with the copied client's native `sproto.core`. The resolved catalog contains generic transport, login and notification protocols. `QueryOthersRecentReview`, `QueryReviewDetail`, `QueryReviewDetail2` and `GetOSSHeader` do not resolve as protocols, and the schema contains no literal `battleUuid`, `buildVersion`, `resourceVersion` or `recordedCombatBuild` field.
+
+This is a bounded negative result, recorded in `research/evidence/pc-protocol-bundle-inspection.json`. Endpoint values may travel inside the generic `Base.CommonCall` payload or be defined elsewhere. Until a replay container or another authenticated response supplies a verifiable version fingerprint, a historical recording's combat build remains unknown and cannot receive strict end-to-end publication credit.

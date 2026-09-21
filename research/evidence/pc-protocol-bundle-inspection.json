@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "kind": "LOCAL_PC_PROTOCOL_BUNDLE_INSPECTION",
+  "scope": "Read-only inspection of copied PC sproto.ab. No game process access, network request, credential, replay payload, player identifier, or schema bytes are included.",
+  "bundle": {
+    "size": 2263,
+    "sha256": "faa8aad2cbb101cecb2c51f3d094ee04cd60bc7f19fb2e817f432adbb5b67afa"
+  },
+  "unityFs": {
+    "signature": "UnityFS",
+    "formatVersion": 6,
+    "playerVersion": "5.x.x",
+    "engineVersion": "2022.3.61t8",
+    "declaredSize": 2263,
+    "compressedMetadataSize": 65,
+    "uncompressedMetadataSize": 91,
+    "flags": "0x643",
+    "keySignatureValid": true,
+    "originalMetadataOffset": 120,
+    "alignedMetadataOffset": 128,
+    "metadataSize": 91,
+    "metadataSha256": "84f9c93cc85cc2a7edf9eabdf15b564a6e12f9926025ba951e121742419a80c3",
+    "inMemoryFormatVersionOverride": {
+      "from": 6,
+      "to": 7
+    }
+  },
+  "textAsset": {
+    "name": "proto.spb",
+    "size": 2696,
+    "sha256": "d3f87aad6517b9545385e1edac6cd1b056ad6235cf13880df25dd0a02e6c5bdb"
+  },
+  "nativeProtocolCatalog": [
+    {
+      "name": "Base.BattleCall",
+      "tag": 3,
+      "request": true,
+      "response": true
+    },
+    {
+      "name": "Base.BattleSend",
+      "tag": 4,
+      "request": true,
+      "response": false
+    },
+    {
+      "name": "Base.BlockDataSend",
+      "tag": 5,
+      "request": true,
+      "response": false
+    },
+    {
+      "name": "Base.CommonCall",
+      "tag": 1,
+      "request": true,
+      "response": true
+    },
+    {
+      "name": "Base.CommonSend",
+      "tag": 2,
+      "request": true,
+      "response": false
+    },
+    {
+      "name": "client.choose_role",
+      "tag": 105,
+      "request": true,
+      "response": true
+    },
+    {
+      "name": "client.get_roles",
+      "tag": 104,
+      "request": false,
+      "response": true
+    },
+    {
+      "name": "client.hello",
+      "tag": 101,
+      "request": false,
+      "response": true
+    },
+    {
+      "name": "client.load_role",
+      "tag": 103,
+      "request": false,
+      "response": true
+    },
+    {
+      "name": "client.ping",
+      "tag": 102,
+      "request": false,
+      "response": true
+    },
+    {
+      "name": "hall.gen_token",
+      "tag": 402,
+      "request": true,
+      "response": true
+    },
+    {
+      "name": "hall.hello",
+      "tag": 401,
+      "request": false,
+      "response": true
+    },
+    {
+      "name": "hall.leave_game",
+      "tag": 405,
+      "request": false,
+      "response": false
+    },
+    {
+      "name": "hall.login",
+      "tag": 403,
+      "request": true,
+      "response": true
+    },
+    {
+      "name": "hall.report_remote_addr",
+      "tag": 406,
+      "request": true,
+      "response": false
+    },
+    {
+      "name": "notify.kick",
+      "tag": 502,
+      "request": true,
+      "response": false
+    },
+    {
+      "name": "notify.reload",
+      "tag": 501,
+      "request": true,
+      "response": false
+    },
+    {
+      "name": "notify.test_notify",
+      "tag": 503,
+      "request": true,
+      "response": true
+    }
+  ],
+  "replayEndpointQueries": {
+    "QueryOthersRecentReview": null,
+    "QueryReviewDetail": null,
+    "QueryReviewDetail2": null,
+    "GetOSSHeader": null
+  },
+  "literalFieldSearch": {
+    "battleUuid": 0,
+    "buildVersion": 0,
+    "resourceVersion": 0,
+    "recordedCombatBuild": 0
+  },
+  "finding": "This bundled schema defines generic transport/login/notification protocols only. It does not define the replay endpoint names or expose a literal replay combat-build field, so it cannot establish the build that produced a historical replay.",
+  "limit": "The result is confined to this copied sproto.ab. Endpoint arguments and responses may be serialized inside the generic CommonCall payload or described elsewhere."
+}

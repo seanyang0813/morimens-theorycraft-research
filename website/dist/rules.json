@@ -58,6 +58,30 @@
       ]
     },
     {
+      "id": "PC144:ReplayTransportSchema",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "The copied packaged sproto schema resolves 18 generic transport, login and notification protocols through the client native runtime, while the four inspected replay endpoint names do not resolve and no literal replay combat-build field is present",
+      "scope": "Read-only inspection of the copied PC sproto.ab and its sole proto.spb TextAsset using validated bundle decryption, an in-memory UnityFS alignment compatibility override and copied native sproto.core. Negative result is confined to that packaged schema: endpoint values may be serialized inside Base.CommonCall or defined elsewhere. No network request, credentials, replay payload, player identifier, historical-build identification or gameplay validation.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "sproto",
+          "member": "new and native protocol lookup",
+          "sha256": "d3d952200a1aff42899ea77712666b12f969f5454a84a3adae7711e07aed6ce2"
+        },
+        {
+          "module": "GameRequest",
+          "member": "QueryOthersRecentReview, QueryReviewDetail, QueryReviewDetail2, GetOSSHeader",
+          "sha256": "5423a61ca28bec290cff9fc9cd7e79b4bd33dffe9047ceac174a13eaec368dd1"
+        }
+      ],
+      "checks": [
+        "tools/inspect_pc_protocol_bundle.py",
+        "research/evidence/pc-protocol-bundle-inspection.json",
+        "docs/REPLAY_ACQUISITION_PATH.md"
+      ]
+    },
+    {
       "id": "PC144:ReplayProtocolCatalog",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "Original replay protocol tables expose 29 unique numeric battle commands and 101 unique numeric render events, including initialization, cut, property, state, card, target and hit records",
