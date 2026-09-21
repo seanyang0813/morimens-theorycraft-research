@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_REPLAY_OUTCOME_EVIDENCE",
+  "revealedAtUtc": "2026-09-21T07:32:02.389Z",
+  "holdoutId": "d-tide-holdout-001",
+  "inputSha256": "9d34e0597c3b4c2acc6468fc2b3f0dbde25a2e5f814ae44daf6419dd9da0dfc5",
+  "sourceActionIndex": 11,
+  "sourceHitIndex": 8,
+  "identityCommitmentSha256": "fdaecfbe259c8db658d301cac49a6c25caaa39e7d5ed85c8303894e22f4a9e11",
+  "observedDamage": 21173,
+  "predictedDamage": 21173,
+  "difference": 0
+}
