@@ -3,6 +3,9 @@ import json
 from behit_hp_oracle import BeHitHpOracle,ROOT
 
 class PlayCheckOracle(BeHitHpOracle):
+    def __init__(self,asset_overrides=None):
+        super().__init__(asset_overrides)
+
     def run(self,v):
         L=self.state;self.top(L,0);self.reset=False
         self.table(L,0,10)

@@ -157,6 +157,19 @@ test('current PC connected energy payment matches the inherited runtime domains'
   assert.equal(runtime.data.sourceHashes.currentBattleUnitPlayer,player.current.sha256);
 });
 
+test('current PC ordinary PvE card eligibility matches the inherited runtime domain',()=>{
+  const runtime=read('research/evidence/pc-res150-card-play-runtime.json');
+  const fixture=read('tests/synthetic/original-card-play-check.json');
+  const cardModules=read('research/evidence/pc-res150-card-modules.json');
+  assert.equal(runtime.data.status,'EXACT_MATCH_IN_FIXTURE_DOMAIN');
+  assert.equal(runtime.data.fixtures,fixture.data.fixtures.length);
+  assert.equal(runtime.data.exactMatches,runtime.data.fixtures);
+  assert.equal(runtime.data.mismatches,0);
+  assert.equal(runtime.data.sourceHashes.fixture,hash(fixture.bytes));
+  assert.equal(runtime.data.sourceHashes.cardModules,hash(cardModules.bytes));
+  assert.equal(cardModules.data.modules.find(row=>row.name==='BattleUnitBase.lua').status,'IDENTICAL');
+});
+
 test('current PC selected replay-record constructors match the inherited runtime domain',()=>{
   const comparison=read('research/evidence/pc-res144-to-res150-combat-build.json');
   const runtime=read('research/evidence/pc-res150-battle-record-runtime.json');
