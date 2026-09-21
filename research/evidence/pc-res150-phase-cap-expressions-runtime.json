@@ -6,7 +6,7 @@
   "method": "compiled FuncTable closures for commands 60406 and 60405",
   "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
   "sourceHashes": {
-    "fixture": "dbc6bc3d4eade14364425c8cecbbd7db1d5dd3feb21007bb818955f216ba95e1",
+    "fixture": "2c574c69fb5b9e76cbabbac0a1f1def9056f6ac54c53f3e25d7ede0662c219ec",
     "installedConfigBundle": "95083098911cb6b1f54fcddb03e5dc797489bd080e55ddd9f72fc0da9b39a1e4",
     "currentFuncTable": "28977d3dbdf5ffe8d56967ca3d77ed50a4c9d302a8fd9ec3eb5e695888fd0e43",
     "currentCmdCatalog": "52fea8a140dd391096450c67354d8de81f924e47f7265fb582bf3f095597c706"

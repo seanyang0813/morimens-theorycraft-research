@@ -67,7 +67,7 @@ class PhaseCapExpressionOracle(Oracle):
             else:raise ValueError('Unexpected phase effect '+effect)
         ending_phase=60408 if phase_id==60409 and self.layers.get(60408,0)>0 else phase_id
         if self.layers.get(ending_phase,0)==0:ending_phase=0
-        return {'state':{'maxHp':case['maxHp'],'phaseId':ending_phase,'phaseLayers':self.layers.get(ending_phase,0),'counter':self.layers.get(60407,0),'immune':immune},'operations':operations,'trace':trace,'skill':skill}
+        return {'state':{'maxHp':case['maxHp'],'phaseId':ending_phase,'phaseLayers':self.layers.get(ending_phase,0),'counter':self.layers.get(60407,0),'immune':immune},'operations':operations,'passedRows':[row['row'] for row in trace if row['passed']],'layerReads':self.reads,'skill':skill}
 
 
 def main():
