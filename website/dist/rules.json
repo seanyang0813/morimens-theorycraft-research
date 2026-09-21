@@ -2909,6 +2909,45 @@
       ]
     },
     {
+      "id": "PC144:ConnectedHpListener",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "RoleHpChanged delivery reaches actual HP-listener eligibility and trigger callback with monster-self isolation, deleted-state rejection, camp rules, signed HP delta and caster association intact",
+      "scope": "5 connected original-runtime cases with explicit role/state/engine adapters. Stops at the trigger callback; no state command, listener-generated effect, complete damage chain, gameplay or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "BattleEngine",
+          "member": "CreateEventEffect,RegisterEvent",
+          "sha256": "0ee07c8fd06f29787f8139306b55d16c726eaf8cabcd1ad0b128d907c8dbbeea"
+        },
+        {
+          "module": "BESendEvent",
+          "member": "DoEffect",
+          "sha256": "6fe50acfc2be35b8bb2ea63f6de784b47f8570f9d085cc6313b9d27ecb819a71"
+        },
+        {
+          "module": "BattleEventMgr",
+          "member": "RegisterEvent,SendEvent",
+          "sha256": "64fc30976751226fbe929e3125ee74b0a41bda0bde49a65466d0c501441b1bb4"
+        },
+        {
+          "module": "BSTHpChanged",
+          "member": "RegisterCallbacks,OnRoleHpChanged",
+          "sha256": "42bbd004f18fd1df3b5b9b4ef484eec1b2cbd3ebdb1789a8c748d0660755fcd3"
+        },
+        {
+          "module": "BattleStateTriggerServer",
+          "member": "TryTrigger,Trigger",
+          "sha256": "b21b29209c0f0ccd206b6bb7e8355665faded1a64f062ae326c0e501fbbbfa7d"
+        }
+      ],
+      "checks": [
+        "tools/connected_hp_listener_oracle.py",
+        "tests/connected-hp-listener.test.mjs",
+        "docs/CONNECTED_EVENT_DELIVERY.md"
+      ]
+    },
+    {
       "id": "PC144:HpOwnerEvents",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "HP callback queues RoleHpChanged then RoleHpperChanged with one shared payload extended between calls; max_hp changes queue only RoleHpperChanged",
@@ -3818,18 +3857,42 @@
         {
           "module": "PC resource-150 scheduler/event comparison",
           "member": "effect, send-event, dispatcher and clone hashes",
-          "sha256": "f577fff345b6c65853b145481cf2bcf58e88ba12051a4211a072ee74907bf014"
+          "sha256": "8f334c49deabf3d74fd20128d3f6cb00b50caf4da72bd93ab546c69d8ae18db7"
         },
         {
           "module": "PC resource-150 connected event runtime comparison",
           "member": "CreateEventEffect through listener callback fixture-domain result",
-          "sha256": "d8e40ac709abd85220691c92bf9e5a3a14a2dc059c695c00fbf0267cffeedea3"
+          "sha256": "8b038f79f38e158d8e473b3a588b6d7dba753c8af3c843ea7bc5ff18c7fbd454"
         }
       ],
       "checks": [
         "tools/connected_event_listener_oracle.py",
         "tools/verify_current_connected_event_listener.py",
         "tests/connected-event-listener.test.mjs"
+      ]
+    },
+    {
+      "id": "PC150:ConnectedHpListener",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "Resource 150 reproduces all 5 connected RoleHpChanged-to-state-trigger-callback fixtures exactly",
+      "scope": "Monster-self isolation, deletion, ally/enemy camp eligibility, signed HP delta and caster association. Stops at trigger callback; no state command, generated effect, complete damage chain, gameplay or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 scheduler/event comparison",
+          "member": "BSTHpChanged and BattleStateTriggerServer hashes",
+          "sha256": "8f334c49deabf3d74fd20128d3f6cb00b50caf4da72bd93ab546c69d8ae18db7"
+        },
+        {
+          "module": "PC resource-150 connected HP-listener runtime comparison",
+          "member": "fixture-domain result",
+          "sha256": "a73823f76764a561803eaecdc31c467b04d2bf88dc12d2d022abd0332f8ce610"
+        }
+      ],
+      "checks": [
+        "tools/connected_hp_listener_oracle.py",
+        "tools/verify_current_connected_hp_listener.py",
+        "tests/connected-hp-listener.test.mjs"
       ]
     },
     {
@@ -4150,14 +4213,14 @@
     {
       "id": "PC150:CoreSchedulerModuleEquality",
       "status": "CONFIRMED_FROM_IDENTICAL_CODE",
-      "claim": "Resource 150 retains byte-identical BattleEffectServer, BattleEffectMgrServer, BEFunctionEffect, BEAttachPostAction, BESendEvent, BattleLogicEvent, BattleEventMgr, Table and BERoleDeadlyDamage modules",
-      "scope": "Carries source/runtime evidence for these exact modules across builds, including tested child/repetition, root-attachment, connected event request-to-listener delivery and fatal-damage control flow. BERoleDie and BattleUnitMonster changed and require the separate scoped runtime comparison. Complete battle traversal, listener-generated effects, gameplay and holdout credit remain outside scope.",
+      "claim": "Resource 150 retains byte-identical selected effect scheduler, event dispatcher, HP-listener, generic state-trigger and fatal-damage modules",
+      "scope": "Eleven identical modules carry tested child/repetition, root-attachment, request-to-listener, HP-listener eligibility and fatal-damage boundaries. BERoleDie and BattleUnitMonster changed and use separate scoped runtime comparison. Complete battle traversal, state commands, listener-generated effects, gameplay and holdout credit remain outside scope.",
       "gameplayValidation": false,
       "sources": [
         {
           "module": "PC resource-150 scheduler/death comparison",
           "member": "selected TextAsset content hashes",
-          "sha256": "f577fff345b6c65853b145481cf2bcf58e88ba12051a4211a072ee74907bf014"
+          "sha256": "8f334c49deabf3d74fd20128d3f6cb00b50caf4da72bd93ab546c69d8ae18db7"
         }
       ],
       "checks": [
@@ -4165,6 +4228,7 @@
         "tests/current-scheduler-modules.test.mjs",
         "tests/effect-order.test.mjs",
         "tests/connected-event-listener.test.mjs",
+        "tests/connected-hp-listener.test.mjs",
         "tests/deadly-damage.test.mjs"
       ]
     },
@@ -4178,7 +4242,7 @@
         {
           "module": "PC resource-150 scheduler/death comparison",
           "member": "BERoleDie and BattleUnitMonster changed hashes",
-          "sha256": "f577fff345b6c65853b145481cf2bcf58e88ba12051a4211a072ee74907bf014"
+          "sha256": "8f334c49deabf3d74fd20128d3f6cb00b50caf4da72bd93ab546c69d8ae18db7"
         },
         {
           "module": "PC resource-150 selected death runtime comparison",
