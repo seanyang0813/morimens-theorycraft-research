@@ -4141,6 +4141,30 @@
       ]
     },
     {
+      "id": "PC150Catalog:RetrospectiveGameplayConsistency",
+      "status": "GAMEPLAY_CONSISTENCY_CURRENT_CATALOG_ENGINE_VERSION_UNCONFIRMED",
+      "claim": "Two audited resource-150-catalog replays contribute 13 retrospective Active critical/noncritical branch consistency matches with zero mismatches",
+      "scope": "79 complete hit snapshots yield 13 chance-dependent Active candidates. Each observed result matches one independently calculated critical/noncritical branch. Outcomes were known before calculation, random draws and engine bytecode versions are unknown, and no blind holdout or publication credit is claimed. Verification-track regression evidence only; no cheese, budget or theorycraft conclusion.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Current-catalog gameplay consistency",
+          "member": "public cross-report join",
+          "sha256": "7d53cef90ca49fe45162b3b8d57817422ddb66dc23a32cf645ca1831485268ca"
+        },
+        {
+          "module": "Replay catalog build attribution",
+          "member": "exact embedded Cmd/Skill catalog classifications",
+          "sha256": "a74754f48c36326f6c80fd36f319af9d8cec79e7bca01f0666e755daa2de8567"
+        }
+      ],
+      "checks": [
+        "tools/build_current_catalog_gameplay_consistency.py",
+        "tests/current-catalog-gameplay-consistency.test.mjs",
+        "tests/replay-batch-evidence.test.mjs"
+      ]
+    },
+    {
       "id": "ANDROID83:ScriptGroupManifest",
       "status": "CONFIRMED_FROM_LOCAL_MANIFEST",
       "claim": "The packaged Android resource-83 manifest identifies seven Scripts-group bundles by filename, size, resource index and MD5; the hash interpretation is established by a direct bundled Android startup-archive match",

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_CURRENT_CATALOG_GAMEPLAY_CONSISTENCY",
+  "analysisTrack": "verification",
+  "status": "RETROSPECTIVE_CURRENT_CATALOG_ENGINE_VERSION_UNCONFIRMED",
+  "catalogBuild": "pc-res150-build51",
+  "sourceHashes": {
+    "replayBatchRecovery": "c1aa09666a94930ac8ae64e3513b6bb4bb4486164f9a4d8fd488ce6989419e09",
+    "replayCatalogBuildAttribution": "a74754f48c36326f6c80fd36f319af9d8cec79e7bca01f0666e755daa2de8567"
+  },
+  "method": "Join anonymous exact resource-150 Cmd/Skill catalog matches to the previously published retrospective Active-hit audit.",
+  "totals": {
+    "auditedReplays": 2,
+    "completeHitSnapshots": 79,
+    "retrospectiveActiveCandidates": 13,
+    "deterministicExactChecks": 0,
+    "deterministicMismatches": 0,
+    "exactRngBranchConsistencyChecks": 13,
+    "rngBranchMismatches": 0
+  },
+  "replays": [
+    {
+      "observationId": "replay-batch-02",
+      "catalogClassification": "PC_RES150_BUILD51_CATALOG_MATCH",
+      "comparableCatalogRows": 199,
+      "currentExclusiveCatalogRows": 15,
+      "unmatchedCatalogRows": 0,
+      "completeHitSnapshots": 17,
+      "retrospectiveActiveCandidates": 11,
+      "deterministicExactChecks": 0,
+      "deterministicMismatches": 0,
+      "exactRngBranchConsistencyChecks": 11,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-10",
+      "catalogClassification": "PC_RES150_BUILD51_CATALOG_MATCH",
+      "comparableCatalogRows": 272,
+      "currentExclusiveCatalogRows": 19,
+      "unmatchedCatalogRows": 0,
+      "completeHitSnapshots": 62,
+      "retrospectiveActiveCandidates": 2,
+      "deterministicExactChecks": 0,
+      "deterministicMismatches": 0,
+      "exactRngBranchConsistencyChecks": 2,
+      "rngBranchMismatches": 0
+    }
+  ],
+  "publicationCredit": false,
+  "privacy": "Only anonymous batch labels and aggregate counts from existing public reports are included.",
+  "limitations": [
+    "The replay catalog identifies data rows, not the engine bytecode version that executed the battle",
+    "Every outcome was available before calculation; no prediction was frozen before reveal",
+    "The matched cases are critical/noncritical branch consistency checks and do not reconstruct the original random draw",
+    "This report is verification-track retrospective regression evidence, not theorycraft output, cheese analysis or budget scouting",
+    "No holdout or publication-gate credit"
+  ]
+}
