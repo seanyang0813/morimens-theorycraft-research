@@ -1,0 +1,866 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "FuncTable": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3",
+    "Cmd": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+    "BEAddState": "1465ac7c4f7b101ded98c429e9bb089ebabaad7c48a4b6f4c4519419e6eec133",
+    "BEAddStateParent": "00871a473b5c4ced3824c28afb88fc3cfe6cbfca01d23bc2a0d3bac6afa0f8b3",
+    "BESubStateLayer": "b2763469ed0278b671bf02f6353bd7249a814299b41b4b63d40149655fcc581d",
+    "BERemoveState": "25b1f0a562714029c9cedbf075b7781f5c8afb9b15d0a36d2a91dc660e5512a0",
+    "BEMonsterChangeSkill": "87e05b9464377422dcb61c1818d8f85e8e7487315dbc7bbb9c1c86525eb26d57",
+    "BattleStateMgrServer": "dc7653a427f1fe0bfd21b7495980cc173f4cb298e7dd7086a224ee40640c11a4",
+    "BattleStateServer": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369"
+  },
+  "scope": "Python row iterator joins original compiled Cond/Para closures for commands 60406/60405 to original add/subtract/remove/monster-skill effect bodies over one original manager registry and original existing-state layer methods. Destination states 46441/60408 and counter 60407 are pre-created live zero-layer adapters; LifeEnd marks deletion and other callbacks are observers. No original command parser/effect scheduler, state construction/property bodies, gameplay or holdout.",
+  "fixtures": [
+    {
+      "input": {
+        "maxHp": 1000,
+        "phaseId": 60409,
+        "phaseLayers": 331,
+        "counter": 0,
+        "hpLoss": 125,
+        "commandId": 60406
+      },
+      "expected": {
+        "state": {
+          "maxHp": 1000,
+          "phaseId": 60409,
+          "phaseLayers": 206.0,
+          "counter": 125.0,
+          "immune": false
+        },
+        "operations": [
+          {
+            "type": "addCounter",
+            "stateId": 60407,
+            "layers": 125.0,
+            "requested": 125
+          },
+          {
+            "type": "subtractPhase",
+            "stateId": 60409,
+            "layers": 206.0
+          }
+        ],
+        "passedRows": [
+          1,
+          2
+        ],
+        "skill": null,
+        "rows": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "passed": true,
+            "params": [
+              60407.0,
+              125.0
+            ]
+          },
+          {
+            "row": 2,
+            "type": "BESubStateLayer",
+            "passed": true,
+            "params": [
+              60409.0,
+              125.0
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BESubStateLayer",
+            "passed": false
+          },
+          {
+            "row": 4,
+            "type": "BEAddState",
+            "passed": false
+          },
+          {
+            "row": 5,
+            "type": "BEMonsterChangeSkill",
+            "passed": false
+          },
+          {
+            "row": 6,
+            "type": "BEAddState",
+            "passed": false
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "passed": false
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "passed": false
+          }
+        ],
+        "effectTrace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateEvent"
+          },
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "maxHp": 1000,
+        "phaseId": 60409,
+        "phaseLayers": 126,
+        "counter": 10,
+        "hpLoss": 125,
+        "commandId": 60406
+      },
+      "expected": {
+        "state": {
+          "maxHp": 1000,
+          "phaseId": 60408,
+          "phaseLayers": 331.0,
+          "counter": 0,
+          "immune": true
+        },
+        "operations": [
+          {
+            "type": "addCounter",
+            "stateId": 60407,
+            "layers": 135.0,
+            "requested": 125
+          },
+          {
+            "type": "subtractPhase",
+            "stateId": 60409,
+            "layers": 1.0
+          },
+          {
+            "type": "addState",
+            "stateId": 46441,
+            "layers": 1.0
+          },
+          {
+            "type": "changeMonsterSkill",
+            "skillId": 60397,
+            "slot": 1
+          },
+          {
+            "type": "addState",
+            "stateId": 60408,
+            "layers": 331.0
+          },
+          {
+            "type": "removeState",
+            "stateId": 60407
+          },
+          {
+            "type": "removeState",
+            "stateId": 60409
+          }
+        ],
+        "passedRows": [
+          1,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "skill": 60397,
+        "rows": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "passed": true,
+            "params": [
+              60407.0,
+              125.0
+            ]
+          },
+          {
+            "row": 2,
+            "type": "BESubStateLayer",
+            "passed": true,
+            "params": [
+              60409.0,
+              125.0
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BESubStateLayer",
+            "passed": false
+          },
+          {
+            "row": 4,
+            "type": "BEAddState",
+            "passed": true,
+            "params": [
+              46441.0,
+              1.0
+            ]
+          },
+          {
+            "row": 5,
+            "type": "BEMonsterChangeSkill",
+            "passed": true,
+            "params": [
+              60397.0,
+              1.0
+            ]
+          },
+          {
+            "row": 6,
+            "type": "BEAddState",
+            "passed": true,
+            "params": [
+              60408.0,
+              331.0
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "passed": true,
+            "params": [
+              60407.0,
+              125.0
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "passed": true,
+            "params": [
+              60409
+            ]
+          }
+        ],
+        "effectTrace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateEvent"
+          },
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "propertyDelta",
+            "stateId": 46441,
+            "value": 1.0
+          },
+          {
+            "event": "record",
+            "stateId": 46441
+          },
+          {
+            "event": "log",
+            "stateId": 46441
+          },
+          {
+            "event": "stateEvent"
+          },
+          {
+            "event": "changeSkill",
+            "skillId": 60397,
+            "slot": 1
+          },
+          {
+            "event": "propertyDelta",
+            "stateId": 60408,
+            "value": 331.0
+          },
+          {
+            "event": "record",
+            "stateId": 60408
+          },
+          {
+            "event": "log",
+            "stateId": 60408
+          },
+          {
+            "event": "stateEvent"
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60407
+          },
+          {
+            "event": "stateEvent"
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          },
+          {
+            "event": "stateEvent"
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "maxHp": 1000,
+        "phaseId": 60409,
+        "phaseLayers": 125,
+        "counter": 0,
+        "hpLoss": 330,
+        "commandId": 60406
+      },
+      "expected": {
+        "state": {
+          "maxHp": 1000,
+          "phaseId": 60408,
+          "phaseLayers": 331.0,
+          "counter": 0,
+          "immune": true
+        },
+        "operations": [
+          {
+            "type": "addCounter",
+            "stateId": 60407,
+            "layers": 330.0,
+            "requested": 330
+          },
+          {
+            "type": "subtractPhase",
+            "stateId": 60409,
+            "layers": 1.0
+          },
+          {
+            "type": "addState",
+            "stateId": 46441,
+            "layers": 1.0
+          },
+          {
+            "type": "changeMonsterSkill",
+            "skillId": 60397,
+            "slot": 1
+          },
+          {
+            "type": "addState",
+            "stateId": 60408,
+            "layers": 331.0
+          },
+          {
+            "type": "removeState",
+            "stateId": 60407
+          },
+          {
+            "type": "removeState",
+            "stateId": 60409
+          }
+        ],
+        "passedRows": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "skill": 60397,
+        "rows": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "passed": true,
+            "params": [
+              60407.0,
+              330.0
+            ]
+          },
+          {
+            "row": 2,
+            "type": "BESubStateLayer",
+            "passed": false
+          },
+          {
+            "row": 3,
+            "type": "BESubStateLayer",
+            "passed": true,
+            "params": [
+              60409.0,
+              124.0
+            ]
+          },
+          {
+            "row": 4,
+            "type": "BEAddState",
+            "passed": true,
+            "params": [
+              46441.0,
+              1.0
+            ]
+          },
+          {
+            "row": 5,
+            "type": "BEMonsterChangeSkill",
+            "passed": true,
+            "params": [
+              60397.0,
+              1.0
+            ]
+          },
+          {
+            "row": 6,
+            "type": "BEAddState",
+            "passed": true,
+            "params": [
+              60408.0,
+              331.0
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "passed": true,
+            "params": [
+              60407.0,
+              330.0
+            ]
+          },
+          {
+            "row": 8,
+            "type": "BERemoveState",
+            "passed": true,
+            "params": [
+              60409
+            ]
+          }
+        ],
+        "effectTrace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 330.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateEvent"
+          },
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -124.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "propertyDelta",
+            "stateId": 46441,
+            "value": 1.0
+          },
+          {
+            "event": "record",
+            "stateId": 46441
+          },
+          {
+            "event": "log",
+            "stateId": 46441
+          },
+          {
+            "event": "stateEvent"
+          },
+          {
+            "event": "changeSkill",
+            "skillId": 60397,
+            "slot": 1
+          },
+          {
+            "event": "propertyDelta",
+            "stateId": 60408,
+            "value": 331.0
+          },
+          {
+            "event": "record",
+            "stateId": 60408
+          },
+          {
+            "event": "log",
+            "stateId": 60408
+          },
+          {
+            "event": "stateEvent"
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60407
+          },
+          {
+            "event": "stateEvent"
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          },
+          {
+            "event": "stateEvent"
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "maxHp": 12345,
+        "phaseId": 60408,
+        "phaseLayers": 500,
+        "counter": 10,
+        "hpLoss": 125,
+        "commandId": 60405
+      },
+      "expected": {
+        "state": {
+          "maxHp": 12345,
+          "phaseId": 60408,
+          "phaseLayers": 375.0,
+          "counter": 135.0,
+          "immune": false
+        },
+        "operations": [
+          {
+            "type": "addCounter",
+            "stateId": 60407,
+            "layers": 135.0,
+            "requested": 125
+          },
+          {
+            "type": "subtractPhase",
+            "stateId": 60408,
+            "layers": 375.0
+          }
+        ],
+        "passedRows": [
+          1,
+          2
+        ],
+        "skill": null,
+        "rows": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "passed": true,
+            "params": [
+              60407.0,
+              125.0
+            ]
+          },
+          {
+            "row": 2,
+            "type": "BESubStateLayer",
+            "passed": true,
+            "params": [
+              60408.0,
+              125.0
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BESubStateLayer",
+            "passed": false
+          },
+          {
+            "row": 4,
+            "type": "BEAddState",
+            "passed": false
+          },
+          {
+            "row": 5,
+            "type": "BEMonsterChangeSkill",
+            "passed": false
+          },
+          {
+            "row": 6,
+            "type": "BERemoveState",
+            "passed": false
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "passed": false
+          }
+        ],
+        "effectTrace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateEvent"
+          },
+          {
+            "event": "propertyDelta",
+            "stateId": 60408,
+            "value": -125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60408
+          },
+          {
+            "event": "log",
+            "stateId": 60408
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "maxHp": 12345,
+        "phaseId": 60408,
+        "phaseLayers": 126,
+        "counter": 999999990,
+        "hpLoss": 125,
+        "commandId": 60405
+      },
+      "expected": {
+        "state": {
+          "maxHp": 12345,
+          "phaseId": 0,
+          "phaseLayers": 0,
+          "counter": 0,
+          "immune": true
+        },
+        "operations": [
+          {
+            "type": "addCounter",
+            "stateId": 60407,
+            "layers": 999999999.0,
+            "requested": 125
+          },
+          {
+            "type": "subtractPhase",
+            "stateId": 60408,
+            "layers": 1.0
+          },
+          {
+            "type": "addState",
+            "stateId": 46441,
+            "layers": 1.0
+          },
+          {
+            "type": "changeMonsterSkill",
+            "skillId": 60398,
+            "slot": 1
+          },
+          {
+            "type": "removeState",
+            "stateId": 60407
+          },
+          {
+            "type": "removeState",
+            "stateId": 60408
+          }
+        ],
+        "passedRows": [
+          1,
+          2,
+          4,
+          5,
+          6,
+          7
+        ],
+        "skill": 60398,
+        "rows": [
+          {
+            "row": 1,
+            "type": "BEAddState",
+            "passed": true,
+            "params": [
+              60407.0,
+              125.0
+            ]
+          },
+          {
+            "row": 2,
+            "type": "BESubStateLayer",
+            "passed": true,
+            "params": [
+              60408.0,
+              125.0
+            ]
+          },
+          {
+            "row": 3,
+            "type": "BESubStateLayer",
+            "passed": false
+          },
+          {
+            "row": 4,
+            "type": "BEAddState",
+            "passed": true,
+            "params": [
+              46441.0,
+              1.0
+            ]
+          },
+          {
+            "row": 5,
+            "type": "BEMonsterChangeSkill",
+            "passed": true,
+            "params": [
+              60398.0,
+              1.0
+            ]
+          },
+          {
+            "row": 6,
+            "type": "BERemoveState",
+            "passed": true,
+            "params": [
+              60407.0,
+              125.0
+            ]
+          },
+          {
+            "row": 7,
+            "type": "BERemoveState",
+            "passed": true,
+            "params": [
+              60408
+            ]
+          }
+        ],
+        "effectTrace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 9.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateEvent"
+          },
+          {
+            "event": "propertyDelta",
+            "stateId": 60408,
+            "value": -125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60408
+          },
+          {
+            "event": "log",
+            "stateId": 60408
+          },
+          {
+            "event": "propertyDelta",
+            "stateId": 46441,
+            "value": 1.0
+          },
+          {
+            "event": "record",
+            "stateId": 46441
+          },
+          {
+            "event": "log",
+            "stateId": 46441
+          },
+          {
+            "event": "stateEvent"
+          },
+          {
+            "event": "changeSkill",
+            "skillId": 60398,
+            "slot": 1
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60407
+          },
+          {
+            "event": "stateEvent"
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60408
+          },
+          {
+            "event": "stateEvent"
+          }
+        ]
+      }
+    }
+  ]
+}
