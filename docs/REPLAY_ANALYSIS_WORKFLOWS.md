@@ -1,8 +1,13 @@
 # Replay analysis workflows
 
-The replay pipeline supports four separate jobs. They may reuse parsers and sanitized source records, but they do not share conclusions. Every report has exactly one analysis track, and evidence gathered for one track must not be presented as a result from another track. Generated strategy summaries carry a machine-readable `claimBoundary` with the track's purpose, allowed claims, forbidden claims and the only permitted handoff to another track.
+The replay pipeline supports four separate jobs. The wider project also has a fifth, non-replay track for mechanics reconstruction; see `ANALYSIS_TRACKS.md`. These tracks may reuse parsers and sanitized source records, but they do not share conclusions. Every report has exactly one analysis track, and evidence gathered for one track must not be presented as a result from another track. Generated strategy summaries carry a machine-readable `claimBoundary` with the track's purpose, allowed claims, forbidden claims and the only permitted handoff to another track.
 
 A promising budget clear can start a new cheese investigation or theorycraft experiment, but that follow-up must be a separate artifact with its own question and evidence. A cheese trace can suggest a model rule, but it does not verify that rule. A theorycraft result becomes verification evidence only through the frozen-prediction chronology below.
+
+Mechanics reconstruction uses recovered client code, catalog data and bounded
+runtime fixtures to establish what a rule does. A replay may motivate that work,
+but the mechanics report remains separate from cheese classification and from any
+forward theorycraft result.
 
 ## Budget-comp scouting
 
