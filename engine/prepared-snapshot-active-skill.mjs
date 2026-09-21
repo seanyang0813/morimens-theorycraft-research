@@ -18,6 +18,7 @@ const preparationKeys=['skillId','skillLevel','isAwaker','breakSkillLevel','pote
 const snapshotKeys=['snapshotStage','snapshotCompleteness','casterProperties','playerProperties','initialTargetProperties','cardProperties','targetBattleTag','targetStateIds','critRolls'];
 const supportedTags=new Set(['Card_Strike','Card_Skill','Ulti_Skill','Card_AttachPost']);
 const instructionTags=new Set(['Card_Strike','Card_Skill','Card_Defend','Card_Extend']);
+const energyTagProperties={Card_Defend:'ulti_per_defendcard',Ulti_Skill:'ulti_per_ultiskill',Card_Skill:'ulti_per_skillcard',Card_Strike:'ulti_per_strikecard'};
 function dense(value,label){
   if(Array.isArray(value)){if(!Array.from({length:value.length},(_,i)=>Object.hasOwn(value,i)).every(Boolean))throw new Error(`${label} must be dense`);return [...value];}
   if(!value||typeof value!=='object'||Array.isArray(value))throw new Error(`${label} must be a dense Lua list`);
@@ -101,17 +102,34 @@ export function runPreparedSnapshotActiveSkill(value,source){
   const parameterEvaluation=multi?null:rowExecutions[0].parameterEvaluation,repetition=multi?null:rowExecutions[0].repetition;
   const derivedSequenceInput={schemaVersion:1,kind:'morimens-snapshot-active-sequence',build:input.build,snapshotStage:input.snapshot.snapshotStage,snapshotCompleteness:input.snapshot.snapshotCompleteness,interveningEffects:'assumed-absent',casterProperties:input.snapshot.casterProperties,playerProperties:input.snapshot.playerProperties,initialTargetProperties:input.snapshot.initialTargetProperties,hits};
   const calculation=runSnapshotActiveSequence(derivedSequenceInput);
-  let energy=null,energyParameterEvaluation=null,energyCardTypeMatch=null,stop=calculation.stop;
+  let energy=null,energyParameterEvaluation=null,energyCardTypeMatch=null,energyPropertyDerivation=null,stop=calculation.stop;
   if(mixed){
-    if(!exact(input.energy,['source','target'])||!exact(input.energy.source,['castRoleUid','cmdServerUid'])||!exact(input.energy.target,['uid','role','energy','maximumProperties','calculation'])||!exact(input.energy.target.calculation,['dimension','properties'])||input.energy.target.role!=='Awaker'||input.energy.source.castRoleUid!==input.energy.target.uid)throw new Error('Explicit self-target Awakener energy context required');
+    if(!exact(input.energy,multi?['source']:['source','target'])||!exact(input.energy.source,['castRoleUid','cmdServerUid']))throw new Error('Explicit self-target Awakener energy context required');
+    let target;
+    if(multi){
+      if(input.targetBinding.context.casterCamp!==1||!input.preparation.isAwaker)throw new Error('Schema 3 energy derivation requires a Camp1 Awakener caster');
+      const reads=[];
+      const read=(owner,property)=>{const values=owner==='caster'?input.snapshot.casterProperties:owner==='card'?input.snapshot.cardProperties:input.snapshot.playerProperties,present=Object.hasOwn(values,property),value=present?values[property]:0;reads.push({owner,property,present,value});return value;};
+      const properties={
+        card_ulti_per:read('card','card_ulti_per'),card_ulti_plus:read('card','card_ulti_plus'),o_ulti_energy_per:read('caster','o_ulti_energy_per'),
+        ulti_energy_per:read('caster','ulti_energy_per'),i_ulti_energy_per:read('caster','i_ulti_energy_per'),ulti_energy_efficiency:read('caster','ulti_energy_efficiency'),ulti_energy_plus:read('caster','ulti_energy_plus'),
+        gain_ulti_energy_per:read('caster','gain_ulti_energy_per'),gain_ulti_energy_plus:read('caster','gain_ulti_energy_plus'),
+      };
+      for(const tag of tags){const property=energyTagProperties[tag];if(!property)throw new Error(`Unresolved skill-tag energy mapping: ${tag}`);properties[property]=read('caster',property);}
+      const maximumProperties={ulti_energy_max:read('caster','ulti_energy_max'),ulti_energy_cost_per:read('caster','ulti_energy_cost_per'),ulti_energy_cost_flat:read('caster','ulti_energy_cost_flat'),ulti_energy_max_per:read('caster','ulti_energy_max_per')};
+      target={uid:input.energy.source.castRoleUid,role:'Awaker',energy:read('caster','ulti_energy'),maximumProperties,calculation:{dimension:read('player','dimension_fix_per'),properties}};
+      energyPropertyDerivation={source:'complete property snapshots with GetProperty zero-default',reads,target};
+    }else{
+      if(!exact(input.energy.target,['uid','role','energy','maximumProperties','calculation'])||!exact(input.energy.target.calculation,['dimension','properties'])||input.energy.target.role!=='Awaker'||input.energy.source.castRoleUid!==input.energy.target.uid)throw new Error('Explicit self-target Awakener energy context required');
+      target=input.energy.target;
+    }
     energyCardTypeMatch={cardTypes:catalogTypes,requestedTypes:[...ultimateEnergyCardTypes],matched:matchesUltimateEnergyCardTypes(catalogTypes)};
-    energyParameterEvaluation=compileNumericCommand(energyRow.Para,{allowedFunctions:Object.keys(input.preparation.stateQueries),allowLogicalNumeric:true})(name=>name==='CmdCaster.ulti_energy'?input.energy.target.energy:resolveVariable(name),resolveFunction);
+    energyParameterEvaluation=compileNumericCommand(energyRow.Para,{allowedFunctions:Object.keys(input.preparation.stateQueries),allowLogicalNumeric:true})(name=>name==='CmdCaster.ulti_energy'?target.energy:resolveVariable(name),resolveFunction);
     if(energyParameterEvaluation.values.length<1||energyParameterEvaluation.values.length>3)throw new Error('One-to-three ultimate-energy parameters required');
     if(calculation.targetAfter.hp<=0)stop={afterHitId:calculation.trace.at(-1)?.hitId??null,reason:'Death handling required before later energy row'};
     else{
-      const target=input.energy.target;
       energy=runUltiEnergyExperiment({schemaVersion:1,kind:'morimens-ulti-energy-experiment',build:input.build,otherEvents:'assumed-absent',parameters:energyParameterEvaluation.values,source:{...input.energy.source,skillConfigId:input.preparation.skillId},targetOrder:[target.uid],targets:[{uid:target.uid,role:target.role,energy:target.energy,maximumProperties:target.maximumProperties,calculation:{dimension:target.calculation.dimension,properties:target.calculation.properties,card:{matchesEnergyCardTypes:energyCardTypeMatch.matched},casterEligible:true,skillTags:tags}}]});
     }
   }
-  return {schemaVersion:input.schemaVersion,kind:'morimens-prepared-snapshot-active-skill-result',analysisTrack:'theorycrafting',status:'EXPERIMENTAL',build:input.build,finalDamage:null,skillId:input.preparation.skillId,sourceHashes:preparedResult.sourceHashes,prepared:preparedResult.prepared,catalogTypes,tags,cardContext,targetSelection:selectedTarget,targetResolution,paraPlus:{selection:paraPlus,evaluation:paraPlusEvaluation,bindings:paraPlusBindings},command:{id:preparedResult.prepared.commandId,row,rows:imported.rows,importMetadata:imported.metadata},rowExecutions,parameterEvaluation,repetition,repeatModifierDerivation,derivedSequenceInput,calculation,energyParameterEvaluation,energyCardTypeMatch,energy,completed:calculation.completed&&stop===null,stop,unresolvedDependencies:[multi?'FrontEnemy is resolved from the supplied role snapshot; later rows retain that target and do not retarget':'Target selection is supplied as one resolved UpperTarget; the catalog target expression is checked but not executed','Costs, card construction, triggers, state changes, callbacks, statistics, retargeting and death execution are not simulated',multi?'Schema 3 accepts only selected-target Active rows followed by one caster ultimate-energy row':mixed?'Version 2 accepts only one ordinary Active row followed by one caster ultimate-energy row':'Version 1 accepts only one ordinary Active row','The result is a theorycraft model and has not passed an independent pre-outcome gameplay holdout']};
+  return {schemaVersion:input.schemaVersion,kind:'morimens-prepared-snapshot-active-skill-result',analysisTrack:'theorycrafting',status:'EXPERIMENTAL',build:input.build,finalDamage:null,skillId:input.preparation.skillId,sourceHashes:preparedResult.sourceHashes,prepared:preparedResult.prepared,catalogTypes,tags,cardContext,targetSelection:selectedTarget,targetResolution,paraPlus:{selection:paraPlus,evaluation:paraPlusEvaluation,bindings:paraPlusBindings},command:{id:preparedResult.prepared.commandId,row,rows:imported.rows,importMetadata:imported.metadata},rowExecutions,parameterEvaluation,repetition,repeatModifierDerivation,derivedSequenceInput,calculation,energyParameterEvaluation,energyCardTypeMatch,energyPropertyDerivation,energy,completed:calculation.completed&&stop===null,stop,unresolvedDependencies:[multi?'FrontEnemy is resolved from the supplied role snapshot; later rows retain that target and do not retarget':'Target selection is supplied as one resolved UpperTarget; the catalog target expression is checked but not executed','Costs, card construction, triggers, state changes, callbacks, statistics, retargeting and death execution are not simulated',multi?'Schema 3 accepts only selected-target Active rows followed by one caster ultimate-energy row':mixed?'Version 2 accepts only one ordinary Active row followed by one caster ultimate-energy row':'Version 1 accepts only one ordinary Active row','The result is a theorycraft model and has not passed an independent pre-outcome gameplay holdout']};
 }

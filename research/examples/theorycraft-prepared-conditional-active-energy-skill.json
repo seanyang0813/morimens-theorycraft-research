@@ -63,7 +63,20 @@
         "crit": 0,
         "crit_damage": 0,
         "crit_damage_from_strikecard": 0,
-        "crit_damage_per": 0
+        "crit_damage_per": 0,
+        "ulti_energy": 95,
+        "ulti_energy_max": 100,
+        "ulti_energy_cost_per": 0,
+        "ulti_energy_cost_flat": 0,
+        "ulti_energy_max_per": 0,
+        "o_ulti_energy_per": 0,
+        "ulti_energy_per": 0,
+        "i_ulti_energy_per": 0,
+        "ulti_energy_efficiency": 0,
+        "ulti_energy_plus": 0,
+        "gain_ulti_energy_per": 0,
+        "gain_ulti_energy_plus": 0,
+        "ulti_per_strikecard": 0
       },
       "playerProperties": {
         "dimension_fix_per": 0
@@ -89,32 +102,6 @@
       "source": {
         "castRoleUid": 7,
         "cmdServerUid": 2
-      },
-      "target": {
-        "uid": 7,
-        "role": "Awaker",
-        "energy": 95,
-        "maximumProperties": {
-          "ulti_energy_max": 100,
-          "ulti_energy_cost_per": 0,
-          "ulti_energy_cost_flat": 0,
-          "ulti_energy_max_per": 0
-        },
-        "calculation": {
-          "dimension": 0,
-          "properties": {
-            "card_ulti_per": 0,
-            "card_ulti_plus": 0,
-            "o_ulti_energy_per": 0,
-            "ulti_energy_per": 0,
-            "i_ulti_energy_per": 0,
-            "ulti_energy_efficiency": 0,
-            "ulti_per_strikecard": 0,
-            "ulti_energy_plus": 0,
-            "gain_ulti_energy_per": 0,
-            "gain_ulti_energy_plus": 0
-          }
-        }
       }
     }
   }

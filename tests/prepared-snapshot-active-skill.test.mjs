@@ -32,7 +32,8 @@ function conditionalMixedInput(skillId=4165,build='pc-res150-build51'){
   const value=mixedInput(build);value.schemaVersion=3;
   value.preparation={skillId,skillLevel:1,isAwaker:true,breakSkillLevel:0,potencyLevel:0,overrides:[],variables:{BattleAtkForce:100},conditionResults:{},stateQueries:{'CmdCaster.GetStateLayer':{'55487':1}}};
   value.targetBinding={expression:'FrontEnemy',resolution:'front-enemy-context',targetUid:8,context:{casterCamp:1,lockedUid:null,tauntUid:null,roles:[{uid:8,camp:2,hasHpBar:true,dead:false,position:1,sneak:0},{uid:9,camp:2,hasHpBar:true,dead:false,position:2,sneak:0}]}};
-  delete value.repeatModifiers;value.snapshot.critRolls=[null,null];return value;
+  Object.assign(value.snapshot.casterProperties,{ulti_energy:95,ulti_energy_max:100,ulti_energy_cost_per:0,ulti_energy_cost_flat:0,ulti_energy_max_per:0,o_ulti_energy_per:0,ulti_energy_per:0,i_ulti_energy_per:0,ulti_energy_efficiency:0,ulti_energy_plus:0,gain_ulti_energy_per:0,gain_ulti_energy_plus:0,ulti_per_strikecard:0});
+  value.energy={source:value.energy.source};delete value.repeatModifiers;value.snapshot.critRolls=[null,null];return value;
 }
 
 for(const build of Object.keys(roots))test(`catalog-prepared ordinary Active skill reaches a complete-property sequence on ${build}`,()=>{
@@ -105,6 +106,8 @@ for(const build of Object.keys(roots))test(`schema 3 executes conditional multi-
   assert.deepEqual(result.rowExecutions.map(row=>[row.rowId,row.executed,row.condition?.passed??null]),[['1',true,null],['2',true,true]]);
   assert.deepEqual(result.rowExecutions.map(row=>row.parameterEvaluation?.values),[[10,1],[10,1]]);
   assert.deepEqual(result.repeatModifierDerivation,{source:'casterProperties.GetProperty zero-default',plus:{property:'damagetimes_plus',present:false,value:0},per:{property:'damagetimes_per',present:false,value:0}});
+  assert.equal(result.energyPropertyDerivation.source,'complete property snapshots with GetProperty zero-default');
+  assert.deepEqual(result.energyPropertyDerivation.target,{uid:7,role:'Awaker',energy:95,maximumProperties:{ulti_energy_max:100,ulti_energy_cost_per:0,ulti_energy_cost_flat:0,ulti_energy_max_per:0},calculation:{dimension:0,properties:{card_ulti_per:0,card_ulti_plus:0,o_ulti_energy_per:0,ulti_energy_per:0,i_ulti_energy_per:0,ulti_energy_efficiency:0,ulti_energy_plus:0,gain_ulti_energy_per:0,gain_ulti_energy_plus:0,ulti_per_strikecard:0}}});
   assert.deepEqual(result.derivedSequenceInput.hits.map(hit=>hit.hitContext.damageSubtype),['Ordinary','Ordinary']);
   assert.equal(result.calculation.modeledHpLost,20);assert.equal(result.energy.targetsAfter[0].energy,100);assert.equal(result.completed,true);
 });
@@ -115,6 +118,15 @@ test('schema 3 derives repetition modifiers from the complete caster property sn
   assert.deepEqual(result.rowExecutions.map(row=>row.repetition.totalEffectTimes),[2,2]);assert.equal(result.calculation.modeledHpLost,40);
   assert.equal(result.repeatModifierDerivation.plus.present,true);assert.equal(result.repeatModifierDerivation.plus.value,1);
   const drift=conditionalMixedInput();drift.repeatModifiers={plus:0,per:0};assert.throws(()=>runPreparedSnapshotActiveSkill(drift,source(drift.build)),/exact prepared snapshot/);
+});
+
+test('schema 3 derives ultimate-energy calculation and cap inputs from complete snapshots',()=>{
+  const value=conditionalMixedInput();value.snapshot.cardProperties.card_ulti_plus=3;value.snapshot.casterProperties.gain_ulti_energy_per=5000;value.snapshot.casterProperties.ulti_energy=20;value.snapshot.casterProperties.ulti_energy_max=40;
+  const result=runPreparedSnapshotActiveSkill(value,source(value.build));
+  assert.equal(result.energy.targetsAfter[0].energy,40);
+  assert.equal(result.energyPropertyDerivation.reads.find(row=>row.owner==='card'&&row.property==='card_ulti_plus').value,3);
+  assert.equal(result.energyPropertyDerivation.reads.find(row=>row.owner==='caster'&&row.property==='gain_ulti_energy_per').value,5000);
+  const drift=conditionalMixedInput();drift.energy.target={};assert.throws(()=>runPreparedSnapshotActiveSkill(drift,source(drift.build)),/self-target Awakener energy context/);
 });
 
 test('schema 3 skips a false conditional row and requires only executed-hit rolls',()=>{

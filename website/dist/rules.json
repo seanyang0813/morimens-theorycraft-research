@@ -5956,8 +5956,8 @@
     {
       "id": "Theorycraft:ConditionalPreparedActiveEnergy",
       "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
-      "claim": "The catalog-prepared theorycraft path executes ordered conditional Active rows with catalog repeat and subtype plus caster-property repetition modifiers, threads HP and Block, preserves LastConditionRet fallback, then applies capped caster energy",
-      "scope": "Forty-eight original FuncTable condition cases plus authored composition for matching resource-144 and resource-150 catalog rows. Skill 4165 covers an optional second ordinary hit; skill 4203 covers potency/state selection, numeric LastConditionRet fallback, four Puncture hits versus one ordinary hit, ParaPlus, FrontEnemy selection and energy. Repetition additions derive from damagetimes_plus/per in the complete caster snapshot. Explicit live property, role, state-query and critical-roll inputs remain required. Later damage rows retain the selected target; post-death retargeting, state mutation between rows, callbacks, full original scheduling, gameplay and holdout validation are excluded. Theorycraft track only; no cheese or observed-strategy claim.",
+      "claim": "The catalog-prepared theorycraft path executes ordered conditional Active rows with catalog repeat and subtype, derives repeat and ultimate-energy properties from complete snapshots, threads HP and Block, preserves LastConditionRet fallback, then applies capped caster energy",
+      "scope": "Forty-eight original FuncTable condition cases plus authored composition for matching resource-144 and resource-150 catalog rows. Skill 4165 covers an optional second ordinary hit; skill 4203 covers potency/state selection, numeric LastConditionRet fallback, four Puncture hits versus one ordinary hit, ParaPlus, FrontEnemy selection and energy. Repetition additions and current/capped energy calculation inputs derive from the complete card, caster and Camp 1 player snapshots with GetProperty zero-default behavior. Explicit live property, role, state-query and critical-roll inputs remain required; only energy source identity is separate. Later damage rows retain the selected target; post-death retargeting, state mutation between rows, callbacks, full original scheduling, gameplay and holdout validation are excluded. Theorycraft track only; no cheese or observed-strategy claim.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -5972,7 +5972,7 @@
         },
         {
           "module": "BattleCmdServer",
-          "member": "CheckCondition",
+          "member": "CheckCondition,GetRealUltiEnergy",
           "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b"
         },
         {
@@ -5989,6 +5989,11 @@
           "module": "BEGainUltiEnergy",
           "member": "DoEffect",
           "sha256": "eaa49d0dcbeb60d4894c725e97cc35eb37c840c47ffe287f8d77f0d63e3993e2"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "GetMaxUltiEnergy",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76"
         }
       ],
       "checks": [
