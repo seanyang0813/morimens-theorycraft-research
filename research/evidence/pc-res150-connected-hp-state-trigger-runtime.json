@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "method": "RoleHpChanged -> HP listener -> BattleStateServer.Trigger -> effect requests",
+  "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+  "sourceHashes": {
+    "comparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
+    "schedulerComparison": "8f334c49deabf3d74fd20128d3f6cb00b50caf4da72bd93ab546c69d8ae18db7",
+    "fixture": "ce6d2f3f847fef26a1524238013e3a436b8b5103972e10d2a8651cc7770c20ee",
+    "currentBattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+    "currentBattleEngine": "1823d5b962605ccd42ba605840490235fb0c9b5fd751a112625c30101a34535e"
+  },
+  "fixtures": 4,
+  "exactMatches": 4,
+  "mismatches": 0,
+  "results": [],
+  "scope": "Actual current event request construction connected through byte-identical event, HP-listener, trigger and cached state callback bytecode. Covers accepted monster/player callbacks, hidden-owner rejection, other-monster rejection, BEGenerateTargets/BECreateSkillPhase request construction and StateTriggerEnd request.",
+  "limitations": [
+    "Generated effects and StateTriggerEnd do not execute",
+    "Cached command adapter with no Judgement or ban",
+    "No gameplay or holdout credit"
+  ]
+}

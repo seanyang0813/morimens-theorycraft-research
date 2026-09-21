@@ -2793,7 +2793,7 @@
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
         }
       ],
-      "scope": "Source-derived lifecycle trace. Separate runtime evidence connects phase start through observer effect creation, but the State.Trigger entry, real generated effects, listener descendants, full finish/end path and gameplay remain unconnected. Existing Old Embers row scheduler omits these lifecycle hooks",
+      "scope": "Connected runtime now reaches State.Trigger and constructs the three requests; separate phase runtime reaches TriggerCmd and child PreTrigger. Generated target/phase effects are not yet executed from the same HP callback, and the full finish/end path, gameplay and Old Embers lifecycle remain unconnected.",
       "gameplayValidation": false
     },
     {
@@ -3580,6 +3580,55 @@
         "docs/CONNECTED_EVENT_DELIVERY.md"
       ],
       "scope": "5 connected original-runtime cases with explicit role/state/engine adapters. Stops at the trigger callback; no state command, listener-generated effect, complete damage chain, gameplay or holdout credit.",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:ConnectedHpStateTrigger",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Eligible RoleHpChanged callbacks enter cached BattleStateServer.Trigger and request target generation, skill phase and StateTriggerEnd in order while preserving signed HP delta and caster association",
+      "sources": [
+        {
+          "module": "BSTHpChanged",
+          "member": "OnRoleHpChanged",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "42bbd004f18fd1df3b5b9b4ef484eec1b2cbd3ebdb1789a8c748d0660755fcd3",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7646804855693878600_BSTHpChanged.lua"
+        },
+        {
+          "module": "BattleStateTriggerServer",
+          "member": "TryTrigger,Trigger",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b21b29209c0f0ccd206b6bb7e8355665faded1a64f062ae326c0e501fbbbfa7d",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\1687241811396676100_BattleStateTriggerServer.lua"
+        },
+        {
+          "module": "BattleStateServer",
+          "member": "Trigger",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6839215435199190924_BattleStateServer.lua"
+        },
+        {
+          "module": "BattleEffectMgrServer",
+          "member": "CreateEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9a94157af60365d26188b578ca7f69987503b980ce51a420765eca45b4b8ab41",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\5828893898592423491_BattleEffectMgrServer.lua"
+        },
+        {
+          "module": "BattleEngine",
+          "member": "CreateEventEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "0ee07c8fd06f29787f8139306b55d16c726eaf8cabcd1ad0b128d907c8dbbeea",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-7402197778903831940_BattleEngine.lua"
+        }
+      ],
+      "tests": [
+        "tools/connected_hp_state_trigger_oracle.py",
+        "tests/connected-hp-state-trigger.test.mjs",
+        "docs/CONNECTED_EVENT_DELIVERY.md"
+      ],
+      "scope": "4 connected original-runtime cases covering accepted monster/player paths, hidden owner and mismatched monster. Cached command and explicit state/role adapters; generated effects and completion event are constructed but not executed. No gameplay or holdout credit.",
       "gameplayValidation": false
     },
     {
@@ -4728,6 +4777,32 @@
         "tests/connected-hp-listener.test.mjs"
       ],
       "scope": "Monster-self isolation, deletion, ally/enemy camp eligibility, signed HP delta and caster association. Stops at trigger callback; no state command, generated effect, complete damage chain, gameplay or holdout credit.",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC150:ConnectedHpStateTrigger",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "Resource 150 reproduces all 4 connected HP-event-to-cached-state-trigger request fixtures exactly",
+      "sources": [
+        {
+          "module": "PC resource-150 build comparison",
+          "member": "BattleStateServer identity and current engine hashes",
+          "bundle": "installed local client; hashes only",
+          "sha256": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5"
+        },
+        {
+          "module": "PC resource-150 connected HP-state runtime comparison",
+          "member": "fixture-domain result",
+          "bundle": "copied XLua runtime; hashes only",
+          "sha256": "c51a950cac1bbe9fd6accd0a0283b921114321c5fdf456cc39fd3ea6eb88cb8f"
+        }
+      ],
+      "tests": [
+        "tools/connected_hp_state_trigger_oracle.py",
+        "tools/verify_current_connected_hp_state_trigger.py",
+        "tests/connected-hp-state-trigger.test.mjs"
+      ],
+      "scope": "Accepted monster/player callbacks, hidden/mismatched rejection, target/phase request construction and StateTriggerEnd request. Generated effects and completion event do not execute; cached command adapter, no gameplay or holdout credit.",
       "gameplayValidation": false
     },
     {

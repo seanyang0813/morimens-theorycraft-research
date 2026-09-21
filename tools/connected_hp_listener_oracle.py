@@ -13,6 +13,13 @@ class ConnectedHpListenerOracle(ConnectedEventListenerOracle):
         self.length = self.lib.lua_rawlen
         self.length.argtypes = [C.c_void_p, C.c_int]
         self.length.restype = C.c_size_t
+        self.rawset = self.lib.lua_rawseti
+        self.rawset.argtypes = [C.c_void_p, C.c_int, C.c_longlong]
+        self.rawset.restype = None
+        self.gettop = self.lib.lua_gettop
+        self.gettop.argtypes = [C.c_void_p]
+        self.gettop.restype = C.c_int
+        self.integer=self.lib.lua_pushinteger;self.integer.argtypes=[C.c_void_p,C.c_longlong];self.integer.restype=None
 
         self.table(L, 0, 1)
         self.method('ctor', lambda s: 0)
@@ -75,10 +82,25 @@ class ConnectedHpListenerOracle(ConnectedEventListenerOracle):
         self.module('BSTHpChanged', asset_overrides.get('BSTHpChanged'))
         self.setglobal(L, b'_hp_listener_class')
 
+        self.getglobal(L, b'_oracle_config_system')
+        self.method('NewClass', base_new_class)
+        self.top(L, 0)
+        def state_require(s):
+            name=self.string(s,1,None)
+            known={b'System.System':b'_oracle_config_system',b'Battle.BattleConst':b'_oracle_bc',b'Battle.DbgEngine.Cmd.BattleCmdServer':b'_oracle_cmd',b'Battle.DbgEngine.Event.BattleLogicEvent':b'_connected_logic_events'}
+            if name in known:self.getglobal(s,known[name])
+            elif name in (b'Battle.Ecs.BattleEntity',b'Battle.DbgEngine.Card.BattleCardServer',b'Battle.DbgEngine.Cmd.BattleCmdParser',b'Battle.DbgEngine.DataCenter.BattleStateData'):self.getglobal(s,b'_hp_trigger_super')
+            else:self.errors.append('Unexpected state dependency: '+repr(name));self.nil(s)
+            return 1
+        self.callback(state_require);self.setglobal(L,b'require');self.module('BattleStateServer',asset_overrides.get('BattleStateServer'));self.setglobal(L,b'_hp_state_class')
+
+        self.state_effect_ctor_cb=C.CFUNCTYPE(C.c_int,C.c_void_p)(self._construct_state_effect);self.callbacks.append(self.state_effect_ctor_cb)
         def runtime_require(s):
             name = self.string(s, 1, None)
             if name == b'Battle.DbgEngine.Effect.BESendEvent':
                 self.pushclosure(s, self.send_ctor_cb, 0)
+            elif name in (b'Battle.DbgEngine.Effect.BEGenerateTargets',b'Battle.DbgEngine.Effect.BECreateSkillPhase'):
+                self.pushclosure(s,self.state_effect_ctor_cb,0)
             else:
                 self.errors.append('Unexpected runtime dependency: ' + repr(name))
                 self.nil(s)
@@ -89,23 +111,57 @@ class ConnectedHpListenerOracle(ConnectedEventListenerOracle):
         if self.errors:
             raise RuntimeError(self.errors)
 
+    def _construct_send_effect(self,s):
+        if hasattr(self,'stateEndEvents'):
+            self.getfield(s,2,b'eventData')
+            if self.kind(s,-1)==5:
+                self.getfield(s,-1,b'stateUid')
+                if self.kind(s,-1)==3:self.stateEndEvents.append({'stateUid':self.tonumber(s,-1,None)})
+            self.top(s,2)
+        return super()._construct_send_effect(s)
+
+    def _construct_state_effect(self,s):
+        row={}
+        for name in ('effectType','targetType','castRoleUid'):
+            self.getfield(s,2,name.encode())
+            if self.kind(s,-1)==3:row[name]=self.tonumber(s,-1,None)
+            elif self.kind(s,-1)==4:row[name]=self.string(s,-1,None).decode()
+            self.top(s,-2)
+        self.getfield(s,2,b'triggerData')
+        if self.kind(s,-1)==5:
+            self.getfield(s,-1,b'triggerValue');row['triggerValue']=self.tonumber(s,-1,None);self.top(s,-2)
+            self.getfield(s,-1,b'associator');self.rawget(s,-1,1);self.getglobal(s,b'_hp_caster');row['sameAssociator']=bool(self.rawequal(s,-2,-1));self.top(s,2)
+        else:self.top(s,2)
+        self.stateEffectConfigs.append(row);self.table(s,0,1);self.method('PreTrigger',lambda state:0);return 1
+
     def run_hp_listener(self, values):
         # Reuse the already tested core setup, then install the real HP listener.
+        self.stateEndEvents=[]
         self.run_connected({'autoBattle': False, 'explicitAuto': None, 'token': -1})
         L = self.state
         self.top(L, 0)
         self.errors.clear()
         triggered = []
+        self.stateEffectConfigs=[]
+        dispatch_errors=[]
+        state_trace=[]
 
         self.getglobal(L, b'_connected_event_mgr')
         self.table(L, 0, 0)
         self.setfield(L, -2, b'eventData')
+        self.table(L,0,1)
+        def dispatch_error(s):
+            top=self.gettop(s);value=self.string(s,top,None);dispatch_errors.append(value.decode() if value else 'unknown dispatch error');return 0
+        self.method('Error',dispatch_error);self.setfield(L,-2,b'entity')
         self.top(L, 0)
 
         self.table(L, 0, 5)
         self.number(L, values['ownerUid'])
         self.setfield(L, -2, b'uid')
         self.method('GetCamp', lambda s: (self.number(s, values['ownerCamp']), 1)[1])
+        self.method('GetProperty',lambda s:(state_trace.append('GetProperty'),self.number(s,values.get('hidden',0)),1)[2])
+        self.method('is',lambda s:(state_trace.append('is'),self.boolean(s,False),1)[2])
+        self.method('IsDead',lambda s:(state_trace.append('IsDead'),self.boolean(s,values.get('dead',False)),1)[2])
         def is_role_type(s):
             self.boolean(s, values['ownerType'] == 'monster')
             return 1
@@ -127,6 +183,7 @@ class ConnectedHpListenerOracle(ConnectedEventListenerOracle):
         self.getglobal(L, b'_gate_engine_class')
         self.getfield(L, -1, b'RegisterEvent')
         self.setfield(L, -3, b'RegisterEvent')
+        self.getfield(L,-1,b'CreateEventEffect');self.setfield(L,-3,b'CreateEventEffect')
         self.top(L, -2)
         def get_obj(s):
             uid = self.tonumber(s, 2, None)
@@ -139,12 +196,15 @@ class ConnectedHpListenerOracle(ConnectedEventListenerOracle):
             return 1
         self.method('GetObj', get_obj)
         self.method('LogBattleWithTab', lambda s: 0)
+        self.method('Warn',lambda s:0)
         self.getfield(L, -1, b'battleDT')
         self.getfield(L, -1, b'BattleApi')
         self.table(L, 0, 1)
         self.pushstring(L, b'HP changed')
         self.setfield(L, -2, b'CnID')
         self.setfield(L, -2, b'BSTHpChanged')
+        self.top(L,-2)
+        self.getfield(L,-1,b'Cmd');self.table(L,0,1);self.pushstring(L,b'synthetic trigger command');self.setfield(L,-2,b'CnID');self.rawset(L,-2,123);self.top(L,-2)
         self.top(L, 0)
 
         self.table(L, 0, 8)
@@ -163,7 +223,13 @@ class ConnectedHpListenerOracle(ConnectedEventListenerOracle):
         self.setfield(L, -2, b'CnID')
         self.number(L, 0)
         self.setfield(L, -2, b'DeathHandling')
+        self.number(L,123);self.setfield(L,-2,b'TriggerCmd1')
+        self.pushstring(L,b'StateOwner');self.setfield(L,-2,b'TriggerTarget1')
         self.setfield(L, -2, b'configData')
+        self.number(L,456);self.setfield(L,-2,b'stateId');self.number(L,1);self.setfield(L,-2,b'skillLevel');self.table(L,0,0);self.setfield(L,-2,b'source')
+        self.method('IsBan',lambda s:(state_trace.append('IsBan'),self.boolean(s,False),1)[2]);self.method('GetCasterUid',lambda s:(state_trace.append('GetCasterUid'),self.number(s,values['casterUid']),1)[2])
+        self.getglobal(L,b'_hp_state_class');self.getfield(L,-1,b'Trigger');self.setfield(L,-3,b'Trigger');self.top(L,-2)
+        self.table(L,0,2);self.table(L,0,1);self.method('ClearMemberValues',lambda s:(state_trace.append('ClearMemberValues'),0)[1]);self.setfield(L,-2,b'cmdParser');self.setfield(L,-2,b'triggerCmd1')
         self.setglobal(L, b'_hp_state')
 
         self.table(L, 0, 2)
@@ -171,6 +237,7 @@ class ConnectedHpListenerOracle(ConnectedEventListenerOracle):
         self.setfield(L, -2, b'isEnemy')
         self.pushstring(L, b'BSTHpChanged')
         self.setfield(L, -2, b'triggerFullName')
+        self.integer(L,1);self.setfield(L,-2,b'idx')
         self.setglobal(L, b'_hp_cb_params')
 
         def callback(s):
@@ -184,8 +251,10 @@ class ConnectedHpListenerOracle(ConnectedEventListenerOracle):
             self.top(s, 3)
             triggered.append({'triggerValue': trigger_value, 'sameAssociator': same_associator})
             return 0
-        self.callback(callback)
-        self.setglobal(L, b'_hp_callback')
+        if values.get('executeState'):
+            self.getglobal(L,b'_hp_state_class');self.getfield(L,-1,b'Trigger');self.setglobal(L,b'_hp_callback');self.top(L,0)
+        else:
+            self.callback(callback);self.setglobal(L, b'_hp_callback')
 
         self.getglobal(L, b'_oracle_bc')
         self.getfield(L, -1, b'StateTriggerType')
@@ -241,7 +310,9 @@ class ConnectedHpListenerOracle(ConnectedEventListenerOracle):
         self.top(L, 0)
         if self.errors:
             raise RuntimeError(self.errors)
-        return {'effectEligible': eligible, 'triggered': triggered}
+        result={'effectEligible': eligible, 'triggered': triggered}
+        if values.get('executeState'):result.update(generatedEffects=self.stateEffectConfigs,stateEndEvents=self.stateEndEvents,dispatchErrors=dispatch_errors,stateTrace=state_trace)
+        return result
 
 
 CASES = [
