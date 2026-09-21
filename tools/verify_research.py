@@ -66,6 +66,17 @@ def audit_observation(row):
                 if not evidence_path.is_relative_to(ROOT) or not evidence_path.is_file():raise ValueError('Pre-outcome evidence missing or outside workspace')
                 if hashlib.sha256(evidence_path.read_bytes()).hexdigest()!=item['sha256']:raise ValueError('Pre-outcome evidence hash mismatch')
                 hashes.append({'path':item['path'],'sha256':item['sha256'],'purpose':'pre-outcome state; chronology requires manual review'})
+            recorded_build=row.get('version',{}).get('recordedCombatBuild')
+            if recorded_build:
+                build=frozen.get('recordedBuild')
+                if not isinstance(build,dict) or build.get('id')!=recorded_build:raise ValueError('Frozen recorded build is missing or differs from the observation')
+                build_evidence=build.get('evidence')
+                if not isinstance(build_evidence,list) or not build_evidence:raise ValueError('Frozen recorded build needs pre-outcome evidence')
+                for item in build_evidence:
+                    evidence_path=(ROOT/item['path']).resolve()
+                    if not evidence_path.is_relative_to(ROOT) or not evidence_path.is_file():raise ValueError('Build evidence missing or outside workspace')
+                    if hashlib.sha256(evidence_path.read_bytes()).hexdigest()!=item['sha256']:raise ValueError('Build evidence hash mismatch')
+                    hashes.append({'path':item['path'],'sha256':item['sha256'],'purpose':'pre-outcome recorded combat build; chronology requires manual review'})
             hashes.append({'path':proof['path'],'sha256':proof['sha256'],'purpose':'prediction freeze; chronology requires manual review'})
         except (KeyError,TypeError,ValueError,OSError) as error:reasons.append('Holdout freeze: '+str(error))
     return {'id':row.get('id'),'holdout':row.get('holdout') is True,'observed':observed,'predicted':predicted,'recomputed':recomputed,'difference':difference,'eligibleForReview':not reasons,'reasons':reasons,'evidenceFiles':hashes}

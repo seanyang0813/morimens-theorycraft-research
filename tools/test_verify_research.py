@@ -24,12 +24,15 @@ class ObservationAuditTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(dir=ROOT) as directory:
             directory=Path(directory);evidence=directory/'prehit.txt';evidence.write_text('before',encoding='utf-8')
             prediction={'scenarioFile':'unused.json','scenarioSha256':'0'*64,'runtimeFingerprint':'0'*64,'metric':'preHitDamage'}
-            frozen={'schemaVersion':1,'kind':'MORIMENS_PREDICTION_FREEZE','prediction':prediction,'predictedDamage':100,'beforeOutcomeEvidence':[{'path':str(evidence.relative_to(ROOT)),'sha256':hashlib.sha256(evidence.read_bytes()).hexdigest()}]}
+            frozen={'schemaVersion':1,'kind':'MORIMENS_PREDICTION_FREEZE','prediction':prediction,'predictedDamage':100,'beforeOutcomeEvidence':[{'path':str(evidence.relative_to(ROOT)),'sha256':hashlib.sha256(evidence.read_bytes()).hexdigest()}],'recordedBuild':{'id':'explicit-test-build','evidence':[{'path':str(evidence.relative_to(ROOT)),'sha256':hashlib.sha256(evidence.read_bytes()).hexdigest()}]}}
             freeze=directory/'freeze.json';freeze.write_text(json.dumps(frozen),encoding='utf-8')
             proof={'path':str(freeze.relative_to(ROOT)),'sha256':hashlib.sha256(freeze.read_bytes()).hexdigest()}
             row={**self.row(),'holdout':True,'prediction':prediction,'predictionFrozenBeforeOutcomeEvidence':proof}
             result=audit_observation(row)
             self.assertFalse(any(reason.startswith('Holdout freeze:') for reason in result['reasons']))
+            frozen['recordedBuild']['id']='different-build';freeze.write_text(json.dumps(frozen),encoding='utf-8');proof['sha256']=hashlib.sha256(freeze.read_bytes()).hexdigest();row['predictionFrozenBeforeOutcomeEvidence']=proof
+            self.assertIn('Holdout freeze: Frozen recorded build is missing or differs from the observation',audit_observation(row)['reasons'])
+            frozen['recordedBuild']['id']='explicit-test-build';freeze.write_text(json.dumps(frozen),encoding='utf-8');proof['sha256']=hashlib.sha256(freeze.read_bytes()).hexdigest();row['predictionFrozenBeforeOutcomeEvidence']=proof
             evidence.write_text('after',encoding='utf-8')
             result=audit_observation(row)
             self.assertIn('Holdout freeze: Pre-outcome evidence hash mismatch',result['reasons'])
