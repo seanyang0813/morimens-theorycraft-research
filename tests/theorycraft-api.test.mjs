@@ -18,9 +18,17 @@ test('agent API advertises explicit bounded operations',()=>{
   assert.deepEqual(response.result.operations,theorycraftOperations);
   assert.ok(response.result.operations.some(row=>row.name==='run-command-damage-prefix'));
   assert.ok(response.result.operations.some(row=>row.name==='calculate-snapshot-active-damage'));
+  assert.ok(response.result.operations.some(row=>row.name==='run-snapshot-active-sequence'));
   assert.ok(response.result.operations.some(row=>row.name==='run-attached-card-pipeline'));
   assert.ok(response.result.operations.some(row=>row.name==='run-conditional-role-state-suffix'));
   assert.equal(response.result.publicationStatus,'NOT_READY');
+});
+
+test('agent API threads repeated complete-property hits through HP and Block',()=>{
+  const hit=id=>({id,baseValue:100,skillArgsPlus:0,tags:['Card_Strike'],cardProperties:{},cardContext:{present:false,instructionCard:false,stateTriggerAdd:false},targetContext:{critRoll:null,targetBattleTag:'Boss',targetStateIds:[]},hitContext:{damageSubtype:'Ordinary'}});
+  const input={schemaVersion:1,kind:'morimens-snapshot-active-sequence',build:'pc-res150-build51',snapshotStage:'battle-property-server-live',snapshotCompleteness:'complete-map',interveningEffects:'assumed-absent',casterProperties:{crit:0,crit_damage:0,crit_damage_from_strikecard:0,crit_damage_per:0},playerProperties:{dimension_fix_per:0},initialTargetProperties:{hp:250,max_hp:250,block:50,be_damage_per:0,vulnerable_per:0},hits:[hit('one'),hit('two')]};
+  const response=runTheorycraftRequest(request('run-snapshot-active-sequence',input));
+  assert.equal(response.analysisTrack,'theorycrafting');assert.equal(response.result.modeledHpLost,150);assert.equal(response.result.targetAfter.hp,100);assert.equal(response.result.finalDamage,null);
 });
 
 test('agent API runs a complete current-build property snapshot through modeled HP loss',()=>{

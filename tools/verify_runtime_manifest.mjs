@@ -39,6 +39,7 @@ function dependencyClosure(entries,manifest){
 function observationEntries(scenario){
   if(scenario?.mode==='experimental')return ['engine/observation-scenario.mjs','engine/calculate-damage.mjs'];
   if(scenario?.kind==='morimens-battle-property-snapshot-damage')return ['engine/observation-scenario.mjs','engine/battle-property-snapshot-damage.mjs'];
+  if(scenario?.kind==='morimens-snapshot-active-sequence')return ['engine/observation-scenario.mjs','engine/snapshot-active-sequence.mjs'];
   if(scenario?.kind==='morimens-card-action-timeline')return ['engine/observation-scenario.mjs','engine/card-action-timeline.mjs'];
   if(scenario?.kind==='morimens-ordered-state-command')return ['engine/observation-scenario.mjs','engine/ordered-state-command.mjs'];
   if(scenario?.schemaVersion===1&&Array.isArray(scenario.steps)&&scenario.target&&['assumed-absent','old-embers-only-assumed'].includes(scenario.interveningEffects))return ['engine/observation-scenario.mjs','engine/research-timeline.mjs'];

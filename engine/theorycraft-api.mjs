@@ -15,11 +15,13 @@ import {runCommandDamagePrefix} from './command-damage-prefix.mjs';
 import {runAttachedCardPipeline} from './attached-card-pipeline.mjs';
 import {runConditionalRoleStateSuffix} from './conditional-role-state-suffix.mjs';
 import {calculateSnapshotActiveDamage} from './battle-property-snapshot-damage.mjs';
+import {runSnapshotActiveSequence} from './snapshot-active-sequence.mjs';
 
 export const theorycraftOperations=Object.freeze([
   {name:'describe-capabilities',context:[],scope:'List supported versioned operations and evidence boundaries'},
   {name:'calculate-damage',context:[],scope:'Resolved single-hit Active, Passive, Fixed or Pure research calculation'},
   {name:'calculate-snapshot-active-damage',context:[],scope:'Complete captured battle-property maps through bounded PvE Active pre-hit and optional BeHit-to-HP paths'},
+  {name:'run-snapshot-active-sequence',context:[],scope:'Repeated complete-property Active hits with recovered HP and Block mutations threaded between hits'},
   {name:'run-hit-timeline',context:[],scope:'Supplied resolved hit sequence with an explicit intervening-effect policy'},
   {name:'run-card-actions',context:[],scope:'Card payment plus supplied hit or supported numeric-command sequence'},
   {name:'run-ordered-state-command',context:[],scope:'Supported ordered state/resource/damage command rows'},
@@ -56,6 +58,7 @@ function execute(operation,input,context){
   }
   if(operation==='calculate-damage')return calculateDamage(input);
   if(operation==='calculate-snapshot-active-damage')return calculateSnapshotActiveDamage(input);
+  if(operation==='run-snapshot-active-sequence')return runSnapshotActiveSequence(input);
   if(operation==='run-hit-timeline')return runResearchTimeline(input);
   if(operation==='run-card-actions')return runCardActionTimeline(input);
   if(operation==='run-ordered-state-command')return runOrderedStateCommand(input);

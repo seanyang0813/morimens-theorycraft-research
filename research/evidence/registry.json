@@ -7018,6 +7018,42 @@
       "gameplayValidation": false
     },
     {
+      "id": "Theorycraft:SnapshotActiveSequence",
+      "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
+      "claim": "The theorycraft API threads recovered target HP and Block mutations across repeated complete-property Active hits, recomputing later block-sensitive damage and stopping before unsupported post-death execution",
+      "sources": [
+        {
+          "module": "BattleCmdServer",
+          "member": "Active offense, critical and final-target paths",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "BeHit shield, prevention and damage-limit order",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "HP subtraction and property reads",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/battle-property-snapshot-damage.test.mjs",
+        "tests/snapshot-active-sequence.test.mjs",
+        "tests/theorycraft-api.test.mjs",
+        "tests/browser-runtime.test.mjs"
+      ],
+      "scope": "Authored sequence composition over the bounded complete-property snapshot adapter for resource 144 or live resource 150 maps. Only HP and Block carry between hits; stable target tag/state IDs and assumed-absent intervening effects are required. State mutation, callbacks, triggered effects, statistics, death execution, be_damage_statics updates, connected original execution, gameplay and holdout validation remain excluded. Theorycraft track only; no cheese or observed-strategy claim.",
+      "gameplayValidation": false
+    },
+    {
       "id": "ANDROID83:StartupLuaArchiveInspection",
       "status": "CONFIRMED_FROM_LOCAL_ARCHIVE_PARSER",
       "claim": "The protected packaged Android startup archive deserializes without execution into seven Lua prototypes and 109 string constants; its one literal URL is telemetry and no literal resource-download URL is present",

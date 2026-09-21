@@ -34,5 +34,11 @@ test('prediction freeze pins scenario, runtime and separate pre-outcome evidence
     assert.equal(snapshotFrozen.predictedDamage,267);const snapshotRecord=JSON.parse(readFileSync(snapshotOutput,'utf8'));assert.ok(snapshotRecord.prediction.runtimeContract.files['engine/battle-property-snapshot-damage.mjs']);
     const snapshotReplay=spawnSync(process.execPath,['tools/replay_observation.mjs',snapshotScenario,'modeledHpLost',snapshotRecord.prediction.runtimeFingerprint,JSON.stringify(snapshotRecord.prediction.runtimeContract)],{cwd:root,encoding:'utf8'});
     assert.equal(snapshotReplay.status,0,snapshotReplay.stderr);assert.equal(JSON.parse(snapshotReplay.stdout).value,267);
+    const sequenceScenario=join(directory,'snapshot-sequence.json'),sequenceOutput=join(directory,'snapshot-sequence-freeze.json');
+    const sequence=JSON.parse(readFileSync(join(root,'research/examples/snapshot-active-sequence-request.json'),'utf8')).input;writeFileSync(sequenceScenario,JSON.stringify(sequence));
+    const sequenceFrozen=freezeGameplayPrediction({scenarioFile:relativeToRoot(sequenceScenario),metric:'modeledHpLost',evidenceFiles:[relativeToRoot(evidence)],recordedCombatBuild:'pc-res150-build51',buildEvidenceFiles:[relativeToRoot(snapshotBuild)],outputFile:relativeToRoot(sequenceOutput),now:()=>new Date('2026-09-20T00:02:00Z')});
+    assert.equal(sequenceFrozen.predictedDamage,150);const sequenceRecord=JSON.parse(readFileSync(sequenceOutput,'utf8'));assert.ok(sequenceRecord.prediction.runtimeContract.files['engine/snapshot-active-sequence.mjs']);assert.ok(sequenceRecord.prediction.runtimeContract.files['engine/battle-property-snapshot-damage.mjs']);
+    const sequenceReplay=spawnSync(process.execPath,['tools/replay_observation.mjs',sequenceScenario,'modeledHpLost',sequenceRecord.prediction.runtimeFingerprint,JSON.stringify(sequenceRecord.prediction.runtimeContract)],{cwd:root,encoding:'utf8'});
+    assert.equal(sequenceReplay.status,0,sequenceReplay.stderr);assert.equal(JSON.parse(sequenceReplay.stdout).value,150);
   }finally{rmSync(directory,{recursive:true,force:true});}
 });

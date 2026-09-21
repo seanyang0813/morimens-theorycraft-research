@@ -35,6 +35,8 @@ Agents can call the same bounded engine through `engine/theorycraft-api.mjs` or 
 
 The agent API includes `calculate-snapshot-active-damage` for complete captured resource-144 or resource-150 battle-property maps. Schema 1 stops at pre-hit damage. Schema 2 continues through immunity, shield or Puncture handling, retained-HP conversion, incoming limits, death resistance and HP subtraction. It records every property read and rejects partial snapshots, making it suitable for freezing a bounded pre-hit or modeled-HP-loss prediction when a fresh replay supplies the required pre-action evidence. `finalDamage` remains null until independent gameplay validation passes.
 
+`run-snapshot-active-sequence` repeats the same complete-property Active path while carrying recovered HP and Block changes between hits. It recomputes block-sensitive damage after shield depletion, validates all supplied hits and stops before unsupported post-death execution. Other state/event mutations remain explicit unresolved dependencies.
+
 The agent API can also enumerate ordinary PvE cards that are legal from an
 explicit dispatch, energy, hand and status snapshot. It reports global and
 per-card rejection gates without spending resources or executing effects. This

@@ -99,6 +99,7 @@
   "ordered-state-command.mjs",
   "observation-scenario.mjs",
   "battle-property-snapshot-damage.mjs",
+  "snapshot-active-sequence.mjs",
   "crit-resolution.mjs",
   "state-type-catalog.mjs",
   "state-type-catalog-150.mjs",

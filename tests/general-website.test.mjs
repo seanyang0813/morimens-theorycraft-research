@@ -29,5 +29,5 @@ test('general website resolves local module imports and keeps the scenario separ
   assert.match(builds,/<select id="client-build"><option value="">Unknown \/ not selected<\/option><option value="pc-res150-build51">PC · res150 build51 \(current captured build\)<\/option><option value="pc-res144-build51">PC · res144 build51 \(historical research build\)<\/option><\/select>/);
   assert.ok(builds.includes('id="assemble"'));assert.ok(builds.includes('id="assembly"'));
   const snapshot=readFileSync(new URL('../website/dist/snapshot.html',import.meta.url),'utf8');
-  assert.ok(snapshot.includes('snapshot-bootstrap.mjs'));assert.ok(snapshot.includes('id="input"'));assert.ok(snapshot.includes('complete captured maps only'));
+  assert.ok(snapshot.includes('snapshot-bootstrap.mjs'));assert.ok(snapshot.includes('id="input"'));assert.ok(snapshot.includes('id="sequence-example"'));assert.ok(snapshot.includes('complete captured maps only'));
 });

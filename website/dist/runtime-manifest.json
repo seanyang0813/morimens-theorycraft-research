@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "765251408ce8b9a41f999cdb3cb03a4a95da84c1a43b1de2c7494c4e957f2899",
+  "fingerprint": "7a62fc71ec687dcd4e22475a135da2e8ba2629786605ef389588c9bb1c523ceb",
   "files": {
     "build-catalog.json": "2d1188fadcaff7a1eb53af580c509756b21a3f003065c7c9036aa919958a1496",
     "client-build-data-res150.json": "49d4bf5abe419360df47e4959a26fb50bdaa37ed8189c022a644ff518f6fba80",
@@ -66,7 +66,7 @@
     "engine/inspect-command-support.mjs": "13db4f7c8772fb5a3e06a49a9bc8bb5b0b370fd5aa29923a71c7a25ba3aa77b9",
     "engine/legal-card-actions.mjs": "92aad421c959d1b5360133fd4577d95c4634cef46868aff8c8d2f6ffe5f11d4b",
     "engine/live-state-lookup.mjs": "db44a2056b38ae9f758ee4c29ebb1a5da9e35fcb44a7a62b16d807c8e9703908",
-    "engine/observation-scenario.mjs": "4aae786c0547f5ef06c46cf6ff444bc07f128a47404af9acd459d88f88d644f3",
+    "engine/observation-scenario.mjs": "8b926410d45fab45c5efcb192b986b22d715d40b636b8fdd50eeb944298aa51c",
     "engine/offensive-setup.mjs": "236a39c9bed407529499e5710b0f9561fa401fba28bf76da7ffe9154d6f05393",
     "engine/old-embers-activation.mjs": "e756371a091e55d384e8e80b3344e18eb085ddab1d46695d6787801957a5300f",
     "engine/old-embers-command.mjs": "eb70d3a75af30bcfe6411a2e93833ad169e705b1a5bdf7e8d4a1fc2e656d7e96",
@@ -91,6 +91,7 @@
     "engine/skill-phase-finish.mjs": "506e89799a971ee437f21a9e87a76e1b10662615d40f6b514943b7d3dcf866d1",
     "engine/skill-phase.mjs": "5b91257465cba18d2ea182ddff98f977a8a7aec11f8a6c563ef5e804ce0711a6",
     "engine/skill-variant.mjs": "e0567962ff4cc2486566ab911e19c604730f147327ac5be8fd3b4500bbc66439",
+    "engine/snapshot-active-sequence.mjs": "2899c77cce0c414c90eec8ca659d324a88ddf5b2af5a2179e0106095453c346f",
     "engine/state-callback.mjs": "174f28928bd2bc3b58a3374c54ec7e200deaae66248d78a4bc0196274dfe8f1f",
     "engine/state-constructor.mjs": "68e84d34bb6ac62a4a5629c53fcfeccade2cab7af77e4ca12a17ece7116570ef",
     "engine/state-immunity.mjs": "ff5e0d55d47c6996f53324205a5b0b1e10dd156fa9d975f9e3d8cb3af02e4b5b",
@@ -116,7 +117,7 @@
     "engine/ulti-energy-gain.mjs": "08a4f4f32a7700422d6999e19e0e58fb2cace3bcbf7d0a910a9bcacf3b520468",
     "engine/use-attach-post-card.mjs": "a68fe61a2e770f751e8fbffcb417c85af9f1858968bf47ae492a4fca2bca0289",
     "engine/wheel-stats.mjs": "484a5b4a51fbbd9c4759b27457ae9eec71fceb0420354823f54654edfb78fadd",
-    "rules.json": "9cacd155997b609d043e56ad1dd402050a444bc4ee2a75901da8b5581740c2e4",
+    "rules.json": "d371bb159c8b84e2a8943507210643890915360242aa7f723836a8f2eddcb612",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af"
   }
 }

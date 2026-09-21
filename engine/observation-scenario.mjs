@@ -3,6 +3,7 @@ import {runResearchTimeline} from './research-timeline.mjs';
 import {runCardActionTimeline} from './card-action-timeline.mjs';
 import {runOrderedStateCommand} from './ordered-state-command.mjs';
 import {calculateSnapshotActiveDamage} from './battle-property-snapshot-damage.mjs';
+import {runSnapshotActiveSequence} from './snapshot-active-sequence.mjs';
 
 const metrics=new Set(['preHitDamage','modeledHpLost']);
 export function runObservationScenario(scenario,metric){
@@ -18,6 +19,12 @@ export function runObservationScenario(scenario,metric){
     const value=metric==='preHitDamage'?result.preHitDamage:result.modeledHpLost;
     if(!Number.isFinite(value))throw new Error('Requested metric is unavailable for this scenario shape');
     return {build:result.build,scenarioKind:scenario.kind,metric,value,scope:result.scope,unresolvedDependencies:result.unresolvedDependencies};
+  }
+  if(scenario.kind==='morimens-snapshot-active-sequence'){
+    const result=runSnapshotActiveSequence(scenario);
+    if(result.status!=='EXPERIMENTAL'||result.completed!==true)throw new Error('Observation scenario did not complete in the supported scope');
+    if(metric!=='modeledHpLost'||!Number.isFinite(result.modeledHpLost))throw new Error('Requested metric is unavailable for this scenario shape');
+    return {build:result.build,scenarioKind:scenario.kind,metric,value:result.modeledHpLost,scope:'Repeated complete-property Active hits with HP and Block carried between hits',unresolvedDependencies:result.unresolvedDependencies};
   }
   let result,scenarioKind;
   if(scenario.kind==='morimens-card-action-timeline'){result=runCardActionTimeline(scenario);scenarioKind=scenario.kind;}
