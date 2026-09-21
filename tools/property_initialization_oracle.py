@@ -4,15 +4,16 @@ import json
 from hp_property_oracle import HpPropertyOracle, ROOT
 
 class InitializationOracle(HpPropertyOracle):
-    def __init__(self):
-        super().__init__();L=self.state
+    def __init__(self, asset_overrides=None):
+        asset_overrides = asset_overrides or {}
+        super().__init__(asset_overrides);L=self.state
         self.kind=self.lib.lua_type;self.kind.argtypes=[C.c_void_p,C.c_int];self.kind.restype=C.c_int
         def new_class(s):
             self.table(s,0,100);self.table(s,0,1)
             self.method('ctor',lambda _:0)
             return 2
         self.getglobal(L,b'_oracle_config_system');self.method('NewClass',new_class);self.top(L,0)
-        self.module('BattlePropertyServer');self.setglobal(L,b'_initialization_property')
+        self.module('BattlePropertyServer',asset_overrides.get('BattlePropertyServer'));self.setglobal(L,b'_initialization_property')
 
     def run(self,values):
         L=self.state;self.top(L,0)

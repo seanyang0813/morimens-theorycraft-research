@@ -1,0 +1,295 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_COMBAT_BUILD_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "currentVersion": {
+    "branchName": "Z1G_2025_11_OB",
+    "resVersion": 150,
+    "buildVersion": 51,
+    "platformCode": "p10020",
+    "downloadPlatformCode": "p10020",
+    "hash": "dcb41b7d0fcd78d5797b42e4a99447a5",
+    "size": 2926064
+  },
+  "steam": {
+    "appId": "3052450",
+    "buildId": "23408611",
+    "lastUpdatedUnix": 1789834231
+  },
+  "sourceHashes": {
+    "versionManifest": "019bf77ddf79ef1dfe201d564b25c8051763905592905dfbb0059a19bb409fc9",
+    "bundles": {
+      "share.ab": {
+        "sha256": "b62601a3391a5999ebb196dec5e52c0660d95c19655ac3b19f13299806c38907",
+        "size": 876326
+      },
+      "gamescript.ab": {
+        "sha256": "06aac7bb4d39e8965b945ed0b2b20cb61e1ba253fc9aca4219e72c15105a9f34",
+        "size": 11897036
+      },
+      "foundation.ab": {
+        "sha256": "36e30bcd044b74043499183b5313bd6f4f9999f0d03aecce4751c3d87414f03d",
+        "size": 276987
+      }
+    }
+  },
+  "inventory": {
+    "baselineNames": 3029,
+    "currentNames": 3200,
+    "matchedNames": 3029,
+    "identicalMatchedNames": 2631,
+    "changedMatchedNames": 398,
+    "missingNames": 0,
+    "newNames": 171
+  },
+  "combatModules": [
+    {
+      "name": "BattleConst.lua",
+      "status": "CHANGED",
+      "baseline": [
+        {
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+          "size": 41809
+        }
+      ],
+      "current": [
+        {
+          "sha256": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+          "size": 41981
+        }
+      ]
+    },
+    {
+      "name": "BattleUtilServer.lua",
+      "status": "CHANGED",
+      "baseline": [
+        {
+          "sha256": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+          "size": 27734
+        }
+      ],
+      "current": [
+        {
+          "sha256": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
+          "size": 27905
+        }
+      ]
+    },
+    {
+      "name": "BattleCmdServer.lua",
+      "status": "CHANGED",
+      "baseline": [
+        {
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "size": 63331
+        }
+      ],
+      "current": [
+        {
+          "sha256": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9",
+          "size": 65998
+        }
+      ]
+    },
+    {
+      "name": "BattleUnitBase.lua",
+      "status": "IDENTICAL",
+      "baseline": [
+        {
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "size": 42806
+        }
+      ],
+      "current": [
+        {
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "size": 42806
+        }
+      ]
+    },
+    {
+      "name": "BattlePropertyServer.lua",
+      "status": "CHANGED",
+      "baseline": [
+        {
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "size": 12131
+        }
+      ],
+      "current": [
+        {
+          "sha256": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5",
+          "size": 12825
+        }
+      ]
+    },
+    {
+      "name": "BattleStateServer.lua",
+      "status": "IDENTICAL",
+      "baseline": [
+        {
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+          "size": 25736
+        }
+      ],
+      "current": [
+        {
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+          "size": 25736
+        }
+      ]
+    },
+    {
+      "name": "BEActiveDamage.lua",
+      "status": "CHANGED",
+      "baseline": [
+        {
+          "sha256": "6d87f4da91293c019579f5d586a093763d3fb1051d6efed8652cdbc3b114e208",
+          "size": 5695
+        }
+      ],
+      "current": [
+        {
+          "sha256": "e192a4ab7db968b526c13d3495b2072f4ac88fe167f524f1defd2d00c747875c",
+          "size": 5730
+        }
+      ]
+    },
+    {
+      "name": "BEPureDamage.lua",
+      "status": "IDENTICAL",
+      "baseline": [
+        {
+          "sha256": "1a8c11026251e91c3d5f9838f8c69dffabf91ba6889ab27dc4893fd8a93771bc",
+          "size": 1724
+        }
+      ],
+      "current": [
+        {
+          "sha256": "1a8c11026251e91c3d5f9838f8c69dffabf91ba6889ab27dc4893fd8a93771bc",
+          "size": 1724
+        }
+      ]
+    },
+    {
+      "name": "BEFixedDamage.lua",
+      "status": "IDENTICAL",
+      "baseline": [
+        {
+          "sha256": "f2b15141a02bd1c251364d969159b0556a280522604b7d02400c2cf12b75c280",
+          "size": 2361
+        }
+      ],
+      "current": [
+        {
+          "sha256": "f2b15141a02bd1c251364d969159b0556a280522604b7d02400c2cf12b75c280",
+          "size": 2361
+        }
+      ]
+    },
+    {
+      "name": "BETentacleAttack.lua",
+      "status": "IDENTICAL",
+      "baseline": [
+        {
+          "sha256": "b766fde3fa479a5944ce5a266a106085fae74431a41183b143960a6b4da29508",
+          "size": 2144
+        }
+      ],
+      "current": [
+        {
+          "sha256": "b766fde3fa479a5944ce5a266a106085fae74431a41183b143960a6b4da29508",
+          "size": 2144
+        }
+      ]
+    },
+    {
+      "name": "BattleReplayPlayer.lua",
+      "status": "IDENTICAL",
+      "baseline": [
+        {
+          "sha256": "3637d629c0ec30d4fff41618c62f2694e5a462577a6eba2e838154dc413a3f14",
+          "size": 12222
+        }
+      ],
+      "current": [
+        {
+          "sha256": "3637d629c0ec30d4fff41618c62f2694e5a462577a6eba2e838154dc413a3f14",
+          "size": 12222
+        }
+      ]
+    },
+    {
+      "name": "BattleRecord.lua",
+      "status": "CHANGED",
+      "baseline": [
+        {
+          "sha256": "aee64145e334f212666d259b6960d16e9a2b9bec751fee9fdba46fa63b8febf1",
+          "size": 27828
+        }
+      ],
+      "current": [
+        {
+          "sha256": "614b5f42dd28a841c340fb43463f5335db198401d6fd974e41a67a36739955db",
+          "size": 27751
+        }
+      ]
+    },
+    {
+      "name": "PVEGameplay.lua",
+      "status": "IDENTICAL",
+      "baseline": [
+        {
+          "sha256": "5da43c24bf5d09b7ad360e74842d033af7d844f982126d0e6730dfc6188b5b09",
+          "size": 8280
+        }
+      ],
+      "current": [
+        {
+          "sha256": "5da43c24bf5d09b7ad360e74842d033af7d844f982126d0e6730dfc6188b5b09",
+          "size": 8280
+        }
+      ]
+    },
+    {
+      "name": "BattleEngine.lua",
+      "status": "CHANGED",
+      "baseline": [
+        {
+          "sha256": "0ee07c8fd06f29787f8139306b55d16c726eaf8cabcd1ad0b128d907c8dbbeea",
+          "size": 64916
+        }
+      ],
+      "current": [
+        {
+          "sha256": "1823d5b962605ccd42ba605840490235fb0c9b5fd751a112625c30101a34535e",
+          "size": 65112
+        }
+      ]
+    },
+    {
+      "name": "BattleUnitUtil.lua",
+      "status": "IDENTICAL",
+      "baseline": [
+        {
+          "sha256": "b664734d7f12a5009b36727d2c3dfde75295b6e2be03edb37c3cf98ee74a1d04",
+          "size": 2400
+        }
+      ],
+      "current": [
+        {
+          "sha256": "b664734d7f12a5009b36727d2c3dfde75295b6e2be03edb37c3cf98ee74a1d04",
+          "size": 2400
+        }
+      ]
+    }
+  ],
+  "compatibility": "REVALIDATION_REQUIRED",
+  "scope": "Installed downloaded manifest and TextAsset content hashes compared with the copied resource-144 checkpoint. Path IDs are ignored because bundle repacking changes them. No module code, account data, replay identifiers or credentials are included.",
+  "limitations": [
+    "Module equality does not prove full-build equality",
+    "Changed modules require method-level review and original-runtime retesting before current-build gameplay can validate the existing calculator",
+    "This report identifies the viewing client build; it does not identify the engine build of a historical replay"
+  ]
+}

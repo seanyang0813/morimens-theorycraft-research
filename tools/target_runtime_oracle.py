@@ -10,8 +10,15 @@ from runtime_oracle import Oracle, ROOT
 
 
 class TargetOracle(Oracle):
-    def __init__(self):
+    def __init__(self, asset_overrides=None):
         super().__init__()
+        asset_overrides = asset_overrides or {}
+        if 'BattleConst' in asset_overrides:
+            self.module('BattleConst', asset_overrides['BattleConst'])
+            self.setglobal(self.state, b'_oracle_bc')
+        if 'BattleUtilServer' in asset_overrides:
+            self.module('BattleUtilServer', asset_overrides['BattleUtilServer'])
+            self.setglobal(self.state, b'_oracle_util')
         self.callbacks = []
         self.errors = []
         self.values = {}
@@ -46,7 +53,7 @@ class TargetOracle(Oracle):
             return 1
         self.callback(require)
         self.setglobal(L, b'require')
-        self.module('BattleCmdServer')
+        self.module('BattleCmdServer', asset_overrides.get('BattleCmdServer'))
         if self.errors:
             raise RuntimeError(self.errors)
         self.setglobal(L, b'_oracle_cmd')

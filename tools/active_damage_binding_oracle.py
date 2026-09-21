@@ -4,8 +4,9 @@ import json
 from target_runtime_oracle import TargetOracle, ROOT
 
 class ActiveBindingOracle(TargetOracle):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, asset_overrides=None):
+        asset_overrides = asset_overrides or {}
+        super().__init__(asset_overrides)
         self.rawseti=self.lib.lua_rawseti
         self.rawseti.argtypes=[C.c_void_p,C.c_int,C.c_longlong];self.rawseti.restype=None
         self.lib.lua_toboolean.argtypes=[C.c_void_p,C.c_int];self.lib.lua_toboolean.restype=C.c_int
@@ -17,7 +18,7 @@ class ActiveBindingOracle(TargetOracle):
             else:self.errors.append(repr(name));self.nil(s)
             return 1
         self.callback(require);self.setglobal(self.state,b'require')
-        self.module('BEActiveDamage');self.setglobal(self.state,b'_binding_active')
+        self.module('BEActiveDamage',asset_overrides.get('BEActiveDamage'));self.setglobal(self.state,b'_binding_active')
         if self.errors:raise RuntimeError(self.errors)
 
     def run(self,v):

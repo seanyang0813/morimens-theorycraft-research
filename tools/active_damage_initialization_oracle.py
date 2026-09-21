@@ -4,15 +4,16 @@ import ctypes as C
 from active_damage_binding_oracle import ActiveBindingOracle, ROOT
 
 class InitializationOracle(ActiveBindingOracle):
-    def __init__(self):
-        super().__init__(); L=self.state
+    def __init__(self, asset_overrides=None):
+        asset_overrides = asset_overrides or {}
+        super().__init__(asset_overrides); L=self.state
         self.kind=self.lib.lua_type;self.kind.argtypes=[C.c_void_p,C.c_int];self.kind.restype=C.c_int
         def new_class(s):
             self.table(s,0,20);self.table(s,0,1)
             self.method('DoEffect',lambda state:0)
             return 2
         self.getglobal(L,b'_oracle_config_system');self.method('NewClass',new_class);self.top(L,0)
-        self.module('BEActiveDamage');self.setglobal(L,b'_initialization_active')
+        self.module('BEActiveDamage',asset_overrides.get('BEActiveDamage'));self.setglobal(L,b'_initialization_active')
 
     def run_init(self,v):
         L=self.state;self.top(L,0);self.errors.clear();self.calls=0

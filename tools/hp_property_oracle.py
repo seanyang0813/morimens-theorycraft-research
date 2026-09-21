@@ -3,8 +3,9 @@ import json
 from target_runtime_oracle import TargetOracle, ROOT
 
 class HpPropertyOracle(TargetOracle):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, asset_overrides=None):
+        asset_overrides = asset_overrides or {}
+        super().__init__(asset_overrides)
         L=self.state
         def require(s):
             name=self.string(s,1,None)
@@ -14,7 +15,7 @@ class HpPropertyOracle(TargetOracle):
             else:self.errors.append(repr(name));self.nil(s)
             return 1
         self.callback(require);self.setglobal(L,b'require')
-        self.module('BattlePropertyServer');self.setglobal(L,b'_hp_property')
+        self.module('BattlePropertyServer',asset_overrides.get('BattlePropertyServer'));self.setglobal(L,b'_hp_property')
         if self.errors:raise RuntimeError(self.errors)
         self.getglobal(L,b'_hp_property')
         self.table(L,0,2)

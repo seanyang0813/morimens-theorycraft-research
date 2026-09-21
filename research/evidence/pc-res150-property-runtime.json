@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_CROSS_BUILD_ORIGINAL_RUNTIME",
+  "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "methods": [
+    "BattlePropertyServer.ctor",
+    "BattlePropertyServer.SubProperty"
+  ],
+  "results": {
+    "initialization": {
+      "fixtures": 24,
+      "exactMatches": 24,
+      "mismatches": 0
+    },
+    "hpSubtraction": {
+      "fixtures": 16,
+      "exactMatches": 16,
+      "mismatches": 0
+    }
+  },
+  "fixtures": 40,
+  "exactMatches": 40,
+  "mismatches": 0,
+  "sourceHashes": {
+    "comparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
+    "baselineBattlePropertyServer": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+    "currentBattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+    "currentBattleUtilServer": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
+    "currentBattleCmdServer": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9",
+    "currentBattlePropertyServer": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5",
+    "initializationFixture": "eadadee6b976ac37f4303dfc5a63828bceff287494079441935f058c482ec8de",
+    "hpSubtractionFixture": "8342ee4859bedb0b6a610555160f5d02a618c60be1b4f8eb5e46399c1b884c4a"
+  },
+  "scope": "Actual resource-150 property bytecode executed through the copied XLua runtime for numeric constructor rounding/mastery initialization and ordinary HP subtraction with explicit adapters.",
+  "limitations": [
+    "No role constructor, post-construction state/property mutation, event dispatch, BeHit, shields or death handling",
+    "Synthetic equality is not an independent gameplay observation or holdout"
+  ]
+}

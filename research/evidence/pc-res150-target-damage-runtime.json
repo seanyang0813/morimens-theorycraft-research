@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_CROSS_BUILD_ORIGINAL_RUNTIME",
+  "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "methods": [
+    "BattleCmdServer.__GetFinalDamage",
+    "BattleCmdServer.GetTargetBeDmgPerMul"
+  ],
+  "fixtures": 2097,
+  "exactMatches": 2097,
+  "mismatches": 0,
+  "excludedInputs": [
+    "cardCritDamage",
+    "skillTypeCritDamage",
+    "awakerCardCritDamage",
+    "beDamagePer4",
+    "beDamagePer5",
+    "cardBlockBarrierPer"
+  ],
+  "sourceHashes": {
+    "comparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
+    "fixture": "79824e34215c8ab798ca38f929342da3cf9eb64d9ef70f55e225920ec71566f6",
+    "baselineBattleCmdServer": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+    "currentBattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+    "currentBattleUtilServer": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
+    "currentBattleCmdServer": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9",
+    "copiedXluaRuntime": "64d312e26ae5d996d8612bb77fab4c8ea4cd8807cb4c9a8e79a0bf526b98aba9"
+  },
+  "scope": "The actual resource-150 BattleConst, BattleUtilServer and BattleCmdServer bytecode was loaded through the copied client XLua runtime and evaluated over every existing no-card final-target damage fixture. Exact equality establishes behavior only over this explicit synthetic domain.",
+  "limitations": [
+    "Card critical contributions, skill-tag critical contributions, be_damage_per4/5 and card block-barrier input branches remain outside the inherited fixture domain",
+    "The changed BattlePropertyServer, BEActiveDamage, BattleRecord and BattleEngine modules are not covered here",
+    "Synthetic cross-build equality is not an independent gameplay observation or publication holdout"
+  ]
+}

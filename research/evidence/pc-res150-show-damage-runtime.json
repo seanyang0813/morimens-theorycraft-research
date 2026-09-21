@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_CROSS_BUILD_ORIGINAL_RUNTIME",
+  "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "method": "BattleUtilServer.ShowDamageFormula",
+  "fixtures": 2262,
+  "exactMatches": 2262,
+  "mismatches": 0,
+  "sourceHashes": {
+    "comparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
+    "fixture": "cddc7d08ae00d1b3bd663b04afd65535467d56b9df81a32c34a13ee997ed252f",
+    "baselineBattleUtilServer": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+    "currentBattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+    "currentBattleUtilServer": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
+    "copiedXluaRuntime": "64d312e26ae5d996d8612bb77fab4c8ea4cd8807cb4c9a8e79a0bf526b98aba9"
+  },
+  "scope": "The actual resource-150 BattleConst and BattleUtilServer bytecode was loaded through the copied client XLua runtime and evaluated over every existing ShowDamageFormula fixture. Exact equality establishes behavior only over this explicit synthetic domain.",
+  "limitations": [
+    "The resource-150 BattleCmdServer, BattlePropertyServer, BEActiveDamage, BattleRecord and BattleEngine changes are not covered here",
+    "Target, critical, HP, state, command, replay and lifecycle paths require separate current-build review",
+    "Synthetic cross-build equality is not an independent gameplay observation or publication holdout"
+  ]
+}
