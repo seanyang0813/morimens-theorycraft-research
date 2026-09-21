@@ -5,7 +5,7 @@ import {readFileSync} from 'node:fs';
 const report=JSON.parse(readFileSync(new URL('./synthetic/original-active-effect-execution.json',import.meta.url)));
 
 test('original Active effect dispatches through the real child into Damage2SingleTarget',()=>{
-  assert.equal(report.fixtures.length,4);
+  assert.equal(report.fixtures.length,5);
   const one=report.fixtures.find(row=>row.input.name==='one-hit').expected;
   assert.equal(one.eligible,true);
   assert.equal(one.executed,true);
@@ -36,4 +36,13 @@ test('original Active effect dispatches through the real child into Damage2Singl
   assert.deepEqual(skipped.hitEvents,[{castDamage:150,changeVal:150,realDamage:150,curHp:850,isCrit:true},{castDamage:150,changeVal:150,realDamage:150,curHp:700,isCrit:true}]);
   assert.equal(skipped.hpAfter,700);
   assert.deepEqual(skipped.delays,[.5,0,0,0,0]);
+  const lethal=report.fixtures.find(row=>row.input.name==='lethal-monster-request-boundary').expected;
+  assert.equal(lethal.hpAfter,0);
+  assert.deepEqual(lethal.hitEvents,[{castDamage:100,changeVal:100,realDamage:50,curHp:0,isCrit:false}]);
+  assert.deepEqual(lethal.deathConfigs,[
+    {effectType:'BERoleDeadlyDamage',roleUid:20,castRoleUid:1,fromCmdServerUid:77,hpChangeReason:2,castDamage:100,overflowDamage:50},
+    {effectType:'BERoleDie',roleUid:20,fromCmdServerUid:77,hpChangeReason:2},
+  ]);
+  assert.deepEqual(lethal.eventEffects.map(row=>row.event),['RoleHpChanged','RoleHpperChanged','DoDamage','BeDamage','ActiveDamageKill']);
+  assert.equal(lethal.managerEffectCount,4);
 });

@@ -2202,8 +2202,8 @@
     {
       "id": "PC144:ActiveEffectExecutionBoundary",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
-      "claim": "Effect-manager construction of BEActiveDamage proceeds through original repetition routing, formula, BeHit, HP mutation and nonlethal event requests",
-      "scope": "4 original-runtime positive-repeat cases with explicit neutral PvE actor/player/target adapters and empty skill types. Property-send/hit/event-factory callbacks are observers and animation is a no-op adapter. Event listeners, death path, scheduler completion, gameplay and holdout remain outside scope.",
+      "claim": "Effect-manager construction of BEActiveDamage proceeds through original repetition routing, formula, BeHit, HP mutation, nonlethal event requests and a lethal monster death/kill-request boundary",
+      "scope": "5 original-runtime positive-repeat cases with explicit neutral PvE actor/player/target adapters and empty skill types. One lethal case observes BERoleDeadlyDamage and BERoleDie constructor requests without executing their bodies. Property-send/hit/event-factory callbacks are observers and animation is a no-op adapter. Event listeners, death-effect execution, scheduler completion, gameplay and holdout remain outside scope.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -2233,7 +2233,7 @@
         },
         {
           "module": "BattleUnitBase",
-          "member": "BeHit,ImmueDamage,SubProperty,OnPropertyChanged,DoDamageEvent",
+          "member": "BeHit,ImmueDamage,SubProperty,OnPropertyChanged,DoDamageEvent,CheckDeathEvent",
           "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410"
         },
         {
@@ -2243,7 +2243,7 @@
         },
         {
           "module": "BattleLogicEvent",
-          "member": "RoleHpChanged,RoleHpperChanged,DoDamage,BeDamage",
+          "member": "RoleHpChanged,RoleHpperChanged,DoDamage,BeDamage,ActiveDamageKill",
           "sha256": "cef7477d60a84d8ac4f4b097436a39628d37ff5c54bd8f44d08828d75ad80c4a"
         }
       ],
@@ -3977,8 +3977,8 @@
     {
       "id": "PC150:SkillPhaseSelectedBoundary",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
-      "claim": "Resource 150 reproduces all 256 inherited connected phase-start, TriggerCmd, effect-construction, Active/Function-effect, formula/HP/event-request, cleanup, target-handoff, argument, timing and command-row-order fixtures exactly",
-      "scope": "BECreateSkillPhase start through BattleCmdServer TriggerCmd and child PreTrigger; original GenerateEffectObj through original effect-manager creation; real BEActiveDamage/BEFunctionEffect construction, repetition routing, formula, BattleUnitBase.BeHit, BattlePropertyServer HP mutation and nonlethal event-request order; phase cleanup, arguments, delay planning, row ordering and selected parser paths. Connected hit fixtures use explicit neutral PvE adapters and empty skill types; property-send/hit/event-factory observers and a no-op animation adapter remain. Event listeners, death path, target-expression initialization, complete card phases, gameplay and holdout credit remain outside scope.",
+      "claim": "Resource 150 reproduces all 257 inherited connected phase-start, TriggerCmd, effect-construction, Active/Function-effect, formula/HP/event-request, cleanup, target-handoff, argument, timing and command-row-order fixtures exactly",
+      "scope": "BECreateSkillPhase start through BattleCmdServer TriggerCmd and child PreTrigger; original GenerateEffectObj through original effect-manager creation; real BEActiveDamage/BEFunctionEffect construction, repetition routing, formula, BattleUnitBase.BeHit, BattlePropertyServer HP mutation, nonlethal event-request order and one lethal monster death/kill-request boundary; phase cleanup, arguments, delay planning, row ordering and selected parser paths. Connected hit fixtures use explicit neutral PvE adapters and empty skill types; property-send/hit/event-factory observers and a no-op animation adapter remain. BERoleDeadlyDamage and BERoleDie constructors are request observers only; death-effect bodies, event listeners, target-expression initialization, complete card phases, gameplay and holdout credit remain outside scope.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -3989,7 +3989,7 @@
         {
           "module": "PC resource-150 selected skill-phase runtime comparison",
           "member": "fixture-domain result",
-          "sha256": "309a21a576b5dd08ee06d151e47fc7a33e6d624bcc949f884e2e81966779be69"
+          "sha256": "99d30641cbeddcdcc6a2c601bbd9fb0393e0349e462fb508117229313f1f7fc4"
         }
       ],
       "checks": [

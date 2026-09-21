@@ -77,10 +77,12 @@ class ActiveEffectExecutionOracle(SetupOracle):
         self.callback(unit_require);self.setglobal(L,b'require');self.module('BattleUnitUtil',asset_overrides.get('BattleUnitUtil'));self.setglobal(L,b'_active_unit_util');self.module('BattleUnitBase',asset_overrides.get('BattleUnitBase'));self.setglobal(L,b'_active_unit')
         self.active_ctor_cb=C.CFUNCTYPE(C.c_int,C.c_void_p)(self._construct_active);self.callbacks.append(self.active_ctor_cb)
         self.function_ctor_cb=C.CFUNCTYPE(C.c_int,C.c_void_p)(self._construct_function);self.callbacks.append(self.function_ctor_cb)
+        self.death_request_ctor_cb=C.CFUNCTYPE(C.c_int,C.c_void_p)(self._construct_death_request);self.callbacks.append(self.death_request_ctor_cb)
         def runtime_require(s):
             name=self.string(s,1,None)
             if name==b'Battle.DbgEngine.Effect.BEActiveDamage':self.pushclosure(s,self.active_ctor_cb,0)
             elif name==b'Battle.DbgEngine.Effect.BEFunctionEffect':self.pushclosure(s,self.function_ctor_cb,0)
+            elif name in (b'Battle.DbgEngine.Effect.BERoleDeadlyDamage',b'Battle.DbgEngine.Effect.BERoleDie'):self.pushclosure(s,self.death_request_ctor_cb,0)
             else:self.errors.append(repr(name));self.nil(s)
             return 1
         self.callback(runtime_require);self.setglobal(L,b'require')
@@ -107,12 +109,23 @@ class ActiveEffectExecutionOracle(SetupOracle):
         self.method('CheckCondition',lambda state:(self.boolean(state,True),1)[1]);self.setglobal(s,b'_function_object')
         self.getglobal(s,b'_function_class');self.getfield(s,-1,b'ctor');self.getglobal(s,b'_function_object');self.getglobal(s,b'_function_engine_arg');self.getglobal(s,b'_function_config_arg');self.check(self.call(s,3,0,0,0,None));self.top(s,0);self.getglobal(s,b'_function_object');return 1
 
+    def _construct_death_request(self,s):
+        row={}
+        for name in ('effectType','roleUid','castRoleUid','fromCmdServerUid','hpChangeReason','castDamage','overflowDamage'):
+            self.getfield(s,2,name.encode())
+            kind=self.kind(s,-1)
+            if kind==3:row[name]=self.tonumber(s,-1,None)
+            elif kind==4:row[name]=self.string(s,-1,None).decode()
+            self.top(s,-2)
+        self.deathConfigs.append(row)
+        self.table(s,0,2);self.method('PreTrigger',lambda state:0);return 1
+
     def _array(self,s,values):
         self.table(s,len(values),0)
         for index,value in enumerate(values,1):self.number(s,value);self.rawset(s,-2,index)
 
     def run_active(self,v):
-        L=self.state;self.top(L,0);self.errors.clear();self.childConfigs=[];self.childPreTriggers=[];self.delays=[];self.hitEvents=[];self.propertyEvents=[];self.eventEffects=[];self.formulaOutputs=[];self.nextUid=100
+        L=self.state;self.top(L,0);self.errors.clear();self.childConfigs=[];self.deathConfigs=[];self.childPreTriggers=[];self.delays=[];self.hitEvents=[];self.propertyEvents=[];self.eventEffects=[];self.formulaOutputs=[];self.nextUid=100
         self.values={
             'caster':{'damagetimes_plus':v['plus'],'damagetimes_per':v['per'],'crit_damage':v['critDamage'],'crit_damage_per':0},
             'player':{},'tags':[],'dimensionFixPer':0,'skillArgsPlus':0,
@@ -121,7 +134,7 @@ class ActiveEffectExecutionOracle(SetupOracle):
             'enemyBuffDmgPer':0,'enemyDebuffDmgPer':0,'enemyBlockDmgPer':0,'enemyBlockBarrierDmgPer':0,
         }
         event_names={}
-        for name in ('RoleHpChanged','RoleHpperChanged','DoDamage','BeDamage'):
+        for name in ('RoleHpChanged','RoleHpperChanged','DoDamage','BeDamage','ActiveDamageKill'):
             self.getglobal(L,b'_active_logic_events');self.getfield(L,-1,name.encode());event_names[self.tonumber(L,-1,None)]=name;self.top(L,0)
         self.table(L,0,10)
         for name in ('CreateEffect','GetParentEffectUid','GetEffectByUid','SetRunningEffect'):
@@ -166,7 +179,7 @@ class ActiveEffectExecutionOracle(SetupOracle):
         for name,key in [('GetDamagePer2MonsterType','enemyTypeDmgPer'),('GetDamagePer2HasState','enemyStateDmgMultiplier'),('GetDamagePer2BuffEnemy','enemyBuffDmgPer'),('GetDamagePer2DebuffEnemy','enemyDebuffDmgPer'),('GetDamagePer2Block','enemyBlockDmgPer'),('GetDamagePer2BlockBarrier','enemyBlockBarrierDmgPer')]:
             self.method(name,lambda s,key=key:(self.number(s,self.values[key]),1)[1])
         self.setglobal(L,b'_active_caster')
-        self.getglobal(L,b'_active_unit');self.number(L,20);self.setfield(L,-2,b'uid');self.table(L,0,1);self.number(L,0);self.setfield(L,-2,b'fsmState');self.setfield(L,-2,b'data');self.getglobal(L,b'_active_property');self.setfield(L,-2,b'property');self.getglobal(L,b'_active_engine');self.setfield(L,-2,b'battleEngine')
+        self.getglobal(L,b'_active_unit');self.number(L,20);self.setfield(L,-2,b'uid');self.table(L,0,1);self.number(L,0);self.setfield(L,-2,b'fsmState');self.setfield(L,-2,b'data');self.getglobal(L,b'_active_property');self.setfield(L,-2,b'property');self.getglobal(L,b'_active_engine');self.setfield(L,-2,b'battleEngine');self.method('PreCheckDeathEvent',lambda s:(self.boolean(s,v.get('deathEligible',False)),1)[1])
         self.method('GetBattleLogName',lambda s:(self.pushstring(s,b'Synthetic target'),1)[1]);self.method('TryChangeToBeHitState',lambda s:0);self.setglobal(L,b'_active_target')
         target_props={'hp':v['hp'],'max_hp':v['hp'],'block':0,'immue_damage':0,'PreventBeActiveDamage':0,'PreventBeActiveDamageRetainHP':0,'be_damage_limit':0,'be_damage_statics':0,'pvp_death_resist':0,'be_damage_per':0,'be_damage_per2':0,'be_damage_per3':0,'vulnerable_per':0,'be_damage_plus':0}
         self.getglobal(L,b'_active_property');self.table(L,0,len(target_props))
@@ -192,7 +205,7 @@ class ActiveEffectExecutionOracle(SetupOracle):
         if v['extraRepeat']:
             self.getglobal(L,b'_active_effect');self.getfield(L,-1,b'DoMultiEffect');self.getglobal(L,b'_active_effect');self.check(self.call(L,1,1,0,0,None));self.top(L,0)
         self.getglobal(L,b'_active_manager');self.getfield(L,-1,b'effectList');child_count=self.length(L,-1);self.top(L,0)
-        for index in range(2,child_count+1):
+        for index in range(2,2+len(self.childConfigs)):
             self.getglobal(L,b'_active_manager');self.getfield(L,-1,b'effectList');self.rawget(L,-1,index);self.setglobal(L,b'_active_child');self.top(L,0)
             self.getglobal(L,b'_active_child');self.getfield(L,-1,b'PreTrigger');self.getglobal(L,b'_active_child');self.check(self.call(L,1,0,0,0,None));self.top(L,0);self.childPreTriggers.append(None)
             self.getglobal(L,b'_active_child');self.getfield(L,-1,b'TryDoEffect');self.getglobal(L,b'_active_child');self.check(self.call(L,1,1,0,0,None));child_eligible=bool(self.tobool(L,-1));self.top(L,0)
@@ -204,7 +217,7 @@ class ActiveEffectExecutionOracle(SetupOracle):
         self.top(L,0);self.getglobal(L,b'_active_manager');self.getfield(L,-1,b'effectList');manager_count=self.length(L,-1);self.top(L,0)
         if self.errors:raise RuntimeError(self.errors)
         self.getglobal(L,b'_active_property');self.getfield(L,-1,b'properties');self.getfield(L,-1,b'hp');hp_after=self.tonumber(L,-1,None);self.top(L,0)
-        return {'eligible':eligible,'executed':executed,'effect':result,'managerEffectCount':manager_count,'childConfigs':self.childConfigs,'childPreTriggers':self.childPreTriggers,'formulaOutputs':self.formulaOutputs,'hitEvents':self.hitEvents,'propertyEvents':self.propertyEvents,'eventEffects':self.eventEffects,'hpAfter':hp_after,'delays':self.delays}
+        return {'eligible':eligible,'executed':executed,'effect':result,'managerEffectCount':manager_count,'childConfigs':self.childConfigs,'deathConfigs':self.deathConfigs,'childPreTriggers':self.childPreTriggers,'formulaOutputs':self.formulaOutputs,'hitEvents':self.hitEvents,'propertyEvents':self.propertyEvents,'eventEffects':self.eventEffects,'hpAfter':hp_after,'delays':self.delays}
 
 
 CASES=[
@@ -212,13 +225,14 @@ CASES=[
  {'name':'flat-repeat','baseDamage':100,'repeat':2,'plus':1,'per':0,'crit':True,'critDamage':50,'hp':1000,'beforeDelay':0,'multiDelay':.2,'skipPhase':False,'extraRepeat':True},
  {'name':'percent-repeat','baseDamage':100,'repeat':2,'plus':0,'per':50,'crit':False,'critDamage':50,'hp':1000,'beforeDelay':.5,'multiDelay':.25,'skipPhase':False,'extraRepeat':True},
  {'name':'skip-phase','baseDamage':100,'repeat':2,'plus':0,'per':0,'crit':True,'critDamage':50,'hp':1000,'beforeDelay':.5,'multiDelay':.25,'skipPhase':True,'extraRepeat':True},
+ {'name':'lethal-monster-request-boundary','baseDamage':100,'repeat':1,'plus':0,'per':0,'crit':False,'critDamage':50,'hp':50,'beforeDelay':0,'multiDelay':.2,'skipPhase':False,'extraRepeat':False,'deathEligible':True},
 ]
 
 
 def main():
     oracle=ActiveEffectExecutionOracle();fixtures=[{'input':row,'expected':oracle.run_active(row)} for row in CASES]
     output=ROOT/'tests/synthetic/original-active-effect-execution.json'
-    output.write_text(json.dumps({'kind':'SYNTHETIC_ORIGINAL_RUNTIME','build':'pc-res144-build51','sourceHashes':{name:oracle.assets[name+'.lua']['sha256'] for name in ('BattleEffectMgrServer','BattleEffectServer','BEActiveDamage','BEFunctionEffect','BattleCmdServer','BattleUtilServer','BattleConst','BattleUnitBase','BattleUnitUtil','BattlePropertyServer','BattleLogicEvent')},'scope':'Original effect-manager creation of BEActiveDamage and BEFunctionEffect, target/parameter binding, repetition routing, Function dispatch, Damage2SingleTarget, GetRealDmg arithmetic, BattleUnitBase.BeHit, BattlePropertyServer HP mutation, original HP-change callbacks and original nonlethal DoDamageEvent request order. Explicit neutral PvE actor/player/target adapters and empty skill types; table.contains is an explicit false adapter for that empty list. Property-send/hit/event-factory callbacks are observers and animation is a no-op adapter. Event listeners, death path, scheduler completion, gameplay and holdout remain outside scope.','fixtures':fixtures},indent=2)+'\n',encoding='utf-8',newline='\n');print('Generated',len(fixtures),'active-effect execution cases')
+    output.write_text(json.dumps({'kind':'SYNTHETIC_ORIGINAL_RUNTIME','build':'pc-res144-build51','sourceHashes':{name:oracle.assets[name+'.lua']['sha256'] for name in ('BattleEffectMgrServer','BattleEffectServer','BEActiveDamage','BEFunctionEffect','BattleCmdServer','BattleUtilServer','BattleConst','BattleUnitBase','BattleUnitUtil','BattlePropertyServer','BattleLogicEvent')},'scope':'Original effect-manager creation of BEActiveDamage and BEFunctionEffect, target/parameter binding, repetition routing, Function dispatch, Damage2SingleTarget, GetRealDmg arithmetic, BattleUnitBase.BeHit, BattlePropertyServer HP mutation, original HP-change callbacks, DoDamageEvent request order and selected lethal monster request boundary. Explicit neutral PvE actor/player/target adapters and empty skill types; table.contains is an explicit false adapter for that empty list. Property-send/hit/event-factory callbacks are observers and animation is a no-op adapter. BERoleDeadlyDamage and BERoleDie constructors are request observers only: death effects and event listeners are not executed. Scheduler completion, gameplay and holdout remain outside scope.','fixtures':fixtures},indent=2)+'\n',encoding='utf-8',newline='\n');print('Generated',len(fixtures),'active-effect execution cases')
 
 
 if __name__=='__main__':main()

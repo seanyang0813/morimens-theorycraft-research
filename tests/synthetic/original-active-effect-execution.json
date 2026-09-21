@@ -11,9 +11,10 @@
     "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
     "BattleUnitBase": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
     "BattleUnitUtil": "b664734d7f12a5009b36727d2c3dfde75295b6e2be03edb37c3cf98ee74a1d04",
-    "BattlePropertyServer": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76"
+    "BattlePropertyServer": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+    "BattleLogicEvent": "cef7477d60a84d8ac4f4b097436a39628d37ff5c54bd8f44d08828d75ad80c4a"
   },
-  "scope": "Original effect-manager creation of BEActiveDamage and BEFunctionEffect, original constructors, target/parameter binding, repetition routing, Function dispatch, Damage2SingleTarget, GetRealDmg offensive/final-target arithmetic, BattleUnitBase.BeHit and BattlePropertyServer HP mutation. Explicit neutral PvE actor/player/target adapters and empty skill types; table.contains is an explicit false adapter for that empty list. Property callbacks and hit recording are observers; animation and downstream damage/death event dispatch are no-op adapters. No scheduler completion, event lifecycle, gameplay or holdout.",
+  "scope": "Original effect-manager creation of BEActiveDamage and BEFunctionEffect, target/parameter binding, repetition routing, Function dispatch, Damage2SingleTarget, GetRealDmg arithmetic, BattleUnitBase.BeHit, BattlePropertyServer HP mutation, original HP-change callbacks, DoDamageEvent request order and selected lethal monster request boundary. Explicit neutral PvE actor/player/target adapters and empty skill types; table.contains is an explicit false adapter for that empty list. Property-send/hit/event-factory callbacks are observers and animation is a no-op adapter. BERoleDeadlyDamage and BERoleDie constructors are request observers only: death effects and event listeners are not executed. Scheduler completion, gameplay and holdout remain outside scope.",
   "fixtures": [
     {
       "input": {
@@ -46,6 +47,7 @@
             "targetUid": 20.0
           }
         ],
+        "deathConfigs": [],
         "childPreTriggers": [
           null
         ],
@@ -136,6 +138,7 @@
             "targetUid": 20.0
           }
         ],
+        "deathConfigs": [],
         "childPreTriggers": [
           null,
           null
@@ -266,6 +269,7 @@
             "targetUid": 20.0
           }
         ],
+        "deathConfigs": [],
         "childPreTriggers": [
           null,
           null
@@ -396,6 +400,7 @@
             "targetUid": 20.0
           }
         ],
+        "deathConfigs": [],
         "childPreTriggers": [
           null,
           null
@@ -486,6 +491,117 @@
         "delays": [
           0.5,
           0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "lethal-monster-request-boundary",
+        "baseDamage": 100,
+        "repeat": 1,
+        "plus": 0,
+        "per": 0,
+        "crit": false,
+        "critDamage": 50,
+        "hp": 50,
+        "beforeDelay": 0,
+        "multiDelay": 0.2,
+        "skipPhase": false,
+        "extraRepeat": false,
+        "deathEligible": true
+      },
+      "expected": {
+        "eligible": true,
+        "executed": true,
+        "effect": {
+          "uid": 101.0,
+          "parentEffectUid": 0.0,
+          "preTriggerTime": 12.5,
+          "totalEffectTimes": 1.0,
+          "leftEffectTimes": 0.0
+        },
+        "managerEffectCount": 4,
+        "childConfigs": [
+          {
+            "targetUid": 20.0
+          }
+        ],
+        "deathConfigs": [
+          {
+            "effectType": "BERoleDeadlyDamage",
+            "roleUid": 20.0,
+            "castRoleUid": 1.0,
+            "fromCmdServerUid": 77.0,
+            "hpChangeReason": 2.0,
+            "castDamage": 100.0,
+            "overflowDamage": 50.0
+          },
+          {
+            "effectType": "BERoleDie",
+            "roleUid": 20.0,
+            "fromCmdServerUid": 77.0,
+            "hpChangeReason": 2.0
+          }
+        ],
+        "childPreTriggers": [
+          null
+        ],
+        "formulaOutputs": [
+          100.0,
+          100.0
+        ],
+        "hitEvents": [
+          {
+            "castDamage": 100.0,
+            "changeVal": 100.0,
+            "realDamage": 50.0,
+            "curHp": 0.0,
+            "isCrit": false
+          }
+        ],
+        "propertyEvents": [
+          {
+            "kind": "send",
+            "property": "hp",
+            "delta": -50.0,
+            "new": 0.0
+          }
+        ],
+        "eventEffects": [
+          {
+            "event": "RoleHpChanged",
+            "oldValue": 50.0,
+            "newValue": 0.0
+          },
+          {
+            "event": "RoleHpperChanged",
+            "oldValue": 50.0,
+            "newValue": 0.0
+          },
+          {
+            "event": "DoDamage",
+            "changeVal": 100.0,
+            "castDamage": 100.0,
+            "curHp": 0.0
+          },
+          {
+            "event": "BeDamage",
+            "changeVal": 100.0,
+            "castDamage": 100.0,
+            "curHp": 0.0
+          },
+          {
+            "event": "ActiveDamageKill",
+            "changeVal": 100.0,
+            "castDamage": 100.0,
+            "curHp": 0.0
+          }
+        ],
+        "hpAfter": 0.0,
+        "delays": [
           0.0,
           0.0,
           0.0
