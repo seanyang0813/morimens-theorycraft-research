@@ -46,6 +46,7 @@
   "card-action-example.mjs",
   "card-action-timeline.mjs",
   "card-order-search.mjs",
+  "create-card-command.mjs",
   "active-command-experiment.mjs",
   "passive-command-experiment.mjs",
   "fixed-pure-command-experiment.mjs",

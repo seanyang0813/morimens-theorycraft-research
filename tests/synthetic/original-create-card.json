@@ -1,0 +1,307 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BECreateCard": "f068ef334f66ac38cbc48c4829a3bb26d05476c904e0b562c00561fc80e7d3f6"
+  },
+  "scope": "Original BECreateCard.DoEffect through AddNewCard with explicit target-card, command and manager adapters. Card-manager mutation is observed but replaced; no draw/hand limits, card execution, gameplay or holdout credit.",
+  "fixtures": [
+    {
+      "input": {
+        "name": "unsupported-deck",
+        "params": [
+          {
+            "cardDeck": "NoSuchDeck",
+            "__camp": 3
+          }
+        ],
+        "targets": [
+          {
+            "id": 1001
+          }
+        ]
+      },
+      "expected": {
+        "returned": false,
+        "events": [
+          {
+            "warn": "\u521b\u5efa\u5361\u724c\u5230\u4e0d\u652f\u6301\u7684\u724c\u5806 NoSuchDeck"
+          }
+        ],
+        "outputTargetUids": [
+          null
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "empty-targets",
+        "params": [
+          {
+            "cardDeck": "HandDeck",
+            "__camp": 3
+          }
+        ],
+        "targets": []
+      },
+      "expected": {
+        "returned": true,
+        "events": [],
+        "outputTargetUids": []
+      }
+    },
+    {
+      "input": {
+        "name": "default-copy-args",
+        "params": [
+          {
+            "cardDeck": "HandDeck",
+            "__camp": 3
+          },
+          null,
+          2.2
+        ],
+        "targets": [
+          {
+            "id": 1001,
+            "level": 7,
+            "specialOwner": 88,
+            "performSkillId": 123,
+            "cardTypes": "copied-types",
+            "createCardArgs": [
+              11,
+              22
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "addNewCard": {
+              "cards": [
+                {
+                  "tid": 1001.0,
+                  "level": 7.0
+                },
+                {
+                  "tid": 1001.0,
+                  "level": 7.0
+                },
+                {
+                  "tid": 1001.0,
+                  "level": 7.0
+                }
+              ],
+              "deck": "HandDeck",
+              "config": {
+                "enternal": 0.0,
+                "show": true,
+                "castRoleUid": 77.0,
+                "owner": 88.0,
+                "camp": 3.0,
+                "performSkillId": 123.0,
+                "cardTypes": "copied-types",
+                "cardArgs": [
+                  11.0,
+                  22.0
+                ]
+              }
+            }
+          }
+        ],
+        "outputTargetUids": [
+          9001.0,
+          9002.0,
+          9003.0
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "explicit-args-hidden",
+        "params": [
+          {
+            "cardDeck": "HandDeck",
+            "__camp": 6
+          },
+          null,
+          1,
+          null,
+          0,
+          31,
+          32,
+          33
+        ],
+        "castRoleUid": 44,
+        "targets": [
+          {
+            "id": 1002,
+            "level": 5
+          }
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "addNewCard": {
+              "cards": [
+                {
+                  "tid": 1002.0,
+                  "level": 5.0
+                }
+              ],
+              "deck": "HandDeck",
+              "config": {
+                "enternal": 0.0,
+                "show": false,
+                "castRoleUid": 44.0,
+                "owner": 0.0,
+                "camp": 6.0,
+                "performSkillId": 0.0,
+                "cardTypes": "types",
+                "cardArgs": [
+                  31.0,
+                  32.0,
+                  33.0
+                ]
+              }
+            }
+          }
+        ],
+        "outputTargetUids": [
+          9001.0
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "explicit-args-shown",
+        "params": [
+          {
+            "cardDeck": "HandDeck",
+            "__camp": 3
+          },
+          null,
+          1,
+          null,
+          1,
+          41
+        ],
+        "targets": [
+          {
+            "id": 1003
+          }
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "addNewCard": {
+              "cards": [
+                {
+                  "tid": 1003.0,
+                  "level": 1.0
+                }
+              ],
+              "deck": "HandDeck",
+              "config": {
+                "enternal": 0.0,
+                "show": true,
+                "castRoleUid": 77.0,
+                "owner": 0.0,
+                "camp": 3.0,
+                "performSkillId": 0.0,
+                "cardTypes": "types",
+                "cardArgs": [
+                  41.0
+                ]
+              }
+            }
+          }
+        ],
+        "outputTargetUids": [
+          9001.0
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "multiple-target-cards",
+        "params": [
+          {
+            "cardDeck": "DrawDeck",
+            "__camp": 4
+          },
+          null,
+          1,
+          9
+        ],
+        "targets": [
+          {
+            "id": 1004,
+            "level": 2
+          },
+          {
+            "id": 1005,
+            "level": 3
+          }
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "addNewCard": {
+              "cards": [
+                {
+                  "tid": 1004.0,
+                  "level": 2.0
+                }
+              ],
+              "deck": "DrawDeck",
+              "config": {
+                "enternal": 9.0,
+                "show": true,
+                "castRoleUid": 77.0,
+                "owner": 0.0,
+                "camp": 4.0,
+                "performSkillId": 0.0,
+                "cardTypes": "types",
+                "cardArgs": []
+              }
+            }
+          },
+          {
+            "addNewCard": {
+              "cards": [
+                {
+                  "tid": 1005.0,
+                  "level": 3.0
+                }
+              ],
+              "deck": "DrawDeck",
+              "config": {
+                "enternal": 9.0,
+                "show": true,
+                "castRoleUid": 77.0,
+                "owner": 0.0,
+                "camp": 4.0,
+                "performSkillId": 0.0,
+                "cardTypes": "types",
+                "cardArgs": []
+              }
+            }
+          }
+        ],
+        "outputTargetUids": [
+          9001.0,
+          9001.0
+        ]
+      }
+    }
+  ]
+}

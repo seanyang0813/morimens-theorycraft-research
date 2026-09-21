@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-create-card-command",
+  "build": "pc-res144-build51",
+  "deckExpression": {
+    "cardDeck": "HandDeck",
+    "camp": 3
+  },
+  "count": 2.2,
+  "enternal": null,
+  "show": null,
+  "explicitCardArgs": null,
+  "castRoleUid": 77,
+  "targets": [
+    {
+      "id": 1001,
+      "level": 7,
+      "specialOwner": 88,
+      "performSkillId": 123,
+      "cardTypes": ["Instruction"],
+      "createCardArgs": [11, 22]
+    }
+  ]
+}

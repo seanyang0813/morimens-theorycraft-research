@@ -1,13 +1,13 @@
 {
-  "generatedAtUtc": "2026-09-21T15:34:21.636713+00:00",
+  "generatedAtUtc": "2026-09-21T15:46:36.156303+00:00",
   "publicationStatus": "NOT_READY",
   "publicationAuthorized": false,
   "automatedSuite": {
-    "testFiles": 195,
+    "testFiles": 196,
     "passed": true,
     "exitCode": 0,
     "log": "research\\evidence\\latest-test-suite.tap",
-    "logSha256": "9ff991212855d30a77865eb0c76e49f6313ed6e86d754dacbcd19f60580a87e1"
+    "logSha256": "b7c6399e6a4037513a3d0eeb9408881b1871db8b7f3c9463fad7601689ea4df9"
   },
   "realObservations": {
     "records": 3,
@@ -372,6 +372,10 @@
     },
     {
       "module": "card-order-search.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "create-card-command.mjs",
       "matchesResearchEngine": true
     },
     {

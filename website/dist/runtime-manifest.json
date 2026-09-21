@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "02200d11e7fa316a9031f1f30ffdb2478f2840a502ff5385971f90fa7eea5c01",
+  "fingerprint": "269f1966619b63bc20271046612813a3bf4f3c65cb5564a76e2539aead02ad51",
   "files": {
     "build-catalog.json": "2d1188fadcaff7a1eb53af580c509756b21a3f003065c7c9036aa919958a1496",
     "client-build-data.json": "70a21813f8a491f521323971e6a6af9d1250102ad5bb76db8b16f80730fe7e34",
@@ -33,6 +33,7 @@
     "engine/command-expressions.mjs": "13228f83821241b9812b9ad1198e96f9fba8963abbebd66c53a209a5cadc8131",
     "engine/command-gate.mjs": "58ae3fc68adb7c70038539ee484052f3c6e23ad84a25ea23a81868efffde97db",
     "engine/command-rows.mjs": "f44d5bbb4036e84fe8c6c900dcb35ce719b60f460f424221faea970162e556ab",
+    "engine/create-card-command.mjs": "2a95072246692eb5f24efdb2f80bc62b61fa09c0df48a42c21ffa402ac5aec24",
     "engine/crit-resolution.mjs": "58841b28db82b3d4e2c8493616a64d8995650dbd9717f8296adf03b27ea91eae",
     "engine/damage-energy-command.mjs": "039aca152a761da8cb86483ee7e0b0cad517d5e8f61d46c0c259a2a7a5d5c782",
     "engine/damage-energy-example.mjs": "74a3418458d1038101196466edaebb229b704e3e2386a3465aceb122f8301f89",
@@ -95,7 +96,7 @@
     "engine/ulti-energy-experiment.mjs": "6de163423a1e99c6be4922093711a797fa3012554589484c4ae5fd864bc35973",
     "engine/ulti-energy-gain.mjs": "08a4f4f32a7700422d6999e19e0e58fb2cace3bcbf7d0a910a9bcacf3b520468",
     "engine/wheel-stats.mjs": "484a5b4a51fbbd9c4759b27457ae9eec71fceb0420354823f54654edfb78fadd",
-    "rules.json": "0b4d64f3df11665f64c5b9068ec1f1f1d6945299dd761e7ff764e44e8c8f0f0a",
+    "rules.json": "8f770aa794267dd6ceedc317fadf761d4800fba36db81fea5fcbeb8a05af4337",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af"
   }
 }

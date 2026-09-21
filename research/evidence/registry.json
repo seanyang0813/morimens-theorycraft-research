@@ -4945,6 +4945,37 @@
       "limitations": "Actual replay card identity and animation binding unresolved; history state-filter branch not runtime tested"
     },
     {
+      "id": "PC144:GeneratedCardRequest",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "BECreateCard rounds requested count upward, preserves selected card identity and level, resolves show/argument defaults, and sends caster, camp, special-owner, perform-skill and card-type metadata to AddNewCard as distinct fields",
+      "sources": [
+        {
+          "module": "BECreateCard",
+          "member": "DoEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f068ef334f66ac38cbc48c4829a3bb26d05476c904e0b562c00561fc80e7d3f6",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\5242717354017070139_BECreateCard.lua"
+        },
+        {
+          "module": "BattleCardMgrServer",
+          "member": "AddNewCard",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "2237271bdbb3cb34aa16cff08ee0f202382e6c9b3f1613c1477168e0a3b021c9",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\8738875055289474891_BattleCardMgrServer.lua"
+        }
+      ],
+      "tests": [
+        "tools/create_card_oracle.py",
+        "tools/run_create_card_command.mjs",
+        "tests/create-card-command.test.mjs",
+        "tests/synthetic/original-create-card.json",
+        "research/examples/create-card-command.json",
+        "docs/CARD_ATTRIBUTION.md"
+      ],
+      "scope": "Six original protected-runtime cases with explicit deck-expression, selected-card and card-manager adapters, including two selected source cards. The authored engine reproduces request construction only. History selection, AddNewCard deck/hand mutation and capacity, entry triggers, returned UID semantics, generated-card execution, gameplay and holdout validation are excluded.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC144:PassivePreHit",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "Three Passive target multipliers, ceiling, positive-only dimension modifier, second ceiling and minimum one before BeHit; dead targets skipped",
