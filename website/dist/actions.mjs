@@ -40,7 +40,7 @@ export function startActions({runCardActionTimeline,syntheticCardActionExample,r
         }
         }
       }else{
-      el('summary').textContent=`${result.completed?'Sequence completed':'Sequence stopped'} Â· Modeled HP lost: ${result.modeledHpLost} Â· Energy left: ${result.energyAfter} Â· Accepted actions: ${result.acceptedActions}`;
+      el('summary').textContent=`${result.completed?'Sequence completed':'Sequence stopped'} | Modeled HP lost: ${result.modeledHpLost} | Energy left: ${result.energyAfter} | Accepted actions: ${result.acceptedActions}`;
       el('stop').textContent=result.stop?JSON.stringify(result.stop):'No stop within this supported scope.';
       for(const row of result.trace){
         const tr=doc.createElement('tr'),after=row.after;
