@@ -18,6 +18,8 @@ Context sources:
 
 ## Two interfaces over one engine
 
+`engine/theorycraft-api.mjs` is the stable JSON dispatcher shared by agents and future browser controls. `tools/run_theorycraft_request.mjs` runs the same interface from a file and loads the pinned local build catalogs. It dispatches only named bounded operations and preserves each component's `EXPERIMENTAL`, `PLAN_ONLY`, `CATALOG_DERIVED` or `UNVERIFIED` status.
+
 ### Human workbench
 
 The website should let a player:

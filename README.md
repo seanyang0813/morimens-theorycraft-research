@@ -29,6 +29,8 @@ Run from this directory:
 
 Replay discovery has separate workflows for budget-comp scouting, cheese analysis, forward theorycrafting and verification. Private tools can emit identifier-free action summaries and Pareto budget frontiers without inventing a weighted investment score. See `docs/REPLAY_ANALYSIS_WORKFLOWS.md`.
 
+Agents can call the same bounded engine through `engine/theorycraft-api.mjs` or `node tools/run_theorycraft_request.mjs --input request.json`. The versioned request selects one explicit operation; it does not silently fill missing combat state or promote an experimental result to verified.
+
 The ordered Actions runner now supports a strict single-parameter Block-gain subset for the caster or supplied target. Its formula, recipient modifiers and storage cap match 911 copied-original runtime executions in total, and later damage consumes target Block in row order. Automatic property assembly, multi-target Block, optional state descendants and Block-trigger events remain outside that subset.
 
 The same runner supports a strict single-parameter Heal subset. Formula, recipient and HP-storage boundaries match 871 copied-original runtime executions, including maximum-HP overflow and the distinction between a locally reported negative Heal and HP clamped at zero. Target healing changes the live HP used by later damage rows. Multi-target/repeated healing, Heal events and revival remain unresolved.

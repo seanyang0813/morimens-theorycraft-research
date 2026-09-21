@@ -1,0 +1,23 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import {resolve,relative,isAbsolute} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {runTheorycraftRequest} from '../engine/theorycraft-api.mjs';
+
+const root=resolve(fileURLToPath(new URL('../',import.meta.url)));
+const args=process.argv.slice(2),options={};
+for(let i=0;i<args.length;i+=2){if(!['--input','--output'].includes(args[i])||!args[i+1]){console.error('Usage: node tools/run_theorycraft_request.mjs --input request.json [--output response.json]');process.exit(2);}options[args[i]]=args[i+1];}
+if(!options['--input']){console.error('Theorycraft request input is required');process.exit(2);}
+const inside=(value,label)=>{const path=resolve(root,value),r=relative(root,path);if(!r||r.startsWith('..')||isAbsolute(r))throw new Error(`${label} must be inside the workspace`);return path;};
+try{
+  const request=JSON.parse(readFileSync(inside(options['--input'],'Input'),'utf8'));
+  const context={
+    buildCatalog:JSON.parse(readFileSync(resolve(root,'website/dist/build-catalog.json'),'utf8')),
+    clientBuildData:JSON.parse(readFileSync(resolve(root,'website/dist/client-build-data.json'),'utf8')),
+  };
+  const response=runTheorycraftRequest(request,context),text=JSON.stringify(response,null,2)+'\n';
+  if(options['--output'])writeFileSync(inside(options['--output'],'Output'),text,{encoding:'utf8',flag:'wx'});else process.stdout.write(text);
+}catch(error){
+  const failure={schemaVersion:1,kind:'morimens-theorycraft-error',status:'ERROR',message:error.message};
+  process.stderr.write(JSON.stringify(failure,null,2)+'\n');process.exitCode=1;
+}
+
