@@ -53,11 +53,20 @@ test('prepared snapshot bridge fails closed on target drift, critical omissions 
   const extra=input();extra.baseValue=999999;assert.throws(()=>runPreparedSnapshotActiveSkill(extra,data),/exact prepared snapshot/);
 });
 
-test('prepared snapshot bridge rejects mixed commands and catalog ParaPlus before calculation',()=>{
+test('prepared snapshot bridge derives real catalog ParaPlus before every repeated hit',()=>{
+  const value=input();
+  value.preparation={skillId:4808,skillLevel:1,isAwaker:true,breakSkillLevel:0,potencyLevel:0,overrides:[],variables:{BattleAtkForce:100,'CmdCaster.death_resist':0,'PlayerRole.block':10},conditionResults:{},stateQueries:{'CmdCaster.GetStateLayer':{'119802':0,'2537':0}}};
+  const result=runPreparedSnapshotActiveSkill(value,source(value.build));
+  assert.deepEqual(result.paraPlus.evaluation.values,[20]);
+  assert.deepEqual(result.paraPlus.bindings,{ParaPlus1:20});
+  assert.deepEqual(result.parameterEvaluation.values,[60,1,0,20]);
+  assert.equal(result.derivedSequenceInput.hits[0].skillArgsPlus,20);
+  assert.equal(result.calculation.modeledHpLost,80);
+});
+
+test('prepared snapshot bridge rejects mixed commands and monster intents before calculation',()=>{
   const mixedSource=source('pc-res150-build51');mixedSource.commands['2350']={...mixedSource.commands['2350'],data_list:{...mixedSource.commands['2350'].data_list,2:{Type:'BEGainBlock',Target:'CmdCaster',Para:'1'}}};
   assert.throws(()=>runPreparedSnapshotActiveSkill(input(),mixedSource),/exactly one command row/);
-  const plusSource=source('pc-res150-build51');plusSource.skills['3997']={...plusSource.skills['3997'],ParaPlus:'1'};
-  assert.throws(()=>runPreparedSnapshotActiveSkill(input(),plusSource),/ParaPlus/);
   const monsterSource=source('pc-res150-build51'),monster=input();monster.preparation.skillId=67183;monster.preparation.variables={BattleAtkForce:100};
   assert.throws(()=>runPreparedSnapshotActiveSkill(monster,monsterSource),/Awakener damage tags/);
 });

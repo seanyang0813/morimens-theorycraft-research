@@ -41,28 +41,30 @@ export function runPreparedSnapshotActiveSkill(value,source){
   const selectedTarget=resolveScalarSkillField({...route,field:'CmdTarget'});
   if(selectedTarget.value!==input.targetBinding.expression)throw new Error('Target binding does not match the selected catalog expression');
   const paraPlus=resolveScalarSkillField({...route,field:'ParaPlus'});
-  if(paraPlus.value!==null)throw new Error('Catalog ParaPlus is outside the prepared snapshot Active bridge');
-
-  const imported=importCommandRows(source.commands[String(preparedResult.prepared.commandId)]);
-  if(imported.rows.length!==1)throw new Error('Prepared snapshot Active bridge requires exactly one command row');
-  const row=imported.rows[0];
-  if(row.Type!=='BEActiveDamage'||row.Target!=='UpperTarget'||Object.hasOwn(row,'Cond'))throw new Error('Prepared snapshot Active bridge requires one unconditional UpperTarget BEActiveDamage row');
-  const bindings=preparedResult.prepared.argumentBindings;
-  const resolveVariable=name=>Object.hasOwn(bindings,name)?bindings[name]:undefined;
   const resolveFunction=(name,args)=>{
     const values=input.preparation.stateQueries[name];
     if(!values||args.length!==1||!Number.isSafeInteger(args[0])||!Object.hasOwn(values,String(args[0])))throw new Error('Unresolved state query: '+name);
     return values[String(args[0])];
   };
+  const paraPlusEvaluation=paraPlus.value===null?null:compileNumericCommand(paraPlus.value,{allowedFunctions:Object.keys(input.preparation.stateQueries),allowLogicalNumeric:true})(name=>Object.hasOwn(input.preparation.variables,name)?input.preparation.variables[name]:undefined,resolveFunction);
+  const paraPlusBindings=Object.fromEntries((paraPlusEvaluation?.values??[]).map((item,index)=>[`ParaPlus${index+1}`,item]));
+
+  const imported=importCommandRows(source.commands[String(preparedResult.prepared.commandId)]);
+  if(imported.rows.length!==1)throw new Error('Prepared snapshot Active bridge requires exactly one command row');
+  const row=imported.rows[0];
+  if(row.Type!=='BEActiveDamage'||row.Target!=='UpperTarget'||Object.hasOwn(row,'Cond'))throw new Error('Prepared snapshot Active bridge requires one unconditional UpperTarget BEActiveDamage row');
+  const bindings={...preparedResult.prepared.argumentBindings,...paraPlusBindings};
+  const resolveVariable=name=>Object.hasOwn(bindings,name)?bindings[name]:undefined;
   const parameterEvaluation=compileNumericCommand(row.Para,{allowedFunctions:Object.keys(input.preparation.stateQueries),allowLogicalNumeric:true})(resolveVariable,resolveFunction);
-  if(parameterEvaluation.values.length<1||parameterEvaluation.values.length>3)throw new Error('Only one-to-three Active parameters without ParaPlus are supported');
-  const [baseValue,repeat=null,damageSubtype=0]=parameterEvaluation.values;
+  if(parameterEvaluation.values.length<1||parameterEvaluation.values.length>4)throw new Error('Only one-to-four Active parameters are supported');
+  const [baseValue,repeat=null,damageSubtype=0,skillArgsPlus=0]=parameterEvaluation.values;
   if(damageSubtype!==0)throw new Error('Only ordinary Active damage subtype 0 is supported');
+  if(!Number.isFinite(skillArgsPlus))throw new Error('Finite resolved Active ParaPlus required');
   const repetition=initializeActiveDamageForBuild({build:input.build,repeat,plus:input.repeatModifiers.plus,per:input.repeatModifiers.per});
   if(!Array.isArray(input.snapshot.critRolls)||input.snapshot.critRolls.length!==repetition.totalEffectTimes)throw new Error('One explicit critical roll entry is required for every derived hit');
 
-  const hits=input.snapshot.critRolls.map((critRoll,index)=>({id:`derived-hit-${index+1}`,baseValue,skillArgsPlus:0,tags,cardProperties:input.snapshot.cardProperties,cardContext,targetContext:{critRoll,targetBattleTag:input.snapshot.targetBattleTag,targetStateIds:input.snapshot.targetStateIds},hitContext:{damageSubtype:'Ordinary'}}));
+  const hits=input.snapshot.critRolls.map((critRoll,index)=>({id:`derived-hit-${index+1}`,baseValue,skillArgsPlus,tags,cardProperties:input.snapshot.cardProperties,cardContext,targetContext:{critRoll,targetBattleTag:input.snapshot.targetBattleTag,targetStateIds:input.snapshot.targetStateIds},hitContext:{damageSubtype:'Ordinary'}}));
   const derivedSequenceInput={schemaVersion:1,kind:'morimens-snapshot-active-sequence',build:input.build,snapshotStage:input.snapshot.snapshotStage,snapshotCompleteness:input.snapshot.snapshotCompleteness,interveningEffects:'assumed-absent',casterProperties:input.snapshot.casterProperties,playerProperties:input.snapshot.playerProperties,initialTargetProperties:input.snapshot.initialTargetProperties,hits};
   const calculation=runSnapshotActiveSequence(derivedSequenceInput);
-  return {schemaVersion:1,kind:'morimens-prepared-snapshot-active-skill-result',analysisTrack:'theorycrafting',status:'EXPERIMENTAL',build:input.build,finalDamage:null,skillId:input.preparation.skillId,sourceHashes:preparedResult.sourceHashes,prepared:preparedResult.prepared,catalogTypes,tags,cardContext,targetSelection:selectedTarget,command:{id:preparedResult.prepared.commandId,row,importMetadata:imported.metadata},parameterEvaluation,repetition,derivedSequenceInput,calculation,unresolvedDependencies:['Target selection is supplied as one resolved UpperTarget; the catalog target expression is checked but not executed','Costs, card construction, triggers, state changes, callbacks, statistics, retargeting and death execution are not simulated','Only a catalog-tagged Awakener card with one unconditional ordinary Active row and no ParaPlus is accepted','The result is a theorycraft model and has not passed an independent pre-outcome gameplay holdout']};
+  return {schemaVersion:1,kind:'morimens-prepared-snapshot-active-skill-result',analysisTrack:'theorycrafting',status:'EXPERIMENTAL',build:input.build,finalDamage:null,skillId:input.preparation.skillId,sourceHashes:preparedResult.sourceHashes,prepared:preparedResult.prepared,catalogTypes,tags,cardContext,targetSelection:selectedTarget,paraPlus:{selection:paraPlus,evaluation:paraPlusEvaluation,bindings:paraPlusBindings},command:{id:preparedResult.prepared.commandId,row,importMetadata:imported.metadata},parameterEvaluation,repetition,derivedSequenceInput,calculation,unresolvedDependencies:['Target selection is supplied as one resolved UpperTarget; the catalog target expression is checked but not executed','Costs, card construction, triggers, state changes, callbacks, statistics, retargeting and death execution are not simulated','Only a catalog-tagged Awakener card with one unconditional ordinary Active row is accepted','The result is a theorycraft model and has not passed an independent pre-outcome gameplay holdout']};
 }
