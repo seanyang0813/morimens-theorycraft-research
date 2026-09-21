@@ -3577,6 +3577,29 @@
       ]
     },
     {
+      "id": "PC150:BattleUnitBase.BeHitHp",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "The resource-150 changed dependencies reproduce all 18 inherited BeHit-through-HP fixtures exactly with byte-identical BattleUnitBase and BattleUnitUtil",
+      "scope": "Explicit immunity, block, puncture, retained-HP, incoming-limit and death-resistance inputs. Record, animation and damage-event calls are spies; no downstream events, statistics, death lifecycle, gameplay or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 build comparison",
+          "member": "download manifest and selected TextAsset hashes",
+          "sha256": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5"
+        },
+        {
+          "module": "PC resource-150 BeHit/HP runtime comparison",
+          "member": "BeHit through property mutation",
+          "sha256": "6892473e2079659b3d8e1474dd52b6e7f71f6ea77b9d861e184dd088b513f5fd"
+        }
+      ],
+      "checks": [
+        "tools/verify_current_behit_hp.py",
+        "tests/current-pc-build-evidence.test.mjs"
+      ]
+    },
+    {
       "id": "PC150:BattleEngine.CommandEntryGate",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
       "claim": "The installed resource-150 BattleEngine reproduces all 24 inherited ordinary PvE command-entry gate fixtures exactly",

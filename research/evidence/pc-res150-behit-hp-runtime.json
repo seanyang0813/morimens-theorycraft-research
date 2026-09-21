@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "method": "BattleUnitBase.BeHit through BattlePropertyServer HP mutation",
+  "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+  "sourceHashes": {
+    "comparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
+    "fixture": "8cb3c8094c7a2ab67fa935e7006eb4679c2a0d8b72940d8452736657ca17bc76",
+    "currentBattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+    "currentBattleUtilServer": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
+    "currentBattleCmdServer": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9",
+    "currentBattlePropertyServer": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5"
+  },
+  "fixtures": 18,
+  "exactMatches": 18,
+  "mismatches": 0,
+  "results": [],
+  "scope": "Actual resource-150 changed constants, utility, command and property modules with byte-identical resource-144 BattleUnitBase/BattleUnitUtil; explicit immunity, block, puncture, retained-HP, incoming-limit and death-resistance inputs.",
+  "limitations": [
+    "Record, animation and damage-event calls are observational spies",
+    "No downstream event execution, statistics credit, death lifecycle, gameplay or holdout credit"
+  ]
+}
