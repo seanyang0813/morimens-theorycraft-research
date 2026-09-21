@@ -11,11 +11,9 @@
   "commandsWithOrdinaryActive": 121,
   "ordinaryActiveRows": 149,
   "conditionalRows": 54,
-  "rowExpressionCompatible": 146,
-  "commandShapeCompatible": 120,
-  "blockerCounts": {
-    "TARGET_SELECTOR": 3
-  },
+  "rowExpressionCompatible": 149,
+  "commandShapeCompatible": 121,
+  "blockerCounts": {},
   "allowedFunctions": [
     "CmdCaster.GetStateLayer",
     "PlayerRole.GetStateLayer",
@@ -37,7 +35,9 @@
     "MaxHpEnemy",
     "MinHpEnemy",
     "MaxHpAndBlockEnemy",
-    "MinHpAndBlockEnemy"
+    "MinHpAndBlockEnemy",
+    "TempMainTarget",
+    "AllEnemyWithoutMainTarget"
   ],
   "supportedTags": [
     "Card_Strike",
@@ -4371,30 +4371,29 @@
           "rowId": "3",
           "target": "TempMainTarget",
           "conditional": true,
-          "blockers": [
-            "TARGET_SELECTOR"
-          ]
+          "blockers": []
         },
         {
           "rowId": "4",
           "target": "TempMainTarget",
           "conditional": true,
-          "blockers": [
-            "TARGET_SELECTOR"
-          ]
+          "blockers": []
         },
         {
           "rowId": "5",
           "target": "AllEnemyWithoutMainTarget",
           "conditional": false,
-          "blockers": [
-            "TARGET_SELECTOR"
-          ]
+          "blockers": []
         }
       ],
       "competingDamageEffect": true,
       "competingDamageConditionsResolvable": true,
-      "shapeCompatible": false
+      "storedMainTargetSetup": {
+        "rowId": "2",
+        "target": "MaxHpEnemy",
+        "compatible": true
+      },
+      "shapeCompatible": true
     },
     {
       "commandId": 133374,

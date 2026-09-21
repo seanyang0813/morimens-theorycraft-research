@@ -5,7 +5,9 @@ import {compileNumericCommand,compileCommandCondition} from '../engine/command-e
 import {importCommandRows} from '../engine/import-command-rows.mjs';
 
 const allowedFunctions=['CmdCaster.GetStateLayer','PlayerRole.GetStateLayer','UpperTarget.GetStateLayer','OwnerCard.GetStateLayer','CurCard.GetStateLayer','CmdCaster.GetPotencyLevel','CmdCaster.GetBreakSkillLevel','GetAwakerCountBySchool','IsSuperUtlSkill','math.ceil','math.floor'];
-const allowedTargets=new Set(['UpperTarget','FrontEnemy','RandomEnemy','AllEnemy','MaxHpEnemy','MinHpEnemy','MaxHpAndBlockEnemy','MinHpAndBlockEnemy']);
+const scalarEnemySelectors=new Set(['MaxHpEnemy','MinHpEnemy','MaxHpAndBlockEnemy','MinHpAndBlockEnemy']);
+const storedMainTargets=new Set(['TempMainTarget','AllEnemyWithoutMainTarget']);
+const allowedTargets=new Set(['UpperTarget','FrontEnemy','RandomEnemy','AllEnemy',...scalarEnemySelectors,...storedMainTargets]);
 const allowedFields=new Set(['id','Type','Target','Para','Cond','VFX','DelayTime','PerformTarget']);
 const presentationTargets=new Set(['CmdTarget','EnemyFieldCenter']);
 const supportedTags=new Set(['Card_Strike','Card_Skill','Ulti_Skill','Card_AttachPost']);
@@ -36,11 +38,17 @@ export function auditReplayCandidateRows(commands,skills,{sourceSha256=null}={})
       try{compileCommandCondition(row.Cond,{allowedFunctions});return true;}catch{return false;}
     });
     if(competing&&!competingConditionsResolvable)add('COMPETING_DAMAGE_EFFECT');
+    const usesStoredMain=active.some(row=>storedMainTargets.has(row.Target));
+    const setupRows=imported.rows.filter(row=>row.Type==='BESetTempMainTarget');
+    const setup=setupRows.length===1?setupRows[0]:null;
+    const setupPosition=setup?imported.rows.findIndex(row=>row.id===setup.id):-1;
+    const storedMainSetupCompatible=!usesStoredMain||(setup!==null&&scalarEnemySelectors.has(setup.Target)&&Object.keys(setup).every(key=>['id','Type','Target'].includes(key))&&active.filter(row=>storedMainTargets.has(row.Target)).every(row=>imported.rows.findIndex(candidate=>candidate.id===row.id)>setupPosition));
     const rows=active.map(row=>{
       const blockers=[];
       const block=code=>{blockers.push(code);add(code);};
       if(Object.keys(row).some(key=>!allowedFields.has(key))||(Object.hasOwn(row,'PerformTarget')&&!presentationTargets.has(row.PerformTarget)))block('ROW_FIELD');
       if(!allowedTargets.has(row.Target))block('TARGET_SELECTOR');
+      if(storedMainTargets.has(row.Target)&&!storedMainSetupCompatible)block('STORED_MAIN_TARGET_SETUP');
       try{compileNumericCommand(row.Para,{allowedFunctions,allowLogicalNumeric:true});}catch{block('PARAMETER_EXPRESSION');}
       if(Object.hasOwn(row,'Cond')){
         conditionalRows++;
@@ -49,8 +57,8 @@ export function auditReplayCandidateRows(commands,skills,{sourceSha256=null}={})
       if(!blockers.length)rowExpressionCompatible++;
       return {rowId:row.id,target:row.Target,conditional:Object.hasOwn(row,'Cond'),blockers};
     });
-    const compatible=(!competing||competingConditionsResolvable)&&rows.every(row=>row.blockers.length===0);if(compatible)commandShapeCompatible++;
-    commandRows.push({commandId:Number(commandId),ordinaryActiveRows:rows,competingDamageEffect:competing,competingDamageConditionsResolvable:competingConditionsResolvable,shapeCompatible:compatible});
+    const compatible=(!competing||competingConditionsResolvable)&&storedMainSetupCompatible&&rows.every(row=>row.blockers.length===0);if(compatible)commandShapeCompatible++;
+    commandRows.push({commandId:Number(commandId),ordinaryActiveRows:rows,competingDamageEffect:competing,competingDamageConditionsResolvable:competingConditionsResolvable,...(usesStoredMain?{storedMainTargetSetup:{rowId:setup?.id??null,target:setup?.Target??null,compatible:storedMainSetupCompatible}}:{}),shapeCompatible:compatible});
   }
   return {schemaVersion:1,kind:'MORIMENS_REPLAY_CANDIDATE_ROW_AUDIT',build:'pc-res144-build51',sourceSha256,relevantAwakenerSkills:relevantSkills.length,relevantLinkedCommands:relevantCommandIds.size,commandsWithOrdinaryActive,ordinaryActiveRows,conditionalRows,rowExpressionCompatible,commandShapeCompatible,blockerCounts:Object.fromEntries(Object.entries(blockerCounts).sort()),
     allowedFunctions:[...allowedFunctions],allowedTargets:[...allowedTargets],supportedTags:[...supportedTags],skills:relevantSkills,commands:commandRows,

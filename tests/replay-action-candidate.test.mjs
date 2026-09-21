@@ -72,3 +72,23 @@ test('replay adapter counts captured PvE Awakeners by configured school',()=>{
   const result=buildReplayActionCandidate({...input,actionIndex:0});assert.deepEqual(result.routing.awakerSchoolCounts,{'1':1,'2':1});assert.equal(result.routing.competingDamageSelection[0].condition.passed,false);
   delete input.awakeners['102'];assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0}),/school configuration/);
 });
+
+test('replay adapter binds stored main and remaining-enemy hits from selection-time state',()=>{
+  const input=fixture(),action=input.index.actionSnapshots[0],first=action.window.hitSnapshots[0];
+  action.window.selectedTargetCommands=[];
+  input.skills['10']={ID:10,CmdList:20,Type:{1:'Ulti_Skill'}};
+  input.commands['20']={data_list:{1:{Type:'BESetTempMainTarget',Target:'MaxHpEnemy'},2:{Type:'BEActiveDamage',Target:'TempMainTarget',Para:'Arg1*2'},3:{Type:'BEActiveDamage',Target:'AllEnemyWithoutMainTarget',Para:'Arg1'}}};
+  first.roles['4']={uid:4,tid:202,camp:2,roleType:2,properties:{...properties,hp:900,max_hp:900}};input.monsters['202']={ID:202,BattleTag:'Elite'};
+  first.hitData.beHitConfig.castDamage=500;action.window.hits[0].data.beHitConfig.castDamage=500;action.window.events[0].data.beHitConfig.castDamage=500;
+  const second=JSON.parse(JSON.stringify(first));second.hitIndex=1;second.recordIndex=5;second.frameIndex=1;second.roleUid=4;second.hitData.roleUid=4;second.hitData.beHitConfig.castDamage=250;second.roles['2'].properties.hp=500;
+  action.window.hitSnapshots.push(second);
+  const secondHit={recordIndex:5,frameIndex:1,eventName:'BeHit',data:JSON.parse(JSON.stringify(second.hitData))};action.window.hits.push(secondHit);action.window.events.push(secondHit);
+  assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0}),/Damage-input hit snapshot/);
+  const main=buildReplayActionCandidate({...input,actionIndex:0,hitIndex:0});
+  assert.equal(main.identities.rowId,'2');assert.equal(main.identities.targetUid,2);assert.equal(main.calculation.preHitDamage,500);assert.equal(main.routing.selectorValidation.selectedUid,2);
+  const secondary=buildReplayActionCandidate({...input,actionIndex:0,hitIndex:1});
+  assert.equal(secondary.identities.rowId,'3');assert.equal(secondary.identities.targetUid,4);assert.equal(secondary.calculation.preHitDamage,250);assert.equal(secondary.routing.selectorValidation.selectedUid,2);assert.equal(secondary.routing.selectorValidation.selectionSnapshotHitIndex,0);assert.equal(secondary.routing.targetBindingSource,'reconstructed-stored-main-target-and-recorded-hit');
+  assert.deepEqual(secondary.routing.rowSelection.map(item=>item.targetMatched),[false,true]);
+  action.window.hits[0].data.beHitConfig.skillConfigId=999;
+  assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0,hitIndex:1}),/first action-window hit/);
+});

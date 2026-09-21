@@ -9,6 +9,8 @@ const roleType={Awaker:1,Monster:2,Player:3};
 const supportedTags=new Set(['Card_Strike','Card_Skill','Ulti_Skill','Card_AttachPost']);
 const instructionTags=new Set(['Card_Strike','Card_Skill','Card_Defend','Card_Extend']);
 const presentationTargets=new Set(['CmdTarget','EnemyFieldCenter']);
+const scalarEnemySelectors=new Set(['MaxHpEnemy','MinHpEnemy','MaxHpAndBlockEnemy','MinHpAndBlockEnemy']);
+const supportedTargets=new Set(['UpperTarget','FrontEnemy','RandomEnemy','AllEnemy',...scalarEnemySelectors,'TempMainTarget','AllEnemyWithoutMainTarget']);
 
 function dense(value,label){
   if(Array.isArray(value)){
@@ -25,23 +27,38 @@ function finiteMap(value,label){
   return {...value};
 }
 function exactOne(values,label){if(values.length!==1)throw new Error(`${label} must resolve exactly once`);return values[0];}
+function chronological(a,b){return (a.recordIndex-b.recordIndex)||(a.frameIndex-b.frameIndex);}
+function livingEnemies(snapshot,casterCamp,{includeBlock=false}={}){
+  const enemies=Object.values(snapshot.roles??{}).filter(role=>role?.roleType===roleType.Monster&&role.camp!==casterCamp&&Number.isFinite(role.properties?.hp)&&role.properties.hp>0);
+  if(!enemies.length||enemies.some(role=>includeBlock&&!Number.isFinite(role.properties?.block)))throw new Error('Complete living enemy properties required for selector validation');
+  return enemies;
+}
+function resolveScalarEnemySelector(snapshot,casterCamp,selector){
+  if(!scalarEnemySelectors.has(selector))throw new Error(`Unsupported scalar enemy selector ${selector}`);
+  const includeBlock=selector.includes('AndBlock'),maximum=selector.startsWith('Max'),enemies=livingEnemies(snapshot,casterCamp,{includeBlock});
+  const value=role=>role.properties.hp+(includeBlock?role.properties.block:0);
+  const selected=enemies.reduce((best,role)=>maximum?(value(best)<value(role)?role:best):(value(best)>value(role)?role:best));
+  return {selector,candidateOrder:enemies.map(role=>({uid:role.uid,value:value(role)})),selectedUid:selected.uid,tiePolicy:'first role in captured registry order'};
+}
 
 // Retrospective replay bridge. It creates a regression candidate only; it never
 // treats post-outcome hit/crit fields as prediction inputs or as blind holdout evidence.
-export function buildReplayActionCandidate({index,actionIndex,skills,commands,monsters,awakeners,critRoll=null}){
+export function buildReplayActionCandidate({index,actionIndex,hitIndex=null,skills,commands,monsters,awakeners,critRoll=null}){
   if(!index||index.kind!=='MORIMENS_REPLAY_EVENT_INDEX'||index.build!==build||!Number.isSafeInteger(actionIndex)||actionIndex<0||!skills||!commands||!monsters||!awakeners)throw new Error('Explicit PC144 replay index, action and config catalogs required');
   const action=index.actionSnapshots?.[actionIndex];
   if(!action||action.actionIndex!==actionIndex||action.boundaryStatus!=='COMPLETE')throw new Error('Complete indexed card-use boundary required');
   const playedCard=action.cards?.[String(action.cardUid)];
   if(!playedCard||!Number.isSafeInteger(playedCard.tid)||!Number.isSafeInteger(playedCard.ownerUid)||playedCard.camp!==action.camp)throw new Error('Played card identity, owner and camp required');
-  const hitSnapshot=exactOne(action.window?.hitSnapshots??[],'Damage-input hit snapshot');
+  const hitSnapshots=action.window?.hitSnapshots??[];
+  if(hitIndex!==null&&(!Number.isSafeInteger(hitIndex)||hitIndex<0))throw new Error('Hit index must be a nonnegative integer');
+  const hitSnapshot=hitIndex===null?exactOne(hitSnapshots,'Damage-input hit snapshot'):exactOne(hitSnapshots.filter(item=>item.hitIndex===hitIndex),'Requested damage-input hit snapshot');
   if(hitSnapshot.boundaryStatus!=='COMPLETE')throw new Error('Complete reconstructed damage-input boundary required');
   const card=hitSnapshot.cards?.[String(action.cardUid)];
   if(!card||card.tid!==playedCard.tid||card.ownerUid!==playedCard.ownerUid||card.camp!==playedCard.camp)throw new Error('Played card identity changed before the hit');
   const caster=hitSnapshot.roles?.[String(card.ownerUid)];
   if(!caster||caster.roleType!==roleType.Awaker||caster.camp!==card.camp)throw new Error('Played card must resolve to its captured Awakener owner');
   const player=exactOne(Object.values(hitSnapshot.roles).filter(row=>row?.roleType===roleType.Player&&row.camp===card.camp),'Same-camp player');
-  const hits=action.window.hits??[],hit=exactOne(hits,'Action-window hit');
+  const hits=action.window.hits??[],hit=exactOne(hits.filter(item=>item.recordIndex===hitSnapshot.recordIndex&&item.frameIndex===hitSnapshot.frameIndex),'Hit matching the damage-input snapshot');
   if(hit.recordIndex!==hitSnapshot.recordIndex||hit.frameIndex!==hitSnapshot.frameIndex)throw new Error('Hit snapshot does not match the action-window hit');
   const targetUid=hit.data?.roleUid;
   const target=hitSnapshot.roles?.[String(targetUid)];
@@ -114,11 +131,31 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
     return {row,condition:compileCommandCondition(row.Cond,{allowedFunctions})(readVariable,callFunction)};
   });
   if(competingDamageSelection.some(item=>item.condition.passed))throw new Error('Eligible competing damage effect is unsupported');
-  const rowSelection=damageRows.map(row=>({row,condition:Object.hasOwn(row,'Cond')?compileCommandCondition(row.Cond,{allowedFunctions})(readVariable,callFunction):null}));
-  const eligibleRows=rowSelection.filter(item=>item.condition===null||item.condition.passed);
+  const tempMainRows=imported.rows.filter(row=>row.Type==='BESetTempMainTarget');
+  const usesTempMainTarget=damageRows.some(row=>['TempMainTarget','AllEnemyWithoutMainTarget'].includes(row.Target));
+  let tempMainTargetValidation=null;
+  if(usesTempMainTarget){
+    const setup=exactOne(tempMainRows,'Stored main-target setup row');
+    if(!scalarEnemySelectors.has(setup.Target)||Object.keys(setup).some(key=>!['id','Type','Target'].includes(key)))throw new Error('Supported stored main-target setup required');
+    const setupPosition=imported.rows.findIndex(item=>item.id===setup.id);
+    if(damageRows.some(item=>imported.rows.findIndex(candidate=>candidate.id===item.id)<=setupPosition))throw new Error('Stored main target must be established before ordinary damage rows');
+    const directPairs=hitSnapshots.map(snapshot=>({snapshot,hit:exactOne(hits.filter(item=>item.recordIndex===snapshot.recordIndex&&item.frameIndex===snapshot.frameIndex),'Hit matching an action snapshot')})).filter(pair=>pair.hit.data?.beHitConfig?.castRoleUid===caster.uid&&pair.hit.data?.beHitConfig?.skillConfigId===card.tid).sort((a,b)=>chronological(a.snapshot,b.snapshot));
+    if(!directPairs.length||directPairs[0].snapshot!==[...hitSnapshots].sort(chronological)[0])throw new Error('Stored main-target selection requires the first action-window hit to have explicit played-skill identity');
+    if(directPairs.some(pair=>pair.snapshot.boundaryStatus!=='COMPLETE'))throw new Error('Complete played-skill hit boundaries required for stored main-target selection');
+    const selectorValidation=resolveScalarEnemySelector(directPairs[0].snapshot,caster.camp,setup.Target);
+    const selectedAtSetup=selectorValidation.candidateOrder.some(item=>item.uid===targetUid);
+    if(!selectedAtSetup)throw new Error('Recorded hit target was not a living enemy at stored main-target selection');
+    tempMainTargetValidation={setupRowId:setup.id,setupSelector:setup.Target,selectionSnapshotHitIndex:directPairs[0].snapshot.hitIndex,...selectorValidation};
+  }else if(tempMainRows.length)throw new Error('Unused stored main-target setup is unsupported');
+  const targetMatches=row=>{
+    if(row.Target==='TempMainTarget')return targetUid===tempMainTargetValidation?.selectedUid;
+    if(row.Target==='AllEnemyWithoutMainTarget')return targetUid!==tempMainTargetValidation?.selectedUid;
+    return true;
+  };
+  const rowSelection=damageRows.map(row=>({row,condition:Object.hasOwn(row,'Cond')?compileCommandCondition(row.Cond,{allowedFunctions})(readVariable,callFunction):null,targetMatched:targetMatches(row)}));
+  const eligibleRows=rowSelection.filter(item=>(item.condition===null||item.condition.passed)&&item.targetMatched);
   const selected=exactOne(eligibleRows,'Eligible ordinary Active-damage row'),row=selected.row;
-  const supportedTargets=['UpperTarget','FrontEnemy','RandomEnemy','AllEnemy','MaxHpEnemy','MinHpEnemy','MaxHpAndBlockEnemy','MinHpAndBlockEnemy'];
-  if(!supportedTargets.includes(row.Target))throw new Error('Supported replay target selector required');
+  if(!supportedTargets.has(row.Target))throw new Error('Supported replay target selector required');
   const selections=action.window?.selectedTargetCommands??[];
   if(selections.length>1)throw new Error('At most one recorded target-selection command is supported');
   let targetBindingSource='recorded-hit';
@@ -128,14 +165,12 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
     targetBindingSource='selected-target-command-and-recorded-hit';
   }else if(row.Target==='UpperTarget')throw new Error('UpperTarget requires a recorded target-selection command');
   let selectorValidation=null;
-  if(['MaxHpEnemy','MinHpEnemy','MaxHpAndBlockEnemy','MinHpAndBlockEnemy'].includes(row.Target)){
-    const includeBlock=row.Target.includes('AndBlock'),maximum=row.Target.startsWith('Max');
-    const enemies=Object.values(hitSnapshot.roles).filter(role=>role?.roleType===roleType.Monster&&role.camp!==caster.camp&&Number.isFinite(role.properties?.hp)&&role.properties.hp>0);
-    if(!enemies.length||enemies.some(role=>includeBlock&&!Number.isFinite(role.properties?.block)))throw new Error('Complete living enemy properties required for selector validation');
-    const value=role=>role.properties.hp+(includeBlock?role.properties.block:0);
-    const selected=enemies.reduce((best,role)=>maximum?(value(best)<value(role)?role:best):(value(best)>value(role)?role:best));
-    if(selected.uid!==targetUid)throw new Error('Recorded hit target does not match reconstructed HP selector');
-    selectorValidation={selector:row.Target,candidateOrder:enemies.map(role=>({uid:role.uid,value:value(role)})),selectedUid:selected.uid,tiePolicy:'first role in captured registry order'};targetBindingSource='reconstructed-selector-and-recorded-hit';
+  if(scalarEnemySelectors.has(row.Target)){
+    selectorValidation=resolveScalarEnemySelector(hitSnapshot,caster.camp,row.Target);
+    if(selectorValidation.selectedUid!==targetUid)throw new Error('Recorded hit target does not match reconstructed HP selector');
+    targetBindingSource='reconstructed-selector-and-recorded-hit';
+  }else if(usesTempMainTarget){
+    selectorValidation=tempMainTargetValidation;targetBindingSource='reconstructed-stored-main-target-and-recorded-hit';
   }
   const parameters=compileNumericCommand(row.Para,{allowedFunctions,allowLogicalNumeric:true})(readVariable,callFunction).values;
   if(parameters.length>4||!Number.isFinite(parameters[0])||Math.ceil(parameters[1]??1)!==1||(parameters[2]??0)!==0)throw new Error('One ordinary zero-subtype Active hit required');
@@ -155,6 +190,6 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
   try{calculation=calculateSnapshotActiveDamage(scenario);}catch(error){if(error.message==='RNG-dependent critical outcome requires a captured pre-outcome roll')calculationBlocker=error.message;else throw error;}
   const observedCastDamage=Number.isFinite(observed.castDamage)?observed.castDamage:null;
   const comparison=calculation&&observedCastDamage!==null?{metric:'preHitDamage-vs-beHitConfig.castDamage',predicted:calculation.preHitDamage,observed:observedCastDamage,difference:calculation.preHitDamage-observedCastDamage}:null;
-  return {schemaVersion:1,kind:'MORIMENS_REPLAY_ACTION_REGRESSION_CANDIDATE',build,status:calculation?'CALCULATED_REGRESSION_CANDIDATE':'PREOUTCOME_INPUT_REQUIRED',actionIndex,identities:{cardUid:card.uid,skillId:card.tid,casterUid:caster.uid,playerUid:player.uid,targetUid,commandId:selectedCommand.value,rowId:row.id},routing:{selectedCommand,importMetadata:imported.metadata,rowSelection:rowSelection.map(item=>({rowId:item.row.id,target:item.row.Target,condition:item.condition})),competingDamageSelection:competingDamageSelection.map(item=>({rowId:item.row.id,type:item.row.Type,target:item.row.Target,condition:item.condition})),awakerSchoolCounts,targetBindingSource,selectorValidation,superUltimateResolution:{isSuperUltimate:superUltimate,doubleUltiEnergy:doubleEnergy,maximumEnergy:maxUltiEnergy,currentEnergy:prop('ulti_energy'),levelUp:prop('ulti_skill_level_up')},parameters,plusValues,tags},scenario,calculation,calculationBlocker,
+  return {schemaVersion:1,kind:'MORIMENS_REPLAY_ACTION_REGRESSION_CANDIDATE',build,status:calculation?'CALCULATED_REGRESSION_CANDIDATE':'PREOUTCOME_INPUT_REQUIRED',actionIndex,hitIndex:hitSnapshot.hitIndex,identities:{cardUid:card.uid,skillId:card.tid,casterUid:caster.uid,playerUid:player.uid,targetUid,commandId:selectedCommand.value,rowId:row.id},routing:{selectedCommand,importMetadata:imported.metadata,rowSelection:rowSelection.map(item=>({rowId:item.row.id,target:item.row.Target,condition:item.condition,targetMatched:item.targetMatched})),competingDamageSelection:competingDamageSelection.map(item=>({rowId:item.row.id,type:item.row.Type,target:item.row.Target,condition:item.condition})),awakerSchoolCounts,targetBindingSource,selectorValidation,superUltimateResolution:{isSuperUltimate:superUltimate,doubleUltiEnergy:doubleEnergy,maximumEnergy:maxUltiEnergy,currentEnergy:prop('ulti_energy'),levelUp:prop('ulti_skill_level_up')},parameters,plusValues,tags},scenario,calculation,calculationBlocker,
     damageInputReconstruction:JSON.parse(JSON.stringify(hitSnapshot.reconstruction)),observedHit:JSON.parse(JSON.stringify(hit)),comparison,unresolvedDependencies:['Retrospective replay evidence cannot become a blind holdout','Action window and identity still require human review for triggered or overlapping actions','Observed hit and post-outcome critical fields are excluded from scenario construction','Target HP and block are reconstructed from explicit BeHit fields because the render record follows their mutations','No connected original card-use, trigger graph, hit resolution or independent gameplay validation']};
 }

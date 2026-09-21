@@ -72,7 +72,7 @@
     {
       "id": "PC144:ReplayActionCandidate",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
-      "claim": "A complete card-use replay boundary and reconstructed damage-input hit snapshot can bind the serialized card owner, same-camp player, hit monster, live property maps, active states, skill tags, condition-selected command row and resolved card arguments into a strict retrospective Active-hit regression candidate",
+      "claim": "A complete card-use replay boundary and reconstructed damage-input hit snapshot can bind the serialized card owner, same-camp player, hit monster, live property maps, active states, skill tags, condition-selected command row, resolved card arguments and supported stored-main-target routing into a strict retrospective Active-hit regression candidate",
       "sources": [
         {
           "module": "BattleUnitBase",
@@ -139,10 +139,17 @@
         },
         {
           "module": "BattleCmdParser",
-          "member": "IsSuperUtlSkill,GetAwakerCountBySchool",
+          "member": "IsSuperUtlSkill,GetAwakerCountBySchool,TempMainTarget,AllEnemyWithoutMainTarget",
           "bundle": "pc\\downloaded\\share.ab",
           "sha256": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6247644512047908854_BattleCmdParser.lua"
+        },
+        {
+          "module": "BESetTempMainTarget",
+          "member": "DoEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c5a9ebd94c90d4cdc2724c405a6c574f7a17f93ad76286be6761837a7cf77d66",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7149420960555347699_BESetTempMainTarget.lua"
         },
         {
           "module": "BattleCmdServer",
@@ -191,13 +198,13 @@
         "tests/replay-index.test.mjs",
         "tests/replay-action-candidate.test.mjs"
       ],
-      "scope": "Authored fail-closed adapter supports one direct PvE Awakener Active hit, one monster and exactly one eligible ordinary damage row. Conditions/parameters support captured role/card state layers, potency/breakthrough, configured PvE team-school counts, live properties, Super Ultimate state, ceil/floor and Lua logical numeric selection. A nonordinary damage row must have a fully resolved false condition; eligible, unconditional or unresolved competing damage fails. Target HP/block are restored from explicit BeHit oldHp/blockLose after their recorded mutations. Observed damage/crit stay outside prediction inputs. No real replay decoded, trigger graph execution, blind holdout or gameplay validation",
+      "scope": "Authored fail-closed adapter supports one selected direct PvE Awakener Active hit, one monster and exactly one eligible ordinary damage row; a multi-hit window requires an explicit hit index. Stored main-target routing requires a unique earlier supported setup, complete played-skill hit boundaries, explicit caster/skill identity, no prior unrelated hit, and target membership reconstructed from the first-hit pre-damage state. Conditions/parameters support captured role/card state layers, potency/breakthrough, configured PvE team-school counts, live properties, Super Ultimate state, ceil/floor and Lua logical numeric selection. A nonordinary damage row must have a fully resolved false condition; eligible, unconditional or unresolved competing damage fails. Target HP/block are restored from explicit BeHit oldHp/blockLose after their recorded mutations. Observed damage/crit stay outside prediction inputs. No real replay decoded, trigger graph execution, blind holdout or gameplay validation",
       "gameplayValidation": false
     },
     {
       "id": "PC144:ReplayCandidateRowCoverage",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
-      "claim": "The current exports contain 296 non-PvP supported-tag Awakener skills linked to 263 commands; 120 of the 121 linked commands containing ordinary Active damage pass the PvE replay candidate static shape checks, and 146 of 149 ordinary Active rows have compatible syntax",
+      "claim": "The current exports contain 296 non-PvP supported-tag Awakener skills linked to 263 commands; all 121 linked commands containing ordinary Active damage pass the PvE replay candidate static shape checks, and all 149 ordinary Active rows have compatible syntax",
       "sources": [
         {
           "module": "Skill",
@@ -274,7 +281,7 @@
         "tests/replay-candidate-row-audit.test.mjs",
         "tests/replay-action-candidate.test.mjs"
       ],
-      "scope": "Source-hashed static audit excludes skills explicitly marked IsPVP, follows remaining Awakener-owned supported-tag Skill CmdList/tempCmdList links, then checks row fields, target selectors, competing damage types and supported condition/parameter syntax. Conditional competing damage is accepted statically only when every competitor condition is resolvable; runtime must prove each false. PvE school counts derive from all captured Awakener roles joined to AwakerConfig. HP and HP+block selectors are reconstructed from complete captured living-enemy maps and original registry-order tie behavior. The sole remaining command uses a stored maximum-HP main target, all other living enemies and optional passive damage, requiring action-level multi-hit association. Super Ultimate is derived from captured properties under the inspected client rule. PerformTarget is accepted only for inspected CmdTarget and EnemyFieldCenter presentation routing. Does not establish runtime bindings, eligible condition count, hit association, property completeness, critical RNG, card executability or gameplay correctness",
+      "scope": "Source-hashed static audit excludes skills explicitly marked IsPVP, follows remaining Awakener-owned supported-tag Skill CmdList/tempCmdList links, then checks row fields, target selectors, competing damage types and supported condition/parameter syntax. Conditional competing damage is accepted statically only when every competitor condition is resolvable; runtime must prove each false. PvE school counts derive from all captured Awakener roles joined to AwakerConfig. HP and HP+block selectors are reconstructed from complete captured living-enemy maps and original registry-order tie behavior. Stored-main-target rows are accepted only with a unique earlier setup using a supported scalar HP selector; the runtime adapter preserves selection-time state and rejects active optional passive damage or ambiguous hit association. Super Ultimate is derived from captured properties under the inspected client rule. PerformTarget is accepted only for inspected CmdTarget and EnemyFieldCenter presentation routing. Does not establish runtime bindings, eligible condition count, hit association, property completeness, critical RNG, card executability or gameplay correctness",
       "gameplayValidation": false
     },
     {
