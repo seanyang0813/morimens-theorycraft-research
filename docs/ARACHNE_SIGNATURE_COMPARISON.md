@@ -41,3 +41,11 @@ Mouchette pursuit Cmd123160 uses `123159,1,0,1`: BEAttachPostAction turns the th
 ## Initial mastery boundary
 
 PVEGameplay.SpawnCampRoles assigns player properties from battleInitData.copyProperties, while each Awakener receives its own attrs. BattleUnitBase passes these to BattlePropertyServer, whose constructor ceils supplied values. PVEGameplay.OnInitBattle subsequently initializes school states and externally supplied stateList. The client source proves this input boundary but does not establish how upstream copyProperties was aggregated for the user's team. The exact final investigation Realm Mastery has been requested; it remains unknown. Do not claim the sum of two character previews is the final realm input. The local website therefore requires explicit final mastery and never prepopulates it.
+
+## D-Tide wave observation: Prism refreshes after actions
+
+An authorized, identifier-stripped D-Tide wave record supplies the first direct gameplay trace of this timing. At the first card-use boundary the PlayerRole has base mastery415, final mastery830 and final-mastery percent100. The four Awakeners initially carry State133368 at19 layers, contributing card_damage_per3_n2=38. After the first action, the replay removes all four 38-point properties and reapplies State133368 at22 layers, contributing44. The 22-layer result is exactly ceil(15*(1+830*0.0005)). A later action repeats a44-to44 refresh.
+
+This matches State133993's generic BSTAfterAction trigger into Cmd134282. It shows that a wave can begin with Prism created from an earlier mastery boundary and then stabilize to the current final mastery after the first action. Static calculations must therefore state whether they model the opening pre-action Prism or the post-action refreshed Prism. In the requested Mouchette line, Rouse and Exalt occur before the damaging Strike/Blast sequence, so the later damage cards are downstream of at least one refresh; this does not by itself prove every other starting-state assumption.
+
+The same wave resolves temporary Beacon at36 layers, matching ceil(25*(1+830*0.0005)). The replay's role payload exposes levels, Potential and skill ranks but does not directly identify Wheel enhancement, so Wheel level still requires a separate provenance-bearing observation.

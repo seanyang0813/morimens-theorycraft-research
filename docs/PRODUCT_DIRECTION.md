@@ -1,5 +1,7 @@
 # Product direction: Morimens theorycraft workbench
 
+Replay-derived discovery is split into budget-comp scouting, cheese analysis, forward theorycrafting and verification. They share parsers and catalogs but keep separate labels and evidence standards; see `docs/REPLAY_ANALYSIS_WORKFLOWS.md`.
+
 ## Purpose
 
 The final product is a general tool for Morimens theorycrafters. Mouchette/Arachne is a demanding case study, not a hard-coded calculator path.
