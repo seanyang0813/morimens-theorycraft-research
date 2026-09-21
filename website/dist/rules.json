@@ -5398,19 +5398,19 @@
     {
       "id": "ANDROID83:ManagedUpdateSurface",
       "status": "CONFIRMED_FROM_LOCAL_IL2CPP_METADATA",
-      "claim": "The Android IL2CPP v31 metadata exposes the relative /_game_data_/DownLoad/{0} resource tree and managed version/patch helpers, while its complete 17,688-entry string-literal table contains no resource-download endpoint",
-      "scope": "Static IL2CPP metadata and Il2CppDumper symbol inventory. The relative download tree and patch/version artifact names are recovered; no managed method is executed and no endpoint value is published. App sandbox root, service/native/Lua-supplied URLs, downloaded combat bundles, Android formula behavior, gameplay and holdout credit remain unresolved.",
+      "claim": "Android managed code derives its download root from Unity Application.persistentDataPath, defines DownLoad and _game_data_/DownLoad paths, and its complete 17,688-entry IL2CPP string-literal table contains no resource-download endpoint",
+      "scope": "Static IL2CPP metadata, relocation, symbol and ARM64 call-edge inspection. Client-defined persistent-data-root children and patch/version artifact names are recovered; no managed method is executed and no endpoint value is published. Concrete device path, service/native/Lua-supplied URLs, downloaded combat bundles, Android formula behavior, gameplay and holdout credit remain unresolved.",
       "gameplayValidation": false,
       "sources": [
         {
           "module": "Android IL2CPP global metadata and player binary",
-          "member": "declared string-literal table plus managed update type/method inventory",
+          "member": "declared string-literal table, metadata-usage relocations and ARM64 update-helper call edges",
           "sha256": "97564dd7d0314be14c6cdd3f219d6405027b787923f70cd2fce89ba8b630d441"
         },
         {
           "module": "Sanitized Android IL2CPP update inspection",
-          "member": "path, symbols and aggregate URL classifications",
-          "sha256": "a7db5029c2603ad137ff15473506611b633ce24e79de74fc6b432856474bc584"
+          "member": "path construction, symbols and aggregate URL classifications",
+          "sha256": "50f4a94c1d7781ee0fd7cd79e818acd9fedaaf4be94b5542efae148ec1dfc005"
         }
       ],
       "checks": [

@@ -21,7 +21,31 @@
     "resourceDownloadCandidates": 0
   },
   "downloadStorageEvidence": {
-    "relativeTemplate": "/_game_data_/DownLoad/{0}",
+    "persistentRootSource": {
+      "callerRva": "0x2EFB510",
+      "calleeRva": "0x338CE60",
+      "callee": "UnityEngine.Application.get_persistentDataPath"
+    },
+    "defaultDirectory": {
+      "methodRva": "0x2EF93E0",
+      "operation": "System.IO.Path.Combine",
+      "secondArgument": {
+        "slot": "0x3853698",
+        "encodedUsage": "0xa0001dbd",
+        "stringLiteralIndex": 3806,
+        "value": "DownLoad"
+      }
+    },
+    "relativeDirectory": {
+      "methodRva": "0x2EFB6AC",
+      "returnValue": {
+        "slot": "0x3853780",
+        "encodedUsage": "0xa00059af",
+        "stringLiteralIndex": 11479,
+        "value": "_game_data_/DownLoad"
+      }
+    },
+    "resourcePathTemplate": "/_game_data_/DownLoad/{0}",
     "artifactNames": [
       "_version.json",
       "_ab_info.json",
@@ -29,7 +53,7 @@
       "pred_tag_file",
       "patches_info.json"
     ],
-    "interpretation": "The managed client names a relative downloaded-resource tree and its version/patch metadata. This does not identify the Android app sandbox root or a network endpoint."
+    "interpretation": "The managed client derives its root from Unity Application.persistentDataPath, defines a default DownLoad child and separately returns _game_data_/DownLoad as a relative resource directory. Which helper owns each captured file still requires a device filesystem observation."
   },
   "managedUpdateSurface": {
     "types": [
@@ -76,5 +100,5 @@
     "Downloaded Android combat/config bundles remain absent, so Android/PC formula parity is not established",
     "Static loader structure is mechanics infrastructure evidence only and receives no gameplay or holdout credit"
   ],
-  "nextEvidenceNeeded": "Capture the Android app's fingerprinted _game_data_/DownLoad tree, especially config.ab, share.ab and gamescript.ab, from the same versioned session."
+  "nextEvidenceNeeded": "Capture and fingerprint the client-defined DownLoad and _game_data_/DownLoad trees beneath Unity Application.persistentDataPath, especially config.ab, share.ab and gamescript.ab, from the same versioned session."
 }

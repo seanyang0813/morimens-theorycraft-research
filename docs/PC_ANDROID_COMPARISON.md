@@ -67,13 +67,17 @@ table.
 
 The managed update surface exposes `DownloadHelper`, `VersionInfoFile` and
 `ResourceUpdateHelper`, including URL normalization/fetch helpers and patch
-integrity checks. It also supplies the relative template
+integrity checks. ARM64 call-edge inspection shows that the client's root
+helper tail-calls `UnityEngine.Application.get_persistentDataPath`; its default
+download helper combines that root with `DownLoad`, while a separate helper
+returns `_game_data_/DownLoad`. The metadata also supplies the resource format
 `/_game_data_/DownLoad/{0}` and names `_version.json`, `_ab_info.json`,
 `ejoy_pack_config.json`, `patches_info.json` and `pred_tag_file`. This identifies
-the downloaded-resource tree to preserve from a device capture. It does not
-identify the Android sandbox root or the server endpoint. The public report is
-`research/evidence/android-il2cpp-update-inspection.json`; it contains hashes,
-symbols and aggregate URL classifications, not endpoint values.
+client-defined locations to inspect beneath Unity's persistent-data root. It
+does not reveal that root's concrete device path or the server endpoint. The
+public report is `research/evidence/android-il2cpp-update-inspection.json`; it
+contains hashes, symbols, call edges and aggregate URL classifications, not
+endpoint values.
 
 Rebuild the private symbol inventory and public report with:
 

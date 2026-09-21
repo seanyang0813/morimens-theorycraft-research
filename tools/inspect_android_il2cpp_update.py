@@ -5,6 +5,8 @@ import hashlib
 import json
 import re
 import struct
+from capstone import Cs, CS_ARCH_ARM64, CS_MODE_LITTLE_ENDIAN
+from elftools.elf.elffile import ELFFile
 
 ROOT = Path(__file__).resolve().parents[1]
 APK = ROOT / "research/raw/android/morimens-2-5-1.apk"
@@ -42,6 +44,38 @@ def method_rva(dump, signature):
     if not matches:
         raise ValueError(f"Missing RVA for managed update method: {signature}")
     return matches[-1].group(1)
+
+
+def elf_bytes(elf, stream, address, size):
+    segment = next((item for item in elf.iter_segments() if item['p_type'] == 'PT_LOAD' and item['p_vaddr'] <= address < item['p_vaddr'] + item['p_filesz']), None)
+    if segment is None or address + size > segment['p_vaddr'] + segment['p_filesz']:
+        raise ValueError(f"Android IL2CPP address is outside file-backed segments: {address:#x}")
+    stream.seek(segment['p_offset'] + address - segment['p_vaddr'])
+    return stream.read(size)
+
+
+def instructions(elf, stream, address, size):
+    decoder = Cs(CS_ARCH_ARM64, CS_MODE_LITTLE_ENDIAN)
+    return [(item.address, item.mnemonic, item.op_str) for item in decoder.disasm(elf_bytes(elf, stream, address, size), address)]
+
+
+def relocated_literal(elf, stream, slot, literals):
+    relocation = None
+    for section in elf.iter_sections():
+        if not hasattr(section, 'iter_relocations'):
+            continue
+        relocation = next((item for item in section.iter_relocations() if item['r_offset'] == slot), None)
+        if relocation is not None:
+            break
+    if relocation is None or relocation['r_info_type'] != 1027:
+        raise ValueError(f"Expected Android relative relocation at {slot:#x}")
+    encoded = struct.unpack('<Q', elf_bytes(elf, stream, relocation['r_addend'], 8))[0]
+    if encoded >> 29 != 5 or encoded & 1 != 1:
+        raise ValueError(f"Expected IL2CPP string-literal usage at {slot:#x}")
+    index = (encoded & 0x1fffffff) >> 1
+    if index >= len(literals):
+        raise ValueError("Relocated IL2CPP string-literal index is outside metadata")
+    return {"slot": hex(slot), "encodedUsage": hex(encoded), "stringLiteralIndex": index, "value": literals[index]}
 
 
 def main():
@@ -93,6 +127,21 @@ def main():
         "public static void CheckPatchFileCompleteAsync(Action<bool, VersionFile.Item[]> cb)",
     ]
     methods = [{"signature": signature, "rva": method_rva(dump, signature)} for signature in signatures]
+    with IL2CPP.open('rb') as stream:
+        elf = ELFFile(stream)
+        persistent_code = instructions(elf, stream, 0x2EFB510, 0x50)
+        default_code = instructions(elf, stream, 0x2EF93E0, 0xA0)
+        relative_code = instructions(elf, stream, 0x2EFB6AC, 0x40)
+        if (0x2EFB55C, 'b', '#0x338ce60') not in persistent_code or 'RVA: 0x338CE60' not in dump or 'public static string get_persistentDataPath()' not in dump:
+            raise ValueError('Android persistent-data root call edge changed')
+        if (0x2EF947C, 'b', '#0x2dacabc') not in default_code or 'RVA: 0x2DACABC' not in dump or 'public static string Combine(string path1, string path2)' not in dump:
+            raise ValueError('Android default-download Path.Combine edge changed')
+        if not any(row[0] == 0x2EFB6E8 and row[1] == 'ret' for row in relative_code):
+            raise ValueError('Android relative-download helper boundary changed')
+        default_literal = relocated_literal(elf, stream, 0x3853698, literals)
+        relative_literal = relocated_literal(elf, stream, 0x3853780, literals)
+        if default_literal['value'] != 'DownLoad' or relative_literal['value'] != '_game_data_/DownLoad':
+            raise ValueError('Android managed download-directory literals changed')
 
     report = {
         "schemaVersion": 1,
@@ -108,9 +157,12 @@ def main():
         },
         "literalUrlClassification": {"total": len(urls), **classifications},
         "downloadStorageEvidence": {
-            "relativeTemplate": "/_game_data_/DownLoad/{0}",
+            "persistentRootSource": {"callerRva": "0x2EFB510", "calleeRva": "0x338CE60", "callee": "UnityEngine.Application.get_persistentDataPath"},
+            "defaultDirectory": {"methodRva": "0x2EF93E0", "operation": "System.IO.Path.Combine", "secondArgument": default_literal},
+            "relativeDirectory": {"methodRva": "0x2EFB6AC", "returnValue": relative_literal},
+            "resourcePathTemplate": "/_game_data_/DownLoad/{0}",
             "artifactNames": [*required_literals[1:], "patches_info.json"],
-            "interpretation": "The managed client names a relative downloaded-resource tree and its version/patch metadata. This does not identify the Android app sandbox root or a network endpoint.",
+            "interpretation": "The managed client derives its root from Unity Application.persistentDataPath, defines a default DownLoad child and separately returns _game_data_/DownLoad as a relative resource directory. Which helper owns each captured file still requires a device filesystem observation.",
         },
         "managedUpdateSurface": {
             "types": ["ResourceManager.DownloadHelper", "ResourceManager.VersionInfoFile", "ResourceManager.Runtime.ResourceUpdateHelper"],
@@ -124,7 +176,7 @@ def main():
             "Downloaded Android combat/config bundles remain absent, so Android/PC formula parity is not established",
             "Static loader structure is mechanics infrastructure evidence only and receives no gameplay or holdout credit",
         ],
-        "nextEvidenceNeeded": "Capture the Android app's fingerprinted _game_data_/DownLoad tree, especially config.ab, share.ab and gamescript.ab, from the same versioned session.",
+        "nextEvidenceNeeded": "Capture and fingerprint the client-defined DownLoad and _game_data_/DownLoad trees beneath Unity Application.persistentDataPath, especially config.ab, share.ab and gamescript.ab, from the same versioned session.",
     }
     OUTPUT.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps({"status": report["status"], "stringLiteralCount": len(literals), "literalUrls": len(urls), "resourceDownloadCandidates": classifications["resourceDownloadCandidates"], "output": str(OUTPUT.relative_to(ROOT))}, indent=2))
