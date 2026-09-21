@@ -398,6 +398,14 @@ class PhaseCommandParserOracle(ArgumentOracle):
         self.layers = layers
         self.reads = []
         self.top(L, 0)
+        self.getglobal(L, b'_phase_parser_subject')
+        self.table(L, 1, 0)
+        self.number(L, argument)
+        self.rawseti(L, -2, 1)
+        self.setfield(L, -2, b'skillArgs')
+        self.boolean(L, bool(last_condition))
+        self.setfield(L, -2, b'lastConditionRet')
+        self.top(L, 0)
 
     def generate_rows(self, command_id, rows):
         """Return row indices produced by original GenerateEffectList."""
@@ -563,14 +571,6 @@ class PhaseCommandParserOracle(ArgumentOracle):
             params.append(self.tonumber(L, -1, None))
             self.top(L, -2)
         return {'passed': True, 'params': params}
-        self.getglobal(L, b'_phase_parser_subject')
-        self.table(L, 1, 0)
-        self.number(L, argument)
-        self.rawseti(L, -2, 1)
-        self.setfield(L, -2, b'skillArgs')
-        self.boolean(L, bool(last_condition))
-        self.setfield(L, -2, b'lastConditionRet')
-        self.top(L, 0)
 
     def evaluate(self, expression):
         if isinstance(expression, (int, float)):

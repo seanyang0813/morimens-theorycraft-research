@@ -1191,7 +1191,7 @@
       "id": "PC144:JoinedPhaseCommandEffects",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "Original command/effect construction, TryDoEffect, root/subeffect recursion, parser expressions and phase effect bodies reproduce the authored first- and second-phase transition model over one live state registry",
-      "scope": "5 joined original-runtime cases covering nontransition, exact-boundary and over-boundary first/second phases. Original construction and TryDoEffect feed original RunRootEffect/XpcallDoEffect/AfterEffect/RunSubEffect/EffectEnd recursion. Each child uses a cross-Lua-state Python callback to invoke its separately verified original body and return updated live layers before the next condition. Callable class, target-expression, pre-created destination/counter and callback adapters. No same-state construction/property path, gameplay or holdout credit.",
+      "scope": "5 joined original-runtime cases covering nontransition, exact-boundary and over-boundary first/second phases. Original construction and TryDoEffect feed original RunRootEffect/XpcallDoEffect/AfterEffect/RunSubEffect/EffectEnd recursion. Direct harness regression verifies explicit Arg1 and numeric 0/1 LastConditionRet initialization. Each child uses a cross-Lua-state Python callback to invoke its separately verified original body and return updated live layers before the next condition. Callable class, target-expression, pre-created destination/counter and callback adapters. No same-state construction/property path, gameplay or holdout credit.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -1263,6 +1263,7 @@
       "checks": [
         "tools/phase_command_parser_oracle.py",
         "tools/joined_phase_command_effect_oracle.py",
+        "tests/phase-command-parser-harness.test.mjs",
         "tests/joined-phase-command-effects.test.mjs",
         "tests/phase-cap.test.mjs"
       ]
