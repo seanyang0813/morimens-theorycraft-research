@@ -13,6 +13,7 @@ const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&
 const clone=value=>JSON.parse(JSON.stringify(value));
 const topKeys=['schemaVersion','kind','build','preparation','targetBinding','lifecycle','snapshot','repeatModifiers'];
 const mixedTopKeys=[...topKeys,'energy'];
+const multiTopKeys=mixedTopKeys.filter(key=>key!=='repeatModifiers');
 const preparationKeys=['skillId','skillLevel','isAwaker','breakSkillLevel','potencyLevel','overrides','variables','conditionResults','stateQueries'];
 const snapshotKeys=['snapshotStage','snapshotCompleteness','casterProperties','playerProperties','initialTargetProperties','cardProperties','targetBattleTag','targetStateIds','critRolls'];
 const supportedTags=new Set(['Card_Strike','Card_Skill','Ulti_Skill','Card_AttachPost']);
@@ -27,13 +28,15 @@ function dense(value,label){
 export function runPreparedSnapshotActiveSkill(value,source){
   const input=clone(value);
   const multi=input?.schemaVersion===3,mixed=input?.schemaVersion===2||multi;
-  if(!(mixed?exact(input,mixedTopKeys):exact(input,topKeys))||![1,2,3].includes(input.schemaVersion)||input.kind!=='morimens-prepared-snapshot-active-skill')throw new Error('Expected an exact prepared snapshot Active skill request');
+  if(!(multi?exact(input,multiTopKeys):mixed?exact(input,mixedTopKeys):exact(input,topKeys))||![1,2,3].includes(input.schemaVersion)||input.kind!=='morimens-prepared-snapshot-active-skill')throw new Error('Expected an exact prepared snapshot Active skill request');
   const targetKeys=multi?['expression','resolution','targetUid','context']:['expression','resolution'];
-  if(!exact(input.preparation,preparationKeys)||!exact(input.targetBinding,targetKeys)||!exact(input.snapshot,snapshotKeys)||!exact(input.repeatModifiers,['plus','per']))throw new Error('Exact preparation, target, snapshot and repetition inputs required');
+  if(!exact(input.preparation,preparationKeys)||!exact(input.targetBinding,targetKeys)||!exact(input.snapshot,snapshotKeys)||(!multi&&!exact(input.repeatModifiers,['plus','per'])))throw new Error('Exact preparation, target, snapshot and repetition inputs required');
   if(input.lifecycle!=='assumed-absent')throw new Error('Only an explicitly absent intervening lifecycle is supported');
   if(!multi&&input.targetBinding.resolution!=='supplied-single-UpperTarget')throw new Error('Only a supplied single UpperTarget is supported');
   if(multi&&input.targetBinding.resolution!=='front-enemy-context')throw new Error('Schema 3 requires recovered FrontEnemy resolution');
-  if(!Number.isFinite(input.repeatModifiers.plus)||!Number.isFinite(input.repeatModifiers.per))throw new Error('Finite repetition modifiers required');
+  const repeatModifiers=multi?{plus:input.snapshot.casterProperties?.damagetimes_plus??0,per:input.snapshot.casterProperties?.damagetimes_per??0}:input.repeatModifiers;
+  if(!Number.isFinite(repeatModifiers.plus)||!Number.isFinite(repeatModifiers.per))throw new Error('Finite repetition modifiers required');
+  const repeatModifierDerivation=multi?{source:'casterProperties.GetProperty zero-default',plus:{property:'damagetimes_plus',present:Object.hasOwn(input.snapshot.casterProperties,'damagetimes_plus'),value:repeatModifiers.plus},per:{property:'damagetimes_per',present:Object.hasOwn(input.snapshot.casterProperties,'damagetimes_per'),value:repeatModifiers.per}}:null;
 
   const preparedResult=runPreparedSkillRequest({schemaVersion:2,kind:'morimens-prepared-skill-request',build:input.build,preparation:input.preparation,execution:null},source);
   const skill=source.skills[String(input.preparation.skillId)];
@@ -89,7 +92,7 @@ export function runPreparedSnapshotActiveSkill(value,source){
     const [baseValue,repeat=null,damageSubtype=0,skillArgsPlus=0]=parameterEvaluation.values;
     if(![0,1].includes(damageSubtype))throw new Error('Only ordinary or Puncture Active damage is supported');
     if(!Number.isFinite(skillArgsPlus))throw new Error('Finite resolved Active ParaPlus required');
-    const repetition=initializeActiveDamageForBuild({build:input.build,repeat,plus:input.repeatModifiers.plus,per:input.repeatModifiers.per});
+    const repetition=initializeActiveDamageForBuild({build:input.build,repeat,plus:repeatModifiers.plus,per:repeatModifiers.per});
     const execution={rowId:activeRow.id,target:activeRow.Target,condition,executed:true,parameterEvaluation,repetition};rowExecutions.push(execution);
     for(let index=0;index<repetition.totalEffectTimes;index++)pendingHits.push({rowId:activeRow.id,index:index+1,baseValue,skillArgsPlus,damageSubtype:damageSubtype===1?'Puncture':'Ordinary'});
   }
@@ -110,5 +113,5 @@ export function runPreparedSnapshotActiveSkill(value,source){
       energy=runUltiEnergyExperiment({schemaVersion:1,kind:'morimens-ulti-energy-experiment',build:input.build,otherEvents:'assumed-absent',parameters:energyParameterEvaluation.values,source:{...input.energy.source,skillConfigId:input.preparation.skillId},targetOrder:[target.uid],targets:[{uid:target.uid,role:target.role,energy:target.energy,maximumProperties:target.maximumProperties,calculation:{dimension:target.calculation.dimension,properties:target.calculation.properties,card:{matchesEnergyCardTypes:energyCardTypeMatch.matched},casterEligible:true,skillTags:tags}}]});
     }
   }
-  return {schemaVersion:input.schemaVersion,kind:'morimens-prepared-snapshot-active-skill-result',analysisTrack:'theorycrafting',status:'EXPERIMENTAL',build:input.build,finalDamage:null,skillId:input.preparation.skillId,sourceHashes:preparedResult.sourceHashes,prepared:preparedResult.prepared,catalogTypes,tags,cardContext,targetSelection:selectedTarget,targetResolution,paraPlus:{selection:paraPlus,evaluation:paraPlusEvaluation,bindings:paraPlusBindings},command:{id:preparedResult.prepared.commandId,row,rows:imported.rows,importMetadata:imported.metadata},rowExecutions,parameterEvaluation,repetition,derivedSequenceInput,calculation,energyParameterEvaluation,energyCardTypeMatch,energy,completed:calculation.completed&&stop===null,stop,unresolvedDependencies:[multi?'FrontEnemy is resolved from the supplied role snapshot; later rows retain that target and do not retarget':'Target selection is supplied as one resolved UpperTarget; the catalog target expression is checked but not executed','Costs, card construction, triggers, state changes, callbacks, statistics, retargeting and death execution are not simulated',multi?'Schema 3 accepts only selected-target Active rows followed by one caster ultimate-energy row':mixed?'Version 2 accepts only one ordinary Active row followed by one caster ultimate-energy row':'Version 1 accepts only one ordinary Active row','The result is a theorycraft model and has not passed an independent pre-outcome gameplay holdout']};
+  return {schemaVersion:input.schemaVersion,kind:'morimens-prepared-snapshot-active-skill-result',analysisTrack:'theorycrafting',status:'EXPERIMENTAL',build:input.build,finalDamage:null,skillId:input.preparation.skillId,sourceHashes:preparedResult.sourceHashes,prepared:preparedResult.prepared,catalogTypes,tags,cardContext,targetSelection:selectedTarget,targetResolution,paraPlus:{selection:paraPlus,evaluation:paraPlusEvaluation,bindings:paraPlusBindings},command:{id:preparedResult.prepared.commandId,row,rows:imported.rows,importMetadata:imported.metadata},rowExecutions,parameterEvaluation,repetition,repeatModifierDerivation,derivedSequenceInput,calculation,energyParameterEvaluation,energyCardTypeMatch,energy,completed:calculation.completed&&stop===null,stop,unresolvedDependencies:[multi?'FrontEnemy is resolved from the supplied role snapshot; later rows retain that target and do not retarget':'Target selection is supplied as one resolved UpperTarget; the catalog target expression is checked but not executed','Costs, card construction, triggers, state changes, callbacks, statistics, retargeting and death execution are not simulated',multi?'Schema 3 accepts only selected-target Active rows followed by one caster ultimate-energy row':mixed?'Version 2 accepts only one ordinary Active row followed by one caster ultimate-energy row':'Version 1 accepts only one ordinary Active row','The result is a theorycraft model and has not passed an independent pre-outcome gameplay holdout']};
 }

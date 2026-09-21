@@ -32,7 +32,7 @@ function conditionalMixedInput(skillId=4165,build='pc-res150-build51'){
   const value=mixedInput(build);value.schemaVersion=3;
   value.preparation={skillId,skillLevel:1,isAwaker:true,breakSkillLevel:0,potencyLevel:0,overrides:[],variables:{BattleAtkForce:100},conditionResults:{},stateQueries:{'CmdCaster.GetStateLayer':{'55487':1}}};
   value.targetBinding={expression:'FrontEnemy',resolution:'front-enemy-context',targetUid:8,context:{casterCamp:1,lockedUid:null,tauntUid:null,roles:[{uid:8,camp:2,hasHpBar:true,dead:false,position:1,sneak:0},{uid:9,camp:2,hasHpBar:true,dead:false,position:2,sneak:0}]}};
-  value.snapshot.critRolls=[null,null];return value;
+  delete value.repeatModifiers;value.snapshot.critRolls=[null,null];return value;
 }
 
 for(const build of Object.keys(roots))test(`catalog-prepared ordinary Active skill reaches a complete-property sequence on ${build}`,()=>{
@@ -104,8 +104,17 @@ for(const build of Object.keys(roots))test(`schema 3 executes conditional multi-
   assert.deepEqual(result.targetResolution,{targets:[8],reason:'position'});
   assert.deepEqual(result.rowExecutions.map(row=>[row.rowId,row.executed,row.condition?.passed??null]),[['1',true,null],['2',true,true]]);
   assert.deepEqual(result.rowExecutions.map(row=>row.parameterEvaluation?.values),[[10,1],[10,1]]);
+  assert.deepEqual(result.repeatModifierDerivation,{source:'casterProperties.GetProperty zero-default',plus:{property:'damagetimes_plus',present:false,value:0},per:{property:'damagetimes_per',present:false,value:0}});
   assert.deepEqual(result.derivedSequenceInput.hits.map(hit=>hit.hitContext.damageSubtype),['Ordinary','Ordinary']);
   assert.equal(result.calculation.modeledHpLost,20);assert.equal(result.energy.targetsAfter[0].energy,100);assert.equal(result.completed,true);
+});
+
+test('schema 3 derives repetition modifiers from the complete caster property snapshot',()=>{
+  const value=conditionalMixedInput();value.snapshot.casterProperties.damagetimes_plus=1;value.snapshot.casterProperties.damagetimes_per=0;value.snapshot.critRolls=[null,null,null,null];
+  const result=runPreparedSnapshotActiveSkill(value,source(value.build));
+  assert.deepEqual(result.rowExecutions.map(row=>row.repetition.totalEffectTimes),[2,2]);assert.equal(result.calculation.modeledHpLost,40);
+  assert.equal(result.repeatModifierDerivation.plus.present,true);assert.equal(result.repeatModifierDerivation.plus.value,1);
+  const drift=conditionalMixedInput();drift.repeatModifiers={plus:0,per:0};assert.throws(()=>runPreparedSnapshotActiveSkill(drift,source(drift.build)),/exact prepared snapshot/);
 });
 
 test('schema 3 skips a false conditional row and requires only executed-hit rolls',()=>{

@@ -85,10 +85,6 @@
         null
       ]
     },
-    "repeatModifiers": {
-      "plus": 0,
-      "per": 0
-    },
     "energy": {
       "source": {
         "castRoleUid": 7,
