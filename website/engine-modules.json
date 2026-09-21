@@ -50,6 +50,7 @@
   "add-new-card.mjs",
   "card-owner.mjs",
   "card-command-init.mjs",
+  "card-command-plan.mjs",
   "generated-card-pipeline.mjs",
   "active-command-experiment.mjs",
   "passive-command-experiment.mjs",

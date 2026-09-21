@@ -26,8 +26,8 @@
     {"schemaVersion": 1, "kind": "morimens-card-owner", "build": "pc-res150-build51", "camp": 3, "skillAwakerId": 55, "playerUid": 100, "specialOwnerUid": 88, "configuredAwakerUid": 200, "fromCardUid": null, "fromCard": null, "performSkillId": 123}
   ],
   "commandContexts": [
-    {"preCmdId": null, "cmdId": 5001},
-    {"preCmdId": null, "cmdId": 5001},
-    {"preCmdId": null, "cmdId": 5001}
+    {"preCmdId": null, "cmdId": 5001, "rawSkillArguments": [1.2, 2.1, 3.01]},
+    {"preCmdId": null, "cmdId": 5001, "rawSkillArguments": [1.2, 2.1, 3.01]},
+    {"preCmdId": null, "cmdId": 5001, "rawSkillArguments": [1.2, 2.1, 3.01]}
   ]
 }
