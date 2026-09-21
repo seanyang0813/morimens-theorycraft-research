@@ -42,7 +42,6 @@
         "calculation": {
           "dimension": 0,
           "properties": {"card_ulti_per": 0, "card_ulti_plus": 0, "o_ulti_energy_per": 0, "ulti_energy_per": 0, "i_ulti_energy_per": 0, "ulti_energy_efficiency": 0, "ulti_per_strikecard": 0, "ulti_energy_plus": 0, "gain_ulti_energy_per": 0, "gain_ulti_energy_plus": 0},
-          "matchesEnergyCardTypes": true,
           "casterEligible": true
         }
       }

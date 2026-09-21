@@ -1,0 +1,274 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHash": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53",
+  "currentBuildHashStatus": "BYTE_IDENTICAL_PC_RES150_BUILD51",
+  "scope": "Original BattleCardServer.CardTypeMatch over explicit stored card-type lists and scalar/list queries. No GetType derivation, card construction, properties, effects or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "cardTypes": [],
+        "query": "Card_Strike"
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "cardTypes": [],
+        "query": "Card_Extend"
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "cardTypes": [],
+        "query": [
+          "Card_Skill",
+          "Card_Defend",
+          "Card_Extend",
+          "Card_Strike"
+        ]
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "cardTypes": [],
+        "query": []
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "cardTypes": [],
+        "query": [
+          "Unknown",
+          "Card_AttachPost"
+        ]
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "cardTypes": [
+          "Card_Strike"
+        ],
+        "query": "Card_Strike"
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "cardTypes": [
+          "Card_Strike"
+        ],
+        "query": "Card_Extend"
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "cardTypes": [
+          "Card_Strike"
+        ],
+        "query": [
+          "Card_Skill",
+          "Card_Defend",
+          "Card_Extend",
+          "Card_Strike"
+        ]
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "cardTypes": [
+          "Card_Strike"
+        ],
+        "query": []
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "cardTypes": [
+          "Card_Strike"
+        ],
+        "query": [
+          "Unknown",
+          "Card_AttachPost"
+        ]
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "cardTypes": [
+          "Card_Skill",
+          "Card_AttachPost"
+        ],
+        "query": "Card_Strike"
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "cardTypes": [
+          "Card_Skill",
+          "Card_AttachPost"
+        ],
+        "query": "Card_Extend"
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "cardTypes": [
+          "Card_Skill",
+          "Card_AttachPost"
+        ],
+        "query": [
+          "Card_Skill",
+          "Card_Defend",
+          "Card_Extend",
+          "Card_Strike"
+        ]
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "cardTypes": [
+          "Card_Skill",
+          "Card_AttachPost"
+        ],
+        "query": []
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "cardTypes": [
+          "Card_Skill",
+          "Card_AttachPost"
+        ],
+        "query": [
+          "Unknown",
+          "Card_AttachPost"
+        ]
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "cardTypes": [
+          "Card_Extend",
+          "Card_Extend"
+        ],
+        "query": "Card_Strike"
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "cardTypes": [
+          "Card_Extend",
+          "Card_Extend"
+        ],
+        "query": "Card_Extend"
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "cardTypes": [
+          "Card_Extend",
+          "Card_Extend"
+        ],
+        "query": [
+          "Card_Skill",
+          "Card_Defend",
+          "Card_Extend",
+          "Card_Strike"
+        ]
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "cardTypes": [
+          "Card_Extend",
+          "Card_Extend"
+        ],
+        "query": []
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "cardTypes": [
+          "Card_Extend",
+          "Card_Extend"
+        ],
+        "query": [
+          "Unknown",
+          "Card_AttachPost"
+        ]
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "cardTypes": [
+          "Ulti_Skill"
+        ],
+        "query": "Card_Strike"
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "cardTypes": [
+          "Ulti_Skill"
+        ],
+        "query": "Card_Extend"
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "cardTypes": [
+          "Ulti_Skill"
+        ],
+        "query": [
+          "Card_Skill",
+          "Card_Defend",
+          "Card_Extend",
+          "Card_Strike"
+        ]
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "cardTypes": [
+          "Ulti_Skill"
+        ],
+        "query": []
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "cardTypes": [
+          "Ulti_Skill"
+        ],
+        "query": [
+          "Unknown",
+          "Card_AttachPost"
+        ]
+      },
+      "expected": false
+    }
+  ]
+}

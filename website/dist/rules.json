@@ -492,6 +492,35 @@
       ]
     },
     {
+      "id": "PC144-PC150:CardTypeMatch",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "CardTypeMatch accepts a scalar or list and succeeds when any requested type occurs in the card complete type list; the ultimate-energy outside-bonus group is exactly Skill, Defend, Extend and Strike",
+      "scope": "25 original protected-runtime fixtures over explicit stored card-type lists, scalar/list queries, empty lists and duplicates. BattleCardServer is byte-identical in the inspected resource-150 build. GetType derivation, property-added Strike, attach-post type insertion, card construction, effects, gameplay and holdout validation are excluded.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "BattleCardServer",
+          "member": "CardTypeMatch",
+          "sha256": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "GetRealUltiEnergy card type group",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b"
+        },
+        {
+          "module": "Current card-module comparison",
+          "member": "BattleCardServer byte identity",
+          "sha256": "d0c38c58404ebe0da4dfada285e96956b42bc4df86c7551e3be3d732ceccda9f"
+        }
+      ],
+      "checks": [
+        "tools/card_type_match_oracle.py",
+        "tests/card-type-match.test.mjs",
+        "tests/synthetic/original-card-type-match.json"
+      ]
+    },
+    {
       "id": "PC144:UltiEnergyCalculation",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "Ordinary no-card ultimate-energy calculation combines caster flat/multiplicative properties and dimension with epsilon ceiling/minimum, then target percentage/flat and ceiling without minimum",

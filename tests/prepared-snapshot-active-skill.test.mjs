@@ -25,7 +25,7 @@ function input(build='pc-res150-build51'){
 }
 function mixedInput(build='pc-res150-build51'){
   const value=input(build);value.schemaVersion=2;value.preparation={skillId:4046,skillLevel:6,isAwaker:true,breakSkillLevel:0,potencyLevel:0,overrides:[],variables:{BattleAtkForce:100},conditionResults:{},stateQueries:{}};
-  value.energy={source:{castRoleUid:7,cmdServerUid:2},target:{uid:7,role:'Awaker',energy:95,maximumProperties:{ulti_energy_max:100,ulti_energy_cost_per:0,ulti_energy_cost_flat:0,ulti_energy_max_per:0},calculation:{dimension:0,properties:{card_ulti_per:0,card_ulti_plus:0,o_ulti_energy_per:0,ulti_energy_per:0,i_ulti_energy_per:0,ulti_energy_efficiency:0,ulti_per_strikecard:0,ulti_energy_plus:0,gain_ulti_energy_per:0,gain_ulti_energy_plus:0},matchesEnergyCardTypes:true,casterEligible:true}}};
+  value.energy={source:{castRoleUid:7,cmdServerUid:2},target:{uid:7,role:'Awaker',energy:95,maximumProperties:{ulti_energy_max:100,ulti_energy_cost_per:0,ulti_energy_cost_flat:0,ulti_energy_max_per:0},calculation:{dimension:0,properties:{card_ulti_per:0,card_ulti_plus:0,o_ulti_energy_per:0,ulti_energy_per:0,i_ulti_energy_per:0,ulti_energy_efficiency:0,ulti_per_strikecard:0,ulti_energy_plus:0,gain_ulti_energy_per:0,gain_ulti_energy_plus:0},casterEligible:true}}};
   return value;
 }
 
@@ -73,6 +73,7 @@ for(const build of Object.keys(roots))test(`version 2 executes exported damage t
   const value=mixedInput(build),before=JSON.stringify(value),result=runPreparedSnapshotActiveSkill(value,source(build));
   assert.equal(result.prepared.commandId,2112);assert.deepEqual(result.prepared.arguments,[20,10]);
   assert.deepEqual(result.command.rows.map(row=>row.Type),['BEActiveDamage','BEGainUltiEnergy']);
+  assert.deepEqual(result.energyCardTypeMatch,{cardTypes:['Card_Strike'],requestedTypes:['Card_Skill','Card_Defend','Card_Extend','Card_Strike'],matched:true});
   assert.equal(result.calculation.modeledHpLost,20);assert.equal(result.calculation.targetAfter.hp,980);
   assert.deepEqual(result.energyParameterEvaluation.values,[10]);assert.equal(result.energy.targetsAfter[0].energy,100);
   assert.equal(result.completed,true);assert.equal(result.stop,null);assert.equal(result.finalDamage,null);assert.equal(JSON.stringify(value),before);
