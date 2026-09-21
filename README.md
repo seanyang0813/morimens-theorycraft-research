@@ -64,6 +64,8 @@ The native decoder has passed a synthetic round trip and 70 authorized server re
 
 The blind replay workflow also has a narrow resource-150 path for a fresh controlled capture: complete live property maps, current-catalog target-state classification, and a build commitment frozen with recognized evidence before reveal. It uses exact current `State`, `Constant` and `BattleApi` mappings plus cross-build-runtime-matched offense, utility, critical and final-target domains. Historical recordings and raw pre-constructor maps remain outside that current-build claim.
 
+`research/evidence/current-session-replay-baseline.json` commits to the current live resource-150 process's pre-battle replay-reference inventory without publishing any reference. It is preparation rather than holdout evidence. A later candidate must appear for the first time after a controlled PvE battle in the same process, pass the outcome-free PvE domain preflight, and be frozen before reveal.
+
 The copied PC transport schema has also been inspected with the client's native `sproto.core`. It contains generic transport/login protocols rather than replay endpoint schemas and exposes no literal combat-build fingerprint. That negative result is reproducible through `tools/inspect_pc_protocol_bundle.py`; it means an old replay still needs independent version evidence before it can count as strict validation.
 
 The source-hashed static audit follows non-PvP supported-tag Awakener skills to their commands and currently finds all 121 linked commands containing ordinary Active damage have row shapes the PvE replay adapter can parse. This is potential replay-regression coverage only; it is not gameplay support or accuracy evidence.

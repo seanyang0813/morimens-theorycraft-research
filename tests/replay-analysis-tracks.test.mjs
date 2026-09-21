@@ -75,3 +75,12 @@ test('capture-round publication stays in verification and strips replay rows',()
     assert.ok(report.claimBoundary.forbidden.includes('optimal theorycraft sequence'));
   }finally{rmSync(dir,{recursive:true,force:true});}
 });
+
+test('live-session baseline publishes only a pre-battle commitment',()=>{
+  const text=readFileSync('research/evidence/current-session-replay-baseline.json','utf8'),report=JSON.parse(text);
+  assert.equal(report.kind,'MORIMENS_REPLAY_SESSION_BASELINE_COMMITMENT');assert.equal(report.status,'COMMITTED_PRE_BATTLE_BASELINE');
+  assert.equal(report.analysisTrack,'verification');assert.equal(report.build.id,'pc-res150-build51');
+  assert.equal(report.privateBaselineCommitment.identifiersPublished,false);assert.match(report.privateBaselineCommitment.sha256,/^[0-9a-f]{64}$/);
+  assert.match(report.limitations[0],/does not .*establish the recorded combat build/);
+  assert.doesNotMatch(text,/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i);
+});
