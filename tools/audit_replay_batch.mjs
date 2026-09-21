@@ -19,11 +19,15 @@ for(const spec of specs){
   const index=read(indexPath),decoded=read(decodedPath),resources=decoded?.decoded?.resourceRecords;
   if(!resources||!['Skill','Cmd','MonsterConfig','AwakerConfig'].every(name=>resources[name]&&typeof resources[name]==='object'))throw new Error(`Embedded replay catalogs required: ${observationId}`);
   const catalogs={skills:resources.Skill,commands:resources.Cmd,monsters:resources.MonsterConfig,awakeners:resources.AwakerConfig};
-  let completeHitSnapshots=0,retrospectiveActiveCandidates=0,exactRngBranchConsistencyChecks=0,deterministicExactChecks=0,deterministicMismatches=0,rngBranchMismatches=0;const candidateBlockers={};
+  let completeHitSnapshots=0,retrospectiveActiveCandidates=0,exactRngBranchConsistencyChecks=0,deterministicExactChecks=0,deterministicMismatches=0,rngBranchMismatches=0;const candidateBlockers={},completeHitTargetRoleTypes={};
   for(const action of index.actionSnapshots??[]){
     for(const hit of action.window?.hitSnapshots??[]){
       if(hit.boundaryStatus!=='COMPLETE')continue;
       completeHitSnapshots++;
+      const matching=(action.window?.hits??[]).find(item=>item.recordIndex===hit.recordIndex&&item.frameIndex===hit.frameIndex);
+      const target=hit.roles?.[String(matching?.data?.roleUid)];
+      const targetRoleType=Number.isSafeInteger(target?.roleType)?String(target.roleType):'unknown';
+      completeHitTargetRoleTypes[targetRoleType]=(completeHitTargetRoleTypes[targetRoleType]??0)+1;
       try{
         const candidate=buildReplayActionCandidate({index,actionIndex:action.actionIndex,hitIndex:hit.hitIndex,...catalogs,combatBuild});
         if(candidate.calculation){
@@ -39,7 +43,7 @@ for(const spec of specs){
     }
   }
   const unknownCommands=(index.unknownCommands??[]).length,unknownEvents=(index.unknownEvents??[]).length;
-  rows.push({observationId,containerSha256:hash(containerPath),containerBytes:readFileSync(containerPath).length,records:index.counts?.records??0,events:index.counts?.events??index.events?.length??0,cardUses:index.counts?.cardUses??index.actionSnapshots?.length??0,hits:index.counts?.hits??index.hits?.length??0,completeHitSnapshots,snapshotBoundaryStatus:index.snapshotBoundaryStatus??null,unknownCommands,unknownEvents,retrospectiveActiveCandidates,exactRngBranchConsistencyChecks,deterministicExactChecks,deterministicMismatches,rngBranchMismatches,candidateBlockers,calculationBuild:combatBuild,recordedCombatBuild:null,catalogSource:'replay-embedded-resource-records'});
+  rows.push({observationId,containerSha256:hash(containerPath),containerBytes:readFileSync(containerPath).length,records:index.counts?.records??0,events:index.counts?.events??index.events?.length??0,cardUses:index.counts?.cardUses??index.actionSnapshots?.length??0,hits:index.counts?.hits??index.hits?.length??0,completeHitSnapshots,completeHitTargetRoleTypes,snapshotBoundaryStatus:index.snapshotBoundaryStatus??null,unknownCommands,unknownEvents,retrospectiveActiveCandidates,exactRngBranchConsistencyChecks,deterministicExactChecks,deterministicMismatches,rngBranchMismatches,candidateBlockers,calculationBuild:combatBuild,recordedCombatBuild:null,catalogSource:'replay-embedded-resource-records'});
 }
 writeFileSync(output,JSON.stringify(rows,null,2)+'\n');
 console.log(JSON.stringify({combatBuild,replays:rows.length,retrospectiveActiveCandidates:rows.reduce((n,row)=>n+row.retrospectiveActiveCandidates,0),deterministicExactChecks:rows.reduce((n,row)=>n+row.deterministicExactChecks,0),deterministicMismatches:rows.reduce((n,row)=>n+row.deterministicMismatches,0),exactRngBranchConsistencyChecks:rows.reduce((n,row)=>n+row.exactRngBranchConsistencyChecks,0),rngBranchMismatches:rows.reduce((n,row)=>n+row.rngBranchMismatches,0)}));

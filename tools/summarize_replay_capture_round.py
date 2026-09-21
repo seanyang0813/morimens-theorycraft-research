@@ -40,6 +40,14 @@ def main() -> None:
             "rngBranchMismatches",
         )
     }
+    role_type_names = {"1": "Awakener", "2": "Monster", "3": "Player", "unknown": "Unknown"}
+    target_role_types: dict[str, int] = {}
+    for row in rows:
+        for role_type, count in row.get("completeHitTargetRoleTypes", {}).items():
+            label = role_type_names.get(str(role_type), f"ProtocolRoleType{role_type}")
+            target_role_types[label] = target_role_types.get(label, 0) + int(count)
+    if sum(target_role_types.values()) != summed["completeHitSnapshots"]:
+        raise ValueError("Target-role classification must cover every complete hit snapshot")
     report = {
         "schemaVersion": 1,
         "kind": "MORIMENS_SANITIZED_REPLAY_CAPTURE_ROUND",
@@ -53,7 +61,7 @@ def main() -> None:
             "The records may be routed to separate budget-scouting or cheese-analysis artifacts, but this report "
             "does not make either claim and cannot supply a theorycraft conclusion or publication-gate holdout."
         ),
-        "totals": {"replays": len(rows), **summed},
+        "totals": {"replays": len(rows), **summed, "completeHitTargetRoleTypes": target_role_types},
         "blindSelection": {
             "eligibleReplays": args.blind_eligible,
             "frozenPredictions": 0,

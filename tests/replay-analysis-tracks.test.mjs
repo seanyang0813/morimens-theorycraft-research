@@ -54,11 +54,12 @@ test('capture-round publication stays in verification and strips replay rows',()
   const dir=mkdtempSync(join(root,'research','observations','capture-round-test-'));
   try{
     const source=join(dir,'private-audit.json'),output=join(dir,'public.json');
-    writeFileSync(source,JSON.stringify([{observationId:'private-a',records:3,events:5,cardUses:2,hits:4,completeHitSnapshots:1,unknownCommands:0,unknownEvents:0,retrospectiveActiveCandidates:0}]));
+    writeFileSync(source,JSON.stringify([{observationId:'private-a',records:3,events:5,cardUses:2,hits:4,completeHitSnapshots:1,completeHitTargetRoleTypes:{'3':1},unknownCommands:0,unknownEvents:0,retrospectiveActiveCandidates:0}]));
     const run=spawnSync('python',['tools/summarize_replay_capture_round.py','--audit',source,'--output',output,'--blind-eligible','0'],{cwd:root,encoding:'utf8'});
     assert.equal(run.status,0,run.stderr);
     const report=JSON.parse(readFileSync(output,'utf8'));
     assert.equal(report.analysisTrack,'verification');assert.equal(report.totals.replays,1);
+    assert.deepEqual(report.totals.completeHitTargetRoleTypes,{Player:1});
     assert.equal(Object.hasOwn(report,'replays'),false);assert.equal(JSON.stringify(report).includes('private-a'),false);
     assert.ok(report.claimBoundary.forbidden.includes('cheese classification'));
     assert.ok(report.claimBoundary.forbidden.includes('optimal theorycraft sequence'));
