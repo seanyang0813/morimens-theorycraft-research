@@ -17,6 +17,9 @@ test('prediction freeze pins scenario, runtime and separate pre-outcome evidence
     const args={scenarioFile:relativeToRoot(scenario),metric:'preHitDamage',evidenceFiles:[relativeToRoot(evidence)],recordedCombatBuild:build,buildEvidenceFiles:[relativeToRoot(buildEvidence)],outputFile:relativeToRoot(output),now:()=>new Date('2026-09-20T00:00:00Z')};
     const frozen=freezeGameplayPrediction(args),record=JSON.parse(readFileSync(output,'utf8'));
     assert.equal(frozen.predictedDamage,100);assert.equal(record.predictedDamage,100);assert.equal(record.kind,'MORIMENS_PREDICTION_FREEZE');assert.equal(record.beforeOutcomeEvidence.length,1);assert.equal(record.recordedBuild.id,build);assert.equal(record.recordedBuild.evidence.length,1);
+    assert.equal(record.prediction.runtimeContract.schemaVersion,1);assert.equal(record.prediction.runtimeContract.fullRuntimeFingerprint,record.prediction.runtimeFingerprint);assert.ok(record.prediction.runtimeContract.files['engine/calculate-damage.mjs']);assert.equal(record.prediction.runtimeContract.files['engine/legal-card-actions.mjs'],undefined);
+    const replay=spawnSync(process.execPath,['tools/replay_observation.mjs',scenario,'preHitDamage',record.prediction.runtimeFingerprint,JSON.stringify(record.prediction.runtimeContract)],{cwd:root,encoding:'utf8'});
+    assert.equal(replay.status,0,replay.stderr);assert.equal(JSON.parse(replay.stdout).value,100);assert.equal(JSON.parse(replay.stdout).runtimeContractFingerprint,record.prediction.runtimeContract.fingerprint);
     assert.throws(()=>freezeGameplayPrediction(args),/refusing to overwrite/);
     assert.throws(()=>freezeGameplayPrediction({...args,outputFile:relativeToRoot(join(directory,'bad.json')),evidenceFiles:[args.scenarioFile]}),/separate/);
     assert.throws(()=>freezeGameplayPrediction({...args,outputFile:relativeToRoot(join(directory,'missing-build-evidence.json')),buildEvidenceFiles:[]}),/supplied together/);

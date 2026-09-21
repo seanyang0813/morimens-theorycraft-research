@@ -3,7 +3,7 @@ import {existsSync,readFileSync,writeFileSync} from 'node:fs';
 import {isAbsolute,relative,resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {runObservationScenario} from '../engine/observation-scenario.mjs';
-import {verifyRuntimeManifest} from './verify_runtime_manifest.mjs';
+import {createObservationRuntimeContract,verifyRuntimeManifest} from './verify_runtime_manifest.mjs';
 
 const root=resolve(fileURLToPath(new URL('../',import.meta.url)));
 const observationRoot=resolve(root,'research/observations');
@@ -37,8 +37,8 @@ export function freezeGameplayPrediction({scenarioFile,metric,evidenceFiles,outp
   if(!allowed)throw new Error('Output must be inside research/observations or research/evidence/holdouts');
   if(existsSync(output))throw new Error('Prediction freeze already exists; refusing to overwrite chronology evidence');
   const input=JSON.parse(scenario.bytes.toString('utf8'));
-  const runtimeFingerprint=verifyRuntimeManifest(),result=runObservationScenario(input,metric);
-  const prediction={scenarioFile:relativePath(scenario.path),scenarioSha256:hash(scenario.bytes),runtimeFingerprint,metric};
+  const runtimeFingerprint=verifyRuntimeManifest(),runtimeContract=createObservationRuntimeContract(input),result=runObservationScenario(input,metric);
+  const prediction={scenarioFile:relativePath(scenario.path),scenarioSha256:hash(scenario.bytes),runtimeFingerprint,runtimeContract,metric};
   const record={schemaVersion:1,kind:'MORIMENS_PREDICTION_FREEZE',createdAtUtc:now().toISOString(),prediction,predictedDamage:result.value,predictionScope:result.scope,scenarioKind:result.scenarioKind,
     unresolvedDependencies:result.unresolvedDependencies,beforeOutcomeEvidence:evidence.map(item=>({path:relativePath(item.path),sha256:hash(item.bytes)})),
     recordedBuild:hasBuild?{id:recordedCombatBuild,evidence:buildEvidence.map(item=>({path:relativePath(item.path),sha256:hash(item.bytes)}))}:null};

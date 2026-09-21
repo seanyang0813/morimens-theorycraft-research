@@ -19,7 +19,9 @@ def replay_prediction(row):
         path=(ROOT/prediction['scenarioFile']).resolve()
         if not path.is_relative_to(ROOT) or not path.is_file():raise ValueError('Scenario file missing or outside workspace')
         if hashlib.sha256(path.read_bytes()).hexdigest()!=prediction['scenarioSha256']:raise ValueError('Scenario hash mismatch')
-        run=subprocess.run(['node',str(ROOT/'tools/replay_observation.mjs'),str(path),prediction['metric'],prediction['runtimeFingerprint']],cwd=ROOT,capture_output=True,text=True,encoding='utf-8',timeout=30)
+        command=['node',str(ROOT/'tools/replay_observation.mjs'),str(path),prediction['metric'],prediction['runtimeFingerprint']]
+        if prediction.get('runtimeContract') is not None:command.append(json.dumps(prediction['runtimeContract'],separators=(',',':')))
+        run=subprocess.run(command,cwd=ROOT,capture_output=True,text=True,encoding='utf-8',timeout=30)
         if run.returncode:raise ValueError(run.stderr.strip() or 'Prediction execution failed')
         result=json.loads(run.stdout)
         if result['build']!=row.get('version',{}).get('recordedCombatBuild'):raise ValueError('Scenario and recorded combat build differ')
