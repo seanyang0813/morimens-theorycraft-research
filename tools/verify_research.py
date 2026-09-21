@@ -20,6 +20,22 @@ def recognized_build_report(path,recorded_build):
     digest=source.get('versionManifest') if isinstance(source,dict) else None
     return value.get('schemaVersion')==1 and value.get('kind')=='MORIMENS_PC_COMBAT_BUILD_COMPARISON' and value.get('currentBuild')==recorded_build and isinstance(version,dict) and isinstance(version.get('resVersion'),int) and isinstance(version.get('buildVersion'),int) and isinstance(digest,str) and len(digest)==64 and all(char in '0123456789abcdef' for char in digest) and isinstance(source.get('bundles'),dict)
 
+def recognized_replay_session_capture(path,recorded_build,input_sha256):
+    try:value=json.loads(path.read_text(encoding='utf-8'))
+    except (OSError,UnicodeError,json.JSONDecodeError):return False
+    if not isinstance(value,dict) or value.get('schemaVersion')!=1 or value.get('kind')!='MORIMENS_REPLAY_SESSION_CAPTURE_EVIDENCE' or value.get('status')!='REVIEWED_SAME_SESSION_CONTROLLED_PVE_CAPTURE':return False
+    if value.get('analysisTrack')!='verification' or value.get('build',{}).get('id')!=recorded_build or value.get('containerSha256')!=input_sha256 or value.get('combatDomain')!='PVE_MONSTER_TARGETS':return False
+    checks=value.get('sessionChecks')
+    required=('sameProcessStart','sameExecutable','installedBuildUnchanged','newReferenceAbsentFromBaseline','controlledPveBattleConfirmed','containerPreservedBeforeDecode')
+    if not isinstance(checks,dict) or any(checks.get(key) is not True for key in required):return False
+    baseline=value.get('baselineCommitment')
+    try:
+        baseline_path=(ROOT/baseline['path']).resolve()
+        if not baseline_path.is_relative_to(ROOT) or not baseline_path.is_file() or hashlib.sha256(baseline_path.read_bytes()).hexdigest()!=baseline['sha256']:return False
+        committed=json.loads(baseline_path.read_text(encoding='utf-8'))
+    except (KeyError,TypeError,OSError,UnicodeError,json.JSONDecodeError):return False
+    return committed.get('schemaVersion')==1 and committed.get('kind')=='MORIMENS_REPLAY_SESSION_BASELINE_COMMITMENT' and committed.get('status')=='COMMITTED_PRE_BATTLE_BASELINE' and committed.get('build',{}).get('id')==recorded_build and committed.get('privateBaselineCommitment',{}).get('sha256')==baseline.get('privateBaselineSha256')
+
 def replay_prediction(row):
     prediction=row.get('prediction')
     if not isinstance(prediction,dict):return None,'No executable prediction contract'
@@ -71,25 +87,35 @@ def audit_observation(row):
             if frozen.get('predictedDamage')!=predicted:raise ValueError('Frozen predicted damage differs')
             before=frozen.get('beforeOutcomeEvidence')
             if not isinstance(before,list) or not before:raise ValueError('Independent evidence of freeze timing missing')
+            replay_input_hashes=set()
             for item in before:
                 evidence_path=(ROOT/item['path']).resolve()
                 if not evidence_path.is_relative_to(ROOT) or not evidence_path.is_file():raise ValueError('Pre-outcome evidence missing or outside workspace')
                 if hashlib.sha256(evidence_path.read_bytes()).hexdigest()!=item['sha256']:raise ValueError('Pre-outcome evidence hash mismatch')
+                try:before_value=json.loads(evidence_path.read_text(encoding='utf-8'))
+                except (UnicodeError,json.JSONDecodeError):before_value=None
+                if isinstance(before_value,dict) and before_value.get('kind')=='MORIMENS_REPLAY_PREOUTCOME_EVIDENCE':
+                    input_hash=before_value.get('inputSha256')
+                    if not isinstance(input_hash,str) or len(input_hash)!=64 or any(char not in '0123456789abcdef' for char in input_hash):raise ValueError('Replay pre-outcome evidence has an invalid container hash')
+                    replay_input_hashes.add(input_hash)
                 hashes.append({'path':item['path'],'sha256':item['sha256'],'purpose':'pre-outcome state; chronology requires manual review'})
+            if len(replay_input_hashes)>1:raise ValueError('Replay pre-outcome evidence refers to multiple containers')
             recorded_build=row.get('version',{}).get('recordedCombatBuild')
             if recorded_build:
                 build=frozen.get('recordedBuild')
                 if not isinstance(build,dict) or build.get('id')!=recorded_build:raise ValueError('Frozen recorded build is missing or differs from the observation')
                 build_evidence=build.get('evidence')
                 if not isinstance(build_evidence,list) or not build_evidence:raise ValueError('Frozen recorded build needs pre-outcome evidence')
-                recognized_build_evidence=False
+                recognized_build_evidence=False;recognized_session_capture=False
                 for item in build_evidence:
                     evidence_path=(ROOT/item['path']).resolve()
                     if not evidence_path.is_relative_to(ROOT) or not evidence_path.is_file():raise ValueError('Build evidence missing or outside workspace')
                     if hashlib.sha256(evidence_path.read_bytes()).hexdigest()!=item['sha256']:raise ValueError('Build evidence hash mismatch')
                     recognized_build_evidence=recognized_build_evidence or recognized_build_report(evidence_path,recorded_build)
+                    if replay_input_hashes:recognized_session_capture=recognized_session_capture or recognized_replay_session_capture(evidence_path,recorded_build,next(iter(replay_input_hashes)))
                     hashes.append({'path':item['path'],'sha256':item['sha256'],'purpose':'pre-outcome recorded combat build; chronology requires manual review'})
                 if not recognized_build_evidence:raise ValueError('No recognized build report identifies the recorded combat build')
+                if replay_input_hashes and not recognized_session_capture:raise ValueError('Replay holdout lacks reviewed same-session controlled-PvE capture evidence')
             hashes.append({'path':proof['path'],'sha256':proof['sha256'],'purpose':'prediction freeze; chronology requires manual review'})
         except (KeyError,TypeError,ValueError,OSError) as error:reasons.append('Holdout freeze: '+str(error))
     return {'id':row.get('id'),'holdout':row.get('holdout') is True,'observed':observed,'predicted':predicted,'recomputed':recomputed,'difference':difference,'eligibleForReview':not reasons,'reasons':reasons,'evidenceFiles':hashes}

@@ -46,6 +46,23 @@ class ObservationAuditTests(unittest.TestCase):
             freeze=directory/'freeze.json';freeze.write_text(json.dumps(frozen),encoding='utf-8');proof={'path':str(freeze.relative_to(ROOT)),'sha256':hashlib.sha256(freeze.read_bytes()).hexdigest()}
             result=audit_observation({**self.row(),'holdout':True,'prediction':prediction,'predictionFrozenBeforeOutcomeEvidence':proof})
             self.assertIn('Holdout freeze: No recognized build report identifies the recorded combat build',result['reasons'])
+    def test_replay_holdout_requires_reviewed_same_session_capture(self):
+        with tempfile.TemporaryDirectory(dir=ROOT) as directory:
+            directory=Path(directory);build='explicit-test-build';container_hash='c'*64
+            before=directory/'before.json';before.write_text(json.dumps({'schemaVersion':1,'kind':'MORIMENS_REPLAY_PREOUTCOME_EVIDENCE','inputSha256':container_hash}),encoding='utf-8')
+            build_report=directory/'build.json';build_report.write_text(json.dumps({'schemaVersion':1,'kind':'MORIMENS_PC_COMBAT_BUILD_COMPARISON','currentBuild':build,'currentVersion':{'resVersion':1,'buildVersion':1},'sourceHashes':{'versionManifest':'a'*64,'bundles':{'share.ab':{'sha256':'b'*64,'size':1}}}}),encoding='utf-8')
+            private_baseline_hash='d'*64
+            baseline=directory/'baseline.json';baseline.write_text(json.dumps({'schemaVersion':1,'kind':'MORIMENS_REPLAY_SESSION_BASELINE_COMMITMENT','status':'COMMITTED_PRE_BATTLE_BASELINE','build':{'id':build},'privateBaselineCommitment':{'sha256':private_baseline_hash}}),encoding='utf-8')
+            baseline_ref={'path':str(baseline.relative_to(ROOT)),'sha256':hashlib.sha256(baseline.read_bytes()).hexdigest(),'privateBaselineSha256':private_baseline_hash}
+            capture=directory/'capture.json';capture.write_text(json.dumps({'schemaVersion':1,'kind':'MORIMENS_REPLAY_SESSION_CAPTURE_EVIDENCE','status':'REVIEWED_SAME_SESSION_CONTROLLED_PVE_CAPTURE','analysisTrack':'verification','build':{'id':build},'containerSha256':container_hash,'combatDomain':'PVE_MONSTER_TARGETS','baselineCommitment':baseline_ref,'sessionChecks':{key:True for key in ('sameProcessStart','sameExecutable','installedBuildUnchanged','newReferenceAbsentFromBaseline','controlledPveBattleConfirmed','containerPreservedBeforeDecode')}}),encoding='utf-8')
+            item=lambda path:{'path':str(path.relative_to(ROOT)),'sha256':hashlib.sha256(path.read_bytes()).hexdigest()}
+            prediction={'scenarioFile':'unused.json','scenarioSha256':'0'*64,'runtimeFingerprint':'0'*64,'metric':'preHitDamage'}
+            frozen={'schemaVersion':1,'kind':'MORIMENS_PREDICTION_FREEZE','prediction':prediction,'predictedDamage':100,'beforeOutcomeEvidence':[item(before)],'recordedBuild':{'id':build,'evidence':[item(build_report)]}}
+            freeze=directory/'freeze.json';freeze.write_text(json.dumps(frozen),encoding='utf-8')
+            row={**self.row(),'version':{'recordedCombatBuild':build},'holdout':True,'prediction':prediction,'predictionFrozenBeforeOutcomeEvidence':item(freeze)}
+            self.assertIn('Holdout freeze: Replay holdout lacks reviewed same-session controlled-PvE capture evidence',audit_observation(row)['reasons'])
+            frozen['recordedBuild']['evidence'].append(item(capture));freeze.write_text(json.dumps(frozen),encoding='utf-8');row['predictionFrozenBeforeOutcomeEvidence']=item(freeze)
+            self.assertFalse(any(reason.startswith('Holdout freeze:') for reason in audit_observation(row)['reasons']))
     def test_no_implicit_tolerance(self):
         result=audit_observation({**self.row(),'predictedDamage':101})
         self.assertEqual(result['difference'],1)
