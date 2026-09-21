@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_REPLAY_PREOUTCOME_EVIDENCE",
+  "createdAtUtc": "2026-09-21T07:30:59.802Z",
+  "holdoutId": "d-tide-holdout-001",
+  "inputSha256": "9d34e0597c3b4c2acc6468fc2b3f0dbde25a2e5f814ae44daf6419dd9da0dfc5",
+  "selectionPolicy": "first complete deterministic direct hit using identity-only target/caster/skill routing with all numeric outcome fields excluded",
+  "sourceActionIndex": 11,
+  "sourceHitIndex": 8,
+  "routing": {
+    "skillId": 122488,
+    "commandId": 122516,
+    "rowId": "1",
+    "parameters": [
+      52,
+      2
+    ],
+    "tags": [
+      "Card_Strike"
+    ],
+    "repetitionPerExecution": 2,
+    "targetBindingSource": "identity-only-preoutcome",
+    "commandSourceShape": "decoded-replay-array"
+  },
+  "identityCommitmentSha256": "fdaecfbe259c8db658d301cac49a6c25caaa39e7d5ed85c8303894e22f4a9e11",
+  "sealedProjectionSha256": "b5c786e3a3975c8394ff723a1525897a258773f5af86f0d566251296a04f70bc",
+  "catalogSha256": {
+    "Skill": "5b68ae192c700ac85a003a33fba8b221d3b46e8e748fd459a620ac8cf3266224",
+    "Cmd": "e640d7d7858e6d5d98c6be8f793540d0c24c8b18a8ef59872a2876540fec065b",
+    "MonsterConfig": "687d703841f45d1bec00d5a31208dbbf234f23583f4d95f88ce0e5463d8456a8",
+    "AwakerConfig": "b21767c22cebc64f8aacea07f1f5c7faf39d272b2ceb79d6ceb662b855d0ea69"
+  },
+  "excludedOutcomeFields": [
+    "castDamage",
+    "isCrit",
+    "oldHp",
+    "blockLose",
+    "realDamage",
+    "hpLose"
+  ],
+  "recordedCombatBuild": null,
+  "limitations": [
+    "Target selection is treated as a frozen identity input rather than predicted",
+    "Prediction is limited to a deterministic direct hit with frozen target/caster/skill identity",
+    "Pre-hit snapshots and catalog rows require provenance review",
+    "Recorded engine-code version remains unresolved"
+  ]
+}

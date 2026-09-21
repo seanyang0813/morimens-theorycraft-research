@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PREDICTION_FREEZE",
+  "createdAtUtc": "2026-09-21T07:30:59.868Z",
+  "prediction": {
+    "scenarioFile": "research/evidence/holdouts/d-tide-holdout-001/scenario.json",
+    "scenarioSha256": "3e931fb54fc4149e12eda9909efff6f03dade36fe2fe9766bdca0753cfeec450",
+    "runtimeFingerprint": "cba971e76920828899c1a6cbd1e3c7ee605367c0e14f9dcf693ad157bd51f965",
+    "metric": "preHitDamage"
+  },
+  "predictedDamage": 21173,
+  "predictionScope": "Complete captured property maps; captured card instance; PvE Awakener ordinary direct Active damage; supplied event-time context",
+  "scenarioKind": "morimens-battle-property-snapshot-damage",
+  "unresolvedDependencies": [
+    "Base command value, card identity/type, tags, target battle tag, active target state IDs and any required critical RNG draw must be captured from the same pre-action boundary",
+    "A deterministic crit result still consumes an RNG draw in the original chance branch; later RNG-stream reconstruction requires its state/effect",
+    "Card-awake skills, state-trigger-add, formula subtype, targeting, HP resolution and callbacks are outside this adapter",
+    "Snapshot completeness and provenance require evidence review",
+    "Authored composition of separately checked property, offense, critical, eligibility and target boundaries; no connected original execution or independent gameplay validation"
+  ],
+  "beforeOutcomeEvidence": [
+    {
+      "path": "research/evidence/holdouts/d-tide-holdout-001/preoutcome-evidence.json",
+      "sha256": "f7dc7ca35e073b37312520e36dc22a02d6e92159d48926eaeb2f996102b6868b"
+    }
+  ]
+}
