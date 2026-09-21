@@ -16,7 +16,7 @@ export function prepareCatalogCardCommandPlan(value,source){
   if(Object.values(progression.variables).some(number=>!Number.isFinite(number)))throw new Error('Card variables must be finite numbers');
   if(Object.values(progression.conditionResults).some(result=>typeof result!=='boolean'))throw new Error('Card conditions must be booleans');
   if(Object.entries(progression.stateQueries).some(([name,values])=>!name||!map(values)||Object.entries(values).some(([id,result])=>!Number.isSafeInteger(Number(id))||!Number.isFinite(result))))throw new Error('Card state queries require integer-ID to finite-number maps');
-  if(!source||!exact(source,['skills','battleApi','sourceHashes'])||!map(source.skills)||!map(source.battleApi)||!exact(source.sourceHashes,['Skill','BattleApi'])||Object.values(source.sourceHashes).some(hash=>!(/^[0-9a-f]{64}$/i).test(hash)))throw new Error('Versioned Skill and BattleApi context required');
+  if(!source||!exact(source,['build','skills','battleApi','sourceHashes'])||source.build!==input.build||!map(source.skills)||!map(source.battleApi)||!exact(source.sourceHashes,['Skill','BattleApi'])||Object.values(source.sourceHashes).some(hash=>!(/^[0-9a-f]{64}$/i).test(hash)))throw new Error('Matching versioned Skill and BattleApi context required');
   if(!input.card||!Number.isSafeInteger(input.card.tid)||!Number.isSafeInteger(input.card.level)||input.card.level<1)throw new Error('Card skill identity and level required');
   const skill=source.skills[String(input.card.tid)];
   if(!skill)throw new Error('Generated card skill missing from export');

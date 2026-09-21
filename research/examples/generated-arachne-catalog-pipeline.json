@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-generated-card-pipeline",
+  "build": "pc-res144-build51",
+  "create": {
+    "schemaVersion": 1,
+    "kind": "morimens-create-card-command",
+    "build": "pc-res144-build51",
+    "deckExpression": {"cardDeck": "HandDeck", "camp": 3},
+    "count": 1,
+    "enternal": null,
+    "show": null,
+    "explicitCardArgs": null,
+    "castRoleUid": 77,
+    "targets": [{"id": 126484, "level": 1, "specialOwner": 88, "performSkillId": 126484, "cardTypes": ["Strike"], "createCardArgs": [0.5]}]
+  },
+  "manager": {
+    "extraBout": false,
+    "maxHand": 5,
+    "initialState": {"decks": {"NoneDeck": [], "DrawDeck": [], "HandDeck": [], "DimensionDeck": []}, "enternalCardUids": []},
+    "allocatedUidsByRequest": [[9101]]
+  },
+  "ownerContexts": [{"schemaVersion": 1, "kind": "morimens-card-owner", "build": "pc-res144-build51", "camp": 3, "skillAwakerId": 77918, "playerUid": 100, "specialOwnerUid": 88, "configuredAwakerUid": 200, "fromCardUid": null, "fromCard": null, "performSkillId": 126484}],
+  "commandContexts": [{"preCmdId": null, "progression": {"isAwaker": true, "breakSkillLevel": 0, "potencyLevel": 0, "variables": {"BattleAtkForce": 1000}, "conditionResults": {}, "stateQueries": {"PlayerRole.GetStateLayer": {"134222": 2}}}}]
+}
