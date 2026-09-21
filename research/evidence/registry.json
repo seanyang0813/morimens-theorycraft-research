@@ -3699,7 +3699,54 @@
         "tools/build_final_evolution_mechanic.py",
         "tests/final-evolution-mechanic.test.mjs"
       ],
-      "scope": "Exact selected Skill/Cmd/State rows after BaseSortID exclusion. Per actual negative HP-change event; permanent/temporary clear conditions and properties retained. Skill-argument ceiling, add-state/property and HP-listener mechanics have separate evidence. No full command scheduling, bubble execution, clear-event execution, gameplay, holdout, cheese, budget or leaderboard claim.",
+      "scope": "Exact selected Skill/Cmd/State rows after BaseSortID exclusion. Per actual negative HP-change event; permanent/temporary clear conditions and properties retained. Skill-argument ceiling, add-state/property, HP-listener and baseline bubble presentation mechanics have separate evidence. No integrated command scheduling, clear-event execution, gameplay, holdout, cheese, budget or leaderboard claim.",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144-PC150:GhostDogPhasePathSeparation",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "Configured monster 60097 uses a BSTRoleBeforeDeath rebirth path through state 60564 and command 60563, while phase-cap states 60409/60408 have no baseline MonsterConfig ExistState attachment; the two paths are not interchangeable",
+      "sources": [
+        {
+          "module": "MonsterConfig",
+          "member": "60097 and complete ExistState scan",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "3431a36ee83639e8dd97bb664b6775afa8f3e8189a89407c1e3c4fcf08db9954",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\-5343159465743601071_MonsterConfig.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "60563",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "State",
+          "member": "60564,44806,60409,60408",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
+        },
+        {
+          "module": "Skill",
+          "member": "60397,60398",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\2015861756545847808_Skill.lua"
+        },
+        {
+          "module": "Ghost-faced dog phase-path report",
+          "member": "selected cross-build rows and MonsterConfig reference scan",
+          "bundle": "public hash-only/selected-row report",
+          "sha256": "314598fbc9bd83f75e9f29308149d2ab15f0a91d6692fb59355de8c43bb6bb65"
+        }
+      ],
+      "tests": [
+        "tools/build_ghost_dog_phase_variants.py",
+        "tests/ghost-dog-phase-variants.test.mjs"
+      ],
+      "scope": "Complete baseline MonsterConfig ExistState scan and five exact selected Cmd/State/Skill matches across pinned catalogs. Missing change-type parameters default to Substitute under separate runtime evidence. No current MonsterConfig export, external stage-injection proof, integrated command 60563 execution, BEPVERebirth body, gameplay or cross-track claim.",
       "gameplayValidation": false
     },
     {

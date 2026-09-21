@@ -6,13 +6,29 @@ This bridge passes raw signed loss into the effect before applying its HP cap; p
 
 Per the user's instruction, higher-difficulty content takes priority over further work on the Normal baseline.
 
-## Ghost-faced dog phase transition
+## Separate Ghost-faced dog phase mechanisms
+
+The exported baseline `MonsterConfig` links boss 60097 directly to state 60564,
+which triggers command 60563 on `BSTRoleBeforeDeath`. That is a pre-death rebirth
+path. On its first trigger, marker 44806 is zero and the command selects Final
+Evolution (60397); on its second, marker 44806 is one and it selects Ghost-faced
+Bite (60398). Both `BEMonsterChangeSkill` rows omit the second parameter, which
+the recovered effect body defaults to `Substitute`. This differs from the explicit
+`Insert` used by the threshold transition examined below.
+
+The 66%/33% states 60409 and 60408 do not appear in any baseline
+`MonsterConfig.ExistState` list. Their rules and command behavior are tested, but
+the exported catalog does not establish how they are attached to an encounter.
+They must not be presented as the configured boss-60097 path without separate
+stage-injection evidence. See `research/evidence/ghost-dog-phase-variants.json`.
+
+## Threshold-state transition
 
 At the 66% phase boundary, command 60406 changes the monster's intent to skill 60397 using change type `Insert`. Original-runtime tests show that this updates the displayed/current intent and queues an idle prior intent; it does not execute skill 60397 inside the HP-change callback.
 
 When skill 60397 (“Final Evolution”) later executes, its exact command 60401 applies 20 layers of permanent Reinforce state 60089, applies `ceil(ATK × 0.08)` layers of Strength state 2900, records a `BEMonsterBubble` row, and installs listener state 60404. The original `BEMonsterBubble.DoEffect` body has now been executed over six eligibility/default cases: after its superclass call it only validates the tip and Monster target, then calls `recordMgr:OnMonsterBubble`; it does not mutate combat state in that body. This is baseline runtime evidence, not a resource-150 runtime claim. The listener responds only to a later `BSTHpChanged` event whose signed `TriggerValue` is negative. Command 60402 then adds two layers of temporary Reinforce state 60083. This is tied to actual HP decrease events rather than every attempted or fully blocked hit.
 
-Permanent Reinforce 60089 clears before battle end. Temporary Reinforce 60083 caps at 99 and clears before the next bout begins or before battle end. Both subtract their layer count from Active, Fixed and Passive received-damage properties; Strength adds its layer count to `damage_plus` and half that amount to `tentacle_dmg`. These seven selected Skill/Cmd/State rows match resource 144 and installed resource 150 exactly after excluding `BaseSortID` metadata. The trace is published in `research/evidence/final-evolution-mechanic.json`. Full command scheduling, the bubble row, clear-event execution and independent gameplay remain outside this result.
+Permanent Reinforce 60089 clears before battle end. Temporary Reinforce 60083 caps at 99 and clears before the next bout begins or before battle end. Both subtract their layer count from Active, Fixed and Passive received-damage properties; Strength adds its layer count to `damage_plus` and half that amount to `tentacle_dmg`. These seven selected Skill/Cmd/State rows match resource 144 and installed resource 150 exactly after excluding `BaseSortID` metadata. The trace is published in `research/evidence/final-evolution-mechanic.json`. Full integrated command scheduling, clear-event execution and independent gameplay remain outside this result.
 
 ## Selected record
 
