@@ -25,7 +25,7 @@ function input(build='pc-res150-build51'){
 }
 function mixedInput(build='pc-res150-build51'){
   const value=input(build);value.schemaVersion=2;value.preparation={skillId:4046,skillLevel:6,isAwaker:true,breakSkillLevel:0,potencyLevel:0,overrides:[],variables:{BattleAtkForce:100},conditionResults:{},stateQueries:{}};
-  value.energy={source:{castRoleUid:7,cmdServerUid:2},target:{uid:7,role:'Awaker',energy:95,maximumProperties:{ulti_energy_max:100,ulti_energy_cost_per:0,ulti_energy_cost_flat:0,ulti_energy_max_per:0},calculation:{dimension:0,properties:{card_ulti_per:0,card_ulti_plus:0,o_ulti_energy_per:0,ulti_energy_per:0,i_ulti_energy_per:0,ulti_energy_efficiency:0,ulti_per_strikecard:0,ulti_energy_plus:0,gain_ulti_energy_per:0,gain_ulti_energy_plus:0},casterEligible:true}}};
+  value.energy={source:{castRoleUid:7,cmdServerUid:2},target:{uid:7,role:'Awaker',energy:95,maximumProperties:{ulti_energy_max:100,ulti_energy_cost_per:0,ulti_energy_cost_flat:0,ulti_energy_max_per:0},calculation:{dimension:0,properties:{card_ulti_per:0,card_ulti_plus:0,o_ulti_energy_per:0,ulti_energy_per:0,i_ulti_energy_per:0,ulti_energy_efficiency:0,ulti_per_strikecard:0,ulti_energy_plus:0,gain_ulti_energy_per:0,gain_ulti_energy_plus:0}}}};
   return value;
 }
 
@@ -89,6 +89,7 @@ test('version 2 rejects reordered effects and mismatched energy identity',()=>{
   const data=source('pc-res150-build51'),reordered=mixedInput(),command=data.commands['2112'];data.commands['2112']={...command,data_list:{1:command.data_list['2'],2:command.data_list['1']}};
   assert.throws(()=>runPreparedSnapshotActiveSkill(reordered,data),/ActiveDamage row first/);
   const identity=mixedInput();identity.energy.target.uid=8;assert.throws(()=>runPreparedSnapshotActiveSkill(identity,source(identity.build)),/self-target/);
+  const role=mixedInput();role.energy.target.role='Monster';assert.throws(()=>runPreparedSnapshotActiveSkill(role,source(role.build)),/self-target Awakener/);
 });
 
 test('prepared snapshot bridge rejects mixed commands and monster intents before calculation',()=>{
