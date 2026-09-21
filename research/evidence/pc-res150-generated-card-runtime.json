@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_GENERATED_CARD_RUNTIME_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+  "fixtures": 17,
+  "domains": [
+    {
+      "domain": "create",
+      "fixtures": 6,
+      "exactMatch": true,
+      "baselineFixtureSha256": "7e225daf126e1837260bd638a3f94bd90a8af6aed8317a713f9703619f4ded2c"
+    },
+    {
+      "domain": "add",
+      "fixtures": 5,
+      "exactMatch": true,
+      "baselineFixtureSha256": "0fe23b9bdc8a01aa9ba47bf05e50c073e25940085a7d6ae990e901e14019bd70"
+    },
+    {
+      "domain": "owner",
+      "fixtures": 6,
+      "exactMatch": true,
+      "baselineFixtureSha256": "482fbcf26faa46e0c5882a2104abaa27d2a36b3515dbf9d8b641069ff4666421"
+    }
+  ],
+  "sourceHashes": {
+    "moduleComparison": "8607582c44e48c8591a3a8cb4e280f0f5daa33106700a72d5d6895e82a7a2ba6",
+    "BattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+    "BattleLogicEvent": "cef7477d60a84d8ac4f4b097436a39628d37ff5c54bd8f44d08828d75ad80c4a"
+  },
+  "scope": "Current resource-150 BattleConst and BattleLogicEvent with byte-identical BECreateCard, BattleCardMgrServer and BattleCardServer over inherited request, selected deck-mutation and owner-resolution fixtures. Private modules are not published.",
+  "limitations": [
+    "Only the inherited synthetic fixture domains are covered",
+    "Ordinary Dimension/MonsterDimension capacity, random placement, constructor command/state initialization and listeners remain unresolved",
+    "No gameplay or holdout credit"
+  ]
+}

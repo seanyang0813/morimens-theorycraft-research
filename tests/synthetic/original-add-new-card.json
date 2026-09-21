@@ -1,0 +1,356 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleCardMgrServer": "2237271bdbb3cb34aa16cff08ee0f202382e6c9b3f1613c1477168e0a3b021c9"
+  },
+  "scope": "Original BattleCardMgrServer.AddNewCard with explicit card-factory, deck, capacity, record, event and RNG adapters. Card construction internals, listeners, gameplay and holdout validation are excluded.",
+  "fixtures": [
+    {
+      "input": {
+        "name": "draw-default-bottom",
+        "deck": "DrawDeck",
+        "existing": 1,
+        "cardInfos": [
+          {
+            "tid": 1001,
+            "level": 7
+          }
+        ],
+        "config": {
+          "camp": 3,
+          "owner": 88,
+          "castRoleUid": 77,
+          "show": true
+        }
+      },
+      "expected": {
+        "returnedUids": [
+          9001.0
+        ],
+        "created": [
+          {
+            "tid": 1001.0,
+            "level": 7.0,
+            "cardArgs": null,
+            "runes": null,
+            "show": true,
+            "enternal": null,
+            "camp": 3.0,
+            "owner": 88.0,
+            "performSkillId": null,
+            "cardTypes": null,
+            "uid": 9001,
+            "deck": "DrawDeck"
+          }
+        ],
+        "decks": {
+          "NoneDeck": [],
+          "DrawDeck": [
+            101.0,
+            9001.0
+          ],
+          "HandDeck": [],
+          "DimensionDeck": []
+        },
+        "enternalCardUids": [],
+        "trace": [
+          {
+            "onAddNewCard": {
+              "uids": [
+                9001.0
+              ],
+              "deck": "DrawDeck",
+              "show": true,
+              "camp": 3.0
+            }
+          },
+          {
+            "cardDeckChange": {
+              "event": 250.0,
+              "cardUid": 9001.0,
+              "oldDeck": "NoneDeck",
+              "newDeck": "DrawDeck",
+              "castRoleUid": 77.0,
+              "enternal": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "numeric-card-info",
+        "deck": "DrawDeck",
+        "existing": 0,
+        "cardInfos": [
+          1002
+        ],
+        "config": {
+          "camp": 3,
+          "show": false
+        }
+      },
+      "expected": {
+        "returnedUids": [
+          9001.0
+        ],
+        "created": [
+          {
+            "tid": 1002.0,
+            "level": 1.0,
+            "cardArgs": null,
+            "runes": null,
+            "show": false,
+            "enternal": null,
+            "camp": 3.0,
+            "owner": null,
+            "performSkillId": null,
+            "cardTypes": null,
+            "uid": 9001,
+            "deck": "DrawDeck"
+          }
+        ],
+        "decks": {
+          "NoneDeck": [],
+          "DrawDeck": [
+            9001.0
+          ],
+          "HandDeck": [],
+          "DimensionDeck": []
+        },
+        "enternalCardUids": [],
+        "trace": [
+          {
+            "onAddNewCard": {
+              "uids": [
+                9001.0
+              ],
+              "deck": "DrawDeck",
+              "show": false,
+              "camp": 3.0
+            }
+          },
+          {
+            "cardDeckChange": {
+              "event": 250.0,
+              "cardUid": 9001.0,
+              "oldDeck": "NoneDeck",
+              "newDeck": "DrawDeck",
+              "castRoleUid": null,
+              "enternal": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "hand-at-cap",
+        "deck": "HandDeck",
+        "existing": 1,
+        "maxHand": 1,
+        "cardInfos": [
+          {
+            "tid": 1003,
+            "level": 2
+          }
+        ],
+        "config": {
+          "camp": 3,
+          "show": true
+        }
+      },
+      "expected": {
+        "returnedUids": [],
+        "created": [
+          {
+            "tid": 1003.0,
+            "level": 2.0,
+            "cardArgs": null,
+            "runes": null,
+            "show": true,
+            "enternal": null,
+            "camp": 3.0,
+            "owner": null,
+            "performSkillId": null,
+            "cardTypes": null,
+            "uid": 9001,
+            "deck": "NoneDeck"
+          }
+        ],
+        "decks": {
+          "NoneDeck": [
+            9001.0
+          ],
+          "DrawDeck": [],
+          "HandDeck": [
+            101.0
+          ],
+          "DimensionDeck": []
+        },
+        "enternalCardUids": [],
+        "trace": [
+          {
+            "onAddNewCard": {
+              "uids": [
+                9001.0
+              ],
+              "deck": "HandDeck",
+              "show": true,
+              "camp": 3.0
+            }
+          },
+          {
+            "onChangeCardListDeck": {
+              "uids": [
+                9001.0
+              ],
+              "oldDeck": "NoneDeck",
+              "newDeck": "NoneDeck",
+              "reason": 10.0,
+              "camp": 3.0,
+              "show": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "dimension-extra-bout",
+        "deck": "DimensionDeck",
+        "extraBout": true,
+        "cardInfos": [
+          {
+            "tid": 1004,
+            "level": 2
+          }
+        ],
+        "config": {
+          "camp": 3,
+          "show": true
+        }
+      },
+      "expected": {
+        "returnedUids": [],
+        "created": [],
+        "decks": {
+          "NoneDeck": [],
+          "DrawDeck": [],
+          "HandDeck": [],
+          "DimensionDeck": []
+        },
+        "enternalCardUids": [],
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "name": "top-two-eternal",
+        "deck": "DrawDeck",
+        "existing": 1,
+        "cardInfos": [
+          {
+            "tid": 1005,
+            "level": 3
+          },
+          {
+            "tid": 1006,
+            "level": 4
+          }
+        ],
+        "config": {
+          "camp": 4,
+          "castRoleUid": 66,
+          "show": true,
+          "enternal": 1,
+          "targetPos": "TOP"
+        }
+      },
+      "expected": {
+        "returnedUids": [
+          9001.0,
+          9002.0
+        ],
+        "created": [
+          {
+            "tid": 1005.0,
+            "level": 3.0,
+            "cardArgs": null,
+            "runes": null,
+            "show": true,
+            "enternal": 1.0,
+            "camp": 4.0,
+            "owner": null,
+            "performSkillId": null,
+            "cardTypes": null,
+            "uid": 9001,
+            "deck": "DrawDeck"
+          },
+          {
+            "tid": 1006.0,
+            "level": 4.0,
+            "cardArgs": null,
+            "runes": null,
+            "show": true,
+            "enternal": 1.0,
+            "camp": 4.0,
+            "owner": null,
+            "performSkillId": null,
+            "cardTypes": null,
+            "uid": 9002,
+            "deck": "DrawDeck"
+          }
+        ],
+        "decks": {
+          "NoneDeck": [],
+          "DrawDeck": [
+            9002.0,
+            9001.0,
+            101.0
+          ],
+          "HandDeck": [],
+          "DimensionDeck": []
+        },
+        "enternalCardUids": [
+          9001.0,
+          9002.0
+        ],
+        "trace": [
+          {
+            "onAddNewCard": {
+              "uids": [
+                9001.0,
+                9002.0
+              ],
+              "deck": "DrawDeck",
+              "show": true,
+              "camp": 4.0
+            }
+          },
+          {
+            "cardDeckChange": {
+              "event": 250.0,
+              "cardUid": 9001.0,
+              "oldDeck": "NoneDeck",
+              "newDeck": "DrawDeck",
+              "castRoleUid": 66.0,
+              "enternal": 1.0
+            }
+          },
+          {
+            "cardDeckChange": {
+              "event": 250.0,
+              "cardUid": 9002.0,
+              "oldDeck": "NoneDeck",
+              "newDeck": "DrawDeck",
+              "castRoleUid": 66.0,
+              "enternal": 1.0
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

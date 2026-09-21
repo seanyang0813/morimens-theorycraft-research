@@ -2,12 +2,13 @@ import {snapshot} from './experiments.mjs';
 
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(key=>Object.hasOwn(value,key));
 const scalar=value=>value===null||['string','number','boolean'].includes(typeof value);
+const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51']);
 
 // Models the tested BECreateCard -> BattleCardMgrServer.AddNewCard request
 // boundary. It deliberately stops before deck/hand mutation.
 export function runCreateCardCommand(value){
   const input=snapshot(value),keys=['schemaVersion','kind','build','deckExpression','count','enternal','show','explicitCardArgs','castRoleUid','targets'];
-  if(!exact(input,keys)||input.schemaVersion!==1||input.kind!=='morimens-create-card-command'||input.build!=='pc-res144-build51')throw new Error('Explicit create-card command required');
+  if(!exact(input,keys)||input.schemaVersion!==1||input.kind!=='morimens-create-card-command'||!supportedBuilds.has(input.build))throw new Error('Explicit create-card command required');
   if(!exact(input.deckExpression,['cardDeck','camp'])||typeof input.deckExpression.cardDeck!=='string'||!input.deckExpression.cardDeck||!Number.isFinite(input.deckExpression.camp))throw new Error('Resolved deck expression and camp required');
   if(!['NoneDeck','DrawDeck','HandDeck','HideDeck','GraveyardDeck','ConsumedDeck','UsingDeck','AwakeDeck','SwallowDeck','DimensionDeck','MonsterDimensionDeck','SelectInitDeck','Activity24Deck','BrainDeck',...Array.from({length:20},(_,index)=>`TempDeck${index+1}`)].includes(input.deckExpression.cardDeck))throw new Error('Unsupported card deck');
   if(input.count!==null&&typeof input.count!=='number')throw new Error('Numeric or omitted create-card count required');

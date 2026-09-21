@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_GENERATED_CARD_MODULE_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "sourceHashes": {
+    "buildComparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
+    "bundles": {
+      "share.ab": {
+        "sha256": "b62601a3391a5999ebb196dec5e52c0660d95c19655ac3b19f13299806c38907",
+        "size": 876326
+      },
+      "gamescript.ab": {
+        "sha256": "06aac7bb4d39e8965b945ed0b2b20cb61e1ba253fc9aca4219e72c15105a9f34",
+        "size": 11897036
+      },
+      "foundation.ab": {
+        "sha256": "36e30bcd044b74043499183b5313bd6f4f9999f0d03aecce4751c3d87414f03d",
+        "size": 276987
+      }
+    }
+  },
+  "modules": [
+    {
+      "name": "BECreateCard.lua",
+      "status": "IDENTICAL",
+      "baseline": {
+        "sha256": "f068ef334f66ac38cbc48c4829a3bb26d05476c904e0b562c00561fc80e7d3f6",
+        "size": 2334
+      },
+      "current": {
+        "sha256": "f068ef334f66ac38cbc48c4829a3bb26d05476c904e0b562c00561fc80e7d3f6",
+        "size": 2334
+      }
+    },
+    {
+      "name": "BattleCardMgrServer.lua",
+      "status": "IDENTICAL",
+      "baseline": {
+        "sha256": "2237271bdbb3cb34aa16cff08ee0f202382e6c9b3f1613c1477168e0a3b021c9",
+        "size": 33283
+      },
+      "current": {
+        "sha256": "2237271bdbb3cb34aa16cff08ee0f202382e6c9b3f1613c1477168e0a3b021c9",
+        "size": 33283
+      }
+    },
+    {
+      "name": "BattleCardServer.lua",
+      "status": "IDENTICAL",
+      "baseline": {
+        "sha256": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53",
+        "size": 31006
+      },
+      "current": {
+        "sha256": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53",
+        "size": 31006
+      }
+    }
+  ],
+  "status": "IDENTICAL",
+  "scope": "Hash-only comparison of BECreateCard, BattleCardMgrServer and BattleCardServer. No module contents, account data, replay identifiers or credentials.",
+  "limitations": [
+    "Equality transfers only the tested resource-144 generated-card fixture domains",
+    "Dependent constants, roster/config rows, listeners and gameplay remain separate",
+    "No holdout credit"
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "269f1966619b63bc20271046612813a3bf4f3c65cb5564a76e2539aead02ad51",
+  "fingerprint": "158a58dd733a710001eadf52b58337e4078692a133fc2964a0e72776bfd4d21b",
   "files": {
     "build-catalog.json": "2d1188fadcaff7a1eb53af580c509756b21a3f003065c7c9036aa919958a1496",
     "client-build-data.json": "70a21813f8a491f521323971e6a6af9d1250102ad5bb76db8b16f80730fe7e34",
@@ -9,6 +9,7 @@
     "engine/active-damage-command.mjs": "dcadc069c018448ccda3f5cc96f45d324842662dbd557852585fec1bae6ee2d5",
     "engine/active-prevention.mjs": "f05174c6eb461fe92583c562dfd9b8844e8559fb3a11a4282f1d942f2b3fde7b",
     "engine/active-target.mjs": "99497dd55c3a411f80afdb79080bec65965d63bc4b7effc35d849d8efa5693a1",
+    "engine/add-new-card.mjs": "67c94d68ce156c614fbfe73b0d072cf93263aeeb704b90968a1d06ec8be1a73b",
     "engine/add-state-layer.mjs": "f48dab804914d5a36adad723f2f75617396f8b718347d42c107cd09123c223e7",
     "engine/add-state-request.mjs": "98236b4339ecc8989a5a1dd8895c0d59480e4d1ee36a30dfefccb8632bb81b29",
     "engine/attribute-modifiers.mjs": "e7af32c8ca30649c022de354d7fc7c78dc6838702c98ffcc50623e7f3c7f7d8b",
@@ -22,6 +23,7 @@
     "engine/card-cost.mjs": "c10d83d337d01dca7a8491c8934919208c41a2759d93d64a1e5256a392c3403d",
     "engine/card-offensive-setup.mjs": "63720a42f084a254ff816ad91ba25c35b310a09ee2d1fff9b0ba7bf1d28fb6cb",
     "engine/card-order-search.mjs": "9ad0aeee14822e75b2c7cbafd57558058d7b6c70045f92b3ae603ced4156f888",
+    "engine/card-owner.mjs": "3c87bef7cabae606edac26bdb985ffafcadb213a5ae4e96d5e25e4e594f50cdb",
     "engine/card-payment-plan.mjs": "d79d811ec13752038582b2e90be39d114ac2d16466dd8e553155a0a4f55d52b8",
     "engine/card-play-check.mjs": "d827a92d413c91252d31a4427d1449b0ea2aa4c11a0290b5f6ccf9eb9af86744",
     "engine/card-resource-timeline.mjs": "bb9cf645491ba6c5e3299865b3e610e97317fe288a4c729e6c8892cb9c42d086",
@@ -33,7 +35,7 @@
     "engine/command-expressions.mjs": "13228f83821241b9812b9ad1198e96f9fba8963abbebd66c53a209a5cadc8131",
     "engine/command-gate.mjs": "58ae3fc68adb7c70038539ee484052f3c6e23ad84a25ea23a81868efffde97db",
     "engine/command-rows.mjs": "f44d5bbb4036e84fe8c6c900dcb35ce719b60f460f424221faea970162e556ab",
-    "engine/create-card-command.mjs": "2a95072246692eb5f24efdb2f80bc62b61fa09c0df48a42c21ffa402ac5aec24",
+    "engine/create-card-command.mjs": "9d9cd59e7adbf090a6ffbc19b41ceb645c40b00b94d7b7d7af820f4fc629d3cf",
     "engine/crit-resolution.mjs": "58841b28db82b3d4e2c8493616a64d8995650dbd9717f8296adf03b27ea91eae",
     "engine/damage-energy-command.mjs": "039aca152a761da8cb86483ee7e0b0cad517d5e8f61d46c0c259a2a7a5d5c782",
     "engine/damage-energy-example.mjs": "74a3418458d1038101196466edaebb229b704e3e2386a3465aceb122f8301f89",
@@ -44,6 +46,7 @@
     "engine/experiments.mjs": "7387fd4c7c35272da3dd4873362ba8a826767ffc700371b9d55ae9eda7a3ae95",
     "engine/fixed-pure-command-experiment.mjs": "f05f0e1b35c6610b5b5aa8835453a0d981a0f8c22996a1e6817ffb47b0929141",
     "engine/fixed-pure-prehit.mjs": "54089493a50593337a3dd969f28e9a6f9e3e20bda8ce825aa6942c1209c1dd63",
+    "engine/generated-card-pipeline.mjs": "bf6fd4a56406b165e2d531f9199fae2c4f3b6875ccbf1cb8dac780d71279b725",
     "engine/heal.mjs": "a3729de3aad53bab54278f4b596779ccea77cc6df783477bb57a1a84c80cd556",
     "engine/hit-limits.mjs": "7e38e799877208e4047aa6044efa53e9cc0cc5ba55de2ae2abef7b672de753fb",
     "engine/hit-trigger-values.mjs": "ee46a1316e494cf04430fae5f5087fce3db046d5b122f2a125455cd4c89a41fc",
@@ -96,7 +99,7 @@
     "engine/ulti-energy-experiment.mjs": "6de163423a1e99c6be4922093711a797fa3012554589484c4ae5fd864bc35973",
     "engine/ulti-energy-gain.mjs": "08a4f4f32a7700422d6999e19e0e58fb2cace3bcbf7d0a910a9bcacf3b520468",
     "engine/wheel-stats.mjs": "484a5b4a51fbbd9c4759b27457ae9eec71fceb0420354823f54654edfb78fadd",
-    "rules.json": "8f770aa794267dd6ceedc317fadf761d4800fba36db81fea5fcbeb8a05af4337",
+    "rules.json": "d1974cff5bcba8718941e3fe94266ea924d83cfc01db783457b17eb84ab1345f",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af"
   }
 }

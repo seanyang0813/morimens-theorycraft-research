@@ -10,8 +10,9 @@ from runtime_oracle import Oracle, ROOT
 
 
 class CreateCardOracle(Oracle):
-    def __init__(self):
+    def __init__(self, asset_overrides=None):
         super().__init__()
+        asset_overrides = asset_overrides or {}
         L = self.state
         self.callbacks = []
         self.errors = []
@@ -38,6 +39,8 @@ class CreateCardOracle(Oracle):
         self.absindex = self.lib.lua_absindex
         self.absindex.argtypes = [C.c_void_p, C.c_int]
         self.absindex.restype = C.c_int
+        if "BattleConst" in asset_overrides:
+            self.module("BattleConst", asset_overrides["BattleConst"]); self.setglobal(L, b"_oracle_bc")
 
         def new_class(state):
             self.table(state, 0, 16)
@@ -64,7 +67,7 @@ class CreateCardOracle(Oracle):
 
         self.callback(require)
         self.setglobal(L, b"require")
-        self.module("BECreateCard")
+        self.module("BECreateCard", asset_overrides.get("BECreateCard"))
         self.setglobal(L, b"_create_card_module")
         if self.errors:
             raise RuntimeError(self.errors)

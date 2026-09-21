@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-generated-card-pipeline",
+  "build": "pc-res150-build51",
+  "create": {
+    "schemaVersion": 1,
+    "kind": "morimens-create-card-command",
+    "build": "pc-res150-build51",
+    "deckExpression": {"cardDeck": "HandDeck", "camp": 3},
+    "count": 2.2,
+    "enternal": null,
+    "show": null,
+    "explicitCardArgs": null,
+    "castRoleUid": 77,
+    "targets": [{"id": 1001, "level": 7, "specialOwner": 88, "performSkillId": 123, "cardTypes": ["Strike"], "createCardArgs": [11, 22]}]
+  },
+  "manager": {
+    "extraBout": false,
+    "maxHand": 2,
+    "initialState": {"decks": {"NoneDeck": [], "DrawDeck": [], "HandDeck": [], "DimensionDeck": []}, "enternalCardUids": []},
+    "allocatedUidsByRequest": [[9001, 9002, 9003]]
+  },
+  "ownerContexts": [
+    {"schemaVersion": 1, "kind": "morimens-card-owner", "build": "pc-res150-build51", "camp": 3, "skillAwakerId": 55, "playerUid": 100, "specialOwnerUid": 88, "configuredAwakerUid": 200, "fromCardUid": null, "fromCard": null, "performSkillId": 123},
+    {"schemaVersion": 1, "kind": "morimens-card-owner", "build": "pc-res150-build51", "camp": 3, "skillAwakerId": 55, "playerUid": 100, "specialOwnerUid": 88, "configuredAwakerUid": 200, "fromCardUid": null, "fromCard": null, "performSkillId": 123},
+    {"schemaVersion": 1, "kind": "morimens-card-owner", "build": "pc-res150-build51", "camp": 3, "skillAwakerId": 55, "playerUid": 100, "specialOwnerUid": 88, "configuredAwakerUid": 200, "fromCardUid": null, "fromCard": null, "performSkillId": 123}
+  ]
+}

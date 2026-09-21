@@ -1,0 +1,158 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleCardServer": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53"
+  },
+  "scope": "Original BattleCardServer.InitOwner with explicit player, configured-Awakener, special-owner and source-card adapters. No constructor, command initialization, card states, gameplay or holdout validation.",
+  "fixtures": [
+    {
+      "input": {
+        "name": "configured-awaker",
+        "camp": 3,
+        "awakerId": 55,
+        "specialOwner": false,
+        "awakerExists": true,
+        "fromCardUid": null,
+        "fromCardExists": false,
+        "performSkillId": 123
+      },
+      "expected": {
+        "ownerUid": 200.0,
+        "performSkillId": 123.0,
+        "lookups": [
+          {
+            "playerCamp": 3.0
+          },
+          {
+            "awakerTid": 55.0,
+            "camp": 3.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "special-owner",
+        "camp": 3,
+        "awakerId": 55,
+        "specialOwner": true,
+        "awakerExists": true,
+        "fromCardUid": null,
+        "fromCardExists": false,
+        "performSkillId": 123
+      },
+      "expected": {
+        "ownerUid": 300.0,
+        "performSkillId": 123.0,
+        "lookups": [
+          {
+            "playerCamp": 3.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "missing-awaker-player-fallback",
+        "camp": 3,
+        "awakerId": 55,
+        "specialOwner": false,
+        "awakerExists": false,
+        "fromCardUid": null,
+        "fromCardExists": false,
+        "performSkillId": 123
+      },
+      "expected": {
+        "ownerUid": 100.0,
+        "performSkillId": 123.0,
+        "lookups": [
+          {
+            "playerCamp": 3.0
+          },
+          {
+            "awakerTid": 55.0,
+            "camp": 3.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "missing-awaker-from-card",
+        "camp": 3,
+        "awakerId": 55,
+        "specialOwner": false,
+        "awakerExists": false,
+        "fromCardUid": 999,
+        "fromCardExists": true,
+        "performSkillId": 123
+      },
+      "expected": {
+        "ownerUid": 400.0,
+        "performSkillId": 777.0,
+        "lookups": [
+          {
+            "playerCamp": 3.0
+          },
+          {
+            "awakerTid": 55.0,
+            "camp": 3.0
+          },
+          {
+            "fromCardUid": 999.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "missing-from-card-player-fallback",
+        "camp": 3,
+        "awakerId": 55,
+        "specialOwner": false,
+        "awakerExists": false,
+        "fromCardUid": 999,
+        "fromCardExists": false,
+        "performSkillId": 123
+      },
+      "expected": {
+        "ownerUid": 100.0,
+        "performSkillId": 123.0,
+        "lookups": [
+          {
+            "playerCamp": 3.0
+          },
+          {
+            "awakerTid": 55.0,
+            "camp": 3.0
+          },
+          {
+            "fromCardUid": 999.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "non-awakener-skill-player",
+        "camp": 3,
+        "awakerId": null,
+        "specialOwner": true,
+        "awakerExists": true,
+        "fromCardUid": null,
+        "fromCardExists": false,
+        "performSkillId": 123
+      },
+      "expected": {
+        "ownerUid": 100.0,
+        "performSkillId": 123.0,
+        "lookups": [
+          {
+            "playerCamp": 3.0
+          }
+        ]
+      }
+    }
+  ]
+}

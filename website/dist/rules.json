@@ -4058,6 +4058,76 @@
       ]
     },
     {
+      "id": "PC144:AddNewCardMutation",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "AddNewCard constructs and returns normal cards in the requested deck, diverts over-cap Hand cards to NoneDeck without returning them, preserves top/bottom order, tracks eternal UIDs and rejects Dimension creation during an extra bout",
+      "scope": "Five original protected-runtime cases with explicit card-factory, deck, capacity, record, event and RNG adapters. Authored mutation covers DrawDeck, HandDeck, top/bottom placement and the extra-bout Dimension early exit. Ordinary Dimension/MonsterDimension capacity, random placement, card construction internals, event/listener execution, gameplay and holdout validation are excluded.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "BattleCardMgrServer",
+          "member": "AddNewCard",
+          "sha256": "2237271bdbb3cb34aa16cff08ee0f202382e6c9b3f1613c1477168e0a3b021c9"
+        }
+      ],
+      "checks": [
+        "tools/add_new_card_oracle.py",
+        "tests/add-new-card.test.mjs",
+        "tests/synthetic/original-add-new-card.json",
+        "docs/CARD_ATTRIBUTION.md"
+      ]
+    },
+    {
+      "id": "PC144:CardOwnerRuntime",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "For Awakener skills, special owner precedes configured Awakener, source-card and player fallbacks; source-card fallback also copies performSkillId, while non-Awakener skills use the player",
+      "scope": "Six original protected-runtime cases with explicit role and card lookup adapters. Card constructor, command/state initialization, entry listeners, gameplay and holdout validation are excluded.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "BattleCardServer",
+          "member": "InitOwner",
+          "sha256": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53"
+        }
+      ],
+      "checks": [
+        "tools/card_owner_oracle.py",
+        "tests/card-owner.test.mjs",
+        "tests/synthetic/original-card-owner.json",
+        "docs/CARD_ATTRIBUTION.md"
+      ]
+    },
+    {
+      "id": "PC144:GeneratedCardPipeline",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "The authored generated-card pipeline composes tested request construction, Draw/Hand mutation and owner resolution while retaining each boundary trace and unresolved dependency",
+      "scope": "Authored immutable composition of separately tested PC resource-144 boundaries. Caller supplies deck state, capacities, UID allocation, roster/source-card lookup results and owner context. Card command/state initialization, entry listeners, generated-card execution, gameplay and holdout validation are excluded.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "BECreateCard",
+          "member": "DoEffect",
+          "sha256": "f068ef334f66ac38cbc48c4829a3bb26d05476c904e0b562c00561fc80e7d3f6"
+        },
+        {
+          "module": "BattleCardMgrServer",
+          "member": "AddNewCard",
+          "sha256": "2237271bdbb3cb34aa16cff08ee0f202382e6c9b3f1613c1477168e0a3b021c9"
+        },
+        {
+          "module": "BattleCardServer",
+          "member": "InitOwner",
+          "sha256": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53"
+        }
+      ],
+      "checks": [
+        "engine/generated-card-pipeline.mjs",
+        "tools/run_generated_card_pipeline.mjs",
+        "tests/generated-card-pipeline.test.mjs",
+        "research/examples/generated-card-pipeline.json"
+      ]
+    },
+    {
       "id": "PC144:PassivePreHit",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "Three Passive target multipliers, ceiling, positive-only dimension modifier, second ceiling and minimum one before BeHit; dead targets skipped",
@@ -4948,6 +5018,32 @@
       "checks": [
         "tools/compare_current_card_modules.py",
         "tests/current-card-modules.test.mjs"
+      ]
+    },
+    {
+      "id": "PC150:GeneratedCardPipeline",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "Current resource-150 generated-card modules are byte-identical and reproduce all 17 inherited request, selected deck-mutation and owner-resolution fixtures with current dependencies",
+      "scope": "Current BattleConst and BattleLogicEvent plus byte-identical generated-card modules over six BECreateCard, five AddNewCard and six InitOwner fixtures. Draw/Hand top/bottom mutation, hand overflow, extra-bout Dimension early exit and owner fallbacks are covered. Other deck capacities, random placement, constructor command/state initialization, listeners, gameplay and holdout validation are excluded.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 generated-card module comparison",
+          "member": "BECreateCard, BattleCardMgrServer and BattleCardServer hashes",
+          "sha256": "8607582c44e48c8591a3a8cb4e280f0f5daa33106700a72d5d6895e82a7a2ba6"
+        },
+        {
+          "module": "PC resource-150 generated-card runtime comparison",
+          "member": "request, AddNewCard and InitOwner fixture domains",
+          "sha256": "eb1a62d83875757de3239f4deeca73c73cad5c183e214ccdc145fbf96968a864"
+        }
+      ],
+      "checks": [
+        "tools/compare_current_generated_card_modules.py",
+        "tools/verify_current_generated_cards.py",
+        "tests/current-generated-card-modules.test.mjs",
+        "tests/current-generated-card-runtime.test.mjs",
+        "tests/generated-card-pipeline.test.mjs"
       ]
     },
     {
