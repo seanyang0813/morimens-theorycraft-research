@@ -41,6 +41,13 @@ def compact_candidate_index(index):
         'kind':index.get('kind'),
         'build':index.get('build'),
         'inputSha256':index.get('inputSha256'),
+        'counts':index.get('counts',{}) | {
+            'cardUses':len(index.get('actionSnapshots',[])),
+            'hits':len(index.get('hits',[])),
+        },
+        'snapshotBoundaryStatus':index.get('snapshotBoundaryStatus'),
+        'unknownCommands':index.get('unknownCommands',[]),
+        'unknownEvents':index.get('unknownEvents',[]),
         'candidateAdapterScope':'Fields read by engine/replay-action-candidate.mjs; outcomes retained for retrospective audit',
         'summary':{
             'completeHitSnapshots':sum(1 for row in index.get('hitSnapshots',[]) if row.get('boundaryStatus')=='COMPLETE'),

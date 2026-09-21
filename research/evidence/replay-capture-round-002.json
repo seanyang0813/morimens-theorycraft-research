@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_SANITIZED_REPLAY_CAPTURE_ROUND",
+  "generatedAtUtc": "2026-09-21T18:33:41.374416+00:00",
+  "analysisTrack": "verification",
+  "identifiersPublished": false,
+  "rawArtifactsPublished": false,
+  "privateAuditSha256": "ed30eb41719b9afbe84c964896af95f1fc4b7e21d60f6cbf6a1d2ff1d2b68f60",
+  "scope": "Aggregate acquisition and adapter-eligibility evidence only. Recorded combat builds are unknown. The records may be routed to separate budget-scouting or cheese-analysis artifacts, but this report does not make either claim and cannot supply a theorycraft conclusion or publication-gate holdout.",
+  "totals": {
+    "replays": 27,
+    "records": 13667,
+    "events": 320858,
+    "cardUses": 2201,
+    "hits": 4382,
+    "completeHitSnapshots": 661,
+    "unknownCommands": 0,
+    "unknownEvents": 0,
+    "retrospectiveActiveCandidates": 0,
+    "deterministicExactChecks": 0,
+    "deterministicMismatches": 0,
+    "exactRngBranchConsistencyChecks": 0,
+    "rngBranchMismatches": 0
+  },
+  "blindSelection": {
+    "eligibleReplays": 0,
+    "frozenPredictions": 0,
+    "selector": "first complete deterministic Active candidate with a complete direct-hit identity boundary",
+    "outcome": "NO_ELIGIBLE_CANDIDATE"
+  },
+  "claimBoundary": {
+    "allowed": [
+      "native replay containers decoded and indexed privately",
+      "bounded verification adapter eligibility counts",
+      "protocol unknown-command and unknown-event counts"
+    ],
+    "forbidden": [
+      "cheese classification",
+      "budget-build ranking",
+      "optimal theorycraft sequence",
+      "current-build attribution",
+      "independent gameplay holdout credit"
+    ]
+  }
+}
