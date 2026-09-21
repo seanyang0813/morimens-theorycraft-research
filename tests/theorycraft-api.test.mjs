@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {runTheorycraftRequest,theorycraftOperations} from '../engine/theorycraft-api.mjs';
+import {runTheorycraftRequest,theorycraftOperations,theorycraftClaimBoundary} from '../engine/theorycraft-api.mjs';
 import {neutralShowInputs} from '../engine/show-damage.mjs';
 import {targetKeys} from '../engine/active-target.mjs';
 import {syntheticCardActionExample} from '../engine/card-action-example.mjs';
@@ -12,6 +12,9 @@ const request=(operation,input)=>({schemaVersion:1,kind:'morimens-theorycraft-re
 test('agent API advertises explicit bounded operations',()=>{
   const response=runTheorycraftRequest(request('describe-capabilities',null));
   assert.equal(response.status,'OK');
+  assert.equal(response.analysisTrack,'theorycrafting');
+  assert.deepEqual(response.claimBoundary,theorycraftClaimBoundary);
+  assert.ok(response.claimBoundary.mustNotClaim.includes('observed cheese'));
   assert.deepEqual(response.result.operations,theorycraftOperations);
   assert.equal(response.result.publicationStatus,'NOT_READY');
 });

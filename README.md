@@ -31,7 +31,7 @@ Run from this directory:
 
 Replay discovery has separate workflows for budget-comp scouting, cheese analysis, forward theorycrafting and verification. Each artifact has one track; findings can motivate a new artifact in another track but cannot inherit that track's claim. Private tools can emit identifier-free action summaries and Pareto budget frontiers without inventing a weighted investment score. See `docs/REPLAY_ANALYSIS_WORKFLOWS.md`.
 
-Agents can call the same bounded engine through `engine/theorycraft-api.mjs` or `node tools/run_theorycraft_request.mjs --input request.json`. The versioned request selects one explicit operation; it does not silently fill missing combat state or promote an experimental result to verified.
+Agents can call the same bounded engine through `engine/theorycraft-api.mjs` or `node tools/run_theorycraft_request.mjs --input request.json`. Every response is explicitly tagged `theorycrafting` and carries its claim boundary: it cannot present the result as an observed cheese strategy, leaderboard prevalence or independent verification. The versioned request selects one explicit operation; it does not silently fill missing combat state or promote an experimental result to verified.
 
 The agent API can prepare a real exported skill and optionally execute its complete selected command when it fits a supported narrow profile. Skill, BattleApi and Cmd data are loaded and hashed by the host; callers supply progression and runtime facts rather than replacement command rows. See `research/examples/theorycraft-prepare-skill-request.json` and `docs/PREPARE_SKILL_COMMAND.md`.
 

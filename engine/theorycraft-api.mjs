@@ -24,6 +24,13 @@ export const theorycraftOperations=Object.freeze([
   {name:'prepare-skill-command',context:['skillCommandData'],scope:'Exported skill selection, argument preparation and optional supported command execution'},
 ]);
 
+export const theorycraftClaimBoundary=Object.freeze({
+  purpose:'Evaluate explicit builds and sequences with reconstructed rules',
+  mayClaim:['model result within the supplied inputs and supported rule scope'],
+  mustNotClaim:['observed cheese','leaderboard prevalence','independent gameplay verification'],
+  crossTrackUse:'May consume cited mechanics from other tracks; every unsupported branch and supplied input remains explicit',
+});
+
 const operations=new Map(theorycraftOperations.map(row=>[row.name,row]));
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(key=>Object.hasOwn(value,key));
 const clone=value=>JSON.parse(JSON.stringify(value));
@@ -56,5 +63,5 @@ export function runTheorycraftRequest(value,context={}){
   const requirement=operations.get(value.operation);
   for(const key of requirement.context)if(!context[key])throw new Error(`Operation ${value.operation} requires context ${key}`);
   const result=execute(value.operation,clone(value.input),context);
-  return {schemaVersion:1,kind:'morimens-theorycraft-response',requestId:value.requestId,operation:value.operation,status:'OK',result};
+  return {schemaVersion:1,kind:'morimens-theorycraft-response',analysisTrack:'theorycrafting',claimBoundary:clone(theorycraftClaimBoundary),requestId:value.requestId,operation:value.operation,status:'OK',result};
 }
