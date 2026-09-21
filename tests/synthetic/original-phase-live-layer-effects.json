@@ -1,0 +1,2714 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BEAddState": "1465ac7c4f7b101ded98c429e9bb089ebabaad7c48a4b6f4c4519419e6eec133",
+    "BEAddStateParent": "00871a473b5c4ced3824c28afb88fc3cfe6cbfca01d23bc2a0d3bac6afa0f8b3",
+    "BESubStateLayer": "b2763469ed0278b671bf02f6353bd7249a814299b41b4b63d40149655fcc581d",
+    "BattleStateMgrServer": "dc7653a427f1fe0bfd21b7495980cc173f4cb298e7dd7086a224ee40640c11a4",
+    "BattleStateServer": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369"
+  },
+  "scope": "Original BEAddState -> BEAddStateParent.AddState -> BattleStateMgrServer.CreateState/GetState -> existing BattleStateServer.AddLayer, followed on the same target registry by original BESubStateLayer -> BattleStateMgrServer.GetState -> BattleStateServer.SubLayer. Synthetic target and existing state objects; property, record, log, life-end and state-on-add callbacks observed. No first-time state construction, property implementation, event body, command condition, gameplay or holdout.",
+  "fixtures": [
+    {
+      "input": {
+        "counterBefore": 0,
+        "phaseBefore": 1,
+        "amount": 1
+      },
+      "expected": {
+        "counterAfter": 1.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 0,
+        "phaseBefore": 1,
+        "amount": 2
+      },
+      "expected": {
+        "counterAfter": 2.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 0,
+        "phaseBefore": 1,
+        "amount": 125
+      },
+      "expected": {
+        "counterAfter": 125.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 0,
+        "phaseBefore": 1,
+        "amount": 330
+      },
+      "expected": {
+        "counterAfter": 330.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 330.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 0,
+        "phaseBefore": 2,
+        "amount": 1
+      },
+      "expected": {
+        "counterAfter": 1.0,
+        "phaseAfter": 1.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 0,
+        "phaseBefore": 2,
+        "amount": 2
+      },
+      "expected": {
+        "counterAfter": 2.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 0,
+        "phaseBefore": 2,
+        "amount": 125
+      },
+      "expected": {
+        "counterAfter": 125.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 0,
+        "phaseBefore": 2,
+        "amount": 330
+      },
+      "expected": {
+        "counterAfter": 330.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 330.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 0,
+        "phaseBefore": 125,
+        "amount": 1
+      },
+      "expected": {
+        "counterAfter": 1.0,
+        "phaseAfter": 124.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 0,
+        "phaseBefore": 125,
+        "amount": 2
+      },
+      "expected": {
+        "counterAfter": 2.0,
+        "phaseAfter": 123.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 0,
+        "phaseBefore": 125,
+        "amount": 125
+      },
+      "expected": {
+        "counterAfter": 125.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 0,
+        "phaseBefore": 125,
+        "amount": 330
+      },
+      "expected": {
+        "counterAfter": 330.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 330.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 0,
+        "phaseBefore": 126,
+        "amount": 1
+      },
+      "expected": {
+        "counterAfter": 1.0,
+        "phaseAfter": 125.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 0,
+        "phaseBefore": 126,
+        "amount": 2
+      },
+      "expected": {
+        "counterAfter": 2.0,
+        "phaseAfter": 124.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 0,
+        "phaseBefore": 126,
+        "amount": 125
+      },
+      "expected": {
+        "counterAfter": 125.0,
+        "phaseAfter": 1.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 0,
+        "phaseBefore": 126,
+        "amount": 330
+      },
+      "expected": {
+        "counterAfter": 330.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 330.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -126.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 0,
+        "phaseBefore": 331,
+        "amount": 1
+      },
+      "expected": {
+        "counterAfter": 1.0,
+        "phaseAfter": 330.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 0,
+        "phaseBefore": 331,
+        "amount": 2
+      },
+      "expected": {
+        "counterAfter": 2.0,
+        "phaseAfter": 329.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 0,
+        "phaseBefore": 331,
+        "amount": 125
+      },
+      "expected": {
+        "counterAfter": 125.0,
+        "phaseAfter": 206.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 0,
+        "phaseBefore": 331,
+        "amount": 330
+      },
+      "expected": {
+        "counterAfter": 330.0,
+        "phaseAfter": 1.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 330.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -330.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 10,
+        "phaseBefore": 1,
+        "amount": 1
+      },
+      "expected": {
+        "counterAfter": 11.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 10,
+        "phaseBefore": 1,
+        "amount": 2
+      },
+      "expected": {
+        "counterAfter": 12.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 10,
+        "phaseBefore": 1,
+        "amount": 125
+      },
+      "expected": {
+        "counterAfter": 135.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 10,
+        "phaseBefore": 1,
+        "amount": 330
+      },
+      "expected": {
+        "counterAfter": 340.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 330.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 10,
+        "phaseBefore": 2,
+        "amount": 1
+      },
+      "expected": {
+        "counterAfter": 11.0,
+        "phaseAfter": 1.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 10,
+        "phaseBefore": 2,
+        "amount": 2
+      },
+      "expected": {
+        "counterAfter": 12.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 10,
+        "phaseBefore": 2,
+        "amount": 125
+      },
+      "expected": {
+        "counterAfter": 135.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 10,
+        "phaseBefore": 2,
+        "amount": 330
+      },
+      "expected": {
+        "counterAfter": 340.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 330.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 10,
+        "phaseBefore": 125,
+        "amount": 1
+      },
+      "expected": {
+        "counterAfter": 11.0,
+        "phaseAfter": 124.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 10,
+        "phaseBefore": 125,
+        "amount": 2
+      },
+      "expected": {
+        "counterAfter": 12.0,
+        "phaseAfter": 123.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 10,
+        "phaseBefore": 125,
+        "amount": 125
+      },
+      "expected": {
+        "counterAfter": 135.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 10,
+        "phaseBefore": 125,
+        "amount": 330
+      },
+      "expected": {
+        "counterAfter": 340.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 330.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 10,
+        "phaseBefore": 126,
+        "amount": 1
+      },
+      "expected": {
+        "counterAfter": 11.0,
+        "phaseAfter": 125.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 10,
+        "phaseBefore": 126,
+        "amount": 2
+      },
+      "expected": {
+        "counterAfter": 12.0,
+        "phaseAfter": 124.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 10,
+        "phaseBefore": 126,
+        "amount": 125
+      },
+      "expected": {
+        "counterAfter": 135.0,
+        "phaseAfter": 1.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 10,
+        "phaseBefore": 126,
+        "amount": 330
+      },
+      "expected": {
+        "counterAfter": 340.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 330.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -126.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 10,
+        "phaseBefore": 331,
+        "amount": 1
+      },
+      "expected": {
+        "counterAfter": 11.0,
+        "phaseAfter": 330.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 10,
+        "phaseBefore": 331,
+        "amount": 2
+      },
+      "expected": {
+        "counterAfter": 12.0,
+        "phaseAfter": 329.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 10,
+        "phaseBefore": 331,
+        "amount": 125
+      },
+      "expected": {
+        "counterAfter": 135.0,
+        "phaseAfter": 206.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 10,
+        "phaseBefore": 331,
+        "amount": 330
+      },
+      "expected": {
+        "counterAfter": 340.0,
+        "phaseAfter": 1.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 330.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -330.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 999999990,
+        "phaseBefore": 1,
+        "amount": 1
+      },
+      "expected": {
+        "counterAfter": 999999991.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 999999990,
+        "phaseBefore": 1,
+        "amount": 2
+      },
+      "expected": {
+        "counterAfter": 999999992.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 999999990,
+        "phaseBefore": 1,
+        "amount": 125
+      },
+      "expected": {
+        "counterAfter": 999999999.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 9.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 999999990,
+        "phaseBefore": 1,
+        "amount": 330
+      },
+      "expected": {
+        "counterAfter": 999999999.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 9.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 999999990,
+        "phaseBefore": 2,
+        "amount": 1
+      },
+      "expected": {
+        "counterAfter": 999999991.0,
+        "phaseAfter": 1.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 999999990,
+        "phaseBefore": 2,
+        "amount": 2
+      },
+      "expected": {
+        "counterAfter": 999999992.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 999999990,
+        "phaseBefore": 2,
+        "amount": 125
+      },
+      "expected": {
+        "counterAfter": 999999999.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 9.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 999999990,
+        "phaseBefore": 2,
+        "amount": 330
+      },
+      "expected": {
+        "counterAfter": 999999999.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 9.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 999999990,
+        "phaseBefore": 125,
+        "amount": 1
+      },
+      "expected": {
+        "counterAfter": 999999991.0,
+        "phaseAfter": 124.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 999999990,
+        "phaseBefore": 125,
+        "amount": 2
+      },
+      "expected": {
+        "counterAfter": 999999992.0,
+        "phaseAfter": 123.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 999999990,
+        "phaseBefore": 125,
+        "amount": 125
+      },
+      "expected": {
+        "counterAfter": 999999999.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 9.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 999999990,
+        "phaseBefore": 125,
+        "amount": 330
+      },
+      "expected": {
+        "counterAfter": 999999999.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 9.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 999999990,
+        "phaseBefore": 126,
+        "amount": 1
+      },
+      "expected": {
+        "counterAfter": 999999991.0,
+        "phaseAfter": 125.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 999999990,
+        "phaseBefore": 126,
+        "amount": 2
+      },
+      "expected": {
+        "counterAfter": 999999992.0,
+        "phaseAfter": 124.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 999999990,
+        "phaseBefore": 126,
+        "amount": 125
+      },
+      "expected": {
+        "counterAfter": 999999999.0,
+        "phaseAfter": 1.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 9.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 999999990,
+        "phaseBefore": 126,
+        "amount": 330
+      },
+      "expected": {
+        "counterAfter": 999999999.0,
+        "phaseAfter": 0.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 9.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -126.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          },
+          {
+            "event": "lifeEnd",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 999999990,
+        "phaseBefore": 331,
+        "amount": 1
+      },
+      "expected": {
+        "counterAfter": 999999991.0,
+        "phaseAfter": 330.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -1.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 999999990,
+        "phaseBefore": 331,
+        "amount": 2
+      },
+      "expected": {
+        "counterAfter": 999999992.0,
+        "phaseAfter": 329.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -2.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 999999990,
+        "phaseBefore": 331,
+        "amount": 125
+      },
+      "expected": {
+        "counterAfter": 999999999.0,
+        "phaseAfter": 206.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 9.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -125.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "counterBefore": 999999990,
+        "phaseBefore": 331,
+        "amount": 330
+      },
+      "expected": {
+        "counterAfter": 999999999.0,
+        "phaseAfter": 1.0,
+        "trace": [
+          {
+            "event": "propertyDelta",
+            "stateId": 60407,
+            "value": 9.0
+          },
+          {
+            "event": "record",
+            "stateId": 60407
+          },
+          {
+            "event": "log",
+            "stateId": 60407
+          },
+          {
+            "event": "stateOnAdd"
+          },
+          "stats",
+          {
+            "event": "propertyDelta",
+            "stateId": 60409,
+            "value": -330.0
+          },
+          {
+            "event": "record",
+            "stateId": 60409
+          },
+          {
+            "event": "log",
+            "stateId": 60409
+          }
+        ]
+      }
+    }
+  ]
+}

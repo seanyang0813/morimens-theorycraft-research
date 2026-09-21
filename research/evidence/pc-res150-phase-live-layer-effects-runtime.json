@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "method": "execute changed add-state parent with byte-identical effect, manager and state modules",
+  "status": "CURRENT_CHANGED_PARENT_RUNTIME_MATCH",
+  "sourceHashes": {
+    "fixture": "38acb09c630e0b78a8765f1364e87cc90f69a7e65623ffb9b8281f619efd8480",
+    "installedShareBundle": "b62601a3391a5999ebb196dec5e52c0660d95c19655ac3b19f13299806c38907",
+    "baselineModules": {
+      "BEAddState": "1465ac7c4f7b101ded98c429e9bb089ebabaad7c48a4b6f4c4519419e6eec133",
+      "BEAddStateParent": "00871a473b5c4ced3824c28afb88fc3cfe6cbfca01d23bc2a0d3bac6afa0f8b3",
+      "BESubStateLayer": "b2763469ed0278b671bf02f6353bd7249a814299b41b4b63d40149655fcc581d",
+      "BattleStateMgrServer": "dc7653a427f1fe0bfd21b7495980cc173f4cb298e7dd7086a224ee40640c11a4",
+      "BattleStateServer": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369"
+    },
+    "currentModules": {
+      "BEAddState": "1465ac7c4f7b101ded98c429e9bb089ebabaad7c48a4b6f4c4519419e6eec133",
+      "BEAddStateParent": "a568aafa46331f3c9967404dd3f67399a0f7f93bbfa34b878b8e939d3cfcdc71",
+      "BESubStateLayer": "b2763469ed0278b671bf02f6353bd7249a814299b41b4b63d40149655fcc581d",
+      "BattleStateMgrServer": "dc7653a427f1fe0bfd21b7495980cc173f4cb298e7dd7086a224ee40640c11a4",
+      "BattleStateServer": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369"
+    }
+  },
+  "changedModules": [
+    "BEAddStateParent"
+  ],
+  "fixtures": 60,
+  "matched": 60,
+  "mismatches": 0,
+  "scope": "The installed resource-150 BEAddStateParent executes all inherited connected existing-state counter-add and phase-subtraction fixtures exactly. The four other participating installed modules are byte-identical to the baseline modules.",
+  "limitations": [
+    "Synthetic target and pre-existing states",
+    "First-time state construction and property implementation are not executed",
+    "Observed callbacks do not execute their event bodies",
+    "No gameplay or holdout credit"
+  ]
+}
