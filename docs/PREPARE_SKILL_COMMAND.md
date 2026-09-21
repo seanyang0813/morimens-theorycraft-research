@@ -73,12 +73,18 @@ The scope is selected command execution under absent-lifecycle assumptions, not 
 
 ## Shared agent API
 
-The versioned theorycraft API exposes the same bridge as operation `prepare-skill-command`. Its input is a `morimens-prepared-skill-request` containing the exact serializable preparation maps above and either `execution: null` or an exact execution context. The local API host loads and hashes the Skill, BattleApi, Cmd and State exports; callers cannot replace command rows or catalog state definitions inside the request.
+The versioned theorycraft API exposes the same bridge as operation `prepare-skill-command`. Version 2 of `morimens-prepared-skill-request` adds an explicit `build`; the local API host loads and hashes Skill, BattleApi, Cmd and State from that exact build and rejects a mismatched context. Version 1 remains the historical resource-144 contract. Current resource-150 execution requires local installed-client exports under the ignored observations directory; `tools/export_current_config_tables.py` creates them without publishing proprietary tables. Callers cannot replace command rows or catalog state definitions inside the request.
 
 Run the preparation-only example with:
 
 ```
 node tools/run_theorycraft_request.mjs --input research/examples/theorycraft-prepare-skill-request.json
+```
+
+After exporting current Skill, BattleApi, Cmd and State tables, the build-pinned current example is:
+
+```
+node tools/run_theorycraft_request.mjs --input research/examples/theorycraft-current-prepare-skill-request.json
 ```
 
 Preparation-only output has status `PREPARED`, `finalDamage: null`, selected arguments, every top-level command effect type, the full compatibility report and unresolved dependencies. An execution request returns `EXPERIMENTAL` only when the whole selected command fits one of the existing narrow execution profiles. Unsupported effects are reported and prevent partial execution.

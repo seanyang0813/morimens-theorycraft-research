@@ -22,6 +22,8 @@ Context sources:
 
 The first assembly slice is implemented as `assemble-build-components`: it joins recovered character primary-stat progression, explicit Season/Soulforge percentage promotion and catalog Wheel main stats into a provenance-bearing ledger. It reports missing inputs as typed issues. It is not a final property snapshot because advancement passive states, equipment and battle-start effects are still unresolved.
 
+The agent skill-preparation boundary is also build-pinned. Version 2 requests name resource 144 or 150, and the host refuses to execute them against another build's Skill, BattleApi, Cmd or State tables. Current tables remain local installed-client evidence rather than public catalog payloads.
+
 The first agent-state enumeration slice is implemented as
 `enumerate-legal-card-actions`. Given explicit ordinary PvE dispatch state,
 energy, cards, costs and status properties, it returns every currently playable

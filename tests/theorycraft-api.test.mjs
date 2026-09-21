@@ -98,7 +98,7 @@ test('agent API exposes setup-only role state commands without a damage target',
 test('agent API exposes real exported skill preparation through explicit versioned context',()=>{
   const read=name=>{const bytes=readFileSync(new URL(`../research/extracted/config/${name}.json`,import.meta.url));return {data:JSON.parse(bytes),sha256:createHash('sha256').update(bytes).digest('hex')};};
   const skill=read('Skill'),battleApi=read('BattleApi'),command=read('Cmd'),state=read('State');
-  const skillCommandData={skills:skill.data,battleApi:battleApi.data,commands:command.data,states:state.data,sourceHashes:{Skill:skill.sha256,BattleApi:battleApi.sha256,Cmd:command.sha256,State:state.sha256}};
+  const skillCommandData={build:'pc-res144-build51',skills:skill.data,battleApi:battleApi.data,commands:command.data,states:state.data,sourceHashes:{Skill:skill.sha256,BattleApi:battleApi.sha256,Cmd:command.sha256,State:state.sha256}};
   const input={schemaVersion:1,kind:'morimens-prepared-skill-request',preparation:{skillId:4100,skillLevel:1,isAwaker:false,breakSkillLevel:0,potencyLevel:0,overrides:[],variables:{BattleAtkForce:100},conditionResults:{},stateQueries:{}},execution:null};
   assert.throws(()=>runTheorycraftRequest(request('prepare-skill-command',input)),/requires context skillCommandData/);
   const response=runTheorycraftRequest(request('prepare-skill-command',input),{skillCommandData});

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-theorycraft-request",
+  "requestId": "prepare-current-exported-skill-4100",
+  "operation": "prepare-skill-command",
+  "input": {
+    "schemaVersion": 2,
+    "kind": "morimens-prepared-skill-request",
+    "build": "pc-res150-build51",
+    "preparation": {
+      "skillId": 4100,
+      "skillLevel": 1,
+      "isAwaker": false,
+      "breakSkillLevel": 0,
+      "potencyLevel": 0,
+      "overrides": [],
+      "variables": {
+        "BattleAtkForce": 100
+      },
+      "conditionResults": {},
+      "stateQueries": {}
+    },
+    "execution": null
+  }
+}

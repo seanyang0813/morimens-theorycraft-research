@@ -10,6 +10,6 @@ else try{
   if(process.argv[3]){
     execution=JSON.parse(readFileSync(process.argv[3],'utf8'));
   }
-  const result=runPreparedSkillRequest({schemaVersion:1,kind:'morimens-prepared-skill-request',preparation:request,execution},{skills:skills.data,battleApi:api.data,commands:commands.data,states:states.data,sourceHashes:{Skill:skills.sha256,BattleApi:api.sha256,Cmd:commands.sha256,State:states.sha256}});
+  const result=runPreparedSkillRequest({schemaVersion:1,kind:'morimens-prepared-skill-request',preparation:request,execution},{build:'pc-res144-build51',skills:skills.data,battleApi:api.data,commands:commands.data,states:states.data,sourceHashes:{Skill:skills.sha256,BattleApi:api.sha256,Cmd:commands.sha256,State:states.sha256}});
   console.log(JSON.stringify(result,null,2));
 }catch(error){console.error(error.message);process.exitCode=1;}

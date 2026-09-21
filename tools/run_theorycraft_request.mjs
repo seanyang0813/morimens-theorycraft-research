@@ -11,8 +11,11 @@ if(!options['--input']){console.error('Theorycraft request input is required');p
 const inside=(value,label)=>{const path=resolve(root,value),r=relative(root,path);if(!r||r.startsWith('..')||isAbsolute(r))throw new Error(`${label} must be inside the workspace`);return path;};
 try{
   const request=JSON.parse(readFileSync(inside(options['--input'],'Input'),'utf8'));
-  const readConfig=name=>{const bytes=readFileSync(resolve(root,`research/extracted/config/${name}.json`));return {data:JSON.parse(bytes),sha256:createHash('sha256').update(bytes).digest('hex')};};
-  const requestedClientBuild=request.operation.startsWith('resolve-character-')?request.input?.build:request.input?.clientBuild;
+  const requestedClientBuild=request.operation.startsWith('resolve-character-')?request.input?.build:(request.input?.clientBuild??request.input?.build);
+  const selectedBuild=requestedClientBuild??'pc-res144-build51';
+  if(!['pc-res144-build51','pc-res150-build51'].includes(selectedBuild))throw new Error('Unsupported requested client build');
+  const configRoot=selectedBuild==='pc-res150-build51'?'research/observations/current-res150-build51/modules':'research/extracted/config';
+  const readConfig=name=>{const bytes=readFileSync(resolve(root,`${configRoot}/${name}.json`));return {data:JSON.parse(bytes),sha256:createHash('sha256').update(bytes).digest('hex')};};
   const clientDataFile=requestedClientBuild==='pc-res150-build51'?'client-build-data-res150.json':'client-build-data.json';
   const context={
     buildCatalog:JSON.parse(readFileSync(resolve(root,'website/dist/build-catalog.json'),'utf8')),
@@ -20,7 +23,7 @@ try{
   };
   if(['prepare-skill-command','run-attached-card-pipeline'].includes(request.operation)){
     const skill=readConfig('Skill'),battleApi=readConfig('BattleApi'),command=readConfig('Cmd'),state=readConfig('State');
-    context.skillCommandData={skills:skill.data,battleApi:battleApi.data,commands:command.data,states:state.data,sourceHashes:{Skill:skill.sha256,BattleApi:battleApi.sha256,Cmd:command.sha256,State:state.sha256}};
+    context.skillCommandData={build:selectedBuild,skills:skill.data,battleApi:battleApi.data,commands:command.data,states:state.data,sourceHashes:{Skill:skill.sha256,BattleApi:battleApi.sha256,Cmd:command.sha256,State:state.sha256}};
   }
   const response=runTheorycraftRequest(request,context),text=JSON.stringify(response,null,2)+'\n';
   if(options['--output'])writeFileSync(inside(options['--output'],'Output'),text,{encoding:'utf8',flag:'wx'});else process.stdout.write(text);

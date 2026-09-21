@@ -7,7 +7,7 @@ import {runPreparedSkillRequest} from '../engine/prepared-skill-request.mjs';
 const read=name=>{const bytes=readFileSync(new URL(`../research/extracted/config/${name}.json`,import.meta.url));return {data:JSON.parse(bytes),sha256:createHash('sha256').update(bytes).digest('hex')};};
 const skill=read('Skill'),battleApi=read('BattleApi'),command=read('Cmd'),state=read('State');
 const states=state.data;
-const source={skills:skill.data,battleApi:battleApi.data,commands:command.data,states,sourceHashes:{Skill:skill.sha256,BattleApi:battleApi.sha256,Cmd:command.sha256,State:state.sha256}};
+const source={build:'pc-res144-build51',skills:skill.data,battleApi:battleApi.data,commands:command.data,states,sourceHashes:{Skill:skill.sha256,BattleApi:battleApi.sha256,Cmd:command.sha256,State:state.sha256}};
 const preparation=()=>({skillId:4100,skillLevel:1,isAwaker:false,breakSkillLevel:0,potencyLevel:0,overrides:[],variables:{BattleAtkForce:100},conditionResults:{},stateQueries:{}});
 
 test('serializable prepared-skill request selects a real exported command without executing it',()=>{
@@ -35,6 +35,13 @@ test('serializable prepared-skill request refuses incomplete maps and caller sch
   assert.throws(()=>runPreparedSkillRequest(value,source),/booleans/);
   delete value.preparation.stateQueries;
   assert.throws(()=>runPreparedSkillRequest(value,source),/preparation inputs/);
+});
+
+test('version 2 prepared-skill requests require matching client-build catalogs',()=>{
+  const value={schemaVersion:2,kind:'morimens-prepared-skill-request',build:'pc-res150-build51',preparation:preparation(),execution:null};
+  assert.throws(()=>runPreparedSkillRequest(value,source),/Matching versioned/);
+  const result=runPreparedSkillRequest(value,{...source,build:'pc-res150-build51'});
+  assert.equal(result.build,'pc-res150-build51');
 });
 
 test('real Final Evolution skill derives Arg1 and executes its whole supported setup command',()=>{
