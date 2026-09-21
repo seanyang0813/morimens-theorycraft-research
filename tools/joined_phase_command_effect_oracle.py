@@ -262,7 +262,7 @@ if __name__ == '__main__':
         {'maxHp': 12345, 'phaseId': 60408, 'phaseLayers': 126, 'counter': 999999990, 'hpLoss': 125, 'commandId': 60405},
     ]
     fixtures = [{'input': case, 'expected': oracle.run_joined(case)} for case in cases]
-    names = ('FuncTable', 'Cmd', 'BattleCmdServer', 'BattleCmdParser', 'BEAddState', 'BEAddStateParent', 'BESubStateLayer', 'BERemoveState', 'BEMonsterChangeSkill', 'BattleStateMgrServer', 'BattleStateServer')
+    names = ('FuncTable', 'Cmd', 'BattleCmdServer', 'BattleCmdParser', 'BattleEffectServer', 'BattleEffectMgrServer', 'BEAddState', 'BEAddStateParent', 'BESubStateLayer', 'BERemoveState', 'BEMonsterChangeSkill', 'BattleStateMgrServer', 'BattleStateServer')
     output = {
         'kind': 'SYNTHETIC_ORIGINAL_RUNTIME',
         'build': 'pc-res144-build51',
@@ -273,8 +273,9 @@ if __name__ == '__main__':
             'original add/subtract/remove/monster-skill effect bodies over one original manager registry and '
             'original existing-state layer methods. Destination states 46441/60408 and counter 60407 are '
             'pre-created live zero-layer adapters; LifeEnd marks deletion and other callbacks are observers. '
-            'The target expression exposes only max_hp and GetStateLayer; GenerateEffectObj returns an inert '
-            'row token before Python executes the real bodies. No original effect scheduler, state '
+            'The target expression exposes only max_hp and GetStateLayer; original GenerateEffectObj and '
+            'BattleEffectMgrServer.CreateEffect construct each typed effect through a callable wrapper before '
+            'Python executes the real bodies. No original effect scheduler, state '
             'construction/property bodies, gameplay or holdout.'
         ),
         'fixtures': fixtures,

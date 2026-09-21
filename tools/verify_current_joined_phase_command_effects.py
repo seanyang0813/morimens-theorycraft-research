@@ -17,9 +17,17 @@ def sha(path):
 def main():
     fixture_path = ROOT / 'tests/synthetic/original-joined-phase-command-effects.json'
     fixture = json.loads(fixture_path.read_text(encoding='utf-8'))
-    names = ('FuncTable', 'Cmd', 'BattleCmdServer', 'BattleCmdParser', 'BEAddState', 'BEAddStateParent', 'BESubStateLayer', 'BERemoveState', 'BEMonsterChangeSkill', 'BattleStateMgrServer', 'BattleStateServer')
+    names = ('FuncTable', 'Cmd', 'BattleCmdServer', 'BattleCmdParser', 'BattleEffectServer', 'BattleEffectMgrServer', 'BEAddState', 'BEAddStateParent', 'BESubStateLayer', 'BERemoveState', 'BEMonsterChangeSkill', 'BattleStateMgrServer', 'BattleStateServer')
+    identical_names = ('BattleEffectServer', 'BattleEffectMgrServer')
     module_dir = ROOT / 'research/observations/current-res150-build51/modules'
-    current_hashes = {name: sha(module_dir / f'{name}.lua') for name in names}
+    current_hashes = {name: sha(module_dir / f'{name}.lua') for name in names if name not in identical_names}
+    phase_modules_path = ROOT / 'research/evidence/pc-res150-skill-phase-modules.json'
+    phase_modules = {row['name'][:-4]: row for row in json.loads(phase_modules_path.read_text(encoding='utf-8'))['modules']}
+    for name in identical_names:
+        row = phase_modules[name]
+        if row['status'] != 'IDENTICAL' or row['baseline']['sha256'] != fixture['sourceHashes'][name]:
+            raise ValueError(f'Unexpected current construction module: {name}')
+        current_hashes[name] = row['current']['sha256']
     changed = [name for name in names if current_hashes[name] != fixture['sourceHashes'][name]]
     if changed != ['FuncTable', 'Cmd', 'BattleCmdServer', 'BattleCmdParser', 'BEAddStateParent']:
         raise ValueError(f'Unexpected changed joined-phase modules: {changed}')
@@ -70,6 +78,7 @@ def main():
             'installedShareBundle': sha(download / 'share.ab'),
             'installedConfigBundle': sha(download / 'config.ab'),
             'currentCatalogReport': sha(ROOT / 'research/evidence/pc-res150-connected-hp-phase-cap-command-runtime.json'),
+            'phaseModuleComparison': sha(phase_modules_path),
             'baselineModules': fixture['sourceHashes'],
             'currentModules': current_hashes,
         },
@@ -79,9 +88,9 @@ def main():
         'mismatches': 0,
         'scope': 'Installed current CheckCondition, parser, expressions and add parent reproduce every inherited joined command-row/effect-body transition fixture.',
         'limitations': [
-            'Original GenerateEffectList iterates catalog-equal rows; its GenerateEffectObj boundary returns inert row tokens, then original CheckCondition/parser resolve values before Python hands them to real effect bodies',
+            'Original GenerateEffectList and GenerateEffectObj construct typed effects through original BattleEffectMgrServer; original CheckCondition/parser resolve values before Python hands them to real effect bodies',
             'Destination states are pre-created live zero-layer adapters',
-            'Target-expression max HP/state-layer reads are a narrow adapter; no original effect scheduler, property bodies, gameplay or holdout credit',
+            'Typed effect classes use callable constructor wrappers; target-expression max HP/state-layer reads are a narrow adapter; no original effect scheduler, property bodies, gameplay or holdout credit',
         ],
     }
     output = ROOT / 'research/evidence/pc-res150-joined-phase-command-effects-runtime.json'

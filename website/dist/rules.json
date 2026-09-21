@@ -1190,8 +1190,8 @@
     {
       "id": "PC144:JoinedPhaseCommandEffects",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
-      "claim": "Original BattleCmdServer.GenerateEffectList/CheckCondition, BattleCmdParser and compiled phase command conditions/parameters drive original add/subtract/remove/monster-skill effect bodies over one live manager registry, matching the authored first- and second-phase transition model",
-      "scope": "5 joined original-runtime cases covering nontransition, exact-boundary and over-boundary first/second phases. Original GenerateEffectList supplies ordered row tokens and updates Arg1; its GenerateEffectObj boundary is inert, then Python invokes original CheckCondition/parser and real effect bodies through a narrow target-expression adapter. Destination/counter states are pre-created zero-layer adapters and callbacks are observers. No original effect construction/scheduler, construction/property bodies in the same run, gameplay or holdout credit.",
+      "claim": "Original GenerateEffectList/GenerateEffectObj, effect-manager construction, CheckCondition, parser expressions and phase effect bodies reproduce the authored first- and second-phase transition model over one live state registry",
+      "scope": "5 joined original-runtime cases covering nontransition, exact-boundary and over-boundary first/second phases. Original GenerateEffectList supplies ordered rows and Arg1; GenerateEffectObj plus original manager construct typed effects through callable class wrappers, then Python invokes original CheckCondition/parser and real bodies through a narrow target-expression adapter. Destination/counter states are pre-created zero-layer adapters and callbacks are observers. No original scheduler, construction/property bodies in the same run, gameplay or holdout credit.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -1201,7 +1201,7 @@
         },
         {
           "module": "BattleCmdServer",
-          "member": "GenerateEffectList,CheckCondition,GetValueByCmd",
+          "member": "GenerateEffectList,GenerateEffectObj,CheckCondition,GetValueByCmd",
           "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b"
         },
         {
@@ -1213,6 +1213,16 @@
           "module": "FuncTable",
           "member": "all referenced condition and parameter closures",
           "sha256": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3"
+        },
+        {
+          "module": "BattleEffectMgrServer",
+          "member": "CreateEffect",
+          "sha256": "9a94157af60365d26188b578ca7f69987503b980ce51a420765eca45b4b8ab41"
+        },
+        {
+          "module": "BattleEffectServer",
+          "member": "ctor",
+          "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e"
         },
         {
           "module": "BEAddState",
@@ -4541,8 +4551,8 @@
     {
       "id": "PC150:JoinedPhaseCommandEffects",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
-      "claim": "Current BattleCmdServer.GenerateEffectList/CheckCondition, BattleCmdParser, FuncTable and changed add-state parent reproduce all 5 joined command-condition/parameter through effect-body phase transition fixtures against catalog-equal 60406/60405 rows",
-      "scope": "Current GenerateEffectList/CheckCondition/parser/expressions and changed add parent with byte-identical effect/manager/state modules. GenerateEffectObj row tokens, target expression, zero-layer destinations and callbacks are bounded adapters. No original effect construction/scheduler, gameplay or holdout credit.",
+      "claim": "Current GenerateEffectList/GenerateEffectObj, effect-manager construction, CheckCondition/parser/expressions and changed add-state parent reproduce all 5 joined phase-transition fixtures against catalog-equal 60406/60405 rows",
+      "scope": "Current GenerateEffectList/GenerateEffectObj/CheckCondition/parser/expressions and changed add parent with byte-identical effect-manager/base/state modules. Typed-effect callable wrappers, target expression, zero-layer destinations and callbacks are bounded adapters. No original scheduler, gameplay or holdout credit.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -4551,9 +4561,14 @@
           "sha256": "95083098911cb6b1f54fcddb03e5dc797489bd080e55ddd9f72fc0da9b39a1e4"
         },
         {
+          "module": "PC resource-150 skill-phase comparison",
+          "member": "byte-identical BattleEffectServer and BattleEffectMgrServer",
+          "sha256": "bbd0493d8073989dd99e9d15b8ea7f89ee35de9fbd40687112c03ddbef1ae8a9"
+        },
+        {
           "module": "PC resource-150 joined phase command/effect comparison",
           "member": "fixture-domain result",
-          "sha256": "c8d71ff68a1848c6e79fb76ffd33ef3bef04a82e53000612bf82226808fd086c"
+          "sha256": "989fb0eed3fb5f618e2f7b9ee21d3c32820ef486f7172f46d87281bd7530e03e"
         }
       ],
       "checks": [

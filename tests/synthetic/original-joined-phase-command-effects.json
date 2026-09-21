@@ -6,6 +6,8 @@
     "Cmd": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
     "BattleCmdServer": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
     "BattleCmdParser": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d",
+    "BattleEffectServer": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+    "BattleEffectMgrServer": "9a94157af60365d26188b578ca7f69987503b980ce51a420765eca45b4b8ab41",
     "BEAddState": "1465ac7c4f7b101ded98c429e9bb089ebabaad7c48a4b6f4c4519419e6eec133",
     "BEAddStateParent": "00871a473b5c4ced3824c28afb88fc3cfe6cbfca01d23bc2a0d3bac6afa0f8b3",
     "BESubStateLayer": "b2763469ed0278b671bf02f6353bd7249a814299b41b4b63d40149655fcc581d",
@@ -14,7 +16,7 @@
     "BattleStateMgrServer": "dc7653a427f1fe0bfd21b7495980cc173f4cb298e7dd7086a224ee40640c11a4",
     "BattleStateServer": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369"
   },
-  "scope": "Python row iterator sends command 60406/60405 Cond/Para strings through the original command parser and original CheckCondition before joining resolved values to original add/subtract/remove/monster-skill effect bodies over one original manager registry and original existing-state layer methods. Destination states 46441/60408 and counter 60407 are pre-created live zero-layer adapters; LifeEnd marks deletion and other callbacks are observers. The target expression exposes only max_hp and GetStateLayer; GenerateEffectObj returns an inert row token before Python executes the real bodies. No original effect scheduler, state construction/property bodies, gameplay or holdout.",
+  "scope": "Python row iterator sends command 60406/60405 Cond/Para strings through the original command parser and original CheckCondition before joining resolved values to original add/subtract/remove/monster-skill effect bodies over one original manager registry and original existing-state layer methods. Destination states 46441/60408 and counter 60407 are pre-created live zero-layer adapters; LifeEnd marks deletion and other callbacks are observers. The target expression exposes only max_hp and GetStateLayer; original GenerateEffectObj and BattleEffectMgrServer.CreateEffect construct each typed effect through a callable wrapper before Python executes the real bodies. No original effect scheduler, state construction/property bodies, gameplay or holdout.",
   "fixtures": [
     {
       "input": {
