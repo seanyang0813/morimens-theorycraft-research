@@ -59,6 +59,30 @@ test('budget frontier CLI writes its report and returns report counts',()=>{
   }finally{rmSync(dir,{recursive:true,force:true});}
 });
 
+test('streaming replay inventory stays in budget scouting and omits identifiers',()=>{
+  const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+  const privateRoot=join(root,'research','observations');
+  const dir=mkdtempSync(join(privateRoot,'inventory-cli-test-'));
+  try{
+    const replayDir=join(dir,'replay-batch-test');mkdirSync(replayDir);
+    const index={schemaVersion:1,battleDat:{battleUuid:'secret-replay-id',playerName:'secret-name',playerUid:123456789,battleUid:99,stageId:7,battleTid:8,difficultyId:2,gameplayType:1,roleData:[{uid:42,tid:9,level:60,potencyLevel:2,breakLevel:1,likeLevel:3,slots:[{level:4}]}]},events:[{payload:'large trailing data'}]};
+    writeFileSync(join(replayDir,'index.json'),JSON.stringify(index));
+    const battle=join(dir,'battle.json'),awaker=join(dir,'awaker.json'),output=join(dir,'inventory.json');
+    writeFileSync(battle,JSON.stringify({'8':{ID:8,CnID:'battle-template_3'}}));
+    writeFileSync(awaker,JSON.stringify({'9':{ID:9,Name:'key|Test Awakener'}}));
+    const run=spawnSync('python',['tools/inventory_private_replays.py','--input-glob',`${dir.split(/[\\/]/).at(-1)}/replay-batch-*/index.json`,'--battle-config',battle,'--awaker-config',awaker,'--output',output],{cwd:root,encoding:'utf8'});
+    assert.equal(run.status,0,run.stderr);
+    const text=readFileSync(output,'utf8'),report=JSON.parse(text);
+    assert.equal(report.analysisTrack,'budget-scouting');assert.equal(report.captureCount,1);
+    assert.equal(report.captures[0].templateWave,3);assert.equal(report.captures[0].roster[0].awakenerName,'Test Awakener');
+    assert.equal(report.captures[0].investmentSignals.characterLevelSum,60);
+    assert.equal(report.captures[0].combatDomain,'UNREVIEWED');assert.equal(report.captures[0].eligibleForPveBudget,false);
+    assert.equal(report.pveBudgetEligibleCaptureCount,0);assert.deepEqual(report.pveComparableGroups,[]);
+    assert.equal(text.includes('secret-replay-id'),false);assert.equal(text.includes('secret-name'),false);assert.equal(text.includes('123456789'),false);
+    assert.match(report.limitations[0],/not cheese analysis or theorycrafting evidence/);
+  }finally{rmSync(dir,{recursive:true,force:true});}
+});
+
 test('capture-round publication stays in verification and strips replay rows',()=>{
   const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
   const dir=mkdtempSync(join(root,'research','observations','capture-round-test-'));
