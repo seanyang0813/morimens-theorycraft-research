@@ -33,4 +33,12 @@ node tools/freeze_gameplay_prediction.mjs --scenario research/observations/<case
 
 The command verifies the prepared runtime, derives and hashes the selected scenario's engine dependency graph, runs the exact scenario, hashes every input, and refuses to overwrite an existing freeze. Its printed `path` and `sha256` become the observation's `predictionFrozenBeforeOutcomeEvidence`. The gate independently checks the freeze, scenario, scoped runtime contract, and every pre-outcome evidence hash. The screenshot or log must actually show the frozen pre-action state; hashes preserve bytes but do not prove chronology or relevance without manual review.
 
+When `--recorded-build` is supplied, at least one `--build-evidence` file must
+be a version 1 `MORIMENS_PC_COMBAT_BUILD_COMPARISON` report whose
+`currentBuild` matches that exact identifier and whose manifest/bundle source
+hash structure is complete. Arbitrary text, a screenshot by itself, or a report
+for another build is rejected both when freezing and during the independent
+audit. The report establishes the inspected client build only; evidence review
+must still confirm that the captured action ran in that same session.
+
 The two existing saved observations remain incomplete and receive no validation credit. Synthetic audit regression tests exercise replay and tamper rejection but are never written into the real-observation collection. Exact replay only makes an observation eligible for evidence review; it cannot authorize publication or establish full mechanic coverage.

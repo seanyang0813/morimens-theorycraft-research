@@ -23,8 +23,9 @@ class ObservationAuditTests(unittest.TestCase):
     def test_holdout_freeze_checks_format_and_pre_outcome_hashes(self):
         with tempfile.TemporaryDirectory(dir=ROOT) as directory:
             directory=Path(directory);evidence=directory/'prehit.txt';evidence.write_text('before',encoding='utf-8')
+            build_evidence=directory/'build.json';build_evidence.write_text(json.dumps({'schemaVersion':1,'kind':'MORIMENS_PC_COMBAT_BUILD_COMPARISON','currentBuild':'explicit-test-build','currentVersion':{'resVersion':1,'buildVersion':1},'sourceHashes':{'versionManifest':'a'*64,'bundles':{'share.ab':{'sha256':'b'*64,'size':1}}}}),encoding='utf-8')
             prediction={'scenarioFile':'unused.json','scenarioSha256':'0'*64,'runtimeFingerprint':'0'*64,'metric':'preHitDamage'}
-            frozen={'schemaVersion':1,'kind':'MORIMENS_PREDICTION_FREEZE','prediction':prediction,'predictedDamage':100,'beforeOutcomeEvidence':[{'path':str(evidence.relative_to(ROOT)),'sha256':hashlib.sha256(evidence.read_bytes()).hexdigest()}],'recordedBuild':{'id':'explicit-test-build','evidence':[{'path':str(evidence.relative_to(ROOT)),'sha256':hashlib.sha256(evidence.read_bytes()).hexdigest()}]}}
+            frozen={'schemaVersion':1,'kind':'MORIMENS_PREDICTION_FREEZE','prediction':prediction,'predictedDamage':100,'beforeOutcomeEvidence':[{'path':str(evidence.relative_to(ROOT)),'sha256':hashlib.sha256(evidence.read_bytes()).hexdigest()}],'recordedBuild':{'id':'explicit-test-build','evidence':[{'path':str(build_evidence.relative_to(ROOT)),'sha256':hashlib.sha256(build_evidence.read_bytes()).hexdigest()}]}}
             freeze=directory/'freeze.json';freeze.write_text(json.dumps(frozen),encoding='utf-8')
             proof={'path':str(freeze.relative_to(ROOT)),'sha256':hashlib.sha256(freeze.read_bytes()).hexdigest()}
             row={**self.row(),'holdout':True,'prediction':prediction,'predictionFrozenBeforeOutcomeEvidence':proof}
@@ -36,6 +37,15 @@ class ObservationAuditTests(unittest.TestCase):
             evidence.write_text('after',encoding='utf-8')
             result=audit_observation(row)
             self.assertIn('Holdout freeze: Pre-outcome evidence hash mismatch',result['reasons'])
+    def test_holdout_rejects_unrecognized_build_evidence(self):
+        with tempfile.TemporaryDirectory(dir=ROOT) as directory:
+            directory=Path(directory);evidence=directory/'evidence.json';evidence.write_text('{}',encoding='utf-8')
+            prediction={'scenarioFile':'unused.json','scenarioSha256':'0'*64,'runtimeFingerprint':'0'*64,'metric':'preHitDamage'}
+            item={'path':str(evidence.relative_to(ROOT)),'sha256':hashlib.sha256(evidence.read_bytes()).hexdigest()}
+            frozen={'schemaVersion':1,'kind':'MORIMENS_PREDICTION_FREEZE','prediction':prediction,'predictedDamage':100,'beforeOutcomeEvidence':[item],'recordedBuild':{'id':'explicit-test-build','evidence':[item]}}
+            freeze=directory/'freeze.json';freeze.write_text(json.dumps(frozen),encoding='utf-8');proof={'path':str(freeze.relative_to(ROOT)),'sha256':hashlib.sha256(freeze.read_bytes()).hexdigest()}
+            result=audit_observation({**self.row(),'holdout':True,'prediction':prediction,'predictionFrozenBeforeOutcomeEvidence':proof})
+            self.assertIn('Holdout freeze: No recognized build report identifies the recorded combat build',result['reasons'])
     def test_no_implicit_tolerance(self):
         result=audit_observation({**self.row(),'predictedDamage':101})
         self.assertEqual(result['difference'],1)

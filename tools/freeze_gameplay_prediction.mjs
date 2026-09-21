@@ -20,6 +20,18 @@ function readExisting(value,label){
   if(!existsSync(path))throw new Error(`${label} does not exist`);
   return {path,bytes:readFileSync(path)};
 }
+function validateBuildEvidence(items,recordedCombatBuild){
+  let recognized=false;
+  for(const item of items){
+    let value;try{value=JSON.parse(item.bytes.toString('utf8'));}catch{continue;}
+    if(value?.schemaVersion===1&&value.kind==='MORIMENS_PC_COMBAT_BUILD_COMPARISON'&&value.currentBuild===recordedCombatBuild){
+      const version=value.currentVersion,source=value.sourceHashes;
+      if(!version||!Number.isInteger(version.resVersion)||!Number.isInteger(version.buildVersion)||typeof source?.versionManifest!=='string'||!/^[0-9a-f]{64}$/.test(source.versionManifest)||!source.bundles||typeof source.bundles!=='object')throw new Error('PC combat-build evidence is structurally incomplete');
+      recognized=true;
+    }
+  }
+  if(!recognized)throw new Error('At least one recognized build report must identify the recorded combat build');
+}
 
 export function freezeGameplayPrediction({scenarioFile,metric,evidenceFiles,outputFile,recordedCombatBuild=null,buildEvidenceFiles=[],now=()=>new Date()}){
   if(!['preHitDamage','modeledHpLost'].includes(metric))throw new Error('Metric must be preHitDamage or modeledHpLost');
@@ -32,6 +44,7 @@ export function freezeGameplayPrediction({scenarioFile,metric,evidenceFiles,outp
   const buildEvidence=buildEvidenceFiles.map(value=>readExisting(value,'Build evidence'));
   if(evidence.some(item=>item.path===scenario.path))throw new Error('Pre-outcome evidence must be separate from the scenario');
   if(buildEvidence.some(item=>item.path===scenario.path))throw new Error('Build evidence must be separate from the scenario');
+  if(hasBuild)validateBuildEvidence(buildEvidence,recordedCombatBuild);
   const output=insideRoot(outputFile,'Output');
   const allowed=[observationRoot,publicHoldoutRoot].some(base=>{const item=relative(base,output);return item&&!item.startsWith('..')&&!isAbsolute(item);});
   if(!allowed)throw new Error('Output must be inside research/observations or research/evidence/holdouts');

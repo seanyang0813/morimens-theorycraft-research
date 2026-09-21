@@ -12,6 +12,14 @@ ROOT=Path(__file__).resolve().parents[1]
 def number(value):
     return isinstance(value,(int,float)) and not isinstance(value,bool) and math.isfinite(value)
 
+def recognized_build_report(path,recorded_build):
+    try:value=json.loads(path.read_text(encoding='utf-8'))
+    except (OSError,UnicodeError,json.JSONDecodeError):return False
+    version=value.get('currentVersion') if isinstance(value,dict) else None
+    source=value.get('sourceHashes') if isinstance(value,dict) else None
+    digest=source.get('versionManifest') if isinstance(source,dict) else None
+    return value.get('schemaVersion')==1 and value.get('kind')=='MORIMENS_PC_COMBAT_BUILD_COMPARISON' and value.get('currentBuild')==recorded_build and isinstance(version,dict) and isinstance(version.get('resVersion'),int) and isinstance(version.get('buildVersion'),int) and isinstance(digest,str) and len(digest)==64 and all(char in '0123456789abcdef' for char in digest) and isinstance(source.get('bundles'),dict)
+
 def replay_prediction(row):
     prediction=row.get('prediction')
     if not isinstance(prediction,dict):return None,'No executable prediction contract'
@@ -74,11 +82,14 @@ def audit_observation(row):
                 if not isinstance(build,dict) or build.get('id')!=recorded_build:raise ValueError('Frozen recorded build is missing or differs from the observation')
                 build_evidence=build.get('evidence')
                 if not isinstance(build_evidence,list) or not build_evidence:raise ValueError('Frozen recorded build needs pre-outcome evidence')
+                recognized_build_evidence=False
                 for item in build_evidence:
                     evidence_path=(ROOT/item['path']).resolve()
                     if not evidence_path.is_relative_to(ROOT) or not evidence_path.is_file():raise ValueError('Build evidence missing or outside workspace')
                     if hashlib.sha256(evidence_path.read_bytes()).hexdigest()!=item['sha256']:raise ValueError('Build evidence hash mismatch')
+                    recognized_build_evidence=recognized_build_evidence or recognized_build_report(evidence_path,recorded_build)
                     hashes.append({'path':item['path'],'sha256':item['sha256'],'purpose':'pre-outcome recorded combat build; chronology requires manual review'})
+                if not recognized_build_evidence:raise ValueError('No recognized build report identifies the recorded combat build')
             hashes.append({'path':proof['path'],'sha256':proof['sha256'],'purpose':'prediction freeze; chronology requires manual review'})
         except (KeyError,TypeError,ValueError,OSError) as error:reasons.append('Holdout freeze: '+str(error))
     return {'id':row.get('id'),'holdout':row.get('holdout') is True,'observed':observed,'predicted':predicted,'recomputed':recomputed,'difference':difference,'eligibleForReview':not reasons,'reasons':reasons,'evidenceFiles':hashes}
