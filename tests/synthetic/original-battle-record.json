@@ -6,7 +6,7 @@
     "BattleRenderEvent": "192c99c371dd363fae96ccb8c6125bfeb2da54cbb827959942b632222e817aad",
     "BattleCommand": "7b5748cdbb422a88051e49568e35266fedea4ec75ae4ee127216fc3a9c3e2480"
   },
-  "scope": "Selected original BattleRecord frame constructors for card use, hit, property, target and state events. Time is supplied; PushRecord is observed. No record queue, serialization, replay playback or gameplay.",
+  "scope": "Selected original BattleRecord frame constructors plus BeginRecord/PushRecord/EndRecord queue and battle-cut dispatch. Time and inserted frame are supplied. No transport serialization, replay playback or gameplay.",
   "fixtures": [
     {
       "input": {
@@ -158,6 +158,104 @@
         "time": 8.75,
         "eventId": 1007.0,
         "samePayload": true
+      }
+    }
+  ],
+  "queueFixtures": [
+    {
+      "input": {
+        "times": [
+          0,
+          1
+        ],
+        "marker": 7
+      },
+      "expected": {
+        "isRecording": false,
+        "queueType": 1.0,
+        "frameCount": 3,
+        "firstTime": 0.0,
+        "middlePayloadPreserved": true,
+        "lastTime": 1.0,
+        "warnings": 1,
+        "cuts": [
+          {
+            "command": 1002.0,
+            "sameRecordData": true
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "times": [
+          2.5,
+          9.75
+        ],
+        "marker": 88
+      },
+      "expected": {
+        "isRecording": false,
+        "queueType": 1.0,
+        "frameCount": 3,
+        "firstTime": 2.5,
+        "middlePayloadPreserved": true,
+        "lastTime": 9.75,
+        "warnings": 1,
+        "cuts": [
+          {
+            "command": 1002.0,
+            "sameRecordData": true
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "times": [
+          -1,
+          0
+        ],
+        "marker": 0
+      },
+      "expected": {
+        "isRecording": false,
+        "queueType": 1.0,
+        "frameCount": 3,
+        "firstTime": -1.0,
+        "middlePayloadPreserved": true,
+        "lastTime": 0.0,
+        "warnings": 1,
+        "cuts": [
+          {
+            "command": 1002.0,
+            "sameRecordData": true
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "times": [
+          100,
+          100.5
+        ],
+        "marker": 123456
+      },
+      "expected": {
+        "isRecording": false,
+        "queueType": 1.0,
+        "frameCount": 3,
+        "firstTime": 100.0,
+        "middlePayloadPreserved": true,
+        "lastTime": 100.5,
+        "warnings": 1,
+        "cuts": [
+          {
+            "command": 1002.0,
+            "sameRecordData": true
+          }
+        ]
       }
     }
   ]

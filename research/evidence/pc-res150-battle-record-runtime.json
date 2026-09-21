@@ -3,19 +3,29 @@
   "kind": "MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON",
   "baselineBuild": "pc-res144-build51",
   "currentBuild": "pc-res150-build51",
-  "method": "BattleRecord selected frame constructors",
+  "method": "BattleRecord selected frame and queue boundaries",
   "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
   "sourceHashes": {
     "comparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
-    "fixture": "fe0764f11438a96845fe4ebd09da68e6a7b2a70e70c29ba332aa8dbcd9a0561c",
+    "fixture": "66fed12355775a4600ba93d7a0453dbc2ac82116214f108abb76d69930ef8da2",
     "currentBattleRecord": "614b5f42dd28a841c340fb43463f5335db198401d6fd974e41a67a36739955db"
   },
-  "fixtures": 10,
-  "exactMatches": 10,
+  "fixtures": 14,
+  "domains": {
+    "frame": {
+      "fixtures": 10,
+      "exactMatches": 10
+    },
+    "queue": {
+      "fixtures": 4,
+      "exactMatches": 4
+    }
+  },
+  "exactMatches": 14,
   "mismatches": 0,
   "results": [],
-  "scope": "Actual resource-150 selected BattleRecord card-use, hit, property, target and state frame constructors.",
+  "scope": "Actual resource-150 selected BattleRecord card-use, hit, property, target and state frame constructors plus record queue and battle-cut dispatch.",
   "limitations": [
-    "No record queue, serialization, replay playback, gameplay or holdout credit"
+    "No transport serialization, replay playback, gameplay or holdout credit"
   ]
 }

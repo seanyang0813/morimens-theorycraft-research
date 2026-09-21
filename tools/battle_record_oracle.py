@@ -11,6 +11,9 @@ class BattleRecordOracle(TargetOracle):
         super().__init__(asset_overrides);L=self.state
         self.rawequal=self.lib.lua_rawequal;self.rawequal.argtypes=[C.c_void_p,C.c_int,C.c_int];self.rawequal.restype=C.c_int
         self.pushstring=self.lib.lua_pushstring;self.pushstring.argtypes=[C.c_void_p,C.c_char_p]
+        self.tobool=self.lib.lua_toboolean;self.tobool.argtypes=[C.c_void_p,C.c_int];self.tobool.restype=C.c_int
+        self.rawlen=self.lib.lua_rawlen;self.rawlen.argtypes=[C.c_void_p,C.c_int];self.rawlen.restype=C.c_size_t
+        self.rawgeti=self.lib.lua_rawgeti;self.rawgeti.argtypes=[C.c_void_p,C.c_int,C.c_int64];self.rawgeti.restype=C.c_int
         self.module('BattleRenderEvent',asset_overrides.get('BattleRenderEvent'));self.setglobal(L,b'_record_events')
         self.module('BattleCommand',asset_overrides.get('BattleCommand'));self.setglobal(L,b'_record_commands')
         known={b'System.System':b'_oracle_config_system',b'Battle.BattleConst':b'_oracle_bc',b'Battle.DbgEngine.Event.BattleRenderEvent':b'_record_events',b'Battle.DbgEngine.Event.BattleCommand':b'_record_commands'}
@@ -63,6 +66,34 @@ class BattleRecordOracle(TargetOracle):
         if self.errors:raise RuntimeError(self.errors)
         return captured[0]
 
+    def _call_method(self,name,*pushers):
+        L=self.state;self.getglobal(L,b'_record_class');self.getfield(L,-1,name.encode());self.getglobal(L,b'_record_class')
+        for push in pushers:push(L)
+        self.check(self.call(L,1+len(pushers),0,0,0,None));self.top(L,0)
+
+    def run_queue_case(self,case):
+        L=self.state;self.top(L,0);self.errors.clear();times=iter(case['times']);warnings=[];cuts=[]
+        self.table(L,0,3)
+        self.method('GetCurPassTime',lambda s:(self.number(s,next(times)),1)[1])
+        self.method('Warn',lambda s:(warnings.append(True),0)[1])
+        def send(s):
+            command=self.tonumber(s,2,None);self.getglobal(s,b'_record_class');self.getfield(s,-1,b'recordData');same=bool(self.rawequal(s,3,-1));self.top(s,3)
+            cuts.append({'command':command,'sameRecordData':same});return 0
+        self.method('SendCommand',send);self.setglobal(L,b'_queue_engine')
+        self.getglobal(L,b'_record_class');self.getglobal(L,b'_queue_engine');self.setfield(L,-2,b'battleEngine');self.boolean(L,False);self.setfield(L,-2,b'isRecording');self.top(L,0)
+        self._call_method('BeginRecord')
+        self.table(L,0,1);self.number(L,case['marker']);self.setfield(L,-2,b'marker');self.setglobal(L,b'_queue_payload')
+        self._call_method('PushRecord',lambda s:self.getglobal(s,b'_queue_payload'))
+        self._call_method('BeginRecord')
+        self._call_method('EndRecord')
+        self.getglobal(L,b'_record_class');self.getfield(L,-1,b'isRecording');recording=bool(self.tobool(L,-1));self.top(L,-2)
+        self.getfield(L,-1,b'recordData');record=-1;queue_type=self._number_field(L,record,'queueType');self.getfield(L,record,b'frameList');frames=-1;count=int(self.rawlen(L,frames))
+        self.rawgeti(L,frames,1);first_time=self._number_field(L,-1,'time');self.top(L,-2)
+        self.rawgeti(L,frames,2);same_middle=self._same_global(L,-1,b'_queue_payload');self.top(L,-2)
+        self.rawgeti(L,frames,3);last_time=self._number_field(L,-1,'time');self.top(L,-2)
+        if self.errors:raise RuntimeError(self.errors)
+        return {'isRecording':recording,'queueType':queue_type,'frameCount':count,'firstTime':first_time,'middlePayloadPreserved':same_middle,'lastTime':last_time,'warnings':len(warnings),'cuts':cuts}
+
 
 CASES=[
  {'method':'OnUseCard','time':0,'cardUid':101,'camp':1},
@@ -77,12 +108,19 @@ CASES=[
  {'method':'OnChangeStateLayer','time':8.75},
 ]
 
+QUEUE_CASES=[
+ {'times':[0,1],'marker':7},
+ {'times':[2.5,9.75],'marker':88},
+ {'times':[-1,0],'marker':0},
+ {'times':[100,100.5],'marker':123456},
+]
+
 
 def main():
-    oracle=BattleRecordOracle();fixtures=[{'input':row,'expected':oracle.run_case(row)} for row in CASES]
+    oracle=BattleRecordOracle();fixtures=[{'input':row,'expected':oracle.run_case(row)} for row in CASES];queue_fixtures=[{'input':row,'expected':oracle.run_queue_case(row)} for row in QUEUE_CASES]
     output=ROOT/'tests/synthetic/original-battle-record.json'
-    output.write_text(json.dumps({'kind':'SYNTHETIC_ORIGINAL_RUNTIME','build':'pc-res144-build51','sourceHashes':{name:oracle.assets[name+'.lua']['sha256'] for name in ('BattleRecord','BattleRenderEvent','BattleCommand')},'scope':'Selected original BattleRecord frame constructors for card use, hit, property, target and state events. Time is supplied; PushRecord is observed. No record queue, serialization, replay playback or gameplay.','fixtures':fixtures},indent=2)+'\n',encoding='utf-8',newline='\n')
-    print('Generated',len(fixtures),'original BattleRecord cases')
+    output.write_text(json.dumps({'kind':'SYNTHETIC_ORIGINAL_RUNTIME','build':'pc-res144-build51','sourceHashes':{name:oracle.assets[name+'.lua']['sha256'] for name in ('BattleRecord','BattleRenderEvent','BattleCommand')},'scope':'Selected original BattleRecord frame constructors plus BeginRecord/PushRecord/EndRecord queue and battle-cut dispatch. Time and inserted frame are supplied. No transport serialization, replay playback or gameplay.','fixtures':fixtures,'queueFixtures':queue_fixtures},indent=2)+'\n',encoding='utf-8',newline='\n')
+    print('Generated',len(fixtures),'frame and',len(queue_fixtures),'queue BattleRecord cases')
 
 
 if __name__=='__main__':main()

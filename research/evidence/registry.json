@@ -4433,7 +4433,7 @@
     {
       "id": "PC150:BattleRecord.SelectedFrames",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
-      "claim": "The installed resource-150 BattleRecord reproduces all 10 inherited selected replay-frame constructor fixtures exactly",
+      "claim": "The installed resource-150 BattleRecord reproduces all 14 inherited selected replay-frame and queue fixtures exactly",
       "sources": [
         {
           "module": "PC resource-150 build comparison",
@@ -4443,9 +4443,9 @@
         },
         {
           "module": "PC resource-150 BattleRecord runtime comparison",
-          "member": "selected frame-constructor fixture-domain result",
+          "member": "selected frame and queue fixture-domain result",
           "bundle": "copied XLua runtime; hashes only",
-          "sha256": "4fec489816fc76f7a5467b8343247d2acdc81b7bc43c4bf6e4db2ef19a8d952d"
+          "sha256": "54ae76c327ae55c46a85ab2aa518a075493a8f1f8b8a76f0af1f97bfe2ae432b"
         }
       ],
       "tests": [
@@ -4454,7 +4454,7 @@
         "tests/battle-record-runtime.test.mjs",
         "tests/current-pc-build-evidence.test.mjs"
       ],
-      "scope": "Actual resource-150 UseCard, BeHit, PropertyChanged, SelectTargets, AddState and ChangeStateLayer frame construction with supplied time and payload-identity checks. Record queue behavior, serialization, replay playback, gameplay and holdout credit remain outside scope.",
+      "scope": "Actual resource-150 UseCard, BeHit, PropertyChanged, SelectTargets, AddState and ChangeStateLayer frame construction plus BeginRecord, PushRecord, duplicate-start warning, EndRecord and battle-cut dispatch. Transport serialization, replay playback, gameplay and holdout credit remain outside scope.",
       "gameplayValidation": false
     },
     {

@@ -115,7 +115,8 @@ test('current PC selected replay-record constructors match the inherited runtime
   const runtime=read('research/evidence/pc-res150-battle-record-runtime.json');
   const fixture=read('tests/synthetic/original-battle-record.json');
   assert.equal(runtime.data.status,'EXACT_MATCH_IN_FIXTURE_DOMAIN');
-  assert.equal(runtime.data.fixtures,fixture.data.fixtures.length);
+  assert.equal(runtime.data.fixtures,fixture.data.fixtures.length+fixture.data.queueFixtures.length);
+  assert.deepEqual(runtime.data.domains,{frame:{fixtures:10,exactMatches:10},queue:{fixtures:4,exactMatches:4}});
   assert.equal(runtime.data.exactMatches,runtime.data.fixtures);
   assert.equal(runtime.data.mismatches,0);
   assert.equal(runtime.data.sourceHashes.comparison,hash(comparison.bytes));

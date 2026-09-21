@@ -16,3 +16,17 @@ test('selected original BattleRecord constructors retain event and payload bound
     if(['OnSelectTargets','OnAddState','OnChangeStateLayer'].includes(row.input.method))assert.equal(row.expected.samePayload,true);
   }
 });
+
+test('original BattleRecord queue preserves frames and emits one cut',()=>{
+  assert.equal(suite.queueFixtures.length,4);
+  for(const row of suite.queueFixtures){
+    assert.equal(row.expected.isRecording,false);
+    assert.equal(row.expected.frameCount,3);
+    assert.equal(row.expected.firstTime,row.input.times[0]);
+    assert.equal(row.expected.middlePayloadPreserved,true);
+    assert.equal(row.expected.lastTime,row.input.times[1]);
+    assert.equal(row.expected.warnings,1);
+    assert.equal(row.expected.cuts.length,1);
+    assert.equal(row.expected.cuts[0].sameRecordData,true);
+  }
+});
