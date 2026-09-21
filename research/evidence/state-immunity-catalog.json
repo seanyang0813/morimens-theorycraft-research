@@ -7005,7 +7005,7 @@
   "sourceHashes": {
     "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
     "BattleApiExport": "47c6b4434a0c78ec59927a29237d960a81b2f9c0cf69f8ae3c26a0c3f4500d1a",
-    "StateExport": "63b8d50b06e05c970ce4027b49082b007155489d272644c32e9adcbfabd2028a"
+    "StateExport": "955c979b9c2f2c3f8252a847ca9c663baadc1c5040338f1ce8f9403c4597eced"
   },
   "limitations": [
     "Specific rule order observed from original Lua table; active state IDs do not overlap",

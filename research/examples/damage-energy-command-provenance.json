@@ -2,7 +2,7 @@
   "kind": "SYNTHETIC_COMPONENT_COMPOSITION",
   "commandId": 2112,
   "source": "research/extracted/config/Cmd.json",
-  "sha256": "855355ad600a5c419a7704c9dfbba0c199ce57d6b474478e75b94e8d714e030c",
+  "sha256": "7e298514fde1e0555b2e5d11118c8b5c4d5e3695a4062a49d4d51bfa110d2eed",
   "assumptions": [
     "Explicit synthetic Arg1=120 and Arg2=10; not a prepared character build",
     "Target HP 1000, caster energy 95, maximum 100, neutral numeric modifiers",

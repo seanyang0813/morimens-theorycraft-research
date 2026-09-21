@@ -3674,6 +3674,69 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC144:ConnectedHpPhaseCapCommand",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Eligible HP-change callbacks traverse all eight real command-60406 rows through original target generation, phase creation, TriggerCmd and GenerateEffectList; rejected callbacks construct no command effects",
+      "sources": [
+        {
+          "module": "State",
+          "member": "60409",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "60406",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "BSTHpChanged",
+          "member": "OnRoleHpChanged",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "42bbd004f18fd1df3b5b9b4ef484eec1b2cbd3ebdb1789a8c748d0660755fcd3",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7646804855693878600_BSTHpChanged.lua"
+        },
+        {
+          "module": "BattleStateServer",
+          "member": "Trigger",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6839215435199190924_BattleStateServer.lua"
+        },
+        {
+          "module": "BEGenerateTargets",
+          "member": "DoEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "98e9478b0c58ad70c586a3dda05e68bd826577694bb2627e67fc38b96145005d",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4001796867815749104_BEGenerateTargets.lua"
+        },
+        {
+          "module": "BECreateSkillPhase",
+          "member": "DoEffect,__FireAfterCreateSkillPhase",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "0517f4daffda3ed3939ecfa33c7ebeeffa4a01aa137fb2e3951fb0996da9958e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\4770387938002218566_BECreateSkillPhase.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "TriggerCmd,GenerateEffectList",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        }
+      ],
+      "tests": [
+        "tools/connected_hp_phase_cap_command_oracle.py",
+        "tests/connected-hp-phase-cap-command.test.mjs",
+        "docs/CONNECTED_EVENT_DELIVERY.md"
+      ],
+      "scope": "4 connected original-runtime cases with the exact exported command rows. StateOwner and TriggerPara-to-Arg1 conversion, delay calculation and final effect construction are explicit adapters; child PreTrigger preserves the signed HP delta. Conditions and effect bodies do not execute; no scheduler completion, gameplay or holdout credit.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC144:HpOwnerEvents",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "HP callback queues RoleHpChanged then RoleHpperChanged with one shared payload extended between calls; max_hp changes queue only RoleHpperChanged",
@@ -4874,6 +4937,32 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC150:ConnectedHpPhaseCapCommand",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "Resource 150 reproduces all 4 HP-event-to-command-60406 row-construction fixtures exactly and its current 60406 catalog row set matches the baseline",
+      "sources": [
+        {
+          "module": "PC resource-150 command catalog",
+          "member": "exact command 60406 rows",
+          "bundle": "installed local client; sanitized row comparison",
+          "sha256": "52fea8a140dd391096450c67354d8de81f924e47f7265fb582bf3f095597c706"
+        },
+        {
+          "module": "PC resource-150 connected phase-cap runtime comparison",
+          "member": "fixture-domain result",
+          "bundle": "copied XLua runtime; hashes only",
+          "sha256": "8fdccdfe2a5e9d6253eee4244c82f709ef4156d73635bd2eb7e9763c860b18d8"
+        }
+      ],
+      "tests": [
+        "tools/connected_hp_phase_cap_command_oracle.py",
+        "tools/verify_current_connected_hp_phase_cap_command.py",
+        "tests/connected-hp-phase-cap-command.test.mjs"
+      ],
+      "scope": "Actual HP listener, cached state trigger, target/phase bodies, current TriggerCmd and GenerateEffectList traverse the eight configured rows. StateOwner, TriggerPara-to-Arg1, delays and final constructors remain adapters; no condition/effect-body execution, gameplay or holdout credit.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC150:BattleEngine.RunEffectOrder",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
       "claim": "The installed resource-150 BattleEngine reproduces all 7 inherited RunEffectOrder orchestration fixtures exactly",
@@ -5270,7 +5359,7 @@
           "module": "PC Awake-card catalog audit",
           "member": "Skill-to-Cmd direct inventory and one-level literal command traversal",
           "bundle": "resource-144 exports plus installed resource-150 config bundle",
-          "sha256": "165b22607c5fe59b544e2469c06aa2c73ba9623e1252e7020e015ad451ed2d42"
+          "sha256": "6e34baa173470f923847841ad5fd4a07ded88bde49943c95cdceb5abbb1f8c21"
         }
       ],
       "tests": [
@@ -5290,13 +5379,13 @@
           "module": "Replay catalog build attribution",
           "member": "anonymous per-replay comparison counts",
           "bundle": "private decoded replays plus pinned complete catalog exports",
-          "sha256": "a74754f48c36326f6c80fd36f319af9d8cec79e7bca01f0666e755daa2de8567"
+          "sha256": "457fb6ebe090b01cc13f3eb898a925057cee91fab89938bb010582497d9eefa1"
         },
         {
           "module": "PC Awake-card catalog audit",
           "member": "pinned catalog export hashes",
           "bundle": "resource-144 exports plus installed resource-150 config bundle",
-          "sha256": "165b22607c5fe59b544e2469c06aa2c73ba9623e1252e7020e015ad451ed2d42"
+          "sha256": "6e34baa173470f923847841ad5fd4a07ded88bde49943c95cdceb5abbb1f8c21"
         }
       ],
       "tests": [
@@ -5315,13 +5404,13 @@
           "module": "Current-catalog gameplay consistency",
           "member": "public cross-report join",
           "bundle": "anonymous replay reports",
-          "sha256": "7d53cef90ca49fe45162b3b8d57817422ddb66dc23a32cf645ca1831485268ca"
+          "sha256": "331bb2253e9eb86b35e8dbb4e17485e151614a5b6b1f56caa8d120533eac4708"
         },
         {
           "module": "Replay catalog build attribution",
           "member": "exact embedded Cmd/Skill catalog classifications",
           "bundle": "private decoded replays plus pinned complete catalog exports",
-          "sha256": "a74754f48c36326f6c80fd36f319af9d8cec79e7bca01f0666e755daa2de8567"
+          "sha256": "457fb6ebe090b01cc13f3eb898a925057cee91fab89938bb010582497d9eefa1"
         }
       ],
       "tests": [

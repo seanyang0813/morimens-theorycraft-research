@@ -1,0 +1,394 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleEngine": "0ee07c8fd06f29787f8139306b55d16c726eaf8cabcd1ad0b128d907c8dbbeea",
+    "BattleEventMgr": "64fc30976751226fbe929e3125ee74b0a41bda0bde49a65466d0c501441b1bb4",
+    "BattleEffectMgrServer": "9a94157af60365d26188b578ca7f69987503b980ce51a420765eca45b4b8ab41",
+    "BattleEffectServer": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+    "BESendEvent": "6fe50acfc2be35b8bb2ea63f6de784b47f8570f9d085cc6313b9d27ecb819a71",
+    "BattleLogicEvent": "cef7477d60a84d8ac4f4b097436a39628d37ff5c54bd8f44d08828d75ad80c4a",
+    "BattleStateTriggerServer": "b21b29209c0f0ccd206b6bb7e8355665faded1a64f062ae326c0e501fbbbfa7d",
+    "BSTHpChanged": "42bbd004f18fd1df3b5b9b4ef484eec1b2cbd3ebdb1789a8c748d0660755fcd3",
+    "BattleStateServer": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+    "BEGenerateTargets": "98e9478b0c58ad70c586a3dda05e68bd826577694bb2627e67fc38b96145005d",
+    "BECreateSkillPhase": "0517f4daffda3ed3939ecfa33c7ebeeffa4a01aa137fb2e3951fb0996da9958e",
+    "BattleCmdServer": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+    "Table": "c737ed8080146ef1b4a871c0b96362212072d1e2381a4d8c486e75d1ad73ecc4",
+    "Cmd": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+    "State": "059f74f3fc5a3948b3cdf2a2866ebedf26c4f4de0d605be148d76c8ee84a6a1f"
+  },
+  "scope": "Original RoleHpChanged request through listener, cached State.Trigger, target generation, phase creation, TriggerCmd and GenerateEffectList using the exact eight exported rows of command 60406. StateOwner expression construction, TriggerPara-to-Arg1 conversion, delay calculation and final effect construction are explicit adapters. Child PreTrigger receives the original signed HP trigger data; effect bodies, conditions, state mutation, scheduler completion and StateTriggerEnd execution are excluded. No gameplay or holdout credit.",
+  "fixtures": [
+    {
+      "input": {
+        "name": "monster-self-damage-to-state-command",
+        "ownerType": "monster",
+        "ownerUid": 200,
+        "ownerCamp": 2,
+        "targetUid": 200,
+        "targetCamp": 2,
+        "casterUid": 300,
+        "oldValue": 1000,
+        "newValue": 700,
+        "priority": 4,
+        "deleted": false,
+        "isEnemy": false,
+        "executeState": true,
+        "executeGenerated": true,
+        "executeCommandRows": true
+      },
+      "expected": {
+        "effectEligible": true,
+        "triggered": [],
+        "generatedEffects": [
+          {
+            "effectType": "BEGenerateTargets",
+            "targetType": "StateOwner",
+            "castRoleUid": 300.0
+          },
+          {
+            "effectType": "BECreateSkillPhase",
+            "triggerValue": -300.0,
+            "sameAssociator": true
+          }
+        ],
+        "stateEndEvents": [
+          {
+            "stateUid": 77.0
+          }
+        ],
+        "dispatchErrors": [],
+        "stateTrace": [
+          "GetProperty",
+          "is",
+          "IsDead",
+          "IsBan",
+          "GetCasterUid",
+          "ClearMemberValues",
+          "GetSkillCastTime",
+          "OnEnterBeforePhase",
+          "SendNotAwakerTimeline",
+          "IncreaseActionIndex",
+          "Info",
+          "UpdateSkillArgs"
+        ],
+        "generatedExecution": [
+          {
+            "eligible": true,
+            "executed": true
+          },
+          {
+            "eligible": true,
+            "executed": true
+          }
+        ],
+        "commandEffects": [
+          {
+            "id": 1.0,
+            "Type": "BEAddState",
+            "Target": "UpperTarget",
+            "Para": "60407,Arg1",
+            "delay": 0.0,
+            "skipPhase": false,
+            "effectIndex": 1.0,
+            "triggerValue": -300.0
+          },
+          {
+            "id": 2.0,
+            "Type": "BESubStateLayer",
+            "Target": "UpperTarget",
+            "Para": "60409,Arg1",
+            "Cond": "UpperTarget.GetStateLayer(60409)>Arg1",
+            "delay": 0.0,
+            "skipPhase": false,
+            "effectIndex": 2.0,
+            "triggerValue": -300.0
+          },
+          {
+            "id": 3.0,
+            "Type": "BESubStateLayer",
+            "Target": "UpperTarget",
+            "Para": "60409,UpperTarget.GetStateLayer(60409)-1",
+            "Cond": "LastConditionRet~=1",
+            "delay": 0.0,
+            "skipPhase": false,
+            "effectIndex": 3.0,
+            "triggerValue": -300.0
+          },
+          {
+            "id": 4.0,
+            "Type": "BEAddState",
+            "Target": "UpperTarget",
+            "Para": "46441,1",
+            "Cond": "UpperTarget.GetStateLayer(60409)==1",
+            "delay": 0.0,
+            "skipPhase": false,
+            "effectIndex": 4.0,
+            "triggerValue": -300.0
+          },
+          {
+            "id": 5.0,
+            "Type": "BEMonsterChangeSkill",
+            "Target": "UpperTarget",
+            "Para": "60397,1",
+            "Cond": "UpperTarget.GetStateLayer(60409)==1",
+            "delay": 0.0,
+            "skipPhase": false,
+            "effectIndex": 5.0,
+            "triggerValue": -300.0
+          },
+          {
+            "id": 6.0,
+            "Type": "BEAddState",
+            "Target": "UpperTarget",
+            "Para": "60408,math.ceil(UpperTarget.max_hp*0.33)+1",
+            "Cond": "UpperTarget.GetStateLayer(60409)==1",
+            "delay": 0.0,
+            "skipPhase": false,
+            "effectIndex": 6.0,
+            "triggerValue": -300.0
+          },
+          {
+            "id": 7.0,
+            "Type": "BERemoveState",
+            "Target": "UpperTarget",
+            "Para": "60407,Arg1",
+            "Cond": "UpperTarget.GetStateLayer(60409)==1",
+            "delay": 0.0,
+            "skipPhase": false,
+            "effectIndex": 7.0,
+            "triggerValue": -300.0
+          },
+          {
+            "id": 8.0,
+            "Type": "BERemoveState",
+            "Target": "UpperTarget",
+            "Para": 60409.0,
+            "Cond": "UpperTarget.GetStateLayer(60409)==1",
+            "delay": 0.0,
+            "skipPhase": false,
+            "effectIndex": 8.0,
+            "triggerValue": -300.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "hidden-owner-stops-state-command",
+        "ownerType": "monster",
+        "ownerUid": 200,
+        "ownerCamp": 2,
+        "targetUid": 200,
+        "targetCamp": 2,
+        "casterUid": 300,
+        "oldValue": 1000,
+        "newValue": 700,
+        "priority": 4,
+        "deleted": false,
+        "isEnemy": false,
+        "executeState": true,
+        "hidden": 1,
+        "executeGenerated": true,
+        "executeCommandRows": true
+      },
+      "expected": {
+        "effectEligible": true,
+        "triggered": [],
+        "generatedEffects": [],
+        "stateEndEvents": [],
+        "dispatchErrors": [],
+        "stateTrace": [
+          "GetProperty"
+        ],
+        "generatedExecution": [],
+        "commandEffects": []
+      }
+    },
+    {
+      "input": {
+        "name": "other-monster-stops-before-state-command",
+        "ownerType": "monster",
+        "ownerUid": 201,
+        "ownerCamp": 2,
+        "targetUid": 200,
+        "targetCamp": 2,
+        "casterUid": 300,
+        "oldValue": 1000,
+        "newValue": 700,
+        "priority": 4,
+        "deleted": false,
+        "isEnemy": false,
+        "executeState": true,
+        "executeGenerated": true,
+        "executeCommandRows": true
+      },
+      "expected": {
+        "effectEligible": true,
+        "triggered": [],
+        "generatedEffects": [],
+        "stateEndEvents": [],
+        "dispatchErrors": [],
+        "stateTrace": [],
+        "generatedExecution": [],
+        "commandEffects": []
+      }
+    },
+    {
+      "input": {
+        "name": "enemy-damage-to-player-state-command",
+        "ownerType": "player",
+        "ownerUid": 101,
+        "ownerCamp": 1,
+        "targetUid": 200,
+        "targetCamp": 2,
+        "casterUid": 300,
+        "oldValue": 1000,
+        "newValue": 875,
+        "priority": 2,
+        "deleted": false,
+        "isEnemy": true,
+        "executeState": true,
+        "executeGenerated": true,
+        "executeCommandRows": true
+      },
+      "expected": {
+        "effectEligible": true,
+        "triggered": [],
+        "generatedEffects": [
+          {
+            "effectType": "BEGenerateTargets",
+            "targetType": "StateOwner",
+            "castRoleUid": 300.0
+          },
+          {
+            "effectType": "BECreateSkillPhase",
+            "triggerValue": -125.0,
+            "sameAssociator": true
+          }
+        ],
+        "stateEndEvents": [
+          {
+            "stateUid": 77.0
+          }
+        ],
+        "dispatchErrors": [],
+        "stateTrace": [
+          "GetProperty",
+          "is",
+          "IsDead",
+          "IsBan",
+          "GetCasterUid",
+          "ClearMemberValues",
+          "GetSkillCastTime",
+          "OnEnterBeforePhase",
+          "SendNotAwakerTimeline",
+          "IncreaseActionIndex",
+          "Info",
+          "UpdateSkillArgs"
+        ],
+        "generatedExecution": [
+          {
+            "eligible": true,
+            "executed": true
+          },
+          {
+            "eligible": true,
+            "executed": true
+          }
+        ],
+        "commandEffects": [
+          {
+            "id": 1.0,
+            "Type": "BEAddState",
+            "Target": "UpperTarget",
+            "Para": "60407,Arg1",
+            "delay": 0.0,
+            "skipPhase": false,
+            "effectIndex": 1.0,
+            "triggerValue": -125.0
+          },
+          {
+            "id": 2.0,
+            "Type": "BESubStateLayer",
+            "Target": "UpperTarget",
+            "Para": "60409,Arg1",
+            "Cond": "UpperTarget.GetStateLayer(60409)>Arg1",
+            "delay": 0.0,
+            "skipPhase": false,
+            "effectIndex": 2.0,
+            "triggerValue": -125.0
+          },
+          {
+            "id": 3.0,
+            "Type": "BESubStateLayer",
+            "Target": "UpperTarget",
+            "Para": "60409,UpperTarget.GetStateLayer(60409)-1",
+            "Cond": "LastConditionRet~=1",
+            "delay": 0.0,
+            "skipPhase": false,
+            "effectIndex": 3.0,
+            "triggerValue": -125.0
+          },
+          {
+            "id": 4.0,
+            "Type": "BEAddState",
+            "Target": "UpperTarget",
+            "Para": "46441,1",
+            "Cond": "UpperTarget.GetStateLayer(60409)==1",
+            "delay": 0.0,
+            "skipPhase": false,
+            "effectIndex": 4.0,
+            "triggerValue": -125.0
+          },
+          {
+            "id": 5.0,
+            "Type": "BEMonsterChangeSkill",
+            "Target": "UpperTarget",
+            "Para": "60397,1",
+            "Cond": "UpperTarget.GetStateLayer(60409)==1",
+            "delay": 0.0,
+            "skipPhase": false,
+            "effectIndex": 5.0,
+            "triggerValue": -125.0
+          },
+          {
+            "id": 6.0,
+            "Type": "BEAddState",
+            "Target": "UpperTarget",
+            "Para": "60408,math.ceil(UpperTarget.max_hp*0.33)+1",
+            "Cond": "UpperTarget.GetStateLayer(60409)==1",
+            "delay": 0.0,
+            "skipPhase": false,
+            "effectIndex": 6.0,
+            "triggerValue": -125.0
+          },
+          {
+            "id": 7.0,
+            "Type": "BERemoveState",
+            "Target": "UpperTarget",
+            "Para": "60407,Arg1",
+            "Cond": "UpperTarget.GetStateLayer(60409)==1",
+            "delay": 0.0,
+            "skipPhase": false,
+            "effectIndex": 7.0,
+            "triggerValue": -125.0
+          },
+          {
+            "id": 8.0,
+            "Type": "BERemoveState",
+            "Target": "UpperTarget",
+            "Para": 60409.0,
+            "Cond": "UpperTarget.GetStateLayer(60409)==1",
+            "delay": 0.0,
+            "skipPhase": false,
+            "effectIndex": 8.0,
+            "triggerValue": -125.0
+          }
+        ]
+      }
+    }
+  ]
+}

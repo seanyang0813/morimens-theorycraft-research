@@ -33,5 +33,7 @@ for name in sys.argv[1:]:
     if len(found)!=1:raise ValueError((name,len(found)))
     oracle.top(L,0);oracle.module(name,found[0]);data=read(-1)
     out=ROOT/'research/extracted/config'/f'{name}.json';out.parent.mkdir(parents=True,exist_ok=True)
-    out.write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
+    # Lua table iteration order is hash-seed dependent. Stable key ordering keeps
+    # the ignored pinned exports and every provenance fingerprint reproducible.
+    out.write_text(json.dumps(data,ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')
     print(name,len(data),'rows',flush=True)

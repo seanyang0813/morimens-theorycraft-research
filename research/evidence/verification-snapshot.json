@@ -1,13 +1,13 @@
 {
-  "generatedAtUtc": "2026-09-21T11:39:06.083356+00:00",
+  "generatedAtUtc": "2026-09-21T11:52:17.681779+00:00",
   "publicationStatus": "NOT_READY",
   "publicationAuthorized": false,
   "automatedSuite": {
-    "testFiles": 174,
+    "testFiles": 175,
     "passed": true,
     "exitCode": 0,
     "log": "research\\evidence\\latest-test-suite.tap",
-    "logSha256": "48e7c82e59d6c3aee2bef97b4c1fcb8f50ff8e8a7ff4e7602780ca9ff59e08e3"
+    "logSha256": "fae04328ba8d4bc7e8eb4f6fe90748918737991f1217a9930b85c37ff1e553f5"
   },
   "realObservations": {
     "records": 3,
@@ -170,7 +170,7 @@
   },
   "replayCatalogAttribution": {
     "report": "research\\evidence\\replay-catalog-build-attribution.json",
-    "reportSha256": "a74754f48c36326f6c80fd36f319af9d8cec79e7bca01f0666e755daa2de8567",
+    "reportSha256": "457fb6ebe090b01cc13f3eb898a925057cee91fab89938bb010582497d9eefa1",
     "resource144Matches": 35,
     "resource150Matches": 3,
     "unmatchedOrIntermediate": 4,
@@ -178,7 +178,7 @@
   },
   "currentCatalogGameplayConsistency": {
     "report": "research\\evidence\\current-catalog-gameplay-consistency.json",
-    "reportSha256": "7d53cef90ca49fe45162b3b8d57817422ddb66dc23a32cf645ca1831485268ca",
+    "reportSha256": "331bb2253e9eb86b35e8dbb4e17485e151614a5b6b1f56caa8d120533eac4708",
     "status": "RETROSPECTIVE_CURRENT_CATALOG_ENGINE_VERSION_UNCONFIRMED",
     "auditedReplays": 2,
     "exactRngBranchConsistencyChecks": 13,

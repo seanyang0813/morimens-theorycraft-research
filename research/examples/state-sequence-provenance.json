@@ -2,7 +2,7 @@
   "kind": "SYNTHETIC_COMPONENT_COMPOSITION",
   "stateId": 80331,
   "source": "research/extracted/config/State.json",
-  "sha256": "63b8d50b06e05c970ce4027b49082b007155489d272644c32e9adcbfabd2028a",
+  "sha256": "955c979b9c2f2c3f8252a847ca9c663baadc1c5040338f1ce8f9403c4597eced",
   "copiedFields": [
     "MaxLayer",
     "ExistProperty"

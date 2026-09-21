@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "method": "RoleHpChanged -> state trigger -> generated target/phase -> TriggerCmd -> command 60406 rows",
+  "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+  "sourceHashes": {
+    "comparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
+    "phaseModules": "bbd0493d8073989dd99e9d15b8ea7f89ee35de9fbd40687112c03ddbef1ae8a9",
+    "fixture": "e46daeecdfb264c99b340b8aa5db0ea235a426222c291acad3081f9b2129d5eb",
+    "currentCmdCatalog": "52fea8a140dd391096450c67354d8de81f924e47f7265fb582bf3f095597c706",
+    "currentBattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+    "currentBattleEngine": "1823d5b962605ccd42ba605840490235fb0c9b5fd751a112625c30101a34535e",
+    "currentBattleCmdServer": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9"
+  },
+  "fixtures": 4,
+  "exactMatches": 4,
+  "mismatches": 0,
+  "results": [],
+  "scope": "Current engine/constants/command bytecode, an exact current command-60406 row comparison, and identical state/target/phase/effect modules. The original runtime traverses all eight configured command rows after eligible HP changes.",
+  "limitations": [
+    "StateOwner and TriggerPara-to-Arg1 are explicit adapters",
+    "Delays and final effect constructors are observers",
+    "No command conditions or effect bodies execute",
+    "No scheduler completion, gameplay or holdout credit"
+  ]
+}

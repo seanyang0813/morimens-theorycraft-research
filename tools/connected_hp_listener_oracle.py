@@ -4,6 +4,17 @@ import json
 
 from connected_event_listener_oracle import ConnectedEventListenerOracle, ROOT
 
+PHASE_CAP_COMMAND_60406 = [
+    {'Para':'60407,Arg1','Type':'BEAddState','Target':'UpperTarget','BaseSortID':3770},
+    {'Cond':'UpperTarget.GetStateLayer(60409)>Arg1','Type':'BESubStateLayer','Para':'60409,Arg1','Target':'UpperTarget'},
+    {'Cond':'LastConditionRet~=1','Type':'BESubStateLayer','Para':'60409,UpperTarget.GetStateLayer(60409)-1','Target':'UpperTarget'},
+    {'Cond':'UpperTarget.GetStateLayer(60409)==1','Type':'BEAddState','Para':'46441,1','Target':'UpperTarget'},
+    {'Cond':'UpperTarget.GetStateLayer(60409)==1','Type':'BEMonsterChangeSkill','Para':'60397,1','Target':'UpperTarget'},
+    {'Cond':'UpperTarget.GetStateLayer(60409)==1','Type':'BEAddState','Para':'60408,math.ceil(UpperTarget.max_hp*0.33)+1','Target':'UpperTarget'},
+    {'Cond':'UpperTarget.GetStateLayer(60409)==1','Type':'BERemoveState','Para':'60407,Arg1','Target':'UpperTarget'},
+    {'Cond':'UpperTarget.GetStateLayer(60409)==1','Type':'BERemoveState','Para':60409,'Target':'UpperTarget'},
+]
+
 
 class ConnectedHpListenerOracle(ConnectedEventListenerOracle):
     def __init__(self, asset_overrides=None):
@@ -161,6 +172,7 @@ class ConnectedHpListenerOracle(ConnectedEventListenerOracle):
         self.errors.clear()
         triggered = []
         self.stateEffectConfigs=[]
+        self.commandEffectConfigs=[]
         dispatch_errors=[]
         state_trace=[]
 
@@ -223,8 +235,19 @@ class ConnectedHpListenerOracle(ConnectedEventListenerOracle):
         self.setfield(L, -2, b'CnID')
         self.setfield(L, -2, b'BSTHpChanged')
         self.top(L,-2)
-        self.getfield(L,-1,b'Cmd');self.table(L,0,2);self.pushstring(L,b'synthetic trigger command');self.setfield(L,-2,b'CnID');self.table(L,0,0);self.setfield(L,-2,b'data_list');self.rawset(L,-2,123);self.top(L,-2)
-        self.table(L,0,1);self.table(L,0,1);self.pushstring(L,b'synthetic state');self.setfield(L,-2,b'CnID');self.rawset(L,-2,456);self.setfield(L,-2,b'State')
+        command_id=60406 if values.get('executeCommandRows') else 123
+        self.getfield(L,-1,b'Cmd');self.table(L,0,2);self.pushstring(L,b'phase cap command' if values.get('executeCommandRows') else b'synthetic trigger command');self.setfield(L,-2,b'CnID')
+        self.table(L,len(PHASE_CAP_COMMAND_60406) if values.get('executeCommandRows') else 0,0)
+        if values.get('executeCommandRows'):
+            for index,row in enumerate(PHASE_CAP_COMMAND_60406,1):
+                self.table(L,0,len(row)+1);self.number(L,index);self.setfield(L,-2,b'id')
+                for key,value in row.items():
+                    if isinstance(value,str):self.pushstring(L,value.encode())
+                    else:self.number(L,value)
+                    self.setfield(L,-2,key.encode())
+                self.rawset(L,-2,index)
+        self.setfield(L,-2,b'data_list');self.rawset(L,-2,command_id);self.top(L,-2)
+        self.table(L,0,1);self.table(L,0,1);self.pushstring(L,b'phase cap state' if values.get('executeCommandRows') else b'synthetic state');self.setfield(L,-2,b'CnID');self.rawset(L,-2,60409 if values.get('executeCommandRows') else 456);self.setfield(L,-2,b'State')
         self.table(L,0,0);self.setfield(L,-2,b'Skill');self.top(L,-2)
         self.table(L,0,1);self.method('IncreaseActionIndex',lambda s:(state_trace.append('IncreaseActionIndex'),0)[1]);self.setfield(L,-2,b'boutMgr')
         self.top(L, 0)
@@ -245,13 +268,13 @@ class ConnectedHpListenerOracle(ConnectedEventListenerOracle):
         self.setfield(L, -2, b'CnID')
         self.number(L, 0)
         self.setfield(L, -2, b'DeathHandling')
-        self.number(L,123);self.setfield(L,-2,b'TriggerCmd1')
+        self.number(L,command_id);self.setfield(L,-2,b'TriggerCmd1')
         self.pushstring(L,b'StateOwner');self.setfield(L,-2,b'TriggerTarget1')
         self.setfield(L, -2, b'configData')
         self.number(L,456);self.setfield(L,-2,b'stateId');self.number(L,1);self.setfield(L,-2,b'skillLevel');self.table(L,0,0);self.setfield(L,-2,b'source')
         self.method('IsBan',lambda s:(state_trace.append('IsBan'),self.boolean(s,False),1)[2]);self.method('GetCasterUid',lambda s:(state_trace.append('GetCasterUid'),self.number(s,values['casterUid']),1)[2])
         self.getglobal(L,b'_hp_state_class');self.getfield(L,-1,b'Trigger');self.setfield(L,-3,b'Trigger');self.top(L,-2)
-        self.table(L,0,20);self.getglobal(L,b'_connected_engine');self.setfield(L,-2,b'battleEngine');self.number(L,123);self.setfield(L,-2,b'cmdId');self.number(L,456);self.setfield(L,-2,b'stateId');self.number(L,values['casterUid']);self.setfield(L,-2,b'castRoleUid');self.boolean(L,False);self.setfield(L,-2,b'isPreCmd')
+        self.table(L,0,20);self.getglobal(L,b'_connected_engine');self.setfield(L,-2,b'battleEngine');self.number(L,command_id);self.setfield(L,-2,b'cmdId');self.number(L,60409 if values.get('executeCommandRows') else 456);self.setfield(L,-2,b'stateId');self.number(L,values['casterUid']);self.setfield(L,-2,b'castRoleUid');self.boolean(L,False);self.setfield(L,-2,b'isPreCmd')
         self.table(L,0,2);self.method('ClearMemberValues',lambda s:(state_trace.append('ClearMemberValues'),0)[1]);self.setfield(L,-2,b'cmdParser')
         def generate_targets(s):
             self.table(s,0,1);self.table(s,1,0);self.getglobal(s,b'_hp_owner');self.rawset(s,-2,1);self.setfield(s,-2,b'targets');self.method('GetTargetList',lambda state:(self.getfield(state,1,b'targets'),1)[1]);return 1
@@ -259,8 +282,35 @@ class ConnectedHpListenerOracle(ConnectedEventListenerOracle):
         for name in ('SetUpperTargets','GetUpperTargets','SetIsDeleted','TriggerCmd'):
             self.getglobal(L,b'_oracle_cmd');self.getfield(L,-1,name.encode());self.setfield(L,-3,name.encode());self.top(L,-2)
         self.method('GetSkillCastTime',lambda s:(state_trace.append('GetSkillCastTime'),self.number(s,0),1)[2]);self.method('OnEnterBeforePhase',lambda s:(state_trace.append('OnEnterBeforePhase'),0)[1]);self.method('SendNotAwakerTimeline',lambda s:(state_trace.append('SendNotAwakerTimeline'),0)[1])
-        def generate_effect_list(s):state_trace.append('GenerateEffectList');self.table(s,0,0);return 1
-        self.method('GenerateEffectList',generate_effect_list);self.setfield(L,-2,b'triggerCmd1')
+        if values.get('executeCommandRows'):
+            def check_loop(s):self.boolean(s,False);return 1
+            def skill_type(s):self.pushstring(s,b'State');return 1
+            def skill_args(s):
+                self.table(s,1,0);self.number(s,abs(values['newValue']-values['oldValue']));self.rawset(s,-2,1);self.table(s,0,0);return 2
+            def delays(s):
+                self.table(s,len(PHASE_CAP_COMMAND_60406),0)
+                for index in range(1,len(PHASE_CAP_COMMAND_60406)+1):self.number(s,0);self.rawset(s,-2,index)
+                return 1
+            def make_effect(s):
+                captured={}
+                for field in ('id','Type','Target','Para','Cond'):
+                    self.getfield(s,2,field.encode());kind=self.kind(s,-1)
+                    if kind==3:captured[field]=self.tonumber(s,-1,None)
+                    elif kind==4:captured[field]=self.string(s,-1,None).decode()
+                    self.top(s,-2)
+                captured['delay']=self.tonumber(s,3,None);captured['skipPhase']=bool(self.tobool(s,4));captured['effectIndex']=self.tonumber(s,5,None)
+                self.commandEffectConfigs.append(captured);self.table(s,0,1)
+                def pretrigger(state,item=captured):
+                    self.getfield(state,2,b'triggerValue');item['triggerValue']=self.tonumber(state,-1,None);self.top(state,-2);return 0
+                self.method('PreTrigger',pretrigger);return 1
+            for name,fn in [('CheckLoopCall',check_loop),('GetSkillTypeStr',skill_type),('GetSkillArgs',skill_args),('GetEffectDelayTimes',delays),('GenerateEffectObj',make_effect)]:self.method(name,fn)
+            self.getfield(L,-1,b'cmdParser')
+            self.method('UpdateSkillArgs',lambda s:(state_trace.append('UpdateSkillArgs'),0)[1]);self.top(L,-2)
+            self.getglobal(L,b'_oracle_cmd');self.getfield(L,-1,b'GenerateEffectList');self.setfield(L,-3,b'GenerateEffectList');self.top(L,-2)
+        else:
+            def generate_effect_list(s):state_trace.append('GenerateEffectList');self.table(s,0,0);return 1
+            self.method('GenerateEffectList',generate_effect_list)
+        self.setfield(L,-2,b'triggerCmd1')
         self.setglobal(L, b'_hp_state')
 
         self.table(L, 0, 2)
@@ -348,6 +398,7 @@ class ConnectedHpListenerOracle(ConnectedEventListenerOracle):
         result={'effectEligible': eligible, 'triggered': triggered}
         if values.get('executeState'):result.update(generatedEffects=self.stateEffectConfigs,stateEndEvents=self.stateEndEvents,dispatchErrors=dispatch_errors,stateTrace=state_trace)
         if values.get('executeGenerated'):result['generatedExecution']=generated_results
+        if values.get('executeCommandRows'):result['commandEffects']=self.commandEffectConfigs
         return result
 
 

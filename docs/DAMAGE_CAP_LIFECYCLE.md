@@ -12,6 +12,8 @@ BSTHpChanged.OnRoleHpChanged constructs TriggerValue as `eventData.newValue - ev
 
 The same commands reduce the phase-state layers, retaining a boundary layer of one, and perform configured transition actions when that boundary is reached. Those actions include an invincibility-related state, monster skill changes, removal of counter 60407 and removal/replacement of the phase state. State 60409's transition installs 60408 with ceil(max HP * 0.33) + 1 layers. The exact phase-state initial values and queued ordering still require the relevant monster setup and an event-execution trace.
 
+The connected original-runtime probe now reaches the exact eight rows of command 60406 from an eligible `RoleHpChanged` event. It verifies row construction order and signed trigger-data preservation in both resource 144 and resource 150. TriggerPara-to-Arg1 remains an explicit adapter, and the row conditions and effect bodies do not yet run, so this does not establish the layer mutation or transition outcome.
+
 Since the listener is on HP change, other HP-changing effects may affect this counter when the same eligibility checks pass. Do not increment it from an aggregate attack statistic or assume that only Active hits contribute. The counter state caps its layers at 999999999; ordinary layer/property semantics still apply.
 
 ## Per-hit caps without this phase counter
