@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "2860232c6205a3ba8815a38429e2ce8e320457937c49cf2f50577338c96e728e",
+  "fingerprint": "d959882a28a1f96a4eeeba7f120a28e1764e4736be2b3bc354e3119205c9c5d3",
   "files": {
     "build-catalog.json": "2d1188fadcaff7a1eb53af580c509756b21a3f003065c7c9036aa919958a1496",
     "client-build-data.json": "70a21813f8a491f521323971e6a6af9d1250102ad5bb76db8b16f80730fe7e34",
@@ -49,7 +49,7 @@
     "engine/hp-property.mjs": "08ea0d1c23cf7e4acee5cebdb58991921bc72a5530821c50a3ec719c704afe56",
     "engine/immunity.mjs": "5a6dbfdb8f55098a7337d0c783efbdf7ebb6cddc89d9ab7d86a83df9fa538b6a",
     "engine/import-command-rows.mjs": "729b8ffb440ed4c47cbec10339e9cd2ba2fa0c7ec09c9859c6b9d0e60b29202f",
-    "engine/inspect-command-support.mjs": "4ac00e4a31f2064ffa59cbdbf61567c11a719e74401bea4c5dc766df66ccd689",
+    "engine/inspect-command-support.mjs": "cff6fe78568d5d429a3e4fa0e1a991760aaab241afd009368b5852dd7196990f",
     "engine/live-state-lookup.mjs": "db44a2056b38ae9f758ee4c29ebb1a5da9e35fcb44a7a62b16d807c8e9703908",
     "engine/observation-scenario.mjs": "470388b56bf3e043e89177153155d87949769b57ae55efbf39d807461c3731be",
     "engine/offensive-setup.mjs": "6062e42db21a7288d27a1a963634c6014b70b3732fd755f944f0e85ed105342e",
@@ -93,7 +93,7 @@
     "engine/ulti-energy-experiment.mjs": "6de163423a1e99c6be4922093711a797fa3012554589484c4ae5fd864bc35973",
     "engine/ulti-energy-gain.mjs": "08a4f4f32a7700422d6999e19e0e58fb2cace3bcbf7d0a910a9bcacf3b520468",
     "engine/wheel-stats.mjs": "484a5b4a51fbbd9c4759b27457ae9eec71fceb0420354823f54654edfb78fadd",
-    "rules.json": "752c844ce48ba036e2f36b6ab6afe946ad8f06486d1994ca597e394b004821ab",
+    "rules.json": "e7763769ba873cb50e26f7e25fc00f5b69ac93db709dbfb79269b42621beb245",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af"
   }
 }

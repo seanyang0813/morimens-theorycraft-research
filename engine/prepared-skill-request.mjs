@@ -37,6 +37,6 @@ export function runPreparedSkillRequest(value,source){
     execution=runPreparedSkillExperiment({...value.execution,preparation,commands:source.commands});
   }
   return {schemaVersion:1,status:execution?.status??'PREPARED',build:'pc-res144-build51',finalDamage:null,skillId:request.skillId,sourceHashes:{...source.sourceHashes},prepared,execution,
-    commandSupport:inspectCommandSupport({command,allowedFunctions:Object.keys(request.stateQueries)}),commandSummary:{effectTypes,rowCount:Object.keys(command.data_list??{}).length},
+    commandSupport:execution?.support??inspectCommandSupport({command,allowedFunctions:Object.keys(request.stateQueries)}),commandSummary:{effectTypes,rowCount:Object.keys(command.data_list??{}).length},
     unresolvedDependencies:execution?.unresolvedDependencies??[...prepared.unresolvedDependencies,'Command prepared but not executed; supply an explicit execution context','No automatic build, target, lifecycle or gameplay validation']};
 }

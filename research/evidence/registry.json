@@ -1669,6 +1669,55 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC144:PreparedRoleStateSkill",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "The catalog-backed skill bridge selects real skill 60397, derives ceil(CmdCaster.atk*0.08) as Arg1, loads Cmd60401 and executes every supported setup row against an explicit role registry without caller-supplied replacement rows",
+      "sources": [
+        {
+          "module": "Skill",
+          "member": "60397",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\2015861756545847808_Skill.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "60401",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "State",
+          "member": "60089,2900,60404",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
+        },
+        {
+          "module": "BattleApi",
+          "member": "numeric skill parameter expressions",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "22d7e4cdc4746a1c3b543a97a5d68cca4b7b184c92ef9d4d19651da8189db15c",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\-6894225089628909939_BattleApi.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "GetSkillArgs,__CalcBaseSkillArgs",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/prepared-skill-request.test.mjs",
+        "tests/role-state-command.test.mjs",
+        "docs/PREPARE_SKILL_COMMAND.md"
+      ],
+      "scope": "Authored catalog-to-execution composition. Explicit skill level/progression, CmdCaster.atk, role/state definitions and initial properties; command and Arg bindings come from hashed exports. No automatic build/monster assembly, costs, immunity/layer modifiers, original full scheduler, gameplay or holdout credit.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC144:MonsterBubble",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "BEMonsterBubble accepts a nonempty tip and an eligible Monster target, records one MonsterBubble render event with a default 1000 ms display time when omitted, and makes no other call in its effect body",

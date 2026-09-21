@@ -40,6 +40,15 @@ The same preparation entry point now accepts an experiment of kind `morimens-dam
 
 The preparation entry point also accepts `morimens-terminal-state-command`. The actual potency-selected Skill4163 / Cmd57564 path now prepares its arguments, executes the Active damage and ultimate-energy rows, and then applies State2669 through the state-sequence engine. The current boundary is deliberately narrow: the state must be the final row, unconditional, caster-owned and fully supplied, and no later row may observe it.
 
+The preparation entry point also accepts `morimens-role-state-command` for
+setup-only skills. The first real case is skill 60397: an explicit
+`CmdCaster.atk` of 1000 resolves and rounds `Arg1` to 80, selects exported command
+60401, and executes all four supported state/presentation rows against the bound
+role registry. The command rows and `Arg1` cannot be replaced by the caller.
+State definitions and initial role properties remain explicit execution inputs;
+automatic monster/build assembly and original full-scheduler validation remain
+unfinished.
+
 ```
 node tools/prepare_skill_command.mjs research/examples/prepared-damage-energy-request.json research/examples/prepared-damage-energy-context.json
 ```
