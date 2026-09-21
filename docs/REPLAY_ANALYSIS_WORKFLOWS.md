@@ -1,6 +1,8 @@
 # Replay analysis workflows
 
-The replay pipeline supports four related but distinct jobs. Reports must name the job they perform and must not use one label as evidence for another.
+The replay pipeline supports four separate jobs. They may reuse parsers and sanitized source records, but they do not share conclusions. Every report has exactly one analysis track, and evidence gathered for one track must not be presented as a result from another track.
+
+A promising budget clear can start a new cheese investigation or theorycraft experiment, but that follow-up must be a separate artifact with its own question and evidence. A cheese trace can suggest a model rule, but it does not verify that rule. A theorycraft result becomes verification evidence only through the frozen-prediction chronology below.
 
 ## Budget-comp scouting
 

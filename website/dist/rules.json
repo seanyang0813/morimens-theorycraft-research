@@ -3840,6 +3840,24 @@
       ]
     },
     {
+      "id": "PC150:SkillPhaseModuleBoundary",
+      "status": "REVALIDATION_REQUIRED",
+      "claim": "Target generation, skill-phase, target-expression and scheduler modules are byte-identical across resources 144 and 150; BattleCmdServer and BattleCmdParser changed",
+      "scope": "BEGenerateTargets, BECreateSkillPhase, BattleCmdTargetsExp, BattleEffectServer and BattleEffectMgrServer are identical. Changed command server/parser methods still need scoped review/runtime tests before claiming a connected main phase. Gameplay and holdout validity remain separate.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 skill-phase comparison",
+          "member": "selected TextAsset hashes",
+          "sha256": "bbd0493d8073989dd99e9d15b8ea7f89ee35de9fbd40687112c03ddbef1ae8a9"
+        }
+      ],
+      "checks": [
+        "tools/compare_current_skill_phase_modules.py",
+        "tests/current-skill-phase-modules.test.mjs"
+      ]
+    },
+    {
       "id": "PC150:BattleRecord.SelectedFrames",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
       "claim": "The installed resource-150 BattleRecord reproduces all 14 inherited selected replay-frame and queue fixtures exactly",
