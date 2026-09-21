@@ -71,7 +71,7 @@ def main():
         'kind': 'MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON',
         'baselineBuild': 'pc-res144-build51',
         'currentBuild': 'pc-res150-build51',
-        'method': 'execute current BattleCmdServer CheckCondition, BattleCmdParser, FuncTable and changed add parent against byte-identical effect/manager/state modules and catalog-equal rows',
+        'method': 'execute current command construction, BattleEffectServer.TryDoEffect, parser conditions/parameters and changed add parent against byte-identical manager/state modules and catalog-equal rows',
         'status': 'CURRENT_CHANGED_MODULES_RUNTIME_MATCH',
         'sourceHashes': {
             'fixture': sha(fixture_path),
@@ -86,11 +86,11 @@ def main():
         'fixtures': len(fixture['fixtures']),
         'matched': len(fixture['fixtures']),
         'mismatches': 0,
-        'scope': 'Installed current CheckCondition, parser, expressions and add parent reproduce every inherited joined command-row/effect-body transition fixture.',
+        'scope': 'Installed current construction, TryDoEffect, parser/expressions and add parent reproduce every inherited joined command-row/effect-body transition fixture.',
         'limitations': [
-            'Original GenerateEffectList and GenerateEffectObj construct typed effects through original BattleEffectMgrServer; original CheckCondition/parser resolve values before Python hands them to real effect bodies',
+            'Original GenerateEffectList/GenerateEffectObj construct typed effects through original BattleEffectMgrServer; original TryDoEffect performs condition, target and parameter binding before Python hands the prepared values to real effect bodies',
             'Destination states are pre-created live zero-layer adapters',
-            'Typed effect classes use callable constructor wrappers; target-expression max HP/state-layer reads are a narrow adapter; no original effect scheduler, property bodies, gameplay or holdout credit',
+            'Typed effect classes use callable constructor wrappers; target-expression max HP/state-layer reads are a narrow adapter; no original root/subeffect scheduler, property bodies, gameplay or holdout credit',
         ],
     }
     output = ROOT / 'research/evidence/pc-res150-joined-phase-command-effects-runtime.json'

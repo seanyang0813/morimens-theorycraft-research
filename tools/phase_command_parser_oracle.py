@@ -91,6 +91,12 @@ class PhaseCommandParserOracle(ArgumentOracle):
             return 1
 
         self.method('GetStateLayer', get_layer)
+        def get_targets(inner):
+            self.table(inner, 1, 0)
+            self.getglobal(inner, b'_phase_construct_target')
+            self.rawseti(inner, -2, 1)
+            return 1
+        self.method('GetTargetList', get_targets)
         return 1
 
     def _install_subject(self):
@@ -149,7 +155,7 @@ class PhaseCommandParserOracle(ArgumentOracle):
         L = self.state
         self.top(L, 0)
         self.table(L, 0, 5)
-        for name in ('GetValueByCmd', 'CheckCondition', 'GenerateEffectList'):
+        for name in ('GetValueByCmd', 'GetValueListByCmd', 'GenerateTargetsExp', 'CheckCondition', 'GenerateEffectList'):
             self.getglobal(L, b'_oracle_cmd')
             self.getfield(L, -1, name.encode())
             self.setfield(L, -3, name.encode())
@@ -157,6 +163,7 @@ class PhaseCommandParserOracle(ArgumentOracle):
         self.getglobal(L, b'_phase_parser_subject')
         self.setfield(L, -2, b'cmdParser')
         self.number(L, 1); self.setfield(L, -2, b'skillConfigId')
+        self.number(L, 9); self.setfield(L, -2, b'castRoleUid')
 
         self.method('CheckLoopCall', lambda state: (self.boolean(state, False), 1)[1])
 
@@ -274,7 +281,7 @@ class PhaseCommandParserOracle(ArgumentOracle):
                 self.pushvalue(state, 1); self.setglobal(state, b'_phase_construct_engine_arg')
                 self.pushvalue(state, 2); self.setglobal(state, b'_phase_construct_config_arg')
                 self.table(state, 0, 30)
-                self._copy_methods(state, b'_phase_construct_base', ('PreTrigger', 'TryDoEffect', 'CheckCondition', 'GenTargets', 'GenParams'))
+                self._copy_methods(state, b'_phase_construct_base', ('PreTrigger', 'TryDoEffect', 'CheckCondition', '__CheckDeadCondition', 'GetConfigBeforeDelay', 'GenTargets', 'GenParams'))
                 self._copy_methods(state, class_global, ('DoEffect',))
                 self.setglobal(state, b'_phase_construct_object')
                 self.getglobal(state, class_global); self.getfield(state, -1, b'ctor')
@@ -306,7 +313,7 @@ class PhaseCommandParserOracle(ArgumentOracle):
         self.setglobal(L, b'require')
 
         self.table(L, 0, 5)
-        for name in ('CreateEffect',):
+        for name in ('CreateEffect', 'SetRunningEffect'):
             self.getglobal(L, b'_phase_construct_manager_class'); self.getfield(L, -1, name.encode())
             self.setfield(L, -3, name.encode()); self.top(L, -2)
         self.table(L, 0, 0); self.setfield(L, -2, b'effectList')
@@ -318,6 +325,16 @@ class PhaseCommandParserOracle(ArgumentOracle):
             self.getfield(state, 1, b'_nextUid'); value = self.tonumber(state, -1, None) + 1; self.top(state, -2)
             self.number(state, value); self.setfield(state, 1, b'_nextUid'); self.number(state, value); return 1
         self.method('GenObjUid', uid)
+        self.method('IsBattleFinish', lambda state: (self.boolean(state, False), 1)[1])
+        self.method('IsPVE', lambda state: (self.boolean(state, True), 1)[1])
+        self.method('AddPassTime', lambda state: 0)
+        def get_obj(state):
+            if int(self.tonumber(state, 2, None)) == 9:
+                self.getglobal(state, b'_phase_construct_caster')
+            else:
+                self.nil(state)
+            return 1
+        self.method('GetObj', get_obj)
         self.getglobal(L, b'_phase_construct_manager'); self.setfield(L, -2, b'effectMgr')
         self.top(L, 0)
         self.getglobal(L, b'_phase_construct_manager')
@@ -328,6 +345,18 @@ class PhaseCommandParserOracle(ArgumentOracle):
         self.getglobal(L, b'_oracle_cmd'); self.getfield(L, -1, b'GenerateEffectObj')
         self.setfield(L, -3, b'GenerateEffectObj'); self.top(L, -2)
         self.top(L, 0)
+
+        self.table(L, 0, 1)
+        self.method('IsDead', lambda state: (self.boolean(state, False), 1)[1])
+        self.setglobal(L, b'_phase_construct_player')
+        self.table(L, 0, 2)
+        def get_player(state):
+            self.getglobal(state, b'_phase_construct_player'); return 1
+        self.method('GetPlayer', get_player)
+        self.setglobal(L, b'_phase_construct_caster')
+        self.table(L, 0, 1)
+        self.number(L, 7); self.setfield(L, -2, b'uid')
+        self.setglobal(L, b'_phase_construct_target')
 
         self.getglobal(L, b'string')
         def split(state):
@@ -407,7 +436,37 @@ class PhaseCommandParserOracle(ArgumentOracle):
             generated_rows.append(int(self.tonumber(L, -1, None))); self.top(L, -4)
         if generated_rows != list(range(1, len(ordered) + 1)):
             raise RuntimeError(f'GenerateEffectList row order mismatch: {generated_rows}')
+        self.setglobal(L, b'_phase_generated_effects')
         return generated_rows
+
+    def prepare_effect(self, index):
+        """Run original TryDoEffect and return its resolved numeric parameters."""
+        L = self.state
+        self.top(L, 0)
+        self.getglobal(L, b'_phase_generated_effects')
+        self.rawgeti(L, -1, index)
+        self.setglobal(L, b'_phase_current_effect')
+        self.top(L, 0)
+        self.getglobal(L, b'_phase_current_effect')
+        self.getfield(L, -1, b'TryDoEffect')
+        self.getglobal(L, b'_phase_current_effect')
+        self.check(self.call(L, 1, 1, 0, 0, None))
+        passed = bool(self.tobool(L, -1))
+        self.top(L, 0)
+        if self.errors:
+            raise RuntimeError(self.errors)
+        if not passed:
+            return {'passed': False, 'params': []}
+        self.getglobal(L, b'_phase_current_effect')
+        self.getfield(L, -1, b'params')
+        params = []
+        for param_index in range(1, self.rawlen(L, -1) + 1):
+            self.rawgeti(L, -1, param_index)
+            if self.kind(L, -1) != 3:
+                raise ValueError('Unexpected nonnumeric phase effect parameter')
+            params.append(self.tonumber(L, -1, None))
+            self.top(L, -2)
+        return {'passed': True, 'params': params}
         self.getglobal(L, b'_phase_parser_subject')
         self.table(L, 1, 0)
         self.number(L, argument)

@@ -209,12 +209,11 @@ class JoinedPhaseCommandEffectOracle(PhaseLiveLayerOracle):
             snapshot = self._state_snapshot()
             self.expressions.layers = {state_id: value['layers'] for state_id, value in snapshot.items()}
             self.expressions.reads = []
-            if 'Cond' in row:
-                passed = self.expressions.check_condition(row['Cond'])
-                if not passed:
-                    row_trace.append({'row': int(index), 'type': row['Type'], 'passed': False})
-                    continue
-            params = self.expressions.evaluate(row['Para'])
+            prepared = self.expressions.prepare_effect(generated_index)
+            if not prepared['passed']:
+                row_trace.append({'row': int(index), 'type': row['Type'], 'passed': False})
+                continue
+            params = prepared['params']
             self._invoke(row['Type'], params)
             row_trace.append({'row': int(index), 'type': row['Type'], 'passed': True, 'params': params})
             state_id = int(params[0])
@@ -274,8 +273,9 @@ if __name__ == '__main__':
             'original existing-state layer methods. Destination states 46441/60408 and counter 60407 are '
             'pre-created live zero-layer adapters; LifeEnd marks deletion and other callbacks are observers. '
             'The target expression exposes only max_hp and GetStateLayer; original GenerateEffectObj and '
-            'BattleEffectMgrServer.CreateEffect construct each typed effect through a callable wrapper before '
-            'Python executes the real bodies. No original effect scheduler, state '
+            'BattleEffectMgrServer.CreateEffect construct each typed effect through a callable wrapper; original '
+            'BattleEffectServer.TryDoEffect applies condition, target and parameter binding before Python executes '
+            'the real bodies. No original root/subeffect scheduler, state '
             'construction/property bodies, gameplay or holdout.'
         ),
         'fixtures': fixtures,

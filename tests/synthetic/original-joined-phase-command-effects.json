@@ -264,7 +264,7 @@
             "type": "BERemoveState",
             "passed": true,
             "params": [
-              60409
+              60409.0
             ]
           }
         ],
@@ -480,7 +480,7 @@
             "type": "BERemoveState",
             "passed": true,
             "params": [
-              60409
+              60409.0
             ]
           }
         ],
@@ -794,7 +794,7 @@
             "type": "BERemoveState",
             "passed": true,
             "params": [
-              60408
+              60408.0
             ]
           }
         ],
