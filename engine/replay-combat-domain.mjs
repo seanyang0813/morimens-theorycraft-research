@@ -16,6 +16,7 @@ export function classifyReplayCombatDomain(index){
   }
   const labels=Object.keys(targetRoleTypes).filter(key=>targetRoleTypes[key]>0);
   const combatDomain=labels.length===1&&labels[0]==='Monster'?'PVE_MONSTER_TARGETS':labels.length===1&&labels[0]==='Player'?'PVP_PLAYER_TARGETS':'MIXED_OR_UNKNOWN_TARGETS';
-  return {schemaVersion:1,kind:'MORIMENS_REPLAY_COMBAT_DOMAIN',combatDomain,completeHitSnapshots,targetRoleTypes,
+  const inputSha256=typeof index.inputSha256==='string'&&/^[0-9a-f]{64}$/.test(index.inputSha256)?index.inputSha256:null;
+  return {schemaVersion:1,kind:'MORIMENS_REPLAY_COMBAT_DOMAIN',inputSha256,combatDomain,completeHitSnapshots,targetRoleTypes,
     scope:'Outcome-free routing from complete hit target role types; no stage, difficulty, strategy or build claim'};
 }

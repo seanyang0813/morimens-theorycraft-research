@@ -1,9 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {spawnSync} from 'node:child_process';
-import {mkdtempSync,readFileSync,rmSync,writeFileSync} from 'node:fs';
+import {mkdirSync,mkdtempSync,readFileSync,rmSync,writeFileSync} from 'node:fs';
 import {dirname,join,resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {createHash} from 'node:crypto';
 import {classifyReplayCombatDomain} from '../engine/replay-combat-domain.mjs';
 
 function runPython(code){
@@ -13,9 +14,9 @@ function runPython(code){
 }
 
 test('replay domain preflight routes complete targets without reading outcomes',()=>{
-  const index={kind:'MORIMENS_REPLAY_EVENT_INDEX',actionSnapshots:[{window:{hits:[{recordIndex:1,frameIndex:2,data:{roleUid:9,beHitConfig:{castDamage:999}}}],hitSnapshots:[{recordIndex:1,frameIndex:2,boundaryStatus:'COMPLETE',roles:{'9':{roleType:3}}}]}}]};
+  const index={kind:'MORIMENS_REPLAY_EVENT_INDEX',inputSha256:'a'.repeat(64),actionSnapshots:[{window:{hits:[{recordIndex:1,frameIndex:2,data:{roleUid:9,beHitConfig:{castDamage:999}}}],hitSnapshots:[{recordIndex:1,frameIndex:2,boundaryStatus:'COMPLETE',roles:{'9':{roleType:3}}}]}}]};
   const result=classifyReplayCombatDomain(index);
-  assert.deepEqual(result.targetRoleTypes,{Player:1});assert.equal(result.combatDomain,'PVP_PLAYER_TARGETS');
+  assert.equal(result.inputSha256,'a'.repeat(64));assert.deepEqual(result.targetRoleTypes,{Player:1});assert.equal(result.combatDomain,'PVP_PLAYER_TARGETS');
   delete index.actionSnapshots[0].window.hits[0].data.beHitConfig;
   assert.deepEqual(classifyReplayCombatDomain(index),result);
 });
@@ -83,4 +84,32 @@ test('live-session baseline publishes only a pre-battle commitment',()=>{
   assert.equal(report.privateBaselineCommitment.identifiersPublished,false);assert.match(report.privateBaselineCommitment.sha256,/^[0-9a-f]{64}$/);
   assert.match(report.limitations[0],/does not .*establish the recorded combat build/);
   assert.doesNotMatch(text,/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i);
+});
+
+test('session capture candidate binds a new PvE container but remains unreviewed',()=>{
+  const root=resolve(dirname(fileURLToPath(import.meta.url)),'..'),privateDir=mkdtempSync(join(root,'research','observations','session-capture-test-')),attestationDir=mkdtempSync(join(root,'research','raw','session-attestation-test-')),publicDir=mkdtempSync(join(root,'research','evidence','session-capture-test-'));
+  const hash=value=>createHash('sha256').update(value).digest('hex');
+  try{
+    const install=join(privateDir,'install'),download=join(install,'_game_data_','DownLoad');mkdirSync(download,{recursive:true});
+    writeFileSync(join(install,'Morimens.exe'),'exe');writeFileSync(join(download,'_version.json'),'version');
+    const bundles={};for(const name of ['share.ab','gamescript.ab','foundation.ab']){writeFileSync(join(download,name),name);bundles[name]={sha256:hash(name),size:name.length};}
+    const build={schemaVersion:1,kind:'MORIMENS_PC_COMBAT_BUILD_COMPARISON',currentBuild:'pc-test',sourceHashes:{versionManifest:hash('version'),bundles}};
+    const buildPath=join(privateDir,'build.json');writeFileSync(buildPath,JSON.stringify(build));
+    const process={pid:7,startedAtUtc:'2026-09-21T00:00:00+00:00',executableSha256:hash('exe')};
+    const baseline={schemaVersion:1,kind:'MORIMENS_PRIVATE_REPLAY_SESSION_BASELINE',capturedAtUtc:'2026-09-21T01:00:00+00:00',process,bytesRead:10,replayReferences:[]};
+    const baselinePath=join(privateDir,'baseline.json');writeFileSync(baselinePath,JSON.stringify(baseline));const baselineSha=hash(readFileSync(baselinePath));
+    const publicBaseline={schemaVersion:1,kind:'MORIMENS_REPLAY_SESSION_BASELINE_COMMITMENT',status:'COMMITTED_PRE_BATTLE_BASELINE',build:{id:'pc-test'},privateBaselineCommitment:{sha256:baselineSha}};
+    const publicBaselinePath=join(publicDir,'baseline.json');writeFileSync(publicBaselinePath,JSON.stringify(publicBaseline));
+    const container=Buffer.from('{"compStr":"opaque"}'),containerPath=join(privateDir,'candidate.json');writeFileSync(containerPath,container);const containerSha=hash(container);
+    const delta={schemaVersion:1,kind:'MORIMENS_PRIVATE_REPLAY_SESSION_DELTA',capturedAtUtc:'2026-09-21T01:02:00+00:00',privateBaselineSha256:baselineSha,process,results:[{uuid:'11111111-1111-1111-1111-111111111111',privateFile:'candidate.json',sha256:containerSha,bytes:container.length,validContainer:true,objectLastModifiedUtc:'2026-09-21T01:01:00+00:00'}]};
+    const deltaPath=join(privateDir,'delta.json');writeFileSync(deltaPath,JSON.stringify(delta));
+    const domainPath=join(privateDir,'domain.json');writeFileSync(domainPath,JSON.stringify({schemaVersion:1,kind:'MORIMENS_REPLAY_COMBAT_DOMAIN',inputSha256:containerSha,combatDomain:'PVE_MONSTER_TARGETS',completeHitSnapshots:1}));
+    const output=join(publicDir,'candidate.json'),run=spawnSync('python',['tools/build_replay_session_capture_evidence.py','--private-baseline',baselinePath,'--private-delta',deltaPath,'--public-baseline',publicBaselinePath,'--build-evidence',buildPath,'--container',containerPath,'--domain-report',domainPath,'--install-root',install,'--candidate-index','0','--output',output],{cwd:root,encoding:'utf8'});
+    assert.equal(run.status,0,run.stderr);const report=JSON.parse(readFileSync(output,'utf8'));
+    assert.equal(report.status,'CAPTURE_CANDIDATE_REQUIRES_CONTROLLED_BATTLE_REVIEW');assert.equal(report.combatDomain,'PVE_MONSTER_TARGETS');assert.equal(report.sessionChecks.controlledPveBattleConfirmed,false);assert.equal(report.containerSha256,containerSha);
+    const attestationPath=join(attestationDir,'attestation.json');writeFileSync(attestationPath,JSON.stringify({schemaVersion:1,kind:'MORIMENS_PRIVATE_CONTROLLED_PVE_ATTESTATION',containerSha256:containerSha,controlledPveBattleCompletedAfterBaseline:true,loadedRecordIsThatBattle:true,attestedAtUtc:new Date(Date.now()+1000).toISOString()}));
+    const reviewedPath=join(publicDir,'reviewed.json'),review=spawnSync('python',['tools/review_replay_session_capture.py','--candidate',output,'--private-attestation',attestationPath,'--output',reviewedPath],{cwd:root,encoding:'utf8'});
+    assert.equal(review.status,0,review.stderr);const reviewedText=readFileSync(reviewedPath,'utf8'),reviewed=JSON.parse(reviewedText);
+    assert.equal(reviewed.status,'REVIEWED_SAME_SESSION_CONTROLLED_PVE_CAPTURE');assert.equal(reviewed.sessionChecks.controlledPveBattleConfirmed,true);assert.match(reviewed.privateAttestationCommitment.sha256,/^[0-9a-f]{64}$/);assert.doesNotMatch(reviewedText,/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i);
+  }finally{rmSync(privateDir,{recursive:true,force:true});rmSync(attestationDir,{recursive:true,force:true});rmSync(publicDir,{recursive:true,force:true});}
 });
