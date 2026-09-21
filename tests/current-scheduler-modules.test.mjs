@@ -9,6 +9,6 @@ test('resource-150 selected scheduler modules are byte-identical to resource 144
   const comparison=read('research/evidence/pc-res144-to-res150-combat-build.json');
   assert.equal(evidence.data.sourceHashes.buildComparison,createHash('sha256').update(comparison.bytes).digest('hex'));
   assert.equal(evidence.data.status,'SELECTED_MODULES_IDENTICAL');
-  assert.deepEqual(evidence.data.modules.map(row=>row.name),['BattleEffectServer.lua','BattleEffectMgrServer.lua','BEFunctionEffect.lua','BEAttachPostAction.lua','BESendEvent.lua']);
+  assert.deepEqual(evidence.data.modules.map(row=>row.name),['BattleEffectServer.lua','BattleEffectMgrServer.lua','BEFunctionEffect.lua','BEAttachPostAction.lua','BESendEvent.lua','BattleLogicEvent.lua']);
   for(const row of evidence.data.modules){assert.equal(row.status,'IDENTICAL');assert.deepEqual(row.current,row.baseline);}
 });

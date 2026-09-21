@@ -7,7 +7,7 @@ import json
 import UnityPy
 
 ROOT=Path(__file__).resolve().parents[1]
-NAMES=("BattleEffectServer.lua","BattleEffectMgrServer.lua","BEFunctionEffect.lua","BEAttachPostAction.lua","BESendEvent.lua")
+NAMES=("BattleEffectServer.lua","BattleEffectMgrServer.lua","BEFunctionEffect.lua","BEAttachPostAction.lua","BESendEvent.lua","BattleLogicEvent.lua")
 
 
 def sha(data):return hashlib.sha256(data).hexdigest()

@@ -8,7 +8,7 @@
   "sourceHashes": {
     "combatComparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
     "phaseComparison": "bbd0493d8073989dd99e9d15b8ea7f89ee35de9fbd40687112c03ddbef1ae8a9",
-    "schedulerComparison": "ef4f9953bdd0e3313e3ce940fd780bfad6659b642ffed27d0ab9c5831e4874d8",
+    "schedulerComparison": "131c925d16506f6d883dcb66512de5f3560071fcc90a0801eac358ec93e9fb06",
     "finishFixture": "3f77046599a02b66fc9d15ed2bd163b08de5ca04e9e271fab4bbe45d1478659e",
     "targetFixture": "1dc2199b528890f66e1725be8d457d1436a636336cc8d81a05454eebccd36659",
     "argumentFixture": "313b1959b711720efac15a006155050f66b10c4546f9f6a1392e6ffcf01ad15d",
@@ -18,7 +18,7 @@
     "triggerFixture": "1dafc124510a38ab4d851f582c5b7048ddc9541afb8e7e3f95ef215c6ee0dbfe",
     "connectedPhaseFixture": "b4db7de615267dbebab1182211b8548c0424114da331522410b5e9b50dd65047",
     "constructionFixture": "7071b60e7cc7aaa23a5072cf297c62ae8be7a8c0dc3ec82416fd42040bf48ef0",
-    "activeExecutionFixture": "fb1ce892b628a76cce238637f36bf21121e90c114f9a118037f0cc53177369a0",
+    "activeExecutionFixture": "be20584facb09383ef39efddb2b43d330ad30bc18a697a28dc889307c75e42e1",
     "currentBattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
     "currentBattleUtilServer": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
     "currentBattlePropertyServer": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5",
@@ -82,8 +82,8 @@
     }
   },
   "results": [],
-  "scope": "Resource-150 BattleCmdServer TriggerCmd through effect-list construction, original GenerateEffectObj to original effect-manager creation, real BEActiveDamage and BEFunctionEffect construction/target and parameter binding/initialization/repetition routing/function dispatch into Damage2SingleTarget, GetRealDmg arithmetic and BattleUnitBase.BeHit/BattlePropertyServer HP mutation, phase cleanup, skill arguments, delay planning and row ordering plus BattleCmdParser StateOwner selection, target handoff and ArgN lookup.",
+  "scope": "Resource-150 BattleCmdServer TriggerCmd through effect-list construction, original GenerateEffectObj to original effect-manager creation, real BEActiveDamage and BEFunctionEffect construction/target and parameter binding/initialization/repetition routing/function dispatch into Damage2SingleTarget, GetRealDmg arithmetic, BattleUnitBase.BeHit/BattlePropertyServer HP mutation and original nonlethal event-request ordering, phase cleanup, skill arguments, delay planning and row ordering plus BattleCmdParser StateOwner selection, target handoff and ArgN lookup.",
   "limitations": [
-    "Connected hit fixtures use explicit neutral PvE actor/player/target adapters and empty skill types; property callbacks and hit recording are observers, while animation and downstream damage/death events are no-op adapters. No target-expression initialization, event lifecycle, complete card phase, gameplay or holdout credit"
+    "Connected hit fixtures use explicit neutral PvE actor/player/target adapters and empty skill types; property-send/hit/event-factory callbacks are observers and animation is a no-op adapter. No event listener execution, death path, target-expression initialization, complete card phase, gameplay or holdout credit"
   ]
 }

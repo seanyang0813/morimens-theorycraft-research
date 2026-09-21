@@ -2666,7 +2666,7 @@
     {
       "id": "PC144:ActiveEffectExecutionBoundary",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
-      "claim": "Effect-manager construction of BEActiveDamage proceeds through original repetition routing, formula, BeHit and HP mutation",
+      "claim": "Effect-manager construction of BEActiveDamage proceeds through original repetition routing, formula, BeHit, HP mutation and nonlethal event requests",
       "sources": [
         {
           "module": "BattleEffectMgrServer",
@@ -2705,7 +2705,7 @@
         },
         {
           "module": "BattleUnitBase",
-          "member": "BeHit,ImmueDamage,SubProperty",
+          "member": "BeHit,ImmueDamage,SubProperty,OnPropertyChanged,DoDamageEvent",
           "bundle": "pc\\downloaded\\share.ab",
           "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
@@ -2716,13 +2716,20 @@
           "bundle": "pc\\downloaded\\share.ab",
           "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        },
+        {
+          "module": "BattleLogicEvent",
+          "member": "RoleHpChanged,RoleHpperChanged,DoDamage,BeDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "cef7477d60a84d8ac4f4b097436a39628d37ff5c54bd8f44d08828d75ad80c4a",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-1123830645501780752_BattleLogicEvent.lua"
         }
       ],
       "tests": [
         "tools/active_effect_execution_oracle.py",
         "tests/active-effect-execution.test.mjs"
       ],
-      "scope": "4 original-runtime positive-repeat cases with explicit neutral PvE actor/player/target adapters and empty skill types. Property callbacks and hit recording are observers; animation and downstream events are no-op adapters. Scheduler completion, event lifecycle, gameplay and holdout remain outside scope.",
+      "scope": "4 original-runtime positive-repeat cases with explicit neutral PvE actor/player/target adapters and empty skill types. Property-send/hit/event-factory callbacks are observers and animation is a no-op adapter. Event listeners, death path, scheduler completion, gameplay and holdout remain outside scope.",
       "gameplayValidation": false
     },
     {
@@ -4795,7 +4802,7 @@
     {
       "id": "PC150:SkillPhaseSelectedBoundary",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
-      "claim": "Resource 150 reproduces all 256 inherited connected phase-start, TriggerCmd, effect-construction, Active/Function-effect, formula/HP, cleanup, target-handoff, argument, timing and command-row-order fixtures exactly",
+      "claim": "Resource 150 reproduces all 256 inherited connected phase-start, TriggerCmd, effect-construction, Active/Function-effect, formula/HP/event-request, cleanup, target-handoff, argument, timing and command-row-order fixtures exactly",
       "sources": [
         {
           "module": "PC resource-150 skill-phase module comparison",
@@ -4807,7 +4814,7 @@
           "module": "PC resource-150 selected skill-phase runtime comparison",
           "member": "fixture-domain result",
           "bundle": "copied XLua runtime; hashes only",
-          "sha256": "007471dee276209dad5aa6535ad27891a33701da19c440dc744d70084b4982cb"
+          "sha256": "309a21a576b5dd08ee06d151e47fc7a33e6d624bcc949f884e2e81966779be69"
         }
       ],
       "tests": [
@@ -4822,7 +4829,7 @@
         "tests/command-delays.test.mjs",
         "tools/command_row_order_oracle.py"
       ],
-      "scope": "BECreateSkillPhase start through BattleCmdServer TriggerCmd and child PreTrigger; original GenerateEffectObj through original effect-manager creation; real BEActiveDamage/BEFunctionEffect construction, repetition routing, formula, BattleUnitBase.BeHit and BattlePropertyServer HP mutation; phase cleanup, arguments, delay planning, row ordering and selected parser paths. Connected hit fixtures use explicit neutral PvE adapters and empty skill types; property/hit observers and no-op animation/downstream-event adapters remain. Target-expression initialization, event lifecycle, complete card phases, gameplay and holdout credit remain outside scope.",
+      "scope": "BECreateSkillPhase start through BattleCmdServer TriggerCmd and child PreTrigger; original GenerateEffectObj through original effect-manager creation; real BEActiveDamage/BEFunctionEffect construction, repetition routing, formula, BattleUnitBase.BeHit, BattlePropertyServer HP mutation and nonlethal event-request order; phase cleanup, arguments, delay planning, row ordering and selected parser paths. Connected hit fixtures use explicit neutral PvE adapters and empty skill types; property-send/hit/event-factory observers and a no-op animation adapter remain. Event listeners, death path, target-expression initialization, complete card phases, gameplay and holdout credit remain outside scope.",
       "gameplayValidation": false
     },
     {
@@ -4908,13 +4915,13 @@
     {
       "id": "PC150:CoreSchedulerModuleEquality",
       "status": "CONFIRMED_FROM_IDENTICAL_CODE",
-      "claim": "Resource 150 retains byte-identical BattleEffectServer, BattleEffectMgrServer, BEFunctionEffect, BEAttachPostAction and BESendEvent modules",
+      "claim": "Resource 150 retains byte-identical BattleEffectServer, BattleEffectMgrServer, BEFunctionEffect, BEAttachPostAction, BESendEvent and BattleLogicEvent modules",
       "sources": [
         {
           "module": "PC resource-150 scheduler comparison",
           "member": "selected TextAsset content hashes",
           "bundle": "installed local client; hashes only",
-          "sha256": "ef4f9953bdd0e3313e3ce940fd780bfad6659b642ffed27d0ab9c5831e4874d8"
+          "sha256": "131c925d16506f6d883dcb66512de5f3560071fcc90a0801eac358ec93e9fb06"
         }
       ],
       "tests": [
@@ -4922,7 +4929,7 @@
         "tests/current-scheduler-modules.test.mjs",
         "tests/effect-order.test.mjs"
       ],
-      "scope": "Carries source/runtime evidence for these exact modules across builds, including tested child/repetition and root-attachment order. Changed BattleEngine update/dispatch loop, complete battle traversal, gameplay and holdout credit remain outside scope.",
+      "scope": "Carries source/runtime evidence for these exact modules across builds, including tested child/repetition, root-attachment and selected event-request order. Changed BattleEngine update/dispatch loop, listener execution, complete battle traversal, gameplay and holdout credit remain outside scope.",
       "gameplayValidation": false
     },
     {

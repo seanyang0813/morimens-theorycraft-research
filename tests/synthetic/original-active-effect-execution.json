@@ -8,9 +8,12 @@
     "BEFunctionEffect": "9f13031ab24e39e7584ba021d0d1b2b7c8fb495e537f90a2bc1765bf5d9d5d53",
     "BattleCmdServer": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
     "BattleUtilServer": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
-    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+    "BattleUnitBase": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+    "BattleUnitUtil": "b664734d7f12a5009b36727d2c3dfde75295b6e2be03edb37c3cf98ee74a1d04",
+    "BattlePropertyServer": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76"
   },
-  "scope": "Original effect-manager creation of BEActiveDamage and BEFunctionEffect, original constructors, target/parameter binding, repetition routing, Function dispatch, Damage2SingleTarget and GetRealDmg through original offensive and final-target arithmetic. Explicit neutral PvE actor/player/target adapters and empty skill types; table.contains is an explicit false adapter for that empty list. BeHit records the request without original HP processing. No original BeHit/HP mutation, scheduler completion, gameplay or holdout.",
+  "scope": "Original effect-manager creation of BEActiveDamage and BEFunctionEffect, original constructors, target/parameter binding, repetition routing, Function dispatch, Damage2SingleTarget, GetRealDmg offensive/final-target arithmetic, BattleUnitBase.BeHit and BattlePropertyServer HP mutation. Explicit neutral PvE actor/player/target adapters and empty skill types; table.contains is an explicit false adapter for that empty list. Property callbacks and hit recording are observers; animation and downstream damage/death event dispatch are no-op adapters. No scheduler completion, event lifecycle, gameplay or holdout.",
   "fixtures": [
     {
       "input": {
@@ -61,16 +64,34 @@
         ],
         "propertyEvents": [
           {
-            "kind": "owner",
-            "property": "hp",
-            "old": 1000.0,
-            "new": 900.0
-          },
-          {
             "kind": "send",
             "property": "hp",
             "delta": -100.0,
             "new": 900.0
+          }
+        ],
+        "eventEffects": [
+          {
+            "event": "RoleHpChanged",
+            "oldValue": 1000.0,
+            "newValue": 900.0
+          },
+          {
+            "event": "RoleHpperChanged",
+            "oldValue": 1000.0,
+            "newValue": 900.0
+          },
+          {
+            "event": "DoDamage",
+            "changeVal": 100.0,
+            "castDamage": 100.0,
+            "curHp": 900.0
+          },
+          {
+            "event": "BeDamage",
+            "changeVal": 100.0,
+            "castDamage": 100.0,
+            "curHp": 900.0
           }
         ],
         "hpAfter": 900.0,
@@ -143,28 +164,62 @@
         ],
         "propertyEvents": [
           {
-            "kind": "owner",
-            "property": "hp",
-            "old": 1000.0,
-            "new": 850.0
-          },
-          {
             "kind": "send",
             "property": "hp",
             "delta": -150.0,
             "new": 850.0
           },
           {
-            "kind": "owner",
-            "property": "hp",
-            "old": 850.0,
-            "new": 700.0
-          },
-          {
             "kind": "send",
             "property": "hp",
             "delta": -150.0,
             "new": 700.0
+          }
+        ],
+        "eventEffects": [
+          {
+            "event": "RoleHpChanged",
+            "oldValue": 1000.0,
+            "newValue": 850.0
+          },
+          {
+            "event": "RoleHpperChanged",
+            "oldValue": 1000.0,
+            "newValue": 850.0
+          },
+          {
+            "event": "DoDamage",
+            "changeVal": 150.0,
+            "castDamage": 150.0,
+            "curHp": 850.0
+          },
+          {
+            "event": "BeDamage",
+            "changeVal": 150.0,
+            "castDamage": 150.0,
+            "curHp": 850.0
+          },
+          {
+            "event": "RoleHpChanged",
+            "oldValue": 850.0,
+            "newValue": 700.0
+          },
+          {
+            "event": "RoleHpperChanged",
+            "oldValue": 850.0,
+            "newValue": 700.0
+          },
+          {
+            "event": "DoDamage",
+            "changeVal": 150.0,
+            "castDamage": 150.0,
+            "curHp": 700.0
+          },
+          {
+            "event": "BeDamage",
+            "changeVal": 150.0,
+            "castDamage": 150.0,
+            "curHp": 700.0
           }
         ],
         "hpAfter": 700.0,
@@ -239,28 +294,62 @@
         ],
         "propertyEvents": [
           {
-            "kind": "owner",
-            "property": "hp",
-            "old": 1000.0,
-            "new": 900.0
-          },
-          {
             "kind": "send",
             "property": "hp",
             "delta": -100.0,
             "new": 900.0
           },
           {
-            "kind": "owner",
-            "property": "hp",
-            "old": 900.0,
-            "new": 800.0
-          },
-          {
             "kind": "send",
             "property": "hp",
             "delta": -100.0,
             "new": 800.0
+          }
+        ],
+        "eventEffects": [
+          {
+            "event": "RoleHpChanged",
+            "oldValue": 1000.0,
+            "newValue": 900.0
+          },
+          {
+            "event": "RoleHpperChanged",
+            "oldValue": 1000.0,
+            "newValue": 900.0
+          },
+          {
+            "event": "DoDamage",
+            "changeVal": 100.0,
+            "castDamage": 100.0,
+            "curHp": 900.0
+          },
+          {
+            "event": "BeDamage",
+            "changeVal": 100.0,
+            "castDamage": 100.0,
+            "curHp": 900.0
+          },
+          {
+            "event": "RoleHpChanged",
+            "oldValue": 900.0,
+            "newValue": 800.0
+          },
+          {
+            "event": "RoleHpperChanged",
+            "oldValue": 900.0,
+            "newValue": 800.0
+          },
+          {
+            "event": "DoDamage",
+            "changeVal": 100.0,
+            "castDamage": 100.0,
+            "curHp": 800.0
+          },
+          {
+            "event": "BeDamage",
+            "changeVal": 100.0,
+            "castDamage": 100.0,
+            "curHp": 800.0
           }
         ],
         "hpAfter": 800.0,
@@ -335,28 +424,62 @@
         ],
         "propertyEvents": [
           {
-            "kind": "owner",
-            "property": "hp",
-            "old": 1000.0,
-            "new": 850.0
-          },
-          {
             "kind": "send",
             "property": "hp",
             "delta": -150.0,
             "new": 850.0
           },
           {
-            "kind": "owner",
-            "property": "hp",
-            "old": 850.0,
-            "new": 700.0
-          },
-          {
             "kind": "send",
             "property": "hp",
             "delta": -150.0,
             "new": 700.0
+          }
+        ],
+        "eventEffects": [
+          {
+            "event": "RoleHpChanged",
+            "oldValue": 1000.0,
+            "newValue": 850.0
+          },
+          {
+            "event": "RoleHpperChanged",
+            "oldValue": 1000.0,
+            "newValue": 850.0
+          },
+          {
+            "event": "DoDamage",
+            "changeVal": 150.0,
+            "castDamage": 150.0,
+            "curHp": 850.0
+          },
+          {
+            "event": "BeDamage",
+            "changeVal": 150.0,
+            "castDamage": 150.0,
+            "curHp": 850.0
+          },
+          {
+            "event": "RoleHpChanged",
+            "oldValue": 850.0,
+            "newValue": 700.0
+          },
+          {
+            "event": "RoleHpperChanged",
+            "oldValue": 850.0,
+            "newValue": 700.0
+          },
+          {
+            "event": "DoDamage",
+            "changeVal": 150.0,
+            "castDamage": 150.0,
+            "curHp": 700.0
+          },
+          {
+            "event": "BeDamage",
+            "changeVal": 150.0,
+            "castDamage": 150.0,
+            "curHp": 700.0
           }
         ],
         "hpAfter": 700.0,

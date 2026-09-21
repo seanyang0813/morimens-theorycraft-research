@@ -80,6 +80,18 @@
         "sha256": "6fe50acfc2be35b8bb2ea63f6de784b47f8570f9d085cc6313b9d27ecb819a71",
         "size": 1516
       }
+    },
+    {
+      "name": "BattleLogicEvent.lua",
+      "status": "IDENTICAL",
+      "baseline": {
+        "sha256": "cef7477d60a84d8ac4f4b097436a39628d37ff5c54bd8f44d08828d75ad80c4a",
+        "size": 3925
+      },
+      "current": {
+        "sha256": "cef7477d60a84d8ac4f4b097436a39628d37ff5c54bd8f44d08828d75ad80c4a",
+        "size": 3925
+      }
     }
   ],
   "status": "SELECTED_MODULES_IDENTICAL",

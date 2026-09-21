@@ -55,17 +55,19 @@ class ActiveEffectExecutionOracle(SetupOracle):
             else:self.errors.append(repr(name));self.nil(s)
             return 1
         self.callback(manager_require);self.setglobal(L,b'require');self.module('BattleEffectMgrServer',asset_overrides.get('BattleEffectMgrServer'));self.setglobal(L,b'_active_manager_class')
+        self.module('BattleLogicEvent',asset_overrides.get('BattleLogicEvent'));self.setglobal(L,b'_active_logic_events')
         def property_require(s):
             name=self.string(s,1,None)
             if name==b'System.System':self.getglobal(s,b'_oracle_config_system')
             elif name==b'Battle.BattleConst':self.getglobal(s,b'_oracle_bc')
             elif name==b'Battle.Util.BattleUtilServer':self.getglobal(s,b'_oracle_util')
-            elif name in (b'Battle.Ecs.BattleComponent',b'Battle.DbgEngine.Event.BattleLogicEvent'):self.table(s,0,0)
+            elif name==b'Battle.DbgEngine.Event.BattleLogicEvent':self.getglobal(s,b'_active_logic_events')
+            elif name==b'Battle.Ecs.BattleComponent':self.table(s,0,0)
             else:self.errors.append(repr(name));self.nil(s)
             return 1
         self.callback(property_require);self.setglobal(L,b'require');self.module('BattlePropertyServer',asset_overrides.get('BattlePropertyServer'));self.setglobal(L,b'_active_property')
-        unit_known={b'System.System':b'_oracle_config_system',b'Battle.BattleConst':b'_oracle_bc',b'Battle.Util.BattleUtilServer':b'_oracle_util',b'Battle.DbgEngine.Cmd.BattleCmdServer':b'_oracle_cmd',b'Battle.DbgEngine.BattlePropertyServer':b'_active_property',b'Battle.Util.BattleUnitUtil':b'_active_unit_util'}
-        unit_empty={b'Battle.Ecs.BattleEntity',b'Battle.DbgEngine.Event.BattleLogicEvent',b'Battle.DbgEngine.DataCenter.BattleRoleData',b'Battle.DbgEngine.Role.Component.TagManagerComp'}
+        unit_known={b'System.System':b'_oracle_config_system',b'Battle.BattleConst':b'_oracle_bc',b'Battle.Util.BattleUtilServer':b'_oracle_util',b'Battle.DbgEngine.Cmd.BattleCmdServer':b'_oracle_cmd',b'Battle.DbgEngine.BattlePropertyServer':b'_active_property',b'Battle.Util.BattleUnitUtil':b'_active_unit_util',b'Battle.DbgEngine.Event.BattleLogicEvent':b'_active_logic_events'}
+        unit_empty={b'Battle.Ecs.BattleEntity',b'Battle.DbgEngine.DataCenter.BattleRoleData',b'Battle.DbgEngine.Role.Component.TagManagerComp'}
         def unit_require(s):
             name=self.string(s,1,None)
             if name in unit_known:self.getglobal(s,unit_known[name])
@@ -110,7 +112,7 @@ class ActiveEffectExecutionOracle(SetupOracle):
         for index,value in enumerate(values,1):self.number(s,value);self.rawset(s,-2,index)
 
     def run_active(self,v):
-        L=self.state;self.top(L,0);self.errors.clear();self.childConfigs=[];self.childPreTriggers=[];self.delays=[];self.hitEvents=[];self.propertyEvents=[];self.formulaOutputs=[];self.nextUid=100
+        L=self.state;self.top(L,0);self.errors.clear();self.childConfigs=[];self.childPreTriggers=[];self.delays=[];self.hitEvents=[];self.propertyEvents=[];self.eventEffects=[];self.formulaOutputs=[];self.nextUid=100
         self.values={
             'caster':{'damagetimes_plus':v['plus'],'damagetimes_per':v['per'],'crit_damage':v['critDamage'],'crit_damage_per':0},
             'player':{},'tags':[],'dimensionFixPer':0,'skillArgsPlus':0,
@@ -118,6 +120,9 @@ class ActiveEffectExecutionOracle(SetupOracle):
             'vulnerablePer':0,'beDamagePlus':0,'enemyTypeDmgPer':0,'enemyStateDmgMultiplier':1,
             'enemyBuffDmgPer':0,'enemyDebuffDmgPer':0,'enemyBlockDmgPer':0,'enemyBlockBarrierDmgPer':0,
         }
+        event_names={}
+        for name in ('RoleHpChanged','RoleHpperChanged','DoDamage','BeDamage'):
+            self.getglobal(L,b'_active_logic_events');self.getfield(L,-1,name.encode());event_names[self.tonumber(L,-1,None)]=name;self.top(L,0)
         self.table(L,0,10)
         for name in ('CreateEffect','GetParentEffectUid','GetEffectByUid','SetRunningEffect'):
             self.getglobal(L,b'_active_manager_class');self.getfield(L,-1,name.encode());self.setfield(L,-3,name.encode());self.top(L,-2)
@@ -138,6 +143,15 @@ class ActiveEffectExecutionOracle(SetupOracle):
             if self.kind(s,3)==3:self.formulaOutputs.append(self.tonumber(s,3,None))
             return 0
         self.method('Debug',debug);self.getglobal(L,b'_setup_roles');self.setfield(L,-2,b'roleMgr')
+        self.method('IsBattleFinish',lambda s:(self.boolean(s,False),1)[1])
+        def create_event(s):
+            event_type=self.tonumber(s,2,None);row={'event':event_names.get(event_type,event_type)}
+            for name in ('oldValue','newValue','changeVal','castDamage','curHp'):
+                self.getfield(s,3,name.encode())
+                if self.kind(s,-1)==3:row[name]=self.tonumber(s,-1,None)
+                self.top(s,-2)
+            self.eventEffects.append(row);self.table(s,0,0);return 1
+        self.method('CreateEventEffect',create_event)
         self.table(L,0,1)
         def on_be_hit(s):
             row={}
@@ -153,10 +167,7 @@ class ActiveEffectExecutionOracle(SetupOracle):
             self.method(name,lambda s,key=key:(self.number(s,self.values[key]),1)[1])
         self.setglobal(L,b'_active_caster')
         self.getglobal(L,b'_active_unit');self.number(L,20);self.setfield(L,-2,b'uid');self.table(L,0,1);self.number(L,0);self.setfield(L,-2,b'fsmState');self.setfield(L,-2,b'data');self.getglobal(L,b'_active_property');self.setfield(L,-2,b'property');self.getglobal(L,b'_active_engine');self.setfield(L,-2,b'battleEngine')
-        self.method('GetBattleLogName',lambda s:(self.pushstring(s,b'Synthetic target'),1)[1]);self.method('TryChangeToBeHitState',lambda s:0);self.method('DoDamageEvent',lambda s:0)
-        def owner_changed(s):
-            self.propertyEvents.append({'kind':'owner','property':self.string(s,2,None).decode(),'old':self.tonumber(s,3,None),'new':self.tonumber(s,4,None)});return 0
-        self.method('OnPropertyChanged',owner_changed);self.setglobal(L,b'_active_target')
+        self.method('GetBattleLogName',lambda s:(self.pushstring(s,b'Synthetic target'),1)[1]);self.method('TryChangeToBeHitState',lambda s:0);self.setglobal(L,b'_active_target')
         target_props={'hp':v['hp'],'max_hp':v['hp'],'block':0,'immue_damage':0,'PreventBeActiveDamage':0,'PreventBeActiveDamageRetainHP':0,'be_damage_limit':0,'be_damage_statics':0,'pvp_death_resist':0,'be_damage_per':0,'be_damage_per2':0,'be_damage_per3':0,'vulnerable_per':0,'be_damage_plus':0}
         self.getglobal(L,b'_active_property');self.table(L,0,len(target_props))
         for key,value in target_props.items():self.number(L,value);self.setfield(L,-2,key.encode())
@@ -193,7 +204,7 @@ class ActiveEffectExecutionOracle(SetupOracle):
         self.top(L,0);self.getglobal(L,b'_active_manager');self.getfield(L,-1,b'effectList');manager_count=self.length(L,-1);self.top(L,0)
         if self.errors:raise RuntimeError(self.errors)
         self.getglobal(L,b'_active_property');self.getfield(L,-1,b'properties');self.getfield(L,-1,b'hp');hp_after=self.tonumber(L,-1,None);self.top(L,0)
-        return {'eligible':eligible,'executed':executed,'effect':result,'managerEffectCount':manager_count,'childConfigs':self.childConfigs,'childPreTriggers':self.childPreTriggers,'formulaOutputs':self.formulaOutputs,'hitEvents':self.hitEvents,'propertyEvents':self.propertyEvents,'hpAfter':hp_after,'delays':self.delays}
+        return {'eligible':eligible,'executed':executed,'effect':result,'managerEffectCount':manager_count,'childConfigs':self.childConfigs,'childPreTriggers':self.childPreTriggers,'formulaOutputs':self.formulaOutputs,'hitEvents':self.hitEvents,'propertyEvents':self.propertyEvents,'eventEffects':self.eventEffects,'hpAfter':hp_after,'delays':self.delays}
 
 
 CASES=[
@@ -207,7 +218,7 @@ CASES=[
 def main():
     oracle=ActiveEffectExecutionOracle();fixtures=[{'input':row,'expected':oracle.run_active(row)} for row in CASES]
     output=ROOT/'tests/synthetic/original-active-effect-execution.json'
-    output.write_text(json.dumps({'kind':'SYNTHETIC_ORIGINAL_RUNTIME','build':'pc-res144-build51','sourceHashes':{name:oracle.assets[name+'.lua']['sha256'] for name in ('BattleEffectMgrServer','BattleEffectServer','BEActiveDamage','BEFunctionEffect','BattleCmdServer','BattleUtilServer','BattleConst','BattleUnitBase','BattleUnitUtil','BattlePropertyServer')},'scope':'Original effect-manager creation of BEActiveDamage and BEFunctionEffect, original constructors, target/parameter binding, repetition routing, Function dispatch, Damage2SingleTarget, GetRealDmg offensive/final-target arithmetic, BattleUnitBase.BeHit and BattlePropertyServer HP mutation. Explicit neutral PvE actor/player/target adapters and empty skill types; table.contains is an explicit false adapter for that empty list. Property callbacks and hit recording are observers; animation and downstream damage/death event dispatch are no-op adapters. No scheduler completion, event lifecycle, gameplay or holdout.','fixtures':fixtures},indent=2)+'\n',encoding='utf-8',newline='\n');print('Generated',len(fixtures),'active-effect execution cases')
+    output.write_text(json.dumps({'kind':'SYNTHETIC_ORIGINAL_RUNTIME','build':'pc-res144-build51','sourceHashes':{name:oracle.assets[name+'.lua']['sha256'] for name in ('BattleEffectMgrServer','BattleEffectServer','BEActiveDamage','BEFunctionEffect','BattleCmdServer','BattleUtilServer','BattleConst','BattleUnitBase','BattleUnitUtil','BattlePropertyServer','BattleLogicEvent')},'scope':'Original effect-manager creation of BEActiveDamage and BEFunctionEffect, target/parameter binding, repetition routing, Function dispatch, Damage2SingleTarget, GetRealDmg arithmetic, BattleUnitBase.BeHit, BattlePropertyServer HP mutation, original HP-change callbacks and original nonlethal DoDamageEvent request order. Explicit neutral PvE actor/player/target adapters and empty skill types; table.contains is an explicit false adapter for that empty list. Property-send/hit/event-factory callbacks are observers and animation is a no-op adapter. Event listeners, death path, scheduler completion, gameplay and holdout remain outside scope.','fixtures':fixtures},indent=2)+'\n',encoding='utf-8',newline='\n');print('Generated',len(fixtures),'active-effect execution cases')
 
 
 if __name__=='__main__':main()

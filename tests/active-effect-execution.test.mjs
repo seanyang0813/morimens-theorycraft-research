@@ -15,7 +15,13 @@ test('original Active effect dispatches through the real child into Damage2Singl
   assert.deepEqual(one.formulaOutputs,[100,100]);
   assert.deepEqual(one.hitEvents,[{castDamage:100,changeVal:100,realDamage:100,curHp:900,isCrit:false}]);
   assert.equal(one.hpAfter,900);
-  assert.deepEqual(one.propertyEvents,[{kind:'owner',property:'hp',old:1000,new:900},{kind:'send',property:'hp',delta:-100,new:900}]);
+  assert.deepEqual(one.propertyEvents,[{kind:'send',property:'hp',delta:-100,new:900}]);
+  assert.deepEqual(one.eventEffects,[
+    {event:'RoleHpChanged',oldValue:1000,newValue:900},
+    {event:'RoleHpperChanged',oldValue:1000,newValue:900},
+    {event:'DoDamage',changeVal:100,castDamage:100,curHp:900},
+    {event:'BeDamage',changeVal:100,castDamage:100,curHp:900},
+  ]);
   assert.deepEqual(one.delays,[.1,0,0]);
   const percent=report.fixtures.find(row=>row.input.name==='percent-repeat').expected;
   assert.equal(percent.effect.totalEffectTimes,3);
@@ -23,6 +29,7 @@ test('original Active effect dispatches through the real child into Damage2Singl
   assert.deepEqual(percent.formulaOutputs,[100,100,100,100]);
   assert.deepEqual(percent.hitEvents,[{castDamage:100,changeVal:100,realDamage:100,curHp:900,isCrit:false},{castDamage:100,changeVal:100,realDamage:100,curHp:800,isCrit:false}]);
   assert.equal(percent.hpAfter,800);
+  assert.deepEqual(percent.eventEffects.map(row=>row.event),['RoleHpChanged','RoleHpperChanged','DoDamage','BeDamage','RoleHpChanged','RoleHpperChanged','DoDamage','BeDamage']);
   assert.deepEqual(percent.delays,[.5,0,.25,0,0]);
   const skipped=report.fixtures.find(row=>row.input.name==='skip-phase').expected;
   assert.deepEqual(skipped.formulaOutputs,[100,150,100,150]);
