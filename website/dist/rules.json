@@ -5811,6 +5811,24 @@
       ]
     },
     {
+      "id": "PC144-PC150:DefenseConsumerInventory",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "BattleDefForce is source DEF after source DEF-percent scaling; across both inspected PC catalogs, almost all DEF-derived command routes feed shields, summons, states or healing, while the sole damage route is the same catalog entry marked unfinished",
+      "scope": "Static variant-specific argument lineage over 358 DEF-derived skills per build, 490 resource-144 routes and 492 resource-150 routes. The one damage route is skill 147434 variant 1000, command 1880 row 2, and the catalog calls it unfinished. This does not establish playability, condition selection, indirect state behavior, universal target mitigation, gameplay validity or holdout credit. Mechanics-reconstruction evidence only; no cheese, budget-scouting or theorycraft conclusion.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Sanitized two-build DEF consumer audit",
+          "member": "BattleDefForce formula, Skill-to-Cmd argument lineage, effect categories and selected route identity",
+          "sha256": "a87d5d9752f99867e69c5e2c3df49b26ed2a6cc9ee2cd14977ead86adc97f90b"
+        }
+      ],
+      "checks": [
+        "tools/audit_defense_consumers.py",
+        "tests/defense-consumer-audit.test.mjs"
+      ]
+    },
+    {
       "id": "Theorycraft:LegalCardActionEnumeration",
       "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
       "claim": "The theorycraft API enumerates ordinary non-keeper PvE card actions from explicit dispatch, energy, hand and status state while retaining global and per-card rejection gates",

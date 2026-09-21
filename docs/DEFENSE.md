@@ -2,7 +2,25 @@
 
 CONFIRMED_FROM_CODE: the traced Active final-damage function has target multipliers and flat additions but no target DEF division. BattleUnitBase.BeHit then handles block/shield, immunity, limits and death resistance. This does not prove that DEF is irrelevant to every skill expression or status.
 
-CONFIRMED_FROM_DATA: BattleApi contains `def`, `def_per`, and BattleDefForce = ceil(TargetCmdOwner.def * (1 + TargetCmdOwner.def_per/100)). This is a derived defense strength. We have not yet completed the expression-use inventory connecting it to specific cards.
+CONFIRMED_FROM_DATA_AND_CODE: BattleApi contains `def`, `def_per`, and BattleDefForce = ceil(TargetCmdOwner.def * (1 + TargetCmdOwner.def_per/100)). `TargetCmdOwner` is the source that owns the command, so this is source defense strength rather than target mitigation.
+
+## Catalog consumer inventory
+
+`tools/audit_defense_consumers.py` traces DEF-derived skill arguments into command-effect parameters for the resource-144 and current resource-150 PC catalogs. It records only derived routes and source hashes in `research/evidence/defense-consumer-audit.json`; it does not publish the underlying tables.
+
+Both builds contain 358 skills with at least one DEF-derived argument. The inventory finds 490 variant-specific consumer routes in resource 144 and 492 in resource 150:
+
+| Use | resource 144 | resource 150 |
+| --- | ---: | ---: |
+| Shield | 330 | 335 |
+| Summon | 79 | 79 |
+| State | 77 | 74 |
+| Heal | 3 | 3 |
+| Damage | 1 | 1 |
+
+The sole damage route is identical in both builds: skill 147434, `深空回响(未完成)`, variant 1000, command 1880 row 2, where argument 1 enters `BEActiveDamage`. The catalog marks the skill unfinished. This proves only that source DEF can enter one catalog damage base; it does not prove that the skill is accessible or executable in normal play. No damage command row directly reads a DEF expression.
+
+Combined with the traced Active final-target and BeHit paths, this audit found no universal target-DEF divisor. Indirect state effects and mechanics outside the inspected paths remain possible.
 
 Normal shield resolution subtracts available block from incoming damage and reduces block accordingly. Puncture branches reduce block while retaining damage. The resolver returns a surprising negative blockedDamage diagnostic when block exceeds damage; retain and verify this behavior before using that diagnostic for totals.
 
@@ -24,4 +42,4 @@ The API returns finalDamage null. Real HP subtraction, property floors, immunity
 
 The remaining-limit expression does not imply a universal consumable budget. [DAMAGE_CAP_LIFECYCLE.md](DAMAGE_CAP_LIFECYCLE.md) distinguishes an HP-change-driven phase counter from per-hit caps. Preserve mechanic-specific updates between hits rather than automatically adding every incoming hit to be_damage_statics.
 
-UNKNOWN: localized DEF-to-card mapping across supported scenarios, penetration versus Puncture terminology, negative-defense uses, resistance and level-scaling expressions outside the traced path. Next work: inspect every BattleDefForce/DefForce/def consumer, then capture a controlled shield/no-shield pair. No formula from another game is used.
+UNKNOWN: playability and conditions of the unfinished defense-damage route, indirect DEF-dependent state behavior, penetration versus Puncture terminology, negative-defense uses, resistance and level-scaling expressions outside the traced path. Next work: trace indirect state consumers and capture a controlled shield/no-shield pair. No formula from another game is used.

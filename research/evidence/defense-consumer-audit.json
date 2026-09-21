@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_DEFENSE_CONSUMER_AUDIT",
+  "status": "STATIC_CONSUMER_INVENTORY",
+  "builds": [
+    {
+      "build": "pc-res144-build51",
+      "sourceHashes": {
+        "Skill": "dd47c38241edb513c71bd09e6f1f9a8ecdbfc7080f59b0c12a300ac7be2f7a2d",
+        "Cmd": "7e298514fde1e0555b2e5d11118c8b5c4d5e3695a4062a49d4d51bfa110d2eed",
+        "BattleApi": "47c6b4434a0c78ec59927a29237d960a81b2f9c0cf69f8ae3c26a0c3f4500d1a",
+        "AwakerConfig": "cff6c329450dcc655adcf79380645727f3c1c4a79cc134faeeab82a3a20e3c13"
+      },
+      "battleDefForceOperation": "ceil(source DEF × (1 + source DEF% / 100))",
+      "defenseDerivedSkills": 358,
+      "consumerRoutes": 490,
+      "effectTypeCounts": {
+        "BEActiveDamage": 1,
+        "BEAddState": 75,
+        "BEGainBlock": 330,
+        "BEHeal": 3,
+        "BERemoveState": 2,
+        "BESummonMonster": 79
+      },
+      "usageCounts": {
+        "damage": 1,
+        "heal": 3,
+        "shield": 330,
+        "state": 77,
+        "summon": 79
+      },
+      "damageRoutes": [
+        {
+          "skillId": 147434,
+          "skillName": "深空回响(未完成)",
+          "awakenerId": 147397,
+          "awakenerName": "暮星·汀克特",
+          "skillVariant": "1000",
+          "commandId": 1880,
+          "commandVariant": "default",
+          "commandRow": 2,
+          "effectType": "BEActiveDamage",
+          "usage": "damage",
+          "defenseArgumentIndexes": [
+            1
+          ],
+          "directDefenseRead": false
+        }
+      ],
+      "directDamageRowsWithDefenseExpression": []
+    },
+    {
+      "build": "pc-res150-build51",
+      "sourceHashes": {
+        "Skill": "8bf12c24be0f79308e2fb6a9a4e6bfc6a1a4420ab558dfe336686ca08d6f3aff",
+        "Cmd": "52fea8a140dd391096450c67354d8de81f924e47f7265fb582bf3f095597c706",
+        "BattleApi": "f049f67f9d39ade107fc5c3e85354b37a8ad557be5494596a1ed8cf363137456",
+        "AwakerConfig": "06f408d332bfbfaca9ec6a3817d2a7cfc7070848b05c9826a5eddbce2f0d0b9a"
+      },
+      "battleDefForceOperation": "ceil(source DEF × (1 + source DEF% / 100))",
+      "defenseDerivedSkills": 358,
+      "consumerRoutes": 492,
+      "effectTypeCounts": {
+        "BEActiveDamage": 1,
+        "BEAddState": 74,
+        "BEGainBlock": 335,
+        "BEHeal": 3,
+        "BESummonMonster": 79
+      },
+      "usageCounts": {
+        "damage": 1,
+        "heal": 3,
+        "shield": 335,
+        "state": 74,
+        "summon": 79
+      },
+      "damageRoutes": [
+        {
+          "skillId": 147434,
+          "skillName": "深空回响(未完成)",
+          "awakenerId": 147397,
+          "awakenerName": "暮星·汀克特",
+          "skillVariant": "1000",
+          "commandId": 1880,
+          "commandVariant": "default",
+          "commandRow": 2,
+          "effectType": "BEActiveDamage",
+          "usage": "damage",
+          "defenseArgumentIndexes": [
+            1
+          ],
+          "directDefenseRead": false
+        }
+      ],
+      "directDamageRowsWithDefenseExpression": []
+    }
+  ],
+  "crossBuild": {
+    "damageRoutesIdentical": true
+  },
+  "conclusions": {
+    "universalTargetDefenseMitigationFound": false,
+    "sourceDefenseCanEnterDamageBase": true,
+    "damageRouteCountPerBuild": {
+      "pc-res144-build51": 1,
+      "pc-res150-build51": 1
+    },
+    "interpretation": "BattleDefForce is a source-stat expression. Its appearance in a skill argument does not establish target DEF mitigation."
+  },
+  "limitations": [
+    "Static Skill-to-Cmd argument lineage only; conditions, progression selection and effect execution are not evaluated",
+    "No claim that unfinished or inaccessible catalog skills are player-usable",
+    "Indirect state/status mechanics may read DEF after the inspected command route",
+    "Absence of a universal divisor is limited to the traced Active final-target and BeHit code plus this catalog inventory",
+    "No Android combat bundles, gameplay validation or holdout credit"
+  ]
+}
