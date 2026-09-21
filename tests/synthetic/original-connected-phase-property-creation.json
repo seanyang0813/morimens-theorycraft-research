@@ -1,0 +1,337 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BEAddState": "1465ac7c4f7b101ded98c429e9bb089ebabaad7c48a4b6f4c4519419e6eec133",
+    "BEAddStateParent": "00871a473b5c4ced3824c28afb88fc3cfe6cbfca01d23bc2a0d3bac6afa0f8b3",
+    "BattleStateMgrServer": "dc7653a427f1fe0bfd21b7495980cc173f4cb298e7dd7086a224ee40640c11a4",
+    "BattleStateServer": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+    "BattleStateData": "3d24986198cdab349ed790e58756292c086f7e3d8ffc76f5d61e9fdc15c21e26",
+    "BattlePropertyServer": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76"
+  },
+  "catalogState": {
+    "ID": 60408,
+    "MaxLayer": 999999999,
+    "ExistProperty": {
+      "be_damage_limit": "math.ceil(StateOwner.max_hp*0.33)"
+    }
+  },
+  "scope": "Original add-state, manager, constructor, AfterInit and property-storage path for absent second-phase state 60408. Layer is the separately runtime-verified transition expression ceil(maxHp*0.33)+1; be_damage_limit is the separately runtime-verified state expression ceil(maxHp*0.33). Those resolved numbers are explicit parser inputs here. Synthetic non-player target and callback observers; no joined command-row execution, event body, gameplay or holdout.",
+  "fixtures": [
+    {
+      "input": {
+        "stateId": 60408,
+        "maxHp": 1,
+        "requestedLayer": 2,
+        "resolvedLimit": 1,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60408.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers9": 2.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          {
+            "event": "ownerProperty",
+            "property": "be_damage_limit",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "event": "sendProperty",
+            "property": "be_damage_limit",
+            "delta": 1.0,
+            "new": 1.0
+          },
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ],
+        "storedProperty": {
+          "name": "be_damage_limit",
+          "value": 1.0
+        },
+        "beDamageLimit": 1.0
+      }
+    },
+    {
+      "input": {
+        "stateId": 60408,
+        "maxHp": 2,
+        "requestedLayer": 2,
+        "resolvedLimit": 1,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60408.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers9": 2.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          {
+            "event": "ownerProperty",
+            "property": "be_damage_limit",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "event": "sendProperty",
+            "property": "be_damage_limit",
+            "delta": 1.0,
+            "new": 1.0
+          },
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ],
+        "storedProperty": {
+          "name": "be_damage_limit",
+          "value": 1.0
+        },
+        "beDamageLimit": 1.0
+      }
+    },
+    {
+      "input": {
+        "stateId": 60408,
+        "maxHp": 3,
+        "requestedLayer": 2,
+        "resolvedLimit": 1,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60408.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers9": 2.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          {
+            "event": "ownerProperty",
+            "property": "be_damage_limit",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "event": "sendProperty",
+            "property": "be_damage_limit",
+            "delta": 1.0,
+            "new": 1.0
+          },
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ],
+        "storedProperty": {
+          "name": "be_damage_limit",
+          "value": 1.0
+        },
+        "beDamageLimit": 1.0
+      }
+    },
+    {
+      "input": {
+        "stateId": 60408,
+        "maxHp": 100,
+        "requestedLayer": 34,
+        "resolvedLimit": 33,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60408.0,
+        "layer": 34.0,
+        "changedLayer": 34.0,
+        "casterLayers9": 34.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          {
+            "event": "ownerProperty",
+            "property": "be_damage_limit",
+            "old": 0.0,
+            "new": 33.0
+          },
+          {
+            "event": "sendProperty",
+            "property": "be_damage_limit",
+            "delta": 33.0,
+            "new": 33.0
+          },
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ],
+        "storedProperty": {
+          "name": "be_damage_limit",
+          "value": 33.0
+        },
+        "beDamageLimit": 33.0
+      }
+    },
+    {
+      "input": {
+        "stateId": 60408,
+        "maxHp": 1000,
+        "requestedLayer": 331,
+        "resolvedLimit": 330,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60408.0,
+        "layer": 331.0,
+        "changedLayer": 331.0,
+        "casterLayers9": 331.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          {
+            "event": "ownerProperty",
+            "property": "be_damage_limit",
+            "old": 0.0,
+            "new": 330.0
+          },
+          {
+            "event": "sendProperty",
+            "property": "be_damage_limit",
+            "delta": 330.0,
+            "new": 330.0
+          },
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ],
+        "storedProperty": {
+          "name": "be_damage_limit",
+          "value": 330.0
+        },
+        "beDamageLimit": 330.0
+      }
+    },
+    {
+      "input": {
+        "stateId": 60408,
+        "maxHp": 1001,
+        "requestedLayer": 332,
+        "resolvedLimit": 331,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60408.0,
+        "layer": 332.0,
+        "changedLayer": 332.0,
+        "casterLayers9": 332.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          {
+            "event": "ownerProperty",
+            "property": "be_damage_limit",
+            "old": 0.0,
+            "new": 331.0
+          },
+          {
+            "event": "sendProperty",
+            "property": "be_damage_limit",
+            "delta": 331.0,
+            "new": 331.0
+          },
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ],
+        "storedProperty": {
+          "name": "be_damage_limit",
+          "value": 331.0
+        },
+        "beDamageLimit": 331.0
+      }
+    },
+    {
+      "input": {
+        "stateId": 60408,
+        "maxHp": 123456,
+        "requestedLayer": 40742,
+        "resolvedLimit": 40741,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60408.0,
+        "layer": 40742.0,
+        "changedLayer": 40742.0,
+        "casterLayers9": 40742.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          {
+            "event": "ownerProperty",
+            "property": "be_damage_limit",
+            "old": 0.0,
+            "new": 40741.0
+          },
+          {
+            "event": "sendProperty",
+            "property": "be_damage_limit",
+            "delta": 40741.0,
+            "new": 40741.0
+          },
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ],
+        "storedProperty": {
+          "name": "be_damage_limit",
+          "value": 40741.0
+        },
+        "beDamageLimit": 40741.0
+      }
+    }
+  ]
+}

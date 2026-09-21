@@ -10,12 +10,16 @@ from runtime_oracle import ROOT
 class ConnectedStateCreationOracle(ConstructorOracle):
     COUNTER_STATE = 60407
 
-    def __init__(self, add_parent_asset=None, connect_property=False, property_asset=None):
+    def __init__(self, add_parent_asset=None, connect_property=False, property_asset=None,
+                 property_name='be_damage_statics', property_expression='ChangedLayer'):
         super().__init__()
         L = self.state
         self.trace = []
         self.maximum = 1
         self.requested_layer = 1
+        self.property_name = property_name
+        self.property_expression = property_expression.encode()
+        self.property_value = 1
         self.connect_property = connect_property
         self.rawlen = self.lib.lua_rawlen
         self.rawlen.argtypes = [C.c_void_p, C.c_int]
@@ -35,7 +39,7 @@ class ConnectedStateCreationOracle(ConstructorOracle):
                 self.table(inner, 0, 1)
                 def evaluate(call):
                     expression = self.string(call, 2, None)
-                    value = self.requested_layer if expression == b'ChangedLayer' else self.maximum
+                    value = self.property_value if expression == self.property_expression else self.maximum
                     self.number(call, value)
                     return 1
                 self.method('GetValueByCmd', evaluate)
@@ -176,10 +180,10 @@ class ConnectedStateCreationOracle(ConstructorOracle):
         self.setfield(L, -2, b'DeathHandling')
         self.number(L, 1)
         self.setfield(L, -2, b'StateType')
-        if self.connect_property and state_id == self.COUNTER_STATE:
+        if self.connect_property:
             self.table(L, 0, 1)
-            self.pushstring(L, b'ChangedLayer')
-            self.setfield(L, -2, b'be_damage_statics')
+            self.pushstring(L, self.property_expression)
+            self.setfield(L, -2, self.property_name.encode())
             self.setfield(L, -2, b'ExistProperty')
 
     def _engine(self, state_id, maximum, global_name):
@@ -200,7 +204,7 @@ class ConnectedStateCreationOracle(ConstructorOracle):
             self.table(L, 0, 1)
             self.pushstring(L, '角色属性'.encode('utf-8'))
             self.setfield(L, -2, b'ApiType')
-            self.setfield(L, -2, b'be_damage_statics')
+            self.setfield(L, -2, self.property_name.encode())
             self.setfield(L, -2, b'BattleApi')
         self.setfield(L, -2, b'battleDT')
         self.table(L, 0, 3)
@@ -213,13 +217,14 @@ class ConnectedStateCreationOracle(ConstructorOracle):
         self.setfield(L, -2, b'roleMgr')
         self.setglobal(L, global_name)
 
-    def run(self, state_id, requested_layer, maximum):
+    def run(self, state_id, requested_layer, maximum, property_value=None):
         L = self.state
         self.top(L, 0)
         self.trace = []
         self.errors.clear()
         self.maximum = maximum
         self.requested_layer = requested_layer
+        self.property_value = requested_layer if property_value is None else property_value
         self._engine(state_id, maximum, b'_connected_owner_engine')
 
         self.table(L, 0, 10)
@@ -246,7 +251,7 @@ class ConnectedStateCreationOracle(ConstructorOracle):
             self.getglobal(L, b'_connected_state_property')
             self.table(L, 0, 1)
             self.number(L, 0)
-            self.setfield(L, -2, b'be_damage_statics')
+            self.setfield(L, -2, self.property_name.encode())
             self.setfield(L, -2, b'properties')
             self.getglobal(L, b'_connected_state_target')
             self.setfield(L, -2, b'owner')
@@ -346,16 +351,19 @@ class ConnectedStateCreationOracle(ConstructorOracle):
             self.top(L, 0)
             self.getglobal(L, b'_connected_state_property_live')
             self.getfield(L, -1, b'properties')
-            self.getfield(L, -1, b'be_damage_statics')
-            result['beDamageStatics'] = self.tonumber(L, -1, None)
+            self.getfield(L, -1, self.property_name.encode())
+            result['storedProperty'] = {'name': self.property_name, 'value': self.tonumber(L, -1, None)}
+            if self.property_name == 'be_damage_statics':
+                result['beDamageStatics'] = result['storedProperty']['value']
+            elif self.property_name == 'be_damage_limit':
+                result['beDamageLimit'] = result['storedProperty']['value']
         assert result['registryCount'] == 1
         assert result['stateId'] == state_id
         assert result['layer'] == min(maximum, requested_layer)
         assert result['changedLayer'] == requested_layer
         assert result['casterLayers9'] == requested_layer
         if self.connect_property:
-            assert state_id == self.COUNTER_STATE
-            assert result['beDamageStatics'] == requested_layer
+            assert result['storedProperty']['value'] == self.property_value
         return result
 
 

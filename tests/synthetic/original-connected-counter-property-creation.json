@@ -54,6 +54,10 @@
           "onAdd",
           "stats"
         ],
+        "storedProperty": {
+          "name": "be_damage_statics",
+          "value": 1.0
+        },
         "beDamageStatics": 1.0
       }
     },
@@ -93,6 +97,10 @@
           "onAdd",
           "stats"
         ],
+        "storedProperty": {
+          "name": "be_damage_statics",
+          "value": 2.0
+        },
         "beDamageStatics": 2.0
       }
     },
@@ -132,6 +140,10 @@
           "onAdd",
           "stats"
         ],
+        "storedProperty": {
+          "name": "be_damage_statics",
+          "value": 125.0
+        },
         "beDamageStatics": 125.0
       }
     },
@@ -171,6 +183,10 @@
           "onAdd",
           "stats"
         ],
+        "storedProperty": {
+          "name": "be_damage_statics",
+          "value": 330.0
+        },
         "beDamageStatics": 330.0
       }
     },
@@ -210,6 +226,10 @@
           "onAdd",
           "stats"
         ],
+        "storedProperty": {
+          "name": "be_damage_statics",
+          "value": 999999999.0
+        },
         "beDamageStatics": 999999999.0
       }
     }
