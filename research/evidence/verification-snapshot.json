@@ -1,5 +1,5 @@
 {
-  "generatedAtUtc": "2026-09-21T10:50:32.458486+00:00",
+  "generatedAtUtc": "2026-09-21T10:51:19.343268+00:00",
   "publicationStatus": "NOT_READY",
   "publicationAuthorized": false,
   "automatedSuite": {
@@ -7,7 +7,7 @@
     "passed": true,
     "exitCode": 0,
     "log": "research\\evidence\\latest-test-suite.tap",
-    "logSha256": "6db51d56ae4232c51b6328df5f6d79fb954ee827ff0f1ed6e210b63c4de805be"
+    "logSha256": "da91e83c759a90ba494a288febfe6afabf7f0f9bdfdcbf374b5cd109456eea7c"
   },
   "realObservations": {
     "records": 3,
@@ -167,6 +167,14 @@
         "publicationCredit": false
       }
     ]
+  },
+  "replayCatalogAttribution": {
+    "report": "research\\evidence\\replay-catalog-build-attribution.json",
+    "reportSha256": "a74754f48c36326f6c80fd36f319af9d8cec79e7bca01f0666e755daa2de8567",
+    "resource144Matches": 35,
+    "resource150Matches": 3,
+    "unmatchedOrIntermediate": 4,
+    "publicationCredit": false
   },
   "websiteEngineCopies": [
     {
@@ -529,7 +537,7 @@
   ],
   "limitations": [
     "Matching reported values alone cannot establish input provenance or validate a formula",
-    "Retrospective mechanic regressions do not count as full damage predictions or blind holdouts",
+    "Retrospective mechanic regressions and catalog attribution do not count as full damage predictions or blind holdouts",
     "Synthetic runtime comparisons are not gameplay fixtures or holdouts",
     "No browser QA, source coverage review or deployed-site verification is performed by this script"
   ]
