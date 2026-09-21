@@ -13,6 +13,7 @@ import {runRoleStateCommand} from './role-state-command.mjs';
 import {enumerateLegalCardActions} from './legal-card-actions.mjs';
 import {runCommandDamagePrefix} from './command-damage-prefix.mjs';
 import {runAttachedCardPipeline} from './attached-card-pipeline.mjs';
+import {runConditionalRoleStateSuffix} from './conditional-role-state-suffix.mjs';
 
 export const theorycraftOperations=Object.freeze([
   {name:'describe-capabilities',context:[],scope:'List supported versioned operations and evidence boundaries'},
@@ -32,6 +33,7 @@ export const theorycraftOperations=Object.freeze([
   {name:'enumerate-legal-card-actions',context:[],scope:'Ordinary PvE card dispatch, status and affordability enumeration from explicit state'},
   {name:'run-command-damage-prefix',context:[],scope:'Leading ordinary Active-damage rows until the first unsupported command row'},
   {name:'run-attached-card-pipeline',context:['skillCommandData'],scope:'Attach request, temporary-card construction, catalog command resolution and optional leading damage prefix'},
+  {name:'run-conditional-role-state-suffix',context:[],scope:'Conditional state-only command suffix over explicit role and query snapshots'},
 ]);
 
 export const theorycraftClaimBoundary=Object.freeze({
@@ -72,6 +74,7 @@ function execute(operation,input,context){
     const data=context.skillCommandData;
     return runAttachedCardPipeline(input,{build:input.build,skills:data.skills,battleApi:data.battleApi,commands:data.commands,sourceHashes:{Skill:data.sourceHashes.Skill,BattleApi:data.sourceHashes.BattleApi,Cmd:data.sourceHashes.Cmd}});
   }
+  if(operation==='run-conditional-role-state-suffix')return runConditionalRoleStateSuffix(input);
   throw new Error('Unsupported theorycraft operation');
 }
 

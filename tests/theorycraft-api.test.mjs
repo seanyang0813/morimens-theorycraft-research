@@ -18,6 +18,7 @@ test('agent API advertises explicit bounded operations',()=>{
   assert.deepEqual(response.result.operations,theorycraftOperations);
   assert.ok(response.result.operations.some(row=>row.name==='run-command-damage-prefix'));
   assert.ok(response.result.operations.some(row=>row.name==='run-attached-card-pipeline'));
+  assert.ok(response.result.operations.some(row=>row.name==='run-conditional-role-state-suffix'));
   assert.equal(response.result.publicationStatus,'NOT_READY');
 });
 

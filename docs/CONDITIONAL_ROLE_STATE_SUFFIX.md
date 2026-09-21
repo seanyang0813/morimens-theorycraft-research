@@ -1,0 +1,5 @@
+# Conditional role-state suffix
+
+`engine/conditional-role-state-suffix.mjs` evaluates state-only command rows in source order using explicit pre-row state-query snapshots, selects the rows whose conditions pass, and delegates their mutations to the multi-role state engine. It rejects a condition that reads a state changed earlier in the suffix. It also rejects a positive queried state that the command mutates, because the current role engine cannot yet construct that pre-existing state's full lifecycle record.
+
+For Mouchette command 123163 rows 2–7, the covered ordinary branch supplies one caster layer of state 122512 and zero player layers of states 123723 and 123167. Rows 2 and 7 execute: state 123168 adds 25 points of `i_damage_per_strikecard` to the caster, then the absent player state 123167 is asked to remove and returns false. The other four conditional rows are skipped. This supports the explicit branch only. Trigger callbacks, initial positive removable states, target acquisition, gameplay and holdout validation remain unresolved.

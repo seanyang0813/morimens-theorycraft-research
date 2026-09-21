@@ -4,7 +4,7 @@ import itertools
 import json
 from hp_property_oracle import HpPropertyOracle, ROOT
 
-PROPERTIES=['basic_damage_per','damage_plus','be_damage_per','be_damage_per2','be_damage_per3','be_fixed_damage_per1','be_passive_damage_per','vulnerable_per','weak_per','frail_per','crit','crit_per_from_ulti','crit_per_from_strikecard','card_crit','crit_damage','card_crit_damage','crit_damage_from_strikecard','crit_damage_from_ulti']
+PROPERTIES=['basic_damage_per','damage_plus','i_damage_per_strikecard','be_damage_per','be_damage_per2','be_damage_per3','be_fixed_damage_per1','be_passive_damage_per','vulnerable_per','weak_per','frail_per','crit','crit_per_from_ulti','crit_per_from_strikecard','card_crit','crit_damage','card_crit_damage','crit_damage_from_strikecard','crit_damage_from_ulti']
 
 class CombatPropertyOracle(HpPropertyOracle):
     def __init__(self,asset_overrides=None):
@@ -66,5 +66,5 @@ if __name__=='__main__':
     for pve,monster,maximum,before,delta,cast in itertools.product([False,True],[False,True],[0,1],[0,30],[0,2.2,-.4],[None,0]):
         v={'property':'tentacle_dmg','before':before,'delta':delta,'critScale':0,'critDamageScale':0,'castValue':cast,'tentacleContext':{'pve':pve,'ownerMonster':monster,'maxTentacleCount':maximum}}
         fixtures.append({'input':v,'expected':o.change_tentacle(v)})
-    out={'kind':'SYNTHETIC_ORIGINAL_RUNTIME','build':'pc-res144-build51','sourceHashes':{n:o.assets[n+'.lua']['sha256'] for n in ['BattlePropertyServer','BattleConst']},'scope':'Original ChangeProperty, CheckTentacleDamage, positive/negative branches, pre/post helpers and original property/category rules for 18 ordinary non-resource properties plus tentacle_dmg. Existing numeric properties, supplied crit amplification, explicit PvE/owner/tentacle-capacity context, owner/send callbacks observed. No state construction, callback dispatch, resource/mastery/HP mutation or gameplay.','fixtures':fixtures}
+    out={'kind':'SYNTHETIC_ORIGINAL_RUNTIME','build':'pc-res144-build51','sourceHashes':{n:o.assets[n+'.lua']['sha256'] for n in ['BattlePropertyServer','BattleConst']},'scope':'Original ChangeProperty, CheckTentacleDamage, positive/negative branches, pre/post helpers and original property/category rules for 19 ordinary non-resource properties plus tentacle_dmg. Existing numeric properties, supplied crit amplification, explicit PvE/owner/tentacle-capacity context, owner/send callbacks observed. No state construction, callback dispatch, resource/mastery/HP mutation or gameplay.','fixtures':fixtures}
     (ROOT/'tests/synthetic/original-combat-property-mutation.json').write_text(json.dumps(out,indent=2)+'\n',encoding='utf-8');print('Generated',len(fixtures),'original combat property mutation cases')

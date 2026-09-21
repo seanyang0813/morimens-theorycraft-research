@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "9b03211ca4691918c8c5a5c74e66213b0e72c01883ef0b54075a843b99ebb8cf",
+  "fingerprint": "c05f251724fe332bafe3660a7637e914e6cd1e52349553d6bb9ce56e74ef1acf",
   "files": {
     "build-catalog.json": "2d1188fadcaff7a1eb53af580c509756b21a3f003065c7c9036aa919958a1496",
     "client-build-data.json": "70a21813f8a491f521323971e6a6af9d1250102ad5bb76db8b16f80730fe7e34",
@@ -13,7 +13,7 @@
     "engine/add-state-layer.mjs": "f48dab804914d5a36adad723f2f75617396f8b718347d42c107cd09123c223e7",
     "engine/add-state-request.mjs": "98236b4339ecc8989a5a1dd8895c0d59480e4d1ee36a30dfefccb8632bb81b29",
     "engine/attach-post-action.mjs": "a1ef96aa11de26bcd75135e5c6c495e76eb2feaff80a93032d4c68ba5ab3a5e8",
-    "engine/attached-card-pipeline.mjs": "f16849af1c202ad58c1bb5cd3c225f7813b104e9734c5dfdfe0971378b6e04b5",
+    "engine/attached-card-pipeline.mjs": "be9e40e3ec9d27c16fb44488df8bcf380f91a6ea2f0505a128b1c693fad74867",
     "engine/attribute-modifiers.mjs": "e7af32c8ca30649c022de354d7fc7c78dc6838702c98ffcc50623e7f3c7f7d8b",
     "engine/battle-property-snapshot-damage.mjs": "cd1438d99aa9d90e68e4371bb5103b60d165950c242cb856262cf2de54ef64ef",
     "engine/block-gain.mjs": "6457692f711d07aec0e5bc05a42cf3b57fedc6070548217ae24f7982fadeb8ac",
@@ -36,11 +36,12 @@
     "engine/catalog-card-command-plan.mjs": "2adc6156e32d3da06dbc98cdec67693c2c0abd765ae3c71e0b104886fe23fbf1",
     "engine/client-build-stats.mjs": "caede016e80431ff2f03532537002cf4f6b92a663e5921bf661ef517f0c3e18e",
     "engine/client-primary-stats.mjs": "f841de44fef7a3ceb80e348582220cdb4ca453b5e3818812ece2aac38713f197",
-    "engine/combat-property-mutation.mjs": "95a0b25ffbef54b94038722653fde8b9d588f7bbdb16c97da1b73684c470b52c",
+    "engine/combat-property-mutation.mjs": "d1692c59bed4e4b4015b0c48cd302092cfbe3eded123ee19a001b8862f45dd37",
     "engine/command-damage-prefix.mjs": "08926e9977c23145c440bf897519cba56c4c07b2b3332e577ae198b1c9eedcd8",
     "engine/command-expressions.mjs": "13228f83821241b9812b9ad1198e96f9fba8963abbebd66c53a209a5cadc8131",
     "engine/command-gate.mjs": "58ae3fc68adb7c70038539ee484052f3c6e23ad84a25ea23a81868efffde97db",
     "engine/command-rows.mjs": "f44d5bbb4036e84fe8c6c900dcb35ce719b60f460f424221faea970162e556ab",
+    "engine/conditional-role-state-suffix.mjs": "990a8cf0be0ed78d9fa9909a850ee92368e682b50577c27d821381c4ce856012",
     "engine/conditional-variant.mjs": "cea73e9470f39b004e4adf30d570f28f7446162fa56116862a2a10e9f0ba2a95",
     "engine/create-card-command.mjs": "9d9cd59e7adbf090a6ffbc19b41ceb645c40b00b94d7b7d7af820f4fc629d3cf",
     "engine/crit-resolution.mjs": "58841b28db82b3d4e2c8493616a64d8995650dbd9717f8296adf03b27ea91eae",
@@ -77,6 +78,7 @@
     "engine/property-initialization.mjs": "a57ff39cf0a1860b857b5c3cafb6d54324e118fc6f97fa738afa41abcf792fbb",
     "engine/research-timeline.mjs": "7239c698436549bab8bd6218e570535ed8042bde82e6e38075acb1bf4f35d64f",
     "engine/resolved-hit-timeline.mjs": "86d3d2562cae483cddf204af524a5ff6ce3b0ec10e9a1e2533bb732c6701a949",
+    "engine/role-state-command.mjs": "29c344c8b9b2656a448f5740b2afb0b84b110f568e409378e7ead64ee4f3bd00",
     "engine/show-block.mjs": "73d7595ef8888284862e2496a4aecccfb1a174065dcf7e9525bf281e51b63a50",
     "engine/show-damage.mjs": "95937cfedbd2ba6398e6c799f51549e1739530f938b0a95696a2001f75173f2b",
     "engine/show-heal.mjs": "4acf86e0248eb02ecb2c682238d7c1913febc15dd639ddc36afd3101b0c9cc69",
@@ -112,7 +114,7 @@
     "engine/ulti-energy-gain.mjs": "08a4f4f32a7700422d6999e19e0e58fb2cace3bcbf7d0a910a9bcacf3b520468",
     "engine/use-attach-post-card.mjs": "a68fe61a2e770f751e8fbffcb417c85af9f1858968bf47ae492a4fca2bca0289",
     "engine/wheel-stats.mjs": "484a5b4a51fbbd9c4759b27457ae9eec71fceb0420354823f54654edfb78fadd",
-    "rules.json": "5f754a4d0385a69b76957ab141905a71abb77f7a03809a45ae598816d37c654f",
+    "rules.json": "1bedf745b266c06c9bb2b646f672dcb18291fd53a76e958c1a28cedc9170fea0",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af"
   }
 }

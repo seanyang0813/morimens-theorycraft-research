@@ -62,6 +62,8 @@
   "use-attach-post-card.mjs",
   "attached-card-pipeline.mjs",
   "command-damage-prefix.mjs",
+  "conditional-role-state-suffix.mjs",
+  "role-state-command.mjs",
   "generated-card-pipeline.mjs",
   "active-command-experiment.mjs",
   "passive-command-experiment.mjs",

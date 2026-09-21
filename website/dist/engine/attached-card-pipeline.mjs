@@ -3,6 +3,7 @@ import {planAttachPostAction} from './attach-post-action.mjs';
 import {planUseAttachPostCard} from './use-attach-post-card.mjs';
 import {prepareCatalogCardCommandPlan} from './catalog-card-command-plan.mjs';
 import {runCommandDamagePrefix} from './command-damage-prefix.mjs';
+import {runConditionalRoleStateSuffix} from './conditional-role-state-suffix.mjs';
 
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(key=>Object.hasOwn(value,key));
 
@@ -10,12 +11,12 @@ const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&
 // effect queue. A null cardContext is required when the attach request is gated.
 export function runAttachedCardPipeline(value,catalogSource=null){
   const input=snapshot(value);
-  if(!exact(input,['schemaVersion','kind','build','attach','cardContext','damagePrefix'])||input.schemaVersion!==1||input.kind!=='morimens-attached-card-pipeline')throw new Error('Explicit attached-card pipeline required');
+  if(!exact(input,['schemaVersion','kind','build','attach','cardContext','damagePrefix','stateSuffix'])||input.schemaVersion!==1||input.kind!=='morimens-attached-card-pipeline')throw new Error('Explicit attached-card pipeline required');
   if(input.attach?.build!==input.build)throw new Error('Attach request and pipeline builds must agree');
   const attachment=planAttachPostAction(input.attach);
   if(attachment.cardRequests.length===0){
-    if(input.cardContext!==null||input.damagePrefix!==null)throw new Error('Gated attach request requires null card and damage-prefix contexts');
-    return {schemaVersion:1,status:'EXPERIMENTAL',build:input.build,completed:true,attachment,temporaryCard:null,commandResolution:null,damagePrefix:null,
+    if(input.cardContext!==null||input.damagePrefix!==null||input.stateSuffix!==null)throw new Error('Gated attach request requires null card and execution contexts');
+    return {schemaVersion:1,status:'EXPERIMENTAL',build:input.build,planningCompleted:true,executionRequested:false,commandRowsCompleted:false,completed:true,attachment,temporaryCard:null,commandResolution:null,damagePrefix:null,stateSuffix:null,
       unresolvedDependencies:[...new Set([...attachment.unresolvedDependencies,'No temporary card is constructed because the attach request is gated','Gameplay and independent holdout validation'])]};
   }
   if(attachment.cardRequests.length!==1)throw new Error('This pipeline supports exactly one attached-card request');
@@ -30,6 +31,18 @@ export function runAttachedCardPipeline(value,catalogSource=null){
     if(!exact(input.damagePrefix,keys)||Object.keys(input.damagePrefix.variables??{}).some(name=>/^Arg\d+$/.test(name)))throw new Error('Explicit damage-prefix context without Arg overrides required');
     damagePrefix=runCommandDamagePrefix({schemaVersion:1,kind:'morimens-command-damage-prefix',build:input.build,command:catalogSource.commands[String(resolved.commandId)],...input.damagePrefix,variables:{...input.damagePrefix.variables,...resolved.plan.argumentBindings}});
   }
-  return {schemaVersion:1,status:'EXPERIMENTAL',build:input.build,planningCompleted:true,completed:damagePrefix===null||damagePrefix.completed,attachment,temporaryCard,commandResolution:{sourceHashes:resolved.sourceHashes,skillId:resolved.skillId,commandId:resolved.commandId,baseArguments:resolved.baseArguments,prepared:resolved.prepared,command:resolved.command,plan:resolved.plan},damagePrefix,
-    unresolvedDependencies:[...new Set([...attachment.unresolvedDependencies,...temporaryCard.unresolvedDependencies,...resolved.unresolvedDependencies,...(damagePrefix?.unresolvedDependencies??[]),damagePrefix?'Only the leading supported damage prefix executes; the full command remains incomplete':'Effect requests and command rows are preserved but not executed','Gameplay and independent holdout validation'])]};
+  let stateSuffix=null;
+  if(input.stateSuffix!==null){
+    if(!damagePrefix||!damagePrefix.stop?.beforeRowId||damagePrefix.stop.reason!=='Unsupported effect handler')throw new Error('State suffix requires a damage prefix stopped at an unsupported effect row');
+    const keys=['variables','stateQueries','stateQueryTargets','targetBindings','roles','definitions'];
+    if(!exact(input.stateSuffix,keys)||Object.keys(input.stateSuffix.variables??{}).some(name=>/^Arg\d+$/.test(name)))throw new Error('Explicit state-suffix context without Arg overrides required');
+    const start=Number(damagePrefix.stop.beforeRowId),sourceRows=Object.entries(catalogSource.commands[String(resolved.commandId)].data_list).sort(([a],[b])=>Number(a)-Number(b)).filter(([id])=>Number(id)>=start);
+    if(!Number.isSafeInteger(start)||sourceRows.length!==damagePrefix.totalRows-damagePrefix.executedPrefixRows)throw new Error('Damage-prefix stop does not define a contiguous state suffix');
+    const command={data_list:Object.fromEntries(sourceRows.map(([,row],index)=>[String(index+1),row]))};
+    stateSuffix=runConditionalRoleStateSuffix({schemaVersion:1,kind:'morimens-conditional-role-state-suffix',build:input.build,otherEvents:'assumed-absent',command,...input.stateSuffix,variables:{...input.stateSuffix.variables,...resolved.plan.argumentBindings}});
+    stateSuffix={sourceCommandStartRow:String(start),...stateSuffix};
+  }
+  const executionRequested=damagePrefix!==null,commandRowsCompleted=Boolean(damagePrefix&&(damagePrefix.completed||(stateSuffix?.completed&&damagePrefix.executedPrefixRows+stateSuffix.conditionTrace.length===damagePrefix.totalRows)));
+  return {schemaVersion:1,status:'EXPERIMENTAL',build:input.build,planningCompleted:true,executionRequested,commandRowsCompleted,completed:!executionRequested||commandRowsCompleted,attachment,temporaryCard,commandResolution:{sourceHashes:resolved.sourceHashes,skillId:resolved.skillId,commandId:resolved.commandId,baseArguments:resolved.baseArguments,prepared:resolved.prepared,command:resolved.command,plan:resolved.plan},damagePrefix,stateSuffix,
+    unresolvedDependencies:[...new Set([...attachment.unresolvedDependencies,...temporaryCard.unresolvedDependencies,...resolved.unresolvedDependencies,...(damagePrefix?.unresolvedDependencies??[]),...(stateSuffix?.unresolvedDependencies??[]),commandRowsCompleted?'All command rows are handled in the supplied branch, but effect scheduling and callbacks remain unresolved':damagePrefix?'Only the leading supported damage prefix executes; the full command remains incomplete':'Effect requests and command rows are preserved but not executed','Gameplay and independent holdout validation'])]};
 }
