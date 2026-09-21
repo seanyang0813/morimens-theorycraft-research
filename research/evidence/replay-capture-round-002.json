@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "kind": "MORIMENS_SANITIZED_REPLAY_CAPTURE_ROUND",
-  "generatedAtUtc": "2026-09-21T18:45:34.286853+00:00",
+  "generatedAtUtc": "2026-09-21T18:49:50.009328+00:00",
   "analysisTrack": "verification",
   "identifiersPublished": false,
   "rawArtifactsPublished": false,
-  "privateAuditSha256": "b3fd618fcb9ad1ababba43ba7ee88349ef782061958c1997a49e162a7a8c85d9",
+  "privateAuditSha256": "8cf7707321be107a3c82073a79489b731548cc21f7582d79ea3a917a20367e76",
   "scope": "Aggregate acquisition and adapter-eligibility evidence only. Recorded combat builds are unknown. The records may be routed to separate budget-scouting or cheese-analysis artifacts, but this report does not make either claim and cannot supply a theorycraft conclusion or publication-gate holdout.",
   "totals": {
     "replays": 27,
@@ -23,6 +23,10 @@
     "rngBranchMismatches": 0,
     "completeHitTargetRoleTypes": {
       "Player": 661
+    },
+    "combatDomains": {
+      "PVP_PLAYER_TARGETS": 26,
+      "MIXED_OR_UNKNOWN_TARGETS": 1
     }
   },
   "blindSelection": {

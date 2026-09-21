@@ -48,6 +48,12 @@ def main() -> None:
             target_role_types[label] = target_role_types.get(label, 0) + int(count)
     if sum(target_role_types.values()) != summed["completeHitSnapshots"]:
         raise ValueError("Target-role classification must cover every complete hit snapshot")
+    domain_counts: dict[str, int] = {}
+    for row in rows:
+        domain = row.get("combatDomain")
+        if domain not in {"PVE_MONSTER_TARGETS", "PVP_PLAYER_TARGETS", "MIXED_OR_UNKNOWN_TARGETS"}:
+            raise ValueError("Every private audit row needs an explicit combat domain")
+        domain_counts[domain] = domain_counts.get(domain, 0) + 1
     report = {
         "schemaVersion": 1,
         "kind": "MORIMENS_SANITIZED_REPLAY_CAPTURE_ROUND",
@@ -61,7 +67,7 @@ def main() -> None:
             "The records may be routed to separate budget-scouting or cheese-analysis artifacts, but this report "
             "does not make either claim and cannot supply a theorycraft conclusion or publication-gate holdout."
         ),
-        "totals": {"replays": len(rows), **summed, "completeHitTargetRoleTypes": target_role_types},
+        "totals": {"replays": len(rows), **summed, "completeHitTargetRoleTypes": target_role_types, "combatDomains": domain_counts},
         "blindSelection": {
             "eligibleReplays": args.blind_eligible,
             "frozenPredictions": 0,
