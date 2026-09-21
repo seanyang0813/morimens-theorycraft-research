@@ -2202,8 +2202,8 @@
     {
       "id": "PC144:ActiveEffectExecutionBoundary",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
-      "claim": "Effect-manager construction of BEActiveDamage proceeds through original constructors, PreTrigger, target/parameter binding, Active initialization and repetition routing into child function effects",
-      "scope": "4 original-runtime positive-repeat cases with explicit caster, target, command and engine adapters. BEFunctionEffect children are inert PreTrigger observers. Damage2SingleTarget, damage formula, BeHit/HP, scheduler completion, gameplay and holdout remain outside scope.",
+      "claim": "Effect-manager construction of BEActiveDamage proceeds through original constructors, target/parameter binding and repetition routing; original BEFunctionEffect dispatch invokes original Damage2SingleTarget",
+      "scope": "4 original-runtime positive-repeat cases with explicit caster, target, command and engine adapters. GetRealDmg is an identity observer and BeHit records the request. Real damage formula, original BeHit/HP, scheduler completion, gameplay and holdout remain outside scope.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -2218,8 +2218,13 @@
         },
         {
           "module": "BEActiveDamage",
-          "member": "ctor,DoEffect,__DoMultiEffect,GetDamageSubTypeValue,IsSingleTarget",
+          "member": "ctor,DoEffect,__DoMultiEffect,GetDamageSubTypeValue,IsSingleTarget,Damage2SingleTarget",
           "sha256": "6d87f4da91293c019579f5d586a093763d3fb1051d6efed8652cdbc3b114e208"
+        },
+        {
+          "module": "BEFunctionEffect",
+          "member": "ctor,DoEffect",
+          "sha256": "9f13031ab24e39e7584ba021d0d1b2b7c8fb495e537f90a2bc1765bf5d9d5d53"
         }
       ],
       "checks": [
@@ -3952,8 +3957,8 @@
     {
       "id": "PC150:SkillPhaseSelectedBoundary",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
-      "claim": "Resource 150 reproduces all 256 inherited connected phase-start, TriggerCmd, effect-construction, Active-effect, cleanup, target-handoff, argument, timing and command-row-order fixtures exactly",
-      "scope": "BECreateSkillPhase start through BattleCmdServer TriggerCmd and child PreTrigger; original GenerateEffectObj through original effect-manager creation; real BEActiveDamage construction, PreTrigger, target/parameter binding, initialization and repetition routing; phase cleanup, arguments, delay planning, row ordering and selected parser paths. BEFunctionEffect children are inert probes; Damage2SingleTarget, formula, BeHit/HP, target-expression initialization, event listeners, complete card phases, gameplay and holdout credit remain outside scope.",
+      "claim": "Resource 150 reproduces all 256 inherited connected phase-start, TriggerCmd, effect-construction, Active/Function-effect, cleanup, target-handoff, argument, timing and command-row-order fixtures exactly",
+      "scope": "BECreateSkillPhase start through BattleCmdServer TriggerCmd and child PreTrigger; original GenerateEffectObj through original effect-manager creation; real BEActiveDamage/BEFunctionEffect construction, target/parameter binding, repetition routing and function dispatch into Damage2SingleTarget; phase cleanup, arguments, delay planning, row ordering and selected parser paths. GetRealDmg is an identity observer and BeHit records the request; real formula, original BeHit/HP, target-expression initialization, event listeners, complete card phases, gameplay and holdout credit remain outside scope.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -3964,7 +3969,7 @@
         {
           "module": "PC resource-150 selected skill-phase runtime comparison",
           "member": "fixture-domain result",
-          "sha256": "61c3b1769404ca1047c8498a55e6187be9fa42902d880836a9f9da8ce3e27aeb"
+          "sha256": "258f1c14f78a054d0dab15a152329ee19e8311d2c92e7463700b4732c8665f1a"
         }
       ],
       "checks": [
