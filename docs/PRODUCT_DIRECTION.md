@@ -20,6 +20,8 @@ Context sources:
 
 `engine/theorycraft-api.mjs` is the stable JSON dispatcher shared by agents and future browser controls. `tools/run_theorycraft_request.mjs` runs the same interface from a file and loads the pinned local build catalogs. It dispatches only named bounded operations and preserves each component's `EXPERIMENTAL`, `PLAN_ONLY`, `CATALOG_DERIVED` or `UNVERIFIED` status.
 
+The first assembly slice is implemented as `assemble-build-components`: it joins recovered character primary-stat progression and catalog Wheel main stats into a provenance-bearing ledger. It reports missing inputs as typed issues. It is not a final property snapshot because Soulforge, passives, equipment and battle-start effects are still unresolved.
+
 ### Human workbench
 
 The website should let a player:

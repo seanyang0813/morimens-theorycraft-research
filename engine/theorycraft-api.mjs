@@ -5,6 +5,7 @@ import {runOrderedStateCommand} from './ordered-state-command.mjs';
 import {validateBuildPlan} from './build-plan.mjs';
 import {resolveClientBuildPrimary} from './client-build-stats.mjs';
 import {resolveWheelMainstat} from './wheel-stats.mjs';
+import {assembleKnownBuildComponents} from './build-component-assembly.mjs';
 
 export const theorycraftOperations=Object.freeze([
   {name:'describe-capabilities',context:[],scope:'List supported versioned operations and evidence boundaries'},
@@ -15,6 +16,7 @@ export const theorycraftOperations=Object.freeze([
   {name:'validate-build-plan',context:['buildCatalog'],scope:'Catalog identity and shape validation; no automatic combat assembly'},
   {name:'resolve-character-primary',context:['clientBuildData'],scope:'Client-derived primary CON/ATK/DEF baseline'},
   {name:'resolve-wheel-mainstat',context:['buildCatalog'],scope:'Catalog-derived Wheel main-stat scaling'},
+  {name:'assemble-build-components',context:['buildCatalog','clientBuildData'],scope:'Known character primary-stat and Wheel-main-stat contribution ledger'},
 ]);
 
 const operations=new Map(theorycraftOperations.map(row=>[row.name,row]));
@@ -33,6 +35,7 @@ function execute(operation,input,context){
   if(operation==='validate-build-plan')return validateBuildPlan(input,context.buildCatalog);
   if(operation==='resolve-character-primary')return resolveClientBuildPrimary(input,context.clientBuildData);
   if(operation==='resolve-wheel-mainstat')return resolveWheelMainstat(input,context.buildCatalog);
+  if(operation==='assemble-build-components')return assembleKnownBuildComponents(input,context.buildCatalog,context.clientBuildData);
   throw new Error('Unsupported theorycraft operation');
 }
 
@@ -47,4 +50,3 @@ export function runTheorycraftRequest(value,context={}){
   const result=execute(value.operation,clone(value.input),context);
   return {schemaVersion:1,kind:'morimens-theorycraft-response',requestId:value.requestId,operation:value.operation,status:'OK',result};
 }
-

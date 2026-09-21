@@ -1,5 +1,6 @@
 [
   "build-plan.mjs",
+  "build-component-assembly.mjs",
   "experiments.mjs",
   "calculate-damage.mjs",
   "show-damage.mjs",

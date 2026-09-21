@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "cba971e76920828899c1a6cbd1e3c7ee605367c0e14f9dcf693ad157bd51f965",
+  "fingerprint": "53c06b27a411d93a27bb285646a3f4d30011890e213b432f77234b22f0c6e8f4",
   "files": {
     "build-catalog.json": "2d1188fadcaff7a1eb53af580c509756b21a3f003065c7c9036aa919958a1496",
     "client-build-data.json": "f857768a28bb9865d35158ae47c0cf453dcc0ae9cb9114dd0082d1ea73f17c0f",
@@ -13,6 +13,7 @@
     "engine/add-state-request.mjs": "98236b4339ecc8989a5a1dd8895c0d59480e4d1ee36a30dfefccb8632bb81b29",
     "engine/battle-property-snapshot-damage.mjs": "cd1438d99aa9d90e68e4371bb5103b60d165950c242cb856262cf2de54ef64ef",
     "engine/block-gain.mjs": "6457692f711d07aec0e5bc05a42cf3b57fedc6070548217ae24f7982fadeb8ac",
+    "engine/build-component-assembly.mjs": "855389420ce267f853930787e284b06822ef8100f8558c036fdabdf3883f3840",
     "engine/build-plan.mjs": "1738a0d0a99ee0510b8b509c28cb630c55212e4f1b75e0774ef87bf921d74507",
     "engine/calculate-damage.mjs": "535a7da758b96179597b6c36b36059ea416fca8f6e3b7664839a1bcff8178511",
     "engine/card-action-example.mjs": "8f8cd99a436a66b35f142f09a358dc40b646455746ffa99e6071f8d57eba243f",

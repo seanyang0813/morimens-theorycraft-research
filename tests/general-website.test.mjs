@@ -27,4 +27,5 @@ test('general website resolves local module imports and keeps the scenario separ
   const preset=readFileSync(new URL('../website/dist/mouchette.html',import.meta.url),'utf8');assert.ok(preset.includes('src="mouchette.mjs"'));
   const builds=readFileSync(new URL('../website/dist/builds.html',import.meta.url),'utf8');
   assert.match(builds,/<select id="client-build"><option value="">Unknown \/ not selected<\/option><option value="pc-res144-build51">PC · res144 build51<\/option><\/select>/);
+  assert.ok(builds.includes('id="assemble"'));assert.ok(builds.includes('id="assembly"'));
 });
