@@ -1610,6 +1610,33 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC144:MonsterBubble",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "BEMonsterBubble accepts a nonempty tip and an eligible Monster target, records one MonsterBubble render event with a default 1000 ms display time when omitted, and makes no other call in its effect body",
+      "sources": [
+        {
+          "module": "BEMonsterBubble",
+          "member": "DoEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5e2fc3fd2041eb66bcf8a71a6deaa6e9ee0e68d5f4fe7e6f7e6149aaaa8f9c38",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6840975423855552577_BEMonsterBubble.lua"
+        },
+        {
+          "module": "BattleRecord",
+          "member": "OnMonsterBubble",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "aee64145e334f212666d259b6960d16e9a2b9bec751fee9fdba46fa63b8febf1",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\8168586524479805375_BattleRecord.lua"
+        }
+      ],
+      "tests": [
+        "tools/monster_bubble_oracle.py",
+        "tests/monster-bubble.test.mjs"
+      ],
+      "scope": "6 original DoEffect cases with explicit params, target type/roleType and record-manager observer. Establishes the baseline effect body as presentation-record routing; no scheduler, rendering client, current-build runtime execution, gameplay or holdout credit.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC144:StatePropertyMutationBridge",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "State contribution initialization and updates reach original numeric property storage through recipient routing, retaining separate contribution bookkeeping",
@@ -3665,7 +3692,7 @@
           "module": "Final Evolution cross-build trace",
           "member": "normalized selected rows and derived lifecycle",
           "bundle": "public hash-only/selected-row report",
-          "sha256": "f4a14347243cb93c13488cd2777c0aa728e43e3a5e6580f373db8df7d6da3919"
+          "sha256": "448ab57e1235099b966a6dca5016dfc2f23fe8a67657d4bac2b64c9fac528dff"
         }
       ],
       "tests": [

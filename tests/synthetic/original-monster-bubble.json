@@ -1,0 +1,110 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHash": "5e2fc3fd2041eb66bcf8a71a6deaa6e9ee0e68d5f4fe7e6f7e6149aaaa8f9c38",
+  "scope": "Original BEMonsterBubble.DoEffect with explicit params, target identity and record-manager observer. No scheduler, rendering client, gameplay or current-build runtime claim.",
+  "fixtures": [
+    {
+      "input": {
+        "tipsId": null,
+        "showTime": 8000,
+        "targetPresent": true,
+        "isRoleTypeMonster": true,
+        "roleTypeMonster": true,
+        "uid": 77
+      },
+      "expected": {
+        "returned": false,
+        "superCalls": 1,
+        "records": []
+      }
+    },
+    {
+      "input": {
+        "tipsId": "Monster_Chapter8_08",
+        "showTime": 8000,
+        "targetPresent": false,
+        "isRoleTypeMonster": true,
+        "roleTypeMonster": true,
+        "uid": 77
+      },
+      "expected": {
+        "returned": false,
+        "superCalls": 1,
+        "records": []
+      }
+    },
+    {
+      "input": {
+        "tipsId": "Monster_Chapter8_08",
+        "showTime": 8000,
+        "targetPresent": true,
+        "isRoleTypeMonster": false,
+        "roleTypeMonster": true,
+        "uid": 77
+      },
+      "expected": {
+        "returned": false,
+        "superCalls": 1,
+        "records": []
+      }
+    },
+    {
+      "input": {
+        "tipsId": "Monster_Chapter8_08",
+        "showTime": 8000,
+        "targetPresent": true,
+        "isRoleTypeMonster": true,
+        "roleTypeMonster": false,
+        "uid": 77
+      },
+      "expected": {
+        "returned": false,
+        "superCalls": 1,
+        "records": []
+      }
+    },
+    {
+      "input": {
+        "tipsId": "Monster_Chapter8_08",
+        "showTime": null,
+        "targetPresent": true,
+        "isRoleTypeMonster": true,
+        "roleTypeMonster": true,
+        "uid": 77
+      },
+      "expected": {
+        "returned": true,
+        "superCalls": 1,
+        "records": [
+          {
+            "uid": 77.0,
+            "tipsId": "Monster_Chapter8_08",
+            "showTime": 1000.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "tipsId": "Monster_Chapter8_08",
+        "showTime": 8000,
+        "targetPresent": true,
+        "isRoleTypeMonster": true,
+        "roleTypeMonster": true,
+        "uid": 77
+      },
+      "expected": {
+        "returned": true,
+        "superCalls": 1,
+        "records": [
+          {
+            "uid": 77.0,
+            "tipsId": "Monster_Chapter8_08",
+            "showTime": 8000.0
+          }
+        ]
+      }
+    }
+  ]
+}
