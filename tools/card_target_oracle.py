@@ -10,7 +10,7 @@ class CardTargetOracle(TargetOracle):
         self.rawseti=self.lib.lua_rawseti;self.rawseti.argtypes=[C.c_void_p,C.c_int,C.c_longlong];self.rawseti.restype=None
         self.getglobal(L,b'_oracle_actor')
         def actor(s):
-            mapping={b'crit_damage':'awakerCritDamage',b'crit_damage_per':'critDamagePer',b'card_crit_damage':'awakerCardCritDamage',b'crit_damage_from_strikecard':'skillTypeCritDamage'}
+            mapping={b'crit_damage':'awakerCritDamage',b'crit_damage_per':'critDamagePer',b'card_crit_damage':'awakerCardCritDamage',b'crit_damage_from_strikecard':'skillTypeCritDamage',b'crit_damage_from_ulti':'ultiSkillTypeCritDamage'}
             key=self.string(s,2,None)
             if key not in mapping:self.errors.append(repr(key));self.number(s,0)
             else:self.number(s,self.values[mapping[key]])
@@ -50,12 +50,18 @@ class CardTargetOracle(TargetOracle):
         self.method('HasStateByStateIds',barrier);self.setfield(L,-2,b'stateMgr');self.top(L,0)
         self.getglobal(L,b'_oracle_self');self.number(L,2);self.setfield(L,-2,b'cardUid')
         def tags(s):
-            self.table(s,1,0);self.getglobal(s,b'_oracle_bc');self.getfield(s,-1,b'SkillType');self.getfield(s,-1,b'Card_Strike');self.setglobal(s,b'_target_tag');self.top(s,-3);self.getglobal(s,b'_target_tag');self.rawseti(s,-2,1);return 1
+            enabled=[]
+            if self.values.get('strike',True):enabled.append(b'Card_Strike')
+            if self.values.get('ulti',False):enabled.append(b'Ulti_Skill')
+            self.table(s,len(enabled),0)
+            for index,name in enumerate(enabled,1):
+                self.getglobal(s,b'_oracle_bc');self.getfield(s,-1,b'SkillType');self.getfield(s,-1,name);self.setglobal(s,b'_target_tag');self.top(s,-3);self.getglobal(s,b'_target_tag');self.rawseti(s,-2,index)
+            return 1
         self.method('GetSkillType',tags)
         def state(s):self.boolean(s,self.values['stateTriggerAdd']);return 1
         self.method('IsStateTriggerAdd',state);self.top(L,0)
         self.getglobal(L,b'table')
-        def contains(s):self.boolean(s,False);return 1 # Strike-only scope, queried Ulti tag absent.
+        def contains(s):self.boolean(s,self.values.get('ulti',False));return 1 # This path queries only Ulti_Skill.
         self.method('contains',contains);self.top(L,0)
 
 if __name__=='__main__':

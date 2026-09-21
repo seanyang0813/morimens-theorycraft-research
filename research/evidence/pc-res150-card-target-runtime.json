@@ -11,17 +11,17 @@
   "sourceHashes": {
     "comparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
     "fixture": "f3d486ba074366c94b668510a95d2bd86ee7b07d666e00de18cc79a2eefdd0a3",
+    "mixedFixture": "6e7fb4eddcc682925e964502c8041e0d14b95c4dc0f27880b79ebb1c04a8824e",
     "currentBattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
     "currentBattleUtilServer": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
     "currentBattleCmdServer": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9"
   },
-  "fixtures": 282,
-  "exactMatches": 282,
+  "fixtures": 506,
+  "exactMatches": 506,
   "mismatches": 0,
   "results": [],
-  "scope": "Actual resource-150 card and Strike-tag critical contributions, instruction-card target slot, state-trigger-add exclusion, and supplied block/barrier eligibility over the inherited resource-144 fixture domain.",
+  "scope": "Actual resource-150 card, Strike/Ulti tag critical contributions, Ulti and instruction-card target slots, state-trigger-add exclusion, and supplied block/barrier eligibility over the inherited resource-144 fixture domains.",
   "limitations": [
-    "Strike-only skill tag; no Ulti-tag target slot or mixed tag lists",
     "Barrier-state eligibility is supplied rather than resolved from a complete live state manager",
     "No offensive-input assembly, HP resolution, gameplay or holdout credit"
   ]

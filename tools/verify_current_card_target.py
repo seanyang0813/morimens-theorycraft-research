@@ -13,12 +13,14 @@ def sha(path):
 def main():
     module_dir = ROOT / "research/observations/current-res150-build51/modules"
     comparison_path = ROOT / "research/evidence/pc-res144-to-res150-combat-build.json"
-    fixture_path = ROOT / "tests/synthetic/original-card-target.json"
+    fixture_paths = [ROOT / "tests/synthetic/original-card-target.json",
+                     ROOT / "tests/synthetic/original-card-target-mixed.json"]
     output = ROOT / "research/evidence/pc-res150-card-target-runtime.json"
     comparison = json.loads(comparison_path.read_text(encoding="utf-8"))
     names = ("BattleConst", "BattleUtilServer", "BattleCmdServer")
     assets = {}
-    hashes = {"comparison": sha(comparison_path), "fixture": sha(fixture_path)}
+    hashes = {"comparison": sha(comparison_path), "fixture": sha(fixture_paths[0]),
+              "mixedFixture": sha(fixture_paths[1])}
     for name in names:
         path = module_dir / f"{name}.lua"
         rows = [row for row in comparison["combatModules"] if row["name"] == f"{name}.lua"]
@@ -28,7 +30,8 @@ def main():
             raise ValueError(f"Private current module does not match build comparison: {name}")
         assets[name] = {"output": str(path.relative_to(ROOT)).replace("\\", "/")}
         hashes[f"current{name}"] = sha(path)
-    fixtures = json.loads(fixture_path.read_text(encoding="utf-8"))["fixtures"]
+    fixtures = [fixture for path in fixture_paths
+                for fixture in json.loads(path.read_text(encoding="utf-8"))["fixtures"]]
     oracle = CardTargetOracle(assets)
     results = []
     for fixture in fixtures:
@@ -46,9 +49,8 @@ def main():
         "sourceHashes": hashes, "fixtures": len(results), "exactMatches": matches,
         "mismatches": len(results) - matches,
         "results": [row for row in results if not row["exactMatch"]],
-        "scope": "Actual resource-150 card and Strike-tag critical contributions, instruction-card target slot, state-trigger-add exclusion, and supplied block/barrier eligibility over the inherited resource-144 fixture domain.",
+        "scope": "Actual resource-150 card, Strike/Ulti tag critical contributions, Ulti and instruction-card target slots, state-trigger-add exclusion, and supplied block/barrier eligibility over the inherited resource-144 fixture domains.",
         "limitations": [
-            "Strike-only skill tag; no Ulti-tag target slot or mixed tag lists",
             "Barrier-state eligibility is supplied rather than resolved from a complete live state manager",
             "No offensive-input assembly, HP resolution, gameplay or holdout credit",
         ],
