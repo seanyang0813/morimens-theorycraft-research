@@ -1,0 +1,76 @@
+{
+  "kind": "LOCAL_ANDROID_SCRIPT_GROUP_MANIFEST",
+  "scope": "Packaged manifest and optional local capture only; no download, code execution, formula parity, or gameplay validation.",
+  "manifest": {
+    "path": "research/raw/android/unpacked/assets/_version.json",
+    "sha256": "bc8a229a9ca172e3cda1225256543b793782ce8a652cd794c8d53ec0062dd8b1",
+    "versionInfo": {
+      "branchName": "Z1G_2025_11_OB",
+      "resVersion": 83,
+      "buildVersion": 54,
+      "platformCode": "p10020",
+      "downloadPlatformCode": "P11222",
+      "hash": "2830de893b73123934a76b8e974480b8",
+      "size": 2672862
+    }
+  },
+  "manifestHashInterpretation": {
+    "status": "DIRECT_ANDROID_MATCH",
+    "algorithm": "MD5",
+    "file": "research/raw/android/unpacked/assets/luascript_update.archive",
+    "expectedManifestHash": "62386f6f226ca358ec93090458520d5e",
+    "computedMd5": "62386f6f226ca358ec93090458520d5e",
+    "size": 5844618
+  },
+  "scriptGroup": {
+    "count": 7,
+    "files": [
+      {
+        "file": "config.ab",
+        "expectedSize": 38082291,
+        "expectedManifestHash": "f0b0290b1c043680af6f6757b7717ab4",
+        "resourceIndex": 83
+      },
+      {
+        "file": "ejoysdk_lua.ab",
+        "expectedSize": 4068535,
+        "expectedManifestHash": "f4adeb2748935e226b97bef953f865aa",
+        "resourceIndex": 83
+      },
+      {
+        "file": "foundation.ab",
+        "expectedSize": 270555,
+        "expectedManifestHash": "b248ed377aefc3347087d0fa8d2336db",
+        "resourceIndex": 83
+      },
+      {
+        "file": "gamelauncher.ab",
+        "expectedSize": 4970,
+        "expectedManifestHash": "591e3bb44dc70b49554b8837b6cc22db",
+        "resourceIndex": 83
+      },
+      {
+        "file": "gamescript.ab",
+        "expectedSize": 9371912,
+        "expectedManifestHash": "c04cefafc1196bc6d4da0b45ed85d45b",
+        "resourceIndex": 83
+      },
+      {
+        "file": "share.ab",
+        "expectedSize": 761003,
+        "expectedManifestHash": "68a516489044a88b871576542fe8c350",
+        "resourceIndex": 83
+      },
+      {
+        "file": "vue.ab",
+        "expectedSize": 124534,
+        "expectedManifestHash": "5f8f727cb260cbca36968c78de401a54",
+        "resourceIndex": 83
+      }
+    ]
+  },
+  "capture": {
+    "directory": null,
+    "status": "AWAITING_CAPTURE"
+  }
+}

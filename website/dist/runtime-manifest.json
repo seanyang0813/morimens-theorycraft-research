@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "0e65629abe504d8d6ee6d0390b40157d015dbe5726b885d7d8b2a50dacade70b",
+  "fingerprint": "6a59c20126d5dbdf12ef7df1eedc5bfc1f4fdbd75d5cec9e0c73b79bd709dea2",
   "files": {
     "build-catalog.json": "2d1188fadcaff7a1eb53af580c509756b21a3f003065c7c9036aa919958a1496",
     "client-build-data.json": "f857768a28bb9865d35158ae47c0cf453dcc0ae9cb9114dd0082d1ea73f17c0f",
@@ -84,7 +84,7 @@
     "engine/ulti-energy-experiment.mjs": "6de163423a1e99c6be4922093711a797fa3012554589484c4ae5fd864bc35973",
     "engine/ulti-energy-gain.mjs": "08a4f4f32a7700422d6999e19e0e58fb2cace3bcbf7d0a910a9bcacf3b520468",
     "engine/wheel-stats.mjs": "484a5b4a51fbbd9c4759b27457ae9eec71fceb0420354823f54654edfb78fadd",
-    "rules.json": "28a2f0ceec5c82a0152f6ccf3a7df79ff9840037059309d8f5fd3f996241d558",
+    "rules.json": "3604ab75c31fbc9192540ec289f2951697b4335eb48c535935f0d649bed45a06",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af"
   }
 }

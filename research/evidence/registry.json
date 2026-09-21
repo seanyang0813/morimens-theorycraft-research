@@ -3800,6 +3800,33 @@
         }
       ],
       "gameplayValidation": false
+    },
+    {
+      "id": "ANDROID83:ScriptGroupManifest",
+      "status": "CONFIRMED_FROM_LOCAL_MANIFEST",
+      "claim": "The packaged Android resource-83 manifest identifies seven Scripts-group bundles by filename, size, resource index and MD5; the hash interpretation is established by a direct bundled Android startup-archive match",
+      "sources": [
+        {
+          "module": "Android _version.json",
+          "member": "versionInfo and Scripts group",
+          "bundle": "Android APK assets",
+          "sha256": "bc8a229a9ca172e3cda1225256543b793782ce8a652cd794c8d53ec0062dd8b1",
+          "privateSourcePath": "research/raw/android/unpacked/assets/_version.json"
+        },
+        {
+          "module": "luascript_update.archive",
+          "member": "direct manifest-hash proof sample",
+          "bundle": "Android APK assets",
+          "sha256": "1d8d936951837af84f3b4904ba75c6370b0fc414dac84a7c80be7ab75f8d441e",
+          "privateSourcePath": "research/raw/android/unpacked/assets/luascript_update.archive"
+        }
+      ],
+      "tests": [
+        "tools/verify_android_script_group.py",
+        "tests/android-script-manifest.test.mjs"
+      ],
+      "scope": "Read-only packaged manifest and optional local capture verification. Current script bundles are absent, so capture status remains AWAITING_CAPTURE; no download, combat-module comparison, formula parity or gameplay validation.",
+      "gameplayValidation": false
     }
   ]
 }
