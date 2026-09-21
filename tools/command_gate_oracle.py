@@ -3,8 +3,9 @@ import json,re
 from behit_hp_oracle import BeHitHpOracle,ROOT
 
 class CommandGateOracle(BeHitHpOracle):
-    def __init__(self):
-        super().__init__();L=self.state
+    def __init__(self, asset_overrides=None):
+        asset_overrides = asset_overrides or {}
+        super().__init__(asset_overrides);L=self.state
         names=set(re.findall(r'require\("([^"]+)"\)',(ROOT/'research/extracted/normalized/BattleEngine.decompiled.lua').read_text(encoding='utf-8')))
         def require(s):
             name=self.string(s,1,None).decode()
@@ -13,7 +14,7 @@ class CommandGateOracle(BeHitHpOracle):
             elif name in names:self.table(s,0,0)
             else:self.errors.append(name);self.nil(s)
             return 1
-        self.callback(require);self.setglobal(L,b'require');self.module('BattleCommand');self.setglobal(L,b'_gate_commands');self.module('BattleEngine');self.setglobal(L,b'_gate_engine_class')
+        self.callback(require);self.setglobal(L,b'require');self.module('BattleCommand',asset_overrides.get('BattleCommand'));self.setglobal(L,b'_gate_commands');self.module('BattleEngine',asset_overrides.get('BattleEngine'));self.setglobal(L,b'_gate_engine_class')
 
     def run(self,v):
         L=self.state;self.top(L,0);self.lookup=False;self.robot=False;self.flags=[]

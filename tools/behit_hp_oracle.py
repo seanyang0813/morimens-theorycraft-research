@@ -4,8 +4,9 @@ import json
 from hp_property_oracle import HpPropertyOracle, ROOT
 
 class BeHitHpOracle(HpPropertyOracle):
-    def __init__(self):
-        super().__init__();L=self.state
+    def __init__(self, asset_overrides=None):
+        asset_overrides = asset_overrides or {}
+        super().__init__(asset_overrides);L=self.state
         self.kind=self.lib.lua_type;self.kind.argtypes=[C.c_void_p,C.c_int];self.kind.restype=C.c_int
         self.tobool=self.lib.lua_toboolean;self.tobool.argtypes=[C.c_void_p,C.c_int];self.tobool.restype=C.c_int
         self.pushstring=self.lib.lua_pushstring;self.pushstring.argtypes=[C.c_void_p,C.c_char_p]
