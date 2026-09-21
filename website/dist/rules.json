@@ -4340,6 +4340,36 @@
       ]
     },
     {
+      "id": "PC144:MouchetteAttachedPipelineCrosscheck",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "The catalog-driven attached-card pipeline reproduces the earlier level-90 case-study pursuit component as three 4,489 hits and applies the +25 Strike-card property only after those hits",
+      "scope": "Exact component cross-check against explicit vectors in the earlier equipped case study. The source report remains incomplete for Arachne realm/team reconstruction. No live battle snapshot, effect callbacks, target acquisition, gameplay, holdout or publication credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Skill",
+          "member": "123159",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8"
+        },
+        {
+          "module": "Cmd",
+          "member": "123163",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2"
+        },
+        {
+          "module": "State",
+          "member": "123168",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8"
+        }
+      ],
+      "checks": [
+        "tools/verify_mouchette_attached_pipeline.mjs",
+        "tests/mouchette-attached-pipeline-crosscheck.test.mjs",
+        "research/evidence/mouchette-attached-pipeline-crosscheck.json",
+        "docs/ATTACHED_CARD_PIPELINE.md"
+      ]
+    },
+    {
       "id": "PC144:GeneratedCardPipeline",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
       "claim": "The authored generated-card pipeline composes tested request construction, Draw/Hand mutation, owner resolution, command-constructor requests and main-command Arg bindings while retaining each boundary trace and unresolved dependency",
