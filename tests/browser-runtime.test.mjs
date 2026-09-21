@@ -10,6 +10,8 @@ test('browser loader executes checked module bytes with the CLI runtime fingerpr
   const runtime=await loadVerifiedRuntime(options);assert.equal(runtime.runtimeFingerprint,verifyRuntimeManifest());
   const build='pc-res144-build51',timeline={schemaVersion:1,build,interveningEffects:'assumed-absent',target:{hp:1000,block:0},steps:[{id:'one',immune:false,puncture:false,scenario:{build,mode:'experimental',damageType:'PURE',effect:{build,category:'PURE',targetDead:false,baseDamage:10}}}]};
   assert.equal(runtime.runResearchTimeline(timeline).modeledHpLost,10);
+  const snapshot={schemaVersion:1,kind:'morimens-battle-property-snapshot-damage',build:'pc-res150-build51',snapshotStage:'battle-property-server-live',snapshotCompleteness:'complete-map',baseValue:100,skillArgsPlus:0,tags:['Card_Strike'],casterProperties:{crit:100,crit_damage:50,crit_damage_from_strikecard:10,crit_damage_per:0,damage_per2monster_boss:20},playerProperties:{dimension_fix_per:0},targetProperties:{hp:100,max_hp:100,block:0,be_damage_per:10,vulnerable_per:50},cardProperties:{},cardContext:{present:false,instructionCard:false,stateTriggerAdd:false},targetContext:{critRoll:null,targetBattleTag:'Boss',targetStateIds:[]}};
+  assert.equal(runtime.calculateSnapshotActiveDamage(snapshot).preHitDamage,317);
   const actions=runtime.syntheticCardActionExample();
   assert.equal(runtime.runCardActionTimeline(actions).modeledHpLost,500);
   actions.steps.reverse();assert.equal(runtime.runCardActionTimeline(actions).completed,false);
