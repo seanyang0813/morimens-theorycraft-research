@@ -31,7 +31,7 @@ export function runGeneratedCardPipeline(value,catalogSource=null){
     if(exact(context,['preCmdId','cmdId','rawSkillArguments']))return prepareCardCommandPlan({schemaVersion:1,kind:'morimens-card-command-plan',build:input.build,card:cardInput,preCmdId:context.preCmdId,cmdId:context.cmdId,rawSkillArguments:context.rawSkillArguments});
     if(exact(context,['preCmdId','progression'])){
       const resolved=prepareCatalogCardCommandPlan({schemaVersion:1,kind:'morimens-catalog-card-command-plan',build:input.build,card:cardInput,preCmdId:context.preCmdId,progression:context.progression},catalogSource);
-      return {...resolved.plan,catalogResolution:{sourceHashes:resolved.sourceHashes,skillId:resolved.skillId,commandId:resolved.commandId,baseArguments:resolved.baseArguments,prepared:resolved.prepared},unresolvedDependencies:resolved.unresolvedDependencies};
+      return {...resolved.plan,catalogResolution:{sourceHashes:resolved.sourceHashes,skillId:resolved.skillId,commandId:resolved.commandId,baseArguments:resolved.baseArguments,prepared:resolved.prepared,command:resolved.command},unresolvedDependencies:resolved.unresolvedDependencies};
     }
     throw new Error(`Explicit or catalog command context ${index} required`);
   });

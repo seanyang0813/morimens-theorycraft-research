@@ -5080,7 +5080,7 @@
     {
       "id": "PC144:CatalogGeneratedCardArgumentPlan",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
-      "claim": "The generated-card pipeline can resolve a real skill command and numeric base arguments from a matching-build hashed Skill/BattleApi catalog before applying copied card argument overrides",
+      "claim": "The generated-card pipeline resolves a real skill command, numeric base arguments and every ordered command row from matching-build hashed Skill/BattleApi/Cmd catalogs before applying copied card argument overrides",
       "sources": [
         {
           "module": "Skill",
@@ -5095,6 +5095,13 @@
           "bundle": "pc\\downloaded\\config.ab",
           "sha256": "22d7e4cdc4746a1c3b543a97a5d68cca4b7b184c92ef9d4d19651da8189db15c",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\-6894225089628909939_BattleApi.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "133374",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
         },
         {
           "module": "BattleCmdServer",
@@ -5121,7 +5128,7 @@
         "tests/card-command-plan.test.mjs",
         "research/examples/generated-arachne-catalog-pipeline.json"
       ],
-      "scope": "Authored composition over separately tested creation, ownership, progression, numeric expression, normalization and command-request boundaries. The real resource-144 Arachne Strike fixture resolves command 133374 and explicit attack/state inputs; mismatched catalog builds are rejected. Progression/live-state inputs and hashed exports remain explicit; nonnumeric parameters, command execution, gameplay and holdout validation are excluded.",
+      "scope": "Authored composition over separately tested creation, ownership, progression, numeric expression, normalization and command-request boundaries. The real resource-144 Arachne Strike fixture resolves command 133374, explicit attack/state inputs and all four ordered effects; mismatched catalog builds are rejected. Progression/live-state inputs and hashed exports remain explicit; command-row execution, gameplay and holdout validation are excluded.",
       "gameplayValidation": false
     },
     {
