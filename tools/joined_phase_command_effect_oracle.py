@@ -2,7 +2,7 @@
 import ctypes as C
 import json
 
-from phase_cap_expression_oracle import PhaseCapExpressionOracle
+from phase_command_parser_oracle import PhaseCommandParserOracle
 from phase_live_layer_effect_oracle import PhaseLiveLayerOracle
 from runtime_oracle import ROOT
 
@@ -15,7 +15,7 @@ class JoinedPhaseCommandEffectOracle(PhaseLiveLayerOracle):
         60409: b'_phase_damage_state',
     }
 
-    def __init__(self, add_parent_asset=None, func_asset=None):
+    def __init__(self, add_parent_asset=None, func_asset=None, parser_asset=None):
         super().__init__(add_parent_asset)
         L = self.state
         self.tobool = self.lib.lua_toboolean
@@ -55,7 +55,7 @@ class JoinedPhaseCommandEffectOracle(PhaseLiveLayerOracle):
         self.setglobal(L, b'_joined_remove_effect')
         self.module('BEMonsterChangeSkill')
         self.setglobal(L, b'_joined_skill_effect')
-        self.expressions = PhaseCapExpressionOracle(func_asset)
+        self.expressions = PhaseCommandParserOracle(func_asset, parser_asset)
         self.commands = json.loads((ROOT / 'research/extracted/config/Cmd.json').read_text(encoding='utf-8'))
         if self.errors:
             raise RuntimeError(self.errors)
@@ -260,17 +260,19 @@ if __name__ == '__main__':
         {'maxHp': 12345, 'phaseId': 60408, 'phaseLayers': 126, 'counter': 999999990, 'hpLoss': 125, 'commandId': 60405},
     ]
     fixtures = [{'input': case, 'expected': oracle.run_joined(case)} for case in cases]
-    names = ('FuncTable', 'Cmd', 'BEAddState', 'BEAddStateParent', 'BESubStateLayer', 'BERemoveState', 'BEMonsterChangeSkill', 'BattleStateMgrServer', 'BattleStateServer')
+    names = ('FuncTable', 'Cmd', 'BattleCmdParser', 'BEAddState', 'BEAddStateParent', 'BESubStateLayer', 'BERemoveState', 'BEMonsterChangeSkill', 'BattleStateMgrServer', 'BattleStateServer')
     output = {
         'kind': 'SYNTHETIC_ORIGINAL_RUNTIME',
         'build': 'pc-res144-build51',
         'sourceHashes': {name: oracle.assets[name + '.lua']['sha256'] for name in names},
         'scope': (
-            'Python row iterator joins original compiled Cond/Para closures for commands 60406/60405 to '
+            'Python row iterator sends command 60406/60405 Cond/Para strings through the original command '
+            'parser and original compiled closures, then joins their resolved values to '
             'original add/subtract/remove/monster-skill effect bodies over one original manager registry and '
             'original existing-state layer methods. Destination states 46441/60408 and counter 60407 are '
             'pre-created live zero-layer adapters; LifeEnd marks deletion and other callbacks are observers. '
-            'No original command parser/effect scheduler, state construction/property bodies, gameplay or holdout.'
+            'The target expression exposes only max_hp and GetStateLayer. No original CheckCondition row '
+            'iterator/effect scheduler, state construction/property bodies, gameplay or holdout.'
         ),
         'fixtures': fixtures,
     }
