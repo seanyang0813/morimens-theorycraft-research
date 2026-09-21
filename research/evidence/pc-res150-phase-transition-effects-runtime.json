@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "method": "byte-identical phase-transition effect modules carry original-runtime fixtures forward",
+  "status": "BYTE_IDENTICAL_FIXTURES_CARRIED_FORWARD",
+  "sourceHashes": {
+    "fixture": "4dbb39a8afe8cfa5f578b3a1006e6612b506af3ea3c98e21bb2355c950673ee3",
+    "installedShareBundle": "b62601a3391a5999ebb196dec5e52c0660d95c19655ac3b19f13299806c38907",
+    "modules": {
+      "BERemoveState.lua": "25b1f0a562714029c9cedbf075b7781f5c8afb9b15d0a36d2a91dc660e5512a0",
+      "BEMonsterChangeSkill.lua": "87e05b9464377422dcb61c1818d8f85e8e7487315dbc7bbb9c1c86525eb26d57",
+      "BattleStateMgrServer.lua": "dc7653a427f1fe0bfd21b7495980cc173f4cb298e7dd7086a224ee40640c11a4"
+    }
+  },
+  "fixtures": 48,
+  "carriedForward": 48,
+  "scope": "Installed BERemoveState, BEMonsterChangeSkill and BattleStateMgrServer bytes exactly match the modules used by the original-runtime fixture suite.",
+  "limitations": [
+    "State LifeEnd and event creation are observers in the inherited fixtures",
+    "No property removal, skill-component internals, scheduler, gameplay or holdout credit"
+  ]
+}

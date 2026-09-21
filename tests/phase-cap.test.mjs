@@ -7,6 +7,7 @@ assert.equal(result.trace[0].after.phase.counter,200);
 assert.equal(result.trace[1].before.phase.counter,200);
 assert.deepEqual(result.ending,{hp:670,block:0,phase:{...phase,phaseId:60408,immune:true}});
 assert.ok(result.evidence.includes('PC144:PhaseCapExpressions'));
+assert.ok(result.evidence.includes('PC144:PhaseTransitionEffects'));
 assert.equal(result.finalDamage,null);
 const shield=simulatePhaseCapHits({hp:1000,block:75,phase,hits:[200,400,100]});
 assert.deepEqual(shield.trace.map(h=>h.hpLost),[125,205,0]);

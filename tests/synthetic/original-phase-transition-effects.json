@@ -1,0 +1,1044 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BERemoveState": "25b1f0a562714029c9cedbf075b7781f5c8afb9b15d0a36d2a91dc660e5512a0",
+    "BEMonsterChangeSkill": "87e05b9464377422dcb61c1818d8f85e8e7487315dbc7bbb9c1c86525eb26d57",
+    "BattleStateMgrServer": "dc7653a427f1fe0bfd21b7495980cc173f4cb298e7dd7086a224ee40640c11a4"
+  },
+  "scope": "Original BERemoveState.DoEffect connected to original BattleStateMgrServer.GetState/RemoveState and original BEMonsterChangeSkill.DoEffect. Explicit target registry; state LifeEnd and event creation are observers. Covers zero/one/two targets, absent/live/deleted states, both phase skill IDs/slots and extra remove parameters. No original state LifeEnd body, property removal, skill component internals, scheduler, gameplay or holdout credit.",
+  "fixtures": [
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 0,
+        "stateStatus": "absent",
+        "stateId": 60407,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": []
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 0,
+        "stateStatus": "absent",
+        "stateId": 60407,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 125
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": []
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 0,
+        "stateStatus": "absent",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": []
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 0,
+        "stateStatus": "absent",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 125
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": []
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 0,
+        "stateStatus": "live",
+        "stateId": 60407,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": []
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 0,
+        "stateStatus": "live",
+        "stateId": 60407,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 125
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": []
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 0,
+        "stateStatus": "live",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": []
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 0,
+        "stateStatus": "live",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 125
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": []
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 0,
+        "stateStatus": "deleted",
+        "stateId": 60407,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": []
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 0,
+        "stateStatus": "deleted",
+        "stateId": 60407,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 125
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": []
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 0,
+        "stateStatus": "deleted",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": []
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 0,
+        "stateStatus": "deleted",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 125
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": []
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 1,
+        "stateStatus": "absent",
+        "stateId": 60407,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": [
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 1,
+        "stateStatus": "absent",
+        "stateId": 60407,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 125
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": [
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 1,
+        "stateStatus": "absent",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": [
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 1,
+        "stateStatus": "absent",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 125
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": [
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 1,
+        "stateStatus": "live",
+        "stateId": 60407,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          {
+            "event": "lifeEnd",
+            "target": 1,
+            "stateId": 60407
+          },
+          {
+            "event": "stateRemoveEvent"
+          }
+        ],
+        "liveStateAfter": [
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 1,
+        "stateStatus": "live",
+        "stateId": 60407,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 125
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          {
+            "event": "lifeEnd",
+            "target": 1,
+            "stateId": 60407
+          },
+          {
+            "event": "stateRemoveEvent"
+          }
+        ],
+        "liveStateAfter": [
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 1,
+        "stateStatus": "live",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          {
+            "event": "lifeEnd",
+            "target": 1,
+            "stateId": 60409
+          },
+          {
+            "event": "stateRemoveEvent"
+          }
+        ],
+        "liveStateAfter": [
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 1,
+        "stateStatus": "live",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 125
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          {
+            "event": "lifeEnd",
+            "target": 1,
+            "stateId": 60409
+          },
+          {
+            "event": "stateRemoveEvent"
+          }
+        ],
+        "liveStateAfter": [
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 1,
+        "stateStatus": "deleted",
+        "stateId": 60407,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": [
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 1,
+        "stateStatus": "deleted",
+        "stateId": 60407,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 125
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": [
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 1,
+        "stateStatus": "deleted",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": [
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 1,
+        "stateStatus": "deleted",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 125
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": [
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 2,
+        "stateStatus": "absent",
+        "stateId": 60407,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": [
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 2,
+        "stateStatus": "absent",
+        "stateId": 60407,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 125
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": [
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 2,
+        "stateStatus": "absent",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": [
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 2,
+        "stateStatus": "absent",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 125
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": [
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 2,
+        "stateStatus": "live",
+        "stateId": 60407,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          {
+            "event": "lifeEnd",
+            "target": 1,
+            "stateId": 60407
+          },
+          {
+            "event": "stateRemoveEvent"
+          },
+          {
+            "event": "lifeEnd",
+            "target": 2,
+            "stateId": 60407
+          },
+          {
+            "event": "stateRemoveEvent"
+          }
+        ],
+        "liveStateAfter": [
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 2,
+        "stateStatus": "live",
+        "stateId": 60407,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 125
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          {
+            "event": "lifeEnd",
+            "target": 1,
+            "stateId": 60407
+          },
+          {
+            "event": "stateRemoveEvent"
+          },
+          {
+            "event": "lifeEnd",
+            "target": 2,
+            "stateId": 60407
+          },
+          {
+            "event": "stateRemoveEvent"
+          }
+        ],
+        "liveStateAfter": [
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 2,
+        "stateStatus": "live",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          {
+            "event": "lifeEnd",
+            "target": 1,
+            "stateId": 60409
+          },
+          {
+            "event": "stateRemoveEvent"
+          },
+          {
+            "event": "lifeEnd",
+            "target": 2,
+            "stateId": 60409
+          },
+          {
+            "event": "stateRemoveEvent"
+          }
+        ],
+        "liveStateAfter": [
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 2,
+        "stateStatus": "live",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 125
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          {
+            "event": "lifeEnd",
+            "target": 1,
+            "stateId": 60409
+          },
+          {
+            "event": "stateRemoveEvent"
+          },
+          {
+            "event": "lifeEnd",
+            "target": 2,
+            "stateId": 60409
+          },
+          {
+            "event": "stateRemoveEvent"
+          }
+        ],
+        "liveStateAfter": [
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 2,
+        "stateStatus": "deleted",
+        "stateId": 60407,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": [
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 2,
+        "stateStatus": "deleted",
+        "stateId": 60407,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 125
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": [
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 2,
+        "stateStatus": "deleted",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": [
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "remove",
+        "targets": 2,
+        "stateStatus": "deleted",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 125
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": [
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "skill",
+        "targets": 0,
+        "stateStatus": "absent",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": []
+      }
+    },
+    {
+      "input": {
+        "effect": "skill",
+        "targets": 0,
+        "stateStatus": "absent",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 2,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": []
+      }
+    },
+    {
+      "input": {
+        "effect": "skill",
+        "targets": 0,
+        "stateStatus": "absent",
+        "stateId": 60409,
+        "skillId": 60398,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": []
+      }
+    },
+    {
+      "input": {
+        "effect": "skill",
+        "targets": 0,
+        "stateStatus": "absent",
+        "stateId": 60409,
+        "skillId": 60398,
+        "slot": 2,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [],
+        "liveStateAfter": []
+      }
+    },
+    {
+      "input": {
+        "effect": "skill",
+        "targets": 1,
+        "stateStatus": "absent",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          {
+            "event": "changeSkill",
+            "target": 1,
+            "skillId": 60397.0,
+            "slot": 1.0
+          }
+        ],
+        "liveStateAfter": [
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "skill",
+        "targets": 1,
+        "stateStatus": "absent",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 2,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          {
+            "event": "changeSkill",
+            "target": 1,
+            "skillId": 60397.0,
+            "slot": 2.0
+          }
+        ],
+        "liveStateAfter": [
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "skill",
+        "targets": 1,
+        "stateStatus": "absent",
+        "stateId": 60409,
+        "skillId": 60398,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          {
+            "event": "changeSkill",
+            "target": 1,
+            "skillId": 60398.0,
+            "slot": 1.0
+          }
+        ],
+        "liveStateAfter": [
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "skill",
+        "targets": 1,
+        "stateStatus": "absent",
+        "stateId": 60409,
+        "skillId": 60398,
+        "slot": 2,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          {
+            "event": "changeSkill",
+            "target": 1,
+            "skillId": 60398.0,
+            "slot": 2.0
+          }
+        ],
+        "liveStateAfter": [
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "skill",
+        "targets": 2,
+        "stateStatus": "absent",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          {
+            "event": "changeSkill",
+            "target": 1,
+            "skillId": 60397.0,
+            "slot": 1.0
+          },
+          {
+            "event": "changeSkill",
+            "target": 2,
+            "skillId": 60397.0,
+            "slot": 1.0
+          }
+        ],
+        "liveStateAfter": [
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "skill",
+        "targets": 2,
+        "stateStatus": "absent",
+        "stateId": 60409,
+        "skillId": 60397,
+        "slot": 2,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          {
+            "event": "changeSkill",
+            "target": 1,
+            "skillId": 60397.0,
+            "slot": 2.0
+          },
+          {
+            "event": "changeSkill",
+            "target": 2,
+            "skillId": 60397.0,
+            "slot": 2.0
+          }
+        ],
+        "liveStateAfter": [
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "skill",
+        "targets": 2,
+        "stateStatus": "absent",
+        "stateId": 60409,
+        "skillId": 60398,
+        "slot": 1,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          {
+            "event": "changeSkill",
+            "target": 1,
+            "skillId": 60398.0,
+            "slot": 1.0
+          },
+          {
+            "event": "changeSkill",
+            "target": 2,
+            "skillId": 60398.0,
+            "slot": 1.0
+          }
+        ],
+        "liveStateAfter": [
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "input": {
+        "effect": "skill",
+        "targets": 2,
+        "stateStatus": "absent",
+        "stateId": 60409,
+        "skillId": 60398,
+        "slot": 2,
+        "extraRemoveParam": 0
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          {
+            "event": "changeSkill",
+            "target": 1,
+            "skillId": 60398.0,
+            "slot": 2.0
+          },
+          {
+            "event": "changeSkill",
+            "target": 2,
+            "skillId": 60398.0,
+            "slot": 2.0
+          }
+        ],
+        "liveStateAfter": [
+          false,
+          false
+        ]
+      }
+    }
+  ]
+}

@@ -3281,6 +3281,40 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC144:PhaseTransitionEffects",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Phase removal uses original manager lookup/removal and affects only live matching states; monster skill changes forward the configured skill and slot to every target",
+      "sources": [
+        {
+          "module": "BERemoveState",
+          "member": "DoEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "25b1f0a562714029c9cedbf075b7781f5c8afb9b15d0a36d2a91dc660e5512a0",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-363091799385056343_BERemoveState.lua"
+        },
+        {
+          "module": "BEMonsterChangeSkill",
+          "member": "DoEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "87e05b9464377422dcb61c1818d8f85e8e7487315dbc7bbb9c1c86525eb26d57",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-1776778880729431355_BEMonsterChangeSkill.lua"
+        },
+        {
+          "module": "BattleStateMgrServer",
+          "member": "GetState,RemoveState",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "dc7653a427f1fe0bfd21b7495980cc173f4cb298e7dd7086a224ee40640c11a4",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-1150872242716671007_BattleStateMgrServer.lua"
+        }
+      ],
+      "tests": [
+        "tools/phase_transition_effect_oracle.py",
+        "tests/phase-transition-effects.test.mjs"
+      ],
+      "scope": "48 original-runtime cases over zero/one/two targets, absent/live/deleted states, both phase state/skill IDs, slots and extra remove parameters. State LifeEnd and event creation are observers; no property removal, skill-component internals, scheduler, gameplay or holdout credit.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC144:PveInitialPlayerProperties",
       "status": "CONFIRMED_FROM_CODE",
       "claim": "PVEGameplay passes battleInitData.copyProperties to the player, separately from Awakener attrs; property construction ceils supplied values",
@@ -5014,6 +5048,32 @@
         "tests/phase-cap-expressions.test.mjs"
       ],
       "scope": "Actual current FuncTable closures for every Cond/Para expression in both phase commands. Python row iteration and separately recovered integer mutations; no original parser, effect body, state manager, scheduler, gameplay or holdout credit.",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC150:PhaseTransitionEffects",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "Installed resource-150 remove-state, monster-skill-change and state-manager modules are byte-identical to the modules that pass all 48 phase-transition effect fixtures",
+      "sources": [
+        {
+          "module": "PC resource-150 installed share bundle",
+          "member": "BERemoveState, BEMonsterChangeSkill and BattleStateMgrServer hashes",
+          "bundle": "installed local client; hashes only",
+          "sha256": "b62601a3391a5999ebb196dec5e52c0660d95c19655ac3b19f13299806c38907"
+        },
+        {
+          "module": "PC resource-150 phase-transition effect comparison",
+          "member": "byte-identical fixture carry-forward",
+          "bundle": "copied XLua runtime; hashes only",
+          "sha256": "d32fd47ce0dfaf2bd2226e587916b10f4d853444a9f2ca33b8cfce504592d194"
+        }
+      ],
+      "tests": [
+        "tools/phase_transition_effect_oracle.py",
+        "tools/verify_current_phase_transition_effects.py",
+        "tests/phase-transition-effects.test.mjs"
+      ],
+      "scope": "Inherited original effect/manager cases; state LifeEnd and event creation remain observers. No property removal, skill-component internals, scheduler, gameplay or holdout credit.",
       "gameplayValidation": false
     },
     {
