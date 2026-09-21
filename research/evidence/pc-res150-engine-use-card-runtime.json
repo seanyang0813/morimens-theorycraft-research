@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "method": "BattleEngine.lg_UseCard",
+  "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+  "sourceHashes": {
+    "comparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
+    "fixture": "2d04b9ede1b980cc614d5e6991a01b8e376fe950228d6762d2fa45c544b3640d",
+    "currentBattleEngine": "1823d5b962605ccd42ba605840490235fb0c9b5fd751a112625c30101a34535e"
+  },
+  "fixtures": 6,
+  "exactMatches": 6,
+  "mismatches": 0,
+  "results": [],
+  "scope": "Actual resource-150 use-card dispatch across six branch scenarios with explicit card/player adapters.",
+  "limitations": [
+    "No payment, effect execution, HP, gameplay or network send"
+  ]
+}

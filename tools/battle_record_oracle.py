@@ -14,6 +14,7 @@ class BattleRecordOracle(TargetOracle):
         self.tobool=self.lib.lua_toboolean;self.tobool.argtypes=[C.c_void_p,C.c_int];self.tobool.restype=C.c_int
         self.rawlen=self.lib.lua_rawlen;self.rawlen.argtypes=[C.c_void_p,C.c_int];self.rawlen.restype=C.c_size_t
         self.rawgeti=self.lib.lua_rawgeti;self.rawgeti.argtypes=[C.c_void_p,C.c_int,C.c_int64];self.rawgeti.restype=C.c_int
+        self.absindex=self.lib.lua_absindex;self.absindex.argtypes=[C.c_void_p,C.c_int];self.absindex.restype=C.c_int
         self.module('BattleRenderEvent',asset_overrides.get('BattleRenderEvent'));self.setglobal(L,b'_record_events')
         self.module('BattleCommand',asset_overrides.get('BattleCommand'));self.setglobal(L,b'_record_commands')
         known={b'System.System':b'_oracle_config_system',b'Battle.BattleConst':b'_oracle_bc',b'Battle.DbgEngine.Event.BattleRenderEvent':b'_record_events',b'Battle.DbgEngine.Event.BattleCommand':b'_record_commands'}
@@ -34,7 +35,7 @@ class BattleRecordOracle(TargetOracle):
         self.getfield(L,index,name.encode());raw=self.string(L,-1,None);self.top(L,-2);return raw.decode() if raw else None
 
     def _same_global(self,L,index,name):
-        self.getglobal(L,name);same=bool(self.rawequal(L,index,-1));self.top(L,-2);return same
+        index=self.absindex(L,index);self.getglobal(L,name);same=bool(self.rawequal(L,index,-1));self.top(L,-2);return same
 
     def run_case(self,case):
         L=self.state;self.top(L,0);self.errors.clear();captured=[]

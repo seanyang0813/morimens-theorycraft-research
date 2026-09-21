@@ -3673,6 +3673,31 @@
       ]
     },
     {
+      "id": "PC150:BattleEngine.UseCardDispatch",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "The installed resource-150 BattleEngine reproduces all 6 inherited use-card dispatch fixtures exactly",
+      "scope": "Actual resource-150 missing-card, denied, successful, server-target clearing, client-target preservation/replacement and per-turn card-limit branches. Player CanUseCard/UseCard, payment, effect execution, HP, network send, gameplay and holdout credit remain outside scope.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 build comparison",
+          "member": "download manifest and selected TextAsset hashes",
+          "sha256": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5"
+        },
+        {
+          "module": "PC resource-150 use-card runtime comparison",
+          "member": "lg_UseCard fixture-domain result",
+          "sha256": "4d767549c07037b2c315c33ae90db540084a1bc53b0d4415742620cd0fc31dc0"
+        }
+      ],
+      "checks": [
+        "tools/engine_use_card_oracle.py",
+        "tools/verify_current_engine_use_card.py",
+        "tests/engine-use-card.test.mjs",
+        "tests/current-pc-build-evidence.test.mjs"
+      ]
+    },
+    {
       "id": "PC150:BattleRecord.SelectedFrames",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
       "claim": "The installed resource-150 BattleRecord reproduces all 14 inherited selected replay-frame and queue fixtures exactly",

@@ -1,0 +1,213 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleEngine": "0ee07c8fd06f29787f8139306b55d16c726eaf8cabcd1ad0b128d907c8dbbeea",
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+  },
+  "scope": "Original BattleEngine.lg_UseCard across missing, denied, successful, client-target replacement and per-turn-limit branches. Card/player methods and CommandResult are explicit observers; no payment, effect execution, HP, gameplay or network send.",
+  "fixtures": [
+    {
+      "input": {
+        "name": "missing-card",
+        "camp1": false,
+        "usedCount": 0,
+        "maxPlay": 299,
+        "hasCard": false,
+        "clientTarget": false,
+        "cardObject": false,
+        "replaceTargets": false,
+        "canUse": true
+      },
+      "expected": {
+        "return": [
+          false,
+          1.0
+        ],
+        "trace": [],
+        "canUseArgs": [],
+        "commandResults": [
+          {
+            "ret": false,
+            "targets": "original",
+            "newDeck": null,
+            "hand": null
+          }
+        ],
+        "finalTargets": "original"
+      }
+    },
+    {
+      "input": {
+        "name": "server-target-success",
+        "camp1": false,
+        "usedCount": 0,
+        "maxPlay": 299,
+        "hasCard": true,
+        "clientTarget": false,
+        "cardObject": false,
+        "replaceTargets": false,
+        "canUse": true
+      },
+      "expected": {
+        "return": [
+          true,
+          null
+        ],
+        "trace": [
+          "useCard:None"
+        ],
+        "canUseArgs": [
+          {
+            "targets": null,
+            "replacement": null
+          }
+        ],
+        "commandResults": [
+          {
+            "ret": true,
+            "targets": null,
+            "newDeck": 4.0,
+            "hand": "hand"
+          }
+        ],
+        "finalTargets": null
+      }
+    },
+    {
+      "input": {
+        "name": "server-target-denied",
+        "camp1": false,
+        "usedCount": 0,
+        "maxPlay": 299,
+        "hasCard": true,
+        "clientTarget": false,
+        "cardObject": false,
+        "replaceTargets": false,
+        "canUse": false
+      },
+      "expected": {
+        "return": [
+          false,
+          77.0
+        ],
+        "trace": [],
+        "canUseArgs": [
+          {
+            "targets": null,
+            "replacement": null
+          }
+        ],
+        "commandResults": [
+          {
+            "ret": false,
+            "targets": null,
+            "newDeck": 4.0,
+            "hand": null
+          }
+        ],
+        "finalTargets": null
+      }
+    },
+    {
+      "input": {
+        "name": "client-no-object",
+        "camp1": false,
+        "usedCount": 0,
+        "maxPlay": 299,
+        "hasCard": true,
+        "clientTarget": true,
+        "cardObject": false,
+        "replaceTargets": false,
+        "canUse": true
+      },
+      "expected": {
+        "return": [
+          true,
+          null
+        ],
+        "trace": [
+          "useCard:original"
+        ],
+        "canUseArgs": [
+          {
+            "targets": "original",
+            "replacement": null
+          }
+        ],
+        "commandResults": [
+          {
+            "ret": true,
+            "targets": "original",
+            "newDeck": 4.0,
+            "hand": "hand"
+          }
+        ],
+        "finalTargets": "original"
+      }
+    },
+    {
+      "input": {
+        "name": "client-replaced",
+        "camp1": false,
+        "usedCount": 0,
+        "maxPlay": 299,
+        "hasCard": true,
+        "clientTarget": true,
+        "cardObject": true,
+        "replaceTargets": true,
+        "canUse": true
+      },
+      "expected": {
+        "return": [
+          true,
+          null
+        ],
+        "trace": [
+          "replaceTargets:original",
+          "useCard:replacement"
+        ],
+        "canUseArgs": [
+          {
+            "targets": "replacement",
+            "replacement": "replacement"
+          }
+        ],
+        "commandResults": [
+          {
+            "ret": true,
+            "targets": "replacement",
+            "newDeck": 4.0,
+            "hand": "hand"
+          }
+        ],
+        "finalTargets": "replacement"
+      }
+    },
+    {
+      "input": {
+        "name": "camp1-play-limit",
+        "camp1": true,
+        "usedCount": 299,
+        "maxPlay": 299,
+        "hasCard": true,
+        "clientTarget": false,
+        "cardObject": false,
+        "replaceTargets": false,
+        "canUse": true
+      },
+      "expected": {
+        "return": [
+          true,
+          null
+        ],
+        "trace": [
+          "forcedBoutEnd"
+        ],
+        "canUseArgs": [],
+        "commandResults": [],
+        "finalTargets": "original"
+      }
+    }
+  ]
+}
