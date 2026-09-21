@@ -4659,7 +4659,7 @@
     {
       "id": "PC150:SkillPhaseSelectedBoundary",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
-      "claim": "Resource 150 reproduces all 137 inherited phase-cleanup, StateOwner target-handoff, ArgN lookup and connected skill-argument fixtures exactly",
+      "claim": "Resource 150 reproduces all 239 inherited phase-cleanup, target-handoff, argument, timing and command-row-order fixtures exactly",
       "sources": [
         {
           "module": "PC resource-150 skill-phase module comparison",
@@ -4671,7 +4671,7 @@
           "module": "PC resource-150 selected skill-phase runtime comparison",
           "member": "fixture-domain result",
           "bundle": "copied XLua runtime; hashes only",
-          "sha256": "bb793fe88b458888df5633b4cf0b7dab4335d58150230d3bd254c03e5469d0d6"
+          "sha256": "e1f8d064771453b8b818909124e3f7df060c289dfccc8d2f28b9cc5fad1751e6"
         }
       ],
       "tests": [
@@ -4680,9 +4680,11 @@
         "tests/skill-phase-finish.test.mjs",
         "tests/state-owner-target.test.mjs",
         "tests/command-arguments.test.mjs",
-        "tests/skill-arguments.test.mjs"
+        "tests/skill-arguments.test.mjs",
+        "tests/command-delays.test.mjs",
+        "tools/command_row_order_oracle.py"
       ],
-      "scope": "BattleCmdServer phase cleanup and skill-argument construction; BattleCmdParser StateOwner selection, target handoff and ArgN lookup. TriggerCmd body, target-expression initialization, event listener dispatch, complete card phases, gameplay and holdout credit remain outside scope.",
+      "scope": "BattleCmdServer phase cleanup, skill-argument construction, delay planning and row ordering; BattleCmdParser StateOwner selection, target handoff and ArgN lookup. TriggerCmd body, target-expression initialization, event listener dispatch, complete card phases, gameplay and holdout credit remain outside scope.",
       "gameplayValidation": false
     },
     {

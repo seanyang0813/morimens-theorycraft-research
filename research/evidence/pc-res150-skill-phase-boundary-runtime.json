@@ -12,14 +12,16 @@
     "targetFixture": "1dc2199b528890f66e1725be8d457d1436a636336cc8d81a05454eebccd36659",
     "argumentFixture": "313b1959b711720efac15a006155050f66b10c4546f9f6a1392e6ffcf01ad15d",
     "skillArgumentFixture": "b282684dc118ab315e1de9b660e1cb19b8d0cfae8712d59ad954704c0be97f16",
+    "rowFixture": "391a3bb4698e7467ae605417ff0ca53872a42e2ca2b13e74ba5e14e3998055d4",
+    "delayFixture": "36d05cda618824febe2993a10f04b9b655f516e4286c5f931fbd6473ec664e6c",
     "currentBattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
     "currentBattleUtilServer": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
     "currentBattlePropertyServer": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5",
     "currentBattleCmdServer": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9",
     "currentBattleCmdParser": "237b93d625372c9b334ffc4ee3c7b535e152b4fdf127dce461c2fe30f88ee92e"
   },
-  "fixtures": 137,
-  "exactMatches": 137,
+  "fixtures": 239,
+  "exactMatches": 239,
   "mismatches": 0,
   "domains": {
     "phaseFinish": {
@@ -41,10 +43,20 @@
       "fixtures": 108,
       "exactMatches": 108,
       "mismatches": 0
+    },
+    "commandDelays": {
+      "fixtures": 96,
+      "exactMatches": 96,
+      "mismatches": 0
+    },
+    "commandRowOrder": {
+      "fixtures": 6,
+      "exactMatches": 6,
+      "mismatches": 0
     }
   },
   "results": [],
-  "scope": "Resource-150 BattleCmdServer phase cleanup and skill-argument construction plus BattleCmdParser StateOwner selection, target handoff and ArgN lookup, with byte-identical phase and target-expression modules.",
+  "scope": "Resource-150 BattleCmdServer phase cleanup, skill-argument construction, delay planning and row ordering plus BattleCmdParser StateOwner selection, target handoff and ArgN lookup, with byte-identical phase and target-expression modules.",
   "limitations": [
     "No TriggerCmd body, target-expression initialization, event listener dispatch, complete card phase, gameplay or holdout credit"
   ]

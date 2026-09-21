@@ -4,6 +4,7 @@ import itertools
 import json
 from target_runtime_oracle import TargetOracle, ROOT
 class DelayOracle(TargetOracle):
+    def __init__(self,asset_overrides=None):super().__init__(asset_overrides)
     def run(self,v):
         L=self.state;self.top(L,0);reads=[]
         push=self.lib.lua_pushstring;push.argtypes=[C.c_void_p,C.c_char_p];push.restype=C.c_char_p

@@ -3,6 +3,7 @@ import ctypes as C
 import itertools,json
 from target_runtime_oracle import TargetOracle,ROOT
 class RowOracle(TargetOracle):
+    def __init__(self,asset_overrides=None):super().__init__(asset_overrides)
     def run(self,skip,perform):
         L=self.state;self.top(L,0);events=[]
         raw=self.lib.lua_rawseti;raw.argtypes=[C.c_void_p,C.c_int,C.c_longlong]
