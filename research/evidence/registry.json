@@ -6422,6 +6422,32 @@
       "gameplayValidation": false
     },
     {
+      "id": "ANDROID83:StartupLuaArchiveInspection",
+      "status": "CONFIRMED_FROM_LOCAL_ARCHIVE_PARSER",
+      "claim": "The protected packaged Android startup archive deserializes without execution into seven Lua prototypes and 109 string constants; its one literal URL is telemetry and no literal resource-download URL is present",
+      "sources": [
+        {
+          "module": "Android packaged startup Lua archive",
+          "member": "prototype and constant inventory",
+          "bundle": "Android APK assets",
+          "sha256": "1d8d936951837af84f3b4904ba75c6370b0fc414dac84a7c80be7ab75f8d441e",
+          "privateSourcePath": "research/raw/android/unpacked/assets/luascript_update.archive"
+        },
+        {
+          "module": "Sanitized Android startup Lua inspection",
+          "member": "aggregate counts and literal URL classification",
+          "bundle": "copied legitimate parser; no chunk execution",
+          "sha256": "ff0dc49404be38ad1a205649418aff914939afc39dbc20f576f90d94cada7e8d"
+        }
+      ],
+      "tests": [
+        "tools/inspect_android_startup_lua.py",
+        "tests/android-startup-lua-inspection.test.mjs"
+      ],
+      "scope": "Static protected-chunk deserialization with the copied Windows parser over startup bytes already proven identical across APK and PC copies. No endpoint value is published. Absence is confined to literal URLs in this telemetry startup component; dynamic/server-supplied/later-bundle endpoints, Android runtime execution, downloaded combat modules, formula parity, gameplay and holdout credit remain unresolved.",
+      "gameplayValidation": false
+    },
+    {
       "id": "ANDROID83:ScriptGroupManifest",
       "status": "CONFIRMED_FROM_LOCAL_MANIFEST",
       "claim": "The packaged Android resource-83 manifest identifies seven Scripts-group bundles by filename, size, resource index and MD5; the hash interpretation is established by a direct bundled Android startup-archive match",

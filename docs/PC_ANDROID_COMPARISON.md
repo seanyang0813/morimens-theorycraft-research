@@ -32,6 +32,15 @@ The packaged Android manifest's `Scripts` group names seven expected files at re
 `tools/inspect_android_bootstrap.py` inspects the packaged assets/artres/gameupdate.ab without altering PC extraction indexes. The current UnityPy decoder with the saved bundle key fails at LZ4 decompression; the entry bytes are fingerprinted in research/evidence/android-bootstrap-inspection.json. This does not establish that the APK is corrupt or that the key is wrong; format, flags and encryption handling remain possible causes requiring investigation.
 
 The startup archive begins with the custom Lua header and contains no matching plaintext HTTP URLs in a basic byte scan. That scan does not prove endpoints are absent; they may be encoded, assembled or stored elsewhere. No verified Android combat-bundle download URL has been recovered by this checkpoint. No desktop control, client execution or network request was used.
+
+`tools/inspect_android_startup_lua.py` now goes beyond that byte scan. The
+copied legitimate loader deserializes the byte-identical protected startup
+archive without executing it, exposing seven Lua prototypes and 109 ordered
+string constants. Its sole literal URL belongs to the telemetry reporter; no
+literal resource-download candidate occurs in this startup component. The
+public report contains hashes and counts rather than the endpoint. An endpoint
+can still be assembled dynamically, supplied by a server, encrypted or loaded
+from a later bundle, so downloaded Android script capture remains necessary.
 # Packaged Android update alignment recovery
 
 The later bootstrap probe resolves the packaged gameupdate.ab parse failure. Its UnityFS header reports format 6 / engine 2022.3.61t8 with flags 0x643. The existing key validates the encryption signature. The encryption header ends at offset 120, but the 222-byte compressed metadata begins at offset 128; LZ4 decompression there produces the expected 413 bytes. An in-memory version-field override from 6 to 7 selects UnityPy's header alignment and allows the complete container to parse. The APK is unchanged and the exact override, metadata hash and object counts are in `research/evidence/android-bootstrap-inspection.json`.

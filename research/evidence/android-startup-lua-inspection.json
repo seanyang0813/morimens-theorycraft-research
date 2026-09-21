@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_ANDROID_STARTUP_LUA_INSPECTION",
+  "status": "PARSED_WITHOUT_EXECUTION",
+  "sourceHashes": {
+    "androidStartupArchive": "1d8d936951837af84f3b4904ba75c6370b0fc414dac84a7c80be7ab75f8d441e",
+    "copiedParserRuntime": "64d312e26ae5d996d8612bb77fab4c8ea4cd8807cb4c9a8e79a0bf526b98aba9",
+    "orderedStringConstants": "797d6ee9d9ed45920374ba3ea6659935522a949c9286bb8488ec271445ffa519"
+  },
+  "rootSource": "@Assets\\ArtRes\\GameUpdate\\Lua\\ApusUpdateComp.lua",
+  "prototypeCount": 7,
+  "stringConstantCount": 109,
+  "uniqueStringConstantCount": 91,
+  "literalUrlClassification": {
+    "total": 1,
+    "telemetry": 1,
+    "resourceDownloadCandidates": 0
+  },
+  "scope": "Protected packaged Android startup Lua deserialized by the copied legitimate loader without executing the chunk; aggregate prototype/string inventory and literal URL classification only.",
+  "limitations": [
+    "The only literal URL is classified as telemetry from its host/path and surrounding startup component; its value is not published",
+    "No literal resource-download URL does not exclude dynamically assembled, encrypted, server-supplied or later-downloaded endpoints",
+    "The startup component is not a combat module and establishes no Android/PC formula parity",
+    "The copied Windows parser demonstrates compatible deserialization of byte-identical startup bytes; it is not Android runtime execution"
+  ]
+}

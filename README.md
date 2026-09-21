@@ -75,6 +75,6 @@ The source-hashed static audit follows non-PvP supported-tag Awakener skills to 
 - `docs/NEXT_GAMEPLAY_CAPTURE.md`: missing evidence for an independent prediction.
 - `research/evidence/registry.json`: source fingerprints and claim-specific scope.
 
-PC downloaded resource144/build51 and Android resource83 are distinct builds. Original installations remain read-only sources. Copied native libraries, keys, extracted proprietary content and private screenshots must never be included in website output.
+PC downloaded resource144/build51 and Android resource83 are distinct builds. The packaged Android startup archive now parses without execution into seven Lua prototypes; its only literal URL is telemetry and it contains no literal resource-download endpoint. Downloaded Android combat bundles are still absent, so this does not establish formula parity. Original installations remain read-only sources. Copied native libraries, keys, extracted proprietary content and private screenshots must never be included in website output.
 
 Publication still requires the original user's full gate: supported-stage evidence, passing regressions, exact real observations where deterministic, independently frozen holdouts, no unexplained systematic discrepancy and source traceability. A zero gameplay denominator cannot pass.
