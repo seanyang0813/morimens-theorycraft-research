@@ -110,6 +110,21 @@ test('current PC event-effect request boundary matches the inherited runtime dom
   assert.equal(runtime.data.sourceHashes.currentBattleEngine,row.current[0].sha256);
 });
 
+test('current PC effect-order orchestration matches the inherited runtime domain',()=>{
+  const comparison=read('research/evidence/pc-res144-to-res150-combat-build.json');
+  const runtime=read('research/evidence/pc-res150-engine-run-order-runtime.json');
+  const fixture=read('tests/synthetic/original-engine-run-order.json');
+  assert.equal(runtime.data.status,'EXACT_MATCH_IN_FIXTURE_DOMAIN');
+  assert.equal(runtime.data.method,'BattleEngine.RunEffectOrder');
+  assert.equal(runtime.data.fixtures,fixture.data.fixtures.length);
+  assert.equal(runtime.data.exactMatches,runtime.data.fixtures);
+  assert.equal(runtime.data.mismatches,0);
+  assert.equal(runtime.data.sourceHashes.comparison,hash(comparison.bytes));
+  assert.equal(runtime.data.sourceHashes.fixture,hash(fixture.bytes));
+  const row=comparison.data.combatModules.find(item=>item.name==='BattleEngine.lua');
+  assert.equal(runtime.data.sourceHashes.currentBattleEngine,row.current[0].sha256);
+});
+
 test('current PC selected replay-record constructors match the inherited runtime domain',()=>{
   const comparison=read('research/evidence/pc-res144-to-res150-combat-build.json');
   const runtime=read('research/evidence/pc-res150-battle-record-runtime.json');

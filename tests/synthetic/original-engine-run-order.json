@@ -1,0 +1,288 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleEngine": "0ee07c8fd06f29787f8139306b55d16c726eaf8cabcd1ad0b128d907c8dbbeea",
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+  },
+  "scope": "Original BattleEngine.RunEffectOrder with explicit component adapters across resume, finish, wave-end, order-completion, forced-bout and PvE/PvP branches. Component methods are ordered observations; no child effect execution, gameplay or replay transport.",
+  "fixtures": [
+    {
+      "input": {
+        "name": "pve-complete",
+        "resume": false,
+        "battleFinish": false,
+        "battleOver": false,
+        "orderFinished": true,
+        "pending": false,
+        "phaseFinish": false,
+        "mode": "pve"
+      },
+      "expected": {
+        "trace": [
+          "beginRecord",
+          {
+            "event": "createOrder",
+            "bindingsPreserved": true
+          },
+          "pre",
+          "runRoot",
+          "isBattleFinish",
+          "updateCardArgs",
+          "updateIntention",
+          "updateSkillArgs",
+          "updateAwakeArgs",
+          "updateSchoolArgs",
+          "checkHighlight",
+          "updateStateArgs",
+          "isPVE",
+          "pveStats",
+          "isPVP",
+          "endRecord",
+          "checkBattleOver",
+          "isOrderFinished",
+          "clearCards",
+          "clearStates",
+          "afterFinished"
+        ],
+        "pendingAfter": false
+      }
+    },
+    {
+      "input": {
+        "name": "resume-incomplete",
+        "resume": true,
+        "battleFinish": false,
+        "battleOver": false,
+        "orderFinished": false,
+        "pending": false,
+        "phaseFinish": false,
+        "mode": "pve"
+      },
+      "expected": {
+        "trace": [
+          "beginRecord",
+          "pre",
+          "isBattleFinish",
+          "updateCardArgs",
+          "updateIntention",
+          "updateSkillArgs",
+          "updateAwakeArgs",
+          "updateSchoolArgs",
+          "checkHighlight",
+          "updateStateArgs",
+          "isPVE",
+          "pveStats",
+          "isPVP",
+          "endRecord",
+          "checkBattleOver",
+          "isOrderFinished"
+        ],
+        "pendingAfter": false
+      }
+    },
+    {
+      "input": {
+        "name": "already-finished",
+        "resume": false,
+        "battleFinish": true,
+        "battleOver": false,
+        "orderFinished": false,
+        "pending": true,
+        "phaseFinish": true,
+        "mode": "pve"
+      },
+      "expected": {
+        "trace": [
+          "beginRecord",
+          {
+            "event": "createOrder",
+            "bindingsPreserved": true
+          },
+          "pre",
+          "runRoot",
+          "isBattleFinish",
+          "isPVE",
+          "pveStats",
+          "isPVP",
+          "endRecord",
+          "checkBattleOver",
+          "isOrderFinished",
+          "clearCards",
+          "clearStates",
+          "afterFinished",
+          "onBattleFinish"
+        ],
+        "pendingAfter": false
+      }
+    },
+    {
+      "input": {
+        "name": "battle-over-complete",
+        "resume": false,
+        "battleFinish": false,
+        "battleOver": true,
+        "orderFinished": true,
+        "pending": false,
+        "phaseFinish": false,
+        "mode": "pve"
+      },
+      "expected": {
+        "trace": [
+          "beginRecord",
+          {
+            "event": "createOrder",
+            "bindingsPreserved": true
+          },
+          "pre",
+          "runRoot",
+          "isBattleFinish",
+          "updateCardArgs",
+          "updateIntention",
+          "updateSkillArgs",
+          "updateAwakeArgs",
+          "updateSchoolArgs",
+          "checkHighlight",
+          "updateStateArgs",
+          "isPVE",
+          "pveStats",
+          "isPVP",
+          "endRecord",
+          "checkBattleOver",
+          "clearFinish",
+          "isOrderFinished",
+          "clearCards",
+          "clearStates",
+          "afterFinished",
+          "runBattleEnd"
+        ],
+        "pendingAfter": false
+      }
+    },
+    {
+      "input": {
+        "name": "force-end-bout",
+        "resume": false,
+        "battleFinish": false,
+        "battleOver": false,
+        "orderFinished": true,
+        "pending": true,
+        "phaseFinish": false,
+        "mode": "pve"
+      },
+      "expected": {
+        "trace": [
+          "beginRecord",
+          {
+            "event": "createOrder",
+            "bindingsPreserved": true
+          },
+          "pre",
+          "runRoot",
+          "isBattleFinish",
+          "updateCardArgs",
+          "updateIntention",
+          "updateSkillArgs",
+          "updateAwakeArgs",
+          "updateSchoolArgs",
+          "checkHighlight",
+          "updateStateArgs",
+          "isPVE",
+          "pveStats",
+          "isPVP",
+          "endRecord",
+          "checkBattleOver",
+          "isOrderFinished",
+          "clearCards",
+          "clearStates",
+          "afterFinished",
+          "endBout"
+        ],
+        "pendingAfter": false
+      }
+    },
+    {
+      "input": {
+        "name": "pvp-complete",
+        "resume": false,
+        "battleFinish": false,
+        "battleOver": false,
+        "orderFinished": true,
+        "pending": false,
+        "phaseFinish": false,
+        "mode": "pvp"
+      },
+      "expected": {
+        "trace": [
+          "beginRecord",
+          {
+            "event": "createOrder",
+            "bindingsPreserved": true
+          },
+          "pre",
+          "runRoot",
+          "isBattleFinish",
+          "updateCardArgs",
+          "updateIntention",
+          "updateSkillArgs",
+          "updateAwakeArgs",
+          "updateSchoolArgs",
+          "checkHighlight",
+          "updateStateArgs",
+          "isPVE",
+          "isPVP",
+          "getPlayer:1",
+          "playerStats",
+          "getPlayer:2",
+          "playerStats",
+          "endRecord",
+          "checkBattleOver",
+          "isOrderFinished",
+          "clearCards",
+          "clearStates",
+          "afterFinished"
+        ],
+        "pendingAfter": false
+      }
+    },
+    {
+      "input": {
+        "name": "battle-over-incomplete",
+        "resume": false,
+        "battleFinish": false,
+        "battleOver": true,
+        "orderFinished": false,
+        "pending": true,
+        "phaseFinish": false,
+        "mode": "pve"
+      },
+      "expected": {
+        "trace": [
+          "beginRecord",
+          {
+            "event": "createOrder",
+            "bindingsPreserved": true
+          },
+          "pre",
+          "runRoot",
+          "isBattleFinish",
+          "updateCardArgs",
+          "updateIntention",
+          "updateSkillArgs",
+          "updateAwakeArgs",
+          "updateSchoolArgs",
+          "checkHighlight",
+          "updateStateArgs",
+          "isPVE",
+          "pveStats",
+          "isPVP",
+          "endRecord",
+          "checkBattleOver",
+          "clearFinish",
+          "isOrderFinished"
+        ],
+        "pendingAfter": false
+      }
+    }
+  ]
+}

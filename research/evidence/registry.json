@@ -4431,6 +4431,33 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC150:BattleEngine.RunEffectOrder",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "The installed resource-150 BattleEngine reproduces all 7 inherited RunEffectOrder orchestration fixtures exactly",
+      "sources": [
+        {
+          "module": "PC resource-150 build comparison",
+          "member": "download manifest and selected TextAsset hashes",
+          "bundle": "installed local client; hashes only",
+          "sha256": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5"
+        },
+        {
+          "module": "PC resource-150 RunEffectOrder runtime comparison",
+          "member": "RunEffectOrder fixture-domain result",
+          "bundle": "copied XLua runtime; hashes only",
+          "sha256": "58ed5c7c065263f822b9966e297a9d717f6bb14bea4072f981ff17aa28c7563d"
+        }
+      ],
+      "tests": [
+        "tools/engine_run_order_oracle.py",
+        "tools/verify_current_engine_run_order.py",
+        "tests/engine-run-order.test.mjs",
+        "tests/current-pc-build-evidence.test.mjs"
+      ],
+      "scope": "Actual resource-150 orchestration across fresh/resumed orders, pre-action, record boundaries, post-action argument refresh, PvE/PvP statistics, wave/battle finish, cleanup and forced-bout branches. Component internals, child effect execution, gameplay and holdout credit remain outside scope.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC150:BattleRecord.SelectedFrames",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
       "claim": "The installed resource-150 BattleRecord reproduces all 14 inherited selected replay-frame and queue fixtures exactly",

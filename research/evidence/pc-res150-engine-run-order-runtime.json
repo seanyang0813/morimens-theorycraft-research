@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "method": "BattleEngine.RunEffectOrder",
+  "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+  "sourceHashes": {
+    "comparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
+    "fixture": "c1443db17fc2f31a159a3f4b694ee57b6ea9046337f02fcf2c80811779a84b01",
+    "currentBattleEngine": "1823d5b962605ccd42ba605840490235fb0c9b5fd751a112625c30101a34535e"
+  },
+  "fixtures": 7,
+  "exactMatches": 7,
+  "mismatches": 0,
+  "results": [],
+  "scope": "Actual resource-150 RunEffectOrder control flow with explicit component adapters across seven branch scenarios.",
+  "limitations": [
+    "No child effect execution, real component mutations, gameplay or holdout credit"
+  ]
+}
