@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "methods": [
+    "BattleCmdServer.GetRealUltiEnergy",
+    "BEGainUltiEnergy.DoEffect",
+    "BattleUnitAwaker.GainUltiEnergy"
+  ],
+  "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+  "sourceHashes": {
+    "calculationFixture": "120f07491f5a971fcadd649a20e7bf99616f4da6ba758ce58692ce9921a29894",
+    "effectFixture": "e9c09e3c75696e3bf89b03c4325543ddff74f222639bd3ea87b238d895dcd551",
+    "gainStorageFixture": "08bfc2596b18155de326efe4519ca855e322a3b05b000be3debf9eef41e0adb9",
+    "currentBattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+    "currentBattleUtilServer": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
+    "currentBattleCmdServer": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9",
+    "currentBattlePropertyServer": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5",
+    "currentBattleEffectServer": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+    "currentBEGainUltiEnergy": "eaa49d0dcbeb60d4894c725e97cc35eb37c840c47ffe287f8d77f0d63e3993e2",
+    "currentBattleUnitAwaker": "a6703d8ea024ebb938789e9d3b22b725dad5137842db88729ac6c401c409fbc5"
+  },
+  "domains": {
+    "calculation": {
+      "fixtures": 144,
+      "exactMatches": 144,
+      "mismatches": 0
+    },
+    "effect": {
+      "fixtures": 120,
+      "exactMatches": 120,
+      "mismatches": 0
+    },
+    "gainStorage": {
+      "fixtures": 252,
+      "exactMatches": 252,
+      "mismatches": 0
+    }
+  },
+  "fixtures": 516,
+  "exactMatches": 516,
+  "mismatches": 0,
+  "results": [],
+  "scope": "Installed resource-150 command, utility, property, effect and Awakener bytecode across inherited ordinary ultimate-energy calculation, repetition/source assembly and capped storage fixtures.",
+  "limitations": [
+    "Synthetic explicit properties, targets, tags and card/caster eligibility; no automatic build or target assembly",
+    "Callbacks are observed but not dispatched; no full command, card lifecycle, gameplay or holdout credit"
+  ]
+}

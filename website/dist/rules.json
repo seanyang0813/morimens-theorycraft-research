@@ -5450,6 +5450,31 @@
       ]
     },
     {
+      "id": "PC150:UltimateEnergyPath",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "Resource 150 reproduces all 516 inherited ordinary ultimate-energy calculation, effect repetition/source assembly and capped Awakener storage fixtures exactly",
+      "scope": "Explicit ordinary energy properties, dimension, card/caster eligibility, tags, target order and source metadata. Effect superclass presentation is inert and property callbacks are observed rather than dispatched. No automatic build/target assembly, complete command, card lifecycle, gameplay or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 installed share bundle",
+          "member": "BattleCmdServer, BattleUtilServer, BattlePropertyServer, BattleEffectServer, BEGainUltiEnergy and BattleUnitAwaker hashes",
+          "sha256": "eaa49d0dcbeb60d4894c725e97cc35eb37c840c47ffe287f8d77f0d63e3993e2"
+        },
+        {
+          "module": "PC resource-150 ultimate-energy runtime comparison",
+          "member": "three fixture domains",
+          "sha256": "2768a8458776d8c9d8ae91ed3a20676854f8880f1d5c20e049f917e375f66e0f"
+        }
+      ],
+      "checks": [
+        "tools/export_private_current_module.py",
+        "tools/verify_current_ulti_energy.py",
+        "tests/current-pc-build-evidence.test.mjs",
+        "tests/ulti-energy-experiment.test.mjs"
+      ]
+    },
+    {
       "id": "PC150:PveCardPlayCheck",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
       "claim": "Resource 150 reproduces all 90 inherited ordinary PvE CanUseCard fixtures exactly",

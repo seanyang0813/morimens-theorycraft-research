@@ -3,8 +3,9 @@ import ctypes as C
 import itertools,json
 from hp_property_oracle import HpPropertyOracle,ROOT
 class GainOracle(HpPropertyOracle):
-    def __init__(self):
-        super().__init__();L=self.state
+    def __init__(self, asset_overrides=None):
+        asset_overrides = asset_overrides or {}
+        super().__init__(asset_overrides);L=self.state
         self.pushstring=self.lib.lua_pushstring;self.pushstring.argtypes=[C.c_void_p,C.c_char_p]
         def require(s):
             name=self.string(s,1,None)
@@ -13,7 +14,7 @@ class GainOracle(HpPropertyOracle):
             elif name in [b'Battle.DbgEngine.Role.BattleUnitBase',b'Battle.Util.PathUtils']:self.table(s,0,0)
             else:self.errors.append(repr(name));self.nil(s)
             return 1
-        self.callback(require);self.setglobal(L,b'require');self.module('BattleUnitAwaker');self.setglobal(L,b'_gain_awaker')
+        self.callback(require);self.setglobal(L,b'require');self.module('BattleUnitAwaker',asset_overrides.get('BattleUnitAwaker'));self.setglobal(L,b'_gain_awaker')
     def run(self,v):
         L=self.state;self.top(L,0);self.events=[]
         self.getglobal(L,b'_hp_property');self.table(L,0,5)

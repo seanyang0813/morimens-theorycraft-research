@@ -5,7 +5,7 @@ import {gainUltiEnergy} from './ulti-energy-gain.mjs';
 const exact=(o,keys)=>o&&typeof o==='object'&&!Array.isArray(o)&&Object.keys(o).length===keys.length&&keys.every(k=>Object.hasOwn(o,k));
 export function runUltiEnergyExperiment(value){
  const input=snapshot(value);
- if(!exact(input,['schemaVersion','kind','build','otherEvents','parameters','source','targetOrder','targets'])||input.schemaVersion!==1||input.kind!=='morimens-ulti-energy-experiment'||input.build!=='pc-res144-build51'||input.otherEvents!=='assumed-absent'||!Array.isArray(input.targets)||!Array.isArray(input.targetOrder))throw new Error('Explicit ultimate-energy experiment required');
+ if(!exact(input,['schemaVersion','kind','build','otherEvents','parameters','source','targetOrder','targets'])||input.schemaVersion!==1||input.kind!=='morimens-ulti-energy-experiment'||!['pc-res144-build51','pc-res150-build51'].includes(input.build)||input.otherEvents!=='assumed-absent'||!Array.isArray(input.targets)||!Array.isArray(input.targetOrder))throw new Error('Explicit ultimate-energy experiment required');
  const registry=new Map(),calculations=new Map();
  for(const t of input.targets){
   if(!exact(t,['uid','role','energy','maximumProperties','calculation'])||!Number.isSafeInteger(t.uid)||registry.has(t.uid)||t.role!=='Awaker'||!exact(t.calculation,['dimension','properties','card','casterEligible','skillTags']))throw new Error('Unique explicit Awaker target snapshots required');
@@ -24,5 +24,5 @@ export function runUltiEnergyExperiment(value){
   }});
  return {schemaVersion:1,build:input.build,status:'EXPERIMENTAL',finalDamage:null,
   targetsAfter:[...registry.values()].map(t=>({uid:t.uid,energy:t.energy})),effect:report,
-  unresolvedDependencies:[...report.unresolvedDependencies,'Connected original energy-path checks cover one self-target Awaker with observed callbacks; no full command or gameplay validation','Explicit static properties, card/type/tag decisions and Awaker targets; no automatic build or target assembly','No callbacks dispatched, no VFX, no other state/resource effects; within one effect only']};
+  unresolvedDependencies:[...report.unresolvedDependencies,input.build==='pc-res150-build51'?'Installed resource-150 calculation, effect and gain/storage bytecode matches all 516 inherited fixture cases; no full command or gameplay validation':'Connected original energy-path checks cover one self-target Awaker with observed callbacks; no full command or gameplay validation','Explicit static properties, card/type/tag decisions and Awaker targets; no automatic build or target assembly','No callbacks dispatched, no VFX, no other state/resource effects; within one effect only']};
 }

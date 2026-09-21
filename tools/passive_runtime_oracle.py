@@ -9,8 +9,9 @@ from target_runtime_oracle import TargetOracle, ROOT
 
 
 class PassiveOracle(TargetOracle):
-    def __init__(self, effect_name='BEPassiveDamage'):
-        super().__init__()
+    def __init__(self, effect_name='BEPassiveDamage', asset_overrides=None):
+        asset_overrides = asset_overrides or {}
+        super().__init__(asset_overrides)
         self.effect_name = effect_name
         L = self.state
         self.rawseti = self.lib.lua_rawseti
@@ -31,9 +32,9 @@ class PassiveOracle(TargetOracle):
             return 1
         self.callback(require)
         self.setglobal(L, b'require')
-        self.module('BattleEffectServer')
+        self.module('BattleEffectServer', asset_overrides.get('BattleEffectServer'))
         self.setglobal(L, b'_passive_base')
-        self.module(effect_name)
+        self.module(effect_name, asset_overrides.get(effect_name))
         self.setglobal(L, b'_passive_effect')
         if self.errors:
             raise RuntimeError(self.errors)

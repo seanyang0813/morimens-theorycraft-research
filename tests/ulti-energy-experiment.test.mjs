@@ -16,6 +16,11 @@ test('effect calculation and capped storage carry energy through target-major re
  assert.equal(r.effect.applications[1].result.storage.events.length,0);
  assert.equal(JSON.stringify(v),before);assert.equal(r.finalDamage,null);
 });
+test('installed resource-150 evidence enables the same bounded energy experiment',()=>{
+ const v=input();v.build='pc-res150-build51';const r=runUltiEnergyExperiment(v);
+ assert.equal(r.build,'pc-res150-build51');assert.deepEqual(r.targetsAfter,[{uid:7,energy:100},{uid:8,energy:22}]);
+ assert.ok(r.unresolvedDependencies.some(item=>/516 inherited/.test(item)));
+});
 test('repeated target identity carries the same state; missing or unsupported targets fail',()=>{
  const v=input();v.targetOrder=[8,8];assert.equal(runUltiEnergyExperiment(v).targetsAfter[1].energy,44);
  v.targetOrder=[99];assert.throws(()=>runUltiEnergyExperiment(v),/identity/);

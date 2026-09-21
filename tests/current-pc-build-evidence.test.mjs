@@ -157,6 +157,25 @@ test('current PC connected energy payment matches the inherited runtime domains'
   assert.equal(runtime.data.sourceHashes.currentBattleUnitPlayer,player.current.sha256);
 });
 
+test('current PC ultimate-energy calculation, effect and storage match inherited runtime domains',()=>{
+  const runtime=read('research/evidence/pc-res150-ulti-energy-runtime.json');
+  const calculation=read('tests/synthetic/original-ulti-energy.json');
+  const effect=read('tests/synthetic/original-ulti-energy-effect.json');
+  const gain=read('tests/synthetic/original-ulti-energy-gain.json');
+  const comparison=read('research/evidence/pc-res144-to-res150-combat-build.json');
+  assert.equal(runtime.data.status,'EXACT_MATCH_IN_FIXTURE_DOMAIN');
+  assert.equal(runtime.data.fixtures,calculation.data.fixtures.length+effect.data.fixtures.length+gain.data.fixtures.length);
+  assert.deepEqual(runtime.data.domains,{calculation:{fixtures:144,exactMatches:144,mismatches:0},effect:{fixtures:120,exactMatches:120,mismatches:0},gainStorage:{fixtures:252,exactMatches:252,mismatches:0}});
+  assert.equal(runtime.data.exactMatches,516);assert.equal(runtime.data.mismatches,0);
+  assert.equal(runtime.data.sourceHashes.calculationFixture,hash(calculation.bytes));
+  assert.equal(runtime.data.sourceHashes.effectFixture,hash(effect.bytes));
+  assert.equal(runtime.data.sourceHashes.gainStorageFixture,hash(gain.bytes));
+  for(const name of ['BattleConst.lua','BattleUtilServer.lua','BattleCmdServer.lua','BattlePropertyServer.lua']){
+    const row=comparison.data.combatModules.find(item=>item.name===name);
+    assert.equal(runtime.data.sourceHashes['current'+name.replace('.lua','')],row.current[0].sha256);
+  }
+});
+
 test('current PC ordinary PvE card eligibility matches the inherited runtime domain',()=>{
   const runtime=read('research/evidence/pc-res150-card-play-runtime.json');
   const fixture=read('tests/synthetic/original-card-play-check.json');

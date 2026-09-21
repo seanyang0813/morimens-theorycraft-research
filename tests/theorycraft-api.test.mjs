@@ -20,6 +20,7 @@ test('agent API advertises explicit bounded operations',()=>{
   assert.ok(response.result.operations.some(row=>row.name==='calculate-snapshot-active-damage'));
   assert.ok(response.result.operations.some(row=>row.name==='run-snapshot-active-sequence'));
   assert.ok(response.result.operations.some(row=>row.name==='run-prepared-snapshot-active-skill'));
+  assert.ok(response.result.operations.some(row=>row.name==='run-ulti-energy-effect'));
   assert.ok(response.result.operations.some(row=>row.name==='run-attached-card-pipeline'));
   assert.ok(response.result.operations.some(row=>row.name==='run-conditional-role-state-suffix'));
   assert.equal(response.result.publicationStatus,'NOT_READY');
@@ -42,6 +43,12 @@ test('agent API runs a complete current-build property snapshot through modeled 
   assert.equal(response.result.finalDamage,null);
   input.snapshotCompleteness='partial';
   assert.throws(()=>runTheorycraftRequest(request('calculate-snapshot-active-damage',input)),/complete supported/);
+});
+
+test('agent API exposes current-build ultimate-energy calculation and capped storage',()=>{
+  const input={schemaVersion:1,kind:'morimens-ulti-energy-experiment',build:'pc-res150-build51',otherEvents:'assumed-absent',parameters:[10,1,1],source:{castRoleUid:7,cmdServerUid:2,skillConfigId:3},targetOrder:[7],targets:[{uid:7,role:'Awaker',energy:95,maximumProperties:{ulti_energy_max:100,ulti_energy_cost_per:0,ulti_energy_cost_flat:0,ulti_energy_max_per:0},calculation:{dimension:0,properties:{ulti_energy_per:0,i_ulti_energy_per:0,ulti_energy_efficiency:0,ulti_energy_plus:0,gain_ulti_energy_per:0,gain_ulti_energy_plus:0},card:null,casterEligible:true,skillTags:[]}}]};
+  const response=runTheorycraftRequest(request('run-ulti-energy-effect',input));
+  assert.equal(response.analysisTrack,'theorycrafting');assert.equal(response.result.build,'pc-res150-build51');assert.equal(response.result.targetsAfter[0].energy,100);assert.equal(response.result.finalDamage,null);
 });
 
 test('agent API dispatches the general damage calculator without promoting verification',()=>{

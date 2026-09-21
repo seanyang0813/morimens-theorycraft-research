@@ -3,13 +3,14 @@ import ctypes as C
 import itertools,json
 from passive_runtime_oracle import PassiveOracle,ROOT
 class EffectOracle(PassiveOracle):
-    def __init__(self):
-        super().__init__();L=self.state
+    def __init__(self, asset_overrides=None):
+        asset_overrides = asset_overrides or {}
+        super().__init__(asset_overrides=asset_overrides);L=self.state
         self.boolean_read=self.lib.lua_toboolean;self.boolean_read.argtypes=[C.c_void_p,C.c_int];self.boolean_read.restype=C.c_int
         def newclass(s):
             self.table(s,0,5);self.table(s,0,1);self.method('DoEffect',lambda s:0);return 2
         self.getglobal(L,b'_oracle_config_system');self.method('NewClass',newclass);self.top(L,0)
-        self.module('BEGainUltiEnergy');self.setglobal(L,b'_ulti_effect')
+        self.module('BEGainUltiEnergy',asset_overrides.get('BEGainUltiEnergy'));self.setglobal(L,b'_ulti_effect')
     def run(self,v):
         L=self.state;self.top(L,0);events=[];count=0
         self.getglobal(L,b'_ulti_effect');self.getfield(L,-1,b'DoEffect');self.table(L,0,6)
