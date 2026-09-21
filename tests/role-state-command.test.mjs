@@ -24,6 +24,19 @@ test('state merges update the same role and unsupported command rows fail closed
   v.command.data_list['2']={Type:'BEActiveDamage',Target:'CmdCaster',Para:'100'};assert.throws(()=>runRoleStateCommand(v),/Unsupported setup row/);
 });
 
+test('layer subtraction and removal reverse live role properties in row order',()=>{
+  const v=input();v.command={data_list:{1:{Type:'BEAddState',Target:'CmdCaster',Para:'60089,20'},2:{Type:'BESubStateLayer',Target:'CmdCaster',Para:'60089,5'},3:{Type:'BERemoveState',Target:'CmdCaster',Para:'60089'}}};v.definitions=[definition(60089)];
+  const result=runRoleStateCommand(v),role=result.roles[0],state=result.states[0];
+  assert.deepEqual(result.trace.map(row=>row.type),['addState','subtractState','removeState']);assert.equal(result.trace[1].subtraction.changedLayer,-5);assert.equal(result.trace[2].removed,true);
+  assert.equal(role.properties.be_damage_per,0);assert.equal(role.properties.be_fixed_damage_per1,0);assert.equal(role.properties.be_passive_damage_per,0);assert.equal(state.isDeleted,true);assert.equal(state.layer,15);
+  assert.deepEqual(result.trace[2].lifecycleTrace,['removeProperty','recordDeletion','log','StateLifeEnd']);
+});
+
+test('subtracting the final layer updates ChangedLayer properties before idempotent life end',()=>{
+  const v=input();v.command={data_list:{1:{Type:'BEAddState',Target:'CmdCaster',Para:'60089,2'},2:{Type:'BESubStateLayer',Target:'CmdCaster',Para:'60089,2'},3:{Type:'BERemoveState',Target:'CmdCaster',Para:'60089'}}};v.definitions=[definition(60089)];
+  const result=runRoleStateCommand(v);assert.equal(result.roles[0].properties.be_damage_per,0);assert.equal(result.states[0].layer,0);assert.equal(result.states[0].isDeleted,true);assert.equal(result.trace[2].removed,false);
+});
+
 test('role snapshots and tentacle context remain explicit',()=>{
   const v=input();delete v.roles[0].properties.damage_plus;assert.throws(()=>runRoleStateCommand(v),/lacks explicit property/);
   const nonMonster=input();nonMonster.roles[0].roleType='Awakener';nonMonster.roles[0].tentacleContext={pve:true,ownerMonster:false,maxTentacleCount:0};const result=runRoleStateCommand(nonMonster);assert.equal(result.trace[2].returned,false);assert.equal(result.trace[2].record,null);

@@ -1612,7 +1612,7 @@
     {
       "id": "PC144:RoleStateSetupCommand",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
-      "claim": "The general setup-only runner applies and merges supported states against explicit role snapshots while preserving baseline-proven MonsterBubble presentation rows without requiring a damage target",
+      "claim": "The general setup-only runner applies, merges, subtracts and removes supported states against explicit role snapshots while preserving baseline-proven MonsterBubble presentation rows without requiring a damage target",
       "sources": [
         {
           "module": "Cmd",
@@ -1637,10 +1637,17 @@
         },
         {
           "module": "BattleStateServer",
-          "member": "InitProperty,UpdatePropertyWhenLayerChanges",
+          "member": "InitProperty,UpdatePropertyWhenLayerChanges,LifeEnd,RemoveProperty",
           "bundle": "pc\\downloaded\\share.ab",
           "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6839215435199190924_BattleStateServer.lua"
+        },
+        {
+          "module": "BESubStateLayer",
+          "member": "DoEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b2763469ed0278b671bf02f6353bd7249a814299b41b4b63d40149655fcc581d",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4218923432050173021_BESubStateLayer.lua"
         },
         {
           "module": "BattlePropertyServer",
@@ -1654,9 +1661,11 @@
         "tests/role-state-command.test.mjs",
         "tests/combat-property-mutation.test.mjs",
         "tests/monster-bubble.test.mjs",
+        "tests/sub-state-layer.test.mjs",
+        "tests/state-removal-mutation-bridge.test.mjs",
         "docs/ROLE_STATE_COMMAND.md"
       ],
-      "scope": "Authored composition using explicit roles, selector bindings, variables, state definitions and properties. Cmd60401 is a regression case, not a special implementation path. BEAddState and BEMonsterBubble only; no immunity/layer modifiers/limits, trigger callbacks, original full-command scheduler, damage, gameplay or holdout credit.",
+      "scope": "Authored composition using explicit roles, selector bindings, variables, state definitions and properties. Cmd60401 is a regression case, not a special implementation path. BEAddState, BESubStateLayer, BERemoveState and BEMonsterBubble only; no immunity/layer modifiers/limits, caster-layer subtraction, trigger callback dispatch, original full-command scheduler, damage, gameplay or holdout credit.",
       "gameplayValidation": false
     },
     {

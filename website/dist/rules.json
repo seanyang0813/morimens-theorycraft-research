@@ -1310,8 +1310,8 @@
     {
       "id": "PC144:RoleStateSetupCommand",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
-      "claim": "The general setup-only runner applies and merges supported states against explicit role snapshots while preserving baseline-proven MonsterBubble presentation rows without requiring a damage target",
-      "scope": "Authored composition using explicit roles, selector bindings, variables, state definitions and properties. Cmd60401 is a regression case, not a special implementation path. BEAddState and BEMonsterBubble only; no immunity/layer modifiers/limits, trigger callbacks, original full-command scheduler, damage, gameplay or holdout credit.",
+      "claim": "The general setup-only runner applies, merges, subtracts and removes supported states against explicit role snapshots while preserving baseline-proven MonsterBubble presentation rows without requiring a damage target",
+      "scope": "Authored composition using explicit roles, selector bindings, variables, state definitions and properties. Cmd60401 is a regression case, not a special implementation path. BEAddState, BESubStateLayer, BERemoveState and BEMonsterBubble only; no immunity/layer modifiers/limits, caster-layer subtraction, trigger callback dispatch, original full-command scheduler, damage, gameplay or holdout credit.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -1331,8 +1331,13 @@
         },
         {
           "module": "BattleStateServer",
-          "member": "InitProperty,UpdatePropertyWhenLayerChanges",
+          "member": "InitProperty,UpdatePropertyWhenLayerChanges,LifeEnd,RemoveProperty",
           "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369"
+        },
+        {
+          "module": "BESubStateLayer",
+          "member": "DoEffect",
+          "sha256": "b2763469ed0278b671bf02f6353bd7249a814299b41b4b63d40149655fcc581d"
         },
         {
           "module": "BattlePropertyServer",
@@ -1344,6 +1349,8 @@
         "tests/role-state-command.test.mjs",
         "tests/combat-property-mutation.test.mjs",
         "tests/monster-bubble.test.mjs",
+        "tests/sub-state-layer.test.mjs",
+        "tests/state-removal-mutation-bridge.test.mjs",
         "docs/ROLE_STATE_COMMAND.md"
       ]
     },

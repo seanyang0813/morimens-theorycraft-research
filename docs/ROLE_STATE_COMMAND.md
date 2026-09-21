@@ -6,12 +6,19 @@ runner: no fake enemy, HP snapshot or damage row is required. Each target select
 is bound to a supplied role ID, and each role carries its own type, live properties
 and explicit tentacle context.
 
-The first supported rows are `BEAddState` and `BEMonsterBubble`. State definitions,
+The supported state rows are `BEAddState`, `BESubStateLayer` and
+`BERemoveState`; `BEMonsterBubble` is supported as a presentation row. State definitions,
 maximums, property expressions, caster role, skill level and initial properties
 are all supplied. Creation and merging use the separately tested state-property,
 layer-merge and property-mutation components. Unsupported properties, targets,
 conditions and effect types fail closed. Bubble rows emit a presentation record
 only for a Monster role, matching the baseline runtime body.
+
+Layer subtraction updates `ChangedLayer` contributions before life end. Reaching
+zero then reverses any retained non-layer contribution exactly once. Explicit
+removal reverses the current stored contributions and preserves the recovered
+deletion, property-removal, record, log and `StateLifeEnd` request order. Listener
+dispatch and caster-layer attribution during subtraction remain outside the boundary.
 
 Cmd 60401 is the first real setup case. With one Monster bound as `CmdCaster`, the
 runner applies states 60089, 2900 and 60404 to that same role while keeping the
