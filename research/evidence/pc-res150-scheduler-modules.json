@@ -92,13 +92,53 @@
         "sha256": "cef7477d60a84d8ac4f4b097436a39628d37ff5c54bd8f44d08828d75ad80c4a",
         "size": 3925
       }
+    },
+    {
+      "name": "BERoleDeadlyDamage.lua",
+      "status": "IDENTICAL",
+      "baseline": {
+        "sha256": "faae1ab17077e9ca643648c8f4262478c1fda8f224d0f4d7afb8a8c64343c3fa",
+        "size": 2286
+      },
+      "current": {
+        "sha256": "faae1ab17077e9ca643648c8f4262478c1fda8f224d0f4d7afb8a8c64343c3fa",
+        "size": 2286
+      }
+    },
+    {
+      "name": "BERoleDie.lua",
+      "status": "CHANGED_OR_MISSING",
+      "baseline": {
+        "sha256": "072f3e1c051a91d773297fd0de5e6fb01240f9ca319dd8bba9379c3435a6ace1",
+        "size": 2773
+      },
+      "current": {
+        "sha256": "049ff7c2396cf5717a333c05d3b6876a71c5f3e2108e8fa379362e4e73248dc5",
+        "size": 2803
+      }
+    },
+    {
+      "name": "BattleUnitMonster.lua",
+      "status": "CHANGED_OR_MISSING",
+      "baseline": {
+        "sha256": "8704bf4b9b11a78ee36a919d011ff09298d2ee88cf20274f3da076468dedc0d1",
+        "size": 4845
+      },
+      "current": {
+        "sha256": "70569a044d9d5cb90943e3176ef9aed15a672113a7b744b17365001b8c6b9a43",
+        "size": 4879
+      }
     }
   ],
-  "status": "SELECTED_MODULES_IDENTICAL",
-  "scope": "Hash-only comparison of selected effect scheduler and event-delivery TextAssets. No module code, replay identifiers, account data or credentials.",
+  "status": "REVALIDATION_REQUIRED",
+  "coreSchedulerStatus": "SELECTED_MODULES_IDENTICAL",
+  "identicalModules": 7,
+  "changedOrMissingModules": 2,
+  "scope": "Hash-only comparison of selected effect scheduler, event-delivery and monster death-path TextAssets. No module code, replay identifiers, account data or credentials.",
   "limitations": [
     "Selected-module equality does not prove full engine-loop equality",
     "BattleEngine changed and is outside this equality result",
+    "Changed death-path modules require scoped runtime comparison",
     "Runtime adapters and gameplay remain separate evidence"
   ]
 }

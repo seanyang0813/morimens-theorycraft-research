@@ -7,7 +7,7 @@ import json
 import UnityPy
 
 ROOT=Path(__file__).resolve().parents[1]
-NAMES=("BattleEffectServer.lua","BattleEffectMgrServer.lua","BEFunctionEffect.lua","BEAttachPostAction.lua","BESendEvent.lua","BattleLogicEvent.lua")
+NAMES=("BattleEffectServer.lua","BattleEffectMgrServer.lua","BEFunctionEffect.lua","BEAttachPostAction.lua","BESendEvent.lua","BattleLogicEvent.lua","BERoleDeadlyDamage.lua","BERoleDie.lua","BattleUnitMonster.lua")
 
 
 def sha(data):return hashlib.sha256(data).hexdigest()
@@ -35,7 +35,8 @@ def main():
     rows=[]
     for name in NAMES:
         rows.append({'name':name,'status':'IDENTICAL' if baseline.get(name)==current.get(name) and baseline.get(name) else 'CHANGED_OR_MISSING','baseline':baseline.get(name),'current':current.get(name)})
-    report={'schemaVersion':1,'kind':'MORIMENS_PC_SCHEDULER_MODULE_COMPARISON','baselineBuild':'pc-res144-build51','currentBuild':'pc-res150-build51','sourceHashes':{'buildComparison':sha(comparison_path.read_bytes()),'bundles':bundles},'modules':rows,'status':'SELECTED_MODULES_IDENTICAL' if all(row['status']=='IDENTICAL' for row in rows) else 'REVALIDATION_REQUIRED','scope':'Hash-only comparison of selected effect scheduler and event-delivery TextAssets. No module code, replay identifiers, account data or credentials.','limitations':['Selected-module equality does not prove full engine-loop equality','BattleEngine changed and is outside this equality result','Runtime adapters and gameplay remain separate evidence']}
+    identical=sum(row['status']=='IDENTICAL' for row in rows);core_identical=all(row['status']=='IDENTICAL' for row in rows[:6])
+    report={'schemaVersion':1,'kind':'MORIMENS_PC_SCHEDULER_MODULE_COMPARISON','baselineBuild':'pc-res144-build51','currentBuild':'pc-res150-build51','sourceHashes':{'buildComparison':sha(comparison_path.read_bytes()),'bundles':bundles},'modules':rows,'status':'SELECTED_MODULES_IDENTICAL' if all(row['status']=='IDENTICAL' for row in rows) else 'REVALIDATION_REQUIRED','coreSchedulerStatus':'SELECTED_MODULES_IDENTICAL' if core_identical else 'REVALIDATION_REQUIRED','identicalModules':identical,'changedOrMissingModules':len(rows)-identical,'scope':'Hash-only comparison of selected effect scheduler, event-delivery and monster death-path TextAssets. No module code, replay identifiers, account data or credentials.','limitations':['Selected-module equality does not prove full engine-loop equality','BattleEngine changed and is outside this equality result','Changed death-path modules require scoped runtime comparison','Runtime adapters and gameplay remain separate evidence']}
     output.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
     print(json.dumps({'status':report['status'],'modules':len(rows),'output':str(output.relative_to(ROOT))},indent=2))
 

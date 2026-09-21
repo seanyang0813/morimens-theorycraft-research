@@ -3989,7 +3989,7 @@
         {
           "module": "PC resource-150 selected skill-phase runtime comparison",
           "member": "fixture-domain result",
-          "sha256": "99d30641cbeddcdcc6a2c601bbd9fb0393e0349e462fb508117229313f1f7fc4"
+          "sha256": "679028524e7678147dc2b9f17c0a4455441acd20d0978eb115d738b245d12c43"
         }
       ],
       "checks": [
@@ -4082,20 +4082,45 @@
     {
       "id": "PC150:CoreSchedulerModuleEquality",
       "status": "CONFIRMED_FROM_IDENTICAL_CODE",
-      "claim": "Resource 150 retains byte-identical BattleEffectServer, BattleEffectMgrServer, BEFunctionEffect, BEAttachPostAction, BESendEvent and BattleLogicEvent modules",
-      "scope": "Carries source/runtime evidence for these exact modules across builds, including tested child/repetition, root-attachment and selected event-request order. Changed BattleEngine update/dispatch loop, listener execution, complete battle traversal, gameplay and holdout credit remain outside scope.",
+      "claim": "Resource 150 retains byte-identical BattleEffectServer, BattleEffectMgrServer, BEFunctionEffect, BEAttachPostAction, BESendEvent, BattleLogicEvent and BERoleDeadlyDamage modules",
+      "scope": "Carries source/runtime evidence for these exact modules across builds, including tested child/repetition, root-attachment, selected event-request order and fatal-damage control flow. BERoleDie and BattleUnitMonster changed and require the separate scoped runtime comparison. Changed BattleEngine update/dispatch loop, listener execution, complete battle traversal, gameplay and holdout credit remain outside scope.",
       "gameplayValidation": false,
       "sources": [
         {
-          "module": "PC resource-150 scheduler comparison",
+          "module": "PC resource-150 scheduler/death comparison",
           "member": "selected TextAsset content hashes",
-          "sha256": "131c925d16506f6d883dcb66512de5f3560071fcc90a0801eac358ec93e9fb06"
+          "sha256": "688f8cf9a0339a075ee57c56114c9fcc3058894b17990ca6608f1f81f4910f72"
         }
       ],
       "checks": [
         "tools/compare_current_scheduler_modules.py",
         "tests/current-scheduler-modules.test.mjs",
-        "tests/effect-order.test.mjs"
+        "tests/effect-order.test.mjs",
+        "tests/deadly-damage.test.mjs"
+      ]
+    },
+    {
+      "id": "PC150:SelectedMonsterDeathPath",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "Changed resource-150 BERoleDie, BattleUnitMonster and BattleUnitPlayer preserve all 8 selected monster/player death and respawn boundary fixtures",
+      "scope": "Actual BERoleDie.DoEffect delegates to actual current role CanPVERespawn/CanUseFirstFreeRespawn methods over missing/revived/monster/PvE-player/PvP branches; actual BattleUnitMonster.PreCheckDeathEvent remains true. Explicit HP, camp, lives, intro, respawn-cost and mode adapters; record/yield/respawn/death/battle-end calls observed. No OnConfirm, RoleDie internals, scheduler traversal, event listeners, gameplay or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 scheduler/death comparison",
+          "member": "BERoleDie and BattleUnitMonster changed hashes",
+          "sha256": "688f8cf9a0339a075ee57c56114c9fcc3058894b17990ca6608f1f81f4910f72"
+        },
+        {
+          "module": "PC resource-150 selected death runtime comparison",
+          "member": "DoEffect and PreCheckDeathEvent fixture-domain result",
+          "sha256": "b685540c61647be84b2a6a15c348b6fe6950a0402d2d9754e532a591546401b5"
+        }
+      ],
+      "checks": [
+        "tools/death_path_oracle.py",
+        "tools/verify_current_death_path.py",
+        "tests/role-die.test.mjs"
       ]
     },
     {

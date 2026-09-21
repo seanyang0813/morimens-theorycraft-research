@@ -1,0 +1,149 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BERoleDie": "072f3e1c051a91d773297fd0de5e6fb01240f9ca319dd8bba9379c3435a6ace1",
+    "BattleUnitMonster": "8704bf4b9b11a78ee36a919d011ff09298d2ee88cf20274f3da076468dedc0d1",
+    "BattleUnitPlayer": "ca4e9847ac558a6c8e81a80461869ce2a6c72b0e8e75caf63b9c4dc9afb1b52e",
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+  },
+  "scope": "Original BERoleDie.DoEffect over missing/revived/monster/PvE-player/PvP branches plus BattleUnitMonster.PreCheckDeathEvent. Explicit HP, camp, lives, intro, respawn-cost and mode adapters; record/yield/respawn/death/battle-end calls observed. No OnConfirm, RoleDie internals, scheduler, event listeners, gameplay or holdout.",
+  "monsterPreCheckDeathEvent": true,
+  "fixtures": [
+    {
+      "input": {
+        "name": "missing-role",
+        "roleExists": false,
+        "hp": 0,
+        "camp": 2,
+        "lives": 1,
+        "isPve": true,
+        "isIntro": false,
+        "respawnCost": 1
+      },
+      "expected": {
+        "returnValue": false,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "name": "revived-before-die",
+        "roleExists": true,
+        "hp": 1,
+        "camp": 2,
+        "lives": 1,
+        "isPve": true,
+        "isIntro": false,
+        "respawnCost": 1
+      },
+      "expected": {
+        "returnValue": true,
+        "trace": []
+      }
+    },
+    {
+      "input": {
+        "name": "monster-dies",
+        "roleExists": true,
+        "hp": 0,
+        "camp": 2,
+        "lives": 1,
+        "isPve": true,
+        "isIntro": false,
+        "respawnCost": 1
+      },
+      "expected": {
+        "returnValue": true,
+        "trace": [
+          {
+            "event": "RoleDie",
+            "castRoleUid": 9.0,
+            "sourceCardUid": 10.0,
+            "cmdServerUid": 11.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "player-can-respawn",
+        "roleExists": true,
+        "hp": 0,
+        "camp": 1,
+        "lives": 2,
+        "isPve": true,
+        "isIntro": false,
+        "respawnCost": 1
+      },
+      "expected": {
+        "returnValue": "yield",
+        "trace": [
+          "Confirm",
+          "Yield"
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "intro-auto-respawn",
+        "roleExists": true,
+        "hp": 0,
+        "camp": 1,
+        "lives": 1,
+        "isPve": true,
+        "isIntro": true,
+        "respawnCost": 1
+      },
+      "expected": {
+        "returnValue": true,
+        "trace": [
+          "Respawn",
+          "ActiveBattleEnd"
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "player-confirm-no-spare-life",
+        "roleExists": true,
+        "hp": 0,
+        "camp": 1,
+        "lives": 1,
+        "isPve": true,
+        "isIntro": false,
+        "respawnCost": 1
+      },
+      "expected": {
+        "returnValue": "yield",
+        "trace": [
+          "Confirm",
+          "Yield"
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "pvp-role-dies",
+        "roleExists": true,
+        "hp": 0,
+        "camp": 1,
+        "lives": 2,
+        "isPve": false,
+        "isIntro": false,
+        "respawnCost": 1
+      },
+      "expected": {
+        "returnValue": true,
+        "trace": [
+          {
+            "event": "RoleDie",
+            "castRoleUid": 9.0,
+            "sourceCardUid": 10.0,
+            "cmdServerUid": 11.0
+          }
+        ]
+      }
+    }
+  ]
+}
