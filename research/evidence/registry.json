@@ -5192,6 +5192,50 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC144:AttachedCardPipeline",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "The authored attached-card pipeline carries a non-monster attach request through temporary-card/effect construction and matching-build command resolution, while stopping at the seal gate and retaining unresolved execution boundaries",
+      "sources": [
+        {
+          "module": "BEAttachPostAction",
+          "member": "DoEffect,__DoMultiEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "866523f8c030dbeb2c1405430bff1f9c8fd3bce69df04ccfa637a6e3dbc462a4",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-2276572718946656157_BEAttachPostAction.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "UseAttachPostCard",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "Skill",
+          "member": "123159",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\2015861756545847808_Skill.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "123163",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        }
+      ],
+      "tests": [
+        "engine/attached-card-pipeline.mjs",
+        "tests/attached-card-pipeline.test.mjs",
+        "tools/run_attached_card_pipeline.mjs",
+        "research/examples/attached-mouchette-card-pipeline.json",
+        "docs/ATTACHED_CARD_PIPELINE.md"
+      ],
+      "scope": "Authored composition of separately tested request, temporary-card construction and catalog-resolution boundaries. The Mouchette fixture uses explicit demonstration attack/state inputs and resolves all three real command rows. Effect and command execution, callbacks, final damage, gameplay and holdout validation are excluded.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC144:GeneratedCardPipeline",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
       "claim": "The authored generated-card pipeline composes tested request construction, Draw/Hand mutation, owner resolution, command-constructor requests and main-command Arg bindings while retaining each boundary trace and unresolved dependency",
@@ -6298,6 +6342,26 @@
         "tests/use-attach-post-card.test.mjs"
       ],
       "scope": "Byte-identical BattleUnitBase method executed with resource-150 dependencies over main-only, optional pre-command and trigger-parameter cases. Card constructor and managers are observers; effect execution, callbacks, gameplay and holdout validation are excluded.",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC150:AttachPostActionRequest",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "The installed resource-150 BEAttachPostAction reproduces all eight inherited non-monster parameter, gate and card-request fixtures exactly with current dependencies",
+      "sources": [
+        {
+          "module": "PC resource-150 attach-post runtime comparison",
+          "member": "BEAttachPostAction and current dependency hashes",
+          "bundle": "installed local client; hashes only",
+          "sha256": "8434ac275f14462127bcad012273900dccceeddd195e229dfa2026a406d9cedd"
+        }
+      ],
+      "tests": [
+        "tools/verify_current_attach_post_action.py",
+        "tests/current-attach-post-action-runtime.test.mjs",
+        "tests/attach-post-action.test.mjs"
+      ],
+      "scope": "Byte-identical BEAttachPostAction executed with resource-150 dependencies over one non-monster iteration, parameter defaults, trigger flags, seal signs and empty target. Later repetitions, attached-card execution, callbacks, gameplay and holdout validation are excluded.",
       "gameplayValidation": false
     },
     {

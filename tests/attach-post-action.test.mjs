@@ -15,6 +15,6 @@ test('attach-post plans reproduce every original non-monster request fixture',()
 test('attach-post planner rejects unsupported targets, builds and sparse parameters',()=>{
   const base={schemaVersion:1,kind:'morimens-attach-post-action',build:'pc-res144-build51',parameters:[133381,1,0,1,7],casterUid:77,targetUid:99,casterSealAttachPost:0,targetPresent:true,targetIsMonster:false};
   assert.throws(()=>planAttachPostAction({...base,targetIsMonster:true}),/non-monster/);
-  assert.throws(()=>planAttachPostAction({...base,build:'pc-res150-build51'}),/resource-144/);
+  assert.throws(()=>planAttachPostAction({...base,build:'pc-res151-build51'}),/supported-build/);
   assert.throws(()=>planAttachPostAction({...base,parameters:[133381,,0]}),/Sparse|request/);
 });

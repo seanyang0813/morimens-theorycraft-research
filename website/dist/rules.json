@@ -4244,6 +4244,42 @@
       ]
     },
     {
+      "id": "PC144:AttachedCardPipeline",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "The authored attached-card pipeline carries a non-monster attach request through temporary-card/effect construction and matching-build command resolution, while stopping at the seal gate and retaining unresolved execution boundaries",
+      "scope": "Authored composition of separately tested request, temporary-card construction and catalog-resolution boundaries. The Mouchette fixture uses explicit demonstration attack/state inputs and resolves all three real command rows. Effect and command execution, callbacks, final damage, gameplay and holdout validation are excluded.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "BEAttachPostAction",
+          "member": "DoEffect,__DoMultiEffect",
+          "sha256": "866523f8c030dbeb2c1405430bff1f9c8fd3bce69df04ccfa637a6e3dbc462a4"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "UseAttachPostCard",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410"
+        },
+        {
+          "module": "Skill",
+          "member": "123159",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8"
+        },
+        {
+          "module": "Cmd",
+          "member": "123163",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2"
+        }
+      ],
+      "checks": [
+        "engine/attached-card-pipeline.mjs",
+        "tests/attached-card-pipeline.test.mjs",
+        "tools/run_attached_card_pipeline.mjs",
+        "research/examples/attached-mouchette-card-pipeline.json",
+        "docs/ATTACHED_CARD_PIPELINE.md"
+      ]
+    },
+    {
       "id": "PC144:GeneratedCardPipeline",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
       "claim": "The authored generated-card pipeline composes tested request construction, Draw/Hand mutation, owner resolution, command-constructor requests and main-command Arg bindings while retaining each boundary trace and unresolved dependency",
@@ -5220,6 +5256,25 @@
         "tools/verify_current_use_attach_post_card.py",
         "tests/current-use-attach-post-card-runtime.test.mjs",
         "tests/use-attach-post-card.test.mjs"
+      ]
+    },
+    {
+      "id": "PC150:AttachPostActionRequest",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "The installed resource-150 BEAttachPostAction reproduces all eight inherited non-monster parameter, gate and card-request fixtures exactly with current dependencies",
+      "scope": "Byte-identical BEAttachPostAction executed with resource-150 dependencies over one non-monster iteration, parameter defaults, trigger flags, seal signs and empty target. Later repetitions, attached-card execution, callbacks, gameplay and holdout validation are excluded.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 attach-post runtime comparison",
+          "member": "BEAttachPostAction and current dependency hashes",
+          "sha256": "8434ac275f14462127bcad012273900dccceeddd195e229dfa2026a406d9cedd"
+        }
+      ],
+      "checks": [
+        "tools/verify_current_attach_post_action.py",
+        "tests/current-attach-post-action-runtime.test.mjs",
+        "tests/attach-post-action.test.mjs"
       ]
     },
     {

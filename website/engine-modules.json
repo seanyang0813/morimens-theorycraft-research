@@ -60,6 +60,7 @@
   "catalog-card-command-plan.mjs",
   "attach-post-action.mjs",
   "use-attach-post-card.mjs",
+  "attached-card-pipeline.mjs",
   "generated-card-pipeline.mjs",
   "active-command-experiment.mjs",
   "passive-command-experiment.mjs",

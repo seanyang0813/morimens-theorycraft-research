@@ -2,12 +2,13 @@ import {snapshot} from './experiments.mjs';
 
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(key=>Object.hasOwn(value,key));
 const dense=value=>Array.isArray(value)&&value.length>=1&&value.length<=5&&Array.from({length:value.length},(_,index)=>index).every(index=>Object.hasOwn(value,index)&&Number.isFinite(value[index]));
+const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51']);
 
 // One non-monster __DoMultiEffect iteration. Later repetition scheduling and the
 // requested temporary card's construction/execution are separate boundaries.
 export function planAttachPostAction(value){
   const input=snapshot(value),keys=['schemaVersion','kind','build','parameters','casterUid','targetUid','casterSealAttachPost','targetPresent','targetIsMonster'];
-  if(!exact(input,keys)||input.schemaVersion!==1||input.kind!=='morimens-attach-post-action'||input.build!=='pc-res144-build51'||!dense(input.parameters)||!Number.isSafeInteger(input.casterUid)||!Number.isSafeInteger(input.targetUid)||!Number.isFinite(input.casterSealAttachPost)||typeof input.targetPresent!=='boolean'||input.targetIsMonster!==false)throw new Error('Explicit resource-144 non-monster attach-post request required');
+  if(!exact(input,keys)||input.schemaVersion!==1||input.kind!=='morimens-attach-post-action'||!supportedBuilds.has(input.build)||!dense(input.parameters)||!Number.isSafeInteger(input.casterUid)||!Number.isSafeInteger(input.targetUid)||!Number.isFinite(input.casterSealAttachPost)||typeof input.targetPresent!=='boolean'||input.targetIsMonster!==false)throw new Error('Explicit supported-build non-monster attach-post request required');
   const [skillId,repeat=1,triggerFlag=0,showPerform=0,skillLevel=1]=input.parameters;
   if(!Number.isSafeInteger(skillId)||skillId<=0)throw new Error('Positive attached skill ID required');
   const initialization={totalEffectTimes:repeat,leftEffectTimes:repeat};

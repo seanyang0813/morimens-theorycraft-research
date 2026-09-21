@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-attached-card-pipeline",
+  "build": "pc-res144-build51",
+  "attach": {
+    "schemaVersion": 1,
+    "kind": "morimens-attach-post-action",
+    "build": "pc-res144-build51",
+    "parameters": [123159, 1, 0, 1],
+    "casterUid": 77,
+    "targetUid": 99,
+    "casterSealAttachPost": 0,
+    "targetPresent": true,
+    "targetIsMonster": false
+  },
+  "cardContext": {
+    "cardUid": 900,
+    "camp": 3,
+    "targetType": 456,
+    "hasPre": false,
+    "preCmdId": null,
+    "progression": {
+      "isAwaker": true,
+      "breakSkillLevel": 0,
+      "potencyLevel": 0,
+      "variables": {"BattleAtkForce": 1000},
+      "conditionResults": {},
+      "stateQueries": {"CmdCaster.GetStateLayer": {"122512": 2, "124039": 1}}
+    }
+  }
+}
