@@ -9,6 +9,7 @@ const hashPattern=/^[a-f0-9]{64}$/;
 test('defense consumer audit pins the static two-build inventory',()=>{
   assert.equal(evidence.schemaVersion,1);
   assert.equal(evidence.kind,'MORIMENS_DEFENSE_CONSUMER_AUDIT');
+  assert.equal(evidence.analysisTrack,'mechanics');
   assert.equal(evidence.status,'STATIC_CONSUMER_INVENTORY');
   assert.deepEqual(evidence.builds.map(row=>row.build),['pc-res144-build51','pc-res150-build51']);
   assert.deepEqual(evidence.builds.map(row=>row.defenseDerivedSkills),[358,358]);
@@ -29,6 +30,7 @@ test('the sole defense-derived damage route stays explicit and conditional',()=>
   assert.equal(evidence.crossBuild.damageRoutesIdentical,true);
   assert.equal(evidence.conclusions.universalTargetDefenseMitigationFound,false);
   assert.equal(evidence.conclusions.sourceDefenseCanEnterDamageBase,true);
+  assert.match(evidence.trackBoundary,/does not classify cheese/);
   for(const build of evidence.builds){
     assert.deepEqual(build.damageRoutes,[{
       skillId:147434,

@@ -5820,7 +5820,7 @@
         {
           "module": "Sanitized two-build DEF consumer audit",
           "member": "BattleDefForce formula, Skill-to-Cmd argument lineage, effect categories and selected route identity",
-          "sha256": "a87d5d9752f99867e69c5e2c3df49b26ed2a6cc9ee2cd14977ead86adc97f90b"
+          "sha256": "d757f039c6cc852c489173e8ef667a141698e42fc9f7c1066eed66d59605fc19"
         }
       ],
       "checks": [

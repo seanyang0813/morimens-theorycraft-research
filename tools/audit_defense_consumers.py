@@ -161,6 +161,7 @@ def build_report(baseline_dir: Path, current_dir: Path):
     return {
         "schemaVersion": 1,
         "kind": "MORIMENS_DEFENSE_CONSUMER_AUDIT",
+        "analysisTrack": "mechanics",
         "status": "STATIC_CONSUMER_INVENTORY",
         "builds": [baseline, current],
         "crossBuild": {"damageRoutesIdentical": route_identity},
@@ -177,6 +178,7 @@ def build_report(baseline_dir: Path, current_dir: Path):
             "Absence of a universal divisor is limited to the traced Active final-target and BeHit code plus this catalog inventory",
             "No Android combat bundles, gameplay validation or holdout credit",
         ],
+        "trackBoundary": "Mechanics-reconstruction evidence only. It does not classify cheese, compare build investment, recommend a theorycraft sequence or supply verification credit.",
     }
 
 
