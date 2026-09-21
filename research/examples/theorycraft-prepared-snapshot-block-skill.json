@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-theorycraft-request",
+  "requestId": "catalog-defend-block-energy-snapshot",
+  "operation": "run-prepared-snapshot-block-skill",
+  "input": {
+    "schemaVersion": 1,
+    "kind": "morimens-prepared-snapshot-block-skill",
+    "build": "pc-res144-build51",
+    "preparation": {
+      "skillId": 4176,
+      "skillLevel": 1,
+      "isAwaker": true,
+      "breakSkillLevel": 0,
+      "potencyLevel": 0,
+      "overrides": [],
+      "variables": { "BattleDefForce": 100 },
+      "conditionResults": {},
+      "stateQueries": {}
+    },
+    "targetBinding": {
+      "expression": "PlayerRole",
+      "resolution": "supplied-single-UpperTarget",
+      "targetUid": 8
+    },
+    "lifecycle": "assumed-absent",
+    "snapshot": {
+      "snapshotStage": "battle-property-server-live",
+      "snapshotCompleteness": "complete-map",
+      "casterProperties": {
+        "ulti_energy": 95,
+        "ulti_energy_max": 100,
+        "ulti_energy_cost_per": 0,
+        "ulti_energy_cost_flat": 0,
+        "ulti_energy_max_per": 0,
+        "o_ulti_energy_per": 0,
+        "ulti_energy_per": 0,
+        "i_ulti_energy_per": 0,
+        "ulti_energy_efficiency": 0,
+        "ulti_energy_plus": 0,
+        "gain_ulti_energy_per": 0,
+        "gain_ulti_energy_plus": 0,
+        "ulti_per_defendcard": 0
+      },
+      "playerProperties": { "dimension_fix_per": 0 },
+      "cardProperties": {},
+      "targetProperties": { "block": 0, "max_hp": 1000 }
+    },
+    "energy": {
+      "source": { "castRoleUid": 7, "cmdServerUid": 2 }
+    }
+  }
+}

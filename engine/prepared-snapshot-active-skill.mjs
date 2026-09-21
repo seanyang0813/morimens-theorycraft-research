@@ -8,6 +8,7 @@ import {runUltiEnergyExperiment} from './ulti-energy-experiment.mjs';
 import {matchesUltimateEnergyCardTypes,ultimateEnergyCardTypes} from './card-type-match.mjs';
 import {compileCommandCondition} from './command-expressions.mjs';
 import {selectFrontEnemy} from './front-enemy-target.mjs';
+import {deriveSnapshotUltiEnergyTarget} from './snapshot-ulti-energy-context.mjs';
 
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(key=>Object.hasOwn(value,key));
 const clone=value=>JSON.parse(JSON.stringify(value));
@@ -18,7 +19,6 @@ const preparationKeys=['skillId','skillLevel','isAwaker','breakSkillLevel','pote
 const snapshotKeys=['snapshotStage','snapshotCompleteness','casterProperties','playerProperties','initialTargetProperties','cardProperties','targetBattleTag','targetStateIds','critRolls'];
 const supportedTags=new Set(['Card_Strike','Card_Skill','Ulti_Skill','Card_AttachPost']);
 const instructionTags=new Set(['Card_Strike','Card_Skill','Card_Defend','Card_Extend']);
-const energyTagProperties={Card_Defend:'ulti_per_defendcard',Ulti_Skill:'ulti_per_ultiskill',Card_Skill:'ulti_per_skillcard',Card_Strike:'ulti_per_strikecard'};
 function dense(value,label){
   if(Array.isArray(value)){if(!Array.from({length:value.length},(_,i)=>Object.hasOwn(value,i)).every(Boolean))throw new Error(`${label} must be dense`);return [...value];}
   if(!value||typeof value!=='object'||Array.isArray(value))throw new Error(`${label} must be a dense Lua list`);
@@ -108,17 +108,7 @@ export function runPreparedSnapshotActiveSkill(value,source){
     let target;
     if(multi){
       if(input.targetBinding.context.casterCamp!==1||!input.preparation.isAwaker)throw new Error('Schema 3 energy derivation requires a Camp1 Awakener caster');
-      const reads=[];
-      const read=(owner,property)=>{const values=owner==='caster'?input.snapshot.casterProperties:owner==='card'?input.snapshot.cardProperties:input.snapshot.playerProperties,present=Object.hasOwn(values,property),value=present?values[property]:0;reads.push({owner,property,present,value});return value;};
-      const properties={
-        card_ulti_per:read('card','card_ulti_per'),card_ulti_plus:read('card','card_ulti_plus'),o_ulti_energy_per:read('caster','o_ulti_energy_per'),
-        ulti_energy_per:read('caster','ulti_energy_per'),i_ulti_energy_per:read('caster','i_ulti_energy_per'),ulti_energy_efficiency:read('caster','ulti_energy_efficiency'),ulti_energy_plus:read('caster','ulti_energy_plus'),
-        gain_ulti_energy_per:read('caster','gain_ulti_energy_per'),gain_ulti_energy_plus:read('caster','gain_ulti_energy_plus'),
-      };
-      for(const tag of tags){const property=energyTagProperties[tag];if(!property)throw new Error(`Unresolved skill-tag energy mapping: ${tag}`);properties[property]=read('caster',property);}
-      const maximumProperties={ulti_energy_max:read('caster','ulti_energy_max'),ulti_energy_cost_per:read('caster','ulti_energy_cost_per'),ulti_energy_cost_flat:read('caster','ulti_energy_cost_flat'),ulti_energy_max_per:read('caster','ulti_energy_max_per')};
-      target={uid:input.energy.source.castRoleUid,role:'Awaker',energy:read('caster','ulti_energy'),maximumProperties,calculation:{dimension:read('player','dimension_fix_per'),properties}};
-      energyPropertyDerivation={source:'complete property snapshots with GetProperty zero-default',reads,target};
+      energyPropertyDerivation=deriveSnapshotUltiEnergyTarget({source:input.energy.source,skillTags:tags,casterProperties:input.snapshot.casterProperties,cardProperties:input.snapshot.cardProperties,playerProperties:input.snapshot.playerProperties});target=energyPropertyDerivation.target;
     }else{
       if(!exact(input.energy.target,['uid','role','energy','maximumProperties','calculation'])||!exact(input.energy.target.calculation,['dimension','properties'])||input.energy.target.role!=='Awaker'||input.energy.source.castRoleUid!==input.energy.target.uid)throw new Error('Explicit self-target Awakener energy context required');
       target=input.energy.target;

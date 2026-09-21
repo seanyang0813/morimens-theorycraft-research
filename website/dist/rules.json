@@ -662,6 +662,35 @@
       ]
     },
     {
+      "id": "PC144:ConnectedDefendBlockCalculation",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Ordinary Camp1 PvE Awakener Defend-card Block property ownership, tag factors, ParaPlus, utility formula and recipient modifiers match original GetRealBlock",
+      "scope": "256 connected original cases with explicit caster, player, card and target properties; Card_Defend tag, instruction-card match, Camp1 PvE Awakener branch and supplied ParaPlus. No effect repetition, Block storage/events, command lifecycle, gameplay or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "BattleCmdServer",
+          "member": "GetRealBlock,__GetShowBlock,__GetFinalBlock",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b"
+        },
+        {
+          "module": "BattleUtilServer",
+          "member": "ShowBlockFormula",
+          "sha256": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007"
+        },
+        {
+          "module": "BattleConst",
+          "member": "SkillType2BlockPer,SkillType2InsideBlockPer,CardTypeInstruction",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+        }
+      ],
+      "checks": [
+        "tools/connected_block_calculation_oracle.py",
+        "tests/connected-block-calculation.test.mjs",
+        "tests/synthetic/original-connected-block-calculation.json"
+      ]
+    },
+    {
       "id": "PC144:FinalBlockStorage",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "Recipient Block modifiers ceil after gain percentage and flat additions with a minimum of one; Block storage applies the rounded max-HP cap unless ignoreMax is explicit",
@@ -5504,6 +5533,30 @@
       ]
     },
     {
+      "id": "PC150:ConnectedDefendBlockCalculation",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "Resource 150 reproduces all 256 inherited ordinary Camp1 PvE Awakener Defend-card GetRealBlock fixtures exactly",
+      "scope": "Explicit complete caster, player, card and target property adapters, Card_Defend tag, instruction-card match and supplied ParaPlus. No effect repetition, Block storage/events, full command, card lifecycle, gameplay or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 installed share bundle",
+          "member": "BattleConst, BattleUtilServer and BattleCmdServer hashes",
+          "sha256": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9"
+        },
+        {
+          "module": "PC resource-150 connected Block runtime comparison",
+          "member": "GetRealBlock fixture domain",
+          "sha256": "754225d4cd359232f822712bae577489446c24c21a3f18edeb266058f62258c1"
+        }
+      ],
+      "checks": [
+        "tools/verify_current_block_calculation.py",
+        "tests/current-pc-build-evidence.test.mjs",
+        "tests/connected-block-calculation.test.mjs"
+      ]
+    },
+    {
       "id": "PC150:PveCardPlayCheck",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
       "claim": "Resource 150 reproduces all 90 inherited ordinary PvE CanUseCard fixtures exactly",
@@ -6002,6 +6055,51 @@
         "tests/synthetic/original-conditional-active-command.json",
         "tests/prepared-snapshot-active-skill.test.mjs",
         "research/examples/theorycraft-prepared-conditional-active-energy-skill.json"
+      ]
+    },
+    {
+      "id": "Theorycraft:PreparedDefendBlockEnergy",
+      "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
+      "claim": "The catalog-prepared theorycraft path executes an ordinary PvE Defend card as snapshot-derived Block gain followed by capped caster ultimate-energy gain",
+      "scope": "Authored two-row composition for matching resource-144 and resource-150 catalog rows. Skill 4176 / command 834 derives progression arguments, selected target, ordinary Camp1 PvE Awakener/card Block properties, recipient modifiers, storage cap and caster energy from complete snapshots. The Block assembly matches 256 original and current-build GetRealBlock fixtures; storage and energy have separate runtime evidence. Target generation, legality/payment, repetition, callbacks, events, card lifecycle, gameplay and holdout validation are excluded. Theorycraft track only; no cheese, budget or observed-strategy claim.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Skill",
+          "member": "4176",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8"
+        },
+        {
+          "module": "Cmd",
+          "member": "834",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "GetRealBlock,GetRealUltiEnergy",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b"
+        },
+        {
+          "module": "BEGainBlock",
+          "member": "DoEffect,__DoMultiEffect",
+          "sha256": "d96a78714e93a7e6b7d3b5bb4e87f2aaea65a1063784ec1e8d5de8d6034b10a9"
+        },
+        {
+          "module": "BEGainUltiEnergy",
+          "member": "DoEffect",
+          "sha256": "eaa49d0dcbeb60d4894c725e97cc35eb37c840c47ffe287f8d77f0d63e3993e2"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "GetMaxBlock,GetMaxUltiEnergy",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76"
+        }
+      ],
+      "checks": [
+        "tests/prepared-snapshot-block-skill.test.mjs",
+        "tests/connected-block-calculation.test.mjs",
+        "research/examples/theorycraft-prepared-snapshot-block-skill.json",
+        "docs/PREPARED_SNAPSHOT_BLOCK_SKILL.md"
       ]
     },
     {

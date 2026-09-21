@@ -176,6 +176,14 @@ test('current PC ultimate-energy calculation, effect and storage match inherited
   }
 });
 
+test('current PC ordinary PvE Defend Block calculation matches the inherited connected domain',()=>{
+  const runtime=read('research/evidence/pc-res150-connected-block-calculation.json');
+  const fixture=read('tests/synthetic/original-connected-block-calculation.json');
+  const comparison=read('research/evidence/pc-res144-to-res150-combat-build.json');
+  assert.equal(runtime.data.status,'EXACT_MATCH_IN_FIXTURE_DOMAIN');assert.equal(runtime.data.fixtures,256);assert.equal(runtime.data.fixtures,fixture.data.fixtures.length);assert.equal(runtime.data.exactMatches,256);assert.equal(runtime.data.mismatches,0);assert.equal(runtime.data.sourceHashes.fixture,hash(fixture.bytes));
+  for(const name of ['BattleConst.lua','BattleUtilServer.lua','BattleCmdServer.lua']){const row=comparison.data.combatModules.find(item=>item.name===name);assert.equal(runtime.data.sourceHashes['current'+name.replace('.lua','')],row.current[0].sha256);}
+});
+
 test('current PC ordinary PvE card eligibility matches the inherited runtime domain',()=>{
   const runtime=read('research/evidence/pc-res150-card-play-runtime.json');
   const fixture=read('tests/synthetic/original-card-play-check.json');

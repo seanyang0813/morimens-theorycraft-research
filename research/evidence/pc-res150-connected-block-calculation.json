@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "method": "BattleCmdServer.GetRealBlock ordinary Camp1 PvE Card_Defend branch",
+  "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+  "sourceHashes": {
+    "fixture": "4055d56cf07cb4015f3106a8e38573a410fea60661cc96849a1ccf812a7e811e",
+    "currentBattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+    "currentBattleUtilServer": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
+    "currentBattleCmdServer": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9"
+  },
+  "fixtures": 256,
+  "exactMatches": 256,
+  "mismatches": 0,
+  "results": [],
+  "scope": "Installed resource-150 constants, utility and command bytecode over inherited ordinary Camp1 PvE Awakener instruction-card Block calculation fixtures.",
+  "limitations": [
+    "Explicit complete property adapters, Card_Defend tag, selected recipient and ParaPlus; no effect repetition, storage/events, full command or card lifecycle",
+    "Synthetic cross-build comparison; no gameplay or holdout credit"
+  ]
+}

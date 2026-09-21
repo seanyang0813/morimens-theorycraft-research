@@ -20,6 +20,7 @@ test('agent API advertises explicit bounded operations',()=>{
   assert.ok(response.result.operations.some(row=>row.name==='calculate-snapshot-active-damage'));
   assert.ok(response.result.operations.some(row=>row.name==='run-snapshot-active-sequence'));
   assert.ok(response.result.operations.some(row=>row.name==='run-prepared-snapshot-active-skill'));
+  assert.ok(response.result.operations.some(row=>row.name==='run-prepared-snapshot-block-skill'));
   assert.ok(response.result.operations.some(row=>row.name==='run-ulti-energy-effect'));
   assert.ok(response.result.operations.some(row=>row.name==='run-attached-card-pipeline'));
   assert.ok(response.result.operations.some(row=>row.name==='run-conditional-role-state-suffix'));
@@ -146,4 +147,13 @@ test('agent API executes the catalog conditional Puncture branch with LastCondit
   assert.deepEqual(response.result.rowExecutions.map(row=>[row.executed,row.condition.passed]),[[true,true],[false,false]]);
   assert.deepEqual(response.result.derivedSequenceInput.hits.map(hit=>hit.hitContext.damageSubtype),['Puncture','Puncture','Puncture','Puncture']);
   assert.deepEqual(response.result.calculation.targetAfter,{hp:932,block:0});assert.equal(response.result.energy.targetsAfter[0].energy,100);assert.equal(response.result.finalDamage,null);
+});
+
+test('agent API executes catalog-prepared Defend Block and energy from one snapshot',()=>{
+  const read=name=>{const bytes=readFileSync(new URL(`../research/extracted/config/${name}.json`,import.meta.url));return {data:JSON.parse(bytes),sha256:createHash('sha256').update(bytes).digest('hex')};};
+  const skill=read('Skill'),battleApi=read('BattleApi'),command=read('Cmd'),state=read('State');
+  const skillCommandData={build:'pc-res144-build51',skills:skill.data,battleApi:battleApi.data,commands:command.data,states:state.data,sourceHashes:{Skill:skill.sha256,BattleApi:battleApi.sha256,Cmd:command.sha256,State:state.sha256}};
+  const example=JSON.parse(readFileSync(new URL('../research/examples/theorycraft-prepared-snapshot-block-skill.json',import.meta.url)));
+  const response=runTheorycraftRequest(example,{skillCommandData});
+  assert.equal(response.analysisTrack,'theorycrafting');assert.equal(response.result.command.id,834);assert.equal(response.result.block.blockAfter,10);assert.equal(response.result.energy.targetsAfter[0].energy,100);assert.equal(response.result.finalDamage,null);
 });
