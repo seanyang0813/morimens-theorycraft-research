@@ -37,6 +37,8 @@ The agent API includes `calculate-snapshot-active-damage` for complete captured 
 
 `run-snapshot-active-sequence` repeats the same complete-property Active path while carrying recovered HP and Block changes between hits. It recomputes block-sensitive damage after shield depletion, validates all supplied hits and stops before unsupported post-death execution. Other state/event mutations remain explicit unresolved dependencies.
 
+`run-prepared-snapshot-active-skill` closes the next narrow gap: for a one-row unconditional ordinary Active command, it derives base damage and repetition from build-pinned Skill/BattleApi/Cmd exports before running the complete-property sequence. Callers still supply the live property maps, resolved single target and critical draws. Mixed commands, ParaPlus, other subtypes and lifecycle effects fail closed. See `docs/PREPARED_SNAPSHOT_ACTIVE_SKILL.md`.
+
 The agent API can also enumerate ordinary PvE cards that are legal from an
 explicit dispatch, energy, hand and status snapshot. It reports global and
 per-card rejection gates without spending resources or executing effects. This

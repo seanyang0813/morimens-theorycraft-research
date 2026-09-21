@@ -21,7 +21,7 @@ try{
     buildCatalog:JSON.parse(readFileSync(resolve(root,'website/dist/build-catalog.json'),'utf8')),
     clientBuildData:JSON.parse(readFileSync(resolve(root,`website/dist/${clientDataFile}`),'utf8')),
   };
-  if(['prepare-skill-command','run-attached-card-pipeline'].includes(request.operation)){
+  if(['prepare-skill-command','run-prepared-snapshot-active-skill','run-attached-card-pipeline'].includes(request.operation)){
     const skill=readConfig('Skill'),battleApi=readConfig('BattleApi'),command=readConfig('Cmd'),state=readConfig('State');
     context.skillCommandData={build:selectedBuild,skills:skill.data,battleApi:battleApi.data,commands:command.data,states:state.data,sourceHashes:{Skill:skill.sha256,BattleApi:battleApi.sha256,Cmd:command.sha256,State:state.sha256}};
   }

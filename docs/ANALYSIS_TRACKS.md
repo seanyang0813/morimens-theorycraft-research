@@ -26,3 +26,8 @@ Replay summaries expose budget, cheese, theorycrafting and verification tracks.
 Mechanics reports are produced from code/data/runtime investigations and use
 `analysisTrack: "mechanics"`; a raw replay summary cannot declare a mechanic
 verified merely because the observed sequence is suggestive.
+
+Budget scouting and cheese analysis also remain separate from each other. A
+low-investment leaderboard clear may be a budget candidate without being an
+exploit or unusual interaction. Calling it cheese requires a separate observed
+sequence analysis with its own evidence and limitations.

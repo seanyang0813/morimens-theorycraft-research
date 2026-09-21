@@ -19,6 +19,7 @@ test('agent API advertises explicit bounded operations',()=>{
   assert.ok(response.result.operations.some(row=>row.name==='run-command-damage-prefix'));
   assert.ok(response.result.operations.some(row=>row.name==='calculate-snapshot-active-damage'));
   assert.ok(response.result.operations.some(row=>row.name==='run-snapshot-active-sequence'));
+  assert.ok(response.result.operations.some(row=>row.name==='run-prepared-snapshot-active-skill'));
   assert.ok(response.result.operations.some(row=>row.name==='run-attached-card-pipeline'));
   assert.ok(response.result.operations.some(row=>row.name==='run-conditional-role-state-suffix'));
   assert.equal(response.result.publicationStatus,'NOT_READY');

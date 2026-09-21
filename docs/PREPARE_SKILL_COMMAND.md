@@ -88,3 +88,5 @@ node tools/run_theorycraft_request.mjs --input research/examples/theorycraft-cur
 ```
 
 Preparation-only output has status `PREPARED`, `finalDamage: null`, selected arguments, every top-level command effect type, the full compatibility report and unresolved dependencies. An execution request returns `EXPERIMENTAL` only when the whole selected command fits one of the existing narrow execution profiles. Unsupported effects are reported and prevent partial execution.
+
+For the narrow one-row ordinary Active shape, `run-prepared-snapshot-active-skill` continues from the catalog-derived arguments into the complete-property repeated-hit engine. It does not accept a caller-authored base value or command. See `PREPARED_SNAPSHOT_ACTIVE_SKILL.md`.
