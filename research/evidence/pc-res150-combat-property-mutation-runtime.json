@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+  "fixtures": 1536,
+  "exactMatches": 1536,
+  "mismatches": [],
+  "sourceHashes": {
+    "comparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
+    "fixture": "ea69778caaaac21e6ddb7734b8d9e98d0e5e3f60f6fa994bae0f5d2c0fe2d76b",
+    "currentModules": {
+      "BattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+      "BattleUtilServer": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
+      "BattleCmdServer": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9",
+      "BattlePropertyServer": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5"
+    }
+  },
+  "scope": "Actual installed resource-150 BattlePropertyServer with current constants/util/command dependencies over ordinary combat-property and tentacle-gate fixture domains.",
+  "limitations": [
+    "Explicit numeric property stores, crit scales and PvE/owner/tentacle-capacity context",
+    "No state construction, event dispatch, gameplay or holdout credit"
+  ]
+}
