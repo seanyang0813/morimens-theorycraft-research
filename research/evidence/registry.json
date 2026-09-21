@@ -7070,6 +7070,54 @@
       "gameplayValidation": false
     },
     {
+      "id": "Budget:ReplayDomainRouting",
+      "status": "CONFIRMED_FROM_PRIVATE_REPLAY_INDEX",
+      "claim": "A fail-closed domain audit routes all 69 unique archive captures and finds zero pure-PvE records eligible for D-Tide budget comparison",
+      "sources": [
+        {
+          "module": "Sanitized replay budget-domain routing",
+          "member": "identifier-free aggregate counts and private-audit hash",
+          "bundle": "private compact replay indexes; public summary only",
+          "sha256": "0d4f4668e0373018693ab4d336cce9195a57d97b94ca7387d03d5627ffaf0e3b"
+        }
+      ],
+      "tests": [
+        "tools/summarize_replay_domain_routing.py",
+        "tests/replay-domain-routing.test.mjs",
+        "docs/REPLAY_ANALYSIS_WORKFLOWS.md"
+      ],
+      "scope": "Budget-scouting track only. Forty-nine captures are Player-only and twenty are mixed or unresolved; none is pure PvE, so no comparable PvE frontier is emitted. This does not classify cheese, verify damage, establish D-Tide difficulty labels, prove build optimality or create a theorycraft result.",
+      "gameplayValidation": false
+    },
+    {
+      "id": "Verification:ReplayRegressionDomainRouting",
+      "status": "RETROSPECTIVE_PROVENANCE_ONLY",
+      "claim": "All 428 strict retrospective Active candidates are selected Monster hits from 19 mixed-domain records, while 23 Player-only records contribute zero candidates",
+      "sources": [
+        {
+          "module": "Sanitized replay regression-domain routing",
+          "member": "identifier-free aggregate counts and source-audit hashes",
+          "bundle": "private compact replay indexes plus public regression audit",
+          "sha256": "13d1abd3e65b6839bbc11e5c8e1234a89d8a4fc2bce6e7021dfede009c9ed95f"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "Serialize,BeHit",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        }
+      ],
+      "tests": [
+        "tools/summarize_replay_domain_routing.py",
+        "tests/replay-domain-routing.test.mjs",
+        "tests/replay-action-candidate.test.mjs",
+        "research/evidence/replay-corpus-active-audit.json"
+      ],
+      "scope": "Verification-track retrospective provenance only. The strict adapter independently requires a selected Monster target, but each source record remains mixed rather than pure PvE. No whole-record PvE classification, D-Tide budget rank, cheese claim, forward theorycraft result, blind holdout or publication credit.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC144-PC150:DefenseConsumerInventory",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
       "claim": "BattleDefForce is source DEF after source DEF-percent scaling; across both inspected PC catalogs, the sole direct damage route is the same entry marked unfinished, while 38 DEF-derived add-state routes feed three identical damage-modifying states",

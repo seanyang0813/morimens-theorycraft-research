@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_SANITIZED_BUDGET_DOMAIN_ROUTING",
+  "analysisTrack": "budget-scouting",
+  "identifiersPublished": false,
+  "captureCount": 69,
+  "completeHitSnapshots": 2462,
+  "combatDomains": {
+    "MIXED_OR_UNKNOWN_TARGETS": 20,
+    "PVP_PLAYER_TARGETS": 49
+  },
+  "completeHitTargetRoleTypes": {
+    "Monster": 1117,
+    "Player": 1345
+  },
+  "pveBudgetEligibleCaptureCount": 0,
+  "pveComparableGroupCount": 0,
+  "claimBoundary": {
+    "allowed": [
+      "archive routing eligibility for later same-coordinate budget comparison"
+    ],
+    "forbidden": [
+      "cheese classification",
+      "theorycraft conclusion",
+      "damage verification",
+      "build optimality"
+    ]
+  },
+  "scope": "A capture enters PvE budget scouting only when every complete hit target is a Monster. Mixed, Player-only and zero-complete-hit captures fail closed.",
+  "sourceHashes": {
+    "privateDomainAudit": "b4c24243586d786d175d546c68d85b4ffa6658e377324713e6ec73b826466107",
+    "publicRegressionAudit": "e5d59898dcb5640b9578e14d20d0b088ab689a13e20c7d8e1b0532d236b4025a"
+  }
+}
