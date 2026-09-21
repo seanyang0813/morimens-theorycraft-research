@@ -9,7 +9,7 @@ const roleType={Awaker:1,Monster:2};
 // amount, crit flag, HP loss and block loss are replaced before the ordinary
 // replay adapter is invoked. This predicts damage conditional on the recorded
 // target/caster/skill identity; it does not claim to predict target selection.
-export function buildBlindReplayPrediction({index,skills,commands,monsters,awakeners}){
+export function buildBlindReplayPrediction({index,skills,commands,monsters,awakeners,combatBuild='pc-res144-build51'}){
   if(!index||index.kind!=='MORIMENS_REPLAY_EVENT_INDEX')throw new Error('Replay event index required');
   const blockers=[];
   for(const sourceAction of index.actionSnapshots??[]){
@@ -37,7 +37,7 @@ export function buildBlindReplayPrediction({index,skills,commands,monsters,awake
       action.window={selectedTargetCommands:clone(sourceAction.window?.selectedTargetCommands??[]),events:[clone(syntheticHit)],hits:[clone(syntheticHit)],hitSnapshots:[first]};
       const sealedIndex={kind:index.kind,build:index.build,actionSnapshots:[action]};
       action.actionIndex=0;
-      const candidate=buildReplayActionCandidate({index:sealedIndex,actionIndex:0,hitIndex:first.hitIndex,skills,commands,monsters,awakeners,preOutcome:true});
+      const candidate=buildReplayActionCandidate({index:sealedIndex,actionIndex:0,hitIndex:first.hitIndex,skills,commands,monsters,awakeners,preOutcome:true,combatBuild});
       if(candidate.status!=='CALCULATED_REGRESSION_CANDIDATE'||!candidate.calculation||candidate.comparison!==null||candidate.observedHit!==null)throw new Error('Deterministic outcome-free calculation required');
       return {
         schemaVersion:1,kind:'MORIMENS_BLIND_REPLAY_PREDICTION',build:candidate.build,

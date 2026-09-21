@@ -5,7 +5,7 @@ import {activeTargetDamage} from './active-target.mjs';
 import {resolveCriticalHit} from './crit-resolution.mjs';
 import {resolveTargetDamageEligibility} from './target-damage-eligibility.mjs';
 
-const build='pc-res144-build51';
+const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51']);
 const tags=['Card_Strike','Card_Skill','Ulti_Skill','Card_AttachPost'];
 const tagCrit={Card_Strike:'crit_damage_from_strikecard',Ulti_Skill:'crit_damage_from_ulti'};
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(key=>Object.hasOwn(value,key));
@@ -17,7 +17,7 @@ const validateMap=(value,label)=>{
 export function calculateSnapshotActiveDamage(value){
   const input=JSON.parse(JSON.stringify(value));
   const keys=['schemaVersion','kind','build','snapshotStage','snapshotCompleteness','baseValue','skillArgsPlus','tags','casterProperties','playerProperties','targetProperties','cardProperties','cardContext','targetContext'];
-  if(!exact(input,keys)||input.schemaVersion!==1||input.kind!=='morimens-battle-property-snapshot-damage'||input.build!==build||!['roleData.properties-before-constructor','battle-property-server-live'].includes(input.snapshotStage)||input.snapshotCompleteness!=='complete-map')throw new Error('Explicit complete supported battle-property snapshots required');
+  if(!exact(input,keys)||input.schemaVersion!==1||input.kind!=='morimens-battle-property-snapshot-damage'||!supportedBuilds.has(input.build)||!['roleData.properties-before-constructor','battle-property-server-live'].includes(input.snapshotStage)||input.snapshotCompleteness!=='complete-map')throw new Error('Explicit complete supported battle-property snapshots required');
   if(!Number.isFinite(input.baseValue)||!Number.isFinite(input.skillArgsPlus)||!Array.isArray(input.tags)||input.tags.some(tag=>!tags.includes(tag))||new Set(input.tags).size!==input.tags.length)throw new Error('Explicit finite base/argument values and unique supported tags required');
   for(const [label,map] of [['Caster',input.casterProperties],['Player',input.playerProperties],['Target',input.targetProperties],['Card',input.cardProperties]])validateMap(map,label);
   const cardContextKeys=['present','instructionCard','stateTriggerAdd'];
@@ -25,6 +25,7 @@ export function calculateSnapshotActiveDamage(value){
   const contextKeys=['critRoll','targetBattleTag','targetStateIds'];
   const context=input.targetContext;
   if(!exact(context,contextKeys)||(context.critRoll!==null&&(!Number.isInteger(context.critRoll)||context.critRoll<1||context.critRoll>100)))throw new Error('Explicit event-time target context required');
+  if(input.build==='pc-res150-build51'&&(input.snapshotStage!=='battle-property-server-live'||context.targetStateIds.length))throw new Error('Resource-150 snapshot support requires live properties and no target states');
   const targetEligibility=resolveTargetDamageEligibility({targetBattleTag:context.targetBattleTag,targetStateIds:context.targetStateIds});
   const constructorTrace={};
   const normalize=(name,map)=>{
@@ -38,8 +39,8 @@ export function calculateSnapshotActiveDamage(value){
   const dimensionFixPer=read('player','dimension_fix_per');
   const card=input.cardContext.present?Object.fromEntries(cardPropertyKeys.map(property=>[property,read('card',property)])):null;
   const offense=input.cardContext.present?
-    prepareCardPveOffense({build,value:input.baseValue,caster,player,tags:input.tags,dimensionFixPer,skillArgsPlus:input.skillArgsPlus,card,instructionCard:input.cardContext.instructionCard,stateTriggerAdd:false}):
-    prepareNoCardPveOffense({build,value:input.baseValue,caster,player,tags:input.tags,dimensionFixPer,skillArgsPlus:input.skillArgsPlus});
+    prepareCardPveOffense({build:input.build,value:input.baseValue,caster,player,tags:input.tags,dimensionFixPer,skillArgsPlus:input.skillArgsPlus,card,instructionCard:input.cardContext.instructionCard,stateTriggerAdd:false}):
+    prepareNoCardPveOffense({build:input.build,value:input.baseValue,caster,player,tags:input.tags,dimensionFixPer,skillArgsPlus:input.skillArgsPlus});
   const critResolution=resolveCriticalHit({tags:input.tags,cardPresent:input.cardContext.present,casterIsAwaker:true,casterProperties:snapshots.caster,playerProperties:snapshots.player,targetProperties:snapshots.target,cardProperties:snapshots.card,roll:context.critRoll});
   reads.push(...critResolution.trace);
   if(critResolution.isCrit===null)throw new Error('RNG-dependent critical outcome requires a captured pre-outcome roll');
@@ -54,8 +55,9 @@ export function calculateSnapshotActiveDamage(value){
     enemyDebuffDmgPer:targetEligibility.targetHasDebuff?read('caster','damage_per2debuff_enemy'):0,enemyBlockDmgPer:targetBlock>0?read('caster','damage_per2block_enemy'):0,
     enemyBlockBarrierDmgPer:targetBlock>0||targetEligibility.targetBlockBarrierStatePresent?read('caster','damage_per2block_barrier'):0,cardBlockBarrierPer:input.cardContext.present&&(targetBlock>0||targetEligibility.targetBlockBarrierStatePresent)?read('card','card_damage_per2block_barrier'):0,
     enemyStateDmgMultiplier:stateMultiplier,beDamagePlus:read('target','be_damage_plus')};
-  const target=activeTargetDamage(offense.showDamage,targetData);
-  return {schemaVersion:1,status:'EXPERIMENTAL',build,finalDamage:null,preHitDamage:target.preHitDamage,scope:`Complete captured property maps; ${input.cardContext.present?'captured card instance':'no card'}; PvE Awakener ordinary direct Active damage; supplied event-time context`,
+  const target=activeTargetDamage(offense.showDamage,targetData,input.build,{cardPresent:input.cardContext.present});
+  const crossBuild=input.build==='pc-res150-build51';
+  return {schemaVersion:1,status:'EXPERIMENTAL',build:input.build,finalDamage:null,preHitDamage:target.preHitDamage,scope:`Complete captured property maps; ${input.cardContext.present?'captured card instance':'no card'}; PvE Awakener ordinary direct Active damage; supplied event-time context`,
     snapshotStage:input.snapshotStage,constructorTrace,reads,critResolution,targetEligibility,resolvedUtilityInputs:offense.resolvedUtilityInputs,targetInputs:targetData,offense,target,
-    unresolvedDependencies:['Base command value, card identity/type, tags, target battle tag, active target state IDs and any required critical RNG draw must be captured from the same pre-action boundary','A deterministic crit result still consumes an RNG draw in the original chance branch; later RNG-stream reconstruction requires its state/effect','Card-awake skills, state-trigger-add, formula subtype, targeting, HP resolution and callbacks are outside this adapter','Snapshot completeness and provenance require evidence review','Authored composition of separately checked property, offense, critical, eligibility and target boundaries; no connected original execution or independent gameplay validation']};
+    unresolvedDependencies:['Base command value, card identity/type, tags, target battle tag, active target state IDs and any required critical RNG draw must be captured from the same pre-action boundary','A deterministic crit result still consumes an RNG draw in the original chance branch; later RNG-stream reconstruction requires its state/effect','Card-awake skills, state-trigger-add, formula subtype, targeting, HP resolution and callbacks are outside this adapter','Snapshot completeness and provenance require evidence review',crossBuild?'Resource-150 support is restricted to live property maps with no target states and is composed from cross-build runtime-matched offense, utility, critical and final-target domains':'Authored composition of separately checked property, offense, critical, eligibility and target boundaries; no connected original execution or independent gameplay validation']};
 }

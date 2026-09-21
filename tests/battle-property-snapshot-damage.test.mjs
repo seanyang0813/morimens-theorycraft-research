@@ -35,6 +35,16 @@ test('raw roleData maps apply the original constructor ceil once before formula 
   const result=calculateSnapshotActiveDamage(input);
   assert.equal(result.targetInputs.awakerCritDamage,50);assert.ok(result.constructorTrace.caster.some(row=>row.property==='crit_damage'&&row.stored===50));
 });
+test('resource-150 uses the bounded cross-build-matched live no-target-state path',()=>{
+  const input=base();input.build='pc-res150-build51';input.targetContext.targetStateIds=[];
+  const result=calculateSnapshotActiveDamage(input);
+  assert.equal(result.build,'pc-res150-build51');assert.equal(result.preHitDamage,317);
+  assert.ok(result.offense.evidence.includes('PC150:BattleCmdServer.OffensiveSetup'));
+  assert.deepEqual(result.target.evidence,['PC150:BattleCmdServer.FinalTargetDamage']);
+  assert.match(result.unresolvedDependencies.at(-1),/Resource-150 support is restricted/);
+  input.targetContext.targetStateIds=[2934];assert.throws(()=>calculateSnapshotActiveDamage(input),/no target states/);
+  input.targetContext.targetStateIds=[];input.snapshotStage='roleData.properties-before-constructor';assert.throws(()=>calculateSnapshotActiveDamage(input),/live properties/);
+});
 test('partial claims, unknown dynamic selectors and malformed property values fail closed',()=>{
   const input=base();
   for(const mutate of [v=>v.snapshotCompleteness='partial',v=>v.targetContext.targetStateIds=[-1],v=>v.targetContext.targetBattleTag='',v=>v.casterProperties.crit_damage=NaN,v=>v.tags.push('Card_Strike'),v=>v.cardContext.stateTriggerAdd=true,v=>{v.cardContext.present=false;v.cardContext.instructionCard=true;}]){

@@ -17,6 +17,13 @@ test('replay card boundary becomes a calculated regression candidate without rea
   assert.equal(buildReplayActionCandidate({...input,actionIndex:0}).calculation.preHitDamage,250);
 });
 
+test('replay adapter can execute the narrow resource-150 live no-target-state path explicitly',()=>{
+  const input=fixture(),result=buildReplayActionCandidate({...input,actionIndex:0,combatBuild:'pc-res150-build51'});
+  assert.equal(result.build,'pc-res150-build51');assert.equal(result.protocolBuild,'pc-res144-build51');assert.equal(result.scenario.build,'pc-res150-build51');assert.equal(result.calculation.preHitDamage,250);
+  input.index.actionSnapshots[0].window.hitSnapshots[0].activeStates=[{ownerUid:2,stateId:2934,layer:1,isDeleted:false}];
+  assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0,combatBuild:'pc-res150-build51'}),/target states/);
+});
+
 test('replay adapter requires explicit direct-hit caster and skill identity',()=>{
   const missingSkill=fixture();delete missingSkill.index.actionSnapshots[0].window.hits[0].data.beHitConfig.skillConfigId;
   assert.throws(()=>buildReplayActionCandidate({...missingSkill,actionIndex:0}),/skill identity/);

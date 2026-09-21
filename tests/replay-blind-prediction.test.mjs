@@ -1,6 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {existsSync,mkdtempSync,readFileSync,rmSync,writeFileSync} from 'node:fs';
+import {join,relative} from 'node:path';
+import {fileURLToPath} from 'node:url';
 import {buildBlindReplayPrediction} from '../engine/replay-blind-prediction.mjs';
+import {freezeBlindReplayPrediction} from '../tools/freeze_blind_replay_prediction.mjs';
+
+const root=fileURLToPath(new URL('../',import.meta.url));
 
 const properties={hp:1000,max_hp:1000,block:0,crit:0,crit_damage:150};
 const fixture=castDamage=>({
@@ -34,4 +40,22 @@ test('blind replay prediction supports multiple living enemies while conditionin
 test('blind replay prediction rejects chance-dependent critical outcomes',()=>{
   const input=fixture(250);input.index.actionSnapshots[0].roles['1'].properties.crit=50;input.index.actionSnapshots[0].window.hitSnapshots[0].roles['1'].properties.crit=50;
   assert.throws(()=>buildBlindReplayPrediction(input),/No blind deterministic replay candidate/);
+});
+
+test('blind replay freeze pins an explicitly evidenced resource-150 build',()=>{
+  const input=fixture(250),privateDir=mkdtempSync(join(root,'research/observations/blind-build-test-')),id=`blind-build-test-${process.pid}`;
+  const publicDir=join(root,'research/evidence/holdouts',id);
+  try{
+    input.index.inputSha256='a'.repeat(64);
+    const indexFile=join(privateDir,'index.json'),decodedFile=join(privateDir,'decoded.json');
+    writeFileSync(indexFile,JSON.stringify(input.index));
+    writeFileSync(decodedFile,JSON.stringify({kind:'MORIMENS_DECODED_REPLAY',inputSha256:input.index.inputSha256,decoded:{resourceRecords:{Skill:input.skills,Cmd:input.commands,MonsterConfig:input.monsters,AwakerConfig:input.awakeners}}}));
+    const buildEvidence='research/evidence/pc-res144-to-res150-combat-build.json';
+    const result=freezeBlindReplayPrediction({indexFile:relative(root,indexFile),decodedFile:relative(root,decodedFile),id,recordedCombatBuild:'pc-res150-build51',buildEvidenceFiles:[buildEvidence],now:()=>new Date('2026-09-21T00:00:00Z')});
+    const freeze=JSON.parse(readFileSync(join(publicDir,'prediction-freeze.json'),'utf8')),evidence=JSON.parse(readFileSync(join(publicDir,'preoutcome-evidence.json'),'utf8'));
+    assert.equal(result.predictedDamage,100);assert.equal(freeze.recordedBuild.id,'pc-res150-build51');assert.equal(freeze.prediction.runtimeContract.fullRuntimeFingerprint,freeze.prediction.runtimeFingerprint);assert.equal(evidence.recordedCombatBuild,'pc-res150-build51');
+    const invalid=join(privateDir,'invalid-build.json'),invalidId=`blind-invalid-build-${process.pid}`;writeFileSync(invalid,'{}');
+    assert.throws(()=>freezeBlindReplayPrediction({indexFile:relative(root,indexFile),decodedFile:relative(root,decodedFile),id:invalidId,recordedCombatBuild:'pc-res150-build51',buildEvidenceFiles:[relative(root,invalid)]}),/recognized build report/);
+    assert.equal(existsSync(join(root,'research/evidence/holdouts',invalidId)),false);
+  }finally{rmSync(privateDir,{recursive:true,force:true});rmSync(publicDir,{recursive:true,force:true});}
 });

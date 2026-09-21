@@ -33,18 +33,23 @@ function validateBuildEvidence(items,recordedCombatBuild){
   if(!recognized)throw new Error('At least one recognized build report must identify the recorded combat build');
 }
 
-export function freezeGameplayPrediction({scenarioFile,metric,evidenceFiles,outputFile,recordedCombatBuild=null,buildEvidenceFiles=[],now=()=>new Date()}){
-  if(!['preHitDamage','modeledHpLost'].includes(metric))throw new Error('Metric must be preHitDamage or modeledHpLost');
-  if(!Array.isArray(evidenceFiles)||evidenceFiles.length===0||evidenceFiles.some(value=>typeof value!=='string'||!value))throw new Error('At least one pre-outcome evidence file is required');
+export function validateRecordedBuildEvidence(recordedCombatBuild=null,buildEvidenceFiles=[]){
   if(!Array.isArray(buildEvidenceFiles)||buildEvidenceFiles.some(value=>typeof value!=='string'||!value))throw new Error('Build evidence must be a list of files');
   const hasBuild=typeof recordedCombatBuild==='string'&&recordedCombatBuild.length>0&&recordedCombatBuild.length<=128;
   if((recordedCombatBuild!==null&&!hasBuild)||(hasBuild!==Boolean(buildEvidenceFiles.length)))throw new Error('Recorded combat build and at least one build-evidence file must be supplied together');
+  const buildEvidence=buildEvidenceFiles.map(value=>readExisting(value,'Build evidence'));
+  if(hasBuild)validateBuildEvidence(buildEvidence,recordedCombatBuild);
+  return {hasBuild,buildEvidence};
+}
+
+export function freezeGameplayPrediction({scenarioFile,metric,evidenceFiles,outputFile,recordedCombatBuild=null,buildEvidenceFiles=[],now=()=>new Date()}){
+  if(!['preHitDamage','modeledHpLost'].includes(metric))throw new Error('Metric must be preHitDamage or modeledHpLost');
+  if(!Array.isArray(evidenceFiles)||evidenceFiles.length===0||evidenceFiles.some(value=>typeof value!=='string'||!value))throw new Error('At least one pre-outcome evidence file is required');
+  const {hasBuild,buildEvidence}=validateRecordedBuildEvidence(recordedCombatBuild,buildEvidenceFiles);
   const scenario=readExisting(scenarioFile,'Scenario');
   const evidence=evidenceFiles.map(value=>readExisting(value,'Pre-outcome evidence'));
-  const buildEvidence=buildEvidenceFiles.map(value=>readExisting(value,'Build evidence'));
   if(evidence.some(item=>item.path===scenario.path))throw new Error('Pre-outcome evidence must be separate from the scenario');
   if(buildEvidence.some(item=>item.path===scenario.path))throw new Error('Build evidence must be separate from the scenario');
-  if(hasBuild)validateBuildEvidence(buildEvidence,recordedCombatBuild);
   const output=insideRoot(outputFile,'Output');
   const allowed=[observationRoot,publicHoldoutRoot].some(base=>{const item=relative(base,output);return item&&!item.startsWith('..')&&!isAbsolute(item);});
   if(!allowed)throw new Error('Output must be inside research/observations or research/evidence/holdouts');
