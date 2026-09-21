@@ -22,4 +22,12 @@ The index now also freezes a damage-input snapshot for every `BeHit`. The origin
 
 Source inspection establishes that the first `rd_InitBattle` command carries full `roleDataList`, `monsterDataList`, and `cardDataList` snapshots. Later record frames include absolute property values, state additions/layer changes/removals, card use, target selection, and hit results. This makes an exported replay materially stronger than screenshots for reconstructing a regression case. A blind holdout still needs a deterministic crit path or pre-outcome RNG evidence because the recorded `isCrit` result is an outcome.
 
+Very long battles can produce research indexes larger than JavaScript's maximum
+string size because full event windows are retained for forensic work.
+`tools/compact_replay_candidate_index.py` rebuilds the index from the decoded
+private replay and writes only the action, hit, snapshot, role, card, state and
+target-selection fields read by the strict candidate adapter. The compact file
+remains under `research/observations`; it retains outcomes for retrospective
+auditing and therefore cannot be treated as a blind holdout.
+
 For later replay captures, preserve the original bytes and hash before decoding. Verify the client's binary-string and LZ4 conventions against those bytes rather than assuming base64 or a standard LZ4 frame. Extracted outcomes from already viewed replays can support regression validation but cannot retrospectively become blind holdouts. Embedded resource rows remove dependence on current data tables for each routed action, but the recovered battle data has no explicit engine-code version, so strict historical runtime compatibility still requires evidence review.

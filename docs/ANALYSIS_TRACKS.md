@@ -4,6 +4,11 @@ The project has five distinct analysis tracks. They may cite shared source rows,
 runtime fixtures and sanitized replay indexes, but a result keeps exactly one
 track and does not inherit another track's claim status.
 
+Cheese analysis and theorycrafting are separate outputs even when they inspect
+the same replay. A cheese report explains an unusual observed clear. A
+theorycraft report evaluates an explicitly supplied build and sequence under
+bounded rules. Neither report may silently import the other's conclusion.
+
 | Track | Question | Allowed result | Does not establish |
 |---|---|---|---|
 | Mechanics reconstruction | What does a recovered rule or command do? | A bounded code/data/runtime rule with provenance and limitations | That players use it as cheese, that a build is optimal, or that a forward prediction is verified |

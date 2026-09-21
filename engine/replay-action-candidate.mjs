@@ -198,8 +198,8 @@ export function buildReplayActionCandidate({index,actionIndex,hitIndex=null,skil
   if(targetStateIds.some(id=>!Number.isSafeInteger(id)||id<=0))throw new Error('Captured positive target state IDs required');
   const observed=hit.data.beHitConfig??{};
   if(preOutcome&&['castDamage','isCrit','oldHp','blockLose','realDamage','hpLose'].some(key=>Object.hasOwn(observed,key)))throw new Error('Pre-outcome candidate must not contain observed damage, critical, HP or block fields');
-  if(observed.castRoleUid!==undefined&&observed.castRoleUid!==caster.uid)throw new Error('Recorded hit caster does not match card owner');
-  if(observed.skillConfigId!==undefined&&observed.skillConfigId!==card.tid)throw new Error('Recorded hit skill does not match played card');
+  if(observed.castRoleUid!==caster.uid)throw new Error('Recorded hit caster identity must match card owner');
+  if(observed.skillConfigId!==card.tid)throw new Error('Recorded hit skill identity must match played card');
   const scenario={schemaVersion:1,kind:'morimens-battle-property-snapshot-damage',build,snapshotStage:'battle-property-server-live',snapshotCompleteness:'complete-map',baseValue:parameters[0],skillArgsPlus,tags,
     casterProperties:finiteMap(caster.properties,'Caster properties'),playerProperties:finiteMap(player.properties,'Player properties'),targetProperties:finiteMap(target.properties,'Target properties'),cardProperties:finiteMap(card.properties,'Card properties'),
     cardContext:{present:true,instructionCard:tags.some(tag=>instructionTags.has(tag)),stateTriggerAdd:false},targetContext:{critRoll,targetBattleTag:monster.BattleTag,targetStateIds}};

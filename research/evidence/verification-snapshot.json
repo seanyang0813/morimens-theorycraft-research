@@ -1,13 +1,13 @@
 {
-  "generatedAtUtc": "2026-09-21T14:40:47.279353+00:00",
+  "generatedAtUtc": "2026-09-21T14:56:39.539744+00:00",
   "publicationStatus": "NOT_READY",
   "publicationAuthorized": false,
   "automatedSuite": {
-    "testFiles": 188,
+    "testFiles": 190,
     "passed": true,
     "exitCode": 0,
     "log": "research\\evidence\\latest-test-suite.tap",
-    "logSha256": "789ddfc8a2b49ce59d4974fd4c9831a9fc9cfa4124cb49af7720ed4431d56d64"
+    "logSha256": "cb32f002c248f5f65f84e4b878bae86561621b036131aed655a9acdc30b0b1e5"
   },
   "realObservations": {
     "records": 3,
@@ -549,5 +549,17 @@
     "Retrospective mechanic regressions, catalog attribution and current-catalog consistency checks do not count as full damage predictions or blind holdouts",
     "Synthetic runtime comparisons are not gameplay fixtures or holdouts",
     "No browser QA, source coverage review or deployed-site verification is performed by this script"
-  ]
+  ],
+  "retrospectiveReplayCorpus": {
+    "report": "research\\evidence\\replay-corpus-active-audit.json",
+    "reportSha256": "e5d59898dcb5640b9578e14d20d0b088ab689a13e20c7d8e1b0532d236b4025a",
+    "analysisTrack": "verification",
+    "auditedReplays": 42,
+    "activeCandidates": 428,
+    "deterministicExactChecks": 269,
+    "exactRngBranchConsistencyChecks": 159,
+    "mismatches": 0,
+    "publicationCredit": false,
+    "crossTrackClaims": []
+  }
 }

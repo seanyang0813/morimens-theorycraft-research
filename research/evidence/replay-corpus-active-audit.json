@@ -1,0 +1,453 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_SANITIZED_REPLAY_CORPUS_ACTIVE_AUDIT",
+  "analysisTrack": "verification",
+  "status": "RETROSPECTIVE_CONSISTENCY_ONLY",
+  "identifiersPublished": false,
+  "rawArtifactsPublished": false,
+  "publicationCredit": false,
+  "sourceHashes": {
+    "privateCandidateAudit": "e71bb349fc4b7052df6fceb4b28250a760d9c2a1cfef8980e6e761d4d7e39759",
+    "replayCatalogBuildAttribution": "457fb6ebe090b01cc13f3eb898a925057cee91fab89938bb010582497d9eefa1"
+  },
+  "totals": {
+    "replays": 42,
+    "completeHitSnapshots": 1804,
+    "retrospectiveActiveCandidates": 428,
+    "deterministicExactChecks": 269,
+    "exactRngBranchConsistencyChecks": 159,
+    "deterministicMismatches": 0,
+    "rngBranchMismatches": 0
+  },
+  "replays": [
+    {
+      "observationId": "replay-batch-01",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 12,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-02",
+      "catalogClassification": "PC_RES150_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 17,
+      "retrospectiveActiveCandidates": 11,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 11,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-03",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 5,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-04",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 58,
+      "retrospectiveActiveCandidates": 1,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 1,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-05",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 34,
+      "retrospectiveActiveCandidates": 2,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 2,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-06",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 51,
+      "retrospectiveActiveCandidates": 1,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 1,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-07",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 12,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-08",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 6,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-09",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 180,
+      "retrospectiveActiveCandidates": 161,
+      "deterministicExactChecks": 122,
+      "exactRngBranchConsistencyChecks": 39,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-10",
+      "catalogClassification": "PC_RES150_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 62,
+      "retrospectiveActiveCandidates": 2,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 2,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-12",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 7,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-13",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 21,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-14",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 0,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-15",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 12,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-16",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 94,
+      "retrospectiveActiveCandidates": 79,
+      "deterministicExactChecks": 54,
+      "exactRngBranchConsistencyChecks": 25,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-17",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 0,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-18",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 33,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-19",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 123,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-20",
+      "catalogClassification": "UNMATCHED_OR_INTERMEDIATE_CATALOG",
+      "completeHitSnapshots": 65,
+      "retrospectiveActiveCandidates": 42,
+      "deterministicExactChecks": 37,
+      "exactRngBranchConsistencyChecks": 5,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-21",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 48,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-22",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 31,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-23",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 19,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-24",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 49,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-25",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 19,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-26",
+      "catalogClassification": "UNMATCHED_OR_INTERMEDIATE_CATALOG",
+      "completeHitSnapshots": 228,
+      "retrospectiveActiveCandidates": 47,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 47,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-27",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 0,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-28",
+      "catalogClassification": "UNMATCHED_OR_INTERMEDIATE_CATALOG",
+      "completeHitSnapshots": 9,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-29",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 83,
+      "retrospectiveActiveCandidates": 1,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 1,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-30",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 110,
+      "retrospectiveActiveCandidates": 60,
+      "deterministicExactChecks": 56,
+      "exactRngBranchConsistencyChecks": 4,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-31",
+      "catalogClassification": "UNMATCHED_OR_INTERMEDIATE_CATALOG",
+      "completeHitSnapshots": 24,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-32",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 15,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-33",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 48,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-34",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 11,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-35",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 17,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-36",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 22,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-37",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 47,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-38",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 3,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-39",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 76,
+      "retrospectiveActiveCandidates": 3,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 3,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-40",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 10,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-41",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 18,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-42",
+      "catalogClassification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 125,
+      "retrospectiveActiveCandidates": 18,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 18,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-43",
+      "catalogClassification": "PC_RES150_BUILD51_CATALOG_MATCH",
+      "completeHitSnapshots": 0,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0
+    }
+  ],
+  "scope": "Strict retrospective Active-hit candidates require a complete card-use snapshot plus exact recorded caster and skill identity. Each candidate uses its replay-embedded combat data and is classified separately by catalog attribution.",
+  "trackBoundary": "This is verification-track regression evidence only. It does not establish a cheese strategy, a budget composition, an optimal theorycraft sequence or a general mechanic beyond the adapter scope.",
+  "limitations": [
+    "All outcomes were recovered before calculation; no prediction was frozen before a separate reveal",
+    "Critical branch checks evaluate possible roll endpoints and do not reconstruct the original random draw",
+    "Replay data does not identify the exact engine bytecode version",
+    "Private replay bytes, decoded state, player identifiers, replay keys and object names are omitted",
+    "Zero mismatches within the supported subset do not validate unsupported hits or complete battle simulation"
+  ]
+}

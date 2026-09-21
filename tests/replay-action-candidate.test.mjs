@@ -17,6 +17,13 @@ test('replay card boundary becomes a calculated regression candidate without rea
   assert.equal(buildReplayActionCandidate({...input,actionIndex:0}).calculation.preHitDamage,250);
 });
 
+test('replay adapter requires explicit direct-hit caster and skill identity',()=>{
+  const missingSkill=fixture();delete missingSkill.index.actionSnapshots[0].window.hits[0].data.beHitConfig.skillConfigId;
+  assert.throws(()=>buildReplayActionCandidate({...missingSkill,actionIndex:0}),/skill identity/);
+  const missingCaster=fixture();delete missingCaster.index.actionSnapshots[0].window.hits[0].data.beHitConfig.castRoleUid;
+  assert.throws(()=>buildReplayActionCandidate({...missingCaster,actionIndex:0}),/caster identity/);
+});
+
 test('replay adapter accepts the captured one-past-end Lua cursor in card arguments',()=>{
   const input=fixture(),action=input.index.actionSnapshots[0];action.cards['30'].cardArgs={1:100,n:2};action.window.hitSnapshots[0].cards['30'].cardArgs={1:100,n:2};
   assert.equal(buildReplayActionCandidate({...input,actionIndex:0}).scenario.baseValue,100);
