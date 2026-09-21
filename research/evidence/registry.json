@@ -847,6 +847,50 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC144:OrderedPassiveDamage",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "The ordered command subset can repeat Passive damage against one supplied target, reevaluate live target HP expressions between hits, and preserve ordering with Block, Heal and supported state or energy rows",
+      "sources": [
+        {
+          "module": "BEPassiveDamage",
+          "member": "DoEffect,__DoMultiEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f4ba266131c50ae01bea054e4fefd0cf89f7af2d31acba86123355b65cf2c784",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-5405454180892933935_BEPassiveDamage.lua"
+        },
+        {
+          "module": "BattleEffectServer",
+          "member": "CalFinalVal,GetDamageSubType",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\3210192007477895712_BattleEffectServer.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "BeHit",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "SubProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/passive-command-experiment.test.mjs",
+        "tests/ordered-state-command.test.mjs",
+        "tests/passive-oracle.test.mjs",
+        "tests/effect-hp-connected.test.mjs",
+        "docs/ORDERED_STATE_COMMAND.md"
+      ],
+      "scope": "Authored composition of separately tested repeat, Passive pre-hit, shield and HP components. One supplied UpperTarget, subtype zero, explicit static Passive target multipliers and dimension modifier; automatic target/property/build assembly, ParaPlus, events, statistics, caps, death handling, connected original full-command execution and gameplay validation are excluded",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC144:ShowHealFormula",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "Resolved Heal generation preserves the original base multiplier bucket, flat additions, two Dying reductions, inside and card-category multipliers, five Spellbound reductions, Chaos defense multiplier and both rounding stages",

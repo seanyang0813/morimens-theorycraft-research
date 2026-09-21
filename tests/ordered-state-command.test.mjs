@@ -122,3 +122,18 @@ test('ordered caster Heal remains separate and requires explicit context',()=>{
   const r=runOrderedStateCommand(v);assert.equal(r.actorHpAfter,700);assert.equal(r.targetAfter.hp,900);
   delete v.heal;assert.throws(()=>runOrderedStateCommand(v),/Heal requires/i);
 });
+
+test('ordered target Block is consumed by a later Passive hit',()=>{
+  const v=input(),{value,...modifiers}=neutralBlockInputs(0);
+  v.command={data_list:{1:{Type:'BEGainBlock',Target:'UpperTarget',Para:'50'},2:{Type:'BEPassiveDamage',Target:'UpperTarget',Para:'100'}}};v.state.definitions=[];v.state.requests=[];
+  v.block={modifiers,actor:{block:0,maxHp:1000,blockMaxPer:0,ignoreMax:false,gainBlockPer:0,gainBlockPlus:0},target:{block:0,maxHp:1000,blockMaxPer:0,ignoreMax:false,gainBlockPer:0,gainBlockPlus:0}};
+  v.passiveBase={passive1:10,passive2:0,passive3:0,dimensionFixPer:0};
+  const result=runOrderedStateCommand(v);
+  // The copied formula preserves Lua/IEEE-754 math.ceil behavior: 100*1.1 is
+  // slightly above 110, so this resolved pre-hit is 111.
+  assert.equal(result.completed,true);assert.equal(result.modeledHpLost,61);assert.equal(result.targetAfter.block,0);
+  assert.deepEqual(result.calculation.trace.map(step=>step.type),['gainBlock','passiveAttack']);
+  assert.equal(result.calculation.trace[1].result.hits[0].calculation.damageType,'PASSIVE');
+  const first=v.command.data_list['1'];v.command.data_list['1']=v.command.data_list['2'];v.command.data_list['2']=first;
+  const reversed=runOrderedStateCommand(v);assert.equal(reversed.modeledHpLost,111);assert.equal(reversed.targetAfter.block,50);
+});

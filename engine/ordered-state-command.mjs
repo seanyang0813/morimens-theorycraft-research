@@ -11,21 +11,22 @@ const allowedRowFields=new Set(['id','Type','Target','Para','Cond','DelayTime'])
 // explicit no-other-events assumption.
 export function runOrderedStateCommand(value){
   const input=snapshot(value);
-  const baseKeys=['schemaVersion','kind','build','otherEvents','command','variables','targetBinding','attackBase','state'],hasEnergy=Object.hasOwn(input,'energy'),hasBlock=Object.hasOwn(input,'block'),hasHeal=Object.hasOwn(input,'heal');
-  const optionalKeys=[...(hasEnergy?['energy']:[]),...(hasBlock?['block']:[]),...(hasHeal?['heal']:[])];
+  const baseKeys=['schemaVersion','kind','build','otherEvents','command','variables','targetBinding','attackBase','state'],hasEnergy=Object.hasOwn(input,'energy'),hasBlock=Object.hasOwn(input,'block'),hasHeal=Object.hasOwn(input,'heal'),hasPassive=Object.hasOwn(input,'passiveBase');
+  const optionalKeys=[...(hasEnergy?['energy']:[]),...(hasBlock?['block']:[]),...(hasHeal?['heal']:[]),...(hasPassive?['passiveBase']:[])];
   if(!exact(input,[...baseKeys,...optionalKeys])||input.schemaVersion!==1||input.kind!=='morimens-ordered-state-command'||input.build!=='pc-res144-build51'||input.otherEvents!=='assumed-absent')throw new Error('Explicit ordered state command required');
   if(!input.variables||Array.isArray(input.variables)||Object.entries(input.variables).some(([name,value])=>name==='CmdCaster.ulti_energy'||!Number.isFinite(value)))throw new Error('Explicit finite command variables required; caster energy is live');
   if(hasEnergy&&(!exact(input.energy,['source','target'])||input.energy.source?.castRoleUid!==input.energy.target?.uid))throw new Error('Explicit caster energy context required');
   if(!exact(input.targetBinding,['expression','resolution'])||input.targetBinding.resolution!=='supplied-single-UpperTarget'||typeof input.targetBinding.expression!=='string'||!input.targetBinding.expression)throw new Error('Explicit single-target binding required');
   if(!exact(input.attackBase,['offense','targetModifiers','targetState','repeatModifiers','immune']))throw new Error('Explicit active attack inputs required');
   const imported=importCommandRows(input.command),rows=imported.rows;
-  if(rows.length<2||!rows.some(row=>['BEAddState','BERemoveState','BESubStateLayer','BEGainBlock','BEHeal'].includes(row.Type))||!rows.some(row=>row.Type==='BEActiveDamage'))throw new Error('At least one mutation and one damage row required');
+  if(rows.length<2||!rows.some(row=>['BEAddState','BERemoveState','BESubStateLayer','BEGainBlock','BEHeal'].includes(row.Type))||!rows.some(row=>['BEActiveDamage','BEPassiveDamage'].includes(row.Type)))throw new Error('At least one mutation and one damage row required');
   for(const row of rows){
-    if(!['BEAddState','BERemoveState','BESubStateLayer','BEActiveDamage','BEGainUltiEnergy','BEGainBlock','BEHeal'].includes(row.Type))throw new Error(`Unsupported ordered row type ${row.Type??'missing'}`);
+    if(!['BEAddState','BERemoveState','BESubStateLayer','BEActiveDamage','BEPassiveDamage','BEGainUltiEnergy','BEGainBlock','BEHeal'].includes(row.Type))throw new Error(`Unsupported ordered row type ${row.Type??'missing'}`);
     if(Object.keys(row).some(key=>!allowedRowFields.has(key)))throw new Error('Unsupported ordered row field');
-    if(row.Type!=='BEActiveDamage'&&Object.hasOwn(row,'Cond'))throw new Error('Conditional state and energy rows are unsupported');
+    if(!['BEActiveDamage','BEPassiveDamage'].includes(row.Type)&&Object.hasOwn(row,'Cond'))throw new Error('Conditional state and energy rows are unsupported');
     if(Object.hasOwn(row,'DelayTime')&&(!Number.isFinite(row.DelayTime)||row.DelayTime<0))throw new Error('Finite nonnegative row delay required');
-    if(row.Type==='BEActiveDamage'&&row.Target!==input.targetBinding.expression)throw new Error('Damage-row selector does not match supplied target binding');
+    if(['BEActiveDamage','BEPassiveDamage'].includes(row.Type)&&row.Target!==input.targetBinding.expression)throw new Error('Damage-row selector does not match supplied target binding');
+    if(row.Type==='BEPassiveDamage'&&!hasPassive)throw new Error('Passive damage requires a supplied resolved property snapshot');
     if(row.Type==='BEGainUltiEnergy'&&(!hasEnergy||row.Target!=='CmdCaster'))throw new Error('Ultimate energy requires the supplied command caster');
     if(row.Type==='BEGainBlock'&&(!hasBlock||!['CmdCaster',input.targetBinding.expression].includes(row.Target)))throw new Error('Block gain requires a supplied caster or damage-target snapshot');
     if(row.Type==='BEHeal'&&(!hasHeal||!['CmdCaster',input.targetBinding.expression].includes(row.Target)))throw new Error('Heal requires a supplied caster or damage-target snapshot');
@@ -54,6 +55,10 @@ export function runOrderedStateCommand(value){
     if(row.Type==='BEActiveDamage'){
       const {DelayTime,...kept}=row;
       return {rowId:row.id,type:'attack',delay,step:{type:'attack',rows:[{...kept,Target:'UpperTarget'}]}};
+    }
+    if(row.Type==='BEPassiveDamage'){
+      const {DelayTime,...kept}=row;
+      return {rowId:row.id,type:'passiveAttack',delay,step:{type:'passiveAttack',rows:[{...kept,Target:'UpperTarget'}]}};
     }
     if(row.Type==='BEGainUltiEnergy'){
       const evaluation=energyEvaluations.get(row.id);
@@ -86,9 +91,9 @@ export function runOrderedStateCommand(value){
   for(const key of ['awakerCritDamage','beDamagePer','beDamagePer2','beDamagePer3','vulnerablePer'])delete targetModifiers[key];
   const calculation=runStateSequenceExperiment({schemaVersion:1,kind:'morimens-state-sequence',build:input.build,otherEvents:'assumed-absent',crossesTurnBoundary:false,
     actorProperties:state.actorProperties,targetProperties:state.targetProperties,stateQueries:state.stateQueries,definitions:[...definitions.values()],steps:rowPlan.map(item=>item.step),
-    attackBase:{variables:input.variables,offense,targetModifiers,targetState:input.attackBase.targetState,repeatModifiers:input.attackBase.repeatModifiers,immune:input.attackBase.immune},...(hasEnergy?{energy:input.energy}:{}),...(hasBlock?{block:input.block}:{}),...(hasHeal?{heal:input.heal}:{})});
+    attackBase:{variables:input.variables,offense,targetModifiers,targetState:input.attackBase.targetState,repeatModifiers:input.attackBase.repeatModifiers,immune:input.attackBase.immune},...(hasEnergy?{energy:input.energy}:{}),...(hasBlock?{block:input.block}:{}),...(hasHeal?{heal:input.heal}:{}),...(hasPassive?{passiveBase:input.passiveBase}:{})});
   return {schemaVersion:1,status:'EXPERIMENTAL',build:input.build,finalDamage:null,completed:calculation.completed,stop:calculation.stop,targetAfter:calculation.targetAfter,
     casterEnergyAfter:calculation.casterEnergyAfter,actorBlockAfter:calculation.actorBlockAfter,actorHpAfter:calculation.actorHpAfter,modeledHpLost:calculation.modeledHpLost,properties:calculation.properties,states:calculation.states,rowPlan:rowPlan.map(({step,...item})=>item),calculation,
     delayPolicy:'DelayTime is recorded but has no observable effect while other events are explicitly absent',
-    unresolvedDependencies:[...calculation.unresolvedDependencies,'Only BEAddState, BERemoveState, BESubStateLayer, BEGainUltiEnergy, single-parameter BEGainBlock/BEHeal and ordinary BEActiveDamage rows against one supplied target','State, energy, Block and Heal row expressions use supplied numeric variables; live state queries and caster ultimate energy are connected for later damage rows','Live caster energy is not available to state-mutation, Block or Heal expressions','State layer subtraction excludes caster attribution','DelayTime is inert only under the explicit no-other-events assumption','No automatic targeting, build/state assembly, triggers or connected original full-command validation']};
+    unresolvedDependencies:[...calculation.unresolvedDependencies,'Only BEAddState, BERemoveState, BESubStateLayer, BEGainUltiEnergy, single-parameter BEGainBlock/BEHeal and ordinary BEActiveDamage/BEPassiveDamage rows against one supplied target','State, energy, Block and Heal row expressions use supplied numeric variables; live state queries and caster ultimate energy are connected for later damage rows','Passive target modifiers are a supplied static snapshot rather than live state-bound properties','Live caster energy is not available to state-mutation, Block or Heal expressions','State layer subtraction excludes caster attribution','DelayTime is inert only under the explicit no-other-events assumption','No automatic targeting, build/state assembly, triggers or connected original full-command validation']};
 }

@@ -80,3 +80,14 @@ test('ordered command UI shows target Heal before later damage',()=>{
  doc.getElementById('action-input').value=JSON.stringify(input);nodes.get('run').onclick();
  assert.match(nodes.get('summary').textContent,/Caster HP: 700/);assert.equal(nodes.get('rows').children[0].children[2].textContent,'500 → 600');assert.match(nodes.get('rows').children[0].children[4].textContent,/Target Heal \+100/);assert.equal(nodes.get('rows').children[1].children[2].textContent,'600 → 500');
 });
+
+test('ordered command UI advances target state for Passive damage rows',()=>{
+ class Element{constructor(){this.children=[];this.textContent='';this.value='';this.hidden=false;}append(...items){this.children.push(...items);}replaceChildren(...items){this.children=items;}}
+ const nodes=new Map(),doc={getElementById(id){if(!nodes.has(id))nodes.set(id,new Element());return nodes.get(id);},createElement(){return new Element();}};
+ const input={kind:'morimens-ordered-state-command',attackBase:{targetState:{hp:500,block:50}},command:{data_list:{1:{}}}};
+ const rowPlan=[{rowId:'1',type:'passiveAttack'}];
+ const runOrderedStateCommand=()=>({completed:true,modeledHpLost:75,casterEnergyAfter:null,actorBlockAfter:null,actorHpAfter:null,targetAfter:{hp:425,block:0},stop:null,rowPlan,calculation:{trace:[{type:'passiveAttack',result:{completed:true,targetAfter:{hp:425,block:0}}}]},unresolvedDependencies:[]});
+ startActions({runCardActionTimeline,syntheticCardActionExample,runDamageEnergyCommand,runTerminalStateCommand:()=>{},runOrderedStateCommand,syntheticDamageEnergyExample,runtimeFingerprint:'1'.repeat(64)},doc);
+ doc.getElementById('action-input').value=JSON.stringify(input);nodes.get('run').onclick();
+ assert.equal(nodes.get('rows').children[0].children[2].textContent,'500 → 425');assert.equal(nodes.get('rows').children[0].children[3].textContent,'50 → 0');assert.equal(nodes.get('rows').children[0].children[4].textContent,'Passive damage');
+});
