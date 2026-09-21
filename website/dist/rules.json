@@ -156,7 +156,7 @@
       "id": "PC144:ReplayCandidateRowCoverage",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
       "claim": "The current exports contain 296 non-PvP supported-tag Awakener skills linked to 263 commands; 120 of the 121 linked commands containing ordinary Active damage pass the PvE replay candidate static shape checks, and 146 of 149 ordinary Active rows have compatible syntax",
-      "scope": "Source-hashed static audit excludes skills explicitly marked IsPVP, follows remaining Awakener-owned supported-tag Skill CmdList/tempCmdList links, then checks row fields, target selectors, competing damage types and supported condition/parameter syntax. Conditional competing damage is accepted statically only when every competitor condition is resolvable; runtime must prove each false. PvE school counts derive from all captured Awakener roles joined to AwakerConfig. HP and HP+block selectors are reconstructed from complete captured living-enemy maps and original registry-order tie behavior. Super Ultimate is derived from captured properties under the inspected client rule. PerformTarget is accepted only for inspected CmdTarget and EnemyFieldCenter presentation routing. Does not establish runtime bindings, eligible condition count, hit association, property completeness, critical RNG, card executability or gameplay correctness",
+      "scope": "Source-hashed static audit excludes skills explicitly marked IsPVP, follows remaining Awakener-owned supported-tag Skill CmdList/tempCmdList links, then checks row fields, target selectors, competing damage types and supported condition/parameter syntax. Conditional competing damage is accepted statically only when every competitor condition is resolvable; runtime must prove each false. PvE school counts derive from all captured Awakener roles joined to AwakerConfig. HP and HP+block selectors are reconstructed from complete captured living-enemy maps and original registry-order tie behavior. The sole remaining command uses a stored maximum-HP main target, all other living enemies and optional passive damage, requiring action-level multi-hit association. Super Ultimate is derived from captured properties under the inspected client rule. PerformTarget is accepted only for inspected CmdTarget and EnemyFieldCenter presentation routing. Does not establish runtime bindings, eligible condition count, hit association, property completeness, critical RNG, card executability or gameplay correctness",
       "gameplayValidation": false,
       "sources": [
         {
@@ -176,8 +176,13 @@
         },
         {
           "module": "BattleCmdParser",
-          "member": "MinHpEnemy,MaxHpEnemy,MinHpAndBlockEnemy,MaxHpAndBlockEnemy,IsSuperUtlSkill,GetAwakerCountBySchool",
+          "member": "MinHpEnemy,MaxHpEnemy,MinHpAndBlockEnemy,MaxHpAndBlockEnemy,TempMainTarget,AllEnemyWithoutMainTarget,IsSuperUtlSkill,GetAwakerCountBySchool",
           "sha256": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d"
+        },
+        {
+          "module": "BESetTempMainTarget",
+          "member": "DoEffect",
+          "sha256": "c5a9ebd94c90d4cdc2724c405a6c574f7a17f93ad76286be6761837a7cf77d66"
         },
         {
           "module": "BattleRoleMgrServer",
