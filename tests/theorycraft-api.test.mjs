@@ -5,6 +5,7 @@ import {runTheorycraftRequest,theorycraftOperations} from '../engine/theorycraft
 import {neutralShowInputs} from '../engine/show-damage.mjs';
 import {targetKeys} from '../engine/active-target.mjs';
 import {syntheticCardActionExample} from '../engine/card-action-example.mjs';
+import {createHash} from 'node:crypto';
 
 const request=(operation,input)=>({schemaVersion:1,kind:'morimens-theorycraft-request',requestId:'test-1',operation,input});
 
@@ -55,4 +56,16 @@ test('agent API exposes bounded card-order search without a global optimum claim
   assert.deepEqual(response.result.best.order,['synthetic-fixed-cost','synthetic-X-cost']);
   assert.equal(response.result.evaluatedPermutations,2);
   assert.match(response.result.unresolvedDependencies.at(-2),/supplied resolved actions/);
+});
+
+test('agent API exposes real exported skill preparation through explicit versioned context',()=>{
+  const read=name=>{const bytes=readFileSync(new URL(`../research/extracted/config/${name}.json`,import.meta.url));return {data:JSON.parse(bytes),sha256:createHash('sha256').update(bytes).digest('hex')};};
+  const skill=read('Skill'),battleApi=read('BattleApi'),command=read('Cmd');
+  const skillCommandData={skills:skill.data,battleApi:battleApi.data,commands:command.data,sourceHashes:{Skill:skill.sha256,BattleApi:battleApi.sha256,Cmd:command.sha256}};
+  const input={schemaVersion:1,kind:'morimens-prepared-skill-request',preparation:{skillId:4100,skillLevel:1,isAwaker:false,breakSkillLevel:0,potencyLevel:0,overrides:[],variables:{BattleAtkForce:100},conditionResults:{},stateQueries:{}},execution:null};
+  assert.throws(()=>runTheorycraftRequest(request('prepare-skill-command',input)),/requires context skillCommandData/);
+  const response=runTheorycraftRequest(request('prepare-skill-command',input),{skillCommandData});
+  assert.equal(response.result.prepared.commandId,743);
+  assert.equal(response.result.status,'PREPARED');
+  assert.equal(response.result.finalDamage,null);
 });

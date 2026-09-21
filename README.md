@@ -31,6 +31,8 @@ Replay discovery has separate workflows for budget-comp scouting, cheese analysi
 
 Agents can call the same bounded engine through `engine/theorycraft-api.mjs` or `node tools/run_theorycraft_request.mjs --input request.json`. The versioned request selects one explicit operation; it does not silently fill missing combat state or promote an experimental result to verified.
 
+The agent API can prepare a real exported skill and optionally execute its complete selected command when it fits a supported narrow profile. Skill, BattleApi and Cmd data are loaded and hashed by the host; callers supply progression and runtime facts rather than replacement command rows. See `research/examples/theorycraft-prepare-skill-request.json` and `docs/PREPARE_SKILL_COMMAND.md`.
+
 `search-card-orders` exhaustively evaluates every permutation of the supplied resolved card instances within an explicit evaluation cap. It accepts only completed or target-defeating terminal sequences as candidates and includes the winning execution trace. Its optimality claim is limited to that enumerated input set and the runner's documented experimental scope.
 
 The build planner and `assemble-build-components` API operation now produce one contribution ledger for recovered character CON/ATK/DEF progression, explicit Season/Soulforge primary-stat promotion and Wheel main stats. Unknown level, Gnostic rank, advancement talent/level, Wheel selection, enhancement, or unresolved client identity is returned as a typed issue. Advancement passive states, Wheel passives, equipment and battle-start effects remain unresolved and are never treated as zero.

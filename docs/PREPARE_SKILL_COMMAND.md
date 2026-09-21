@@ -47,3 +47,15 @@ node tools/prepare_skill_command.mjs research/examples/prepared-damage-energy-re
 The example uses exported skill 4046 at skill level 6, internal progression 0/0 and deliberately synthetic attack 100. Its prepared arguments are 20/10 and command 2112 performs both rows: target HP 1000 becomes 980; caster energy 95 becomes 100 under a 100 maximum. Card presence, matching, Strike tag and neutral modifier properties are explicitly supplied in context. These are controlled example inputs, not a realistic reconstructed level/build claim. CLI output includes Skill/BattleApi/Cmd export hashes.
 
 The scope is selected command execution under absent-lifecycle assumptions, not the entire skill lifecycle: skill ExistState, costs, passive/trigger effects, target acquisition and automatic type/property assembly remain unfinished. Mixed command rows currently have no expression-function adapter; state queries may still be supplied to skill-argument preparation. Arguments are frozen after preparation. The website does not yet expose this entry point.
+
+## Shared agent API
+
+The versioned theorycraft API exposes the same bridge as operation `prepare-skill-command`. Its input is a `morimens-prepared-skill-request` containing the exact serializable preparation maps above and either `execution: null` or an exact execution context. The local API host loads and hashes the Skill, BattleApi and Cmd exports; callers cannot replace command rows inside the request.
+
+Run the preparation-only example with:
+
+```
+node tools/run_theorycraft_request.mjs --input research/examples/theorycraft-prepare-skill-request.json
+```
+
+Preparation-only output has status `PREPARED`, `finalDamage: null`, selected arguments, every top-level command effect type, the full compatibility report and unresolved dependencies. An execution request returns `EXPERIMENTAL` only when the whole selected command fits one of the existing narrow execution profiles. Unsupported effects are reported and prevent partial execution.

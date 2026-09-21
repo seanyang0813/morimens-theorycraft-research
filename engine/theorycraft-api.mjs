@@ -7,6 +7,7 @@ import {resolveClientBuildPrimary,resolveClientAdvancementPrimary} from './clien
 import {resolveWheelMainstat} from './wheel-stats.mjs';
 import {assembleKnownBuildComponents} from './build-component-assembly.mjs';
 import {searchCardOrders} from './card-order-search.mjs';
+import {runPreparedSkillRequest} from './prepared-skill-request.mjs';
 
 export const theorycraftOperations=Object.freeze([
   {name:'describe-capabilities',context:[],scope:'List supported versioned operations and evidence boundaries'},
@@ -20,6 +21,7 @@ export const theorycraftOperations=Object.freeze([
   {name:'resolve-wheel-mainstat',context:['buildCatalog'],scope:'Catalog-derived Wheel main-stat scaling'},
   {name:'assemble-build-components',context:['buildCatalog','clientBuildData'],scope:'Known character primary-stat and Wheel-main-stat contribution ledger'},
   {name:'search-card-orders',context:[],scope:'Exact bounded permutation search over supplied resolved card actions'},
+  {name:'prepare-skill-command',context:['skillCommandData'],scope:'Exported skill selection, argument preparation and optional supported command execution'},
 ]);
 
 const operations=new Map(theorycraftOperations.map(row=>[row.name,row]));
@@ -41,6 +43,7 @@ function execute(operation,input,context){
   if(operation==='resolve-wheel-mainstat')return resolveWheelMainstat(input,context.buildCatalog);
   if(operation==='assemble-build-components')return assembleKnownBuildComponents(input,context.buildCatalog,context.clientBuildData);
   if(operation==='search-card-orders')return searchCardOrders(input);
+  if(operation==='prepare-skill-command')return runPreparedSkillRequest(input,context.skillCommandData);
   throw new Error('Unsupported theorycraft operation');
 }
 
