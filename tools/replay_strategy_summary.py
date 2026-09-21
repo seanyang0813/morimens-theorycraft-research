@@ -5,6 +5,9 @@ BUILD_PROPERTY_KEYS = (
     "atk", "def", "max_hp", "occupation_master", "crit", "crit_damage",
     "damage_plus", "card_damage_per3_n2", "o_damage_per_strikecard",
 )
+ANALYSIS_TRACKS = (
+    "budget-scouting", "cheese-analysis", "theorycrafting", "verification",
+)
 
 
 def _skill_name(row):
@@ -18,8 +21,10 @@ def _finite_number(value):
     return isinstance(value, (int, float)) and not isinstance(value, bool)
 
 
-def build_strategy_summary(index, resources, *, label=None, wave=None,
-                           difficulty=None, include_outcomes=False):
+def build_strategy_summary(index, resources, *, analysis_track, label=None, stage=None,
+                           wave=None, difficulty=None, include_outcomes=False):
+    if analysis_track not in ANALYSIS_TRACKS:
+        raise ValueError(f"Unsupported analysis track: {analysis_track}")
     skills = resources.get("Skill", {})
     actions = index.get("actionSnapshots") or []
     first = actions[0] if actions else {}
@@ -106,10 +111,12 @@ def build_strategy_summary(index, resources, *, label=None, wave=None,
     }
 
     return {
-        "schemaVersion": 1,
+        "schemaVersion": 2,
         "kind": "MORIMENS_PRIVATE_STRATEGY_SUMMARY",
         "privacy": "Player, replay, role-instance and card-instance identifiers removed",
+        "analysisTrack": analysis_track,
         "label": label,
+        "stage": stage,
         "wave": wave,
         "difficulty": difficulty,
         "outcomesIncluded": bool(include_outcomes),
@@ -127,6 +134,7 @@ def build_strategy_summary(index, resources, *, label=None, wave=None,
         "roster": roster,
         "sequence": sequence,
         "limitations": [
+            "The analysis track limits how this summary may be used; it does not establish another track's claim",
             "A wave summary does not prove state continuity from earlier waves",
             "Card and state IDs require the matching versioned catalog",
             "Outcome-free summaries support chronology but do not validate damage by themselves",

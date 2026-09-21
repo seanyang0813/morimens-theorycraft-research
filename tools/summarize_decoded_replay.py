@@ -4,7 +4,7 @@ import argparse
 import json
 
 from replay_index import build_replay_index
-from replay_strategy_summary import build_strategy_summary
+from replay_strategy_summary import ANALYSIS_TRACKS, build_strategy_summary
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -13,7 +13,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--analysis-track", required=True, choices=ANALYSIS_TRACKS)
     parser.add_argument("--label")
+    parser.add_argument("--stage")
     parser.add_argument("--wave", type=int)
     parser.add_argument("--difficulty")
     parser.add_argument("--include-outcomes", action="store_true")
@@ -35,7 +37,7 @@ def main():
     index = build_replay_index(artifact, protocol)
     resources = artifact.get("decoded", {}).get("resourceRecords", {})
     summary = build_strategy_summary(
-        index, resources, label=args.label, wave=args.wave,
+        index, resources, analysis_track=args.analysis_track, label=args.label, stage=args.stage, wave=args.wave,
         difficulty=args.difficulty, include_outcomes=args.include_outcomes,
     )
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -46,4 +48,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

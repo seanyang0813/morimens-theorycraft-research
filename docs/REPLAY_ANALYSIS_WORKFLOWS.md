@@ -22,6 +22,6 @@ Freeze a prediction from pre-outcome evidence, commit it, then reveal the matchi
 
 ## Private tools
 
-`tools/summarize_decoded_replay.py` creates an identifier-free private sequence summary. By default it excludes outcome numbers; `--include-outcomes` enables retrospective analysis. `tools/index_decoded_replay.py --strategy-summary-output ...` can emit the same summary during indexing. `tools/rank_budget_replays.py` computes a Pareto frontier across summaries that the caller has already limited to one comparable stage/wave/difficulty.
+`tools/summarize_decoded_replay.py` creates an identifier-free private sequence summary. Its required `--analysis-track` is one of `budget-scouting`, `cheese-analysis`, `theorycrafting` or `verification`; the value is stored in the artifact. By default it excludes outcome numbers; `--include-outcomes` enables retrospective analysis. `tools/index_decoded_replay.py --strategy-summary-output ...` can emit the same summary during indexing and likewise requires the track. `tools/rank_budget_replays.py` accepts only `budget-scouting` summaries and enforces an identical nonempty stage, wave and difficulty before computing the Pareto frontier.
 
 Raw containers, decoded records, player names, UIDs, replay keys and instance IDs remain private. Public reports may include aggregated counts, catalog IDs, mechanics and anonymized investment ranges only.
