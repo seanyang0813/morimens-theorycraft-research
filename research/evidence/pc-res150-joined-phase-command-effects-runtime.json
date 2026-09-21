@@ -3,10 +3,10 @@
   "kind": "MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON",
   "baselineBuild": "pc-res144-build51",
   "currentBuild": "pc-res150-build51",
-  "method": "execute current BattleCmdServer CheckCondition, BattleCmdParser, FuncTable and changed add parent against byte-identical effect/manager/state modules and catalog-equal rows",
+  "method": "execute current command construction, TryDoEffect and original root/subeffect recursion across a callback bridge to changed add-parent and byte-identical state modules",
   "status": "CURRENT_CHANGED_MODULES_RUNTIME_MATCH",
   "sourceHashes": {
-    "fixture": "3b25cd9866426d1021d1abbf0352941b40ce4836477956c80c13812423ba44e0",
+    "fixture": "47a5c04649f5938ce6f4f2a99a9f46b95bc08efc4aa89c710d71122ebf22557a",
     "installedShareBundle": "b62601a3391a5999ebb196dec5e52c0660d95c19655ac3b19f13299806c38907",
     "installedConfigBundle": "95083098911cb6b1f54fcddb03e5dc797489bd080e55ddd9f72fc0da9b39a1e4",
     "currentCatalogReport": "2cb1f3624d8b60f8dccafa3840e51643a89592608984688001e400a268f51c79",
@@ -52,10 +52,10 @@
   "fixtures": 5,
   "matched": 5,
   "mismatches": 0,
-  "scope": "Installed current CheckCondition, parser, expressions and add parent reproduce every inherited joined command-row/effect-body transition fixture.",
+  "scope": "Installed current construction, preparation, parser/expressions, scheduler recursion and add parent reproduce every inherited joined command-row/effect-body transition fixture.",
   "limitations": [
-    "Original GenerateEffectList and GenerateEffectObj construct typed effects through original BattleEffectMgrServer; original CheckCondition/parser resolve values before Python hands them to real effect bodies",
+    "Original GenerateEffectList/GenerateEffectObj construct typed effects through original BattleEffectMgrServer; original TryDoEffect and root/subeffect recursion order conditions, prepared values and real effect-body callback bridges",
     "Destination states are pre-created live zero-layer adapters",
-    "Typed effect classes use callable constructor wrappers; target-expression max HP/state-layer reads are a narrow adapter; no original effect scheduler, property bodies, gameplay or holdout credit"
+    "Typed effect classes use callable constructor wrappers; target-expression reads and the cross-Lua-state body call are narrow adapters; property bodies in the same run, gameplay and holdout credit remain absent"
   ]
 }

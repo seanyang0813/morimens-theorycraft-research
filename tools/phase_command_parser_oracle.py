@@ -182,6 +182,7 @@ class PhaseCommandParserOracle(ArgumentOracle):
 
         self.method('GetSkillArgs', get_skill_args)
         self.method('GetEffectDelayTimes', get_delays)
+        self.method('SetLastEffect', lambda state: 0)
         self.getglobal(L, b'_phase_parser_subject')
         self.getfield(L, -1, b'battleEngine')
         self.setglobal(L, b'_phase_shared_engine')
@@ -281,7 +282,15 @@ class PhaseCommandParserOracle(ArgumentOracle):
                 self.pushvalue(state, 1); self.setglobal(state, b'_phase_construct_engine_arg')
                 self.pushvalue(state, 2); self.setglobal(state, b'_phase_construct_config_arg')
                 self.table(state, 0, 30)
-                self._copy_methods(state, b'_phase_construct_base', ('PreTrigger', 'TryDoEffect', 'CheckCondition', '__CheckDeadCondition', 'GetConfigBeforeDelay', 'GenTargets', 'GenParams'))
+                self._copy_methods(state, b'_phase_construct_base', (
+                    'PreTrigger', 'AppendToParentEffect', 'AddRunningSubEffect',
+                    'TryDoEffect', 'CheckCondition', '__CheckDeadCondition',
+                    'GetConfigBeforeDelay', 'GenTargets', 'GenParams',
+                    'AfterEffect', 'CheckSubEffectEmpty', 'RunSubEffect',
+                    'RunNextMultiEffect', 'SubEffectEnd', 'DoMultiEffect',
+                    'XpcallDoEffect', 'EffectEnd', 'RemoveFromParentEffect',
+                    'GetConfigAfterDelay', 'GetEffectConfig',
+                ))
                 self._copy_methods(state, class_global, ('DoEffect',))
                 self.setglobal(state, b'_phase_construct_object')
                 self.getglobal(state, class_global); self.getfield(state, -1, b'ctor')
@@ -313,7 +322,9 @@ class PhaseCommandParserOracle(ArgumentOracle):
         self.setglobal(L, b'require')
 
         self.table(L, 0, 5)
-        for name in ('CreateEffect', 'SetRunningEffect'):
+        for name in ('CreateEffect', 'SetRunningEffect', 'GetRunningEffect',
+                     'GetParentEffectUid', 'GetEffectByUid', 'EffectEnd',
+                     'AddRunEffectNum', 'IsOverflow', 'RunRootEffect'):
             self.getglobal(L, b'_phase_construct_manager_class'); self.getfield(L, -1, name.encode())
             self.setfield(L, -3, name.encode()); self.top(L, -2)
         self.table(L, 0, 0); self.setfield(L, -2, b'effectList')
@@ -327,14 +338,22 @@ class PhaseCommandParserOracle(ArgumentOracle):
         self.method('GenObjUid', uid)
         self.method('IsBattleFinish', lambda state: (self.boolean(state, False), 1)[1])
         self.method('IsPVE', lambda state: (self.boolean(state, True), 1)[1])
+        self.method('GetCurPassTime', lambda state: (self.number(state, 0), 1)[1])
         self.method('AddPassTime', lambda state: 0)
         def get_obj(state):
-            if int(self.tonumber(state, 2, None)) == 9:
+            uid_value = int(self.tonumber(state, 2, None))
+            if uid_value == 9:
                 self.getglobal(state, b'_phase_construct_caster')
+            elif uid_value == 1:
+                self.getglobal(state, b'_phase_scheduler_root')
+            elif uid_value in getattr(self, 'effect_uids', set()):
+                self.getglobal(state, f'_phase_effect_uid_{uid_value}'.encode())
             else:
                 self.nil(state)
             return 1
         self.method('GetObj', get_obj)
+        for name in ('Debug', 'Info'):
+            self.method(name, lambda state: 0)
         self.getglobal(L, b'_phase_construct_manager'); self.setfield(L, -2, b'effectMgr')
         self.top(L, 0)
         self.getglobal(L, b'_phase_construct_manager')
@@ -431,13 +450,90 @@ class PhaseCommandParserOracle(ArgumentOracle):
         if self.errors:
             raise RuntimeError(self.errors)
         generated_rows = []
+        self.effect_uids = set()
         for index in range(1, self.rawlen(L, -1) + 1):
-            self.rawgeti(L, -1, index); self.getfield(L, -1, b'effectConfig'); self.getfield(L, -1, b'cmdIndex')
+            self.rawgeti(L, -1, index)
+            self.getfield(L, -1, b'uid'); effect_uid = int(self.tonumber(L, -1, None)); self.top(L, -2)
+            self.pushvalue(L, -1); self.setglobal(L, f'_phase_effect_uid_{effect_uid}'.encode())
+            self.effect_uids.add(effect_uid)
+            self.getfield(L, -1, b'effectConfig'); self.getfield(L, -1, b'cmdIndex')
             generated_rows.append(int(self.tonumber(L, -1, None))); self.top(L, -4)
         if generated_rows != list(range(1, len(ordered) + 1)):
             raise RuntimeError(f'GenerateEffectList row order mismatch: {generated_rows}')
         self.setglobal(L, b'_phase_generated_effects')
         return generated_rows
+
+    def run_scheduler(self, row_count, body_hook):
+        """Run original root/subeffect recursion; body_hook executes verified bodies."""
+        L = self.state
+        self.execution_rows = []
+        self.body_hook = body_hook
+        self.top(L, 0)
+
+        self.table(L, 0, 30)
+        for name in ('TryDoEffect', 'CheckCondition', 'GetConfigBeforeDelay',
+                     'GenTargets', 'GenParams', 'XpcallDoEffect', 'AfterEffect',
+                     'CheckSubEffectEmpty', 'RunSubEffect', 'RunNextMultiEffect',
+                     'SubEffectEnd', 'DoMultiEffect', 'EffectEnd',
+                     'RemoveFromParentEffect', 'GetConfigAfterDelay',
+                     'GetEffectConfig', 'AddRunningSubEffect'):
+            self.getglobal(L, b'_phase_construct_base'); self.getfield(L, -1, name.encode())
+            self.setfield(L, -3, name.encode()); self.top(L, -2)
+        self.number(L, 1); self.setfield(L, -2, b'uid')
+        self.getglobal(L, b'_phase_shared_engine'); self.setfield(L, -2, b'battleEngine')
+        self.table(L, 0, 0); self.setfield(L, -2, b'subEffectList')
+        self.table(L, 0, 1); self.pushstring(L, b'PhaseRoot'); self.setfield(L, -2, b'effectType'); self.setfield(L, -2, b'effectConfig')
+        self.pushstring(L, b'PhaseRoot'); self.setfield(L, -2, b'effectType')
+        self.method('DoEffect', lambda state: (self.boolean(state, True), 1)[1])
+        self.setglobal(L, b'_phase_scheduler_root')
+
+        self.getglobal(L, b'_phase_construct_manager')
+        self.getglobal(L, b'_phase_scheduler_root'); self.setfield(L, -2, b'rootEffect')
+        self.getglobal(L, b'_phase_scheduler_root'); self.setfield(L, -2, b'runningEffect')
+        self.number(L, 0); self.setfield(L, -2, b'runEffectNum')
+        self.boolean(L, False); self.setfield(L, -2, b'effectOrderFinished')
+        self.top(L, 0)
+
+        for index in range(1, row_count + 1):
+            self.getglobal(L, b'_phase_generated_effects'); self.rawgeti(L, -1, index)
+            def execute(state, index=index):
+                self.getfield(state, 1, b'params')
+                params = []
+                for param_index in range(1, self.rawlen(state, -1) + 1):
+                    self.rawgeti(state, -1, param_index)
+                    params.append(self.tonumber(state, -1, None))
+                    self.top(state, -2)
+                self.top(state, 1)
+                updated_layers = self.body_hook(index, params)
+                if updated_layers is not None:
+                    self.layers = updated_layers
+                self.execution_rows.append({'row': index, 'passed': True, 'params': params})
+                self.boolean(state, True)
+                return 1
+            self.method('DoEffect', execute)
+            self.getfield(L, -1, b'PreTrigger'); self.pushvalue(L, -2); self.nil(L)
+            self.check(self.call(L, 2, 0, 0, 0, None))
+            self.top(L, 0)
+
+        self.getglobal(L, b'_phase_construct_manager')
+        self.getfield(L, -1, b'RunRootEffect')
+        self.getglobal(L, b'_phase_construct_manager')
+        self.check(self.call(L, 1, 0, 0, 0, None))
+        if self.errors:
+            raise RuntimeError(self.errors)
+
+        executed = {row['row']: row for row in self.execution_rows}
+        result = []
+        for index in range(1, row_count + 1):
+            if index in executed:
+                result.append(executed[index])
+            else:
+                result.append({'row': index, 'passed': False, 'params': []})
+        self.top(L, 0)
+        self.getglobal(L, b'_phase_construct_manager'); self.getfield(L, -1, b'effectOrderFinished')
+        if not bool(self.tobool(L, -1)):
+            raise RuntimeError('Phase scheduler did not finish its root effect')
+        return result
 
     def prepare_effect(self, index):
         """Run original TryDoEffect and return its resolved numeric parameters."""

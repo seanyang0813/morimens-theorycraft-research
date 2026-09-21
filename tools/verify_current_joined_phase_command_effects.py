@@ -71,7 +71,7 @@ def main():
         'kind': 'MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON',
         'baselineBuild': 'pc-res144-build51',
         'currentBuild': 'pc-res150-build51',
-        'method': 'execute current command construction, BattleEffectServer.TryDoEffect, parser conditions/parameters and changed add parent against byte-identical manager/state modules and catalog-equal rows',
+        'method': 'execute current command construction, TryDoEffect and original root/subeffect recursion across a callback bridge to changed add-parent and byte-identical state modules',
         'status': 'CURRENT_CHANGED_MODULES_RUNTIME_MATCH',
         'sourceHashes': {
             'fixture': sha(fixture_path),
@@ -86,11 +86,11 @@ def main():
         'fixtures': len(fixture['fixtures']),
         'matched': len(fixture['fixtures']),
         'mismatches': 0,
-        'scope': 'Installed current construction, TryDoEffect, parser/expressions and add parent reproduce every inherited joined command-row/effect-body transition fixture.',
+        'scope': 'Installed current construction, preparation, parser/expressions, scheduler recursion and add parent reproduce every inherited joined command-row/effect-body transition fixture.',
         'limitations': [
-            'Original GenerateEffectList/GenerateEffectObj construct typed effects through original BattleEffectMgrServer; original TryDoEffect performs condition, target and parameter binding before Python hands the prepared values to real effect bodies',
+            'Original GenerateEffectList/GenerateEffectObj construct typed effects through original BattleEffectMgrServer; original TryDoEffect and root/subeffect recursion order conditions, prepared values and real effect-body callback bridges',
             'Destination states are pre-created live zero-layer adapters',
-            'Typed effect classes use callable constructor wrappers; target-expression max HP/state-layer reads are a narrow adapter; no original root/subeffect scheduler, property bodies, gameplay or holdout credit',
+            'Typed effect classes use callable constructor wrappers; target-expression reads and the cross-Lua-state body call are narrow adapters; property bodies in the same run, gameplay and holdout credit remain absent',
         ],
     }
     output = ROOT / 'research/evidence/pc-res150-joined-phase-command-effects-runtime.json'

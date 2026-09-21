@@ -199,23 +199,14 @@ class JoinedPhaseCommandEffectOracle(PhaseLiveLayerOracle):
         rows = self.commands[str(case['commandId'])]['data_list']
         self.expressions.begin(case['hpLoss'], case['maxHp'], {})
         generated_rows = self.expressions.generate_rows(case['commandId'], rows)
-        row_trace = []
         operations = []
         skill = None
         ordered_rows = [row for _, row in sorted(rows.items(), key=lambda item: int(item[0]))]
-        for generated_index in generated_rows:
-            index = str(generated_index)
+
+        def execute_body(generated_index, params):
+            nonlocal skill
             row = ordered_rows[generated_index - 1]
-            snapshot = self._state_snapshot()
-            self.expressions.layers = {state_id: value['layers'] for state_id, value in snapshot.items()}
-            self.expressions.reads = []
-            prepared = self.expressions.prepare_effect(generated_index)
-            if not prepared['passed']:
-                row_trace.append({'row': int(index), 'type': row['Type'], 'passed': False})
-                continue
-            params = prepared['params']
             self._invoke(row['Type'], params)
-            row_trace.append({'row': int(index), 'type': row['Type'], 'passed': True, 'params': params})
             state_id = int(params[0])
             amount = params[1] if len(params) > 1 else 1
             after = self._state_snapshot()
@@ -232,6 +223,18 @@ class JoinedPhaseCommandEffectOracle(PhaseLiveLayerOracle):
             elif row['Type'] == 'BEMonsterChangeSkill':
                 skill = state_id
                 operations.append({'type': 'changeMonsterSkill', 'skillId': state_id, 'slot': int(amount)})
+            return {state_id: value['layers'] for state_id, value in after.items()}
+
+        before_schedule = self._state_snapshot()
+        self.expressions.layers = {state_id: value['layers'] for state_id, value in before_schedule.items()}
+        scheduled = self.expressions.run_scheduler(len(generated_rows), execute_body)
+        row_trace = []
+        for prepared in scheduled:
+            row = ordered_rows[prepared['row'] - 1]
+            trace_row = {'row': prepared['row'], 'type': row['Type'], 'passed': prepared['passed']}
+            if prepared['passed']:
+                trace_row['params'] = prepared['params']
+            row_trace.append(trace_row)
         final = self._state_snapshot()
         if final[60408]['live'] and final[60408]['layers'] > 0:
             phase_id = 60408
@@ -274,8 +277,9 @@ if __name__ == '__main__':
             'pre-created live zero-layer adapters; LifeEnd marks deletion and other callbacks are observers. '
             'The target expression exposes only max_hp and GetStateLayer; original GenerateEffectObj and '
             'BattleEffectMgrServer.CreateEffect construct each typed effect through a callable wrapper; original '
-            'BattleEffectServer.TryDoEffect applies condition, target and parameter binding before Python executes '
-            'the real bodies. No original root/subeffect scheduler, state '
+            'BattleEffectServer.TryDoEffect applies condition, target and parameter binding; original '
+            'RunRootEffect/XpcallDoEffect/AfterEffect/RunSubEffect/EffectEnd recursion drives child order across a '
+            'callback bridge into the real bodies. No same-Lua-state body connection, state '
             'construction/property bodies, gameplay or holdout.'
         ),
         'fixtures': fixtures,
