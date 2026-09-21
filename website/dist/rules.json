@@ -4679,6 +4679,25 @@
       ]
     },
     {
+      "id": "PC150:PrimaryStatAndAdvancementLookup",
+      "status": "SUPPORTED_BY_CURRENT_RUNTIME_TEST",
+      "claim": "The installed resource-150 character tables and original GetAwakerBaseAttrValue path match all 2,700 authored primary-stat checks; supported current advancement rows are exposed separately through the tested client rounding rule",
+      "scope": "60 uniquely resolved characters across five levels, Gnostic ranks 0/1/5 and CON/ATK/DEF, plus explicit supported primary-promotion rows. One catalog identity remains unresolved. Passive states, equipment, substats, battle-property assembly, gameplay and holdout credit are excluded.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 character progression",
+          "member": "current table hashes, original lookup executions and advancement inventory",
+          "sha256": "d545aa9fecfe44cf53403b7c5d7a24d88e3148aa904bbd87098c08cf683d5dca"
+        }
+      ],
+      "checks": [
+        "tools/export_current_config_tables.py",
+        "tools/build_current_client_build_data.py",
+        "tests/current-client-build-stats.test.mjs"
+      ]
+    },
+    {
       "id": "PC150:BattleUtilServer.ShowDamageFormula",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
       "claim": "The installed resource-150 BattleConst and BattleUtilServer bytecode reproduces all 2,262 resource-144 ShowDamageFormula fixtures exactly",

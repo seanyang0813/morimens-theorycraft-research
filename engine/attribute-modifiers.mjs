@@ -1,6 +1,7 @@
 // Original client display helpers; callers must resolve modifier provenance separately.
+const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51']);
 export function calculateAttributeModifier({build,base,increase,breakRate=null,method}){
-  if(build!=='pc-res144-build51')throw new Error('Unsupported build');
+  if(!supportedBuilds.has(build))throw new Error('Unsupported build');
   if(!['GetAwakerFinalAttr','GetAwakerPhysique'].includes(method))throw new Error('Unsupported attribute helper');
   if(typeof base!=='number'||!Number.isFinite(base))throw new Error('Finite base required');
   if(increase!==null&&(typeof increase!=='number'||!Number.isFinite(increase)))throw new Error('Explicit fractional increase or null required');

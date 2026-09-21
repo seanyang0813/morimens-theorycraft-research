@@ -49,6 +49,15 @@ test('agent API assembles known build components with both catalogs',()=>{
   const response=runTheorycraftRequest(request('assemble-build-components',input),{buildCatalog:catalog,clientBuildData});
   assert.equal(response.result.assemblyStatus,'KNOWN_COMPONENTS_RESOLVED');
   assert.equal(response.result.finalDamage,null);
+
+  const currentClientBuildData=JSON.parse(readFileSync(new URL('../website/dist/client-build-data-res150.json',import.meta.url),'utf8'));
+  const currentCharacter=catalog.characters.find(row=>currentClientBuildData.characters.some(client=>client.characterId===row.id));
+  const currentTalent=currentClientBuildData.characters.find(row=>row.characterId===currentCharacter.id).advancementTalents[0];
+  const currentInput={schemaVersion:1,kind:'morimens-build-plan',catalogRevision:catalog.source.revision,clientBuild:'pc-res150-build51',team:[{slotId:'current',characterId:currentCharacter.id,level:90,gnosticRank:5,advancementTalentId:currentTalent.clientTalentId,advancementLevel:currentTalent.maximumLevel,wheelId:wheel.id,wheelEnhanceLevel:15}]};
+  const currentResponse=runTheorycraftRequest(request('assemble-build-components',currentInput),{buildCatalog:catalog,clientBuildData:currentClientBuildData});
+  assert.equal(currentResponse.result.build,'pc-res150-build51');
+  assert.equal(currentResponse.result.assemblyStatus,'KNOWN_COMPONENTS_RESOLVED');
+  assert.equal(currentResponse.result.members[0].primaryStats.ATK>0,true);
 });
 
 test('agent API rejects extra fields and unsupported operations',()=>{

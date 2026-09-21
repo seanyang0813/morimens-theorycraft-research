@@ -10,8 +10,8 @@ function issue(code,slotId,field,message){return {code,slotId,field,message};}
 // This is deliberately not a final-battle-property assembler: unsupported sources
 // stay visible instead of being filled with neutral values.
 export function assembleKnownBuildComponents(plan,catalog,clientBuildData){
-  if(!clientBuildData||clientBuildData.schemaVersion!==1||clientBuildData.build!=='pc-res144-build51'||!Array.isArray(clientBuildData.characters))throw new Error('Unsupported or malformed client build data');
   const validated=validateBuildPlan(plan,catalog).plan,issues=[],members=[];
+  if(!clientBuildData||clientBuildData.schemaVersion!==1||!['pc-res144-build51','pc-res150-build51'].includes(clientBuildData.build)||!Array.isArray(clientBuildData.characters)||validated.clientBuild&&clientBuildData.build!==validated.clientBuild)throw new Error('Unsupported or mismatched client build data');
   for(const member of validated.team){
     const character=catalog.characters.find(row=>row.id===member.characterId);
     const assembled={
@@ -24,7 +24,7 @@ export function assembleKnownBuildComponents(plan,catalog,clientBuildData){
       contributionLedger:[],
     };
     let primaryReady=true;
-    if(validated.clientBuild!=='pc-res144-build51'){issues.push(issue('CLIENT_BUILD_REQUIRED',member.slotId,'clientBuild','Select the supported PC client build to resolve character primary stats.'));primaryReady=false;}
+    if(!['pc-res144-build51','pc-res150-build51'].includes(validated.clientBuild)){issues.push(issue('CLIENT_BUILD_REQUIRED',member.slotId,'clientBuild','Select a supported PC client build to resolve character primary stats.'));primaryReady=false;}
     if(member.level===null){issues.push(issue('CHARACTER_LEVEL_REQUIRED',member.slotId,'level','Character level is unknown.'));primaryReady=false;}
     else if(member.level>90){issues.push(issue('CHARACTER_LEVEL_UNSUPPORTED',member.slotId,'level','The recovered client formula currently supports levels 1–90.'));primaryReady=false;}
     if(!Object.hasOwn(member,'gnosticRank')||member.gnosticRank===null){issues.push(issue('GNOSTIC_RANK_REQUIRED',member.slotId,'gnosticRank','Gnostic Potential rank is unknown.'));primaryReady=false;}

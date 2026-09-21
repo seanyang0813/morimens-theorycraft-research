@@ -1,5 +1,11 @@
 # Catalog-derived primary stats
 
+## Current installed-client path
+
+The build planner can select `pc-res150-build51`, whose character progression payload is generated from the installed client's `AwakerConfig`, `AwakerUpgrade`, `AwakerTalent`, `ActorAttrType`, `Constant`, `FuncTable`, `AwakerDataUtils` and `AttrUtils` modules. `tools/build_current_client_build_data.py` executes the original current-client `GetAwakerBaseAttrValue` lookup for 60 uniquely resolved characters at five levels, Gnostic ranks 0/1/5 and all three primary stats. All 2,700 cases match the authored resolver. The same payload contains supported current advancement primary-promotion rows, and the tests exercise every recorded talent at level zero and its maximum level through the shared client rounding rule.
+
+This current path is mechanics evidence for progression assembly. It does not resolve advancement passives, equipment, substats, battle-start effects or final battle properties, and it receives no gameplay or holdout credit. One SKeyDB character identity remains unresolved. The older `pc-res144-build51` dataset is retained as a separately labeled historical research build.
+
 The broader client-config audit found 120 one-point rounding differences across 97,200 comparisons. All 120 are now confirmed by original compiled Lua expressions, with 240 adjacent-level controls also recorded. See PRIMARY_STAT_CLIENT_AUDIT.md before treating this preview as client-equivalent.
 
 `engine/build-stats.mjs` exposes `resolvePrimaryStats(input, catalog)` for the build resolver. The agent CLI is `node tools/resolve_build_stats.mjs inputs.json`. It uses the same saved catalog as the planner.

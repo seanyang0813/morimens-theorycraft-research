@@ -1,7 +1,8 @@
 // Serializable planning inputs, deliberately separate from resolved combat stats.
+const supportedClientBuilds=new Set(['pc-res144-build51','pc-res150-build51']);
 export function validateBuildPlan(plan,catalog){
   if(!plan||plan.schemaVersion!==1||plan.kind!=='morimens-build-plan'||!Array.isArray(plan.team)||!plan.team.length||Object.keys(plan).some(k=>!['schemaVersion','kind','catalogRevision','team','clientBuild'].includes(k)))throw new Error('Expected a version 1 build plan with a nonempty team');
-  if(Object.hasOwn(plan,'clientBuild')&&plan.clientBuild!==null&&plan.clientBuild!=='pc-res144-build51')throw new Error('Unsupported client build');
+  if(Object.hasOwn(plan,'clientBuild')&&plan.clientBuild!==null&&!supportedClientBuilds.has(plan.clientBuild))throw new Error('Unsupported client build');
   if(plan.catalogRevision!==catalog.source.revision)throw new Error('Catalog revision mismatch');
   const characters=new Map(catalog.characters.map(c=>[c.id,c])),wheels=new Map(catalog.wheels.map(w=>[w.id,w]));
   const seen=new Set(),team=[];

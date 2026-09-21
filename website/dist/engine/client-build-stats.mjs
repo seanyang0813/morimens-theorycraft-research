@@ -1,9 +1,10 @@
 import {calculateClientPrimaryStat} from './client-primary-stats.mjs';
 import {calculateAttributeModifier} from './attribute-modifiers.mjs';
+const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51']);
 export function resolveClientBuildPrimary(input,data){
   const fields=['build','characterId','level','gnosticRank'];
   if(!input||fields.some(k=>!Object.hasOwn(input,k))||Object.keys(input).some(k=>!fields.includes(k)))throw new Error('Explicit build, character, level and Gnostic rank required');
-  if(input.build!=='pc-res144-build51'||data.build!==input.build||data.schemaVersion!==1)throw new Error('Unsupported or mismatched client data build');
+  if(!supportedBuilds.has(input.build)||data.build!==input.build||data.schemaVersion!==1)throw new Error('Unsupported or mismatched client data build');
   if(!Number.isSafeInteger(input.level)||input.level<1||input.level>90)throw new Error('Supported character level range is 1–90');
   const character=data.characters.find(c=>c.characterId===input.characterId);
   if(!character)throw new Error('Character client identity is unresolved');

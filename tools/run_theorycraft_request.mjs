@@ -12,9 +12,11 @@ const inside=(value,label)=>{const path=resolve(root,value),r=relative(root,path
 try{
   const request=JSON.parse(readFileSync(inside(options['--input'],'Input'),'utf8'));
   const readConfig=name=>{const bytes=readFileSync(resolve(root,`research/extracted/config/${name}.json`));return {data:JSON.parse(bytes),sha256:createHash('sha256').update(bytes).digest('hex')};};
+  const requestedClientBuild=request.operation.startsWith('resolve-character-')?request.input?.build:request.input?.clientBuild;
+  const clientDataFile=requestedClientBuild==='pc-res150-build51'?'client-build-data-res150.json':'client-build-data.json';
   const context={
     buildCatalog:JSON.parse(readFileSync(resolve(root,'website/dist/build-catalog.json'),'utf8')),
-    clientBuildData:JSON.parse(readFileSync(resolve(root,'website/dist/client-build-data.json'),'utf8')),
+    clientBuildData:JSON.parse(readFileSync(resolve(root,`website/dist/${clientDataFile}`),'utf8')),
   };
   if(['prepare-skill-command','run-attached-card-pipeline'].includes(request.operation)){
     const skill=readConfig('Skill'),battleApi=readConfig('BattleApi'),command=readConfig('Cmd'),state=readConfig('State');

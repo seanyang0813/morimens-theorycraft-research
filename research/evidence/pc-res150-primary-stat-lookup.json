@@ -1,0 +1,944 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_CURRENT_PRIMARY_STAT_LOOKUP",
+  "analysisTrack": "mechanics",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "status": "CURRENT_ORIGINAL_LOOKUP_EXACT",
+  "sourceHashes": {
+    "AwakerConfig": "a53cd2c0df3ffb6f1035ace2846bc84e78b7b108193768c3553ed3d32828477b",
+    "AwakerTalent": "800bdfa30827a17565237184853b3faa7f2e7275b8d62606d6dbda21b121895d",
+    "ActorAttrType": "45ef44ee7d59e7a7f0a978602ff7967b8c1582c598abcd20b0eb24f04ab0a996",
+    "AwakerUpgrade": "67a680485c0032031bdf4ebee481cf8dc614e13c14b9844d44ef7a32edc9a661",
+    "Constant": "6aad53c24d962e226afa4288af691b4455d6a459bc155b0c88f0cc263c8dc398",
+    "FuncTable": "28977d3dbdf5ffe8d56967ca3d77ed50a4c9d302a8fd9ec3eb5e695888fd0e43",
+    "AwakerDataUtils": "38fa6dc9e7d5c6971d21180eb48df5c033c6d03673781ad318b661d8b0413897",
+    "AttrUtils": "b00369326c56e98ec47aed7bd437b6aabc2e96e42e1bf12659076acb656f1f86",
+    "currentClientBuildData": "49d4bf5abe419360df47e4959a26fb50bdaa37ed8189c022a644ff518f6fba80",
+    "installedConfigBundle": "95083098911cb6b1f54fcddb03e5dc797489bd080e55ddd9f72fc0da9b39a1e4",
+    "installedBuildEvidence": "6e34baa173470f923847841ad5fd4a07ded88bde49943c95cdceb5abbb1f8c21"
+  },
+  "catalog": {
+    "characters": 61,
+    "resolved": 60,
+    "unresolved": 1
+  },
+  "advancementCatalog": {
+    "charactersWithSupportedPrimaryPromotion": 60,
+    "supportedPrimaryPromotionTalents": 60,
+    "levels": 660
+  },
+  "runtimeChecks": {
+    "cases": 2700,
+    "mismatches": 0,
+    "sampleDomain": "Every resolved character at level 90 / Gnostic rank 5",
+    "samples": [
+      {
+        "characterId": "awakener-0001",
+        "stat": "ATK",
+        "expected": 252
+      },
+      {
+        "characterId": "awakener-0001",
+        "stat": "DEF",
+        "expected": 114
+      },
+      {
+        "characterId": "awakener-0001",
+        "stat": "CON",
+        "expected": 198
+      },
+      {
+        "characterId": "awakener-0002",
+        "stat": "ATK",
+        "expected": 168
+      },
+      {
+        "characterId": "awakener-0002",
+        "stat": "DEF",
+        "expected": 204
+      },
+      {
+        "characterId": "awakener-0002",
+        "stat": "CON",
+        "expected": 198
+      },
+      {
+        "characterId": "awakener-0003",
+        "stat": "ATK",
+        "expected": 180
+      },
+      {
+        "characterId": "awakener-0003",
+        "stat": "DEF",
+        "expected": 162
+      },
+      {
+        "characterId": "awakener-0003",
+        "stat": "CON",
+        "expected": 150
+      },
+      {
+        "characterId": "awakener-0004",
+        "stat": "ATK",
+        "expected": 192
+      },
+      {
+        "characterId": "awakener-0004",
+        "stat": "DEF",
+        "expected": 210
+      },
+      {
+        "characterId": "awakener-0004",
+        "stat": "CON",
+        "expected": 180
+      },
+      {
+        "characterId": "awakener-0005",
+        "stat": "ATK",
+        "expected": 156
+      },
+      {
+        "characterId": "awakener-0005",
+        "stat": "DEF",
+        "expected": 138
+      },
+      {
+        "characterId": "awakener-0005",
+        "stat": "CON",
+        "expected": 144
+      },
+      {
+        "characterId": "awakener-0006",
+        "stat": "ATK",
+        "expected": 186
+      },
+      {
+        "characterId": "awakener-0006",
+        "stat": "DEF",
+        "expected": 204
+      },
+      {
+        "characterId": "awakener-0006",
+        "stat": "CON",
+        "expected": 234
+      },
+      {
+        "characterId": "awakener-0007",
+        "stat": "ATK",
+        "expected": 168
+      },
+      {
+        "characterId": "awakener-0007",
+        "stat": "DEF",
+        "expected": 144
+      },
+      {
+        "characterId": "awakener-0007",
+        "stat": "CON",
+        "expected": 162
+      },
+      {
+        "characterId": "awakener-0008",
+        "stat": "ATK",
+        "expected": 180
+      },
+      {
+        "characterId": "awakener-0008",
+        "stat": "DEF",
+        "expected": 210
+      },
+      {
+        "characterId": "awakener-0008",
+        "stat": "CON",
+        "expected": 198
+      },
+      {
+        "characterId": "awakener-0009",
+        "stat": "ATK",
+        "expected": 114
+      },
+      {
+        "characterId": "awakener-0009",
+        "stat": "DEF",
+        "expected": 120
+      },
+      {
+        "characterId": "awakener-0009",
+        "stat": "CON",
+        "expected": 120
+      },
+      {
+        "characterId": "awakener-0010",
+        "stat": "ATK",
+        "expected": 198
+      },
+      {
+        "characterId": "awakener-0010",
+        "stat": "DEF",
+        "expected": 162
+      },
+      {
+        "characterId": "awakener-0010",
+        "stat": "CON",
+        "expected": 168
+      },
+      {
+        "characterId": "awakener-0011",
+        "stat": "ATK",
+        "expected": 168
+      },
+      {
+        "characterId": "awakener-0011",
+        "stat": "DEF",
+        "expected": 198
+      },
+      {
+        "characterId": "awakener-0011",
+        "stat": "CON",
+        "expected": 192
+      },
+      {
+        "characterId": "awakener-0012",
+        "stat": "ATK",
+        "expected": 234
+      },
+      {
+        "characterId": "awakener-0012",
+        "stat": "DEF",
+        "expected": 174
+      },
+      {
+        "characterId": "awakener-0012",
+        "stat": "CON",
+        "expected": 186
+      },
+      {
+        "characterId": "awakener-0013",
+        "stat": "ATK",
+        "expected": 108
+      },
+      {
+        "characterId": "awakener-0013",
+        "stat": "DEF",
+        "expected": 144
+      },
+      {
+        "characterId": "awakener-0013",
+        "stat": "CON",
+        "expected": 132
+      },
+      {
+        "characterId": "awakener-0014",
+        "stat": "ATK",
+        "expected": 210
+      },
+      {
+        "characterId": "awakener-0014",
+        "stat": "DEF",
+        "expected": 174
+      },
+      {
+        "characterId": "awakener-0014",
+        "stat": "CON",
+        "expected": 198
+      },
+      {
+        "characterId": "awakener-0015",
+        "stat": "ATK",
+        "expected": 216
+      },
+      {
+        "characterId": "awakener-0015",
+        "stat": "DEF",
+        "expected": 216
+      },
+      {
+        "characterId": "awakener-0015",
+        "stat": "CON",
+        "expected": 222
+      },
+      {
+        "characterId": "awakener-0016",
+        "stat": "ATK",
+        "expected": 120
+      },
+      {
+        "characterId": "awakener-0016",
+        "stat": "DEF",
+        "expected": 186
+      },
+      {
+        "characterId": "awakener-0016",
+        "stat": "CON",
+        "expected": 156
+      },
+      {
+        "characterId": "awakener-0017",
+        "stat": "ATK",
+        "expected": 156
+      },
+      {
+        "characterId": "awakener-0017",
+        "stat": "DEF",
+        "expected": 180
+      },
+      {
+        "characterId": "awakener-0017",
+        "stat": "CON",
+        "expected": 144
+      },
+      {
+        "characterId": "awakener-0018",
+        "stat": "ATK",
+        "expected": 108
+      },
+      {
+        "characterId": "awakener-0018",
+        "stat": "DEF",
+        "expected": 144
+      },
+      {
+        "characterId": "awakener-0018",
+        "stat": "CON",
+        "expected": 132
+      },
+      {
+        "characterId": "awakener-0019",
+        "stat": "ATK",
+        "expected": 204
+      },
+      {
+        "characterId": "awakener-0019",
+        "stat": "DEF",
+        "expected": 150
+      },
+      {
+        "characterId": "awakener-0019",
+        "stat": "CON",
+        "expected": 210
+      },
+      {
+        "characterId": "awakener-0020",
+        "stat": "ATK",
+        "expected": 180
+      },
+      {
+        "characterId": "awakener-0020",
+        "stat": "DEF",
+        "expected": 180
+      },
+      {
+        "characterId": "awakener-0020",
+        "stat": "CON",
+        "expected": 180
+      },
+      {
+        "characterId": "awakener-0021",
+        "stat": "ATK",
+        "expected": 240
+      },
+      {
+        "characterId": "awakener-0021",
+        "stat": "DEF",
+        "expected": 198
+      },
+      {
+        "characterId": "awakener-0021",
+        "stat": "CON",
+        "expected": 246
+      },
+      {
+        "characterId": "awakener-0022",
+        "stat": "ATK",
+        "expected": 186
+      },
+      {
+        "characterId": "awakener-0022",
+        "stat": "DEF",
+        "expected": 174
+      },
+      {
+        "characterId": "awakener-0022",
+        "stat": "CON",
+        "expected": 180
+      },
+      {
+        "characterId": "awakener-0023",
+        "stat": "ATK",
+        "expected": 204
+      },
+      {
+        "characterId": "awakener-0023",
+        "stat": "DEF",
+        "expected": 150
+      },
+      {
+        "characterId": "awakener-0023",
+        "stat": "CON",
+        "expected": 210
+      },
+      {
+        "characterId": "awakener-0024",
+        "stat": "ATK",
+        "expected": 144
+      },
+      {
+        "characterId": "awakener-0024",
+        "stat": "DEF",
+        "expected": 126
+      },
+      {
+        "characterId": "awakener-0024",
+        "stat": "CON",
+        "expected": 138
+      },
+      {
+        "characterId": "awakener-0026",
+        "stat": "ATK",
+        "expected": 144
+      },
+      {
+        "characterId": "awakener-0026",
+        "stat": "DEF",
+        "expected": 162
+      },
+      {
+        "characterId": "awakener-0026",
+        "stat": "CON",
+        "expected": 168
+      },
+      {
+        "characterId": "awakener-0027",
+        "stat": "ATK",
+        "expected": 222
+      },
+      {
+        "characterId": "awakener-0027",
+        "stat": "DEF",
+        "expected": 168
+      },
+      {
+        "characterId": "awakener-0027",
+        "stat": "CON",
+        "expected": 186
+      },
+      {
+        "characterId": "awakener-0028",
+        "stat": "ATK",
+        "expected": 108
+      },
+      {
+        "characterId": "awakener-0028",
+        "stat": "DEF",
+        "expected": 108
+      },
+      {
+        "characterId": "awakener-0028",
+        "stat": "CON",
+        "expected": 108
+      },
+      {
+        "characterId": "awakener-0029",
+        "stat": "ATK",
+        "expected": 156
+      },
+      {
+        "characterId": "awakener-0029",
+        "stat": "DEF",
+        "expected": 216
+      },
+      {
+        "characterId": "awakener-0029",
+        "stat": "CON",
+        "expected": 216
+      },
+      {
+        "characterId": "awakener-0030",
+        "stat": "ATK",
+        "expected": 222
+      },
+      {
+        "characterId": "awakener-0030",
+        "stat": "DEF",
+        "expected": 174
+      },
+      {
+        "characterId": "awakener-0030",
+        "stat": "CON",
+        "expected": 162
+      },
+      {
+        "characterId": "awakener-0031",
+        "stat": "ATK",
+        "expected": 198
+      },
+      {
+        "characterId": "awakener-0031",
+        "stat": "DEF",
+        "expected": 168
+      },
+      {
+        "characterId": "awakener-0031",
+        "stat": "CON",
+        "expected": 192
+      },
+      {
+        "characterId": "awakener-0032",
+        "stat": "ATK",
+        "expected": 198
+      },
+      {
+        "characterId": "awakener-0032",
+        "stat": "DEF",
+        "expected": 108
+      },
+      {
+        "characterId": "awakener-0032",
+        "stat": "CON",
+        "expected": 126
+      },
+      {
+        "characterId": "awakener-0033",
+        "stat": "ATK",
+        "expected": 198
+      },
+      {
+        "characterId": "awakener-0033",
+        "stat": "DEF",
+        "expected": 168
+      },
+      {
+        "characterId": "awakener-0033",
+        "stat": "CON",
+        "expected": 168
+      },
+      {
+        "characterId": "awakener-0034",
+        "stat": "ATK",
+        "expected": 186
+      },
+      {
+        "characterId": "awakener-0034",
+        "stat": "DEF",
+        "expected": 210
+      },
+      {
+        "characterId": "awakener-0034",
+        "stat": "CON",
+        "expected": 174
+      },
+      {
+        "characterId": "awakener-0035",
+        "stat": "ATK",
+        "expected": 162
+      },
+      {
+        "characterId": "awakener-0035",
+        "stat": "DEF",
+        "expected": 156
+      },
+      {
+        "characterId": "awakener-0035",
+        "stat": "CON",
+        "expected": 132
+      },
+      {
+        "characterId": "awakener-0036",
+        "stat": "ATK",
+        "expected": 138
+      },
+      {
+        "characterId": "awakener-0036",
+        "stat": "DEF",
+        "expected": 240
+      },
+      {
+        "characterId": "awakener-0036",
+        "stat": "CON",
+        "expected": 228
+      },
+      {
+        "characterId": "awakener-0037",
+        "stat": "ATK",
+        "expected": 180
+      },
+      {
+        "characterId": "awakener-0037",
+        "stat": "DEF",
+        "expected": 120
+      },
+      {
+        "characterId": "awakener-0037",
+        "stat": "CON",
+        "expected": 114
+      },
+      {
+        "characterId": "awakener-0038",
+        "stat": "ATK",
+        "expected": 174
+      },
+      {
+        "characterId": "awakener-0038",
+        "stat": "DEF",
+        "expected": 222
+      },
+      {
+        "characterId": "awakener-0038",
+        "stat": "CON",
+        "expected": 204
+      },
+      {
+        "characterId": "awakener-0039",
+        "stat": "ATK",
+        "expected": 210
+      },
+      {
+        "characterId": "awakener-0039",
+        "stat": "DEF",
+        "expected": 186
+      },
+      {
+        "characterId": "awakener-0039",
+        "stat": "CON",
+        "expected": 180
+      },
+      {
+        "characterId": "awakener-0040",
+        "stat": "ATK",
+        "expected": 174
+      },
+      {
+        "characterId": "awakener-0040",
+        "stat": "DEF",
+        "expected": 192
+      },
+      {
+        "characterId": "awakener-0040",
+        "stat": "CON",
+        "expected": 192
+      },
+      {
+        "characterId": "awakener-0041",
+        "stat": "ATK",
+        "expected": 210
+      },
+      {
+        "characterId": "awakener-0041",
+        "stat": "DEF",
+        "expected": 180
+      },
+      {
+        "characterId": "awakener-0041",
+        "stat": "CON",
+        "expected": 186
+      },
+      {
+        "characterId": "awakener-0042",
+        "stat": "ATK",
+        "expected": 180
+      },
+      {
+        "characterId": "awakener-0042",
+        "stat": "DEF",
+        "expected": 180
+      },
+      {
+        "characterId": "awakener-0042",
+        "stat": "CON",
+        "expected": 180
+      },
+      {
+        "characterId": "awakener-0043",
+        "stat": "ATK",
+        "expected": 198
+      },
+      {
+        "characterId": "awakener-0043",
+        "stat": "DEF",
+        "expected": 192
+      },
+      {
+        "characterId": "awakener-0043",
+        "stat": "CON",
+        "expected": 240
+      },
+      {
+        "characterId": "awakener-0044",
+        "stat": "ATK",
+        "expected": 162
+      },
+      {
+        "characterId": "awakener-0044",
+        "stat": "DEF",
+        "expected": 252
+      },
+      {
+        "characterId": "awakener-0044",
+        "stat": "CON",
+        "expected": 252
+      },
+      {
+        "characterId": "awakener-0045",
+        "stat": "ATK",
+        "expected": 150
+      },
+      {
+        "characterId": "awakener-0045",
+        "stat": "DEF",
+        "expected": 228
+      },
+      {
+        "characterId": "awakener-0045",
+        "stat": "CON",
+        "expected": 192
+      },
+      {
+        "characterId": "awakener-0046",
+        "stat": "ATK",
+        "expected": 246
+      },
+      {
+        "characterId": "awakener-0046",
+        "stat": "DEF",
+        "expected": 126
+      },
+      {
+        "characterId": "awakener-0046",
+        "stat": "CON",
+        "expected": 174
+      },
+      {
+        "characterId": "awakener-0047",
+        "stat": "ATK",
+        "expected": 180
+      },
+      {
+        "characterId": "awakener-0047",
+        "stat": "DEF",
+        "expected": 180
+      },
+      {
+        "characterId": "awakener-0047",
+        "stat": "CON",
+        "expected": 180
+      },
+      {
+        "characterId": "awakener-0048",
+        "stat": "ATK",
+        "expected": 180
+      },
+      {
+        "characterId": "awakener-0048",
+        "stat": "DEF",
+        "expected": 168
+      },
+      {
+        "characterId": "awakener-0048",
+        "stat": "CON",
+        "expected": 186
+      },
+      {
+        "characterId": "awakener-0049",
+        "stat": "ATK",
+        "expected": 144
+      },
+      {
+        "characterId": "awakener-0049",
+        "stat": "DEF",
+        "expected": 150
+      },
+      {
+        "characterId": "awakener-0049",
+        "stat": "CON",
+        "expected": 156
+      },
+      {
+        "characterId": "awakener-0050",
+        "stat": "ATK",
+        "expected": 228
+      },
+      {
+        "characterId": "awakener-0050",
+        "stat": "DEF",
+        "expected": 180
+      },
+      {
+        "characterId": "awakener-0050",
+        "stat": "CON",
+        "expected": 204
+      },
+      {
+        "characterId": "awakener-0051",
+        "stat": "ATK",
+        "expected": 204
+      },
+      {
+        "characterId": "awakener-0051",
+        "stat": "DEF",
+        "expected": 180
+      },
+      {
+        "characterId": "awakener-0051",
+        "stat": "CON",
+        "expected": 216
+      },
+      {
+        "characterId": "awakener-0052",
+        "stat": "ATK",
+        "expected": 132
+      },
+      {
+        "characterId": "awakener-0052",
+        "stat": "DEF",
+        "expected": 246
+      },
+      {
+        "characterId": "awakener-0052",
+        "stat": "CON",
+        "expected": 210
+      },
+      {
+        "characterId": "awakener-0053",
+        "stat": "ATK",
+        "expected": 150
+      },
+      {
+        "characterId": "awakener-0053",
+        "stat": "DEF",
+        "expected": 192
+      },
+      {
+        "characterId": "awakener-0053",
+        "stat": "CON",
+        "expected": 168
+      },
+      {
+        "characterId": "awakener-0054",
+        "stat": "ATK",
+        "expected": 162
+      },
+      {
+        "characterId": "awakener-0054",
+        "stat": "DEF",
+        "expected": 150
+      },
+      {
+        "characterId": "awakener-0054",
+        "stat": "CON",
+        "expected": 270
+      },
+      {
+        "characterId": "awakener-0055",
+        "stat": "ATK",
+        "expected": 240
+      },
+      {
+        "characterId": "awakener-0055",
+        "stat": "DEF",
+        "expected": 162
+      },
+      {
+        "characterId": "awakener-0055",
+        "stat": "CON",
+        "expected": 198
+      },
+      {
+        "characterId": "awakener-0056",
+        "stat": "ATK",
+        "expected": 138
+      },
+      {
+        "characterId": "awakener-0056",
+        "stat": "DEF",
+        "expected": 186
+      },
+      {
+        "characterId": "awakener-0056",
+        "stat": "CON",
+        "expected": 192
+      },
+      {
+        "characterId": "awakener-0057",
+        "stat": "ATK",
+        "expected": 138
+      },
+      {
+        "characterId": "awakener-0057",
+        "stat": "DEF",
+        "expected": 132
+      },
+      {
+        "characterId": "awakener-0057",
+        "stat": "CON",
+        "expected": 138
+      },
+      {
+        "characterId": "awakener-0058",
+        "stat": "ATK",
+        "expected": 174
+      },
+      {
+        "characterId": "awakener-0058",
+        "stat": "DEF",
+        "expected": 234
+      },
+      {
+        "characterId": "awakener-0058",
+        "stat": "CON",
+        "expected": 240
+      },
+      {
+        "characterId": "awakener-0059",
+        "stat": "ATK",
+        "expected": 270
+      },
+      {
+        "characterId": "awakener-0059",
+        "stat": "DEF",
+        "expected": 162
+      },
+      {
+        "characterId": "awakener-0059",
+        "stat": "CON",
+        "expected": 156
+      },
+      {
+        "characterId": "awakener-0060",
+        "stat": "ATK",
+        "expected": 144
+      },
+      {
+        "characterId": "awakener-0060",
+        "stat": "DEF",
+        "expected": 198
+      },
+      {
+        "characterId": "awakener-0060",
+        "stat": "CON",
+        "expected": 120
+      },
+      {
+        "characterId": "awakener-0061",
+        "stat": "ATK",
+        "expected": 228
+      },
+      {
+        "characterId": "awakener-0061",
+        "stat": "DEF",
+        "expected": 192
+      },
+      {
+        "characterId": "awakener-0061",
+        "stat": "CON",
+        "expected": 186
+      }
+    ]
+  },
+  "scope": "The installed resource-150 original GetAwakerBaseAttrValue path, current lookup tables and current compiled upgrade formulas are executed for five levels, three Gnostic ranks and three primary stats for every resolved catalog character.",
+  "limitations": [
+    "Primary stat lookup only",
+    "Advancement percentages use byte-identical current AttrUtils arithmetic but passive states remain unresolved",
+    "No equipment, battle-property assembly, gameplay observation or holdout credit"
+  ]
+}
