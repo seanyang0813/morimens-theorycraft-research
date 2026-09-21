@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_CASE_STUDY_PRIMARY_STATS",
+  "status": "EXPERIMENTAL",
+  "scenario": "Mouchette/Arachne five-pair conditional worksheet",
+  "characters": {
+    "mouchette": {
+      "status": "EXPERIMENTAL",
+      "build": "pc-res144-build51",
+      "characterId": "awakener-0033",
+      "stats": {
+        "CON": 219,
+        "ATK": 258,
+        "DEF": 219
+      },
+      "baseStats": {
+        "CON": 168,
+        "ATK": 198,
+        "DEF": 168
+      },
+      "progression": {
+        "level": 90,
+        "qualityLevelOffset": 0,
+        "gnosticRank": 5,
+        "gnosticTalentId": 139526,
+        "talentBonusLevels": 10,
+        "advancementTalentId": 122481,
+        "advancementLevel": 10,
+        "season": "StageChapterStarsCameRight",
+        "percentages": {
+          "CON": 30,
+          "ATK": 30,
+          "DEF": 30
+        }
+      },
+      "trace": [
+        {
+          "stat": "CON",
+          "baseValue": 168,
+          "advancementPercent": 30,
+          "increaseFraction": 0.3,
+          "modifierTrace": {
+            "base": 168,
+            "increase": 0.3,
+            "breakRate": null,
+            "method": "GetAwakerFinalAttr",
+            "bypass": false,
+            "multiplied": 218.4,
+            "raw": 218.4,
+            "rounding": "ceil without epsilon",
+            "value": 219
+          },
+          "value": 219
+        },
+        {
+          "stat": "ATK",
+          "baseValue": 198,
+          "advancementPercent": 30,
+          "increaseFraction": 0.3,
+          "modifierTrace": {
+            "base": 198,
+            "increase": 0.3,
+            "breakRate": null,
+            "method": "GetAwakerFinalAttr",
+            "bypass": false,
+            "multiplied": 257.40000000000003,
+            "raw": 257.40000000000003,
+            "rounding": "ceil without epsilon",
+            "value": 258
+          },
+          "value": 258
+        },
+        {
+          "stat": "DEF",
+          "baseValue": 168,
+          "advancementPercent": 30,
+          "increaseFraction": 0.3,
+          "modifierTrace": {
+            "base": 168,
+            "increase": 0.3,
+            "breakRate": null,
+            "method": "GetAwakerFinalAttr",
+            "bypass": false,
+            "multiplied": 218.4,
+            "raw": 218.4,
+            "rounding": "ceil without epsilon",
+            "value": 219
+          },
+          "value": 219
+        }
+      ],
+      "sourceHashes": {
+        "catalog": "439e01e929634ef2e3d6d48ae66ee8d31e94d9b7548faac0fd7e49df10cba219",
+        "characters": "cff6c329450dcc655adcf79380645727f3c1c4a79cc134faeeab82a3a20e3c13",
+        "upgrades": "7a22109a154257c1973ad59b94d804efeb47be9c5da43095116e52d4ae521d7c",
+        "constants": "b0ed369aca9517413588ab832de487c90181cd2c78e9fa20f0d982cc5c9f8785",
+        "talents": "4d12de9f5d8ba69800252490972e599b434f6f2e215ec98a34d400f3392a79d4",
+        "clientReader": "00ea89a618099cd29952033fc5c59c452ec86e2799f3f45752cd5b48da31a4a0",
+        "actorAttrTypes": "ac7124e0662905d77a52cb08c7cdbf1f299bedf8575cbcc1122c16cde2147361"
+      },
+      "finalDamage": null,
+      "unresolvedDependencies": [
+        "Advancement talent state and passive effects",
+        "Progression acquisition and seasonal availability",
+        "Equipment, substats and final battle properties",
+        "Independent gameplay validation"
+      ]
+    },
+    "arachne": {
+      "status": "EXPERIMENTAL",
+      "build": "pc-res144-build51",
+      "characterId": "awakener-0056",
+      "stats": {
+        "CON": 192,
+        "ATK": 138,
+        "DEF": 186
+      },
+      "baseStats": {
+        "CON": 192,
+        "ATK": 138,
+        "DEF": 186
+      },
+      "progression": {
+        "level": 90,
+        "qualityLevelOffset": 0,
+        "gnosticRank": 5,
+        "gnosticTalentId": 139558,
+        "talentBonusLevels": 10,
+        "advancementTalentId": 78642,
+        "advancementLevel": 0,
+        "season": "StageChapterStarsCameRight",
+        "percentages": {
+          "CON": 0,
+          "ATK": 0,
+          "DEF": 0
+        }
+      },
+      "trace": [
+        {
+          "stat": "CON",
+          "baseValue": 192,
+          "advancementPercent": 0,
+          "increaseFraction": null,
+          "modifierTrace": {
+            "base": 192,
+            "increase": null,
+            "breakRate": null,
+            "method": "GetAwakerFinalAttr",
+            "bypass": true,
+            "multiplied": 192,
+            "raw": 192,
+            "rounding": "none",
+            "value": 192
+          },
+          "value": 192
+        },
+        {
+          "stat": "ATK",
+          "baseValue": 138,
+          "advancementPercent": 0,
+          "increaseFraction": null,
+          "modifierTrace": {
+            "base": 138,
+            "increase": null,
+            "breakRate": null,
+            "method": "GetAwakerFinalAttr",
+            "bypass": true,
+            "multiplied": 138,
+            "raw": 138,
+            "rounding": "none",
+            "value": 138
+          },
+          "value": 138
+        },
+        {
+          "stat": "DEF",
+          "baseValue": 186,
+          "advancementPercent": 0,
+          "increaseFraction": null,
+          "modifierTrace": {
+            "base": 186,
+            "increase": null,
+            "breakRate": null,
+            "method": "GetAwakerFinalAttr",
+            "bypass": true,
+            "multiplied": 186,
+            "raw": 186,
+            "rounding": "none",
+            "value": 186
+          },
+          "value": 186
+        }
+      ],
+      "sourceHashes": {
+        "catalog": "439e01e929634ef2e3d6d48ae66ee8d31e94d9b7548faac0fd7e49df10cba219",
+        "characters": "cff6c329450dcc655adcf79380645727f3c1c4a79cc134faeeab82a3a20e3c13",
+        "upgrades": "7a22109a154257c1973ad59b94d804efeb47be9c5da43095116e52d4ae521d7c",
+        "constants": "b0ed369aca9517413588ab832de487c90181cd2c78e9fa20f0d982cc5c9f8785",
+        "talents": "4d12de9f5d8ba69800252490972e599b434f6f2e215ec98a34d400f3392a79d4",
+        "clientReader": "00ea89a618099cd29952033fc5c59c452ec86e2799f3f45752cd5b48da31a4a0",
+        "actorAttrTypes": "ac7124e0662905d77a52cb08c7cdbf1f299bedf8575cbcc1122c16cde2147361"
+      },
+      "finalDamage": null,
+      "unresolvedDependencies": [
+        "Advancement talent state and passive effects",
+        "Progression acquisition and seasonal availability",
+        "Equipment, substats and final battle properties",
+        "Independent gameplay validation"
+      ]
+    }
+  },
+  "interpretation": "Mouchette uses explicit advancement talent 122481 level 10. Arachne uses explicit level 0 for talent 78642, representing no seasonal primary-stat promotion in this accepted case-study baseline.",
+  "finalDamage": null
+}
