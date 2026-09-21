@@ -3672,6 +3672,25 @@
       ]
     },
     {
+      "id": "PC144-PC150:AwakeCardCommandBoundary",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "Both inspected PC catalogs contain 69 Awake skills linked to 64 commands and zero directly linked damage-effect rows; resource 150 adds one RemoveState row",
+      "scope": "Direct CmdList/tempCmdList rows only. Nested execute/run-card/customized commands and resulting states/resources may cause later damage; no runtime execution or gameplay validation.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC Awake-card catalog audit",
+          "member": "Skill-to-Cmd direct effect inventory",
+          "sha256": "0c98549272665d2f794d8c339fd149b54e489f5d4e63badd946d2e2ae975aeba"
+        }
+      ],
+      "checks": [
+        "tools/export_private_config.py",
+        "tools/audit_awake_card_commands.py",
+        "tests/awake-card-command-audit.test.mjs"
+      ]
+    },
+    {
       "id": "ANDROID83:ScriptGroupManifest",
       "status": "CONFIRMED_FROM_LOCAL_MANIFEST",
       "claim": "The packaged Android resource-83 manifest identifies seven Scripts-group bundles by filename, size, resource index and MD5; the hash interpretation is established by a direct bundled Android startup-archive match",

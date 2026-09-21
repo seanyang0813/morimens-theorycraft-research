@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_AWAKE_CARD_COMMAND_AUDIT",
+  "builds": {
+    "pc-res144-build51": {
+      "awakeSkills": 69,
+      "linkedCommands": 64,
+      "commandRows": 314,
+      "effectTypeCounts": {
+        "BEAddRandomState": 2,
+        "BEAddState": 194,
+        "BEChangeMaxTentacleCount": 5,
+        "BEChangeTentacleCount": 14,
+        "BECreateCard": 19,
+        "BECustomizedSeparateExecuteCmd": 3,
+        "BEExecuteCmd": 1,
+        "BEGainUltiEnergy": 70,
+        "BELaikeRelic": 2,
+        "BEMoveCard": 1,
+        "BERunCardCmd": 1,
+        "BESetTempTargets": 1,
+        "BETriggerState": 1
+      },
+      "missingCommands": 0,
+      "directDamageRows": 0,
+      "directDamageTypeCounts": {}
+    },
+    "pc-res150-build51": {
+      "awakeSkills": 69,
+      "linkedCommands": 64,
+      "commandRows": 315,
+      "effectTypeCounts": {
+        "BEAddRandomState": 2,
+        "BEAddState": 194,
+        "BEChangeMaxTentacleCount": 5,
+        "BEChangeTentacleCount": 14,
+        "BECreateCard": 19,
+        "BECustomizedSeparateExecuteCmd": 3,
+        "BEExecuteCmd": 1,
+        "BEGainUltiEnergy": 70,
+        "BELaikeRelic": 2,
+        "BEMoveCard": 1,
+        "BERemoveState": 1,
+        "BERunCardCmd": 1,
+        "BESetTempTargets": 1,
+        "BETriggerState": 1
+      },
+      "missingCommands": 0,
+      "directDamageRows": 0,
+      "directDamageTypeCounts": {}
+    }
+  },
+  "sourceHashes": {
+    "installedConfigBundle": "95083098911cb6b1f54fcddb03e5dc797489bd080e55ddd9f72fc0da9b39a1e4",
+    "buildComparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
+    "pc-res144-build51": {
+      "skillExport": "dd47c38241edb513c71bd09e6f1f9a8ecdbfc7080f59b0c12a300ac7be2f7a2d",
+      "cmdExport": "855355ad600a5c419a7704c9dfbba0c199ce57d6b474478e75b94e8d714e030c"
+    },
+    "pc-res150-build51": {
+      "skillExport": "8bf12c24be0f79308e2fb6a9a4e6bfc6a1a4420ab558dfe336686ca08d6f3aff",
+      "cmdExport": "52fea8a140dd391096450c67354d8de81f924e47f7265fb582bf3f095597c706",
+      "skillChunk": "f83a05df7dec306d5f49011c6411d468079af93aa3afb98b4e14c5f6dc362978",
+      "cmdChunk": "b318acfcedb2291bba4896dbfb157cdb006afd3985d048793c71dbf72a9c6494"
+    }
+  },
+  "claimBoundary": "Card_Awake is a command-category audit. Absence of direct damage rows does not make its state, resource, card, tentacle or nested-command effects supported by the simulator.",
+  "limitations": [
+    "Effect type is read from directly linked command rows only",
+    "Nested execute/run-card/custom commands require separate traversal",
+    "No runtime execution or gameplay validation"
+  ]
+}
