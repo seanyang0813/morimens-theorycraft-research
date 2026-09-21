@@ -1,0 +1,217 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BEAddState": "1465ac7c4f7b101ded98c429e9bb089ebabaad7c48a4b6f4c4519419e6eec133",
+    "BEAddStateParent": "00871a473b5c4ced3824c28afb88fc3cfe6cbfca01d23bc2a0d3bac6afa0f8b3",
+    "BattleStateMgrServer": "dc7653a427f1fe0bfd21b7495980cc173f4cb298e7dd7086a224ee40640c11a4",
+    "BattleStateServer": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+    "BattleStateData": "3d24986198cdab349ed790e58756292c086f7e3d8ffc76f5d61e9fdc15c21e26",
+    "BattlePropertyServer": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76"
+  },
+  "catalogState": {
+    "ID": 60407,
+    "MaxLayer": 999999999,
+    "ExistProperty": {
+      "be_damage_statics": "ChangedLayer"
+    }
+  },
+  "scope": "Original BEAddState through original manager and state constructor for absent state 60407, then original BattleStateServer.InitProperty/ChangeOwnerProperty into original BattlePropertyServer.ChangeProperty storage and callbacks. Actual extracted state ID, maximum and ExistProperty expression; ChangedLayer and maximum expression values are explicit parser adapters. Synthetic non-player target, trigger/log/serialize observers, no event body, command condition, gameplay or holdout.",
+  "fixtures": [
+    {
+      "input": {
+        "stateId": 60407,
+        "requestedLayer": 1,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60407.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers9": 1.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          {
+            "event": "ownerProperty",
+            "property": "be_damage_statics",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "event": "sendProperty",
+            "property": "be_damage_statics",
+            "delta": 1.0,
+            "new": 1.0
+          },
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ],
+        "beDamageStatics": 1.0
+      }
+    },
+    {
+      "input": {
+        "stateId": 60407,
+        "requestedLayer": 2,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60407.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers9": 2.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          {
+            "event": "ownerProperty",
+            "property": "be_damage_statics",
+            "old": 0.0,
+            "new": 2.0
+          },
+          {
+            "event": "sendProperty",
+            "property": "be_damage_statics",
+            "delta": 2.0,
+            "new": 2.0
+          },
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ],
+        "beDamageStatics": 2.0
+      }
+    },
+    {
+      "input": {
+        "stateId": 60407,
+        "requestedLayer": 125,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60407.0,
+        "layer": 125.0,
+        "changedLayer": 125.0,
+        "casterLayers9": 125.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          {
+            "event": "ownerProperty",
+            "property": "be_damage_statics",
+            "old": 0.0,
+            "new": 125.0
+          },
+          {
+            "event": "sendProperty",
+            "property": "be_damage_statics",
+            "delta": 125.0,
+            "new": 125.0
+          },
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ],
+        "beDamageStatics": 125.0
+      }
+    },
+    {
+      "input": {
+        "stateId": 60407,
+        "requestedLayer": 330,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60407.0,
+        "layer": 330.0,
+        "changedLayer": 330.0,
+        "casterLayers9": 330.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          {
+            "event": "ownerProperty",
+            "property": "be_damage_statics",
+            "old": 0.0,
+            "new": 330.0
+          },
+          {
+            "event": "sendProperty",
+            "property": "be_damage_statics",
+            "delta": 330.0,
+            "new": 330.0
+          },
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ],
+        "beDamageStatics": 330.0
+      }
+    },
+    {
+      "input": {
+        "stateId": 60407,
+        "requestedLayer": 999999999,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60407.0,
+        "layer": 999999999.0,
+        "changedLayer": 999999999.0,
+        "casterLayers9": 999999999.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          {
+            "event": "ownerProperty",
+            "property": "be_damage_statics",
+            "old": 0.0,
+            "new": 999999999.0
+          },
+          {
+            "event": "sendProperty",
+            "property": "be_damage_statics",
+            "delta": 999999999.0,
+            "new": 999999999.0
+          },
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ],
+        "beDamageStatics": 999999999.0
+      }
+    }
+  ]
+}

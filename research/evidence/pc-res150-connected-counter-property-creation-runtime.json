@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "method": "execute changed add-state parent and property server with byte-identical manager/state/data modules",
+  "status": "CURRENT_CHANGED_MODULES_RUNTIME_MATCH",
+  "sourceHashes": {
+    "fixture": "eb0d069e0e869f84383498ce9bbdea4eca82a637a2850a45012747419e3688c4",
+    "installedShareBundle": "b62601a3391a5999ebb196dec5e52c0660d95c19655ac3b19f13299806c38907",
+    "baselineModules": {
+      "BEAddState": "1465ac7c4f7b101ded98c429e9bb089ebabaad7c48a4b6f4c4519419e6eec133",
+      "BEAddStateParent": "00871a473b5c4ced3824c28afb88fc3cfe6cbfca01d23bc2a0d3bac6afa0f8b3",
+      "BattleStateMgrServer": "dc7653a427f1fe0bfd21b7495980cc173f4cb298e7dd7086a224ee40640c11a4",
+      "BattleStateServer": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+      "BattleStateData": "3d24986198cdab349ed790e58756292c086f7e3d8ffc76f5d61e9fdc15c21e26",
+      "BattlePropertyServer": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76"
+    },
+    "currentModules": {
+      "BEAddState": "1465ac7c4f7b101ded98c429e9bb089ebabaad7c48a4b6f4c4519419e6eec133",
+      "BEAddStateParent": "a568aafa46331f3c9967404dd3f67399a0f7f93bbfa34b878b8e939d3cfcdc71",
+      "BattleStateMgrServer": "dc7653a427f1fe0bfd21b7495980cc173f4cb298e7dd7086a224ee40640c11a4",
+      "BattleStateServer": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+      "BattleStateData": "3d24986198cdab349ed790e58756292c086f7e3d8ffc76f5d61e9fdc15c21e26",
+      "BattlePropertyServer": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5"
+    }
+  },
+  "changedModules": [
+    "BEAddStateParent",
+    "BattlePropertyServer"
+  ],
+  "fixtures": 5,
+  "matched": 5,
+  "mismatches": 0,
+  "scope": "Installed resource-150 BEAddStateParent and BattlePropertyServer reproduce every inherited first-time state-60407 construction and be_damage_statics storage fixture.",
+  "limitations": [
+    "ChangedLayer and maximum expressions use explicit parser adapters",
+    "Synthetic non-player target and callback observers",
+    "No command condition, event body, gameplay or holdout credit"
+  ]
+}

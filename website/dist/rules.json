@@ -1043,6 +1043,97 @@
       ]
     },
     {
+      "id": "PC144:ConnectedStateCreation",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Original add-state routing constructs and registers absent phase-related states through the original manager, state constructor and StateData creation path",
+      "scope": "16 connected original-runtime cases using actual catalog MaxLayer values. Callable constructor wrapper, parser maximum resolver and trigger/log/property/serialize callbacks are adapters. No actual property contribution, event body, gameplay or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "BEAddState",
+          "member": "DoEffect",
+          "sha256": "1465ac7c4f7b101ded98c429e9bb089ebabaad7c48a4b6f4c4519419e6eec133"
+        },
+        {
+          "module": "BEAddStateParent",
+          "member": "AddState,__AddStateInternal",
+          "sha256": "00871a473b5c4ced3824c28afb88fc3cfe6cbfca01d23bc2a0d3bac6afa0f8b3"
+        },
+        {
+          "module": "BattleStateMgrServer",
+          "member": "CreateState,__CreateState,GetState",
+          "sha256": "dc7653a427f1fe0bfd21b7495980cc173f4cb298e7dd7086a224ee40640c11a4"
+        },
+        {
+          "module": "BattleStateServer",
+          "member": "ctor,InitStateParams,AfterInit",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369"
+        },
+        {
+          "module": "BattleStateData",
+          "member": "Create",
+          "sha256": "3d24986198cdab349ed790e58756292c086f7e3d8ffc76f5d61e9fdc15c21e26"
+        },
+        {
+          "module": "State",
+          "member": "46441,60407,60408,60409",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8"
+        }
+      ],
+      "checks": [
+        "tools/connected_state_creation_oracle.py",
+        "tests/connected-state-creation.test.mjs"
+      ]
+    },
+    {
+      "id": "PC144:ConnectedCounterPropertyCreation",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "First creation of phase counter 60407 reaches original state property initialization/routing and original BattlePropertyServer storage, adding ChangedLayer to be_damage_statics",
+      "scope": "5 connected original-runtime cases from absent state through registration and numeric property callbacks/storage. ChangedLayer and MaxLayer expression values are explicit parser adapters; synthetic non-player target and callback observers. No command condition, event body, gameplay or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "State",
+          "member": "60407",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8"
+        },
+        {
+          "module": "BEAddState",
+          "member": "DoEffect",
+          "sha256": "1465ac7c4f7b101ded98c429e9bb089ebabaad7c48a4b6f4c4519419e6eec133"
+        },
+        {
+          "module": "BEAddStateParent",
+          "member": "AddState,__AddStateInternal",
+          "sha256": "00871a473b5c4ced3824c28afb88fc3cfe6cbfca01d23bc2a0d3bac6afa0f8b3"
+        },
+        {
+          "module": "BattleStateMgrServer",
+          "member": "CreateState,__CreateState",
+          "sha256": "dc7653a427f1fe0bfd21b7495980cc173f4cb298e7dd7086a224ee40640c11a4"
+        },
+        {
+          "module": "BattleStateServer",
+          "member": "ctor,AfterInit,InitProperty,ChangeOwnerProperty",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369"
+        },
+        {
+          "module": "BattleStateData",
+          "member": "Create",
+          "sha256": "3d24986198cdab349ed790e58756292c086f7e3d8ffc76f5d61e9fdc15c21e26"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "ChangeProperty,AddProperty,BeforeAdd,AfterAdd",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76"
+        }
+      ],
+      "checks": [
+        "tools/connected_counter_property_creation_oracle.py",
+        "tests/connected-counter-property-creation.test.mjs"
+      ]
+    },
+    {
       "id": "PC144:AddStateLayer",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "Existing-state merge updates caster/cached trigger attribution before cap checks and credits actual stack gains, preserving callback order",
@@ -4249,6 +4340,54 @@
         "tools/phase_live_layer_effect_oracle.py",
         "tools/verify_current_phase_live_layer_effects.py",
         "tests/phase-live-layer-effects.test.mjs"
+      ]
+    },
+    {
+      "id": "PC150:ConnectedStateCreation",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "The changed resource-150 BEAddStateParent reproduces all 16 first-time phase-related state construction and registration fixtures; manager/state/data modules are byte-identical",
+      "scope": "Actual changed add-state parent and byte-identical constructor/manager/data modules with callable-wrapper and callback adapters. No actual property contribution, event body, gameplay or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 installed share bundle",
+          "member": "BEAddState, BEAddStateParent, BattleStateMgrServer, BattleStateServer and BattleStateData hashes",
+          "sha256": "b62601a3391a5999ebb196dec5e52c0660d95c19655ac3b19f13299806c38907"
+        },
+        {
+          "module": "PC resource-150 connected state-creation comparison",
+          "member": "fixture-domain result",
+          "sha256": "11b7877205c5ca3124b337fea2b43e128d246e6d7ed8cd21f5b8fc31aafdc2c8"
+        }
+      ],
+      "checks": [
+        "tools/connected_state_creation_oracle.py",
+        "tools/verify_current_connected_state_creation.py",
+        "tests/connected-state-creation.test.mjs"
+      ]
+    },
+    {
+      "id": "PC150:ConnectedCounterPropertyCreation",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "Changed resource-150 BEAddStateParent and BattlePropertyServer reproduce all 5 first-time counter-60407 construction and be_damage_statics storage fixtures",
+      "scope": "Actual changed add-parent/property modules and byte-identical manager/state/data modules. Explicit expression adapters and synthetic target; no command condition, event body, gameplay or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 installed share bundle",
+          "member": "add-state, manager, state, data and property module hashes",
+          "sha256": "b62601a3391a5999ebb196dec5e52c0660d95c19655ac3b19f13299806c38907"
+        },
+        {
+          "module": "PC resource-150 counter/property creation runtime comparison",
+          "member": "fixture-domain result",
+          "sha256": "6bf98e6829975a36f57ce1676ead9c803c831836c4d5dded5da6f08ac3b4a347"
+        }
+      ],
+      "checks": [
+        "tools/connected_counter_property_creation_oracle.py",
+        "tools/verify_current_connected_counter_property_creation.py",
+        "tests/connected-counter-property-creation.test.mjs"
       ]
     },
     {

@@ -1,0 +1,460 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BEAddState": "1465ac7c4f7b101ded98c429e9bb089ebabaad7c48a4b6f4c4519419e6eec133",
+    "BEAddStateParent": "00871a473b5c4ced3824c28afb88fc3cfe6cbfca01d23bc2a0d3bac6afa0f8b3",
+    "BattleStateMgrServer": "dc7653a427f1fe0bfd21b7495980cc173f4cb298e7dd7086a224ee40640c11a4",
+    "BattleStateServer": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+    "BattleStateData": "3d24986198cdab349ed790e58756292c086f7e3d8ffc76f5d61e9fdc15c21e26"
+  },
+  "catalogStates": {
+    "46441": {
+      "MaxLayer": 1
+    },
+    "60407": {
+      "MaxLayer": 999999999
+    },
+    "60408": {
+      "MaxLayer": 999999999
+    },
+    "60409": {
+      "MaxLayer": 999999999
+    }
+  },
+  "scope": "Original BEAddState/BEAddStateParent routes an absent state through original BattleStateMgrServer CreateState/__CreateState into original BattleStateServer ctor and BattleStateData.Create, then original AfterInit and manager registration/record/event/stat order. Actual extracted MaxLayer for states 46441/60407/60408/60409. Constructor callable wrapper, parser maximum resolver and trigger/log/property/serialize callbacks are explicit adapters. No actual parser, trigger registration, property contribution, event body, gameplay or holdout.",
+  "fixtures": [
+    {
+      "input": {
+        "stateId": 46441,
+        "requestedLayer": 1,
+        "maximum": 1
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 46441.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers9": 1.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          "InitProperty",
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ]
+      }
+    },
+    {
+      "input": {
+        "stateId": 46441,
+        "requestedLayer": 2,
+        "maximum": 1
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 46441.0,
+        "layer": 1.0,
+        "changedLayer": 2.0,
+        "casterLayers9": 2.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          "InitProperty",
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ]
+      }
+    },
+    {
+      "input": {
+        "stateId": 46441,
+        "requestedLayer": 125,
+        "maximum": 1
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 46441.0,
+        "layer": 1.0,
+        "changedLayer": 125.0,
+        "casterLayers9": 125.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          "InitProperty",
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ]
+      }
+    },
+    {
+      "input": {
+        "stateId": 46441,
+        "requestedLayer": 330,
+        "maximum": 1
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 46441.0,
+        "layer": 1.0,
+        "changedLayer": 330.0,
+        "casterLayers9": 330.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          "InitProperty",
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ]
+      }
+    },
+    {
+      "input": {
+        "stateId": 60407,
+        "requestedLayer": 1,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60407.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers9": 1.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          "InitProperty",
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ]
+      }
+    },
+    {
+      "input": {
+        "stateId": 60407,
+        "requestedLayer": 2,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60407.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers9": 2.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          "InitProperty",
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ]
+      }
+    },
+    {
+      "input": {
+        "stateId": 60407,
+        "requestedLayer": 125,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60407.0,
+        "layer": 125.0,
+        "changedLayer": 125.0,
+        "casterLayers9": 125.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          "InitProperty",
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ]
+      }
+    },
+    {
+      "input": {
+        "stateId": 60407,
+        "requestedLayer": 330,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60407.0,
+        "layer": 330.0,
+        "changedLayer": 330.0,
+        "casterLayers9": 330.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          "InitProperty",
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ]
+      }
+    },
+    {
+      "input": {
+        "stateId": 60408,
+        "requestedLayer": 1,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60408.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers9": 1.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          "InitProperty",
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ]
+      }
+    },
+    {
+      "input": {
+        "stateId": 60408,
+        "requestedLayer": 2,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60408.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers9": 2.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          "InitProperty",
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ]
+      }
+    },
+    {
+      "input": {
+        "stateId": 60408,
+        "requestedLayer": 125,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60408.0,
+        "layer": 125.0,
+        "changedLayer": 125.0,
+        "casterLayers9": 125.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          "InitProperty",
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ]
+      }
+    },
+    {
+      "input": {
+        "stateId": 60408,
+        "requestedLayer": 330,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60408.0,
+        "layer": 330.0,
+        "changedLayer": 330.0,
+        "casterLayers9": 330.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          "InitProperty",
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ]
+      }
+    },
+    {
+      "input": {
+        "stateId": 60409,
+        "requestedLayer": 1,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60409.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers9": 1.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          "InitProperty",
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ]
+      }
+    },
+    {
+      "input": {
+        "stateId": 60409,
+        "requestedLayer": 2,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60409.0,
+        "layer": 2.0,
+        "changedLayer": 2.0,
+        "casterLayers9": 2.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          "InitProperty",
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ]
+      }
+    },
+    {
+      "input": {
+        "stateId": 60409,
+        "requestedLayer": 125,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60409.0,
+        "layer": 125.0,
+        "changedLayer": 125.0,
+        "casterLayers9": 125.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          "InitProperty",
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ]
+      }
+    },
+    {
+      "input": {
+        "stateId": 60409,
+        "requestedLayer": 330,
+        "maximum": 999999999
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 60409.0,
+        "layer": 330.0,
+        "changedLayer": 330.0,
+        "casterLayers9": 330.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          "InitProperty",
+          "Serialize",
+          "recordRole",
+          "onAdd",
+          "stats"
+        ]
+      }
+    }
+  ]
+}
