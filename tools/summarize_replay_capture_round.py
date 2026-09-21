@@ -44,7 +44,7 @@ def main() -> None:
     target_role_types: dict[str, int] = {}
     for row in rows:
         for role_type, count in row.get("completeHitTargetRoleTypes", {}).items():
-            label = role_type_names.get(str(role_type), f"ProtocolRoleType{role_type}")
+            label = role_type_names.get(str(role_type), str(role_type) if str(role_type) in role_type_names.values() else f"ProtocolRoleType{role_type}")
             target_role_types[label] = target_role_types.get(label, 0) + int(count)
     if sum(target_role_types.values()) != summed["completeHitSnapshots"]:
         raise ValueError("Target-role classification must cover every complete hit snapshot")

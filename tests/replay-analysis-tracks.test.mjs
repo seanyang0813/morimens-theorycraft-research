@@ -4,12 +4,21 @@ import {spawnSync} from 'node:child_process';
 import {mkdtempSync,readFileSync,rmSync,writeFileSync} from 'node:fs';
 import {dirname,join,resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {classifyReplayCombatDomain} from '../engine/replay-combat-domain.mjs';
 
 function runPython(code){
   const run=spawnSync('python',['-c',code],{encoding:'utf8'});
   assert.equal(run.status,0,run.stderr);
   return JSON.parse(run.stdout);
 }
+
+test('replay domain preflight routes complete targets without reading outcomes',()=>{
+  const index={kind:'MORIMENS_REPLAY_EVENT_INDEX',actionSnapshots:[{window:{hits:[{recordIndex:1,frameIndex:2,data:{roleUid:9,beHitConfig:{castDamage:999}}}],hitSnapshots:[{recordIndex:1,frameIndex:2,boundaryStatus:'COMPLETE',roles:{'9':{roleType:3}}}]}}]};
+  const result=classifyReplayCombatDomain(index);
+  assert.deepEqual(result.targetRoleTypes,{Player:1});assert.equal(result.combatDomain,'PVP_PLAYER_TARGETS');
+  delete index.actionSnapshots[0].window.hits[0].data.beHitConfig;
+  assert.deepEqual(classifyReplayCombatDomain(index),result);
+});
 
 test('strategy summaries carry an explicit analysis track and comparison coordinates',()=>{
   const code=`import json\nfrom tools.replay_strategy_summary import build_strategy_summary\ns=build_strategy_summary({'actionSnapshots':[],'counts':{}},{},analysis_track='cheese-analysis',stage='dtide-3',wave=2,difficulty='hard')\nprint(json.dumps(s,separators=(',',':')))\n`;
