@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "cf3203f86e5bf2267bd184a56bcace9986d6e647e9a6719875484cb90a0de276",
+  "fingerprint": "9b03211ca4691918c8c5a5c74e66213b0e72c01883ef0b54075a843b99ebb8cf",
   "files": {
     "build-catalog.json": "2d1188fadcaff7a1eb53af580c509756b21a3f003065c7c9036aa919958a1496",
     "client-build-data.json": "70a21813f8a491f521323971e6a6af9d1250102ad5bb76db8b16f80730fe7e34",
@@ -13,7 +13,7 @@
     "engine/add-state-layer.mjs": "f48dab804914d5a36adad723f2f75617396f8b718347d42c107cd09123c223e7",
     "engine/add-state-request.mjs": "98236b4339ecc8989a5a1dd8895c0d59480e4d1ee36a30dfefccb8632bb81b29",
     "engine/attach-post-action.mjs": "a1ef96aa11de26bcd75135e5c6c495e76eb2feaff80a93032d4c68ba5ab3a5e8",
-    "engine/attached-card-pipeline.mjs": "bb213aae1c57be76eca7c80d588b8595acc41621eb1c96e7a0cd10e2ba109865",
+    "engine/attached-card-pipeline.mjs": "f16849af1c202ad58c1bb5cd3c225f7813b104e9734c5dfdfe0971378b6e04b5",
     "engine/attribute-modifiers.mjs": "e7af32c8ca30649c022de354d7fc7c78dc6838702c98ffcc50623e7f3c7f7d8b",
     "engine/battle-property-snapshot-damage.mjs": "cd1438d99aa9d90e68e4371bb5103b60d165950c242cb856262cf2de54ef64ef",
     "engine/block-gain.mjs": "6457692f711d07aec0e5bc05a42cf3b57fedc6070548217ae24f7982fadeb8ac",
@@ -37,6 +37,7 @@
     "engine/client-build-stats.mjs": "caede016e80431ff2f03532537002cf4f6b92a663e5921bf661ef517f0c3e18e",
     "engine/client-primary-stats.mjs": "f841de44fef7a3ceb80e348582220cdb4ca453b5e3818812ece2aac38713f197",
     "engine/combat-property-mutation.mjs": "95a0b25ffbef54b94038722653fde8b9d588f7bbdb16c97da1b73684c470b52c",
+    "engine/command-damage-prefix.mjs": "08926e9977c23145c440bf897519cba56c4c07b2b3332e577ae198b1c9eedcd8",
     "engine/command-expressions.mjs": "13228f83821241b9812b9ad1198e96f9fba8963abbebd66c53a209a5cadc8131",
     "engine/command-gate.mjs": "58ae3fc68adb7c70038539ee484052f3c6e23ad84a25ea23a81868efffde97db",
     "engine/command-rows.mjs": "f44d5bbb4036e84fe8c6c900dcb35ce719b60f460f424221faea970162e556ab",
@@ -111,7 +112,7 @@
     "engine/ulti-energy-gain.mjs": "08a4f4f32a7700422d6999e19e0e58fb2cace3bcbf7d0a910a9bcacf3b520468",
     "engine/use-attach-post-card.mjs": "a68fe61a2e770f751e8fbffcb417c85af9f1858968bf47ae492a4fca2bca0289",
     "engine/wheel-stats.mjs": "484a5b4a51fbbd9c4759b27457ae9eec71fceb0420354823f54654edfb78fadd",
-    "rules.json": "8c0d29b908fc82477f7426cf5a2c0c1e7d0e4b6c698b90b6c52432c1f11ac3e3",
+    "rules.json": "5f754a4d0385a69b76957ab141905a71abb77f7a03809a45ae598816d37c654f",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af"
   }
 }

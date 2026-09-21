@@ -16,6 +16,8 @@ test('agent API advertises explicit bounded operations',()=>{
   assert.deepEqual(response.claimBoundary,theorycraftClaimBoundary);
   assert.ok(response.claimBoundary.mustNotClaim.includes('observed cheese'));
   assert.deepEqual(response.result.operations,theorycraftOperations);
+  assert.ok(response.result.operations.some(row=>row.name==='run-command-damage-prefix'));
+  assert.ok(response.result.operations.some(row=>row.name==='run-attached-card-pipeline'));
   assert.equal(response.result.publicationStatus,'NOT_READY');
 });
 

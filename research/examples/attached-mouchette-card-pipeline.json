@@ -27,5 +27,6 @@
       "conditionResults": {},
       "stateQueries": {"CmdCaster.GetStateLayer": {"122512": 2, "124039": 1}}
     }
-  }
+  },
+  "damagePrefix": null
 }

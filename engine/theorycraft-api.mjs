@@ -11,6 +11,8 @@ import {runPreparedSkillRequest} from './prepared-skill-request.mjs';
 import {applyMonsterSkillChange} from './monster-skill-change.mjs';
 import {runRoleStateCommand} from './role-state-command.mjs';
 import {enumerateLegalCardActions} from './legal-card-actions.mjs';
+import {runCommandDamagePrefix} from './command-damage-prefix.mjs';
+import {runAttachedCardPipeline} from './attached-card-pipeline.mjs';
 
 export const theorycraftOperations=Object.freeze([
   {name:'describe-capabilities',context:[],scope:'List supported versioned operations and evidence boundaries'},
@@ -28,6 +30,8 @@ export const theorycraftOperations=Object.freeze([
   {name:'apply-monster-skill-change',context:[],scope:'Original-runtime-matched monster intent replacement/queue mutation without executing the selected skill'},
   {name:'run-role-state-command',context:[],scope:'Setup-only state and presentation rows over explicit role/property snapshots'},
   {name:'enumerate-legal-card-actions',context:[],scope:'Ordinary PvE card dispatch, status and affordability enumeration from explicit state'},
+  {name:'run-command-damage-prefix',context:[],scope:'Leading ordinary Active-damage rows until the first unsupported command row'},
+  {name:'run-attached-card-pipeline',context:['skillCommandData'],scope:'Attach request, temporary-card construction, catalog command resolution and optional leading damage prefix'},
 ]);
 
 export const theorycraftClaimBoundary=Object.freeze({
@@ -63,6 +67,11 @@ function execute(operation,input,context){
   }
   if(operation==='run-role-state-command')return runRoleStateCommand(input);
   if(operation==='enumerate-legal-card-actions')return enumerateLegalCardActions(input);
+  if(operation==='run-command-damage-prefix')return runCommandDamagePrefix(input);
+  if(operation==='run-attached-card-pipeline'){
+    const data=context.skillCommandData;
+    return runAttachedCardPipeline(input,{build:input.build,skills:data.skills,battleApi:data.battleApi,commands:data.commands,sourceHashes:{Skill:data.sourceHashes.Skill,BattleApi:data.sourceHashes.BattleApi,Cmd:data.sourceHashes.Cmd}});
+  }
   throw new Error('Unsupported theorycraft operation');
 }
 

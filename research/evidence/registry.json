@@ -5232,7 +5232,42 @@
         "research/examples/attached-mouchette-card-pipeline.json",
         "docs/ATTACHED_CARD_PIPELINE.md"
       ],
-      "scope": "Authored composition of separately tested request, temporary-card construction and catalog-resolution boundaries. The Mouchette fixture uses explicit demonstration attack/state inputs and resolves all three real command rows. Effect and command execution, callbacks, final damage, gameplay and holdout validation are excluded.",
+      "scope": "Authored composition of separately tested request, temporary-card construction and catalog-resolution boundaries. The Mouchette fixture uses explicit demonstration attack/state inputs and resolves all seven real command rows across three effect types. Effect and command execution, callbacks, final damage, gameplay and holdout validation are excluded.",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:CommandDamagePrefix",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "The authored command-prefix executor preserves exported row order, executes only leading ordinary Active-damage rows against an explicitly bound target and stops before the first unsupported row without skipping it",
+      "sources": [
+        {
+          "module": "Cmd",
+          "member": "123163",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "BEActiveDamage",
+          "member": "DoEffect,__DoMultiEffect,Damage2SingleTarget",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "6d87f4da91293c019579f5d586a093763d3fb1051d6efed8652cdbc3b114e208",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3933469113754588179_BEActiveDamage.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "TriggerCmd,GenerateEffectList",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        }
+      ],
+      "tests": [
+        "engine/command-damage-prefix.mjs",
+        "tests/command-damage-prefix.test.mjs",
+        "docs/COMMAND_DAMAGE_PREFIX.md"
+      ],
+      "scope": "The real resource-144 Mouchette follow-up command executes its first row as six 300-damage hits under explicit neutral test inputs, then stops before row 2 of seven. Presentation metadata is recorded only. Later state rows, callbacks, random target selection, real build inputs, gameplay and holdout validation are excluded.",
       "gameplayValidation": false
     },
     {

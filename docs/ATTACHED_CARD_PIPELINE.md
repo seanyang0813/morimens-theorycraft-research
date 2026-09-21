@@ -10,4 +10,4 @@ Run it from the repository root:
 node tools/run_attached_card_pipeline.mjs research/examples/attached-mouchette-card-pipeline.json
 ```
 
-The output retains every boundary trace and catalog hash. It does not execute the command rows or effect queue, so it cannot yet calculate the follow-up's final damage. This shared mechanics artifact is neither a cheese finding nor a theorycraft recommendation.
+The output retains every boundary trace and catalog hash. Callers may also supply an explicit damage-prefix context; the pipeline then binds its resolved `ArgN` values into `engine/command-damage-prefix.mjs`. That executor stops before the first unsupported row, so it can calculate Mouchette's leading direct-damage row without claiming that the six later state rows or callbacks ran. The effect queue and full command remain incomplete. This shared mechanics artifact is neither a cheese finding nor a theorycraft recommendation.
