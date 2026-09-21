@@ -32,6 +32,7 @@ export async function loadVerifiedRuntime({fetchFile=path=>fetch(path,{cache:'no
     const timeline=await importModule(moduleUrl('engine/research-timeline.mjs'));
     const comparison=await importModule(moduleUrl('engine/timeline-experiments.mjs'));
     const actions=await importModule(moduleUrl('engine/card-action-timeline.mjs'));
+    const orderSearch=await importModule(moduleUrl('engine/card-order-search.mjs'));
     const examples=await importModule(moduleUrl('engine/card-action-example.mjs'));
     const states=await importModule(moduleUrl('engine/state-sequence-experiment.mjs'));
     const stateExample=await importModule(moduleUrl('engine/state-sequence-example.mjs'));
@@ -39,6 +40,6 @@ export async function loadVerifiedRuntime({fetchFile=path=>fetch(path,{cache:'no
     const mixedExample=await importModule(moduleUrl('engine/damage-energy-example.mjs'));
     const terminal=await importModule(moduleUrl('engine/terminal-state-command.mjs'));
     const ordered=await importModule(moduleUrl('engine/ordered-state-command.mjs'));
-    return {runOrderedStateCommand:ordered.runOrderedStateCommand,runTerminalStateCommand:terminal.runTerminalStateCommand,runDamageEnergyCommand:mixed.runDamageEnergyCommand,syntheticDamageEnergyExample:mixedExample.syntheticDamageEnergyExample,runResearchTimeline:timeline.runResearchTimeline,compareTimelines:comparison.compareTimelines,runCardActionTimeline:actions.runCardActionTimeline,syntheticCardActionExample:examples.syntheticCardActionExample,runStateSequenceExperiment:states.runStateSequenceExperiment,syntheticStateSequenceExample:stateExample.syntheticStateSequenceExample,runtimeFingerprint:manifest.fingerprint};
+    return {runOrderedStateCommand:ordered.runOrderedStateCommand,runTerminalStateCommand:terminal.runTerminalStateCommand,runDamageEnergyCommand:mixed.runDamageEnergyCommand,syntheticDamageEnergyExample:mixedExample.syntheticDamageEnergyExample,runResearchTimeline:timeline.runResearchTimeline,compareTimelines:comparison.compareTimelines,runCardActionTimeline:actions.runCardActionTimeline,searchCardOrders:orderSearch.searchCardOrders,syntheticCardActionExample:examples.syntheticCardActionExample,runStateSequenceExperiment:states.runStateSequenceExperiment,syntheticStateSequenceExample:stateExample.syntheticStateSequenceExample,runtimeFingerprint:manifest.fingerprint};
   }finally{for(const url of urls.values())revokeUrl(url);}
 }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "5896ff9071126a6bd20e524d6a08e53fa29bf3b0b22b16a8df76c0cea26afc04",
+  "fingerprint": "e7d788fd9fef4746fda3ce570ef3578be2270dd90456d78f30772ac5f541077c",
   "files": {
     "build-catalog.json": "2d1188fadcaff7a1eb53af580c509756b21a3f003065c7c9036aa919958a1496",
     "client-build-data.json": "70a21813f8a491f521323971e6a6af9d1250102ad5bb76db8b16f80730fe7e34",
@@ -21,6 +21,7 @@
     "engine/card-action-timeline.mjs": "b3d51d345ed87f6162b0e43ce446f4da15f1f5d6a6ff2faf42312a277cf079a6",
     "engine/card-cost.mjs": "c10d83d337d01dca7a8491c8934919208c41a2759d93d64a1e5256a392c3403d",
     "engine/card-offensive-setup.mjs": "63720a42f084a254ff816ad91ba25c35b310a09ee2d1fff9b0ba7bf1d28fb6cb",
+    "engine/card-order-search.mjs": "9ad0aeee14822e75b2c7cbafd57558058d7b6c70045f92b3ae603ced4156f888",
     "engine/card-payment-plan.mjs": "d79d811ec13752038582b2e90be39d114ac2d16466dd8e553155a0a4f55d52b8",
     "engine/card-play-check.mjs": "d827a92d413c91252d31a4427d1449b0ea2aa4c11a0290b5f6ccf9eb9af86744",
     "engine/card-resource-timeline.mjs": "bb9cf645491ba6c5e3299865b3e610e97317fe288a4c729e6c8892cb9c42d086",

@@ -6,6 +6,7 @@ import {validateBuildPlan} from './build-plan.mjs';
 import {resolveClientBuildPrimary,resolveClientAdvancementPrimary} from './client-build-stats.mjs';
 import {resolveWheelMainstat} from './wheel-stats.mjs';
 import {assembleKnownBuildComponents} from './build-component-assembly.mjs';
+import {searchCardOrders} from './card-order-search.mjs';
 
 export const theorycraftOperations=Object.freeze([
   {name:'describe-capabilities',context:[],scope:'List supported versioned operations and evidence boundaries'},
@@ -18,6 +19,7 @@ export const theorycraftOperations=Object.freeze([
   {name:'resolve-character-advancement-primary',context:['clientBuildData'],scope:'Client-derived primary stats plus explicit Season/Soulforge percentage promotion'},
   {name:'resolve-wheel-mainstat',context:['buildCatalog'],scope:'Catalog-derived Wheel main-stat scaling'},
   {name:'assemble-build-components',context:['buildCatalog','clientBuildData'],scope:'Known character primary-stat and Wheel-main-stat contribution ledger'},
+  {name:'search-card-orders',context:[],scope:'Exact bounded permutation search over supplied resolved card actions'},
 ]);
 
 const operations=new Map(theorycraftOperations.map(row=>[row.name,row]));
@@ -38,6 +40,7 @@ function execute(operation,input,context){
   if(operation==='resolve-character-advancement-primary')return resolveClientAdvancementPrimary(input,context.clientBuildData);
   if(operation==='resolve-wheel-mainstat')return resolveWheelMainstat(input,context.buildCatalog);
   if(operation==='assemble-build-components')return assembleKnownBuildComponents(input,context.buildCatalog,context.clientBuildData);
+  if(operation==='search-card-orders')return searchCardOrders(input);
   throw new Error('Unsupported theorycraft operation');
 }
 

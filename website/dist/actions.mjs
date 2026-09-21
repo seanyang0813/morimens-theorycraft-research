@@ -1,4 +1,4 @@
-export function startActions({runCardActionTimeline,syntheticCardActionExample,runDamageEnergyCommand,runTerminalStateCommand,runOrderedStateCommand,syntheticDamageEnergyExample,runtimeFingerprint},doc=document){
+export function startActions({runCardActionTimeline,searchCardOrders,syntheticCardActionExample,runDamageEnergyCommand,runTerminalStateCommand,runOrderedStateCommand,syntheticDamageEnergyExample,runtimeFingerprint},doc=document){
   const el=id=>doc.getElementById(id);
   function run(){
     el('error').textContent='';el('results').hidden=true;el('rows').replaceChildren();el('result-json').textContent='';el('dependencies').replaceChildren();
@@ -47,7 +47,7 @@ export function startActions({runCardActionTimeline,syntheticCardActionExample,r
       for(const row of result.trace){
         const tr=doc.createElement('tr'),after=row.after;
         const outcome=!row.resources.check.allowed?'Rejected: '+row.resources.check.gate:(row.command??row.hits)?.completed?'Executed':'Partial effects';
-        for(const text of [row.actionId,`${row.before.energy} â†’ ${after.energy}`,`${row.before.target.hp} â†’ ${after.target.hp}`,`${row.before.target.block} â†’ ${after.target.block}`,outcome]){const td=doc.createElement('td');td.textContent=text;tr.append(td);}
+        for(const text of [row.actionId,`${row.before.energy} → ${after.energy}`,`${row.before.target.hp} → ${after.target.hp}`,`${row.before.target.block} → ${after.target.block}`,outcome]){const td=doc.createElement('td');td.textContent=text;tr.append(td);}
         el('rows').append(tr);
       }
       }
@@ -62,4 +62,12 @@ export function startActions({runCardActionTimeline,syntheticCardActionExample,r
     try{const input=JSON.parse(el('action-input').value);if(['morimens-damage-energy-command','morimens-terminal-state-command','morimens-ordered-state-command'].includes(input.kind)){const rows=Object.values(input.command.data_list).reverse();input.command.data_list=Object.fromEntries(rows.map((row,i)=>[String(i+1),row]));}else{if(!Array.isArray(input.steps))throw new Error('Action steps required');input.steps.reverse();}el('action-input').value=JSON.stringify(input,null,2);run();}
     catch(error){el('results').hidden=true;el('result-json').textContent='';el('error').textContent=error.message;}
   };
+  el('search-orders').onclick=()=>{try{
+    if(typeof searchCardOrders!=='function')throw new Error('Order search is unavailable in this runtime');
+    const timeline=JSON.parse(el('action-input').value);if(timeline.kind!=='morimens-card-action-timeline')throw new Error('Order search requires a card-action timeline');
+    const result=searchCardOrders({schemaVersion:1,kind:'morimens-card-order-search',objective:'MAX_MODELED_HP_LOST',timeline,maxEvaluations:10000,returnTop:5});
+    el('search-result').textContent=JSON.stringify({runtimeFingerprint,input:timeline,result},null,2);el('search-details').hidden=false;
+    if(!result.best){el('search-note').textContent=`No complete or target-defeating order among ${result.evaluatedPermutations} permutations.`;return;}
+    el('action-input').value=JSON.stringify(result.best.timeline,null,2);run();el('search-note').textContent=`Best complete supplied order: ${result.best.order.join(' → ')} · ${result.best.modeledHpLost} modeled HP lost across ${result.evaluatedPermutations} exact permutations.`;
+  }catch(error){el('search-note').textContent='';el('search-details').hidden=true;el('search-result').textContent='';el('error').textContent=error.message;}};
 }

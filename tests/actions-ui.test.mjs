@@ -5,6 +5,7 @@ import assert from 'node:assert/strict';
 import {startActions} from '../website/dist/actions.mjs';
 import {runCardActionTimeline} from '../engine/card-action-timeline.mjs';
 import {syntheticCardActionExample} from '../engine/card-action-example.mjs';
+import {searchCardOrders} from '../engine/card-order-search.mjs';
 test('action UI runs, reverses payment order and clears invalid output without browser control',()=>{
   class Element{constructor(){this.children=[];this.textContent='';this.value='';this.hidden=false;}append(...items){this.children.push(...items);}replaceChildren(...items){this.children=items;}}
   const nodes=new Map(),doc={getElementById(id){if(!nodes.has(id))nodes.set(id,new Element());return nodes.get(id);},createElement(){return new Element();}};
@@ -31,6 +32,17 @@ test('mixed command UI shows ultimate energy, preserves input and blocks unsuppo
  assert.match(nodes.get('summary').textContent,/no calculation/);assert.equal(JSON.parse(nodes.get('result-json').textContent).result.calculation,null);
  assert.match(nodes.get('rows').children[2].children[4].textContent,/EFFECT_HANDLER/);
  nodes.get('action-input').value='bad';nodes.get('run').onclick();assert.equal(nodes.get('result-json').textContent,'');assert.equal(nodes.get('results').hidden,true);
+});
+
+test('action UI searches every supplied order and loads the best complete trace',()=>{
+  class Element{constructor(){this.children=[];this.textContent='';this.value='';this.hidden=false;}append(...items){this.children.push(...items);}replaceChildren(...items){this.children=items;}}
+  const nodes=new Map(),doc={getElementById(id){if(!nodes.has(id))nodes.set(id,new Element());return nodes.get(id);},createElement(){return new Element();}};
+  startActions({runCardActionTimeline,searchCardOrders,syntheticCardActionExample,runtimeFingerprint:'a'.repeat(64)},doc);
+  doc.getElementById('action-input').value=JSON.stringify(syntheticCardActionExample());doc.getElementById('search-orders').onclick();
+  assert.match(nodes.get('search-note').textContent,/fixed-cost → synthetic-X-cost/);
+  assert.equal(nodes.get('search-details').hidden,false);
+  const search=JSON.parse(nodes.get('search-result').textContent);assert.equal(search.result.evaluatedPermutations,2);
+  const run=JSON.parse(nodes.get('result-json').textContent);assert.equal(run.result.completed,true);assert.equal(run.result.modeledHpLost,500);
 });
 
 test('terminal-state command UI shows the damage/energy prefix and applied state',()=>{

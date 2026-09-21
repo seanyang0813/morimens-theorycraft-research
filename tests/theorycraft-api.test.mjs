@@ -4,6 +4,7 @@ import {readFileSync} from 'node:fs';
 import {runTheorycraftRequest,theorycraftOperations} from '../engine/theorycraft-api.mjs';
 import {neutralShowInputs} from '../engine/show-damage.mjs';
 import {targetKeys} from '../engine/active-target.mjs';
+import {syntheticCardActionExample} from '../engine/card-action-example.mjs';
 
 const request=(operation,input)=>({schemaVersion:1,kind:'morimens-theorycraft-request',requestId:'test-1',operation,input});
 
@@ -46,4 +47,12 @@ test('agent API assembles known build components with both catalogs',()=>{
 test('agent API rejects extra fields and unsupported operations',()=>{
   assert.throws(()=>runTheorycraftRequest({...request('describe-capabilities',null),extra:true}),/exact version 1/);
   assert.throws(()=>runTheorycraftRequest(request('invent-result',{})),/Unsupported/);
+});
+
+test('agent API exposes bounded card-order search without a global optimum claim',()=>{
+  const input={schemaVersion:1,kind:'morimens-card-order-search',objective:'MAX_MODELED_HP_LOST',timeline:syntheticCardActionExample(),maxEvaluations:10,returnTop:2};
+  const response=runTheorycraftRequest(request('search-card-orders',input));
+  assert.deepEqual(response.result.best.order,['synthetic-fixed-cost','synthetic-X-cost']);
+  assert.equal(response.result.evaluatedPermutations,2);
+  assert.match(response.result.unresolvedDependencies.at(-2),/supplied resolved actions/);
 });
