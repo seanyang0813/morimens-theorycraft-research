@@ -1,0 +1,283 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BEAfterUseCard": "4c1df164c66d8b6bf43b5739320f2b9b21acc398af0bb9d47aed82f98bc39763",
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e",
+    "BattleLogicEvent": "cef7477d60a84d8ac4f4b097436a39628d37ff5c54bd8f44d08828d75ad80c4a",
+    "BattleRenderEvent": "192c99c371dd363fae96ccb8c6125bfeb2da54cbb827959942b632222e817aad"
+  },
+  "scope": "Original BEAfterUseCard DoEffect/EffectEnd with explicit card, manager, stats and event observers across deck, trigger, attached and cleanup branches. No event listeners, card-manager mutation internals, gameplay or holdout.",
+  "fixtures": [
+    {
+      "input": {
+        "name": "missing-card",
+        "hasCard": false,
+        "targetDeck": null,
+        "awake": false,
+        "consume": 0,
+        "attached": false,
+        "strike": false,
+        "hasEffectCmd": false,
+        "usedCount": 0,
+        "trigger": true,
+        "effectEnd": false
+      },
+      "expected": {
+        "returned": false,
+        "trace": [],
+        "events": [],
+        "stats": []
+      }
+    },
+    {
+      "input": {
+        "name": "explicit-deck",
+        "hasCard": true,
+        "targetDeck": 99,
+        "awake": false,
+        "consume": 0,
+        "attached": false,
+        "strike": false,
+        "hasEffectCmd": false,
+        "usedCount": 0,
+        "trigger": true,
+        "effectEnd": false
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          "clearStats",
+          "record:99.0",
+          "move:99.0",
+          "event:after"
+        ],
+        "events": [
+          {
+            "eventId": 602.0,
+            "kind": "after",
+            "deck": 99.0,
+            "executorUid": null,
+            "skillTid": null
+          }
+        ],
+        "stats": []
+      }
+    },
+    {
+      "input": {
+        "name": "awake-deck",
+        "hasCard": true,
+        "targetDeck": null,
+        "awake": true,
+        "consume": 0,
+        "attached": false,
+        "strike": false,
+        "hasEffectCmd": false,
+        "usedCount": 0,
+        "trigger": true,
+        "effectEnd": false
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          "clearStats",
+          "record:AwakeDeck",
+          "move:AwakeDeck",
+          "event:after"
+        ],
+        "events": [
+          {
+            "eventId": 602.0,
+            "kind": "after",
+            "deck": "AwakeDeck",
+            "executorUid": null,
+            "skillTid": null
+          }
+        ],
+        "stats": []
+      }
+    },
+    {
+      "input": {
+        "name": "consumed-deck",
+        "hasCard": true,
+        "targetDeck": null,
+        "awake": false,
+        "consume": 1,
+        "attached": false,
+        "strike": false,
+        "hasEffectCmd": false,
+        "usedCount": 0,
+        "trigger": true,
+        "effectEnd": false
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          "clearStats",
+          "record:ConsumedDeck",
+          "move:ConsumedDeck",
+          "event:after"
+        ],
+        "events": [
+          {
+            "eventId": 602.0,
+            "kind": "after",
+            "deck": "ConsumedDeck",
+            "executorUid": null,
+            "skillTid": null
+          }
+        ],
+        "stats": []
+      }
+    },
+    {
+      "input": {
+        "name": "attached-deck-events",
+        "hasCard": true,
+        "targetDeck": null,
+        "awake": false,
+        "consume": 0,
+        "attached": true,
+        "strike": false,
+        "hasEffectCmd": false,
+        "usedCount": 0,
+        "trigger": true,
+        "effectEnd": false
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          "clearStats",
+          "record:ConsumedDeck",
+          "move:ConsumedDeck",
+          "event:after",
+          "event:attach"
+        ],
+        "events": [
+          {
+            "eventId": 602.0,
+            "kind": "after",
+            "deck": "ConsumedDeck",
+            "executorUid": null,
+            "skillTid": null
+          },
+          {
+            "eventId": 620.0,
+            "kind": "attach",
+            "deck": null,
+            "executorUid": 9.0,
+            "skillTid": 600.0
+          }
+        ],
+        "stats": []
+      }
+    },
+    {
+      "input": {
+        "name": "grave-no-trigger",
+        "hasCard": true,
+        "targetDeck": null,
+        "awake": false,
+        "consume": 0,
+        "attached": false,
+        "strike": false,
+        "hasEffectCmd": false,
+        "usedCount": 0,
+        "trigger": false,
+        "effectEnd": false
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          "clearStats",
+          "record:GraveyardDeck",
+          "move:GraveyardDeck"
+        ],
+        "events": [],
+        "stats": []
+      }
+    },
+    {
+      "input": {
+        "name": "strike-stats",
+        "hasCard": true,
+        "targetDeck": null,
+        "awake": false,
+        "consume": 0,
+        "attached": false,
+        "strike": true,
+        "hasEffectCmd": true,
+        "usedCount": 2,
+        "trigger": true,
+        "effectEnd": false
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          "clearStats",
+          "record:GraveyardDeck",
+          "move:GraveyardDeck",
+          "event:after"
+        ],
+        "events": [
+          {
+            "eventId": 602.0,
+            "kind": "after",
+            "deck": "GraveyardDeck",
+            "executorUid": null,
+            "skillTid": null
+          }
+        ],
+        "stats": [
+          {
+            "key": "UsedCardCount",
+            "value": 3.0
+          },
+          {
+            "key": "StrikeCardUsedCount",
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "effect-end",
+        "hasCard": true,
+        "targetDeck": null,
+        "awake": false,
+        "consume": 0,
+        "attached": false,
+        "strike": false,
+        "hasEffectCmd": false,
+        "usedCount": 0,
+        "trigger": true,
+        "effectEnd": true
+      },
+      "expected": {
+        "returned": true,
+        "trace": [
+          "clearStats",
+          "record:GraveyardDeck",
+          "move:GraveyardDeck",
+          "event:after",
+          "clearTargets",
+          "clearCurCard",
+          "afterAction:2.0"
+        ],
+        "events": [
+          {
+            "eventId": 602.0,
+            "kind": "after",
+            "deck": "GraveyardDeck",
+            "executorUid": null,
+            "skillTid": null
+          }
+        ],
+        "stats": []
+      }
+    }
+  ]
+}

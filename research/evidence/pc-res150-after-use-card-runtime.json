@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "method": "BEAfterUseCard.DoEffect and EffectEnd",
+  "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+  "sourceHashes": {
+    "comparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
+    "cardModules": "d0c38c58404ebe0da4dfada285e96956b42bc4df86c7551e3be3d732ceccda9f",
+    "fixture": "b17acd333c3eacd18fcc83c3d67afdaddaced2ce56ed50d30857b05164605438",
+    "currentBattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+    "currentBattleUtilServer": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f"
+  },
+  "fixtures": 8,
+  "exactMatches": 8,
+  "mismatches": 0,
+  "results": [],
+  "scope": "Byte-identical after-use module executed with resource-150 constants/utility across deck, stats, trigger, attached-event and cleanup branches.",
+  "limitations": [
+    "No event listeners, card-manager mutation internals, gameplay or holdout credit"
+  ]
+}

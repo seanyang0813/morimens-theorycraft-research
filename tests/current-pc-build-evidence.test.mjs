@@ -196,6 +196,19 @@ test('current PC connected before-use execution matches the inherited runtime do
   assert.equal(runtime.data.sourceHashes.currentBattleUnitPlayer,cardModules.data.modules.find(row=>row.name==='BattleUnitPlayer.lua').current.sha256);
 });
 
+test('current PC after-use lifecycle matches the inherited runtime domain',()=>{
+  const runtime=read('research/evidence/pc-res150-after-use-card-runtime.json');
+  const fixture=read('tests/synthetic/original-after-use-card.json');
+  const cardModules=read('research/evidence/pc-res150-card-modules.json');
+  assert.equal(runtime.data.status,'EXACT_MATCH_IN_FIXTURE_DOMAIN');
+  assert.equal(runtime.data.fixtures,fixture.data.fixtures.length);
+  assert.equal(runtime.data.exactMatches,runtime.data.fixtures);
+  assert.equal(runtime.data.mismatches,0);
+  assert.equal(runtime.data.sourceHashes.fixture,hash(fixture.bytes));
+  assert.equal(runtime.data.sourceHashes.cardModules,hash(cardModules.bytes));
+  assert.equal(cardModules.data.modules.find(row=>row.name==='BEAfterUseCard.lua').status,'IDENTICAL');
+});
+
 test('current PC selected replay-record constructors match the inherited runtime domain',()=>{
   const comparison=read('research/evidence/pc-res144-to-res150-combat-build.json');
   const runtime=read('research/evidence/pc-res150-battle-record-runtime.json');
