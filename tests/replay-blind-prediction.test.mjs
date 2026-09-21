@@ -15,8 +15,20 @@ test('blind replay prediction is invariant to hidden damage and restores pre-act
   const a=buildBlindReplayPrediction(fixture(250)),b=buildBlindReplayPrediction(fixture(999999));
   assert.equal(a.predictedDamage,100);assert.equal(a.scenario.targetProperties.hp,1000);
   assert.equal(a.sealedProjectionSha256,b.sealedProjectionSha256);
-  assert.equal(a.routing.targetBindingSource,'single-living-enemy-preoutcome');
+  assert.equal(a.routing.targetBindingSource,'identity-only-preoutcome');
   assert.equal(JSON.stringify(a).includes('999999'),false);
+});
+
+test('blind replay prediction supports multiple living enemies while conditioning only on hit identity',()=>{
+  const input=fixture(250),action=input.index.actionSnapshots[0],snapshot=action.window.hitSnapshots[0];
+  action.roles['4']={uid:4,tid:202,camp:2,roleType:2,properties:{...properties,hp:700}};
+  snapshot.roles['4']={uid:4,tid:202,camp:2,roleType:2,properties:{...properties,hp:700}};
+  input.monsters['202']={ID:202,BattleTag:'Elite'};
+  const result=buildBlindReplayPrediction(input);
+  assert.equal(result.predictedDamage,100);
+  assert.equal(result.scenario.targetProperties.hp,1000);
+  assert.match(result.selectionPolicy,/identity-only/);
+  assert.ok(result.unresolvedDependencies.some(item=>/Target selection/.test(item)));
 });
 
 test('blind replay prediction rejects chance-dependent critical outcomes',()=>{

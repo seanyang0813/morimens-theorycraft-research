@@ -5,8 +5,10 @@ const clone=value=>JSON.parse(JSON.stringify(value));
 const hash=value=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const roleType={Awaker:1,Monster:2};
 
-// Selects by pre-outcome support only. The recorded amount, crit flag, HP loss and
-// block loss are replaced before the ordinary replay adapter is invoked.
+// Selects by pre-outcome support plus identity-only hit routing. The recorded
+// amount, crit flag, HP loss and block loss are replaced before the ordinary
+// replay adapter is invoked. This predicts damage conditional on the recorded
+// target/caster/skill identity; it does not claim to predict target selection.
 export function buildBlindReplayPrediction({index,skills,commands,monsters,awakeners}){
   if(!index||index.kind!=='MORIMENS_REPLAY_EVENT_INDEX')throw new Error('Replay event index required');
   const blockers=[];
@@ -17,14 +19,15 @@ export function buildBlindReplayPrediction({index,skills,commands,monsters,awake
       if(!played||!Number.isSafeInteger(played.ownerUid)||!Number.isSafeInteger(played.tid))throw new Error('Played card identity required');
       const caster=sourceAction.roles?.[String(played.ownerUid)];
       if(!caster||caster.roleType!==roleType.Awaker||caster.camp!==played.camp)throw new Error('Captured Awakener owner required');
-      const enemies=Object.values(sourceAction.roles??{}).filter(role=>role?.roleType===roleType.Monster&&role.camp!==played.camp&&Number.isFinite(role.properties?.hp)&&role.properties.hp>0);
-      if(enemies.length!==1)throw new Error('Exactly one living enemy required before outcome');
-      const target=enemies[0],snapshots=[...(sourceAction.window?.hitSnapshots??[])].sort((a,b)=>(a.recordIndex-b.recordIndex)||(a.frameIndex-b.frameIndex));
+      const snapshots=[...(sourceAction.window?.hitSnapshots??[])].sort((a,b)=>(a.recordIndex-b.recordIndex)||(a.frameIndex-b.frameIndex));
       if(!snapshots.length)throw new Error('A pre-hit boundary is required');
-      const first=clone(snapshots[0]);
-      if(first.boundaryStatus!=='COMPLETE')throw new Error('Complete first pre-hit boundary required');
+      const hits=sourceAction.window?.hits??[];
+      const direct=snapshots.map(snapshot=>({snapshot,hit:hits.find(item=>item.recordIndex===snapshot.recordIndex&&item.frameIndex===snapshot.frameIndex)})).find(({snapshot,hit})=>snapshot.boundaryStatus==='COMPLETE'&&hit?.data?.beHitConfig?.castRoleUid===caster.uid&&hit.data.beHitConfig.skillConfigId===played.tid&&Number.isSafeInteger(hit.data?.roleUid));
+      if(!direct)throw new Error('Complete direct-hit identity boundary required');
+      const first=clone(direct.snapshot),target=sourceAction.roles?.[String(direct.hit.data.roleUid)];
+      if(!target||target.roleType!==roleType.Monster||target.camp===played.camp||!Number.isFinite(target.properties?.hp)||target.properties.hp<=0)throw new Error('Living enemy target identity required before outcome');
       const firstTarget=first.roles?.[String(target.uid)],actionTarget=sourceAction.roles?.[String(target.uid)];
-      if(!firstTarget||firstTarget.tid!==target.tid||!actionTarget)throw new Error('Stable one-enemy identity required');
+      if(!firstTarget||firstTarget.tid!==target.tid||!actionTarget)throw new Error('Stable target identity required');
       first.roles[String(target.uid)].properties.hp=actionTarget.properties.hp;
       first.roles[String(target.uid)].properties.block=actionTarget.properties.block;
       first.reconstruction={};
@@ -38,14 +41,14 @@ export function buildBlindReplayPrediction({index,skills,commands,monsters,awake
       if(candidate.status!=='CALCULATED_REGRESSION_CANDIDATE'||!candidate.calculation||candidate.comparison!==null||candidate.observedHit!==null)throw new Error('Deterministic outcome-free calculation required');
       return {
         schemaVersion:1,kind:'MORIMENS_BLIND_REPLAY_PREDICTION',build:candidate.build,
-        selectionPolicy:'first complete deterministic action with one living enemy and a complete first pre-hit boundary',
+        selectionPolicy:'first complete deterministic direct hit using identity-only target/caster/skill routing with all numeric outcome fields excluded',
         sourceActionIndex:sourceAction.actionIndex,sourceHitIndex:first.hitIndex,
         scenario:candidate.scenario,calculation:candidate.calculation,predictedDamage:candidate.calculation.preHitDamage,
         routing:{skillId:played.tid,commandId:candidate.identities.commandId,rowId:candidate.identities.rowId,parameters:candidate.routing.parameters,tags:candidate.routing.tags,repetitionPerExecution:candidate.repetition.perExecution,targetBindingSource:candidate.routing.targetBindingSource,commandSourceShape:candidate.routing.commandSourceShape},
         identityCommitmentSha256:hash({cardUid:played.uid,skillId:played.tid,casterUid:caster.uid,targetUid:target.uid}),
         sealedProjectionSha256:hash({action,scenario:candidate.scenario,routing:candidate.routing}),
         blockersBeforeSelection:blockers,
-        unresolvedDependencies:candidate.unresolvedDependencies
+        unresolvedDependencies:['Target selection is treated as a frozen identity input rather than predicted',...candidate.unresolvedDependencies]
       };
     }catch(error){blockers.push({actionIndex:sourceAction.actionIndex,reason:error.message});}
   }

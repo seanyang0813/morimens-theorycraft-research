@@ -46,7 +46,7 @@ There are two screenshot-based gameplay records plus fifteen privately preserved
 3. Use the first completed case as regression evidence.
 4. Freeze a different unseen case as an independent holdout.
 
-Use `tools/freeze_gameplay_prediction.mjs` for manually reconstructed scenarios. For native replays, `tools/freeze_blind_replay_prediction.mjs` selects the first supported deterministic one-enemy action without using its damage amount, writes a non-overwritable scenario/evidence/freeze set, and commits must precede `tools/reveal_blind_replay_prediction.mjs`. The reveal tool refuses to inspect the selected result unless all freeze artifacts are committed unchanged at `HEAD`. Both paths verify the current runtime and fail closed on partial or chance-dependent cases.
+Use `tools/freeze_gameplay_prediction.mjs` for manually reconstructed scenarios. For native replays, `tools/freeze_blind_replay_prediction.mjs` selects the first supported deterministic direct hit without using its damage amount, critical result, HP loss or Block loss. It freezes target/caster/skill identity as a disclosed condition, so the holdout tests damage resolution rather than target selection. The tool writes a non-overwritable scenario/evidence/freeze set, and commits must precede `tools/reveal_blind_replay_prediction.mjs`. The reveal tool refuses to inspect the selected result unless all freeze artifacts are committed unchanged at `HEAD`. Both paths verify the current runtime and fail closed on partial or chance-dependent cases.
 
 Do not fit unknown modifiers to an already viewed total. Synthetic original-runtime matches prove component behavior only.
 

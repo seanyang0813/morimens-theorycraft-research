@@ -2,7 +2,7 @@
 
 This workflow separates deterministic prediction from outcome reveal for a newly recovered replay. It does not make a historical replay's engine-code version known.
 
-`tools/freeze_blind_replay_prediction.mjs` scans actions in chronological order and selects the first complete candidate that has one living enemy, a complete first pre-hit boundary and a deterministic Active calculation. It replaces the recorded hit with an identity-only marker before calculation. Recorded damage, critical flag, old HP, Block loss and HP-loss fields are excluded. Target HP and Block come from the card-use boundary. The public evidence contains only the replay container hash, catalog hashes, an identity commitment, scenario inputs and the frozen result; player and replay identifiers remain private.
+`tools/freeze_blind_replay_prediction.mjs` scans actions in chronological order and selects the first complete deterministic Active candidate with a complete direct-hit identity boundary. It replaces the recorded hit with an identity-only marker before calculation. Target, caster and skill identity are disclosed conditions of the prediction; target selection itself is not predicted. Recorded damage, critical flag, old HP, Block loss and HP-loss fields are excluded. Target HP and Block come from the card-use boundary. The public evidence contains only the replay container hash, catalog hashes, an identity commitment, scenario inputs and the frozen result; player and replay identifiers remain private.
 
 Run the freeze against private ignored artifacts:
 
