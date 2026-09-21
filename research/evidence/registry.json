@@ -6473,6 +6473,31 @@
       "gameplayValidation": false
     },
     {
+      "id": "ANDROID83:ManagedUpdateSurface",
+      "status": "CONFIRMED_FROM_LOCAL_IL2CPP_METADATA",
+      "claim": "The Android IL2CPP v31 metadata exposes the relative /_game_data_/DownLoad/{0} resource tree and managed version/patch helpers, while its complete 17,688-entry string-literal table contains no resource-download endpoint",
+      "sources": [
+        {
+          "module": "Android IL2CPP global metadata and player binary",
+          "member": "declared string-literal table plus managed update type/method inventory",
+          "bundle": "Android APK assets; hashes only",
+          "sha256": "97564dd7d0314be14c6cdd3f219d6405027b787923f70cd2fce89ba8b630d441"
+        },
+        {
+          "module": "Sanitized Android IL2CPP update inspection",
+          "member": "path, symbols and aggregate URL classifications",
+          "bundle": "local static inspection",
+          "sha256": "a7db5029c2603ad137ff15473506611b633ce24e79de74fc6b432856474bc584"
+        }
+      ],
+      "tests": [
+        "tools/inspect_android_il2cpp_update.py",
+        "tests/android-il2cpp-update-inspection.test.mjs"
+      ],
+      "scope": "Static IL2CPP metadata and Il2CppDumper symbol inventory. The relative download tree and patch/version artifact names are recovered; no managed method is executed and no endpoint value is published. App sandbox root, service/native/Lua-supplied URLs, downloaded combat bundles, Android formula behavior, gameplay and holdout credit remain unresolved.",
+      "gameplayValidation": false
+    },
+    {
       "id": "ANDROID83:ScriptGroupManifest",
       "status": "CONFIRMED_FROM_LOCAL_MANIFEST",
       "claim": "The packaged Android resource-83 manifest identifies seven Scripts-group bundles by filename, size, resource index and MD5; the hash interpretation is established by a direct bundled Android startup-archive match",

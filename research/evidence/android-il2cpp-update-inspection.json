@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_ANDROID_IL2CPP_UPDATE_INSPECTION",
+  "status": "STATIC_UPDATE_SURFACE_RECOVERED",
+  "sourceHashes": {
+    "apk": "8b0b08083fbce0e3a6e0a440ab200f111f90396971dc1cdfecd2bccd0f278a8b",
+    "globalMetadata": "97564dd7d0314be14c6cdd3f219d6405027b787923f70cd2fce89ba8b630d441",
+    "libil2cpp": "f8d8f3181094b093c2580a6d548f4411eecf701dfe36953b6fa532066c1b4153",
+    "il2cppDump": "2e1b3522a2a07e38f611b353d84bae37baaa1f66ff207d1d0e662a99aa781030"
+  },
+  "metadata": {
+    "version": 31,
+    "stringLiteralCount": 17688,
+    "stringLiteralDataBytes": 473336
+  },
+  "literalUrlClassification": {
+    "total": 30,
+    "standards": 26,
+    "documentation": 3,
+    "localhost": 1,
+    "resourceDownloadCandidates": 0
+  },
+  "downloadStorageEvidence": {
+    "relativeTemplate": "/_game_data_/DownLoad/{0}",
+    "artifactNames": [
+      "_version.json",
+      "_ab_info.json",
+      "ejoy_pack_config.json",
+      "pred_tag_file",
+      "patches_info.json"
+    ],
+    "interpretation": "The managed client names a relative downloaded-resource tree and its version/patch metadata. This does not identify the Android app sandbox root or a network endpoint."
+  },
+  "managedUpdateSurface": {
+    "types": [
+      "ResourceManager.DownloadHelper",
+      "ResourceManager.VersionInfoFile",
+      "ResourceManager.Runtime.ResourceUpdateHelper"
+    ],
+    "versionInfoFields": [
+      "branchName",
+      "resVersion",
+      "buildVersion",
+      "platformCode",
+      "downloadPlatformCode",
+      "hash",
+      "size"
+    ],
+    "methods": [
+      {
+        "signature": "public static string GetDownloadRelativePath()",
+        "rva": "0x2EFB6AC"
+      },
+      {
+        "signature": "public static void GetTextFromUrl(string url, Action<bool, string> cb)",
+        "rva": "0x2EFB8B8"
+      },
+      {
+        "signature": "public static string FixUrlRoot(string url)",
+        "rva": "0x2EFF414"
+      },
+      {
+        "signature": "public static VersionFile LoadVersionInPatch()",
+        "rva": "0x2EFBAA4"
+      },
+      {
+        "signature": "public static void CheckPatchFileCompleteAsync(Action<bool, VersionFile.Item[]> cb)",
+        "rva": "0x2F09498"
+      }
+    ]
+  },
+  "scope": "Static IL2CPP metadata and symbol inventory from the packaged Android client. No managed method was executed and no URL value is published.",
+  "limitations": [
+    "No literal resource-download endpoint occurs in the managed string-literal table; the base URL may be supplied by Lua, a service response, native code or a later bundle",
+    "The recovered path is relative; no device filesystem or Android app sandbox was captured",
+    "Downloaded Android combat/config bundles remain absent, so Android/PC formula parity is not established",
+    "Static loader structure is mechanics infrastructure evidence only and receives no gameplay or holdout credit"
+  ],
+  "nextEvidenceNeeded": "Capture the Android app's fingerprinted _game_data_/DownLoad tree, especially config.ab, share.ab and gamescript.ab, from the same versioned session."
+}

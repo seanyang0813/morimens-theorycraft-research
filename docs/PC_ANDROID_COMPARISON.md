@@ -54,3 +54,34 @@ verified combat-bundle download path. Values may still be assembled at runtime
 or obtained from a service. The earlier standard-decoder failure remains
 recorded separately; it was not evidence of a bad key or corrupt APK. Do not
 promote this compatibility parse to Android formula validation.
+
+## Managed update surface
+
+`tools/inspect_android_il2cpp_update.py` parses the packaged IL2CPP v31 string
+literal table and a local Il2CppDumper symbol inventory. The 17,688 managed
+string literals contain 30 absolute URL matches: 26 standards namespaces,
+three framework/documentation links and one localhost value. None is a
+resource-download endpoint. This is a stronger bounded absence result than a
+raw printable-string scan because it walks the metadata's declared literal
+table.
+
+The managed update surface exposes `DownloadHelper`, `VersionInfoFile` and
+`ResourceUpdateHelper`, including URL normalization/fetch helpers and patch
+integrity checks. It also supplies the relative template
+`/_game_data_/DownLoad/{0}` and names `_version.json`, `_ab_info.json`,
+`ejoy_pack_config.json`, `patches_info.json` and `pred_tag_file`. This identifies
+the downloaded-resource tree to preserve from a device capture. It does not
+identify the Android sandbox root or the server endpoint. The public report is
+`research/evidence/android-il2cpp-update-inspection.json`; it contains hashes,
+symbols and aggregate URL classifications, not endpoint values.
+
+Rebuild the private symbol inventory and public report with:
+
+```powershell
+research/raw/tools/Il2CppDumper/Il2CppDumper.exe research/raw/android/unpacked/lib/arm64-v8a/libil2cpp.so research/raw/android/unpacked/assets/bin/Data/Managed/Metadata/global-metadata.dat research/raw/android/il2cpp-dump
+.venv/Scripts/python.exe tools/inspect_android_il2cpp_update.py
+```
+
+The dumper may warn that the ARM64 player is protected, but it must finish with
+`Done!`; the inspection then verifies every required type, field, method and
+literal before writing the report.
