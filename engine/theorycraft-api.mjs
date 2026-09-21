@@ -19,7 +19,7 @@ import {calculateSnapshotActiveDamage} from './battle-property-snapshot-damage.m
 export const theorycraftOperations=Object.freeze([
   {name:'describe-capabilities',context:[],scope:'List supported versioned operations and evidence boundaries'},
   {name:'calculate-damage',context:[],scope:'Resolved single-hit Active, Passive, Fixed or Pure research calculation'},
-  {name:'calculate-snapshot-active-damage',context:[],scope:'Complete captured battle-property maps through the bounded PvE Active path'},
+  {name:'calculate-snapshot-active-damage',context:[],scope:'Complete captured battle-property maps through bounded PvE Active pre-hit and optional BeHit-to-HP paths'},
   {name:'run-hit-timeline',context:[],scope:'Supplied resolved hit sequence with an explicit intervening-effect policy'},
   {name:'run-card-actions',context:[],scope:'Card payment plus supplied hit or supported numeric-command sequence'},
   {name:'run-ordered-state-command',context:[],scope:'Supported ordered state/resource/damage command rows'},

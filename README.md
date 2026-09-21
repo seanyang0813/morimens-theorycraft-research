@@ -33,7 +33,7 @@ The project separates mechanics reconstruction, budget-comp scouting, cheese ana
 
 Agents can call the same bounded engine through `engine/theorycraft-api.mjs` or `node tools/run_theorycraft_request.mjs --input request.json`. Every response is explicitly tagged `theorycrafting` and carries its claim boundary: it cannot present the result as an observed cheese strategy, leaderboard prevalence or independent verification. The versioned request selects one explicit operation; it does not silently fill missing combat state or promote an experimental result to verified.
 
-The agent API includes `calculate-snapshot-active-damage` for complete captured resource-144 or resource-150 battle-property maps. This path records every property read and rejects partial snapshots, making it suitable for freezing a bounded prediction when a fresh replay supplies the required pre-action evidence.
+The agent API includes `calculate-snapshot-active-damage` for complete captured resource-144 or resource-150 battle-property maps. Schema 1 stops at pre-hit damage. Schema 2 continues through immunity, shield or Puncture handling, retained-HP conversion, incoming limits, death resistance and HP subtraction. It records every property read and rejects partial snapshots, making it suitable for freezing a bounded pre-hit or modeled-HP-loss prediction when a fresh replay supplies the required pre-action evidence. `finalDamage` remains null until independent gameplay validation passes.
 
 The agent API can also enumerate ordinary PvE cards that are legal from an
 explicit dispatch, energy, hand and status snapshot. It reports global and

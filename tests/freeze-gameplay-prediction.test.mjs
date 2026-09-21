@@ -27,5 +27,12 @@ test('prediction freeze pins scenario, runtime and separate pre-outcome evidence
     assert.throws(()=>freezeGameplayPrediction({...args,outputFile:relativeToRoot(join(directory,'unrecognized.json')),buildEvidenceFiles:[relativeToRoot(unrecognized)]}),/recognized build report/);
     const cliOutput=join(directory,'cli-freeze.json'),cli=spawnSync(process.execPath,['tools/freeze_gameplay_prediction.mjs','--scenario',args.scenarioFile,'--metric','preHitDamage','--evidence',args.evidenceFiles[0],'--recorded-build',build,'--build-evidence',relativeToRoot(buildEvidence),'--output',relativeToRoot(cliOutput)],{cwd:root,encoding:'utf8'});
     assert.equal(cli.status,0,cli.stderr);assert.equal(JSON.parse(cli.stdout).predictedDamage,100);assert.equal(JSON.parse(readFileSync(cliOutput,'utf8')).predictedDamage,100);
+    const snapshotScenario=join(directory,'snapshot.json'),snapshotOutput=join(directory,'snapshot-freeze.json'),snapshotBuild=join(directory,'snapshot-build.json');
+    const snapshot=JSON.parse(readFileSync(join(root,'research/examples/theorycraft-current-snapshot-active.json'),'utf8')).input;writeFileSync(snapshotScenario,JSON.stringify(snapshot));
+    writeFileSync(snapshotBuild,JSON.stringify({schemaVersion:1,kind:'MORIMENS_PC_COMBAT_BUILD_COMPARISON',currentBuild:'pc-res150-build51',currentVersion:{resVersion:150,buildVersion:51},sourceHashes:{versionManifest:'c'.repeat(64),bundles:{'share.ab':{sha256:'d'.repeat(64),size:1}}}}));
+    const snapshotFrozen=freezeGameplayPrediction({scenarioFile:relativeToRoot(snapshotScenario),metric:'modeledHpLost',evidenceFiles:[relativeToRoot(evidence)],recordedCombatBuild:'pc-res150-build51',buildEvidenceFiles:[relativeToRoot(snapshotBuild)],outputFile:relativeToRoot(snapshotOutput),now:()=>new Date('2026-09-20T00:01:00Z')});
+    assert.equal(snapshotFrozen.predictedDamage,267);const snapshotRecord=JSON.parse(readFileSync(snapshotOutput,'utf8'));assert.ok(snapshotRecord.prediction.runtimeContract.files['engine/battle-property-snapshot-damage.mjs']);
+    const snapshotReplay=spawnSync(process.execPath,['tools/replay_observation.mjs',snapshotScenario,'modeledHpLost',snapshotRecord.prediction.runtimeFingerprint,JSON.stringify(snapshotRecord.prediction.runtimeContract)],{cwd:root,encoding:'utf8'});
+    assert.equal(snapshotReplay.status,0,snapshotReplay.stderr);assert.equal(JSON.parse(snapshotReplay.stdout).value,267);
   }finally{rmSync(directory,{recursive:true,force:true});}
 });

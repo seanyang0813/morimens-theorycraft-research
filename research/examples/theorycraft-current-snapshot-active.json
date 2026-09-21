@@ -4,7 +4,7 @@
   "requestId": "synthetic-current-snapshot-active-example",
   "operation": "calculate-snapshot-active-damage",
   "input": {
-    "schemaVersion": 1,
+    "schemaVersion": 2,
     "kind": "morimens-battle-property-snapshot-damage",
     "build": "pc-res150-build51",
     "snapshotStage": "battle-property-server-live",
@@ -17,17 +17,26 @@
       "crit_damage": 50,
       "crit_damage_from_strikecard": 10,
       "crit_damage_per": 0,
-      "damage_per2monster_boss": 20
+      "damage_per2monster_boss": 20,
+      "PreventActiveDamage": 0
     },
     "playerProperties": {
       "dimension_fix_per": 0
     },
     "targetProperties": {
-      "hp": 100,
-      "max_hp": 100,
-      "block": 0,
+      "hp": 1000,
+      "max_hp": 1000,
+      "block": 50,
       "be_damage_per": 10,
-      "vulnerable_per": 50
+      "vulnerable_per": 50,
+      "immue_damage": 0,
+      "immue_puncture_damage": 0,
+      "immue_active_damage": 0,
+      "PreventBeActiveDamage": 0,
+      "PreventBeActiveDamageRetainHP": 0,
+      "be_damage_limit": 0,
+      "be_damage_statics": 0,
+      "pvp_death_resist": 0
     },
     "cardProperties": {},
     "cardContext": {
@@ -39,6 +48,9 @@
       "critRoll": null,
       "targetBattleTag": "Boss",
       "targetStateIds": []
+    },
+    "hitContext": {
+      "damageSubtype": "Ordinary"
     }
   }
 }

@@ -14,9 +14,10 @@ export function runObservationScenario(scenario,metric){
     return {build:scenario.build,scenarioKind:'single-hit',metric,value:models[0][metric],scope:models[0].scope,unresolvedDependencies:result.unresolvedDependencies};
   }
   if(scenario.kind==='morimens-battle-property-snapshot-damage'){
-    if(metric!=='preHitDamage')throw new Error('Requested metric is unavailable for this scenario shape');
     const result=calculateSnapshotActiveDamage(scenario);
-    return {build:result.build,scenarioKind:scenario.kind,metric,value:result.preHitDamage,scope:result.scope,unresolvedDependencies:result.unresolvedDependencies};
+    const value=metric==='preHitDamage'?result.preHitDamage:result.modeledHpLost;
+    if(!Number.isFinite(value))throw new Error('Requested metric is unavailable for this scenario shape');
+    return {build:result.build,scenarioKind:scenario.kind,metric,value,scope:result.scope,unresolvedDependencies:result.unresolvedDependencies};
   }
   let result,scenarioKind;
   if(scenario.kind==='morimens-card-action-timeline'){result=runCardActionTimeline(scenario);scenarioKind=scenario.kind;}

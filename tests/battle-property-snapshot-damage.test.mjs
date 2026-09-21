@@ -45,9 +45,35 @@ test('resource-150 uses the bounded cross-build-matched live snapshot path',()=>
   input.targetContext.targetStateIds=[2934];assert.equal(calculateSnapshotActiveDamage(input).preHitDamage,349);
   input.targetContext.targetStateIds=[];input.snapshotStage='roleData.properties-before-constructor';assert.throws(()=>calculateSnapshotActiveDamage(input),/live properties/);
 });
+test('schema 2 continues a complete snapshot through shield, limits and HP mutation',()=>{
+  const input=base();input.schemaVersion=2;input.hitContext={damageSubtype:'Ordinary'};
+  Object.assign(input.targetProperties,{hp:1000,max_hp:1000,block:50,immue_damage:0,immue_puncture_damage:0,immue_active_damage:0,PreventBeActiveDamage:1,PreventBeActiveDamageRetainHP:800,be_damage_limit:0,be_damage_statics:0,pvp_death_resist:0});
+  input.casterProperties.PreventActiveDamage=0;
+  const result=calculateSnapshotActiveDamage(input);
+  assert.equal(result.preHitDamage,366);assert.equal(result.modeledHpLost,200);assert.equal(result.finalDamage,null);
+  assert.equal(result.hpResolution.blockAfter,0);assert.equal(result.hpResolution.limits.converted,116);assert.equal(result.hpResolution.hpAfter,800);
+  assert.equal(result.hitTriggerValues.castDamage,366);assert.equal(result.hitTriggerValues.realDamage,200);
+  assert.ok(result.reads.some(row=>row.owner==='target'&&row.property==='be_damage_limit'));
+});
+test('schema 2 distinguishes ordinary, puncture and puncture immunity',()=>{
+  const input=base();input.schemaVersion=2;input.hitContext={damageSubtype:'Ordinary'};
+  Object.assign(input.targetProperties,{hp:1000,max_hp:1000,block:50,immue_damage:1,immue_puncture_damage:0,immue_active_damage:0,PreventBeActiveDamage:0,PreventBeActiveDamageRetainHP:0,be_damage_limit:0,be_damage_statics:0,pvp_death_resist:0});
+  input.casterProperties.PreventActiveDamage=0;
+  let result=calculateSnapshotActiveDamage(input);assert.equal(result.hpResolution.immunity.immune,true);assert.equal(result.modeledHpLost,0);
+  input.hitContext.damageSubtype='Puncture';result=calculateSnapshotActiveDamage(input);assert.equal(result.hpResolution.immunity.immune,false);assert.equal(result.modeledHpLost,366);assert.equal(result.hpResolution.blockAfter,0);
+  input.targetProperties.immue_puncture_damage=1;result=calculateSnapshotActiveDamage(input);assert.equal(result.hpResolution.immunity.immune,true);assert.equal(result.modeledHpLost,0);
+});
+test('resource-150 schema 2 cites the matched current BeHit and property paths',()=>{
+  const input=base();input.schemaVersion=2;input.build='pc-res150-build51';input.targetContext.targetStateIds=[];input.hitContext={damageSubtype:'Ordinary'};
+  Object.assign(input.targetProperties,{hp:1000,max_hp:1000,block:17});
+  const result=calculateSnapshotActiveDamage(input);
+  assert.equal(result.preHitDamage,317);assert.equal(result.modeledHpLost,300);assert.equal(result.hpResolution.hpAfter,700);
+  assert.ok(result.hpResolution.evidence.includes('PC150:BattleUnitBase.BeHitHp'));assert.ok(result.hpResolution.evidence.includes('PC150:BattlePropertyServer.SelectedPaths'));
+});
 test('partial claims, unknown dynamic selectors and malformed property values fail closed',()=>{
   const input=base();
   for(const mutate of [v=>v.snapshotCompleteness='partial',v=>v.targetContext.targetStateIds=[-1],v=>v.targetContext.targetBattleTag='',v=>v.casterProperties.crit_damage=NaN,v=>v.tags.push('Card_Strike'),v=>v.cardContext.stateTriggerAdd=true,v=>{v.cardContext.present=false;v.cardContext.instructionCard=true;}]){
     const bad=JSON.parse(JSON.stringify(input));mutate(bad);assert.throws(()=>calculateSnapshotActiveDamage(bad));
   }
+  const v2=base();v2.schemaVersion=2;v2.hitContext={damageSubtype:'Unknown'};assert.throws(()=>calculateSnapshotActiveDamage(v2),/hit context/);
 });
