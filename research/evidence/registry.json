@@ -2793,7 +2793,7 @@
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
         }
       ],
-      "scope": "Connected runtime now reaches State.Trigger and constructs the three requests; separate phase runtime reaches TriggerCmd and child PreTrigger. Generated target/phase effects are not yet executed from the same HP callback, and the full finish/end path, gameplay and Old Embers lifecycle remain unconnected.",
+      "scope": "Connected runtime now reaches State.Trigger, executes target/phase bodies and enters TriggerCmd with an empty effect-list adapter. Real command rows, scheduler completion, phase finish/end, StateTriggerEnd execution, gameplay and Old Embers lifecycle remain unconnected.",
       "gameplayValidation": false
     },
     {
@@ -3629,6 +3629,48 @@
         "docs/CONNECTED_EVENT_DELIVERY.md"
       ],
       "scope": "4 connected original-runtime cases covering accepted monster/player paths, hidden owner and mismatched monster. Cached command and explicit state/role adapters; generated effects and completion event are constructed but not executed. No gameplay or holdout credit.",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:ConnectedHpGeneratedPhase",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Eligible HP-triggered state callbacks execute actual target-generation and skill-phase bodies through original TriggerCmd, while rejected callbacks execute neither effect",
+      "sources": [
+        {
+          "module": "BEGenerateTargets",
+          "member": "DoEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "98e9478b0c58ad70c586a3dda05e68bd826577694bb2627e67fc38b96145005d",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4001796867815749104_BEGenerateTargets.lua"
+        },
+        {
+          "module": "BECreateSkillPhase",
+          "member": "DoEffect,__FireAfterCreateSkillPhase",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "0517f4daffda3ed3939ecfa33c7ebeeffa4a01aa137fb2e3951fb0996da9958e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\4770387938002218566_BECreateSkillPhase.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "TriggerCmd",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        },
+        {
+          "module": "BattleStateServer",
+          "member": "Trigger",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6839215435199190924_BattleStateServer.lua"
+        }
+      ],
+      "tests": [
+        "tools/connected_hp_generated_phase_oracle.py",
+        "tests/connected-hp-generated-phase.test.mjs",
+        "docs/CONNECTED_EVENT_DELIVERY.md"
+      ],
+      "scope": "4 connected original-runtime cases. Explicit StateOwner expression and empty GenerateEffectList adapters; generated effects execute directly without scheduler completion, command rows or StateTriggerEnd execution. No gameplay or holdout credit.",
       "gameplayValidation": false
     },
     {
@@ -4803,6 +4845,32 @@
         "tests/connected-hp-state-trigger.test.mjs"
       ],
       "scope": "Accepted monster/player callbacks, hidden/mismatched rejection, target/phase request construction and StateTriggerEnd request. Generated effects and completion event do not execute; cached command adapter, no gameplay or holdout credit.",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC150:ConnectedHpGeneratedPhase",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "Resource 150 reproduces all 4 connected HP-event through generated target/phase effect and TriggerCmd fixtures exactly",
+      "sources": [
+        {
+          "module": "PC resource-150 skill-phase comparison",
+          "member": "target/phase/effect module hashes",
+          "bundle": "installed local client; hashes only",
+          "sha256": "bbd0493d8073989dd99e9d15b8ea7f89ee35de9fbd40687112c03ddbef1ae8a9"
+        },
+        {
+          "module": "PC resource-150 connected generated-phase runtime comparison",
+          "member": "fixture-domain result",
+          "bundle": "copied XLua runtime; hashes only",
+          "sha256": "3324bea6a06e489b583bdc483d33d1845ca50ab64501d1dc033155036586af59"
+        }
+      ],
+      "tests": [
+        "tools/connected_hp_generated_phase_oracle.py",
+        "tools/verify_current_connected_hp_generated_phase.py",
+        "tests/connected-hp-generated-phase.test.mjs"
+      ],
+      "scope": "Actual target/phase bodies and current TriggerCmd with explicit StateOwner-expression and empty-effect-list adapters. Direct execution without scheduler completion, command rows or completion-event execution; no gameplay or holdout credit.",
       "gameplayValidation": false
     },
     {

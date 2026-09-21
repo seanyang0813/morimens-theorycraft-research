@@ -2279,7 +2279,7 @@
       "id": "PC144:StateCommandLifecycle",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
       "claim": "State callbacks queue target generation and skill-phase execution before StateTriggerEnd; the phase wraps command execution with before/finish hooks and potential time advancement",
-      "scope": "Connected runtime now reaches State.Trigger and constructs the three requests; separate phase runtime reaches TriggerCmd and child PreTrigger. Generated target/phase effects are not yet executed from the same HP callback, and the full finish/end path, gameplay and Old Embers lifecycle remain unconnected.",
+      "scope": "Connected runtime now reaches State.Trigger, executes target/phase bodies and enters TriggerCmd with an empty effect-list adapter. Real command rows, scheduler completion, phase finish/end, StateTriggerEnd execution, gameplay and Old Embers lifecycle remain unconnected.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -2983,6 +2983,40 @@
       "checks": [
         "tools/connected_hp_state_trigger_oracle.py",
         "tests/connected-hp-state-trigger.test.mjs",
+        "docs/CONNECTED_EVENT_DELIVERY.md"
+      ]
+    },
+    {
+      "id": "PC144:ConnectedHpGeneratedPhase",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Eligible HP-triggered state callbacks execute actual target-generation and skill-phase bodies through original TriggerCmd, while rejected callbacks execute neither effect",
+      "scope": "4 connected original-runtime cases. Explicit StateOwner expression and empty GenerateEffectList adapters; generated effects execute directly without scheduler completion, command rows or StateTriggerEnd execution. No gameplay or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "BEGenerateTargets",
+          "member": "DoEffect",
+          "sha256": "98e9478b0c58ad70c586a3dda05e68bd826577694bb2627e67fc38b96145005d"
+        },
+        {
+          "module": "BECreateSkillPhase",
+          "member": "DoEffect,__FireAfterCreateSkillPhase",
+          "sha256": "0517f4daffda3ed3939ecfa33c7ebeeffa4a01aa137fb2e3951fb0996da9958e"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "TriggerCmd",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b"
+        },
+        {
+          "module": "BattleStateServer",
+          "member": "Trigger",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369"
+        }
+      ],
+      "checks": [
+        "tools/connected_hp_generated_phase_oracle.py",
+        "tests/connected-hp-generated-phase.test.mjs",
         "docs/CONNECTED_EVENT_DELIVERY.md"
       ]
     },
@@ -3956,6 +3990,30 @@
         "tools/connected_hp_state_trigger_oracle.py",
         "tools/verify_current_connected_hp_state_trigger.py",
         "tests/connected-hp-state-trigger.test.mjs"
+      ]
+    },
+    {
+      "id": "PC150:ConnectedHpGeneratedPhase",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "Resource 150 reproduces all 4 connected HP-event through generated target/phase effect and TriggerCmd fixtures exactly",
+      "scope": "Actual target/phase bodies and current TriggerCmd with explicit StateOwner-expression and empty-effect-list adapters. Direct execution without scheduler completion, command rows or completion-event execution; no gameplay or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 skill-phase comparison",
+          "member": "target/phase/effect module hashes",
+          "sha256": "bbd0493d8073989dd99e9d15b8ea7f89ee35de9fbd40687112c03ddbef1ae8a9"
+        },
+        {
+          "module": "PC resource-150 connected generated-phase runtime comparison",
+          "member": "fixture-domain result",
+          "sha256": "3324bea6a06e489b583bdc483d33d1845ca50ab64501d1dc033155036586af59"
+        }
+      ],
+      "checks": [
+        "tools/connected_hp_generated_phase_oracle.py",
+        "tools/verify_current_connected_hp_generated_phase.py",
+        "tests/connected-hp-generated-phase.test.mjs"
       ]
     },
     {
