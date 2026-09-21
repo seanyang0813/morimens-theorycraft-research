@@ -11,11 +11,9 @@
   "commandsWithOrdinaryActive": 198,
   "ordinaryActiveRows": 246,
   "conditionalRows": 67,
-  "rowExpressionCompatible": 226,
-  "commandShapeCompatible": 186,
+  "rowExpressionCompatible": 230,
+  "commandShapeCompatible": 187,
   "blockerCounts": {
-    "COMPETING_DAMAGE_EFFECT": 1,
-    "CONDITION_EXPRESSION": 4,
     "TARGET_SELECTOR": 16
   },
   "allowedFunctions": [
@@ -26,6 +24,7 @@
     "CurCard.GetStateLayer",
     "CmdCaster.GetPotencyLevel",
     "CmdCaster.GetBreakSkillLevel",
+    "GetAwakerCountBySchool",
     "IsSuperUtlSkill",
     "math.ceil",
     "math.floor"
@@ -6568,38 +6567,30 @@
           "rowId": "2",
           "target": "FrontEnemy",
           "conditional": true,
-          "blockers": [
-            "CONDITION_EXPRESSION"
-          ]
+          "blockers": []
         },
         {
           "rowId": "6",
           "target": "FrontEnemy",
           "conditional": true,
-          "blockers": [
-            "CONDITION_EXPRESSION"
-          ]
+          "blockers": []
         },
         {
           "rowId": "8",
           "target": "FrontEnemy",
           "conditional": true,
-          "blockers": [
-            "CONDITION_EXPRESSION"
-          ]
+          "blockers": []
         },
         {
           "rowId": "10",
           "target": "FrontEnemy",
           "conditional": true,
-          "blockers": [
-            "CONDITION_EXPRESSION"
-          ]
+          "blockers": []
         }
       ],
       "competingDamageEffect": true,
-      "competingDamageConditionsResolvable": false,
-      "shapeCompatible": false
+      "competingDamageConditionsResolvable": true,
+      "shapeCompatible": true
     },
     {
       "commandId": 24557,

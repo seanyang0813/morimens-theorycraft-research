@@ -4,7 +4,7 @@ import {pathToFileURL} from 'node:url';
 import {compileNumericCommand,compileCommandCondition} from '../engine/command-expressions.mjs';
 import {importCommandRows} from '../engine/import-command-rows.mjs';
 
-const allowedFunctions=['CmdCaster.GetStateLayer','PlayerRole.GetStateLayer','UpperTarget.GetStateLayer','OwnerCard.GetStateLayer','CurCard.GetStateLayer','CmdCaster.GetPotencyLevel','CmdCaster.GetBreakSkillLevel','IsSuperUtlSkill','math.ceil','math.floor'];
+const allowedFunctions=['CmdCaster.GetStateLayer','PlayerRole.GetStateLayer','UpperTarget.GetStateLayer','OwnerCard.GetStateLayer','CurCard.GetStateLayer','CmdCaster.GetPotencyLevel','CmdCaster.GetBreakSkillLevel','GetAwakerCountBySchool','IsSuperUtlSkill','math.ceil','math.floor'];
 const allowedTargets=new Set(['UpperTarget','FrontEnemy','RandomEnemy','AllEnemy','MaxHpEnemy','MinHpEnemy','MaxHpAndBlockEnemy','MinHpAndBlockEnemy']);
 const allowedFields=new Set(['id','Type','Target','Para','Cond','VFX','DelayTime','PerformTarget']);
 const presentationTargets=new Set(['CmdTarget','EnemyFieldCenter']);

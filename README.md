@@ -37,7 +37,7 @@ An explicitly exported PC replay can now be processed without running game logic
 
 The native decoder has passed a synthetic round trip, and the index/adapter have synthetic integration coverage. No actual server replay has been decoded yet. See `docs/LOCAL_REPLAY_RECOVERY.md` and `docs/REPLAY_ACTION_CANDIDATE.md` for the explicit limits.
 
-The source-hashed static audit follows supported-tag Awakener skills to their commands and currently finds 186 of 198 linked commands containing ordinary Active damage have row shapes the replay adapter can parse. This is potential replay-regression coverage only; it is not gameplay support or accuracy evidence.
+The source-hashed static audit follows supported-tag Awakener skills to their commands and currently finds 187 of 198 linked commands containing ordinary Active damage have row shapes the replay adapter can parse. This is potential replay-regression coverage only; it is not gameplay support or accuracy evidence.
 
 ## Evidence and next validation
 

@@ -96,6 +96,13 @@
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2527921886044457143_BattleUnitAwaker.lua"
         },
         {
+          "module": "BattleRoleMgrServer",
+          "member": "GetAwakerCountBySchool",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "0bd1b2e9992feb6c51672cec81fe5282c7ab67c112cb62f38c144dd9ba2ce427",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4865875098926777096_BattleRoleMgrServer.lua"
+        },
+        {
           "module": "BattlePropertyServer",
           "member": "GetMaxUltiEnergy",
           "bundle": "pc\\downloaded\\share.ab",
@@ -132,7 +139,7 @@
         },
         {
           "module": "BattleCmdParser",
-          "member": "IsSuperUtlSkill",
+          "member": "IsSuperUtlSkill,GetAwakerCountBySchool",
           "bundle": "pc\\downloaded\\share.ab",
           "sha256": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6247644512047908854_BattleCmdParser.lua"
@@ -150,6 +157,13 @@
           "bundle": "pc\\downloaded\\share.ab",
           "sha256": "6d87f4da91293c019579f5d586a093763d3fb1051d6efed8652cdbc3b114e208",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3933469113754588179_BEActiveDamage.lua"
+        },
+        {
+          "module": "AwakerConfig",
+          "member": "complete export",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "167ebd584b4b6620b40e53a6918a4c97a715abb19f5d72f4a58feb7d689373a5",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\4520843779213429262_AwakerConfig.lua"
         },
         {
           "module": "Skill",
@@ -177,13 +191,13 @@
         "tests/replay-index.test.mjs",
         "tests/replay-action-candidate.test.mjs"
       ],
-      "scope": "Authored fail-closed adapter supports one direct PvE Awakener Active hit, one monster and exactly one eligible ordinary damage row. Conditions/parameters support captured role/card state layers, potency/breakthrough, live properties, Super Ultimate state, ceil/floor and Lua logical numeric selection. A nonordinary damage row must have a fully resolved false condition; eligible, unconditional or unresolved competing damage fails. Target HP/block are restored from explicit BeHit oldHp/blockLose after their recorded mutations. Observed damage/crit stay outside prediction inputs. No real replay decoded, trigger graph execution, blind holdout or gameplay validation",
+      "scope": "Authored fail-closed adapter supports one direct PvE Awakener Active hit, one monster and exactly one eligible ordinary damage row. Conditions/parameters support captured role/card state layers, potency/breakthrough, configured PvE team-school counts, live properties, Super Ultimate state, ceil/floor and Lua logical numeric selection. A nonordinary damage row must have a fully resolved false condition; eligible, unconditional or unresolved competing damage fails. Target HP/block are restored from explicit BeHit oldHp/blockLose after their recorded mutations. Observed damage/crit stay outside prediction inputs. No real replay decoded, trigger graph execution, blind holdout or gameplay validation",
       "gameplayValidation": false
     },
     {
       "id": "PC144:ReplayCandidateRowCoverage",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
-      "claim": "The current exports contain 627 supported-tag Awakener skills linked to 531 commands; 186 of the 198 linked commands containing ordinary Active damage pass the replay candidate static shape checks, and 226 of 246 ordinary Active rows have compatible syntax",
+      "claim": "The current exports contain 627 supported-tag Awakener skills linked to 531 commands; 187 of the 198 linked commands containing ordinary Active damage pass the replay candidate static shape checks, and 230 of 246 ordinary Active rows have compatible syntax",
       "sources": [
         {
           "module": "Skill",
@@ -200,11 +214,25 @@
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
         },
         {
+          "module": "AwakerConfig",
+          "member": "School values",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "167ebd584b4b6620b40e53a6918a4c97a715abb19f5d72f4a58feb7d689373a5",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\4520843779213429262_AwakerConfig.lua"
+        },
+        {
           "module": "BattleCmdParser",
-          "member": "MinHpEnemy,MaxHpEnemy,MinHpAndBlockEnemy,MaxHpAndBlockEnemy,IsSuperUtlSkill",
+          "member": "MinHpEnemy,MaxHpEnemy,MinHpAndBlockEnemy,MaxHpAndBlockEnemy,IsSuperUtlSkill,GetAwakerCountBySchool",
           "bundle": "pc\\downloaded\\share.ab",
           "sha256": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6247644512047908854_BattleCmdParser.lua"
+        },
+        {
+          "module": "BattleRoleMgrServer",
+          "member": "GetAwakerCountBySchool",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "0bd1b2e9992feb6c51672cec81fe5282c7ab67c112cb62f38c144dd9ba2ce427",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4865875098926777096_BattleRoleMgrServer.lua"
         },
         {
           "module": "BattleCmdServer",
@@ -239,7 +267,7 @@
         "tests/replay-candidate-row-audit.test.mjs",
         "tests/replay-action-candidate.test.mjs"
       ],
-      "scope": "Source-hashed static audit follows Awakener-owned supported-tag Skill CmdList/tempCmdList links, then checks row fields, target selectors, competing damage types and supported condition/parameter syntax. Conditional competing damage is accepted statically only when every competitor condition is resolvable; runtime must prove each false. HP and HP+block selectors are reconstructed from complete captured living-enemy maps and original registry-order tie behavior. Super Ultimate is derived from captured properties under the inspected client rule. PerformTarget is accepted only for inspected CmdTarget and EnemyFieldCenter presentation routing. Does not establish runtime bindings, eligible condition count, hit association, property completeness, critical RNG, card executability or gameplay correctness",
+      "scope": "Source-hashed static audit follows Awakener-owned supported-tag Skill CmdList/tempCmdList links, then checks row fields, target selectors, competing damage types and supported condition/parameter syntax. Conditional competing damage is accepted statically only when every competitor condition is resolvable; runtime must prove each false. PvE school counts derive from all captured Awakener roles joined to AwakerConfig. HP and HP+block selectors are reconstructed from complete captured living-enemy maps and original registry-order tie behavior. Super Ultimate is derived from captured properties under the inspected client rule. PerformTarget is accepted only for inspected CmdTarget and EnemyFieldCenter presentation routing. Does not establish runtime bindings, eligible condition count, hit association, property completeness, critical RNG, card executability or gameplay correctness",
       "gameplayValidation": false
     },
     {

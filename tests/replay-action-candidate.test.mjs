@@ -8,7 +8,7 @@ const fixture=()=>({
     roles:{'1':{uid:1,tid:101,camp:1,roleType:1,breakSkillLevel:0,potencyLevel:0,properties:{...properties,crit:100}},'2':{uid:2,tid:201,camp:2,roleType:2,properties:{...properties}},'3':{uid:3,tid:0,camp:1,roleType:3,properties:{...properties}}},
     cards:{'30':{uid:30,tid:10,ownerUid:1,camp:1,cardArgs:{1:100},properties:{crit:0}}},activeStates:[],window:{selectedTargetCommands:[{data:{uids:[2]}}],events:[{recordIndex:4,frameIndex:2,eventName:'BeHit',data:{roleUid:2,beHitConfig:{castRoleUid:1,skillConfigId:10,castDamage:250,isCrit:true}}}],hits:[{recordIndex:4,frameIndex:2,eventName:'BeHit',data:{roleUid:2,beHitConfig:{castRoleUid:1,skillConfigId:10,castDamage:250,isCrit:true}}}],
       hitSnapshots:[{hitIndex:0,recordIndex:4,frameIndex:2,boundaryStatus:'COMPLETE',roles:{'1':{uid:1,tid:101,camp:1,roleType:1,breakSkillLevel:0,potencyLevel:0,properties:{...properties,crit:100}},'2':{uid:2,tid:201,camp:2,roleType:2,properties:{...properties}},'3':{uid:3,tid:0,camp:1,roleType:3,properties:{...properties}}},cards:{'30':{uid:30,tid:10,ownerUid:1,camp:1,cardArgs:{1:100},properties:{crit:0}}},activeStates:[],hitData:{roleUid:2,beHitConfig:{castRoleUid:1,skillConfigId:10,castDamage:250,isCrit:true}},reconstruction:{targetHp:'beHitConfig.oldHp',targetBlock:'post-event target block + beHitConfig.blockLose'}}]}}]},
-  skills:{'10':{ID:10,CmdList:20,Type:{1:'Card_Strike'}}},commands:{'20':{data_list:{1:{Type:'BEActiveDamage',Target:'UpperTarget',Para:'Arg1'},2:{Type:'BEGainUltiEnergy',Target:'CmdCaster',Para:5}}}},monsters:{'201':{ID:201,BattleTag:'Boss'}}});
+  skills:{'10':{ID:10,CmdList:20,Type:{1:'Card_Strike'}}},commands:{'20':{data_list:{1:{Type:'BEActiveDamage',Target:'UpperTarget',Para:'Arg1'},2:{Type:'BEGainUltiEnergy',Target:'CmdCaster',Para:5}}}},monsters:{'201':{ID:201,BattleTag:'Boss'}},awakeners:{'101':{ID:101,School:1}}});
 
 test('replay card boundary becomes a calculated regression candidate without reading observed damage',()=>{
   const input=fixture(),result=buildReplayActionCandidate({...input,actionIndex:0});
@@ -63,4 +63,12 @@ test('replay adapter accepts only condition-resolved inactive competing damage p
   const result=buildReplayActionCandidate({...input,actionIndex:0});assert.equal(result.routing.competingDamageSelection[0].condition.passed,false);
   snapshot.activeStates=[{ownerUid:1,stateId:99,layer:1,isDeleted:false}];assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0}),/competing damage effect/);
   delete input.commands['20'].data_list['2'].Cond;assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0}),/Unconditional competing/);
+});
+
+test('replay adapter counts captured PvE Awakeners by configured school',()=>{
+  const input=fixture(),snapshot=input.index.actionSnapshots[0].window.hitSnapshots[0];
+  snapshot.roles['4']={uid:4,tid:102,camp:1,roleType:1,properties:{...properties}};input.awakeners['102']={ID:102,School:2};
+  input.commands['20']={data_list:{1:{Type:'BEActiveDamage',Target:'UpperTarget',Para:'Arg1',Cond:'GetAwakerCountBySchool(1)==1'},2:{Type:'BEActiveDamage.State',Target:'UpperTarget',Para:'Arg1',Cond:'GetAwakerCountBySchool(2)==0'}}};
+  const result=buildReplayActionCandidate({...input,actionIndex:0});assert.deepEqual(result.routing.awakerSchoolCounts,{'1':1,'2':1});assert.equal(result.routing.competingDamageSelection[0].condition.passed,false);
+  delete input.awakeners['102'];assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0}),/school configuration/);
 });
