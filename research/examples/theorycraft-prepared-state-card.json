@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-theorycraft-request",
+  "requestId": "catalog-temporary-crit-damage-state-card",
+  "operation": "prepare-skill-command",
+  "input": {
+    "schemaVersion": 2,
+    "kind": "morimens-prepared-skill-request",
+    "build": "pc-res144-build51",
+    "preparation": {
+      "skillId": 134203,
+      "skillLevel": 1,
+      "isAwaker": false,
+      "breakSkillLevel": 0,
+      "potencyLevel": 0,
+      "overrides": [],
+      "variables": {},
+      "conditionResults": {},
+      "stateQueries": {}
+    },
+    "execution": {
+      "experiment": {
+        "schemaVersion": 1,
+        "kind": "morimens-role-state-command",
+        "build": "pc-res144-build51",
+        "otherEvents": "assumed-absent",
+        "variables": {},
+        "targetBindings": { "PlayerRole": 8 },
+        "roles": [
+          {
+            "id": 7,
+            "roleType": "Awakener",
+            "properties": { "i_crit_per": 0, "i_crit_damage_per": 0 },
+            "tentacleContext": null
+          },
+          {
+            "id": 8,
+            "roleType": "Awakener",
+            "properties": { "i_crit_per": 0, "i_crit_damage_per": 50, "crit_damage": 0 },
+            "tentacleContext": null
+          }
+        ],
+        "stateRuntime": [
+          {
+            "id": 3835,
+            "skillLevel": 1,
+            "casterRoleId": 7,
+            "specialValue": 0,
+            "banned": false
+          }
+        ]
+      },
+      "targetBinding": {
+        "expression": "PlayerRole",
+        "resolution": "role-registry",
+        "roleId": 8
+      },
+      "lifecycle": "assumed-absent"
+    }
+  }
+}

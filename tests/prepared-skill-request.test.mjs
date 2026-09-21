@@ -60,3 +60,25 @@ test('prepared setup skill rejects caller-authored catalog state definitions',()
   execution.experiment.definitions=[];
   assert.throws(()=>runPreparedSkillRequest({schemaVersion:1,kind:'morimens-prepared-skill-request',preparation:prep,execution},source),/without caller definitions/);
 });
+
+test('real temporary-crit card derives its catalog state and mutates the selected role',()=>{
+  const request=JSON.parse(readFileSync(new URL('../research/examples/theorycraft-prepared-state-card.json',import.meta.url),'utf8')).input;
+  const result=runPreparedSkillRequest(request,source),target=result.execution.calculation.roles.find(role=>role.id===8);
+  assert.equal(result.status,'EXPERIMENTAL');assert.equal(result.prepared.commandId,134192);assert.deepEqual(result.prepared.arguments,[70]);assert.equal(result.commandSupport.structurallyCompatible,true);
+  assert.deepEqual(result.execution.catalogStateDefinitions,[{id:3835,skillLevel:1,casterRoleId:7,specialValue:0,banned:false,maximum:'999999999',properties:[{property:'crit_damage',expression:'ChangedLayer'}]}]);
+  assert.equal(target.properties.crit_damage,105);assert.equal(result.execution.calculation.states[0].layer,70);assert.equal(result.execution.calculation.states[0].properties.crit_damage.value,70);assert.equal(result.finalDamage,null);
+});
+
+test('prepared setup state card executes against matching resource-150 catalogs',()=>{
+  const readCurrent=name=>{const bytes=readFileSync(new URL(`../research/observations/current-res150-build51/modules/${name}.json`,import.meta.url));return {data:JSON.parse(bytes),sha256:createHash('sha256').update(bytes).digest('hex')};};
+  const current=Object.fromEntries(['Skill','BattleApi','Cmd','State'].map(name=>[name,readCurrent(name)])),currentSource={build:'pc-res150-build51',skills:current.Skill.data,battleApi:current.BattleApi.data,commands:current.Cmd.data,states:current.State.data,sourceHashes:Object.fromEntries(Object.entries(current).map(([name,row])=>[name,row.sha256]))};
+  const request=JSON.parse(readFileSync(new URL('../research/examples/theorycraft-prepared-state-card.json',import.meta.url),'utf8')).input;request.build='pc-res150-build51';request.execution.experiment.build='pc-res150-build51';
+  const result=runPreparedSkillRequest(request,currentSource),target=result.execution.calculation.roles.find(role=>role.id===8);
+  assert.equal(result.build,'pc-res150-build51');assert.equal(result.execution.build,'pc-res150-build51');assert.equal(target.properties.crit_damage,105);assert.equal(result.execution.calculation.states[0].layer,70);
+});
+
+test('prepared setup rejects an execution snapshot from another resource build',()=>{
+  const request=JSON.parse(readFileSync(new URL('../research/examples/theorycraft-prepared-state-card.json',import.meta.url),'utf8')).input;
+  request.execution.experiment.build='pc-res150-build51';
+  assert.throws(()=>runPreparedSkillRequest(request,source),/matching-build/);
+});

@@ -6103,6 +6103,47 @@
       ]
     },
     {
+      "id": "Theorycraft:PreparedStateCard",
+      "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
+      "claim": "The catalog-prepared theorycraft path selects a state-only card, imports its command and State definition, applies layers to an explicit role snapshot and preserves the distinction between retained contribution and amplified live property storage",
+      "scope": "Authored component composition over matching resource-144 and resource-150 Skill/Cmd/State rows. Skill 134203 prepares Arg1=70 and state 3835 contributes ChangedLayer to crit_damage; an explicit i_crit_damage_per=50 recipient snapshot stores a 70-point state contribution and applies a 105-point live addition. BattleStateServer is byte-identical and resource 150 matches all 1,806 inherited combat-property mutation fixtures. State immunity, pre-creation layer modifiers, per-application/total limits, target acquisition, payment, callbacks, expiry, later damage, connected original scheduling, gameplay and holdout validation are excluded. Theorycraft track only; no cheese, budget or observed-strategy claim.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Skill",
+          "member": "134203",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8"
+        },
+        {
+          "module": "Cmd",
+          "member": "134192",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2"
+        },
+        {
+          "module": "State",
+          "member": "3835",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8"
+        },
+        {
+          "module": "BattleStateServer",
+          "member": "InitProperty,ChangeOwnerProperty",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "ChangeProperty,BeforeAdd",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76"
+        }
+      ],
+      "checks": [
+        "tests/prepared-skill-request.test.mjs",
+        "tests/theorycraft-api.test.mjs",
+        "tests/combat-property-mutation.test.mjs",
+        "research/examples/theorycraft-prepared-state-card.json",
+        "docs/PREPARED_STATE_CARD.md"
+      ]
+    },
+    {
       "id": "ANDROID83:StartupLuaArchiveInspection",
       "status": "CONFIRMED_FROM_LOCAL_ARCHIVE_PARSER",
       "claim": "The protected packaged Android startup archive deserializes without execution into seven Lua prototypes and 109 string constants; its one literal URL is telemetry and no literal resource-download URL is present",

@@ -61,6 +61,14 @@ The setup-only Final Evolution example is also runnable end to end:
 node tools/prepare_skill_command.mjs research/examples/prepared-role-state-request.json research/examples/prepared-role-state-context.json
 ```
 
+A state-only card can use the same catalog-backed path through the shared theorycraft API. The exported temporary-critical-damage card example runs on both pinned PC catalogs and demonstrates the difference between a state's retained 70-point contribution and the 105-point live property addition produced by an explicit 50% `i_crit_damage_per` snapshot:
+
+```text
+node tools/run_theorycraft_request.mjs --input research/examples/theorycraft-prepared-state-card.json
+```
+
+See `PREPARED_STATE_CARD.md`. This path still stops short of state immunity, layer modifiers/limits, target acquisition, payment, callbacks and expiry.
+
 The example is a `theorycrafting` input fixture. Its `stateRuntime` entries do
 not contain catalog maxima or property expressions; those come from State.json
 and the response records that file's hash. It demonstrates the recovered

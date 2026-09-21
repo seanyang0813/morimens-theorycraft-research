@@ -31,3 +31,7 @@ while `tentacle_dmg` is explicitly blocked by the recovered property gate.
 This is an authored composition of bounded recovered components. It does not run
 the original command scheduler, derive the monster's ATK or Arg1, dispatch state
 listeners, clear states, execute damage, or count as gameplay verification.
+
+The runner accepts pinned resource-144 and resource-150 inputs. The prepared
+skill, command catalog, experiment snapshot and reported build must agree;
+mixed-build execution is rejected.

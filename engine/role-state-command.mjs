@@ -16,7 +16,7 @@ const roleTypes=new Set(['Monster','Awakener','Player']);
 // intentionally independent of the damage-target model used by state-sequence.
 export function runRoleStateCommand(value){
   const input=snapshot(value),keys=['schemaVersion','kind','build','otherEvents','command','variables','targetBindings','roles','definitions'];
-  if(!exact(input,keys)||input.schemaVersion!==1||input.kind!=='morimens-role-state-command'||input.build!=='pc-res144-build51'||input.otherEvents!=='assumed-absent')throw new Error('Explicit setup-only role-state command required');
+  if(!exact(input,keys)||input.schemaVersion!==1||input.kind!=='morimens-role-state-command'||!['pc-res144-build51','pc-res150-build51'].includes(input.build)||input.otherEvents!=='assumed-absent')throw new Error('Explicit setup-only role-state command required');
   if(!input.variables||Array.isArray(input.variables)||Object.entries(input.variables).some(([name,v])=>!name||!Number.isFinite(v)))throw new Error('Explicit finite command variables required');
   if(!input.targetBindings||Array.isArray(input.targetBindings)||Object.entries(input.targetBindings).some(([selector,id])=>!selector||!Number.isSafeInteger(id)))throw new Error('Explicit target-selector bindings required');
   if(!Array.isArray(input.roles)||!Array.isArray(input.definitions))throw new Error('Explicit roles and state definitions required');

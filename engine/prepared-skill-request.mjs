@@ -38,7 +38,7 @@ export function runPreparedSkillRequest(value,source){
   let execution=null;
   if(value.execution!==null){
     if(!exact(value.execution,['experiment','targetBinding','lifecycle']))throw new Error('Exact execution context or null required');
-    execution=runPreparedSkillExperiment({...value.execution,preparation,commands:source.commands,states:source.states});
+    execution=runPreparedSkillExperiment({...value.execution,build,preparation,commands:source.commands,states:source.states});
   }
   return {schemaVersion:1,status:execution?.status??'PREPARED',build,finalDamage:null,skillId:request.skillId,sourceHashes:{...source.sourceHashes},prepared,execution,
     commandSupport:execution?.support??inspectCommandSupport({command,allowedFunctions:Object.keys(request.stateQueries)}),commandSummary:{effectTypes,rowCount:Object.keys(command.data_list??{}).length},

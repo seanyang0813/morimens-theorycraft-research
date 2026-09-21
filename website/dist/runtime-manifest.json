@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "469a253da01f204af0a0d7ffb95b6d76f47086da427a232fcfa13411c9439d6d",
+  "fingerprint": "37a313b16a7c5c879f2c6e054d92ed4e937e714411ade8c5cf7d6004fdd8187d",
   "files": {
     "build-catalog.json": "2d1188fadcaff7a1eb53af580c509756b21a3f003065c7c9036aa919958a1496",
     "client-build-data-res150.json": "49d4bf5abe419360df47e4959a26fb50bdaa37ed8189c022a644ff518f6fba80",
@@ -79,7 +79,7 @@
     "engine/property-initialization.mjs": "a57ff39cf0a1860b857b5c3cafb6d54324e118fc6f97fa738afa41abcf792fbb",
     "engine/research-timeline.mjs": "7239c698436549bab8bd6218e570535ed8042bde82e6e38075acb1bf4f35d64f",
     "engine/resolved-hit-timeline.mjs": "86d3d2562cae483cddf204af524a5ff6ce3b0ec10e9a1e2533bb732c6701a949",
-    "engine/role-state-command.mjs": "29c344c8b9b2656a448f5740b2afb0b84b110f568e409378e7ead64ee4f3bd00",
+    "engine/role-state-command.mjs": "727dec1b53ab94d8438ffc601bc1afbe37fae686143b3a11c94d58bcd0639ab6",
     "engine/show-block.mjs": "73d7595ef8888284862e2496a4aecccfb1a174065dcf7e9525bf281e51b63a50",
     "engine/show-damage.mjs": "95937cfedbd2ba6398e6c799f51549e1739530f938b0a95696a2001f75173f2b",
     "engine/show-heal.mjs": "4acf86e0248eb02ecb2c682238d7c1913febc15dd639ddc36afd3101b0c9cc69",
@@ -117,7 +117,7 @@
     "engine/ulti-energy-gain.mjs": "08a4f4f32a7700422d6999e19e0e58fb2cace3bcbf7d0a910a9bcacf3b520468",
     "engine/use-attach-post-card.mjs": "a68fe61a2e770f751e8fbffcb417c85af9f1858968bf47ae492a4fca2bca0289",
     "engine/wheel-stats.mjs": "484a5b4a51fbbd9c4759b27457ae9eec71fceb0420354823f54654edfb78fadd",
-    "rules.json": "3a7f6e6b370e5dc0f863aee70e1766832ae1113ac0d13f9be34f4b9a3b2fa044",
+    "rules.json": "c16952716540823463ff96164760c5450d6a10a49d504596893dba98296fe006",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af"
   }
 }

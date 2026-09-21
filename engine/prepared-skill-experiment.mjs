@@ -9,8 +9,8 @@ import {runRoleStateCommand} from './role-state-command.mjs';
 import {assembleCatalogStateDefinitions} from './catalog-state-definitions.mjs';
 
 // Connect selected exported skills to supported imported rows without dropping effects.
-export function runPreparedSkillExperiment({preparation,commands,states,experiment,targetBinding,lifecycle}){
-  if(!commands||!experiment||Object.hasOwn(experiment,'rows')||Object.hasOwn(experiment,'command')||!experiment.variables||lifecycle!=='assumed-absent')throw new Error('Explicit command catalog, experiment without rows and absent lifecycle assumption required');
+export function runPreparedSkillExperiment({build='pc-res144-build51',preparation,commands,states,experiment,targetBinding,lifecycle}){
+  if(!['pc-res144-build51','pc-res150-build51'].includes(build)||!commands||!experiment||experiment.build!==build||Object.hasOwn(experiment,'rows')||Object.hasOwn(experiment,'command')||!experiment.variables||lifecycle!=='assumed-absent')throw new Error('Explicit matching-build command catalog, experiment without rows and absent lifecycle assumption required');
   const prepared=prepareSkillCommand(preparation);
   if(!Object.hasOwn(commands,prepared.commandId))throw new Error('Selected command is missing');
   const targetSelection=resolveScalarSkillField({...preparation,field:'CmdTarget',evaluate:preparation.evaluateCondition});
@@ -31,7 +31,7 @@ export function runPreparedSkillExperiment({preparation,commands,states,experime
   const profile=setup?'role-state-setup':terminal?'terminal-self-state':mixed?'damage-and-energy':'ordinary-active-UpperTarget';
   const support=inspectCommandSupport({command:commands[prepared.commandId],allowedFunctions:mixed||terminal?[]:preparation.allowedFunctions??[],profile,targetExpression:targetSelection.value});
   const dependencies=[...prepared.unresolvedDependencies,targetResolution?'FrontEnemy uses supplied camp, lock/taunt identities and role snapshots; no automatic registry derivation':'Skill target resolved externally; no automatic target selection','Skill arguments frozen at preparation; no intervening argument refresh','No costs, lifecycle, passive triggers, animation timing or gameplay validation'];
-  const base={build:'pc-res144-build51',finalDamage:null,prepared,targetSelection,targetResolution,targetBinding:{...targetBinding},support,unresolvedDependencies:dependencies};
+  const base={build,finalDamage:null,prepared,targetSelection,targetResolution,targetBinding:{...targetBinding},support,unresolvedDependencies:dependencies};
   if(!support.structurallyCompatible)return {...base,status:'UNSUPPORTED_COMMAND',calculation:null};
   for(const name of Object.keys(experiment.variables))if(/^Arg\d+$/.test(name))throw new Error('Command ArgN bindings must come from prepared skill arguments');
   const variables={...experiment.variables,...prepared.argumentBindings};
