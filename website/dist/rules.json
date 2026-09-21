@@ -155,13 +155,13 @@
     {
       "id": "PC144:ReplayCandidateRowCoverage",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
-      "claim": "The current exports contain 627 supported-tag Awakener skills linked to 531 commands; 187 of the 198 linked commands containing ordinary Active damage pass the replay candidate static shape checks, and 230 of 246 ordinary Active rows have compatible syntax",
-      "scope": "Source-hashed static audit follows Awakener-owned supported-tag Skill CmdList/tempCmdList links, then checks row fields, target selectors, competing damage types and supported condition/parameter syntax. Conditional competing damage is accepted statically only when every competitor condition is resolvable; runtime must prove each false. PvE school counts derive from all captured Awakener roles joined to AwakerConfig. HP and HP+block selectors are reconstructed from complete captured living-enemy maps and original registry-order tie behavior. Super Ultimate is derived from captured properties under the inspected client rule. PerformTarget is accepted only for inspected CmdTarget and EnemyFieldCenter presentation routing. Does not establish runtime bindings, eligible condition count, hit association, property completeness, critical RNG, card executability or gameplay correctness",
+      "claim": "The current exports contain 296 non-PvP supported-tag Awakener skills linked to 263 commands; 120 of the 121 linked commands containing ordinary Active damage pass the PvE replay candidate static shape checks, and 146 of 149 ordinary Active rows have compatible syntax",
+      "scope": "Source-hashed static audit excludes skills explicitly marked IsPVP, follows remaining Awakener-owned supported-tag Skill CmdList/tempCmdList links, then checks row fields, target selectors, competing damage types and supported condition/parameter syntax. Conditional competing damage is accepted statically only when every competitor condition is resolvable; runtime must prove each false. PvE school counts derive from all captured Awakener roles joined to AwakerConfig. HP and HP+block selectors are reconstructed from complete captured living-enemy maps and original registry-order tie behavior. Super Ultimate is derived from captured properties under the inspected client rule. PerformTarget is accepted only for inspected CmdTarget and EnemyFieldCenter presentation routing. Does not establish runtime bindings, eligible condition count, hit association, property completeness, critical RNG, card executability or gameplay correctness",
       "gameplayValidation": false,
       "sources": [
         {
           "module": "Skill",
-          "member": "complete export",
+          "member": "complete export including IsPVP",
           "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8"
         },
         {

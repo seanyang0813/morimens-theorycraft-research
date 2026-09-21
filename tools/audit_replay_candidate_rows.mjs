@@ -16,7 +16,7 @@ export function auditReplayCandidateRows(commands,skills,{sourceSha256=null}={})
   const relevantSkills=[],relevantCommandIds=new Set();
   for(const [skillId,skill] of Object.entries(skills)){
     const tags=[...new Set(leaves(skill?.Type,'string'))];
-    if(!Number.isSafeInteger(skill?.AwakerID)||!tags.some(tag=>supportedTags.has(tag)))continue;
+    if(skill?.IsPVP===true||!Number.isSafeInteger(skill?.AwakerID)||!tags.some(tag=>supportedTags.has(tag)))continue;
     const ids=[...new Set([...leaves(skill.CmdList,'number'),...leaves(skill.tempCmdList,'number')].filter(id=>Number.isSafeInteger(id)&&id>0&&Object.hasOwn(commands,String(id))))];
     ids.forEach(id=>relevantCommandIds.add(id));relevantSkills.push({skillId:Number(skillId),tags,commandIds:ids});
   }
@@ -54,7 +54,7 @@ export function auditReplayCandidateRows(commands,skills,{sourceSha256=null}={})
   }
   return {schemaVersion:1,kind:'MORIMENS_REPLAY_CANDIDATE_ROW_AUDIT',build:'pc-res144-build51',sourceSha256,relevantAwakenerSkills:relevantSkills.length,relevantLinkedCommands:relevantCommandIds.size,commandsWithOrdinaryActive,ordinaryActiveRows,conditionalRows,rowExpressionCompatible,commandShapeCompatible,blockerCounts:Object.fromEntries(Object.entries(blockerCounts).sort()),
     allowedFunctions:[...allowedFunctions],allowedTargets:[...allowedTargets],supportedTags:[...supportedTags],skills:relevantSkills,commands:commandRows,
-    scope:'Static syntax/shape compatibility for commands linked by supported-tag Awakener skills and retrospective replay hit-row selection. Runtime variables, condition outcomes, target identity, hit count, property completeness, critical RNG and gameplay correctness are not established.'};
+    scope:'Static syntax/shape compatibility for commands linked by non-PvP supported-tag Awakener skills and retrospective PvE replay hit-row selection. Runtime variables, condition outcomes, target identity, hit count, property completeness, critical RNG and gameplay correctness are not established.'};
 }
 
 if(import.meta.url===pathToFileURL(process.argv[1]).href){
