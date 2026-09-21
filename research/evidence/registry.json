@@ -177,13 +177,13 @@
         "tests/replay-index.test.mjs",
         "tests/replay-action-candidate.test.mjs"
       ],
-      "scope": "Authored fail-closed adapter supports one direct PvE Awakener Active hit, one monster and exactly one eligible ordinary damage row. Conditions/parameters support captured role/card state layers, potency/breakthrough, live properties, Super Ultimate state, ceil/floor and Lua logical numeric selection; unresolved bindings and competing damage effects fail. Target HP/block are restored from explicit BeHit oldHp/blockLose after their recorded mutations. Observed damage/crit stay outside prediction inputs. No real replay decoded, trigger graph execution, blind holdout or gameplay validation",
+      "scope": "Authored fail-closed adapter supports one direct PvE Awakener Active hit, one monster and exactly one eligible ordinary damage row. Conditions/parameters support captured role/card state layers, potency/breakthrough, live properties, Super Ultimate state, ceil/floor and Lua logical numeric selection. A nonordinary damage row must have a fully resolved false condition; eligible, unconditional or unresolved competing damage fails. Target HP/block are restored from explicit BeHit oldHp/blockLose after their recorded mutations. Observed damage/crit stay outside prediction inputs. No real replay decoded, trigger graph execution, blind holdout or gameplay validation",
       "gameplayValidation": false
     },
     {
       "id": "PC144:ReplayCandidateRowCoverage",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
-      "claim": "The current exports contain 627 supported-tag Awakener skills linked to 531 commands; 182 of the 198 linked commands containing ordinary Active damage pass the replay candidate static shape checks, and 226 of 246 ordinary Active rows have compatible syntax",
+      "claim": "The current exports contain 627 supported-tag Awakener skills linked to 531 commands; 186 of the 198 linked commands containing ordinary Active damage pass the replay candidate static shape checks, and 226 of 246 ordinary Active rows have compatible syntax",
       "sources": [
         {
           "module": "Skill",
@@ -205,6 +205,13 @@
           "bundle": "pc\\downloaded\\share.ab",
           "sha256": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-6247644512047908854_BattleCmdParser.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "CheckCondition",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
         },
         {
           "module": "BattleEffectServer",
@@ -232,7 +239,7 @@
         "tests/replay-candidate-row-audit.test.mjs",
         "tests/replay-action-candidate.test.mjs"
       ],
-      "scope": "Source-hashed static audit follows Awakener-owned supported-tag Skill CmdList/tempCmdList links, then checks row fields, target selectors, competing damage types and supported condition/parameter syntax. HP and HP+block selectors are reconstructed from complete captured living-enemy maps and original registry-order tie behavior. Super Ultimate is derived from captured properties under the inspected client rule. PerformTarget is accepted only for inspected CmdTarget and EnemyFieldCenter presentation routing. Does not establish runtime bindings, eligible condition count, hit association, property completeness, critical RNG, card executability or gameplay correctness",
+      "scope": "Source-hashed static audit follows Awakener-owned supported-tag Skill CmdList/tempCmdList links, then checks row fields, target selectors, competing damage types and supported condition/parameter syntax. Conditional competing damage is accepted statically only when every competitor condition is resolvable; runtime must prove each false. HP and HP+block selectors are reconstructed from complete captured living-enemy maps and original registry-order tie behavior. Super Ultimate is derived from captured properties under the inspected client rule. PerformTarget is accepted only for inspected CmdTarget and EnemyFieldCenter presentation routing. Does not establish runtime bindings, eligible condition count, hit association, property completeness, critical RNG, card executability or gameplay correctness",
       "gameplayValidation": false
     },
     {

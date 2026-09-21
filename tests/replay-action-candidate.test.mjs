@@ -56,3 +56,11 @@ test('replay adapter accepts inspected presentation-only target fields',()=>{
   const input=fixture();input.commands['20'].data_list['1'].PerformTarget='PlayerRole';
   assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0}),/row field/);
 });
+
+test('replay adapter accepts only condition-resolved inactive competing damage paths',()=>{
+  const input=fixture(),snapshot=input.index.actionSnapshots[0].window.hitSnapshots[0];
+  input.commands['20']={data_list:{1:{Type:'BEActiveDamage',Target:'UpperTarget',Para:'Arg1',Cond:'CmdCaster.GetStateLayer(99)==0'},2:{Type:'BEActiveDamage.State',Target:'UpperTarget',Para:'Arg1',Cond:'CmdCaster.GetStateLayer(99)>0'}}};
+  const result=buildReplayActionCandidate({...input,actionIndex:0});assert.equal(result.routing.competingDamageSelection[0].condition.passed,false);
+  snapshot.activeStates=[{ownerUid:1,stateId:99,layer:1,isDeleted:false}];assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0}),/competing damage effect/);
+  delete input.commands['20'].data_list['2'].Cond;assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0}),/Unconditional competing/);
+});

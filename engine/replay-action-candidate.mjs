@@ -56,7 +56,8 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
   const selectedCommand=resolveScalarSkillField({...routeInput,field:'CmdList'});
   if(!Number.isSafeInteger(selectedCommand.value)||!commands[String(selectedCommand.value)])throw new Error('Resolved exported command required');
   const imported=importCommandRows(commands[String(selectedCommand.value)]),damageRows=imported.rows.filter(row=>row.Type==='BEActiveDamage');
-  if(!damageRows.length||imported.rows.some(row=>row.Type!=='BEActiveDamage'&&/Damage/.test(row.Type)))throw new Error('At least one ordinary Active row and no competing damage effect required');
+  if(!damageRows.length)throw new Error('At least one ordinary Active row required');
+  const competingDamageRows=imported.rows.filter(row=>row.Type!=='BEActiveDamage'&&/Damage/.test(row.Type));
   if(damageRows.some(row=>Object.keys(row).some(key=>!['id','Type','Target','Para','Cond','VFX','DelayTime','PerformTarget'].includes(key))||(Object.hasOwn(row,'PerformTarget')&&!presentationTargets.has(row.PerformTarget))))throw new Error('Unsupported Active-damage row field');
   const args=dense(card.cardArgs,'Captured card arguments');
   if(args.some(value=>!Number.isFinite(value)))throw new Error('Captured card arguments must be finite');
@@ -100,6 +101,11 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
       plusValues.forEach((value,i)=>variables[`ParaPlus${i+1}`]=value);
     }
   }
+  const competingDamageSelection=competingDamageRows.map(row=>{
+    if(!Object.hasOwn(row,'Cond'))throw new Error('Unconditional competing damage effect is unsupported');
+    return {row,condition:compileCommandCondition(row.Cond,{allowedFunctions})(readVariable,callFunction)};
+  });
+  if(competingDamageSelection.some(item=>item.condition.passed))throw new Error('Eligible competing damage effect is unsupported');
   const rowSelection=damageRows.map(row=>({row,condition:Object.hasOwn(row,'Cond')?compileCommandCondition(row.Cond,{allowedFunctions})(readVariable,callFunction):null}));
   const eligibleRows=rowSelection.filter(item=>item.condition===null||item.condition.passed);
   const selected=exactOne(eligibleRows,'Eligible ordinary Active-damage row'),row=selected.row;
@@ -141,6 +147,6 @@ export function buildReplayActionCandidate({index,actionIndex,skills,commands,mo
   try{calculation=calculateSnapshotActiveDamage(scenario);}catch(error){if(error.message==='RNG-dependent critical outcome requires a captured pre-outcome roll')calculationBlocker=error.message;else throw error;}
   const observedCastDamage=Number.isFinite(observed.castDamage)?observed.castDamage:null;
   const comparison=calculation&&observedCastDamage!==null?{metric:'preHitDamage-vs-beHitConfig.castDamage',predicted:calculation.preHitDamage,observed:observedCastDamage,difference:calculation.preHitDamage-observedCastDamage}:null;
-  return {schemaVersion:1,kind:'MORIMENS_REPLAY_ACTION_REGRESSION_CANDIDATE',build,status:calculation?'CALCULATED_REGRESSION_CANDIDATE':'PREOUTCOME_INPUT_REQUIRED',actionIndex,identities:{cardUid:card.uid,skillId:card.tid,casterUid:caster.uid,playerUid:player.uid,targetUid,commandId:selectedCommand.value,rowId:row.id},routing:{selectedCommand,importMetadata:imported.metadata,rowSelection:rowSelection.map(item=>({rowId:item.row.id,target:item.row.Target,condition:item.condition})),targetBindingSource,selectorValidation,superUltimateResolution:{isSuperUltimate:superUltimate,doubleUltiEnergy:doubleEnergy,maximumEnergy:maxUltiEnergy,currentEnergy:prop('ulti_energy'),levelUp:prop('ulti_skill_level_up')},parameters,plusValues,tags},scenario,calculation,calculationBlocker,
+  return {schemaVersion:1,kind:'MORIMENS_REPLAY_ACTION_REGRESSION_CANDIDATE',build,status:calculation?'CALCULATED_REGRESSION_CANDIDATE':'PREOUTCOME_INPUT_REQUIRED',actionIndex,identities:{cardUid:card.uid,skillId:card.tid,casterUid:caster.uid,playerUid:player.uid,targetUid,commandId:selectedCommand.value,rowId:row.id},routing:{selectedCommand,importMetadata:imported.metadata,rowSelection:rowSelection.map(item=>({rowId:item.row.id,target:item.row.Target,condition:item.condition})),competingDamageSelection:competingDamageSelection.map(item=>({rowId:item.row.id,type:item.row.Type,target:item.row.Target,condition:item.condition})),targetBindingSource,selectorValidation,superUltimateResolution:{isSuperUltimate:superUltimate,doubleUltiEnergy:doubleEnergy,maximumEnergy:maxUltiEnergy,currentEnergy:prop('ulti_energy'),levelUp:prop('ulti_skill_level_up')},parameters,plusValues,tags},scenario,calculation,calculationBlocker,
     damageInputReconstruction:JSON.parse(JSON.stringify(hitSnapshot.reconstruction)),observedHit:JSON.parse(JSON.stringify(hit)),comparison,unresolvedDependencies:['Retrospective replay evidence cannot become a blind holdout','Action window and identity still require human review for triggered or overlapping actions','Observed hit and post-outcome critical fields are excluded from scenario construction','Target HP and block are reconstructed from explicit BeHit fields because the render record follows their mutations','No connected original card-use, trigger graph, hit resolution or independent gameplay validation']};
 }

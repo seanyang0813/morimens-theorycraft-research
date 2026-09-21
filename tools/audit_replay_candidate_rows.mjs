@@ -29,8 +29,13 @@ export function auditReplayCandidateRows(commands,skills,{sourceSha256=null}={})
     const active=imported.rows.filter(row=>row.Type==='BEActiveDamage');
     if(!active.length)continue;
     commandsWithOrdinaryActive++;ordinaryActiveRows+=active.length;
-    const competing=imported.rows.some(row=>row.Type!=='BEActiveDamage'&&/Damage/.test(row.Type));
-    if(competing)add('COMPETING_DAMAGE_EFFECT');
+    const competingRows=imported.rows.filter(row=>row.Type!=='BEActiveDamage'&&/Damage/.test(row.Type));
+    const competing=competingRows.length>0;
+    const competingConditionsResolvable=competingRows.every(row=>{
+      if(!Object.hasOwn(row,'Cond'))return false;
+      try{compileCommandCondition(row.Cond,{allowedFunctions});return true;}catch{return false;}
+    });
+    if(competing&&!competingConditionsResolvable)add('COMPETING_DAMAGE_EFFECT');
     const rows=active.map(row=>{
       const blockers=[];
       const block=code=>{blockers.push(code);add(code);};
@@ -44,8 +49,8 @@ export function auditReplayCandidateRows(commands,skills,{sourceSha256=null}={})
       if(!blockers.length)rowExpressionCompatible++;
       return {rowId:row.id,target:row.Target,conditional:Object.hasOwn(row,'Cond'),blockers};
     });
-    const compatible=!competing&&rows.every(row=>row.blockers.length===0);if(compatible)commandShapeCompatible++;
-    commandRows.push({commandId:Number(commandId),ordinaryActiveRows:rows,competingDamageEffect:competing,shapeCompatible:compatible});
+    const compatible=(!competing||competingConditionsResolvable)&&rows.every(row=>row.blockers.length===0);if(compatible)commandShapeCompatible++;
+    commandRows.push({commandId:Number(commandId),ordinaryActiveRows:rows,competingDamageEffect:competing,competingDamageConditionsResolvable:competingConditionsResolvable,shapeCompatible:compatible});
   }
   return {schemaVersion:1,kind:'MORIMENS_REPLAY_CANDIDATE_ROW_AUDIT',build:'pc-res144-build51',sourceSha256,relevantAwakenerSkills:relevantSkills.length,relevantLinkedCommands:relevantCommandIds.size,commandsWithOrdinaryActive,ordinaryActiveRows,conditionalRows,rowExpressionCompatible,commandShapeCompatible,blockerCounts:Object.fromEntries(Object.entries(blockerCounts).sort()),
     allowedFunctions:[...allowedFunctions],allowedTargets:[...allowedTargets],supportedTags:[...supportedTags],skills:relevantSkills,commands:commandRows,
