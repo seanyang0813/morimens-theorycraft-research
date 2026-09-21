@@ -7,6 +7,7 @@ import {verifyRuntimeManifest} from './verify_runtime_manifest.mjs';
 
 const root=resolve(fileURLToPath(new URL('../',import.meta.url)));
 const observationRoot=resolve(root,'research/observations');
+const publicHoldoutRoot=resolve(root,'research/evidence/holdouts');
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
 const relativePath=path=>relative(root,path).replaceAll('\\','/');
 function insideRoot(value,label){
@@ -27,8 +28,8 @@ export function freezeGameplayPrediction({scenarioFile,metric,evidenceFiles,outp
   const evidence=evidenceFiles.map(value=>readExisting(value,'Pre-outcome evidence'));
   if(evidence.some(item=>item.path===scenario.path))throw new Error('Pre-outcome evidence must be separate from the scenario');
   const output=insideRoot(outputFile,'Output');
-  const outputRel=relative(observationRoot,output);
-  if(!outputRel||outputRel.startsWith('..')||isAbsolute(outputRel))throw new Error('Output must be inside research/observations');
+  const allowed=[observationRoot,publicHoldoutRoot].some(base=>{const item=relative(base,output);return item&&!item.startsWith('..')&&!isAbsolute(item);});
+  if(!allowed)throw new Error('Output must be inside research/observations or research/evidence/holdouts');
   if(existsSync(output))throw new Error('Prediction freeze already exists; refusing to overwrite chronology evidence');
   const input=JSON.parse(scenario.bytes.toString('utf8'));
   const runtimeFingerprint=verifyRuntimeManifest(),result=runObservationScenario(input,metric);
