@@ -101,6 +101,7 @@
   "battle-property-snapshot-damage.mjs",
   "crit-resolution.mjs",
   "state-type-catalog.mjs",
+  "state-type-catalog-150.mjs",
   "target-damage-eligibility.mjs",
   "inspect-command-support.mjs",
   "import-command-rows.mjs",

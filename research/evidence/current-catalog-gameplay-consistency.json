@@ -4,13 +4,14 @@
   "analysisTrack": "verification",
   "status": "RETROSPECTIVE_CURRENT_CATALOG_ENGINE_VERSION_UNCONFIRMED",
   "catalogBuild": "pc-res150-build51",
+  "calculationBuild": "pc-res150-build51",
   "sourceHashes": {
-    "replayBatchRecovery": "c1aa09666a94930ac8ae64e3513b6bb4bb4486164f9a4d8fd488ce6989419e09",
-    "replayCatalogBuildAttribution": "457fb6ebe090b01cc13f3eb898a925057cee91fab89938bb010582497d9eefa1"
+    "replayCatalogBuildAttribution": "457fb6ebe090b01cc13f3eb898a925057cee91fab89938bb010582497d9eefa1",
+    "privateResource150AdapterAudit": "4b5491d4feeafc05f4681806bf6e40b8cf4201551481d2c9249a969e202ac9dd"
   },
-  "method": "Join anonymous exact resource-150 Cmd/Skill catalog matches to the previously published retrospective Active-hit audit.",
+  "method": "Recalculate every supported hit in exact resource-150 Cmd/Skill catalog matches through the bounded resource-150 replay adapter, using its current State classifier and cross-build-runtime-matched offense, utility, critical and final-target domains.",
   "totals": {
-    "auditedReplays": 2,
+    "auditedReplays": 3,
     "completeHitSnapshots": 79,
     "retrospectiveActiveCandidates": 13,
     "deterministicExactChecks": 0,
@@ -44,6 +45,19 @@
       "deterministicMismatches": 0,
       "exactRngBranchConsistencyChecks": 2,
       "rngBranchMismatches": 0
+    },
+    {
+      "observationId": "replay-batch-43",
+      "catalogClassification": "PC_RES150_BUILD51_CATALOG_MATCH",
+      "comparableCatalogRows": 138,
+      "currentExclusiveCatalogRows": 8,
+      "unmatchedCatalogRows": 0,
+      "completeHitSnapshots": 0,
+      "retrospectiveActiveCandidates": 0,
+      "deterministicExactChecks": 0,
+      "deterministicMismatches": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "rngBranchMismatches": 0
     }
   ],
   "publicationCredit": false,
@@ -52,6 +66,7 @@
     "The replay catalog identifies data rows, not the engine bytecode version that executed the battle",
     "Every outcome was available before calculation; no prediction was frozen before reveal",
     "The matched cases are critical/noncritical branch consistency checks and do not reconstruct the original random draw",
+    "The calculation path is resource 150, but the recordings' engine bytecode versions remain unconfirmed",
     "This report is verification-track retrospective regression evidence, not theorycraft output, cheese analysis or budget scouting",
     "No holdout or publication-gate credit"
   ]

@@ -20,10 +20,12 @@ node tools/freeze_blind_replay_prediction.mjs --index research/observations/<pri
 ```
 
 The resource-150 replay adapter is intentionally narrower than the historical
-resource-144 adapter. It accepts only complete live property maps with no active
-target states. Its offense, utility, critical and final-target calculations are
-covered by the installed resource-150 runtime comparisons. Raw pre-constructor
-maps and target-state classification fail closed. Supplying the current build
+resource-144 adapter. It accepts only complete live property maps. Target-state
+classification comes from all 6,959 installed resource-150 State rows, while
+the relevant Constant and BattleApi mappings match the baseline exactly. Its
+offense, utility, critical and final-target calculations are covered by the
+installed resource-150 runtime comparisons. Raw pre-constructor maps fail
+closed. Supplying the current build
 for a historical recording is invalid: the build report identifies installed
 code, while same-session recording/retrieval still requires separate provenance
 and manual review.

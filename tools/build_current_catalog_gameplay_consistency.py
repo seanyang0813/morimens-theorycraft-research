@@ -4,8 +4,8 @@ import hashlib
 import json
 
 ROOT = Path(__file__).resolve().parents[1]
-AUDIT = ROOT / "research/evidence/replay-batch-recovery.json"
 ATTRIBUTION = ROOT / "research/evidence/replay-catalog-build-attribution.json"
+CURRENT_AUDIT = ROOT / "research/raw/resource150-replay-adapter-audit.json"
 OUTPUT = ROOT / "research/evidence/current-catalog-gameplay-consistency.json"
 
 
@@ -14,9 +14,9 @@ def sha(path):
 
 
 def main():
-    audit = json.loads(AUDIT.read_text(encoding="utf-8"))
     attribution = json.loads(ATTRIBUTION.read_text(encoding="utf-8"))
-    audited = {row["observationId"]: row for row in audit["replays"]}
+    current_audit = json.loads(CURRENT_AUDIT.read_text(encoding="utf-8"))
+    audited = {row["observationId"]: row for row in current_audit}
     selected = []
     for catalog_row in attribution["replays"]:
         if catalog_row["classification"] != "PC_RES150_BUILD51_CATALOG_MATCH":
@@ -24,6 +24,8 @@ def main():
         audit_row = audited.get(catalog_row["observationId"])
         if not audit_row:
             continue
+        if audit_row.get("calculationBuild") != "pc-res150-build51" or audit_row.get("recordedCombatBuild") is not None:
+            raise ValueError("Current adapter audit build boundary is invalid")
         selected.append({
             "observationId": catalog_row["observationId"],
             "catalogClassification": catalog_row["classification"],
@@ -53,11 +55,12 @@ def main():
         "analysisTrack": "verification",
         "status": "RETROSPECTIVE_CURRENT_CATALOG_ENGINE_VERSION_UNCONFIRMED",
         "catalogBuild": "pc-res150-build51",
+        "calculationBuild": "pc-res150-build51",
         "sourceHashes": {
-            "replayBatchRecovery": sha(AUDIT),
             "replayCatalogBuildAttribution": sha(ATTRIBUTION),
+            "privateResource150AdapterAudit": sha(CURRENT_AUDIT),
         },
-        "method": "Join anonymous exact resource-150 Cmd/Skill catalog matches to the previously published retrospective Active-hit audit.",
+        "method": "Recalculate every supported hit in exact resource-150 Cmd/Skill catalog matches through the bounded resource-150 replay adapter, using its current State classifier and cross-build-runtime-matched offense, utility, critical and final-target domains.",
         "totals": totals,
         "replays": selected,
         "publicationCredit": False,
@@ -66,6 +69,7 @@ def main():
             "The replay catalog identifies data rows, not the engine bytecode version that executed the battle",
             "Every outcome was available before calculation; no prediction was frozen before reveal",
             "The matched cases are critical/noncritical branch consistency checks and do not reconstruct the original random draw",
+            "The calculation path is resource 150, but the recordings' engine bytecode versions remain unconfirmed",
             "This report is verification-track retrospective regression evidence, not theorycraft output, cheese analysis or budget scouting",
             "No holdout or publication-gate credit",
         ],

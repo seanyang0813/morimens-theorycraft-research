@@ -11,11 +11,12 @@ test('current-catalog gameplay report is a retrospective verification-track join
   assert.equal(report.analysisTrack,'verification');
   assert.equal(report.status,'RETROSPECTIVE_CURRENT_CATALOG_ENGINE_VERSION_UNCONFIRMED');
   assert.equal(report.publicationCredit,false);
-  assert.equal(report.sourceHashes.replayBatchRecovery,sha(read('research/evidence/replay-batch-recovery.json')));
   assert.equal(report.sourceHashes.replayCatalogBuildAttribution,sha(read('research/evidence/replay-catalog-build-attribution.json')));
-  assert.deepEqual(report.replays.map(row=>row.observationId),['replay-batch-02','replay-batch-10']);
+  assert.match(report.sourceHashes.privateResource150AdapterAudit,/^[0-9a-f]{64}$/);
+  assert.equal(report.calculationBuild,'pc-res150-build51');
+  assert.deepEqual(report.replays.map(row=>row.observationId),['replay-batch-02','replay-batch-10','replay-batch-43']);
   assert.deepEqual(report.totals,{
-    auditedReplays:2,completeHitSnapshots:79,retrospectiveActiveCandidates:13,
+    auditedReplays:3,completeHitSnapshots:79,retrospectiveActiveCandidates:13,
     deterministicExactChecks:0,deterministicMismatches:0,
     exactRngBranchConsistencyChecks:13,rngBranchMismatches:0,
   });

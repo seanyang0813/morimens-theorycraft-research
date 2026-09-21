@@ -1,5 +1,5 @@
 {
-  "generatedAtUtc": "2026-09-21T17:23:38.503518+00:00",
+  "generatedAtUtc": "2026-09-21T18:04:26.296242+00:00",
   "publicationStatus": "NOT_READY",
   "publicationAuthorized": false,
   "automatedSuite": {
@@ -7,7 +7,7 @@
     "passed": true,
     "exitCode": 0,
     "log": "research\\evidence\\latest-test-suite.tap",
-    "logSha256": "ceff5918d802b9a622e6d052d7b4931d8b9f61b0db6170fbe28db6a956703d99"
+    "logSha256": "a33802b331f98cdfd43917bb13163bb01480109aa34886fc84b21cb482335376"
   },
   "realObservations": {
     "records": 3,
@@ -178,9 +178,9 @@
   },
   "currentCatalogGameplayConsistency": {
     "report": "research\\evidence\\current-catalog-gameplay-consistency.json",
-    "reportSha256": "331bb2253e9eb86b35e8dbb4e17485e151614a5b6b1f56caa8d120533eac4708",
+    "reportSha256": "029752e95ac609e558ae527267f10d36e30b9a7c367d0133ee675759991e8c2b",
     "status": "RETROSPECTIVE_CURRENT_CATALOG_ENGINE_VERSION_UNCONFIRMED",
-    "auditedReplays": 2,
+    "auditedReplays": 3,
     "exactRngBranchConsistencyChecks": 13,
     "mismatches": 0,
     "publicationCredit": false
@@ -592,6 +592,10 @@
     },
     {
       "module": "state-type-catalog.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "state-type-catalog-150.mjs",
       "matchesResearchEngine": true
     },
     {

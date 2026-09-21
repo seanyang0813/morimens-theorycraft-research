@@ -197,7 +197,6 @@ export function buildReplayActionCandidate({index,actionIndex,hitIndex=null,skil
   if(!tags.length||tags.some(tag=>!supportedTags.has(tag))||new Set(tags).size!==tags.length)throw new Error('Unique supported skill tags required');
   const targetStateIds=[...new Set((hitSnapshot.activeStates??[]).filter(state=>state?.ownerUid===targetUid&&!state.isDeleted).map(state=>state.stateId))];
   if(targetStateIds.some(id=>!Number.isSafeInteger(id)||id<=0))throw new Error('Captured positive target state IDs required');
-  if(combatBuild==='pc-res150-build51'&&targetStateIds.length)throw new Error('Resource-150 replay candidates with target states are outside the cross-build-supported scope');
   const observed=hit.data.beHitConfig??{};
   if(preOutcome&&['castDamage','isCrit','oldHp','blockLose','realDamage','hpLose'].some(key=>Object.hasOwn(observed,key)))throw new Error('Pre-outcome candidate must not contain observed damage, critical, HP or block fields');
   if(observed.castRoleUid!==caster.uid)throw new Error('Recorded hit caster identity must match card owner');

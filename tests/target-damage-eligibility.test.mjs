@@ -17,3 +17,8 @@ test('unknown states are inert and malformed capture context fails closed',()=>{
   assert.throws(()=>resolveTargetDamageEligibility({...base(),targetStateIds:[999999]}),/Unknown PC144 state ID/);
   for(const value of [{...base(),targetStateIds:[1,1]},{...base(),targetStateIds:[0]},{...base(),targetBattleTag:''},{...base(),extra:true}])assert.throws(()=>resolveTargetDamageEligibility(value));
 });
+test('resource-150 target eligibility accepts current-only state IDs from its pinned classifier',()=>{
+  const result=resolveTargetDamageEligibility({...base(),targetStateIds:[152061]},'pc-res150-build51');
+  assert.equal(result.build,'pc-res150-build51');assert.equal(result.stateTypes[0].stateId,152061);
+  assert.throws(()=>resolveTargetDamageEligibility({...base(),targetStateIds:[152061]}),/Unknown PC144 state ID/);
+});

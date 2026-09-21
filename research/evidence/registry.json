@@ -5807,6 +5807,47 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC150:TargetDamageEligibilityCatalog",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "All 6,841 State IDs shared by resources 144 and 150 retain their buff/debuff classification; the installed resource-150 catalog classifies 6,959 IDs, and its DamagePer2HasState plus selected target BattleApi.Data mappings match exactly",
+      "sources": [
+        {
+          "module": "PC resource-150 target-eligibility comparison",
+          "member": "installed State rows and executed Constant/BattleApi bytecode fields",
+          "bundle": "installed config bundle; identifiers excluded",
+          "sha256": "8e216276c41fa9fb3b842ab34f6d2408120d204a1e2af049fbba86e936a0ed73"
+        }
+      ],
+      "tests": [
+        "tools/audit_current_target_eligibility.py",
+        "tools/build_state_type_module.py",
+        "tests/state-type-module.test.mjs",
+        "tests/target-damage-eligibility.test.mjs"
+      ],
+      "scope": "Complete installed State IsBuff classification plus selected literal target-damage mappings. State ownership/lifecycle, property provenance, effect execution and gameplay remain separate.",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC150:ReplayActiveRetrospectiveAdapter",
+      "status": "GAMEPLAY_CONSISTENCY_EXACT_BUILD_UNCONFIRMED",
+      "claim": "The bounded resource-150 replay adapter recalculates thirteen supported chance-dependent Active hits from three exact resource-150-catalog replays; each observed result matches one independent critical/noncritical branch with zero mismatches",
+      "sources": [
+        {
+          "module": "Current-catalog gameplay consistency",
+          "member": "anonymous direct resource-150 recalculation summary",
+          "bundle": "private replay inputs; public counts and hashes only",
+          "sha256": "029752e95ac609e558ae527267f10d36e30b9a7c367d0133ee675759991e8c2b"
+        }
+      ],
+      "tests": [
+        "tools/audit_replay_batch.mjs",
+        "tools/build_current_catalog_gameplay_consistency.py",
+        "tests/current-catalog-gameplay-consistency.test.mjs"
+      ],
+      "scope": "Retrospective verification-track regression only. Recorded engine bytecode versions and RNG draws are unknown; no prediction chronology, holdout or publication credit.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC150:BattleCmdServer.OffensiveSetup",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
       "claim": "The installed resource-150 BattleCmdServer and BattleUtilServer reproduce all 879 inherited PvE offensive-input assembly fixtures exactly",
@@ -6841,7 +6882,7 @@
           "module": "Current-catalog gameplay consistency",
           "member": "public cross-report join",
           "bundle": "anonymous replay reports",
-          "sha256": "331bb2253e9eb86b35e8dbb4e17485e151614a5b6b1f56caa8d120533eac4708"
+          "sha256": "029752e95ac609e558ae527267f10d36e30b9a7c367d0133ee675759991e8c2b"
         },
         {
           "module": "Replay catalog build attribution",
