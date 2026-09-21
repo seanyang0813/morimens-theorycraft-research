@@ -1,0 +1,13 @@
+{
+  "skillId": 60397,
+  "skillLevel": 1,
+  "isAwaker": false,
+  "breakSkillLevel": 0,
+  "potencyLevel": 0,
+  "overrides": [],
+  "variables": {
+    "CmdCaster.atk": 1000
+  },
+  "conditionResults": {},
+  "stateQueries": {}
+}

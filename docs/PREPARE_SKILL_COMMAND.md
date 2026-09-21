@@ -53,6 +53,16 @@ unfinished.
 node tools/prepare_skill_command.mjs research/examples/prepared-damage-energy-request.json research/examples/prepared-damage-energy-context.json
 ```
 
+The setup-only Final Evolution example is also runnable end to end:
+
+```
+node tools/prepare_skill_command.mjs research/examples/prepared-role-state-request.json research/examples/prepared-role-state-context.json
+```
+
+The example is a `theorycrafting` input fixture. It demonstrates the recovered
+execution path; it is not evidence that this setup was used in a replay, is a
+cheese strategy, or is independently verified.
+
 The example uses exported skill 4046 at skill level 6, internal progression 0/0 and deliberately synthetic attack 100. Its prepared arguments are 20/10 and command 2112 performs both rows: target HP 1000 becomes 980; caster energy 95 becomes 100 under a 100 maximum. Card presence, matching, Strike tag and neutral modifier properties are explicitly supplied in context. These are controlled example inputs, not a realistic reconstructed level/build claim. CLI output includes Skill/BattleApi/Cmd export hashes.
 
 The scope is selected command execution under absent-lifecycle assumptions, not the entire skill lifecycle: skill ExistState, costs, passive/trigger effects, target acquisition and automatic type/property assembly remain unfinished. Mixed command rows currently have no expression-function adapter; state queries may still be supplied to skill-argument preparation. Arguments are frozen after preparation. The website does not yet expose this entry point.

@@ -1,0 +1,74 @@
+{
+  "experiment": {
+    "schemaVersion": 1,
+    "kind": "morimens-role-state-command",
+    "build": "pc-res144-build51",
+    "otherEvents": "assumed-absent",
+    "variables": {},
+    "targetBindings": {
+      "CmdCaster": 50
+    },
+    "roles": [
+      {
+        "id": 50,
+        "roleType": "Monster",
+        "properties": {
+          "i_crit_per": 0,
+          "i_crit_damage_per": 0,
+          "be_damage_per": 0,
+          "be_fixed_damage_per1": 0,
+          "be_passive_damage_per": 0,
+          "damage_plus": 0,
+          "tentacle_dmg": 0
+        },
+        "tentacleContext": {
+          "pve": true,
+          "ownerMonster": true,
+          "maxTentacleCount": 0
+        }
+      }
+    ],
+    "definitions": [
+      {
+        "id": 60089,
+        "maximum": "999999999",
+        "properties": [
+          { "property": "be_damage_per", "expression": "ChangedLayer*(-1)" },
+          { "property": "be_fixed_damage_per1", "expression": "ChangedLayer*(-1)" },
+          { "property": "be_passive_damage_per", "expression": "ChangedLayer*(-1)" }
+        ],
+        "skillLevel": 1,
+        "casterRoleId": 50,
+        "specialValue": 0,
+        "banned": false
+      },
+      {
+        "id": 2900,
+        "maximum": "999999999",
+        "properties": [
+          { "property": "damage_plus", "expression": "ChangedLayer" },
+          { "property": "tentacle_dmg", "expression": "ChangedLayer*0.5" }
+        ],
+        "skillLevel": 1,
+        "casterRoleId": 50,
+        "specialValue": 0,
+        "banned": false
+      },
+      {
+        "id": 60404,
+        "maximum": "1",
+        "properties": [],
+        "skillLevel": 1,
+        "casterRoleId": 50,
+        "specialValue": 0,
+        "banned": false
+      }
+    ]
+  },
+  "targetBinding": {
+    "expression": "CmdCaster",
+    "resolution": "role-registry",
+    "roleId": 50
+  },
+  "lifecycle": "assumed-absent"
+}

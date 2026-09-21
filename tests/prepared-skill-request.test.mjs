@@ -39,9 +39,9 @@ test('serializable prepared-skill request refuses incomplete maps and caller sch
 
 test('real Final Evolution skill derives Arg1 and executes its whole supported setup command',()=>{
   const stateDefinition=id=>{const row=states[String(id)];return {id,maximum:String(row.MaxLayer),properties:Object.entries(row.ExistProperty??{}).map(([property,expression])=>({property,expression:String(expression)})),skillLevel:1,casterRoleId:50,specialValue:0,banned:false};};
-  const prep={skillId:60397,skillLevel:1,isAwaker:false,breakSkillLevel:0,potencyLevel:0,overrides:[],variables:{'CmdCaster.atk':1000},conditionResults:{},stateQueries:{}};
-  const experiment={schemaVersion:1,kind:'morimens-role-state-command',build:'pc-res144-build51',otherEvents:'assumed-absent',variables:{},targetBindings:{CmdCaster:50},roles:[{id:50,roleType:'Monster',properties:{i_crit_per:0,i_crit_damage_per:0,be_damage_per:0,be_fixed_damage_per1:0,be_passive_damage_per:0,damage_plus:0,tentacle_dmg:0},tentacleContext:{pve:true,ownerMonster:true,maxTentacleCount:0}}],definitions:[stateDefinition(60089),stateDefinition(2900),stateDefinition(60404)]};
-  const execution={experiment,targetBinding:{expression:'CmdCaster',resolution:'role-registry',roleId:50},lifecycle:'assumed-absent'};
+  const prep=JSON.parse(readFileSync(new URL('../research/examples/prepared-role-state-request.json',import.meta.url),'utf8'));
+  const execution=JSON.parse(readFileSync(new URL('../research/examples/prepared-role-state-context.json',import.meta.url),'utf8'));
+  assert.deepEqual(execution.experiment.definitions,[stateDefinition(60089),stateDefinition(2900),stateDefinition(60404)]);
   const result=runPreparedSkillRequest({schemaVersion:1,kind:'morimens-prepared-skill-request',preparation:prep,execution},source);
   assert.equal(result.status,'EXPERIMENTAL');assert.equal(result.prepared.commandId,60401);assert.deepEqual(result.prepared.arguments,[80]);assert.equal(result.commandSupport.structurallyCompatible,true);
   assert.deepEqual(result.execution.calculation.trace.map(row=>row.type),['addState','addState','presentation','addState']);assert.equal(result.execution.calculation.roles[0].properties.damage_plus,80);
