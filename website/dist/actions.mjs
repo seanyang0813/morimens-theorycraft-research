@@ -9,16 +9,17 @@ export function startActions({runCardActionTimeline,syntheticCardActionExample,r
       if(command){
         if(ordered){
           const stateRows=result.rowPlan.filter(row=>row.type==='applyState');
-          el('summary').textContent=`${result.completed?'Command completed':'Command stopped'} · Modeled HP lost: ${result.modeledHpLost}${result.casterEnergyAfter==null?'':` · Ultimate energy: ${result.casterEnergyAfter}`}${result.actorBlockAfter==null?'':` · Caster Block: ${result.actorBlockAfter}`} · States ${stateRows.map(row=>`${row.evaluation.values[0]} +${row.evaluation.values[1]??1}`).join(', ')}`;
+          el('summary').textContent=`${result.completed?'Command completed':'Command stopped'} · Modeled HP lost: ${result.modeledHpLost}${result.casterEnergyAfter==null?'':` · Ultimate energy: ${result.casterEnergyAfter}`}${result.actorBlockAfter==null?'':` · Caster Block: ${result.actorBlockAfter}`}${result.actorHpAfter==null?'':` · Caster HP: ${result.actorHpAfter}`} · States ${stateRows.map(row=>`${row.evaluation.values[0]} +${row.evaluation.values[1]??1}`).join(', ')}`;
           el('stop').textContent=result.stop?JSON.stringify(result.stop):'No stop within this supported scope.';
           let target={...input.attackBase.targetState},energy=input.energy?.target?.energy??null;
           for(const [index,entry] of result.calculation.trace.entries()){
             const plan=result.rowPlan[index],before={...target};
             if(entry.type==='attack')target={...entry.result.targetAfter};
             if(entry.type==='gainBlock'&&entry.owner==='target')target={...target,block:entry.result.blockAfter};
+            if(entry.type==='heal'&&entry.owner==='target')target={...target,hp:entry.result.hpAfter};
             const beforeEnergy=energy;if(entry.type==='gainUltiEnergy')energy=entry.result.targetsAfter[0].energy;
             const stateId=plan.evaluation?.values[0],layer=plan.evaluation?.values[1]??1;
-            const outcome=entry.type==='attack'?(entry.result.completed?'Damage':'Partial damage'):entry.type==='gainUltiEnergy'?'Energy gain':entry.type==='gainBlock'?`${entry.owner==='actor'?'Caster':'Target'} Block +${entry.result.actualBlockGained}`:entry.type==='removeState'?`State ${stateId} removed`:entry.type==='subtractState'?`State ${stateId} subtract ${layer}`:`State ${stateId} requested at layer ${layer}`;
+            const outcome=entry.type==='attack'?(entry.result.completed?'Damage':'Partial damage'):entry.type==='gainUltiEnergy'?'Energy gain':entry.type==='gainBlock'?`${entry.owner==='actor'?'Caster':'Target'} Block +${entry.result.actualBlockGained}`:entry.type==='heal'?entry.result.skipped?`${entry.owner==='actor'?'Caster':'Target'} Heal skipped`:`${entry.owner==='actor'?'Caster':'Target'} Heal ${entry.result.realHeal>=0?'+':''}${entry.result.realHeal}`:entry.type==='removeState'?`State ${stateId} removed`:entry.type==='subtractState'?`State ${stateId} subtract ${layer}`:`State ${stateId} requested at layer ${layer}`;
             const tr=doc.createElement('tr');for(const text of [plan.rowId,energy===null?'—':`${beforeEnergy} → ${energy}`,`${before.hp} → ${target.hp}`,`${before.block} → ${target.block}`,outcome]){const td=doc.createElement('td');td.textContent=text;tr.append(td);}el('rows').append(tr);
           }
         }else{

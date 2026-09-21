@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {runOrderedStateCommand} from '../engine/ordered-state-command.mjs';
 import {neutralBlockInputs} from '../engine/show-block.mjs';
+import {neutralHealInputs} from '../engine/show-heal.mjs';
 
 const read=name=>JSON.parse(readFileSync(new URL(name,import.meta.url),'utf8'));
 function input(){
@@ -103,4 +104,21 @@ test('ordered caster Block remains separate from the supplied damage target',()=
   v.block={modifiers,actor:{block:50,maxHp:1000,blockMaxPer:0,ignoreMax:false,gainBlockPer:0,gainBlockPlus:0},target:{block:0,maxHp:1000,blockMaxPer:0,ignoreMax:false,gainBlockPer:0,gainBlockPlus:0}};
   const r=runOrderedStateCommand(v);assert.equal(r.actorBlockAfter,250);assert.equal(r.targetAfter.block,0);assert.equal(r.modeledHpLost,100);
   delete v.block;assert.throws(()=>runOrderedStateCommand(v),/Block gain requires/i);
+});
+
+test('ordered target Heal preserves cap-sensitive row order before damage',()=>{
+  const v=input(),{value,...modifiers}=neutralHealInputs(0);
+  v.attackBase.targetState.hp=900;v.command={data_list:{1:{Type:'BEHeal',Target:'UpperTarget',Para:'200'},2:{Type:'BEActiveDamage',Target:'UpperTarget',Para:'300'}}};v.state.definitions=[];v.state.requests=[];
+  v.heal={modifiers,actor:{hp:500,maxHp:1000,beHealPer:0,beHealPlus:0,dead:false},target:{hp:900,maxHp:1000,beHealPer:0,beHealPlus:0,dead:false}};
+  const r=runOrderedStateCommand(v);assert.equal(r.targetAfter.hp,700);assert.equal(r.modeledHpLost,200);assert.deepEqual(r.calculation.trace.map(step=>step.type),['heal','attack']);
+  const first=v.command.data_list['1'];v.command.data_list['1']=v.command.data_list['2'];v.command.data_list['2']=first;
+  const reversed=runOrderedStateCommand(v);assert.equal(reversed.targetAfter.hp,800);assert.equal(reversed.modeledHpLost,100);
+});
+
+test('ordered caster Heal remains separate and requires explicit context',()=>{
+  const v=input(),{value,...modifiers}=neutralHealInputs(0);
+  v.command={data_list:{1:{Type:'BEHeal',Target:'CmdCaster',Para:'200'},2:{Type:'BEActiveDamage',Target:'UpperTarget',Para:'100'}}};v.state.definitions=[];v.state.requests=[];
+  v.heal={modifiers,actor:{hp:500,maxHp:1000,beHealPer:0,beHealPlus:0,dead:false},target:{hp:1000,maxHp:1000,beHealPer:0,beHealPlus:0,dead:false}};
+  const r=runOrderedStateCommand(v);assert.equal(r.actorHpAfter,700);assert.equal(r.targetAfter.hp,900);
+  delete v.heal;assert.throws(()=>runOrderedStateCommand(v),/Heal requires/i);
 });

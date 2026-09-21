@@ -1,0 +1,2606 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleCmdServer": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+    "BattleUnitBase": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+    "BattlePropertyServer": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76"
+  },
+  "scope": "144 original __GetFinalHeal cases with explicit recipient properties plus 120 original BattleUnitBase.Heal/SetProperty HP rounding, cap and overflow cases. Property callbacks are observational spies. No show-formula property assembly, target life eligibility, effect repetition, Heal events, full command or gameplay.",
+  "finalHeal": [
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": -200,
+        "beHealPlus": -100
+      },
+      "expected": -101.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": -200,
+        "beHealPlus": -1
+      },
+      "expected": -2.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": -200,
+        "beHealPlus": 0
+      },
+      "expected": -1.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": -200,
+        "beHealPlus": 0.2
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": -200,
+        "beHealPlus": 25
+      },
+      "expected": 24.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": -200,
+        "beHealPlus": 100
+      },
+      "expected": 99.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": -100,
+        "beHealPlus": -100
+      },
+      "expected": -100.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": -100,
+        "beHealPlus": -1
+      },
+      "expected": -1.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": -100,
+        "beHealPlus": 0
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": -100,
+        "beHealPlus": 0.2
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": -100,
+        "beHealPlus": 25
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": -100,
+        "beHealPlus": 100
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": -25,
+        "beHealPlus": -100
+      },
+      "expected": -99.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": -25,
+        "beHealPlus": -1
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": -25,
+        "beHealPlus": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": -25,
+        "beHealPlus": 0.2
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": -25,
+        "beHealPlus": 25
+      },
+      "expected": 26.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": -25,
+        "beHealPlus": 100
+      },
+      "expected": 101.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": 0,
+        "beHealPlus": -100
+      },
+      "expected": -99.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": 0,
+        "beHealPlus": -1
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": 0,
+        "beHealPlus": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": 0,
+        "beHealPlus": 0.2
+      },
+      "expected": 2.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": 0,
+        "beHealPlus": 25
+      },
+      "expected": 26.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": 0,
+        "beHealPlus": 100
+      },
+      "expected": 101.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": 50,
+        "beHealPlus": -100
+      },
+      "expected": -98.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": 50,
+        "beHealPlus": -1
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": 50,
+        "beHealPlus": 0
+      },
+      "expected": 2.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": 50,
+        "beHealPlus": 0.2
+      },
+      "expected": 2.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": 50,
+        "beHealPlus": 25
+      },
+      "expected": 27.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": 50,
+        "beHealPlus": 100
+      },
+      "expected": 102.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": 100,
+        "beHealPlus": -100
+      },
+      "expected": -98.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": 100,
+        "beHealPlus": -1
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": 100,
+        "beHealPlus": 0
+      },
+      "expected": 2.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": 100,
+        "beHealPlus": 0.2
+      },
+      "expected": 3.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": 100,
+        "beHealPlus": 25
+      },
+      "expected": 27.0
+    },
+    {
+      "input": {
+        "showHeal": 1,
+        "beHealPer": 100,
+        "beHealPlus": 100
+      },
+      "expected": 102.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": -200,
+        "beHealPlus": -100
+      },
+      "expected": -110.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": -200,
+        "beHealPlus": -1
+      },
+      "expected": -11.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": -200,
+        "beHealPlus": 0
+      },
+      "expected": -10.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": -200,
+        "beHealPlus": 0.2
+      },
+      "expected": -9.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": -200,
+        "beHealPlus": 25
+      },
+      "expected": 15.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": -200,
+        "beHealPlus": 100
+      },
+      "expected": 90.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": -100,
+        "beHealPlus": -100
+      },
+      "expected": -100.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": -100,
+        "beHealPlus": -1
+      },
+      "expected": -1.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": -100,
+        "beHealPlus": 0
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": -100,
+        "beHealPlus": 0.2
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": -100,
+        "beHealPlus": 25
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": -100,
+        "beHealPlus": 100
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": -25,
+        "beHealPlus": -100
+      },
+      "expected": -92.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": -25,
+        "beHealPlus": -1
+      },
+      "expected": 7.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": -25,
+        "beHealPlus": 0
+      },
+      "expected": 8.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": -25,
+        "beHealPlus": 0.2
+      },
+      "expected": 8.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": -25,
+        "beHealPlus": 25
+      },
+      "expected": 33.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": -25,
+        "beHealPlus": 100
+      },
+      "expected": 108.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": 0,
+        "beHealPlus": -100
+      },
+      "expected": -90.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": 0,
+        "beHealPlus": -1
+      },
+      "expected": 9.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": 0,
+        "beHealPlus": 0
+      },
+      "expected": 10.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": 0,
+        "beHealPlus": 0.2
+      },
+      "expected": 11.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": 0,
+        "beHealPlus": 25
+      },
+      "expected": 35.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": 0,
+        "beHealPlus": 100
+      },
+      "expected": 110.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": 50,
+        "beHealPlus": -100
+      },
+      "expected": -85.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": 50,
+        "beHealPlus": -1
+      },
+      "expected": 14.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": 50,
+        "beHealPlus": 0
+      },
+      "expected": 15.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": 50,
+        "beHealPlus": 0.2
+      },
+      "expected": 16.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": 50,
+        "beHealPlus": 25
+      },
+      "expected": 40.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": 50,
+        "beHealPlus": 100
+      },
+      "expected": 115.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": 100,
+        "beHealPlus": -100
+      },
+      "expected": -80.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": 100,
+        "beHealPlus": -1
+      },
+      "expected": 19.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": 100,
+        "beHealPlus": 0
+      },
+      "expected": 20.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": 100,
+        "beHealPlus": 0.2
+      },
+      "expected": 21.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": 100,
+        "beHealPlus": 25
+      },
+      "expected": 45.0
+    },
+    {
+      "input": {
+        "showHeal": 10,
+        "beHealPer": 100,
+        "beHealPlus": 100
+      },
+      "expected": 120.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": -200,
+        "beHealPlus": -100
+      },
+      "expected": -200.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": -200,
+        "beHealPlus": -1
+      },
+      "expected": -101.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": -200,
+        "beHealPlus": 0
+      },
+      "expected": -100.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": -200,
+        "beHealPlus": 0.2
+      },
+      "expected": -99.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": -200,
+        "beHealPlus": 25
+      },
+      "expected": -75.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": -200,
+        "beHealPlus": 100
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": -100,
+        "beHealPlus": -100
+      },
+      "expected": -100.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": -100,
+        "beHealPlus": -1
+      },
+      "expected": -1.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": -100,
+        "beHealPlus": 0
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": -100,
+        "beHealPlus": 0.2
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": -100,
+        "beHealPlus": 25
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": -100,
+        "beHealPlus": 100
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": -25,
+        "beHealPlus": -100
+      },
+      "expected": -25.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": -25,
+        "beHealPlus": -1
+      },
+      "expected": 74.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": -25,
+        "beHealPlus": 0
+      },
+      "expected": 75.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": -25,
+        "beHealPlus": 0.2
+      },
+      "expected": 76.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": -25,
+        "beHealPlus": 25
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": -25,
+        "beHealPlus": 100
+      },
+      "expected": 175.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": 0,
+        "beHealPlus": -100
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": 0,
+        "beHealPlus": -1
+      },
+      "expected": 99.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": 0,
+        "beHealPlus": 0
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": 0,
+        "beHealPlus": 0.2
+      },
+      "expected": 101.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": 0,
+        "beHealPlus": 25
+      },
+      "expected": 125.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": 0,
+        "beHealPlus": 100
+      },
+      "expected": 200.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": 50,
+        "beHealPlus": -100
+      },
+      "expected": 50.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": 50,
+        "beHealPlus": -1
+      },
+      "expected": 149.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": 50,
+        "beHealPlus": 0
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": 50,
+        "beHealPlus": 0.2
+      },
+      "expected": 151.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": 50,
+        "beHealPlus": 25
+      },
+      "expected": 175.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": 50,
+        "beHealPlus": 100
+      },
+      "expected": 250.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": 100,
+        "beHealPlus": -100
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": 100,
+        "beHealPlus": -1
+      },
+      "expected": 199.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": 100,
+        "beHealPlus": 0
+      },
+      "expected": 200.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": 100,
+        "beHealPlus": 0.2
+      },
+      "expected": 201.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": 100,
+        "beHealPlus": 25
+      },
+      "expected": 225.0
+    },
+    {
+      "input": {
+        "showHeal": 100,
+        "beHealPer": 100,
+        "beHealPlus": 100
+      },
+      "expected": 300.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": -200,
+        "beHealPlus": -100
+      },
+      "expected": -1100.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": -200,
+        "beHealPlus": -1
+      },
+      "expected": -1001.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": -200,
+        "beHealPlus": 0
+      },
+      "expected": -1000.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": -200,
+        "beHealPlus": 0.2
+      },
+      "expected": -999.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": -200,
+        "beHealPlus": 25
+      },
+      "expected": -975.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": -200,
+        "beHealPlus": 100
+      },
+      "expected": -900.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": -100,
+        "beHealPlus": -100
+      },
+      "expected": -100.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": -100,
+        "beHealPlus": -1
+      },
+      "expected": -1.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": -100,
+        "beHealPlus": 0
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": -100,
+        "beHealPlus": 0.2
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": -100,
+        "beHealPlus": 25
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": -100,
+        "beHealPlus": 100
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": -25,
+        "beHealPlus": -100
+      },
+      "expected": 650.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": -25,
+        "beHealPlus": -1
+      },
+      "expected": 749.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": -25,
+        "beHealPlus": 0
+      },
+      "expected": 750.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": -25,
+        "beHealPlus": 0.2
+      },
+      "expected": 751.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": -25,
+        "beHealPlus": 25
+      },
+      "expected": 775.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": -25,
+        "beHealPlus": 100
+      },
+      "expected": 850.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": 0,
+        "beHealPlus": -100
+      },
+      "expected": 900.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": 0,
+        "beHealPlus": -1
+      },
+      "expected": 999.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": 0,
+        "beHealPlus": 0
+      },
+      "expected": 1000.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": 0,
+        "beHealPlus": 0.2
+      },
+      "expected": 1001.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": 0,
+        "beHealPlus": 25
+      },
+      "expected": 1025.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": 0,
+        "beHealPlus": 100
+      },
+      "expected": 1100.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": 50,
+        "beHealPlus": -100
+      },
+      "expected": 1400.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": 50,
+        "beHealPlus": -1
+      },
+      "expected": 1499.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": 50,
+        "beHealPlus": 0
+      },
+      "expected": 1500.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": 50,
+        "beHealPlus": 0.2
+      },
+      "expected": 1501.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": 50,
+        "beHealPlus": 25
+      },
+      "expected": 1525.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": 50,
+        "beHealPlus": 100
+      },
+      "expected": 1600.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": 100,
+        "beHealPlus": -100
+      },
+      "expected": 1900.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": 100,
+        "beHealPlus": -1
+      },
+      "expected": 1999.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": 100,
+        "beHealPlus": 0
+      },
+      "expected": 2000.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": 100,
+        "beHealPlus": 0.2
+      },
+      "expected": 2001.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": 100,
+        "beHealPlus": 25
+      },
+      "expected": 2025.0
+    },
+    {
+      "input": {
+        "showHeal": 1000,
+        "beHealPer": 100,
+        "beHealPlus": 100
+      },
+      "expected": 2100.0
+    }
+  ],
+  "storage": [
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 0,
+        "request": -200
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -200.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 0,
+        "request": -1
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 0,
+        "request": 0
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": 0.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 0,
+        "request": 0.2
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": 0.0,
+        "overFlowHeal": 1.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 0,
+        "request": 1
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": 0.0,
+        "overFlowHeal": 1.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 0,
+        "request": 25
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": 0.0,
+        "overFlowHeal": 25.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 0,
+        "request": 100
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": 0.0,
+        "overFlowHeal": 100.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 0,
+        "request": 200
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": 0.0,
+        "overFlowHeal": 200.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 100,
+        "request": -200
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -200.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 100,
+        "request": -1
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 100,
+        "request": 0
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": 0.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 100,
+        "request": 0.2
+      },
+      "expected": {
+        "hpAfter": 1.0,
+        "realHeal": 1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 100,
+        "request": 1
+      },
+      "expected": {
+        "hpAfter": 1.0,
+        "realHeal": 1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 100,
+        "request": 25
+      },
+      "expected": {
+        "hpAfter": 25.0,
+        "realHeal": 25.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 100,
+        "request": 100
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "realHeal": 100.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 100,
+        "request": 200
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "realHeal": 100.0,
+        "overFlowHeal": 100.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 150,
+        "request": -200
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -200.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 150,
+        "request": -1
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 150,
+        "request": 0
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": 0.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 150,
+        "request": 0.2
+      },
+      "expected": {
+        "hpAfter": 1.0,
+        "realHeal": 1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 150,
+        "request": 1
+      },
+      "expected": {
+        "hpAfter": 1.0,
+        "realHeal": 1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 150,
+        "request": 25
+      },
+      "expected": {
+        "hpAfter": 25.0,
+        "realHeal": 25.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 150,
+        "request": 100
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "realHeal": 100.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0,
+        "maxHp": 150,
+        "request": 200
+      },
+      "expected": {
+        "hpAfter": 150.0,
+        "realHeal": 150.0,
+        "overFlowHeal": 50.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 0,
+        "request": -200
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -199.5,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 0,
+        "request": -1
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -0.5,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 0,
+        "request": 0
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -0.5,
+        "overFlowHeal": 1.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 0,
+        "request": 0.2
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -0.5,
+        "overFlowHeal": 1.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 0,
+        "request": 1
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -0.5,
+        "overFlowHeal": 2.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 0,
+        "request": 25
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -0.5,
+        "overFlowHeal": 26.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 0,
+        "request": 100
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -0.5,
+        "overFlowHeal": 101.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 0,
+        "request": 200
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -0.5,
+        "overFlowHeal": 201.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 100,
+        "request": -200
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -199.5,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 100,
+        "request": -1
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -0.5,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 100,
+        "request": 0
+      },
+      "expected": {
+        "hpAfter": 1.0,
+        "realHeal": 0.5,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 100,
+        "request": 0.2
+      },
+      "expected": {
+        "hpAfter": 1.0,
+        "realHeal": 0.5,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 100,
+        "request": 1
+      },
+      "expected": {
+        "hpAfter": 2.0,
+        "realHeal": 1.5,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 100,
+        "request": 25
+      },
+      "expected": {
+        "hpAfter": 26.0,
+        "realHeal": 25.5,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 100,
+        "request": 100
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "realHeal": 99.5,
+        "overFlowHeal": 1.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 100,
+        "request": 200
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "realHeal": 99.5,
+        "overFlowHeal": 101.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 150,
+        "request": -200
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -199.5,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 150,
+        "request": -1
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -0.5,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 150,
+        "request": 0
+      },
+      "expected": {
+        "hpAfter": 1.0,
+        "realHeal": 0.5,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 150,
+        "request": 0.2
+      },
+      "expected": {
+        "hpAfter": 1.0,
+        "realHeal": 0.5,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 150,
+        "request": 1
+      },
+      "expected": {
+        "hpAfter": 2.0,
+        "realHeal": 1.5,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 150,
+        "request": 25
+      },
+      "expected": {
+        "hpAfter": 26.0,
+        "realHeal": 25.5,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 150,
+        "request": 100
+      },
+      "expected": {
+        "hpAfter": 101.0,
+        "realHeal": 100.5,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 0.5,
+        "maxHp": 150,
+        "request": 200
+      },
+      "expected": {
+        "hpAfter": 150.0,
+        "realHeal": 149.5,
+        "overFlowHeal": 51.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 0,
+        "request": -200
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -200.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 0,
+        "request": -1
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -50.0,
+        "overFlowHeal": 49.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 0,
+        "request": 0
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -50.0,
+        "overFlowHeal": 50.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 0,
+        "request": 0.2
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -50.0,
+        "overFlowHeal": 51.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 0,
+        "request": 1
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -50.0,
+        "overFlowHeal": 51.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 0,
+        "request": 25
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -50.0,
+        "overFlowHeal": 75.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 0,
+        "request": 100
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -50.0,
+        "overFlowHeal": 150.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 0,
+        "request": 200
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -50.0,
+        "overFlowHeal": 250.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 100,
+        "request": -200
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -200.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 100,
+        "request": -1
+      },
+      "expected": {
+        "hpAfter": 49.0,
+        "realHeal": -1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 100,
+        "request": 0
+      },
+      "expected": {
+        "hpAfter": 50.0,
+        "realHeal": 0.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 100,
+        "request": 0.2
+      },
+      "expected": {
+        "hpAfter": 51.0,
+        "realHeal": 1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 100,
+        "request": 1
+      },
+      "expected": {
+        "hpAfter": 51.0,
+        "realHeal": 1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 100,
+        "request": 25
+      },
+      "expected": {
+        "hpAfter": 75.0,
+        "realHeal": 25.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 100,
+        "request": 100
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "realHeal": 50.0,
+        "overFlowHeal": 50.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 100,
+        "request": 200
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "realHeal": 50.0,
+        "overFlowHeal": 150.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 150,
+        "request": -200
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -200.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 150,
+        "request": -1
+      },
+      "expected": {
+        "hpAfter": 49.0,
+        "realHeal": -1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 150,
+        "request": 0
+      },
+      "expected": {
+        "hpAfter": 50.0,
+        "realHeal": 0.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 150,
+        "request": 0.2
+      },
+      "expected": {
+        "hpAfter": 51.0,
+        "realHeal": 1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 150,
+        "request": 1
+      },
+      "expected": {
+        "hpAfter": 51.0,
+        "realHeal": 1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 150,
+        "request": 25
+      },
+      "expected": {
+        "hpAfter": 75.0,
+        "realHeal": 25.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 150,
+        "request": 100
+      },
+      "expected": {
+        "hpAfter": 150.0,
+        "realHeal": 100.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 50,
+        "maxHp": 150,
+        "request": 200
+      },
+      "expected": {
+        "hpAfter": 150.0,
+        "realHeal": 100.0,
+        "overFlowHeal": 100.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 0,
+        "request": -200
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -200.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 0,
+        "request": -1
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -99.0,
+        "overFlowHeal": 98.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 0,
+        "request": 0
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -99.0,
+        "overFlowHeal": 99.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 0,
+        "request": 0.2
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -99.0,
+        "overFlowHeal": 100.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 0,
+        "request": 1
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -99.0,
+        "overFlowHeal": 100.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 0,
+        "request": 25
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -99.0,
+        "overFlowHeal": 124.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 0,
+        "request": 100
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -99.0,
+        "overFlowHeal": 199.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 0,
+        "request": 200
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -99.0,
+        "overFlowHeal": 299.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 100,
+        "request": -200
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -200.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 100,
+        "request": -1
+      },
+      "expected": {
+        "hpAfter": 98.0,
+        "realHeal": -1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 100,
+        "request": 0
+      },
+      "expected": {
+        "hpAfter": 99.0,
+        "realHeal": 0.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 100,
+        "request": 0.2
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "realHeal": 1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 100,
+        "request": 1
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "realHeal": 1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 100,
+        "request": 25
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "realHeal": 1.0,
+        "overFlowHeal": 24.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 100,
+        "request": 100
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "realHeal": 1.0,
+        "overFlowHeal": 99.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 100,
+        "request": 200
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "realHeal": 1.0,
+        "overFlowHeal": 199.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 150,
+        "request": -200
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -200.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 150,
+        "request": -1
+      },
+      "expected": {
+        "hpAfter": 98.0,
+        "realHeal": -1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 150,
+        "request": 0
+      },
+      "expected": {
+        "hpAfter": 99.0,
+        "realHeal": 0.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 150,
+        "request": 0.2
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "realHeal": 1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 150,
+        "request": 1
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "realHeal": 1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 150,
+        "request": 25
+      },
+      "expected": {
+        "hpAfter": 124.0,
+        "realHeal": 25.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 150,
+        "request": 100
+      },
+      "expected": {
+        "hpAfter": 150.0,
+        "realHeal": 51.0,
+        "overFlowHeal": 49.0
+      }
+    },
+    {
+      "input": {
+        "hp": 99,
+        "maxHp": 150,
+        "request": 200
+      },
+      "expected": {
+        "hpAfter": 150.0,
+        "realHeal": 51.0,
+        "overFlowHeal": 149.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 0,
+        "request": -200
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -200.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 0,
+        "request": -1
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -100.0,
+        "overFlowHeal": 99.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 0,
+        "request": 0
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -100.0,
+        "overFlowHeal": 100.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 0,
+        "request": 0.2
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -100.0,
+        "overFlowHeal": 101.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 0,
+        "request": 1
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -100.0,
+        "overFlowHeal": 101.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 0,
+        "request": 25
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -100.0,
+        "overFlowHeal": 125.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 0,
+        "request": 100
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -100.0,
+        "overFlowHeal": 200.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 0,
+        "request": 200
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -100.0,
+        "overFlowHeal": 300.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 100,
+        "request": -200
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -200.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 100,
+        "request": -1
+      },
+      "expected": {
+        "hpAfter": 99.0,
+        "realHeal": -1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 100,
+        "request": 0
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "realHeal": 0.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 100,
+        "request": 0.2
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "realHeal": 0.0,
+        "overFlowHeal": 1.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 100,
+        "request": 1
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "realHeal": 0.0,
+        "overFlowHeal": 1.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 100,
+        "request": 25
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "realHeal": 0.0,
+        "overFlowHeal": 25.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 100,
+        "request": 100
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "realHeal": 0.0,
+        "overFlowHeal": 100.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 100,
+        "request": 200
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "realHeal": 0.0,
+        "overFlowHeal": 200.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 150,
+        "request": -200
+      },
+      "expected": {
+        "hpAfter": 0.0,
+        "realHeal": -200.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 150,
+        "request": -1
+      },
+      "expected": {
+        "hpAfter": 99.0,
+        "realHeal": -1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 150,
+        "request": 0
+      },
+      "expected": {
+        "hpAfter": 100.0,
+        "realHeal": 0.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 150,
+        "request": 0.2
+      },
+      "expected": {
+        "hpAfter": 101.0,
+        "realHeal": 1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 150,
+        "request": 1
+      },
+      "expected": {
+        "hpAfter": 101.0,
+        "realHeal": 1.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 150,
+        "request": 25
+      },
+      "expected": {
+        "hpAfter": 125.0,
+        "realHeal": 25.0,
+        "overFlowHeal": 0.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 150,
+        "request": 100
+      },
+      "expected": {
+        "hpAfter": 150.0,
+        "realHeal": 50.0,
+        "overFlowHeal": 50.0
+      }
+    },
+    {
+      "input": {
+        "hp": 100,
+        "maxHp": 150,
+        "request": 200
+      },
+      "expected": {
+        "hpAfter": 150.0,
+        "realHeal": 50.0,
+        "overFlowHeal": 150.0
+      }
+    }
+  ]
+}

@@ -69,3 +69,14 @@ test('ordered command UI shows target Block gain before later damage',()=>{
  assert.match(nodes.get('summary').textContent,/Caster Block: 10/);assert.equal(nodes.get('rows').children[0].children[3].textContent,'0 → 50');assert.match(nodes.get('rows').children[0].children[4].textContent,/Target Block \+50/);
  assert.equal(nodes.get('rows').children[1].children[3].textContent,'50 → 25');
 });
+
+test('ordered command UI shows target Heal before later damage',()=>{
+ class Element{constructor(){this.children=[];this.textContent='';this.value='';this.hidden=false;}append(...items){this.children.push(...items);}replaceChildren(...items){this.children=items;}}
+ const nodes=new Map(),doc={getElementById(id){if(!nodes.has(id))nodes.set(id,new Element());return nodes.get(id);},createElement(){return new Element();}};
+ const input={kind:'morimens-ordered-state-command',attackBase:{targetState:{hp:500,block:0}},command:{data_list:{1:{},2:{}}}};
+ const rowPlan=[{rowId:'1',type:'heal',evaluation:{values:[100]}},{rowId:'2',type:'attack'}];
+ const runOrderedStateCommand=()=>({completed:true,modeledHpLost:0,casterEnergyAfter:null,actorBlockAfter:null,actorHpAfter:700,targetAfter:{hp:500,block:0},stop:null,rowPlan,calculation:{trace:[{type:'heal',owner:'target',result:{hpAfter:600,realHeal:100,overFlowHeal:0}},{type:'attack',result:{completed:true,targetAfter:{hp:500,block:0}}}]},unresolvedDependencies:[]});
+ startActions({runCardActionTimeline,syntheticCardActionExample,runDamageEnergyCommand,runTerminalStateCommand:()=>{},runOrderedStateCommand,syntheticDamageEnergyExample,runtimeFingerprint:'0'.repeat(64)},doc);
+ doc.getElementById('action-input').value=JSON.stringify(input);nodes.get('run').onclick();
+ assert.match(nodes.get('summary').textContent,/Caster HP: 700/);assert.equal(nodes.get('rows').children[0].children[2].textContent,'500 → 600');assert.match(nodes.get('rows').children[0].children[4].textContent,/Target Heal \+100/);assert.equal(nodes.get('rows').children[1].children[2].textContent,'600 → 500');
+});

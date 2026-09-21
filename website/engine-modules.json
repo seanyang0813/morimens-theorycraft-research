@@ -5,6 +5,8 @@
   "show-damage.mjs",
   "show-block.mjs",
   "block-gain.mjs",
+  "show-heal.mjs",
+  "heal.mjs",
   "active-target.mjs",
   "card-offensive-setup.mjs",
   "offensive-setup.mjs",
