@@ -5,8 +5,8 @@ import random
 from target_runtime_oracle import TargetOracle, ROOT
 
 class CardTargetOracle(TargetOracle):
-    def __init__(self):
-        super().__init__();L=self.state
+    def __init__(self, asset_overrides=None):
+        super().__init__(asset_overrides);L=self.state
         self.rawseti=self.lib.lua_rawseti;self.rawseti.argtypes=[C.c_void_p,C.c_int,C.c_longlong];self.rawseti.restype=None
         self.getglobal(L,b'_oracle_actor')
         def actor(s):

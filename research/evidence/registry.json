@@ -4277,6 +4277,31 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC150:BattleCmdServer.CardTargetCrit",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "The installed resource-150 BattleCmdServer reproduces all 282 inherited card and Strike-tag critical/target fixtures exactly",
+      "sources": [
+        {
+          "module": "PC resource-150 build comparison",
+          "member": "download manifest and selected TextAsset hashes",
+          "bundle": "installed local client; hashes only",
+          "sha256": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5"
+        },
+        {
+          "module": "PC resource-150 card-target runtime comparison",
+          "member": "__GetFinalDamage and GetTargetBeDmgPerMul card-domain result",
+          "bundle": "copied XLua runtime; hashes only",
+          "sha256": "e6cd4b417084f338c59bdf787eaa1323f9d883f13fdf2ec91e691647f98d685b"
+        }
+      ],
+      "tests": [
+        "tools/verify_current_card_target.py",
+        "tests/current-pc-build-evidence.test.mjs"
+      ],
+      "scope": "Actual resource-150 card and Strike-tag critical contributions, instruction-card target slot, state-trigger-add exclusion and supplied block/barrier eligibility. Strike-only tags; no mixed tags, automatic barrier-state resolution, offensive-input assembly, HP, gameplay or holdout credit.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC150:BattlePropertyServer.SelectedPaths",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
       "claim": "The installed resource-150 BattlePropertyServer reproduces all 40 inherited numeric-constructor and ordinary HP-subtraction fixtures exactly",
