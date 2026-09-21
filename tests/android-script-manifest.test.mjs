@@ -49,3 +49,16 @@ test('Android script capture rejects a same-name changed file', () => {
   assert.equal(report.capture.status, 'REJECTED');
   assert.equal(report.scriptGroup.files[0].captureStatus, 'MISMATCH');
 });
+
+test('Android persistent-data capture searches only the two recovered download roots',()=>{
+  const f=fixture(),persistent=join(f.dir,'persistent'),download=join(persistent,'_game_data_','DownLoad');mkdirSync(download,{recursive:true});
+  writeFileSync(join(download,'share.ab'),'combat');
+  const output=join(f.dir,'persistent-report.json');
+  execFileSync(python,[tool,'--manifest',f.manifestPath,'--persistent-data-root',persistent,'--output',output]);
+  const report=JSON.parse(readFileSync(output));
+  assert.equal(report.capture.status,'VERIFIED');assert.equal(report.capture.mode,'persistent-data-root');assert.deepEqual(report.capture.searchedChildren,['DownLoad','_game_data_/DownLoad']);
+  assert.equal(report.scriptGroup.files[0].sourceRoot,'_game_data_/DownLoad');
+  mkdirSync(join(persistent,'DownLoad'),{recursive:true});writeFileSync(join(persistent,'DownLoad','share.ab'),'combat');
+  const ambiguous=spawnSync(python,[tool,'--manifest',f.manifestPath,'--persistent-data-root',persistent,'--output',output]);
+  assert.equal(ambiguous.status,2);assert.equal(JSON.parse(readFileSync(output)).scriptGroup.files[0].captureStatus,'AMBIGUOUS');
+});

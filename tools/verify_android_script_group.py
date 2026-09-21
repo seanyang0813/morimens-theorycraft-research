@@ -50,7 +50,9 @@ def load_script_group(manifest_path: Path):
     return manifest, raw, items
 
 
-def build_report(manifest_path: Path, capture_dir: Path | None = None):
+def build_report(manifest_path: Path, capture_dir: Path | None = None, persistent_data_root: Path | None = None):
+    if capture_dir is not None and persistent_data_root is not None:
+        raise ValueError("Capture directory and persistent-data root are mutually exclusive")
     manifest, raw, items = load_script_group(manifest_path)
     version = manifest.get("versionInfo")
     if not isinstance(version, dict):
@@ -77,8 +79,10 @@ def build_report(manifest_path: Path, capture_dir: Path | None = None):
         }
 
     rows = []
-    all_match = capture_dir is not None and hash_proof["status"] == "DIRECT_ANDROID_MATCH"
     capture_root = capture_dir.resolve() if capture_dir is not None else None
+    persistent_root = persistent_data_root.resolve() if persistent_data_root is not None else None
+    search_roots = ([capture_root] if capture_root is not None else [persistent_root / "DownLoad", persistent_root / "_game_data_" / "DownLoad"] if persistent_root is not None else [])
+    all_match = bool(search_roots) and hash_proof["status"] == "DIRECT_ANDROID_MATCH"
     for item in items:
         row = {
             "file": item["f"],
@@ -86,14 +90,22 @@ def build_report(manifest_path: Path, capture_dir: Path | None = None):
             "expectedManifestHash": item["h"].lower(),
             "resourceIndex": item["i"],
         }
-        if capture_root is not None:
-            candidate = (capture_root / item["f"]).resolve()
-            if not candidate.is_relative_to(capture_root):
-                raise ValueError(f"Manifest path escapes capture directory: {item['f']}")
-            if not candidate.is_file():
+        if search_roots:
+            candidates=[]
+            for search_root in search_roots:
+                candidate=(search_root/item["f"]).resolve()
+                if not candidate.is_relative_to(search_root):raise ValueError(f"Manifest path escapes capture directory: {item['f']}")
+                if candidate.is_file():candidates.append(candidate)
+            if len(candidates)>1:
+                row["captureStatus"] = "AMBIGUOUS"
+                row["candidateCount"] = len(candidates)
+                all_match = False
+            elif not candidates:
                 row["captureStatus"] = "MISSING"
                 all_match = False
             else:
+                candidate=candidates[0]
+                row["sourceRoot"] = "capture-directory" if capture_root is not None else ("DownLoad" if candidate.parent==search_roots[0] else "_game_data_/DownLoad")
                 actual_size = candidate.stat().st_size
                 row["actualSize"] = actual_size
                 row["sha256"] = digest(candidate, "sha256")
@@ -107,7 +119,7 @@ def build_report(manifest_path: Path, capture_dir: Path | None = None):
                 all_match = all_match and row["captureStatus"] == "MATCH"
         rows.append(row)
 
-    status = "AWAITING_CAPTURE" if capture_dir is None else ("VERIFIED" if all_match else "REJECTED")
+    status = "AWAITING_CAPTURE" if not search_roots else ("VERIFIED" if all_match else "REJECTED")
     return {
         "kind": "LOCAL_ANDROID_SCRIPT_GROUP_MANIFEST",
         "scope": "Packaged manifest and optional local capture only; no download, code execution, formula parity, or gameplay validation.",
@@ -118,7 +130,7 @@ def build_report(manifest_path: Path, capture_dir: Path | None = None):
         },
         "manifestHashInterpretation": hash_proof,
         "scriptGroup": {"count": len(rows), "files": rows},
-        "capture": {"directory": str(capture_root) if capture_root else None, "status": status},
+        "capture": {"mode":"capture-directory" if capture_root else "persistent-data-root" if persistent_root else None,"directory": str(capture_root) if capture_root else None,"persistentDataRoot":str(persistent_root) if persistent_root else None,"searchedChildren":["DownLoad","_game_data_/DownLoad"] if persistent_root else [],"status": status},
     }
 
 
@@ -126,9 +138,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)
     parser.add_argument("--capture-dir", type=Path)
+    parser.add_argument("--persistent-data-root", type=Path)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     args = parser.parse_args()
-    report = build_report(args.manifest, args.capture_dir)
+    report = build_report(args.manifest, args.capture_dir, args.persistent_data_root)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({
@@ -138,7 +151,7 @@ def main():
         "captureStatus": report["capture"]["status"],
         "report": str(args.output),
     }, indent=2))
-    return 2 if args.capture_dir is not None and report["capture"]["status"] != "VERIFIED" else 0
+    return 2 if (args.capture_dir is not None or args.persistent_data_root is not None) and report["capture"]["status"] != "VERIFIED" else 0
 
 
 if __name__ == "__main__":
