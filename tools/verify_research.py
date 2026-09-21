@@ -70,6 +70,28 @@ def audit_observation(row):
         except (KeyError,TypeError,ValueError,OSError) as error:reasons.append('Holdout freeze: '+str(error))
     return {'id':row.get('id'),'holdout':row.get('holdout') is True,'observed':observed,'predicted':predicted,'recomputed':recomputed,'difference':difference,'eligibleForReview':not reasons,'reasons':reasons,'evidenceFiles':hashes}
 
+def audit_mechanic_regression(row,path):
+    check=row.get('mechanicRegression')
+    if not isinstance(check,dict):return None
+    reasons=[]
+    if check.get('status')!='COMPLETE_RETROSPECTIVE':reasons.append('Mechanic regression status is incomplete')
+    if check.get('retrospective') is not True or check.get('holdout') is not False:reasons.append('Must be explicitly retrospective and non-holdout')
+    if not row.get('version',{}).get('recordedCombatBuild'):reasons.append('Recorded combat build unknown')
+    try:
+        run=subprocess.run(['node',str(ROOT/'tools/replay_mechanic_observation.mjs'),str(path)],cwd=ROOT,capture_output=True,text=True,encoding='utf-8',timeout=30)
+        if run.returncode:raise ValueError(run.stderr.strip() or 'Mechanic replay failed')
+        result=json.loads(run.stdout)
+        if not result.get('exactMatch'):reasons.append('Mechanic result is not an exact match')
+    except (ValueError,OSError,subprocess.TimeoutExpired,json.JSONDecodeError) as error:
+        result=None;reasons.append('Mechanic replay: '+str(error))
+    hashes=[]
+    for name in check.get('evidence',[]):
+        evidence_path=(ROOT/name).resolve()
+        if not evidence_path.is_relative_to(ROOT) or not evidence_path.is_file():reasons.append('Missing or out-of-workspace mechanic evidence: '+name)
+        else:hashes.append({'path':name,'sha256':hashlib.sha256(evidence_path.read_bytes()).hexdigest()})
+    if not hashes:reasons.append('No mechanic evidence files')
+    return {'id':row.get('id'),'model':check.get('model'),'retrospective':True,'holdout':False,'result':result,'exactMatch':bool(result and result.get('exactMatch')),'eligibleForReview':not reasons,'reasons':reasons,'evidenceFiles':hashes,'publicationCredit':False}
+
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--check-publication',action='store_true',help='Exit nonzero unless publication review is complete (never automatically granted here)')
@@ -78,7 +100,10 @@ def main():
     run=subprocess.run(['node','--test',*[str(p) for p in tests]],cwd=ROOT,text=True,encoding='utf-8',errors='replace',capture_output=True)
     log=ROOT/'research/evidence/latest-test-suite.tap'
     log.write_text(run.stdout+'\n'+run.stderr,encoding='utf-8')
-    rows=[audit_observation(json.loads(path.read_text(encoding='utf-8'))) for path in sorted((ROOT/'tests/observations').glob('*.json'))]
+    observation_paths=sorted((ROOT/'tests/observations').glob('*.json'))
+    observation_data=[json.loads(path.read_text(encoding='utf-8')) for path in observation_paths]
+    rows=[audit_observation(row) for row in observation_data]
+    mechanic_rows=[result for row,path in zip(observation_data,observation_paths) if (result:=audit_mechanic_regression(row,path)) is not None]
     reviewable=sum(row['eligibleForReview'] for row in rows)
     holdouts=sum(row['eligibleForReview'] and row['holdout'] for row in rows)
     reasons=[]
@@ -93,10 +118,10 @@ def main():
         matches=website.is_file() and engine.read_bytes()==website.read_bytes()
         copies.append({'module':name,'matchesResearchEngine':matches})
         if not matches:reasons.append('Website engine copy missing or stale: '+name)
-    out={'generatedAtUtc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'publicationStatus':'NOT_READY' if len(reasons)>1 else 'REQUIRES_EVIDENCE_REVIEW','publicationAuthorized':False,'automatedSuite':{'testFiles':len(tests),'passed':run.returncode==0 and bool(tests),'exitCode':run.returncode,'log':str(log.relative_to(ROOT)),'logSha256':hashlib.sha256(log.read_bytes()).hexdigest()},'realObservations':{'records':len(rows),'eligibleForReview':reviewable,'holdoutsEligibleForReview':holdouts,'rows':rows},'websiteEngineCopies':copies,'blockingReasons':reasons,'limitations':['Matching reported values alone cannot establish input provenance or validate a formula','Synthetic runtime comparisons are not gameplay fixtures or holdouts','No browser QA, source coverage review or deployed-site verification is performed by this script']}
+    out={'generatedAtUtc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'publicationStatus':'NOT_READY' if len(reasons)>1 else 'REQUIRES_EVIDENCE_REVIEW','publicationAuthorized':False,'automatedSuite':{'testFiles':len(tests),'passed':run.returncode==0 and bool(tests),'exitCode':run.returncode,'log':str(log.relative_to(ROOT)),'logSha256':hashlib.sha256(log.read_bytes()).hexdigest()},'realObservations':{'records':len(rows),'eligibleForReview':reviewable,'holdoutsEligibleForReview':holdouts,'rows':rows},'gameplayMechanicRegressions':{'records':len(mechanic_rows),'exactMatches':sum(row['exactMatch'] for row in mechanic_rows),'eligibleForReview':sum(row['eligibleForReview'] for row in mechanic_rows),'publicationCredit':False,'rows':mechanic_rows},'websiteEngineCopies':copies,'blockingReasons':reasons,'limitations':['Matching reported values alone cannot establish input provenance or validate a formula','Retrospective mechanic regressions do not count as full damage predictions or blind holdouts','Synthetic runtime comparisons are not gameplay fixtures or holdouts','No browser QA, source coverage review or deployed-site verification is performed by this script']}
     path=ROOT/'research/evidence/verification-snapshot.json'
     path.write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
-    print(json.dumps({'suitePassed':out['automatedSuite']['passed'],'testFiles':len(tests),'realObservationRecords':len(rows),'reviewablePredictions':reviewable,'reviewableHoldouts':holdouts,'publicationStatus':out['publicationStatus'],'report':str(path.relative_to(ROOT))},indent=2))
+    print(json.dumps({'suitePassed':out['automatedSuite']['passed'],'testFiles':len(tests),'realObservationRecords':len(rows),'mechanicRegressionExactMatches':out['gameplayMechanicRegressions']['exactMatches'],'reviewablePredictions':reviewable,'reviewableHoldouts':holdouts,'publicationStatus':out['publicationStatus'],'report':str(path.relative_to(ROOT))},indent=2))
     return run.returncode or (2 if args.check_publication else 0)
 
 if __name__=='__main__':raise SystemExit(main())

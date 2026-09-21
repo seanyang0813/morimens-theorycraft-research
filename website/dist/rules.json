@@ -3144,6 +3144,35 @@
       "checks": []
     },
     {
+      "id": "PC144:OldEmbersStatisticsRegression",
+      "status": "GAMEPLAY_CONSISTENCY_EXACT_BUILD_UNCONFIRMED",
+      "claim": "A source-statistics observation of 2,205 Arachne Strike damage and 6,615 separately credited Old Embers damage exactly replays the recovered Active-trigger 3x HP-change request",
+      "scope": "Retrospective high-difficulty turn-one source-statistics regression with three locally hashed screenshots. The model predicts only downstream Old Embers credited damage from observed castDamage and post-outcome-resolved eligibility. Recorded combat build is unknown; no Strike prediction, actual HP-loss validation, full action reconstruction, blind holdout or publication credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "State",
+          "member": "80575",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8"
+        },
+        {
+          "module": "Cmd",
+          "member": "80572,81060",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2"
+        },
+        {
+          "module": "BattleStatsMgr",
+          "member": "OnDoDamage,OnBEChangeAttrHp,ProcessRoleStats",
+          "sha256": "fbbdc0851748f6d295bd7dbe2d25605436e7e131e5262fbaad1205b4566509df"
+        }
+      ],
+      "checks": [
+        "tools/replay_mechanic_observation.mjs",
+        "tests/mechanic-observation.test.mjs",
+        "tests/observations/replay-002-frenzy-sequence.json"
+      ]
+    },
+    {
       "id": "ANDROID83:ScriptGroupManifest",
       "status": "CONFIRMED_FROM_LOCAL_MANIFEST",
       "claim": "The packaged Android resource-83 manifest identifies seven Scripts-group bundles by filename, size, resource index and MD5; the hash interpretation is established by a direct bundled Android startup-archive match",

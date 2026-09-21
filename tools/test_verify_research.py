@@ -4,7 +4,7 @@ import tempfile
 import json
 import hashlib
 from pathlib import Path
-from verify_research import audit_observation, ROOT
+from verify_research import audit_observation, audit_mechanic_regression, ROOT
 
 class ObservationAuditTests(unittest.TestCase):
     def row(self):
@@ -54,5 +54,17 @@ class ObservationAuditTests(unittest.TestCase):
             self.assertIn('Reported prediction differs from executable engine output',bad['reasons'])
             for update in [{'scenarioSha256':'0'*64},{'runtimeFingerprint':'0'*64},{'metric':'finalDamage'}]:
                 self.assertFalse(audit_observation({**row,'prediction':{**prediction,**update}})['eligibleForReview'])
+
+    def test_mechanic_regression_is_exact_but_never_publication_credit(self):
+        with tempfile.TemporaryDirectory(dir=ROOT) as directory:
+            directory=Path(directory);evidence=directory/'source.txt';evidence.write_text('reviewed',encoding='utf-8')
+            row={'id':'synthetic-mechanic-audit','kind':'REAL_GAME_OBSERVATION','version':{'recordedCombatBuild':'pc-res144-build51'},'mechanicRegression':{'schemaVersion':1,'model':'old-embers-active-statistics-v1','status':'COMPLETE_RETROSPECTIVE','retrospective':True,'holdout':False,'observedCreditedDamage':30,'modelInput':{'build':'pc-res144-build51','damageType':'ACTIVE','castDamage':10,'remainingStacks':10,'triggerEligible':True,'hasState66314':False,'hasState62317':False,'targetHpIsZero':False,'immueChangeHp':0,'beChangeHpLimit':0},'evidence':[str(evidence.relative_to(ROOT))]}}
+            path=directory/'observation.json';path.write_text(json.dumps(row),encoding='utf-8')
+            result=audit_mechanic_regression(row,path)
+            self.assertTrue(result['exactMatch'])
+            self.assertTrue(result['eligibleForReview'])
+            self.assertFalse(result['publicationCredit'])
+            row['version']={}
+            self.assertIn('Recorded combat build unknown',audit_mechanic_regression(row,path)['reasons'])
 
 if __name__=='__main__':unittest.main()

@@ -1,13 +1,13 @@
 {
-  "generatedAtUtc": "2026-09-21T04:34:27.943343+00:00",
+  "generatedAtUtc": "2026-09-21T04:39:36.318983+00:00",
   "publicationStatus": "NOT_READY",
   "publicationAuthorized": false,
   "automatedSuite": {
-    "testFiles": 133,
+    "testFiles": 134,
     "passed": true,
     "exitCode": 0,
     "log": "research\\evidence\\latest-test-suite.tap",
-    "logSha256": "85036358cfd94de37aa005b7ce3b0809e492465a8078fc3523846f3d9ad022a7"
+    "logSha256": "88a46a0d1cae8e4c4887ae8bc85ee3cd03afc11d8996a1ed697578ea0366b4a3"
   },
   "realObservations": {
     "records": 2,
@@ -85,6 +85,51 @@
             "sha256": "84ab0fd07d47f5f60edc69cafdbb1552cfd9dd2e3fdd7734eef72a588f878828"
           }
         ]
+      }
+    ]
+  },
+  "gameplayMechanicRegressions": {
+    "records": 1,
+    "exactMatches": 1,
+    "eligibleForReview": 0,
+    "publicationCredit": false,
+    "rows": [
+      {
+        "id": "replay-002-frenzy-sequence",
+        "model": "old-embers-active-statistics-v1",
+        "retrospective": true,
+        "holdout": false,
+        "result": {
+          "model": "old-embers-active-statistics-v1",
+          "build": "pc-res144-build51",
+          "predictedCreditedDamage": 6615,
+          "observedCreditedDamage": 6615,
+          "difference": 0,
+          "exactMatch": true,
+          "triggerAmount": 2205,
+          "stacksConsumed": 2205,
+          "scope": "Retrospective source-statistics mechanic regression; not a full hit prediction or holdout"
+        },
+        "exactMatch": true,
+        "eligibleForReview": false,
+        "reasons": [
+          "Recorded combat build unknown"
+        ],
+        "evidenceFiles": [
+          {
+            "path": "research/observations/replay-002-frenzy/arachne-boss-turn1-sources.png",
+            "sha256": "84ab0fd07d47f5f60edc69cafdbb1552cfd9dd2e3fdd7734eef72a588f878828"
+          },
+          {
+            "path": "research/observations/replay-002-frenzy/arachne-boss-rounds.png",
+            "sha256": "4b2f473b3acb4a2508753c1f5f2be9f0d92f2e92cdca1bf829f112246734d12e"
+          },
+          {
+            "path": "research/observations/replay-002-frenzy/turn1-boss-680010.png",
+            "sha256": "37385d04a61cbca8b1571b87407bb30f7ccd62f22455e0e7e2b159b00fa2a709"
+          }
+        ],
+        "publicationCredit": false
       }
     ]
   },
@@ -413,6 +458,7 @@
   ],
   "limitations": [
     "Matching reported values alone cannot establish input provenance or validate a formula",
+    "Retrospective mechanic regressions do not count as full damage predictions or blind holdouts",
     "Synthetic runtime comparisons are not gameplay fixtures or holdouts",
     "No browser QA, source coverage review or deployed-site verification is performed by this script"
   ]

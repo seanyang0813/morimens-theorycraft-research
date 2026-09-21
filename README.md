@@ -8,7 +8,7 @@ For a quick shareable overview, read [`FRIEND_PREVIEW.md`](FRIEND_PREVIEW.md). A
 
 ## Current checkpoint
 
-The reproducible checkpoint is `research/evidence/verification-snapshot.json`, which records the latest full-suite result and test-file count. Two gameplay observation records remain incomplete; zero reconstructed predictions and zero independent holdouts qualify for review. Synthetic runtime comparisons do not count as gameplay validation.
+The reproducible checkpoint is `research/evidence/verification-snapshot.json`, which records the latest full-suite result and test-file count. Two full gameplay observation records remain incomplete; zero reconstructed damage predictions and zero independent holdouts qualify for review. One retrospective high-difficulty mechanic regression exactly matches the recovered Old Embers 3x source-statistics relationship, but its recorded combat build is unknown and it receives no publication credit. Synthetic runtime comparisons do not count as gameplay validation.
 
 Run from this directory:
 

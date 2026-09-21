@@ -21,6 +21,41 @@
     "totalCreditedDamage": 8820,
     "interpretation": "Observed aggregate ratio is consistent with the recovered 3x Old Embers HP-change rule. It does not establish hit count, event pairing, full Strike inputs, or actual HP loss."
   },
+  "mechanicRegression": {
+    "schemaVersion": 1,
+    "model": "old-embers-active-statistics-v1",
+    "status": "COMPLETE_RETROSPECTIVE",
+    "retrospective": true,
+    "holdout": false,
+    "observedCreditedDamage": 6615,
+    "modelInput": {
+      "build": "pc-res144-build51",
+      "damageType": "ACTIVE",
+      "castDamage": 2205,
+      "remainingStacks": 680010,
+      "triggerEligible": true,
+      "hasState66314": false,
+      "hasState62317": false,
+      "targetHpIsZero": false,
+      "immueChangeHp": 0,
+      "beChangeHpLimit": 0
+    },
+    "inputProvenance": {
+      "castDamage": "Turn-1 Arachne Strike source statistic; client BattleStatsMgr records castDamage for direct damage sources",
+      "remainingStacks": "Turn-1 boss state screenshot; far above the 2205 trigger amount",
+      "eligibilityAndLimits": "Resolved retrospectively from the separately credited Old Embers source; these are post-outcome facts and cannot support a blind prediction"
+    },
+    "evidence": [
+      "research/observations/replay-002-frenzy/arachne-boss-turn1-sources.png",
+      "research/observations/replay-002-frenzy/arachne-boss-rounds.png",
+      "research/observations/replay-002-frenzy/turn1-boss-680010.png"
+    ],
+    "limitations": [
+      "Recorded combat build is unconfirmed",
+      "This checks the downstream Old Embers multiplier and statistics attribution only",
+      "It does not predict the 2205 Strike source damage, actual HP delta, or complete action"
+    ]
+  },
   "assumedState": {},
   "uncertainState": [
     "The floating labels overlap and may represent different events; their pairing is not established",
