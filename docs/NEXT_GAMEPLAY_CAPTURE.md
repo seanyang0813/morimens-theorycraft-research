@@ -1,6 +1,6 @@
 # Next independent gameplay evidence
 
-Do not reopen the game or use the desktop until the user's computer-use restriction is lifted. Existing Frenzy images were inspected offline; they do not provide a complete isolated hit. The before/after Old Embers values are594509 and552052, but intervening actions and overlapping labels prevent assigning their difference to one hit. Vulnerable shows50% at both duration2 and3, consistent with the duration rule at tooltip scope only.
+Computer use is authorized for Morimens. Use the user-designated player record when the service and approved native-window bridge are available, but keep the player UID out of committed artifacts. Existing Frenzy images were inspected offline; they do not provide a complete isolated hit. The before/after Old Embers values are594509 and552052, but intervening actions and overlapping labels prevent assigning their difference to one hit. Vulnerable shows50% at both duration2 and3, consistent with the duration rule at tooltip scope only.
 
 The next capture should resolve one high-difficulty action before expanding coverage:
 
@@ -12,6 +12,8 @@ The next capture should resolve one high-difficulty action before expanding cove
 6. Reconstruct a regression observation first. Reserve a new unseen result as a holdout; the already viewed replay outcomes cannot become blind holdouts retrospectively.
 
 If the game provides an explicit replay export, preserve its original bytes first. Decode it with `tools/decode_battle_replay.py`, then build a chronological evidence index with `tools/index_decoded_replay.py`. Both outputs belong under ignored `research/observations/`. The index reconstructs complete known state at each `UseCard`, preserves nested target-selection commands, and attaches the following event window through the next card use. Review triggered or overlapping actions before treating that window as one action. The native-codec path avoids manually reading thousands of property/state changes from the interface, but it remains unvalidated on a real server replay until an export is supplied.
+
+The exact client-side lookup and download dependency is in `docs/REPLAY_ACQUISITION_PATH.md`: CopyReview facade → record-ID queue → recent-record metadata → battle UUID → authenticated OSS header → replay JSON. Do not treat a player UID as a battle UUID or attempt an unauthenticated URL guess.
 
 If the interface cannot expose a necessary value, leave that record incomplete and select another controlled action or source. Do not fit unknown modifiers to a displayed total.
 

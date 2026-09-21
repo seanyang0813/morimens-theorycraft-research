@@ -1,5 +1,7 @@
 # Local replay recovery checkpoint
 
+The source-derived server-to-file dependency is documented in [`REPLAY_ACQUISITION_PATH.md`](REPLAY_ACQUISITION_PATH.md). A player UID first yields a CopyReview record-ID queue; a selected record then yields a battle UUID, and the authenticated client obtains an OSS header before downloading the replay JSON. The repository does not store the player UID or reproduce authentication.
+
 The read-only inspection in `research/evidence/local-replay-storage-inspection.json` checked the installed game's BattleLog directory, the Morimens LocalLow directory, and replay/record-named JSON/text/log/data candidates under BattleLog and `_game_data_`. BattleLog was empty and no named replay candidates were found. The two Unity logs had no matches for `BattleReplayData FirstRecord`, `copyProperties`, `recordZips`, `compStr`, or `occupation_master`. Log hashes and exact checked paths are recorded without copying log contents into the website.
 
 Original `BattleReplayPlayer.LoadFromLocalFile` accepts an explicitly supplied file path. `DealReplayContent` decodes JSON, decompresses `compStr` with the client LZ4 module, unpacks it with cmsgpack, and decompresses/unpacks each `recordZips` entry. It keeps the result in replay-player fields. The inspected download/playback methods do not automatically save a replay file. `SaveRecordList` populates an in-memory field despite its name; it is not a disk writer.

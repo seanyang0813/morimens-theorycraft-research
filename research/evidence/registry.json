@@ -21,6 +21,53 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC144:ReplayAcquisitionPath",
+      "status": "CONFIRMED_FROM_CODE",
+      "claim": "The player-record UI resolves a player UID to a CopyReview record-ID queue, retrieves record metadata containing a battle UUID, obtains an authenticated OSS header for that UUID, and downloads the replay JSON before native decoding",
+      "sources": [
+        {
+          "module": "SocialPlayerInfoPanel",
+          "member": "CopyReview facade request and widQueue binding",
+          "bundle": "pc\\downloaded\\gamescript.ab",
+          "sha256": "6f295fc8f4082295c92a06e2a6fcd33320aca135b214c849c802cc80c5b0cf45",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\gamescript\\-5223836603557933821_SocialPlayerInfoPanel.lua"
+        },
+        {
+          "module": "CopyRecordsModel",
+          "member": "batched other-player record retrieval",
+          "bundle": "pc\\downloaded\\gamescript.ab",
+          "sha256": "36287d96d093bb938f3266999b90d22f3e4ea9b2cbe3917ee2169c7aa3dc54b2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\gamescript\\9195096084714444232_CopyRecordsModel.lua"
+        },
+        {
+          "module": "CopyRecordsController",
+          "member": "facade, recent-review, detail and replay requests",
+          "bundle": "pc\\downloaded\\gamescript.ab",
+          "sha256": "cbfe8bf90832d19db8179d371f697b20ef5c98ba185d4cabb100727eb9dbc233",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\gamescript\\-728822146795287686_CopyRecordsController.lua"
+        },
+        {
+          "module": "GameRequest",
+          "member": "QueryOthersRecentReview, QueryReviewDetail, GetOSSHeader",
+          "bundle": "pc\\downloaded\\gamescript.ab",
+          "sha256": "5423a61ca28bec290cff9fc9cd7e79b4bd33dffe9047ceac174a13eaec368dd1",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\gamescript\\-7571131832927482250_GameRequest.lua"
+        },
+        {
+          "module": "BattleReplayPlayer",
+          "member": "GetOssHeaderAndDownload,GetRecordOssUrl,DealReplayContent",
+          "bundle": "pc\\downloaded\\gamescript.ab",
+          "sha256": "3637d629c0ec30d4fff41618c62f2694e5a462577a6eba2e838154dc413a3f14",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\gamescript\\-4817828394417630722_BattleReplayPlayer.lua"
+        }
+      ],
+      "tests": [
+        "docs/REPLAY_ACQUISITION_PATH.md"
+      ],
+      "scope": "Static source trace only. No live request, authentication reuse, player identifier, replay payload or server-retention claim. A UID alone is not a replay container and cannot be passed to the offline decoder.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC144:ReplayProtocolCatalog",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "Original replay protocol tables expose 29 unique numeric battle commands and 101 unique numeric render events, including initialization, cut, property, state, card, target and hit records",

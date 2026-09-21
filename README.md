@@ -35,7 +35,7 @@ An explicitly exported PC replay can now be processed without running game logic
 2. `tools/index_decoded_replay.py` reconstructs role, card and active-state maps at every `UseCard` boundary and preserves selected-target commands and following hit windows.
 3. `tools/build_replay_action_candidate.mjs` can bind a narrow unambiguous hit, including a selected hit inside a supported multi-target action, into the complete-property damage scenario while keeping its observed result separate.
 
-The native decoder has passed a synthetic round trip, and the index/adapter have synthetic integration coverage. No actual server replay has been decoded yet. See `docs/LOCAL_REPLAY_RECOVERY.md` and `docs/REPLAY_ACTION_CANDIDATE.md` for the explicit limits.
+The native decoder has passed a synthetic round trip, and the index/adapter have synthetic integration coverage. No actual server replay has been decoded yet. `docs/REPLAY_ACQUISITION_PATH.md` traces the authenticated client dependency from player record lookup to downloaded JSON without storing a player identifier or making a live request. See `docs/LOCAL_REPLAY_RECOVERY.md` and `docs/REPLAY_ACTION_CANDIDATE.md` for the explicit limits.
 
 The source-hashed static audit follows non-PvP supported-tag Awakener skills to their commands and currently finds all 121 linked commands containing ordinary Active damage have row shapes the PvE replay adapter can parse. This is potential replay-regression coverage only; it is not gameplay support or accuracy evidence.
 
