@@ -22,4 +22,10 @@ These differences require the original compiled formula and runtime to determine
 
 The saved evidence contains 2,700 cases: 60 uniquely matched characters × levels 1/14/24/70/90 × ranks 0/1/5 × three primary stats. `engine/client-build-stats.mjs` now accepts character identity, level, Gnostic rank and explicit PC build, resolves the numeric inputs and reproduces every case. `tools/prepare_client_build_data.py` emits minimal numeric mappings into `research/evidence/client-build-data.json`. Jenkin remains unresolved. No default Gnostic rank is inferred.
 
-The connected lookup supports primary base stats only. Soulforge, full battle properties and independent observed values remain separate validation tasks; these outputs are not final equipped stats. The website planner now exposes this resolver with explicit client-build and progression choices and an expandable trace. Browser QA remains pending.
+The connected lookup establishes primary base stats before seasonal percentage promotion. Full battle properties and independent observed values remain separate validation tasks; these outputs are not final equipped stats. The website planner exposes the resolver with explicit client-build and progression choices and an expandable trace. Browser QA remains pending.
+
+## Season / Soulforge percentage promotion
+
+The pinned `AwakerTalent` table contains one seasonal primary-stat promotion for each of the 60 uniquely mapped characters. The adapter preserves the explicit talent identity and level instead of treating “Soulforge” as one global percentage. Its `Attr_Promote` vector names `physique_per`, `atk_per` and `def_per` through `ActorAttrType`; the selected percentages then pass through the separately runtime-tested `GetAwakerFinalAttr` helper.
+
+For Mouchette, client talent 122481 progresses from 3% at level 1 to 30% at level 10. With the recovered level-90, Gnostic-rank-5 base ATK of 198, the helper gives `ceil(198 × 1.30) = 258`. This establishes the numeric preview path. It does not establish seasonal availability, apply the talent's state/passive effects, or prove that a replay's server-prepared battle properties used that selection.

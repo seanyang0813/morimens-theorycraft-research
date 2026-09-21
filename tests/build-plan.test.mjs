@@ -23,3 +23,9 @@ test('client build and Gnostic rank survive round trip without filling legacy un
   for(const rank of [-1,6,'5',undefined,NaN]){const p=plan();p.team[0].gnosticRank=rank;assert.throws(()=>validateBuildPlan(p,catalog));}
   const p=plan();p.clientBuild='android';assert.throws(()=>validateBuildPlan(p,catalog));
 });
+test('advancement talent selection is explicit and round trips without inference',()=>{
+  const p=plan();p.clientBuild='pc-res144-build51';p.team[0].advancementTalentId=122481;p.team[0].advancementLevel=10;
+  assert.deepEqual(validateBuildPlan(JSON.parse(JSON.stringify(p)),catalog).plan,p);
+  for(const patch of [{advancementTalentId:0},{advancementTalentId:'122481'},{advancementLevel:-1},{advancementLevel:11},{advancementLevel:'10'}]){const q=plan();Object.assign(q.team[0],patch);assert.throws(()=>validateBuildPlan(q,catalog));}
+  const orphan=plan();orphan.team[0].advancementLevel=0;assert.throws(()=>validateBuildPlan(orphan,catalog));
+});

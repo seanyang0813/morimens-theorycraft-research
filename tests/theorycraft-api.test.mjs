@@ -35,7 +35,8 @@ test('agent API assembles known build components with both catalogs',()=>{
   const clientBuildData=JSON.parse(readFileSync(new URL('../website/dist/client-build-data.json',import.meta.url),'utf8'));
   const character=catalog.characters.find(row=>clientBuildData.characters.some(client=>client.characterId===row.id));
   const wheel=catalog.wheels[0];
-  const input={schemaVersion:1,kind:'morimens-build-plan',catalogRevision:catalog.source.revision,clientBuild:'pc-res144-build51',team:[{slotId:'one',characterId:character.id,level:90,gnosticRank:5,wheelId:wheel.id,wheelEnhanceLevel:15}]};
+  const talent=clientBuildData.characters.find(row=>row.characterId===character.id).advancementTalents[0];
+  const input={schemaVersion:1,kind:'morimens-build-plan',catalogRevision:catalog.source.revision,clientBuild:'pc-res144-build51',team:[{slotId:'one',characterId:character.id,level:90,gnosticRank:5,advancementTalentId:talent.clientTalentId,advancementLevel:10,wheelId:wheel.id,wheelEnhanceLevel:15}]};
   assert.throws(()=>runTheorycraftRequest(request('assemble-build-components',input),{buildCatalog:catalog}),/requires context clientBuildData/);
   const response=runTheorycraftRequest(request('assemble-build-components',input),{buildCatalog:catalog,clientBuildData});
   assert.equal(response.result.assemblyStatus,'KNOWN_COMPONENTS_RESOLVED');

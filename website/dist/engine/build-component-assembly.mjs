@@ -1,5 +1,5 @@
 import {validateBuildPlan} from './build-plan.mjs';
-import {resolveClientBuildPrimary} from './client-build-stats.mjs';
+import {resolveClientBuildPrimary,resolveClientAdvancementPrimary} from './client-build-stats.mjs';
 import {resolveWheelMainstat} from './wheel-stats.mjs';
 
 const clone=value=>JSON.parse(JSON.stringify(value));
@@ -17,7 +17,9 @@ export function assembleKnownBuildComponents(plan,catalog,clientBuildData){
     const assembled={
       slotId:member.slotId,
       character:{id:character.id,name:character.name,realm:character.realm,rarity:character.rarity,type:character.type},
+      primaryBaseStats:null,
       primaryStats:null,
+      advancementTalent:null,
       wheelMainstat:null,
       contributionLedger:[],
     };
@@ -29,8 +31,20 @@ export function assembleKnownBuildComponents(plan,catalog,clientBuildData){
     if(!clientBuildData.characters.some(row=>row.characterId===member.characterId)){issues.push(issue('CHARACTER_PRIMARY_UNRESOLVED',member.slotId,'characterId','The character identity or primary-stat talent is not uniquely resolved in this client build.'));primaryReady=false;}
     if(primaryReady){
       const primary=resolveClientBuildPrimary({build:validated.clientBuild,characterId:member.characterId,level:member.level,gnosticRank:member.gnosticRank},clientBuildData);
-      assembled.primaryStats={CON:primary.stats.CON,ATK:primary.stats.ATK,DEF:primary.stats.DEF};
+      assembled.primaryBaseStats={CON:primary.stats.CON,ATK:primary.stats.ATK,DEF:primary.stats.DEF};
       for(const stat of ['CON','ATK','DEF'])assembled.contributionLedger.push({property:stat,value:primary.stats[stat],unit:'flat',sourceKind:'CLIENT_PRIMARY_BASE',sourceId:member.characterId,evidenceStatus:primary.status,trace:clone(primary.trace.find(row=>row.stat===stat))});
+    }
+    let advancementReady=primaryReady;
+    if(!Object.hasOwn(member,'advancementTalentId')||member.advancementTalentId===null){issues.push(issue('ADVANCEMENT_TALENT_REQUIRED',member.slotId,'advancementTalentId','Season/Soulforge advancement talent is unknown.'));advancementReady=false;}
+    if(!Object.hasOwn(member,'advancementLevel')||member.advancementLevel===null){issues.push(issue('ADVANCEMENT_LEVEL_REQUIRED',member.slotId,'advancementLevel','Season/Soulforge advancement level is unknown.'));advancementReady=false;}
+    const clientCharacter=clientBuildData.characters.find(row=>row.characterId===member.characterId);
+    const advancement=clientCharacter?.advancementTalents?.find(row=>row.clientTalentId===member.advancementTalentId);
+    if(member.advancementTalentId!==null&&Object.hasOwn(member,'advancementTalentId')&&!advancement){issues.push(issue('ADVANCEMENT_TALENT_UNSUPPORTED',member.slotId,'advancementTalentId','Selected advancement talent does not belong to this character in the pinned client build.'));advancementReady=false;}
+    if(advancementReady){
+      const resolved=resolveClientAdvancementPrimary({build:validated.clientBuild,characterId:member.characterId,level:member.level,gnosticRank:member.gnosticRank,advancementTalentId:member.advancementTalentId,advancementLevel:member.advancementLevel},clientBuildData);
+      assembled.primaryStats={...resolved.stats};
+      assembled.advancementTalent={clientTalentId:member.advancementTalentId,level:member.advancementLevel,season:resolved.progression.season,percentages:{...resolved.progression.percentages}};
+      for(const row of resolved.trace)assembled.contributionLedger.push({property:row.stat,value:row.value-row.baseValue,unit:'flat',sourceKind:'ADVANCEMENT_PRIMARY_PERCENT',sourceId:String(member.advancementTalentId),evidenceStatus:resolved.status,trace:clone(row)});
     }
     if(member.wheelId===null)issues.push(issue('WHEEL_SELECTION_REQUIRED',member.slotId,'wheelId','Wheel selection is unspecified.'));
     else if(!Object.hasOwn(member,'wheelEnhanceLevel')||member.wheelEnhanceLevel===null)issues.push(issue('WHEEL_ENHANCEMENT_REQUIRED',member.slotId,'wheelEnhanceLevel','Wheel enhancement is unknown.'));
@@ -53,7 +67,7 @@ export function assembleKnownBuildComponents(plan,catalog,clientBuildData){
     issues,
     finalDamage:null,
     unresolvedDependencies:[
-      'Soulforge and character advancement contributions',
+      'Advancement talent state/passive effects and other character progression',
       'Wheel passive effects and equipment legality',
       'Additional equipment, substats and team-wide properties',
       'Battle-start states, encounter properties and action sequencing',

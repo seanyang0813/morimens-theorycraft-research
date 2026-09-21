@@ -3,7 +3,7 @@ import {runCardActionTimeline} from './card-action-timeline.mjs';
 import {runResearchTimeline} from './research-timeline.mjs';
 import {runOrderedStateCommand} from './ordered-state-command.mjs';
 import {validateBuildPlan} from './build-plan.mjs';
-import {resolveClientBuildPrimary} from './client-build-stats.mjs';
+import {resolveClientBuildPrimary,resolveClientAdvancementPrimary} from './client-build-stats.mjs';
 import {resolveWheelMainstat} from './wheel-stats.mjs';
 import {assembleKnownBuildComponents} from './build-component-assembly.mjs';
 
@@ -15,6 +15,7 @@ export const theorycraftOperations=Object.freeze([
   {name:'run-ordered-state-command',context:[],scope:'Supported ordered state/resource/damage command rows'},
   {name:'validate-build-plan',context:['buildCatalog'],scope:'Catalog identity and shape validation; no automatic combat assembly'},
   {name:'resolve-character-primary',context:['clientBuildData'],scope:'Client-derived primary CON/ATK/DEF baseline'},
+  {name:'resolve-character-advancement-primary',context:['clientBuildData'],scope:'Client-derived primary stats plus explicit Season/Soulforge percentage promotion'},
   {name:'resolve-wheel-mainstat',context:['buildCatalog'],scope:'Catalog-derived Wheel main-stat scaling'},
   {name:'assemble-build-components',context:['buildCatalog','clientBuildData'],scope:'Known character primary-stat and Wheel-main-stat contribution ledger'},
 ]);
@@ -34,6 +35,7 @@ function execute(operation,input,context){
   if(operation==='run-ordered-state-command')return runOrderedStateCommand(input);
   if(operation==='validate-build-plan')return validateBuildPlan(input,context.buildCatalog);
   if(operation==='resolve-character-primary')return resolveClientBuildPrimary(input,context.clientBuildData);
+  if(operation==='resolve-character-advancement-primary')return resolveClientAdvancementPrimary(input,context.clientBuildData);
   if(operation==='resolve-wheel-mainstat')return resolveWheelMainstat(input,context.buildCatalog);
   if(operation==='assemble-build-components')return assembleKnownBuildComponents(input,context.buildCatalog,context.clientBuildData);
   throw new Error('Unsupported theorycraft operation');

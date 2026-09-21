@@ -7,13 +7,15 @@ export function validateBuildPlan(plan,catalog){
   const seen=new Set(),team=[];
   for(const member of plan.team){
     const keys=['slotId','characterId','level','wheelId'];
-    if(!member||keys.some(k=>!Object.hasOwn(member,k))||Object.keys(member).some(k=>![...keys,'wheelEnhanceLevel','gnosticRank'].includes(k)))throw new Error('Incomplete or unknown team fields');
+    if(!member||keys.some(k=>!Object.hasOwn(member,k))||Object.keys(member).some(k=>![...keys,'wheelEnhanceLevel','gnosticRank','advancementTalentId','advancementLevel'].includes(k)))throw new Error('Incomplete or unknown team fields');
     if(Object.hasOwn(member,'gnosticRank')&&member.gnosticRank!==null&&(!Number.isSafeInteger(member.gnosticRank)||member.gnosticRank<0||member.gnosticRank>5))throw new Error('Gnostic rank must be 0–5 or explicitly unknown');
     if(typeof member.slotId!=='string'||!member.slotId||seen.has(member.slotId))throw new Error('Team slot IDs must be unique');seen.add(member.slotId);
     if(!characters.has(member.characterId))throw new Error('Unknown character ID');
     if(member.level!==null&&(!Number.isSafeInteger(member.level)||member.level<1))throw new Error('Level must be a positive integer or explicitly unknown');
     if(member.wheelId!==null&&!wheels.has(member.wheelId))throw new Error('Unknown Wheel ID');
     if(Object.hasOwn(member,'wheelEnhanceLevel')&&member.wheelEnhanceLevel!==null&&(!Number.isSafeInteger(member.wheelEnhanceLevel)||member.wheelEnhanceLevel<0||member.wheelEnhanceLevel>15||member.wheelId===null))throw new Error('Wheel enhancement requires a selected Wheel and an integer 0–15, or null for unknown');
+    if(Object.hasOwn(member,'advancementTalentId')&&member.advancementTalentId!==null&&(!Number.isSafeInteger(member.advancementTalentId)||member.advancementTalentId<=0))throw new Error('Advancement talent ID must be a positive integer or null for unknown');
+    if(Object.hasOwn(member,'advancementLevel')&&member.advancementLevel!==null&&(!Number.isSafeInteger(member.advancementLevel)||member.advancementLevel<0||member.advancementLevel>10||!Object.hasOwn(member,'advancementTalentId')||member.advancementTalentId===null))throw new Error('Advancement level requires a selected talent and an integer 0–10, or null for unknown');
     team.push({...member});
   }
   return {plan:{schemaVersion:1,kind:plan.kind,catalogRevision:plan.catalogRevision,...(Object.hasOwn(plan,'clientBuild')?{clientBuild:plan.clientBuild}:{}),team},status:'PLAN_ONLY',finalDamage:null,

@@ -7,7 +7,8 @@
     "upgrades": "7a22109a154257c1973ad59b94d804efeb47be9c5da43095116e52d4ae521d7c",
     "constants": "b0ed369aca9517413588ab832de487c90181cd2c78e9fa20f0d982cc5c9f8785",
     "talents": "4d12de9f5d8ba69800252490972e599b434f6f2e215ec98a34d400f3392a79d4",
-    "clientReader": "00ea89a618099cd29952033fc5c59c452ec86e2799f3f45752cd5b48da31a4a0"
+    "clientReader": "00ea89a618099cd29952033fc5c59c452ec86e2799f3f45752cd5b48da31a4a0",
+    "actorAttrTypes": "ac7124e0662905d77a52cb08c7cdbf1f299bedf8575cbcc1122c16cde2147361"
   },
   "characters": [
     {
@@ -38,7 +39,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74128,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0002",
@@ -68,7 +133,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74103,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0003",
@@ -98,7 +227,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74114,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0004",
@@ -128,7 +321,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74123,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0005",
@@ -158,7 +415,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74105,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0006",
@@ -188,7 +509,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74138,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0007",
@@ -218,7 +603,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74111,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0008",
@@ -248,7 +697,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 78624,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0009",
@@ -278,7 +791,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74125,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0010",
@@ -308,7 +885,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 78645,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0011",
@@ -338,7 +979,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 78620,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0012",
@@ -368,7 +1073,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74137,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0013",
@@ -398,7 +1167,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74124,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0014",
@@ -428,7 +1261,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 95806,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0015",
@@ -458,7 +1355,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74104,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0016",
@@ -488,7 +1449,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74100,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0017",
@@ -518,7 +1543,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74132,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0018",
@@ -548,7 +1637,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74141,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0019",
@@ -578,7 +1731,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74102,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0020",
@@ -608,7 +1825,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74201,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0021",
@@ -638,7 +1919,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74118,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0022",
@@ -668,7 +2013,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74110,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0023",
@@ -698,7 +2107,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74134,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0024",
@@ -728,7 +2201,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74135,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0026",
@@ -758,7 +2295,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74127,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0027",
@@ -788,7 +2389,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 78622,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0028",
@@ -818,7 +2483,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74126,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0029",
@@ -848,7 +2577,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74129,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0030",
@@ -878,7 +2671,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74136,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0031",
@@ -908,7 +2765,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74120,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0032",
@@ -938,7 +2859,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74106,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0033",
@@ -968,7 +2953,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 122481,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0034",
@@ -998,7 +3047,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74140,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0035",
@@ -1028,7 +3141,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 78911,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0036",
@@ -1058,7 +3235,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74139,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0037",
@@ -1088,7 +3329,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74107,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0038",
@@ -1118,7 +3423,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74108,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0039",
@@ -1148,7 +3517,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74113,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0040",
@@ -1178,7 +3611,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 78625,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0041",
@@ -1208,7 +3705,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 78618,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0042",
@@ -1238,7 +3799,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74133,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0043",
@@ -1268,7 +3893,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74101,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0044",
@@ -1298,7 +3987,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74131,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0045",
@@ -1328,7 +4081,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74112,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0046",
@@ -1358,7 +4175,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74130,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0047",
@@ -1388,7 +4269,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74119,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0048",
@@ -1418,7 +4363,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74116,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0049",
@@ -1448,7 +4457,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74122,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0050",
@@ -1478,7 +4551,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74099,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0051",
@@ -1508,7 +4645,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74115,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0052",
@@ -1538,7 +4739,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74121,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0053",
@@ -1568,7 +4833,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74117,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0054",
@@ -1598,7 +4927,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 125362,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0055",
@@ -1628,7 +5021,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 130920,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0056",
@@ -1658,7 +5115,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 78642,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0057",
@@ -1688,7 +5209,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 130398,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0058",
@@ -1718,7 +5303,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 141303,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0059",
@@ -1748,7 +5397,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 145381,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0060",
@@ -1778,7 +5491,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 78623,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     },
     {
       "characterId": "awakener-0061",
@@ -1808,7 +5585,71 @@
           "4": 8,
           "5": 10
         }
-      }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 130400,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
     }
   ],
   "unresolved": [
@@ -1817,5 +5658,5 @@
       "reason": "Client identity or attribute talent is not uniquely resolved"
     }
   ],
-  "scope": "Primary base stats and explicit Gnostic ranks only. No Soulforge, equipment, substats, final battle properties or gameplay validation."
+  "scope": "Primary base stats, explicit Gnostic ranks and Attr_Promote percentages from explicit advancement-talent levels. State/passive effects, equipment, substats, final battle properties and gameplay validation are excluded."
 }

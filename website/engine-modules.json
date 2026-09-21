@@ -23,6 +23,7 @@
   "wheel-stats.mjs",
   "client-primary-stats.mjs",
   "client-build-stats.mjs",
+  "attribute-modifiers.mjs",
   "hit-trigger-values.mjs",
   "resolved-hit-timeline.mjs",
   "research-timeline.mjs",

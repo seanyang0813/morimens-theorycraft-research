@@ -2467,6 +2467,40 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC144:AdvancementPrimaryPromotion",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Explicit Season/Soulforge advancement-talent levels map to CON/ATK/DEF percentage promotions and use recovered client display-helper rounding after base primary-stat lookup",
+      "sources": [
+        {
+          "module": "AwakerTalent",
+          "member": "60 character-matched seasonal Attr_Promote tables",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "3478b2c9c377ca8832a474c5c712e936068818baa79d0a78bd0859ed150e6e0c",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\-2175630233196323073_AwakerTalent.lua"
+        },
+        {
+          "module": "ActorAttrType",
+          "member": "physique_per, atk_per and def_per identities",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "45ef44ee7d59e7a7f0a978602ff7967b8c1582c598abcd20b0eb24f04ab0a996",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\-1347477437086681121_ActorAttrType.lua"
+        },
+        {
+          "module": "AttrUtils",
+          "member": "GetAwakerFinalAttr arithmetic",
+          "bundle": "pc\\downloaded\\gamescript.ab",
+          "sha256": "b00369326c56e98ec47aed7bd437b6aabc2e96e42e1bf12659076acb656f1f86",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\gamescript\\-1387708608666140836_AttrUtils.lua"
+        }
+      ],
+      "tests": [
+        "tests/client-advancement-stats.test.mjs",
+        "tests/attribute-modifiers.test.mjs"
+      ],
+      "scope": "All 60 uniquely mapped PC characters at explicit no-talent level 0 and each saved maximum level; Mouchette talent 122481 level 10 maps 30% and resolves base ATK 198 to 258. Level 0 is the adapter representation of no promotion. Passive states, season eligibility, acquisition, final battle assembly and gameplay validation remain excluded",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC144:CachedStateCallback",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "Cached state callback checks hidden/deleted/dead-owner guards, clears parser values before judgment, rejects false/zero judgments, then queues target generation, phase and trigger-end event",
