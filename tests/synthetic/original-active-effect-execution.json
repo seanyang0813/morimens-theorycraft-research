@@ -1,0 +1,175 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleEffectMgrServer": "9a94157af60365d26188b578ca7f69987503b980ce51a420765eca45b4b8ab41",
+    "BattleEffectServer": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+    "BEActiveDamage": "6d87f4da91293c019579f5d586a093763d3fb1051d6efed8652cdbc3b114e208"
+  },
+  "scope": "Original effect-manager creation of BEActiveDamage, original constructors, PreTrigger, TryDoEffect target/parameter binding, Active DoEffect initialization and one or two repetition-routing calls. Explicit caster/target/command/engine adapters; BEFunctionEffect child is inert and only records PreTrigger. No Damage2SingleTarget, damage formula, BeHit, HP, scheduler completion, gameplay or holdout.",
+  "fixtures": [
+    {
+      "input": {
+        "name": "one-hit",
+        "baseDamage": 100,
+        "repeat": 1,
+        "plus": 0,
+        "per": 0,
+        "beforeDelay": 0.1,
+        "multiDelay": 0.2,
+        "skipPhase": false,
+        "extraRepeat": false
+      },
+      "expected": {
+        "eligible": true,
+        "executed": true,
+        "effect": {
+          "uid": 101.0,
+          "parentEffectUid": 0.0,
+          "preTriggerTime": 12.5,
+          "totalEffectTimes": 1.0,
+          "leftEffectTimes": 0.0
+        },
+        "managerEffectCount": 2,
+        "childConfigs": [
+          {
+            "targetUid": 20.0
+          }
+        ],
+        "childPreTriggers": [
+          null
+        ],
+        "delays": [
+          0.1,
+          0.0
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "flat-repeat",
+        "baseDamage": 100,
+        "repeat": 2,
+        "plus": 1,
+        "per": 0,
+        "beforeDelay": 0,
+        "multiDelay": 0.2,
+        "skipPhase": false,
+        "extraRepeat": true
+      },
+      "expected": {
+        "eligible": true,
+        "executed": true,
+        "effect": {
+          "uid": 101.0,
+          "parentEffectUid": 0.0,
+          "preTriggerTime": 12.5,
+          "totalEffectTimes": 3.0,
+          "leftEffectTimes": 1.0
+        },
+        "managerEffectCount": 3,
+        "childConfigs": [
+          {
+            "targetUid": 20.0
+          },
+          {
+            "targetUid": 20.0
+          }
+        ],
+        "childPreTriggers": [
+          null,
+          null
+        ],
+        "delays": [
+          0.0,
+          0.0,
+          0.2
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "percent-repeat",
+        "baseDamage": 100,
+        "repeat": 2,
+        "plus": 0,
+        "per": 50,
+        "beforeDelay": 0.5,
+        "multiDelay": 0.25,
+        "skipPhase": false,
+        "extraRepeat": true
+      },
+      "expected": {
+        "eligible": true,
+        "executed": true,
+        "effect": {
+          "uid": 101.0,
+          "parentEffectUid": 0.0,
+          "preTriggerTime": 12.5,
+          "totalEffectTimes": 3.0,
+          "leftEffectTimes": 1.0
+        },
+        "managerEffectCount": 3,
+        "childConfigs": [
+          {
+            "targetUid": 20.0
+          },
+          {
+            "targetUid": 20.0
+          }
+        ],
+        "childPreTriggers": [
+          null,
+          null
+        ],
+        "delays": [
+          0.5,
+          0.0,
+          0.25
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "skip-phase",
+        "baseDamage": 100,
+        "repeat": 2,
+        "plus": 0,
+        "per": 0,
+        "beforeDelay": 0.5,
+        "multiDelay": 0.25,
+        "skipPhase": true,
+        "extraRepeat": true
+      },
+      "expected": {
+        "eligible": true,
+        "executed": true,
+        "effect": {
+          "uid": 101.0,
+          "parentEffectUid": 0.0,
+          "preTriggerTime": 12.5,
+          "totalEffectTimes": 2.0,
+          "leftEffectTimes": 0.0
+        },
+        "managerEffectCount": 3,
+        "childConfigs": [
+          {
+            "targetUid": 20.0
+          },
+          {
+            "targetUid": 20.0
+          }
+        ],
+        "childPreTriggers": [
+          null,
+          null
+        ],
+        "delays": [
+          0.5,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  ]
+}

@@ -2200,6 +2200,34 @@
       ]
     },
     {
+      "id": "PC144:ActiveEffectExecutionBoundary",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Effect-manager construction of BEActiveDamage proceeds through original constructors, PreTrigger, target/parameter binding, Active initialization and repetition routing into child function effects",
+      "scope": "4 original-runtime positive-repeat cases with explicit caster, target, command and engine adapters. BEFunctionEffect children are inert PreTrigger observers. Damage2SingleTarget, damage formula, BeHit/HP, scheduler completion, gameplay and holdout remain outside scope.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "BattleEffectMgrServer",
+          "member": "CreateEffect,GetParentEffectUid,GetEffectByUid,SetRunningEffect",
+          "sha256": "9a94157af60365d26188b578ca7f69987503b980ce51a420765eca45b4b8ab41"
+        },
+        {
+          "module": "BattleEffectServer",
+          "member": "ctor,PreTrigger,TryDoEffect,GenTargets,GenParams,DoMultiEffect",
+          "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e"
+        },
+        {
+          "module": "BEActiveDamage",
+          "member": "ctor,DoEffect,__DoMultiEffect,GetDamageSubTypeValue,IsSingleTarget",
+          "sha256": "6d87f4da91293c019579f5d586a093763d3fb1051d6efed8652cdbc3b114e208"
+        }
+      ],
+      "checks": [
+        "tools/active_effect_execution_oracle.py",
+        "tests/active-effect-execution.test.mjs"
+      ]
+    },
+    {
       "id": "PC144:ConnectedSkillPhaseStart",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "BECreateSkillPhase.DoEffect enters the phase hooks and then executes TriggerCmd through effect-list creation and child PreTrigger calls",
@@ -3924,8 +3952,8 @@
     {
       "id": "PC150:SkillPhaseSelectedBoundary",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
-      "claim": "Resource 150 reproduces all 252 inherited connected phase-start, TriggerCmd, effect-construction, cleanup, target-handoff, argument, timing and command-row-order fixtures exactly",
-      "scope": "BECreateSkillPhase start through BattleCmdServer TriggerCmd and child PreTrigger; original GenerateEffectObj through original effect-manager creation; phase cleanup, skill arguments, delay planning and row ordering; BattleCmdParser StateOwner selection, target handoff and ArgN lookup. Constructed effect classes are inert probes; real effect-class execution, target-expression initialization, event listener dispatch, complete card phases, gameplay and holdout credit remain outside scope.",
+      "claim": "Resource 150 reproduces all 256 inherited connected phase-start, TriggerCmd, effect-construction, Active-effect, cleanup, target-handoff, argument, timing and command-row-order fixtures exactly",
+      "scope": "BECreateSkillPhase start through BattleCmdServer TriggerCmd and child PreTrigger; original GenerateEffectObj through original effect-manager creation; real BEActiveDamage construction, PreTrigger, target/parameter binding, initialization and repetition routing; phase cleanup, arguments, delay planning, row ordering and selected parser paths. BEFunctionEffect children are inert probes; Damage2SingleTarget, formula, BeHit/HP, target-expression initialization, event listeners, complete card phases, gameplay and holdout credit remain outside scope.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -3936,13 +3964,14 @@
         {
           "module": "PC resource-150 selected skill-phase runtime comparison",
           "member": "fixture-domain result",
-          "sha256": "3b24edced8c8b7bed02420c1e74bff75ee930c74912d879af96cbb4cc2e8760b"
+          "sha256": "61c3b1769404ca1047c8498a55e6187be9fa42902d880836a9f9da8ce3e27aeb"
         }
       ],
       "checks": [
         "tools/verify_current_skill_phase_boundary.py",
         "tests/current-skill-phase-boundary.test.mjs",
         "tests/trigger-cmd.test.mjs",
+        "tests/active-effect-execution.test.mjs",
         "tests/skill-phase-finish.test.mjs",
         "tests/state-owner-target.test.mjs",
         "tests/command-arguments.test.mjs",
