@@ -5373,6 +5373,29 @@
       ]
     },
     {
+      "id": "ANDROID83:PackagedUpdateBundleInspection",
+      "status": "CONFIRMED_FROM_LOCAL_CONTAINER_PARSE",
+      "claim": "The packaged Android update bundle parses under its validated compatibility alignment; all 130 MonoBehaviour type trees are readable, and 428 serialized string fields contain no literal HTTP URL or nonempty endpoint-named field",
+      "scope": "Static packaged-bundle parse with an in-memory version-field alignment compatibility override; original APK unchanged. No TextAssets, literal HTTP URLs or populated endpoint-named serialized fields. Runtime assembly, service responses, downloaded bundles, Android formula behavior, gameplay and holdout credit remain unresolved.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Android packaged gameupdate bundle",
+          "member": "container objects and complete MonoBehaviour serialized-field scan",
+          "sha256": "704794e04c957c5dcd2243274fa066749a1e4cf00f5f04dc2e5e351c53f7e039"
+        },
+        {
+          "module": "Sanitized Android bootstrap inspection",
+          "member": "alignment, metadata, object counts and string-field aggregates",
+          "sha256": "a735cd1bdf0abed3beb474fd47504198123d5a81cfdd6bc9ee58bdf48ac486c6"
+        }
+      ],
+      "checks": [
+        "tools/inspect_android_bootstrap.py",
+        "tests/android-bootstrap-inspection.test.mjs"
+      ]
+    },
+    {
       "id": "ANDROID83:ScriptGroupManifest",
       "status": "CONFIRMED_FROM_LOCAL_MANIFEST",
       "claim": "The packaged Android resource-83 manifest identifies seven Scripts-group bundles by filename, size, resource index and MD5; the hash interpretation is established by a direct bundled Android startup-archive match",

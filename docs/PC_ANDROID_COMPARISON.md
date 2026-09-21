@@ -45,4 +45,12 @@ from a later bundle, so downloaded Android script capture remains necessary.
 
 The later bootstrap probe resolves the packaged gameupdate.ab parse failure. Its UnityFS header reports format 6 / engine 2022.3.61t8 with flags 0x643. The existing key validates the encryption signature. The encryption header ends at offset 120, but the 222-byte compressed metadata begins at offset 128; LZ4 decompression there produces the expected 413 bytes. An in-memory version-field override from 6 to 7 selects UnityPy's header alignment and allows the complete container to parse. The APK is unchanged and the exact override, metadata hash and object counts are in `research/evidence/android-bootstrap-inspection.json`.
 
-The parsed bundle contains UI/asset objects and no TextAssets. This removes a decoder obstacle but recovers no Android combat code and no verified combat-bundle download path. The earlier standard-decoder failure remains recorded separately; it was not evidence of a bad key or corrupt APK. Do not promote this compatibility parse to Android formula validation.
+The parsed bundle contains UI/asset objects and no TextAssets. All 130
+MonoBehaviour type trees are readable. Their 428 string fields contain no
+literal HTTP URL and no nonempty field whose path is named like a URL, host,
+server, CDN or download setting. This removes a decoder obstacle and checks the
+serialized configuration surface, but recovers no Android combat code or
+verified combat-bundle download path. Values may still be assembled at runtime
+or obtained from a service. The earlier standard-decoder failure remains
+recorded separately; it was not evidence of a bad key or corrupt APK. Do not
+promote this compatibility parse to Android formula validation.

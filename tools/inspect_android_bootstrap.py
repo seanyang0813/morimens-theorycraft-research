@@ -44,7 +44,21 @@ try:
     # Version 7 selects UnityPy's 16-byte header alignment. Only memory is changed.
     patched=data[:8]+(7).to_bytes(4,'big')+data[12:]
     env=UnityPy.load(patched);counts=Counter(obj.type.name for obj in env.objects)
+    field_scan={'readableMonoBehaviours':0,'failedMonoBehaviours':0,'stringFields':0,'nonemptyStringFields':0,'literalHttpUrls':0,'nonemptyEndpointNamedFields':0}
+    def scan(value,path=''):
+        if isinstance(value,dict):
+            for name,child in value.items():scan(child,path+'/'+str(name))
+        elif isinstance(value,list):
+            for index,child in enumerate(value):scan(child,path+'/'+str(index))
+        elif isinstance(value,str):
+            field_scan['stringFields']+=1;field_scan['nonemptyStringFields']+=bool(value)
+            field_scan['literalHttpUrls']+=bool(re.match(r'^https?://',value,re.I))
+            field_scan['nonemptyEndpointNamedFields']+=bool(value) and any(name in path.lower() for name in ('url','host','server','cdn','download'))
+    for obj in (obj for obj in env.objects if obj.type.name=='MonoBehaviour'):
+        try:scan(obj.read_typetree());field_scan['readableMonoBehaviours']+=1
+        except Exception:field_scan['failedMonoBehaviours']+=1
     report['compatibilityDecode']={'status':'PARSED_CONTAINER','originalVersion':version,'engineVersion':engine,'flags':hex(flags),'keySignatureValid':True,'originalMetadataOffset':original_offset,'alignedMetadataOffset':aligned_offset,'metadataLength':len(metadata),'metadataSha256':hashlib.sha256(metadata).hexdigest(),'inMemoryHeaderOverride':{'offset':8,'originalHex':data[8:12].hex(),'replacementHex':patched[8:12].hex()},'objectCounts':dict(counts),'textAssetCount':counts['TextAsset'],'scope':'Compatibility alignment override validated by decompression and container parsing; original APK unchanged. No combat script or cross-platform rule equivalence recovered.'}
+    report['compatibilityDecode']['serializedFieldScan']=field_scan
 except Exception as error:
     report['compatibilityDecode']={'status':'FAILED','type':type(error).__name__,'message':str(error)}
 report['nextEvidenceNeeded']='Fingerprinted downloaded Android combat/config bundles. The packaged update bundle contains no TextAssets in the successful compatibility parse; do not infer CDN paths from PC content.'

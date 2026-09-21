@@ -44,7 +44,15 @@
       "AnimatorController": 1
     },
     "textAssetCount": 0,
-    "scope": "Compatibility alignment override validated by decompression and container parsing; original APK unchanged. No combat script or cross-platform rule equivalence recovered."
+    "scope": "Compatibility alignment override validated by decompression and container parsing; original APK unchanged. No combat script or cross-platform rule equivalence recovered.",
+    "serializedFieldScan": {
+      "readableMonoBehaviours": 130,
+      "failedMonoBehaviours": 0,
+      "stringFields": 428,
+      "nonemptyStringFields": 191,
+      "literalHttpUrls": 0,
+      "nonemptyEndpointNamedFields": 0
+    }
   },
   "nextEvidenceNeeded": "Fingerprinted downloaded Android combat/config bundles. The packaged update bundle contains no TextAssets in the successful compatibility parse; do not infer CDN paths from PC content."
 }
