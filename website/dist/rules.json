@@ -7,7 +7,7 @@
       "id": "PC144:ReplayNativeCodec",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "The copied PC client native LZ4 and cmsgpack modules round-trip nested replay-shaped data and allow offline expansion of outer replay payloads and record chunks",
-      "scope": "Native codec is exercised by synthetic round-trip and seven private real server containers. Decoder requires explicit JSON/container latin1 byte conventions and preserves input hashes. Public files omit replay bytes and identifiers; historical combat-build fingerprints remain unavailable.",
+      "scope": "Native codec is exercised by synthetic round-trip and eleven private real server containers. Decoder requires explicit JSON/container latin1 byte conventions and preserves input hashes plus embedded resourceRecords. Public files omit replay bytes and identifiers; embedded data tables are available for action routing but the engine-code version is not explicit.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -85,7 +85,7 @@
       "id": "PC144:ReplayProtocolCatalog",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "Original replay protocol tables expose 29 unique numeric battle commands and 101 unique numeric render events, including initialization, cut, property, state, card, target and hit records",
-      "scope": "Original tables plus seven private real-replay decode/index runs. The six-record batch adds 1,647 records, 44,532 events, 303 card uses and 432 hits with no unknown IDs. The index preserves nonobject presentation data, empty Lua maps and property changes serialized before AddNewCard. Private payloads and identifiers are excluded; recorded combat builds remain unconfirmed.",
+      "scope": "Original tables plus eleven private real-replay decode/index runs. The ten-record batch adds 3,011 records, 86,317 events, 589 card uses and 900 hits with no unknown IDs. The index preserves nonobject presentation data, empty Lua maps, property changes serialized before AddNewCard and empty property maps introduced by ChangeCardId. Private payloads and identifiers are excluded; recorded combat builds remain unconfirmed.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -125,7 +125,7 @@
       "id": "PC144:ReplayActionCandidate",
       "status": "GAMEPLAY_CONSISTENCY_EXACT_BUILD_UNCONFIRMED",
       "claim": "A complete card-use replay boundary and reconstructed damage-input hit snapshot can bind the serialized card owner, same-camp player, hit monster, live property maps, active states, skill tags, condition-selected command row, resolved card arguments and supported stored-main-target routing into a strict retrospective Active-hit regression candidate",
-      "scope": "Seven private real replays exercise the adapter. Fifteen supported Active-hit candidates in the six-record batch exactly match one of independently evaluated roll-1/roll-100 branches; 11 are from another record on the same stage as the Mouchette case. Lua one-past-end card-argument cursors and repeated one-enemy hit groups are supported. RNG branches were evaluated retrospectively, multiple executions can share one card/skill identity, combat builds are not fingerprinted, and no blind holdout or publication credit is claimed.",
+      "scope": "Eleven private real replays exercise the adapter using embedded Skill, Cmd, MonsterConfig and AwakerConfig rows. The ten-record batch has 122 deterministic exact matches with zero mismatches and 56 chance-dependent candidates that each match one independently evaluated roll-1/roll-100 branch; 13 branch cases are from two other records on the same stage as the Mouchette case. The selected Mouchette embedded rows are behavior-identical to current rows after Lua-list normalization and BaseSortID exclusion, producing identical scenarios. Lua one-past-end card-argument cursors and repeated one-enemy hit groups are supported. Outcomes were recovered before calculation and predictions were not frozen before separate reveal; multiple executions can share one card/skill identity, engine-code versions are not explicit, and no blind holdout or publication credit is claimed.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -217,6 +217,7 @@
       "checks": [
         "tests/replay-index.test.mjs",
         "tests/replay-action-candidate.test.mjs",
+        "tests/import-command-rows.test.mjs",
         "tests/replay-batch-evidence.test.mjs",
         "tests/replay-native-active-regression.test.mjs"
       ]

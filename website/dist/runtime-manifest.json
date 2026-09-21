@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "641f50715e33c19d51f073b66eb907834a5bd11e4942730decc5738fda961a7c",
+  "fingerprint": "cba971e76920828899c1a6cbd1e3c7ee605367c0e14f9dcf693ad157bd51f965",
   "files": {
     "build-catalog.json": "2d1188fadcaff7a1eb53af580c509756b21a3f003065c7c9036aa919958a1496",
     "client-build-data.json": "f857768a28bb9865d35158ae47c0cf453dcc0ae9cb9114dd0082d1ea73f17c0f",
@@ -45,7 +45,7 @@
     "engine/hp-attribute-loss.mjs": "262b13f533fe3322f1175c61663ff397d4b81070c14262decb0dfb3d325c1c79",
     "engine/hp-property.mjs": "08ea0d1c23cf7e4acee5cebdb58991921bc72a5530821c50a3ec719c704afe56",
     "engine/immunity.mjs": "5a6dbfdb8f55098a7337d0c783efbdf7ebb6cddc89d9ab7d86a83df9fa538b6a",
-    "engine/import-command-rows.mjs": "dbec8cb8c2e41da996e176c6a1e76b22932e13367a30ef63d7a4dd16b740abed",
+    "engine/import-command-rows.mjs": "729b8ffb440ed4c47cbec10339e9cd2ba2fa0c7ec09c9859c6b9d0e60b29202f",
     "engine/inspect-command-support.mjs": "4ac00e4a31f2064ffa59cbdbf61567c11a719e74401bea4c5dc766df66ccd689",
     "engine/live-state-lookup.mjs": "db44a2056b38ae9f758ee4c29ebb1a5da9e35fcb44a7a62b16d807c8e9703908",
     "engine/observation-scenario.mjs": "470388b56bf3e043e89177153155d87949769b57ae55efbf39d807461c3731be",
@@ -90,7 +90,7 @@
     "engine/ulti-energy-experiment.mjs": "6de163423a1e99c6be4922093711a797fa3012554589484c4ae5fd864bc35973",
     "engine/ulti-energy-gain.mjs": "08a4f4f32a7700422d6999e19e0e58fb2cace3bcbf7d0a910a9bcacf3b520468",
     "engine/wheel-stats.mjs": "484a5b4a51fbbd9c4759b27457ae9eec71fceb0420354823f54654edfb78fadd",
-    "rules.json": "ba674aaedb5df31791a992466772b53e0b718e33279f62eaf95a0b235cb372c3",
+    "rules.json": "eb9b86db8a4c233d15f6a3929c1d60933a49bf3d802cdaed871802051904c96c",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af"
   }
 }

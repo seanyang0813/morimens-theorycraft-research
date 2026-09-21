@@ -17,7 +17,7 @@ python tools/prepare_local_website.py
 python tools/verify_research.py
 ```
 
-The expected current result is 142 passing test files and `publicationStatus: NOT_READY`. A nonzero `--check-publication` result is correct until gameplay evidence satisfies the gate. The native replay decoder has now expanded seven authorized real server replays. The six-record batch adds 1,647 records, 44,532 events, 303 complete card-use boundaries and 432 hits with no unknown protocol IDs. The index preserves nonobject presentation payloads, empty Lua maps, and property changes serialized before `AddNewCard`. A strict adapter can bind captured properties, states, card arguments, skill routing and a selected Active hit while keeping the observed result separate. It accepts the replay's one-past-end Lua argument cursor and conservative repeated-hit groups. Fifteen supported candidates exactly match one of the independently evaluated critical/noncritical branches; eleven come from another record on the same stage as the Mouchette case. These checks are retrospective, their RNG draws were not captured, and the battle data has no explicit combat-build fingerprint. The source-hashed row audit remains a static compatibility measure; runtime and gameplay eligibility are separate.
+The expected current result is `publicationStatus: NOT_READY`. A nonzero `--check-publication` result is correct until gameplay evidence satisfies the gate. The native replay decoder has now expanded eleven authorized real server replays. The ten-record batch adds 3,011 records, 86,317 events, 589 complete card-use boundaries and 900 hits with no unknown protocol IDs. The index preserves nonobject presentation payloads, empty Lua maps, property changes serialized before `AddNewCard`, and empty property maps introduced by `ChangeCardId`. A strict adapter binds captured properties, states, card arguments, skill routing and a selected Active hit while keeping the observed result separate. With `--decoded-replay`, it routes through Skill, Cmd, MonsterConfig and AwakerConfig rows embedded in that replay. It accepts the replay's one-past-end Lua argument cursor and conservative repeated-hit groups. All 122 deterministic candidates match exactly with zero mismatches; all 56 chance-dependent candidates match one independently evaluated critical/noncritical branch, including 13 across two other records on the Mouchette stage. These checks are retrospective because outcomes were recovered before calculation and predictions were not frozen before separate reveal; RNG draws were not captured, and battle data has no explicit engine-code version. The source-hashed row audit remains a static compatibility measure; runtime and gameplay eligibility are separate.
 
 ## Architecture
 
@@ -37,7 +37,7 @@ The general runners can model resolved Active, Passive, Fixed and Pure hits; HP 
 
 ## Validation frontier
 
-There are two screenshot-based gameplay records plus seven privately preserved native replays. None is a reviewable prediction or holdout. The next decisive validation work is described in `docs/NEXT_GAMEPLAY_CAPTURE.md`:
+There are two screenshot-based gameplay records plus eleven privately preserved native replays. None is a reviewable prediction or holdout. The next decisive validation work is described in `docs/NEXT_GAMEPLAY_CAPTURE.md`:
 
 1. Reconstruct one controlled high-difficulty action with known build and exact pre-hit state.
 2. Save and hash the executable prediction before examining the outcome.

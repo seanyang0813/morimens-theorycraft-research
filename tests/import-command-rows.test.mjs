@@ -6,8 +6,13 @@ test('row index determines order; sort metadata retained and behavioral fields p
  const r=importCommandRows(command);
  assert.deepEqual(r.rows.map(r=>r.Type),['A','B','C']);
  assert.deepEqual(r.metadata.map(r=>r.BaseSortID),[300,100,200]);
+ assert.equal(r.sourceShape,'exported-one-based-object');
  assert.equal(r.rows[0].DelayTime,0);assert.equal(r.rows[1].VFX[1],22);
  r.rows[1].VFX[1]=99;assert.equal(command.data_list[2].VFX[1],22);
+});
+test('decoded replay arrays preserve their serialized row order',()=>{
+ const command={data_list:[{BaseSortID:9,Type:'A'},{Type:'B'}]};const r=importCommandRows(command);
+ assert.deepEqual(r.rows.map(x=>[x.id,x.Type]),[['1','A'],['2','B']]);assert.equal(r.sourceShape,'decoded-replay-array');assert.deepEqual(r.metadata,[{rowId:'1',BaseSortID:9}]);
 });
 test('sparse or malformed row identities are not silently reordered into a different command',()=>{
  for(const data_list of [{2:{}},{1:{},3:{}},{'01':{}},{x:{}}])assert.throws(()=>importCommandRows({data_list}),/Contiguous/);

@@ -28,3 +28,10 @@ test('decoded replay index normalizes an empty Lua property map encoded as a lis
   const run=spawnSync('python',['-c',code],{encoding:'utf8'});assert.equal(run.status,0,run.stderr);const result=JSON.parse(run.stdout);
   assert.equal(result.actionSnapshots[0].cards['7'].properties.reserve,1);assert.equal(result.snapshotBoundaryStatus,'COMPLETE');
 });
+
+test('decoded replay index normalizes an empty property map after ChangeCardId',()=>{
+  const code=`import json\nfrom tools.replay_index import build_replay_index\nc=json.load(open('research/evidence/replay-protocol.json',encoding='utf-8'))\na={'schemaVersion':1,'kind':'MORIMENS_DECODED_REPLAY','inputSha256':'abc','decoded':{'battleDat':{},'unZippedRecord':[{'time':0,'msgId':c['commands']['rd_InitBattle'],'msgData':{'roleDataList':[],'monsterDataList':[],'cardDataList':[{'uid':7,'properties':{}}]}},{'time':1,'msgId':c['commands']['rd_BattleCut'],'msgData':{'frameList':[{'time':1.0,'eventId':c['renderEvents']['ChangeCardId'],'data':{'cardUid':7,'tid':12,'properties':[]}},{'time':1.1,'eventId':c['renderEvents']['PropertyChanged'],'data':{'uid':7,'propertyType':'reserve','value':1}},{'time':1.2,'eventId':c['renderEvents']['UseCard'],'data':{'cardUid':7,'camp':1}}]}}]}}\nprint(json.dumps(build_replay_index(a,c),separators=(',',':')))\n`;
+  const run=spawnSync('python',['-c',code],{encoding:'utf8'});assert.equal(run.status,0,run.stderr);const result=JSON.parse(run.stdout);
+  assert.deepEqual(result.actionSnapshots[0].cards['7'].properties,{reserve:1});
+  assert.equal(result.snapshotBoundaryStatus,'COMPLETE');
+});

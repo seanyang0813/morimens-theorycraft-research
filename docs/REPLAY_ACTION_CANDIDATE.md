@@ -1,10 +1,11 @@
 # Replay action regression candidate
 
-`tools/build_replay_action_candidate.mjs` converts one hit inside an indexed `UseCard` boundary into the existing complete battle-property snapshot scenario. It reads the ignored local Skill, Cmd and MonsterConfig exports and writes JSON to standard output. It does not modify the replay index. A one-hit window needs no selector; a multi-hit window requires the hit's global index.
+`tools/build_replay_action_candidate.mjs` converts one hit inside an indexed `UseCard` boundary into the existing complete battle-property snapshot scenario. By default it reads ignored local Skill, Cmd, MonsterConfig and AwakerConfig exports. Passing `--decoded-replay FILE` instead requires a decoded replay artifact and routes with that replay's embedded copies of those four catalogs. The output records which catalog source was used. It does not modify the replay index. A one-hit window needs no selector; a multi-hit window requires the hit's global index.
 
 ```powershell
 node tools/build_replay_action_candidate.mjs research/observations/replay-index.json 0 > research/observations/action-0-candidate.json
 node tools/build_replay_action_candidate.mjs research/observations/replay-index.json 4 --hit-index 17 > research/observations/action-4-hit-17-candidate.json
+node tools/build_replay_action_candidate.mjs research/observations/replay-index.json 4 --hit-index 17 --decoded-replay research/observations/decoded.json > research/observations/action-4-hit-17-native-candidate.json
 ```
 
 The adapter derives the played card, its serialized owner and arguments, the same-camp player, hit target UID, target BattleTag, active states, skill tags, selected command and one eligible Active-damage row. It uses the reconstructed damage-input property maps at the matched hit rather than the earlier card-use maps. This allows recorded BeforeUseCard and other pre-hit property/state changes to enter the formula without simulating or guessing them.

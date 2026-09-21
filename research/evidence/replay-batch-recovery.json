@@ -1,21 +1,23 @@
 {
   "schemaVersion": 1,
   "kind": "MORIMENS_SANITIZED_REPLAY_BATCH_RECOVERY",
-  "generatedAtUtc": "2026-09-21T06:04:15.063702+00:00",
+  "generatedAtUtc": "2026-09-21T06:33:10.052598+00:00",
   "selectedProfileMatchConfirmedPrivately": true,
   "identifiersPublished": false,
   "rawArtifactsPublished": false,
-  "scope": "Six additional replay containers recovered from the explicitly authorized selected profile and processed privately. Exact branch checks evaluate rolls 1 and 100 independently after outcomes were visible; they are retrospective consistency checks, not captured RNG or holdouts.",
+  "scope": "Ten additional replay containers recovered from the explicitly authorized selected profile and processed privately. Candidates are routed through each replay's embedded Skill, Cmd, MonsterConfig and AwakerConfig rows. Deterministic and roll-1/roll-100 checks were calculated after the replay outcomes were recovered; they are retrospective consistency checks, not frozen holdouts.",
   "totals": {
-    "replays": 6,
-    "records": 1647,
-    "events": 44532,
-    "cardUses": 303,
-    "hits": 432,
-    "completeHitSnapshots": 177,
-    "retrospectiveActiveCandidates": 15,
-    "exactRngBranchConsistencyChecks": 15,
-    "deterministicExactChecks": 0
+    "replays": 10,
+    "records": 3011,
+    "events": 86317,
+    "cardUses": 589,
+    "hits": 900,
+    "completeHitSnapshots": 437,
+    "retrospectiveActiveCandidates": 178,
+    "exactRngBranchConsistencyChecks": 56,
+    "deterministicExactChecks": 122,
+    "deterministicMismatches": 0,
+    "rngBranchMismatches": 0
   },
   "replays": [
     {
@@ -33,7 +35,10 @@
       "retrospectiveActiveCandidates": 0,
       "exactRngBranchConsistencyChecks": 0,
       "deterministicExactChecks": 0,
-      "recordedCombatBuild": null
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0,
+      "recordedCombatBuild": null,
+      "catalogSource": "replay-embedded-resource-records"
     },
     {
       "observationId": "replay-batch-02",
@@ -50,7 +55,10 @@
       "retrospectiveActiveCandidates": 11,
       "exactRngBranchConsistencyChecks": 11,
       "deterministicExactChecks": 0,
-      "recordedCombatBuild": null
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0,
+      "recordedCombatBuild": null,
+      "catalogSource": "replay-embedded-resource-records"
     },
     {
       "observationId": "replay-batch-03",
@@ -67,7 +75,10 @@
       "retrospectiveActiveCandidates": 0,
       "exactRngBranchConsistencyChecks": 0,
       "deterministicExactChecks": 0,
-      "recordedCombatBuild": null
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0,
+      "recordedCombatBuild": null,
+      "catalogSource": "replay-embedded-resource-records"
     },
     {
       "observationId": "replay-batch-04",
@@ -84,7 +95,10 @@
       "retrospectiveActiveCandidates": 1,
       "exactRngBranchConsistencyChecks": 1,
       "deterministicExactChecks": 0,
-      "recordedCombatBuild": null
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0,
+      "recordedCombatBuild": null,
+      "catalogSource": "replay-embedded-resource-records"
     },
     {
       "observationId": "replay-batch-05",
@@ -101,7 +115,10 @@
       "retrospectiveActiveCandidates": 2,
       "exactRngBranchConsistencyChecks": 2,
       "deterministicExactChecks": 0,
-      "recordedCombatBuild": null
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0,
+      "recordedCombatBuild": null,
+      "catalogSource": "replay-embedded-resource-records"
     },
     {
       "observationId": "replay-batch-06",
@@ -118,12 +135,95 @@
       "retrospectiveActiveCandidates": 1,
       "exactRngBranchConsistencyChecks": 1,
       "deterministicExactChecks": 0,
-      "recordedCombatBuild": null
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0,
+      "recordedCombatBuild": null,
+      "catalogSource": "replay-embedded-resource-records"
+    },
+    {
+      "observationId": "replay-batch-07",
+      "containerSha256": "d696aa6cd1a83fce6ee28cbb0f365f7c186fa684af673c4e6925ca74169b232c",
+      "containerBytes": 1676426,
+      "records": 468,
+      "events": 18540,
+      "cardUses": 101,
+      "hits": 141,
+      "completeHitSnapshots": 12,
+      "snapshotBoundaryStatus": "COMPLETE",
+      "unknownCommands": 0,
+      "unknownEvents": 0,
+      "retrospectiveActiveCandidates": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicExactChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0,
+      "recordedCombatBuild": null,
+      "catalogSource": "replay-embedded-resource-records"
+    },
+    {
+      "observationId": "replay-batch-08",
+      "containerSha256": "e45ca8e846a50cb061079aaa1aa71317a8e1a313a88ea0eefc765b380bc9b9a3",
+      "containerBytes": 1077910,
+      "records": 246,
+      "events": 5925,
+      "cardUses": 40,
+      "hits": 52,
+      "completeHitSnapshots": 6,
+      "snapshotBoundaryStatus": "COMPLETE",
+      "unknownCommands": 0,
+      "unknownEvents": 0,
+      "retrospectiveActiveCandidates": 0,
+      "exactRngBranchConsistencyChecks": 0,
+      "deterministicExactChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0,
+      "recordedCombatBuild": null,
+      "catalogSource": "replay-embedded-resource-records"
+    },
+    {
+      "observationId": "replay-batch-09",
+      "containerSha256": "d077862777644e2e8df3d7f2033d31279b554ffaa66bc73c39aec3430a1d5823",
+      "containerBytes": 1375012,
+      "records": 335,
+      "events": 9038,
+      "cardUses": 92,
+      "hits": 208,
+      "completeHitSnapshots": 180,
+      "snapshotBoundaryStatus": "COMPLETE",
+      "unknownCommands": 0,
+      "unknownEvents": 0,
+      "retrospectiveActiveCandidates": 161,
+      "exactRngBranchConsistencyChecks": 39,
+      "deterministicExactChecks": 122,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0,
+      "recordedCombatBuild": null,
+      "catalogSource": "replay-embedded-resource-records"
+    },
+    {
+      "observationId": "replay-batch-10",
+      "containerSha256": "a353de454255b10e625edd97224a88abacca124f20438a7275e077eb888785ee",
+      "containerBytes": 1132688,
+      "records": 315,
+      "events": 8282,
+      "cardUses": 53,
+      "hits": 67,
+      "completeHitSnapshots": 62,
+      "snapshotBoundaryStatus": "COMPLETE",
+      "unknownCommands": 0,
+      "unknownEvents": 0,
+      "retrospectiveActiveCandidates": 2,
+      "exactRngBranchConsistencyChecks": 2,
+      "deterministicExactChecks": 0,
+      "deterministicMismatches": 0,
+      "rngBranchMismatches": 0,
+      "recordedCombatBuild": null,
+      "catalogSource": "replay-embedded-resource-records"
     }
   ],
   "limitations": [
-    "Battle data contains no explicit resource/build fingerprint",
-    "All outcomes were already present when recovered",
+    "Battle data contains no explicit engine-code version; action data rows come from the embedded replay resource snapshot",
+    "All outcomes were recovered before calculation and predictions were not frozen before a separate reveal",
     "Critical branch checks do not reconstruct the original random draw",
     "Private replay bytes, decoded state, player identifiers and object names are omitted"
   ]

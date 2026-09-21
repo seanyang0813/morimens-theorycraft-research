@@ -7,6 +7,7 @@ const evidence=JSON.parse(readFileSync('research/evidence/replay-003-active-bran
 
 test('sanitized native replay branches reproduce observed Mouchette cast damage',()=>{
   assert.equal(evidence.retrospective,true);assert.equal(evidence.holdout,false);assert.equal(evidence.recordedCombatBuild,null);
+  assert.equal(evidence.catalogProvenance.kind,'replay-embedded-resource-records');assert.equal(evidence.catalogProvenance.selectedRows.length,4);assert.ok(evidence.catalogProvenance.selectedRows.every(row=>row.behaviorEqualIgnoringBaseSortId));
   const results=evidence.cases.map(row=>calculateSnapshotActiveDamage(row.scenario).preHitDamage);
   assert.deepEqual(results,[751,2028]);assert.deepEqual(results,evidence.cases.map(row=>row.observedCastDamage));
 });

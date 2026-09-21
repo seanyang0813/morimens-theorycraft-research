@@ -12,7 +12,7 @@ const fixture=()=>({
 
 test('replay card boundary becomes a calculated regression candidate without reading observed damage',()=>{
   const input=fixture(),result=buildReplayActionCandidate({...input,actionIndex:0});
-  assert.equal(result.status,'CALCULATED_REGRESSION_CANDIDATE');assert.equal(result.identities.targetUid,2);assert.equal(result.scenario.baseValue,100);assert.deepEqual(result.scenario.tags,['Card_Strike']);assert.equal(result.calculation.preHitDamage,250);assert.equal(result.observedHit.data.beHitConfig.castDamage,250);assert.equal(result.comparison.difference,0);
+  assert.equal(result.status,'CALCULATED_REGRESSION_CANDIDATE');assert.equal(result.identities.targetUid,2);assert.equal(result.routing.commandSourceShape,'exported-one-based-object');assert.equal(result.scenario.baseValue,100);assert.deepEqual(result.scenario.tags,['Card_Strike']);assert.equal(result.calculation.preHitDamage,250);assert.equal(result.observedHit.data.beHitConfig.castDamage,250);assert.equal(result.comparison.difference,0);
   input.index.actionSnapshots[0].window.hits[0].data.beHitConfig.castDamage=999;input.index.actionSnapshots[0].window.events[0].data.beHitConfig.castDamage=999;
   assert.equal(buildReplayActionCandidate({...input,actionIndex:0}).calculation.preHitDamage,250);
 });

@@ -81,7 +81,10 @@ def build_replay_index(artifact,catalog):
             elif name=='ChangeCardId':
                 uid=data.get('cardUid',data.get('uid'))
                 if not isinstance(uid,int):boundary_issues.append({'code':'MALFORMED_CHANGE_CARD','recordIndex':event['recordIndex'],'frameIndex':event['frameIndex']})
-                else:cards[str(uid)]=copy.deepcopy(data);cards[str(uid)]['uid']=uid
+                else:
+                    cards[str(uid)]=copy.deepcopy(data);cards[str(uid)]['uid']=uid
+                    if cards[str(uid)].get('properties')==[]:cards[str(uid)]['properties']={}
+                    elif 'properties' in cards[str(uid)] and not isinstance(cards[str(uid)]['properties'],dict):boundary_issues.append({'code':'MALFORMED_ENTITY_PROPERTIES','kind':'card','uid':uid});cards[str(uid)]['properties']={}
             elif name=='AddNewCard':
                 rows=data.get('cards',[]);rows=rows if isinstance(rows,list) else [rows]
                 for row in rows:add_entity(cards,row,'card')

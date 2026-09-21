@@ -260,5 +260,43 @@
     "Private identifiers and raw replay state are omitted",
     "Exact branch agreement is not a blind prediction",
     "Recorded combat build is not fingerprinted"
-  ]
+  ],
+  "catalogProvenance": {
+    "kind": "replay-embedded-resource-records",
+    "selectedRows": [
+      {
+        "table": "Skill",
+        "recordId": 146017,
+        "replayResourceRowSha256": "1eb80a543033234825ecb82841e48cf4a5a30eed3511309c82066933b4ab6a4f",
+        "currentResourceRowSha256": "fb746decface5a1efa5176d7093b4798a61b532f3c9c315e7e8f08d7832fd3de",
+        "fullEqualAfterArrayNormalization": false,
+        "behaviorEqualIgnoringBaseSortId": true
+      },
+      {
+        "table": "Cmd",
+        "recordId": 146026,
+        "replayResourceRowSha256": "ba59686fd6947faec9a1bf92ded37dd06c6787abf9b7ec2effbcec6109513b2d",
+        "currentResourceRowSha256": "081c848f88291b6355b0c528ef33edda1fe71ba11ad35d69e80f2e58b1a0ee49",
+        "fullEqualAfterArrayNormalization": false,
+        "behaviorEqualIgnoringBaseSortId": true
+      },
+      {
+        "table": "AwakerConfig",
+        "recordId": 145363,
+        "replayResourceRowSha256": "606d79d189c11429a92413413c72225586e2bbc400caffbea83fdcac2ef889f1",
+        "currentResourceRowSha256": "606d79d189c11429a92413413c72225586e2bbc400caffbea83fdcac2ef889f1",
+        "fullEqualAfterArrayNormalization": true,
+        "behaviorEqualIgnoringBaseSortId": true
+      },
+      {
+        "table": "MonsterConfig",
+        "recordId": 14061,
+        "replayResourceRowSha256": "3e39f18575c352b0a8d43e9ab05fda8663a055ee0cd30e7afe7f02808fd2ce0a",
+        "currentResourceRowSha256": "3e39f18575c352b0a8d43e9ab05fda8663a055ee0cd30e7afe7f02808fd2ce0a",
+        "fullEqualAfterArrayNormalization": true,
+        "behaviorEqualIgnoringBaseSortId": true
+      }
+    ],
+    "currentClientComparison": "All four selected rows are behavior-identical after recursive Lua-list normalization and removal of BaseSortID ordering metadata. The replay-native and current-catalog candidate scenarios are byte-for-byte JSON-identical."
+  }
 }
