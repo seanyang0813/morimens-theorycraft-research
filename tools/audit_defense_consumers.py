@@ -93,7 +93,7 @@ def usage(effect_type):
 
 
 def audit_build(build, directory: Path):
-    paths = {name: directory / f"{name}.json" for name in ("Skill", "Cmd", "BattleApi", "AwakerConfig")}
+    paths = {name: directory / f"{name}.json" for name in ("Skill", "Cmd", "BattleApi", "AwakerConfig", "State")}
     data = {name: json.loads(path.read_text(encoding="utf-8")) for name, path in paths.items()}
     formula = data["BattleApi"].get("BattleDefForce", {}).get("Data")
     if formula != "math.ceil(TargetCmdOwner.def*(1 + TargetCmdOwner.def_per/100))":
@@ -118,7 +118,7 @@ def audit_build(build, directory: Path):
                     if not consumed and not direct:
                         continue
                     awakener_id = skill.get("AwakerID")
-                    routes.append({
+                    route = {
                         "skillId": int(skill_id) if str(skill_id).isdigit() else skill_id,
                         "skillName": display_name(skill),
                         "awakenerId": awakener_id,
@@ -131,7 +131,17 @@ def audit_build(build, directory: Path):
                         "usage": usage(row.get("Type")),
                         "defenseArgumentIndexes": consumed,
                         "directDefenseRead": direct,
-                    })
+                    }
+                    if row.get("Type") == "BEAddState":
+                        parameters = split_arguments(parameter)
+                        state_id = int(parameters[0]) if parameters and parameters[0].isdigit() else None
+                        state = data["State"].get(str(state_id), {}) if state_id is not None else {}
+                        properties = state.get("ExistProperty") if isinstance(state.get("ExistProperty"), dict) else {}
+                        route.update({
+                            "stateId": state_id,
+                            "statePropertyKeys": sorted(properties),
+                        })
+                    routes.append(route)
     routes.sort(key=lambda row: (str(row["skillId"]), row["skillVariant"], row["commandId"], str(row["commandRow"])))
 
     direct_damage_rows = []
@@ -141,6 +151,11 @@ def audit_build(build, directory: Path):
                 direct_damage_rows.append({"commandId": command_id, "commandRow": row_id, "effectType": row.get("Type")})
     effect_counts = Counter(row["effectType"] or "UNSPECIFIED" for row in routes)
     usage_counts = Counter(row["usage"] for row in routes)
+    state_routes = [row for row in routes if row["effectType"] == "BEAddState"]
+    literal_state_routes = [row for row in state_routes if row.get("stateId") is not None]
+    property_counts = Counter(key for row in literal_state_routes for key in row.get("statePropertyKeys", []))
+    damage_property_keys = {"damage_plus", "tentacle_dmg", "be_damage_plus"}
+    damage_property_routes = [row for row in literal_state_routes if damage_property_keys.intersection(row.get("statePropertyKeys", []))]
     return {
         "build": build,
         "sourceHashes": {name: sha256(path) for name, path in paths.items()},
@@ -151,6 +166,14 @@ def audit_build(build, directory: Path):
         "usageCounts": dict(sorted(usage_counts.items())),
         "damageRoutes": [row for row in routes if row["usage"] == "damage"],
         "directDamageRowsWithDefenseExpression": direct_damage_rows,
+        "stateConsumerSummary": {
+            "addStateRoutes": len(state_routes),
+            "literalStateIdRoutes": len(literal_state_routes),
+            "uniqueLiteralStateIds": len({row["stateId"] for row in literal_state_routes}),
+            "propertyRouteCounts": dict(sorted(property_counts.items())),
+            "indirectDamagePropertyRoutes": len(damage_property_routes),
+            "indirectDamagePropertyStateIds": sorted({row["stateId"] for row in damage_property_routes}),
+        },
     }
 
 
@@ -158,16 +181,18 @@ def build_report(baseline_dir: Path, current_dir: Path):
     baseline = audit_build("pc-res144-build51", baseline_dir)
     current = audit_build("pc-res150-build51", current_dir)
     route_identity = baseline["damageRoutes"] == current["damageRoutes"]
+    indirect_damage_identity = baseline["stateConsumerSummary"]["indirectDamagePropertyStateIds"] == current["stateConsumerSummary"]["indirectDamagePropertyStateIds"] and baseline["stateConsumerSummary"]["indirectDamagePropertyRoutes"] == current["stateConsumerSummary"]["indirectDamagePropertyRoutes"]
     return {
         "schemaVersion": 1,
         "kind": "MORIMENS_DEFENSE_CONSUMER_AUDIT",
         "analysisTrack": "mechanics",
         "status": "STATIC_CONSUMER_INVENTORY",
         "builds": [baseline, current],
-        "crossBuild": {"damageRoutesIdentical": route_identity},
+        "crossBuild": {"damageRoutesIdentical": route_identity, "indirectDamageStateSummaryIdentical": indirect_damage_identity},
         "conclusions": {
             "universalTargetDefenseMitigationFound": False,
             "sourceDefenseCanEnterDamageBase": bool(baseline["damageRoutes"] or current["damageRoutes"]),
+            "sourceDefenseCanFeedDamageModifyingStates": bool(baseline["stateConsumerSummary"]["indirectDamagePropertyRoutes"] or current["stateConsumerSummary"]["indirectDamagePropertyRoutes"]),
             "damageRouteCountPerBuild": {baseline["build"]: len(baseline["damageRoutes"]), current["build"]: len(current["damageRoutes"])},
             "interpretation": "BattleDefForce is a source-stat expression. Its appearance in a skill argument does not establish target DEF mitigation.",
         },

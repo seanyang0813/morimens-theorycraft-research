@@ -19,17 +19,23 @@ test('defense consumer audit pins the static two-build inventory',()=>{
     {damage:1,heal:3,shield:335,state:74,summon:79},
   ]);
   for(const build of evidence.builds){
-    assert.equal(Object.keys(build.sourceHashes).length,4);
+    assert.equal(Object.keys(build.sourceHashes).length,5);
     for(const digest of Object.values(build.sourceHashes))assert.match(digest,hashPattern);
     assert.equal(build.battleDefForceOperation,'ceil(source DEF × (1 + source DEF% / 100))');
     assert.deepEqual(build.directDamageRowsWithDefenseExpression,[]);
   }
+  assert.deepEqual(evidence.builds.map(row=>row.stateConsumerSummary),[
+    {addStateRoutes:75,literalStateIdRoutes:75,uniqueLiteralStateIds:27,propertyRouteCounts:{be_damage_plus:2,block_plus:9,damage_plus:36,i_state_layer_per_posion:2,tentacle_dmg:36},indirectDamagePropertyRoutes:38,indirectDamagePropertyStateIds:[2619,2817,3902]},
+    {addStateRoutes:74,literalStateIdRoutes:74,uniqueLiteralStateIds:26,propertyRouteCounts:{be_damage_plus:2,block_plus:9,damage_plus:36,i_state_layer_per_posion:2,tentacle_dmg:36},indirectDamagePropertyRoutes:38,indirectDamagePropertyStateIds:[2619,2817,3902]},
+  ]);
 });
 
 test('the sole defense-derived damage route stays explicit and conditional',()=>{
   assert.equal(evidence.crossBuild.damageRoutesIdentical,true);
+  assert.equal(evidence.crossBuild.indirectDamageStateSummaryIdentical,true);
   assert.equal(evidence.conclusions.universalTargetDefenseMitigationFound,false);
   assert.equal(evidence.conclusions.sourceDefenseCanEnterDamageBase,true);
+  assert.equal(evidence.conclusions.sourceDefenseCanFeedDamageModifyingStates,true);
   assert.match(evidence.trackBoundary,/does not classify cheese/);
   for(const build of evidence.builds){
     assert.deepEqual(build.damageRoutes,[{

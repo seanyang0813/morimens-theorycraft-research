@@ -6950,20 +6950,20 @@
     {
       "id": "PC144-PC150:DefenseConsumerInventory",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
-      "claim": "BattleDefForce is source DEF after source DEF-percent scaling; across both inspected PC catalogs, almost all DEF-derived command routes feed shields, summons, states or healing, while the sole damage route is the same catalog entry marked unfinished",
+      "claim": "BattleDefForce is source DEF after source DEF-percent scaling; across both inspected PC catalogs, the sole direct damage route is the same entry marked unfinished, while 38 DEF-derived add-state routes feed three identical damage-modifying states",
       "sources": [
         {
           "module": "Sanitized two-build DEF consumer audit",
-          "member": "BattleDefForce formula, Skill-to-Cmd argument lineage, effect categories and selected route identity",
+          "member": "BattleDefForce formula, Skill-to-Cmd argument lineage, effect categories and selected State property relationships",
           "bundle": "resource-144 and resource-150 config tables; hashes and derived inventory only",
-          "sha256": "d757f039c6cc852c489173e8ef667a141698e42fc9f7c1066eed66d59605fc19"
+          "sha256": "28082dd680e14a32b1d2a313debf813e5c671cc254c90552d7b5bbf81fe3f196"
         }
       ],
       "tests": [
         "tools/audit_defense_consumers.py",
         "tests/defense-consumer-audit.test.mjs"
       ],
-      "scope": "Static variant-specific argument lineage over 358 DEF-derived skills per build, 490 resource-144 routes and 492 resource-150 routes. The one damage route is skill 147434 variant 1000, command 1880 row 2, and the catalog calls it unfinished. This does not establish playability, condition selection, indirect state behavior, universal target mitigation, gameplay validity or holdout credit. Mechanics-reconstruction evidence only; no cheese, budget-scouting or theorycraft conclusion.",
+      "scope": "Static variant-specific argument lineage over 358 DEF-derived skills per build, 490 resource-144 routes and 492 resource-150 routes. The one direct damage route is skill 147434 variant 1000, command 1880 row 2, and the catalog calls it unfinished. Every DEF-derived add-state route resolves to a literal state; 38 per build feed states 2619, 2817 or 3902, whose property relationships modify outgoing or incoming damage. This does not establish playability, condition selection, triggered-command behavior, universal target mitigation, gameplay validity or holdout credit. Mechanics-reconstruction evidence only; no cheese, budget-scouting or theorycraft conclusion.",
       "gameplayValidation": false
     },
     {

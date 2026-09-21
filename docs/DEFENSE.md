@@ -20,7 +20,9 @@ Both builds contain 358 skills with at least one DEF-derived argument. The inven
 
 The sole damage route is identical in both builds: skill 147434, `深空回响(未完成)`, variant 1000, command 1880 row 2, where argument 1 enters `BEActiveDamage`. The catalog marks the skill unfinished. This proves only that source DEF can enter one catalog damage base; it does not prove that the skill is accessible or executable in normal play. No damage command row directly reads a DEF expression.
 
-Combined with the traced Active final-target and BeHit paths, this audit found no universal target-DEF divisor. Indirect state effects and mechanics outside the inspected paths remain possible.
+The indirect state inventory resolves every DEF-derived `BEAddState` route to a literal state ID: 75 routes and 27 states in resource 144, 74 routes and 26 states in resource 150. In each build, 38 routes feed one of the same three damage-modifying states. States 2619 and 3902 reduce the state owner's outgoing `damage_plus` and `tentacle_dmg` according to the DEF-derived layer amount. State 2817 reduces the state owner's incoming `be_damage_plus` according to its DEF-derived state argument and layer count. These are explicit skill/state interactions, not a universal DEF mitigation rule.
+
+Combined with the traced Active final-target and BeHit paths, this audit found no universal target-DEF divisor. Triggered state commands and mechanics outside the inspected property contributions remain possible.
 
 Normal shield resolution subtracts available block from incoming damage and reduces block accordingly. Puncture branches reduce block while retaining damage. The resolver returns a surprising negative blockedDamage diagnostic when block exceeds damage; retain and verify this behavior before using that diagnostic for totals.
 
@@ -42,4 +44,4 @@ The API returns finalDamage null. Real HP subtraction, property floors, immunity
 
 The remaining-limit expression does not imply a universal consumable budget. [DAMAGE_CAP_LIFECYCLE.md](DAMAGE_CAP_LIFECYCLE.md) distinguishes an HP-change-driven phase counter from per-hit caps. Preserve mechanic-specific updates between hits rather than automatically adding every incoming hit to be_damage_statics.
 
-UNKNOWN: playability and conditions of the unfinished defense-damage route, indirect DEF-dependent state behavior, penetration versus Puncture terminology, negative-defense uses, resistance and level-scaling expressions outside the traced path. Next work: trace indirect state consumers and capture a controlled shield/no-shield pair. No formula from another game is used.
+UNKNOWN: playability and conditions of the unfinished defense-damage route, triggered commands from DEF-derived states, penetration versus Puncture terminology, negative-defense uses, resistance and level-scaling expressions outside the traced path. Next work: trace the relevant triggered state commands and capture a controlled shield/no-shield pair. No formula from another game is used.
