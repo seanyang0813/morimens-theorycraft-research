@@ -6,11 +6,17 @@ class PaymentBranchOracle(CardCostOracle):
     def __init__(self,asset_overrides=None):
         asset_overrides=asset_overrides or {}
         super().__init__(asset_overrides);L=self.state
+        self.table(L,0,3)
+        for name in ('ctor','Dispose','DoEffect'):self.method(name,lambda s:0)
+        self.setglobal(L,b'_before_super')
+        def new_class(s):self.table(s,0,100);self.getglobal(s,b'_before_super');return 2
+        self.getglobal(L,b'_oracle_config_system');self.method('NewClass',new_class);self.top(L,0)
         def require(s):
             name=self.string(s,1,None)
             if name==b'System.System':self.getglobal(s,b'_oracle_config_system')
             elif name==b'Battle.BattleConst':self.getglobal(s,b'_oracle_bc')
-            elif name in [b'Battle.DbgEngine.Event.BattleLogicEvent',b'Battle.DbgEngine.Effect.BattleEffectServer']:self.table(s,0,0)
+            elif name==b'Battle.DbgEngine.Event.BattleLogicEvent':self.table(s,0,0)
+            elif name==b'Battle.DbgEngine.Effect.BattleEffectServer':self.getglobal(s,b'_before_super')
             else:self.errors.append(repr(name));self.nil(s)
             return 1
         self.callback(require);self.setglobal(L,b'require');self.module('BEBeforeUseCard',asset_overrides.get('BEBeforeUseCard'));self.setglobal(L,b'_payment_class')

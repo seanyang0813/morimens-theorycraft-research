@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "method": "BEBeforeUseCard.DoEffect through energy mutation and event request",
+  "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+  "sourceHashes": {
+    "comparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
+    "cardModules": "d0c38c58404ebe0da4dfada285e96956b42bc4df86c7551e3be3d732ceccda9f",
+    "fixture": "ccd79a915244279a92abf9760131213f9d8269c1ac8222a0386fc91f452cbd10",
+    "currentBattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+    "currentBattleUtilServer": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
+    "currentBattlePropertyServer": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5",
+    "currentBattleUnitPlayer": "14f007f69f6ce9e1d54cfb94ebd58da25f024a1262864c6e7f9af6292bceaf9f"
+  },
+  "fixtures": 6,
+  "exactMatches": 6,
+  "mismatches": 0,
+  "results": [],
+  "scope": "Resource-150 before-use execution with actual changed player/property/utility/constants bytecode and byte-identical card/before-use modules.",
+  "limitations": [
+    "No listener dispatch, main skill phase, after-use effect, gameplay or holdout credit"
+  ]
+}

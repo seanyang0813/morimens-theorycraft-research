@@ -1,0 +1,245 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BEBeforeUseCard": "b660610845cc1181bab671a07d5df91814b2b39419aed2d4ba826bee2be8699c",
+    "BattleUnitPlayer": "ca4e9847ac558a6c8e81a80461869ce2a6c72b0e8e75caf63b9c4dc9afb1b52e",
+    "BattlePropertyServer": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+    "BattleCardServer": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53",
+    "BattleUtilServer": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+  },
+  "scope": "Original BEBeforeUseCard.DoEffect through original cost resolution, player energy mutation, record call and optional BeforeUseCard effect request. Explicit adapters; no listener dispatch, later skill phase, gameplay or holdout.",
+  "fixtures": [
+    {
+      "input": {
+        "name": "missing-card",
+        "hasCard": false,
+        "energy": 5,
+        "cfgCost": "2",
+        "attached": false,
+        "forceMode": null,
+        "allowIgnoreCost": false,
+        "trigger": true
+      },
+      "expected": {
+        "returned": false,
+        "energyAfter": 5.0,
+        "trace": [],
+        "paymentEvents": [],
+        "created": []
+      }
+    },
+    {
+      "input": {
+        "name": "ordinary-triggered",
+        "hasCard": true,
+        "energy": 5,
+        "cfgCost": "2",
+        "attached": false,
+        "forceMode": null,
+        "allowIgnoreCost": false,
+        "trigger": true
+      },
+      "expected": {
+        "returned": true,
+        "energyAfter": 3.0,
+        "trace": [
+          "history",
+          "boutHistory",
+          "energyStats:2.0",
+          "record",
+          "beforeEvent"
+        ],
+        "paymentEvents": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 3.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 3.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 3.0
+          }
+        ],
+        "created": [
+          {
+            "effectType": "BESendEvent",
+            "castValue": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "ordinary-untriggered",
+        "hasCard": true,
+        "energy": 5,
+        "cfgCost": "2",
+        "attached": false,
+        "forceMode": null,
+        "allowIgnoreCost": false,
+        "trigger": false
+      },
+      "expected": {
+        "returned": true,
+        "energyAfter": 3.0,
+        "trace": [
+          "history",
+          "boutHistory",
+          "energyStats:2.0",
+          "record"
+        ],
+        "paymentEvents": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 3.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -2.0,
+            "new": 3.0
+          },
+          {
+            "kind": "event",
+            "castValue": 2.0,
+            "realCost": 2.0
+          },
+          {
+            "kind": "record",
+            "delta": -2.0,
+            "energyAfter": 3.0
+          }
+        ],
+        "created": []
+      }
+    },
+    {
+      "input": {
+        "name": "attached-triggered",
+        "hasCard": true,
+        "energy": 5,
+        "cfgCost": "2",
+        "attached": true,
+        "forceMode": null,
+        "allowIgnoreCost": false,
+        "trigger": true
+      },
+      "expected": {
+        "returned": true,
+        "energyAfter": 5.0,
+        "trace": [
+          "history",
+          "boutHistory",
+          "record",
+          "beforeEvent"
+        ],
+        "paymentEvents": [],
+        "created": [
+          {
+            "effectType": "BESendEvent",
+            "castValue": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "forced-free",
+        "hasCard": true,
+        "energy": 5,
+        "cfgCost": "2",
+        "attached": false,
+        "forceMode": 1,
+        "allowIgnoreCost": false,
+        "trigger": true
+      },
+      "expected": {
+        "returned": true,
+        "energyAfter": 5.0,
+        "trace": [
+          "history",
+          "boutHistory",
+          "record",
+          "beforeEvent"
+        ],
+        "paymentEvents": [],
+        "created": [
+          {
+            "effectType": "BESendEvent",
+            "castValue": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "x-cost",
+        "hasCard": true,
+        "energy": 5,
+        "cfgCost": "X",
+        "attached": false,
+        "forceMode": null,
+        "allowIgnoreCost": false,
+        "trigger": true
+      },
+      "expected": {
+        "returned": true,
+        "energyAfter": 0.0,
+        "trace": [
+          "history",
+          "boutHistory",
+          "energyStats:5.0",
+          "record",
+          "beforeEvent"
+        ],
+        "paymentEvents": [
+          {
+            "kind": "owner",
+            "property": "energy",
+            "old": 5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "energy",
+            "delta": -5.0,
+            "new": 0.0
+          },
+          {
+            "kind": "event",
+            "castValue": 5.0,
+            "realCost": 5.0
+          },
+          {
+            "kind": "record",
+            "delta": -5.0,
+            "energyAfter": 0.0
+          }
+        ],
+        "created": [
+          {
+            "effectType": "BESendEvent",
+            "castValue": 5.0
+          }
+        ]
+      }
+    }
+  ]
+}

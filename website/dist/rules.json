@@ -3790,6 +3790,31 @@
       ]
     },
     {
+      "id": "PC150:ConnectedBeforeUseCard",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "Resource 150 reproduces all 6 inherited connected before-use execution fixtures exactly",
+      "scope": "Missing card, ordinary triggered/untriggered, attached, forced-free and X-cost cases through history insertion, actual resource-150 energy mutation, UseCard record and optional BeforeUseCard event request. Listener dispatch, main phase, after-use, gameplay and holdout credit remain outside scope.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 card-module comparison",
+          "member": "card/before-use equality and changed player hash",
+          "sha256": "d0c38c58404ebe0da4dfada285e96956b42bc4df86c7551e3be3d732ceccda9f"
+        },
+        {
+          "module": "PC resource-150 before-use runtime comparison",
+          "member": "DoEffect through payment, record and event-request result",
+          "sha256": "fb9130ca4a1fd91871a66a716c17bc45d6cd79572edd14dc69e9ed9507267bd4"
+        }
+      ],
+      "checks": [
+        "tools/before_use_card_oracle.py",
+        "tools/verify_current_before_use_card.py",
+        "tests/before-use-card.test.mjs",
+        "tests/current-pc-build-evidence.test.mjs"
+      ]
+    },
+    {
       "id": "PC150:BattleRecord.SelectedFrames",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
       "claim": "The installed resource-150 BattleRecord reproduces all 14 inherited selected replay-frame and queue fixtures exactly",
