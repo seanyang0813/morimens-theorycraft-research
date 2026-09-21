@@ -28,15 +28,9 @@
         }
       }
     ],
-    "definitions": [
+    "stateRuntime": [
       {
         "id": 60089,
-        "maximum": "999999999",
-        "properties": [
-          { "property": "be_damage_per", "expression": "ChangedLayer*(-1)" },
-          { "property": "be_fixed_damage_per1", "expression": "ChangedLayer*(-1)" },
-          { "property": "be_passive_damage_per", "expression": "ChangedLayer*(-1)" }
-        ],
         "skillLevel": 1,
         "casterRoleId": 50,
         "specialValue": 0,
@@ -44,11 +38,6 @@
       },
       {
         "id": 2900,
-        "maximum": "999999999",
-        "properties": [
-          { "property": "damage_plus", "expression": "ChangedLayer" },
-          { "property": "tentacle_dmg", "expression": "ChangedLayer*0.5" }
-        ],
         "skillLevel": 1,
         "casterRoleId": 50,
         "specialValue": 0,
@@ -56,8 +45,6 @@
       },
       {
         "id": 60404,
-        "maximum": "1",
-        "properties": [],
         "skillLevel": 1,
         "casterRoleId": 50,
         "specialValue": 0,

@@ -1357,8 +1357,8 @@
     {
       "id": "PC144:PreparedRoleStateSkill",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
-      "claim": "The catalog-backed skill bridge selects real skill 60397, derives ceil(CmdCaster.atk*0.08) as Arg1, loads Cmd60401 and executes every supported setup row against an explicit role registry without caller-supplied replacement rows",
-      "scope": "Authored catalog-to-execution composition. Explicit skill level/progression, CmdCaster.atk, role/state definitions and initial properties; command and Arg bindings come from hashed exports. No automatic build/monster assembly, costs, immunity/layer modifiers, original full scheduler, gameplay or holdout credit.",
+      "claim": "The catalog-backed skill bridge selects real skill 60397, derives ceil(CmdCaster.atk*0.08) as Arg1, loads Cmd60401 and hashed State definitions, and executes every supported setup row against an explicit role registry without caller-supplied command rows, ArgN values, state maxima or property expressions",
+      "scope": "Authored catalog-to-execution composition. Explicit skill level/progression, CmdCaster.atk, per-state runtime facts and initial role properties; command, Arg, maximum and property-expression bindings come from hashed exports. No automatic build/monster assembly, costs, immunity/layer modifiers, original full scheduler, gameplay or holdout credit.",
       "gameplayValidation": false,
       "sources": [
         {

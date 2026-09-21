@@ -17,8 +17,8 @@ try{
     clientBuildData:JSON.parse(readFileSync(resolve(root,'website/dist/client-build-data.json'),'utf8')),
   };
   if(request.operation==='prepare-skill-command'){
-    const skill=readConfig('Skill'),battleApi=readConfig('BattleApi'),command=readConfig('Cmd');
-    context.skillCommandData={skills:skill.data,battleApi:battleApi.data,commands:command.data,sourceHashes:{Skill:skill.sha256,BattleApi:battleApi.sha256,Cmd:command.sha256}};
+    const skill=readConfig('Skill'),battleApi=readConfig('BattleApi'),command=readConfig('Cmd'),state=readConfig('State');
+    context.skillCommandData={skills:skill.data,battleApi:battleApi.data,commands:command.data,states:state.data,sourceHashes:{Skill:skill.sha256,BattleApi:battleApi.sha256,Cmd:command.sha256,State:state.sha256}};
   }
   const response=runTheorycraftRequest(request,context),text=JSON.stringify(response,null,2)+'\n';
   if(options['--output'])writeFileSync(inside(options['--output'],'Output'),text,{encoding:'utf8',flag:'wx'});else process.stdout.write(text);

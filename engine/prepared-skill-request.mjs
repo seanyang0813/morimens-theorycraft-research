@@ -15,7 +15,7 @@ export function runPreparedSkillRequest(value,source){
   if(Object.values(request.variables).some(number=>!Number.isFinite(number)))throw new Error('Preparation variables must be finite numbers');
   if(Object.values(request.conditionResults).some(result=>typeof result!=='boolean'))throw new Error('Condition results must be booleans');
   if(Object.entries(request.stateQueries).some(([name,values])=>!name||!map(values)||Object.entries(values).some(([id,result])=>!Number.isSafeInteger(Number(id))||!Number.isFinite(result))))throw new Error('State queries require integer-ID to finite-number maps');
-  if(!source||!map(source.skills)||!map(source.battleApi)||!map(source.commands)||!exact(source.sourceHashes,['Skill','BattleApi','Cmd'])||Object.values(source.sourceHashes).some(hash=>!(/^[0-9a-f]{64}$/i).test(hash)))throw new Error('Versioned Skill, BattleApi and Cmd context required');
+  if(!source||!map(source.skills)||!map(source.battleApi)||!map(source.commands)||!map(source.states)||!exact(source.sourceHashes,['Skill','BattleApi','Cmd','State'])||Object.values(source.sourceHashes).some(hash=>!(/^[0-9a-f]{64}$/i).test(hash)))throw new Error('Versioned Skill, BattleApi, Cmd and State context required');
   const skill=source.skills[String(request.skillId)];
   if(!skill)throw new Error('Unknown skill ID');
   const formulaExpressions=Object.fromEntries(Object.entries(source.battleApi).filter(([name,row])=>name.startsWith('BattleFomula')&&typeof row?.Data==='string').map(([name,row])=>[name,row.Data]));
@@ -34,7 +34,7 @@ export function runPreparedSkillRequest(value,source){
   let execution=null;
   if(value.execution!==null){
     if(!exact(value.execution,['experiment','targetBinding','lifecycle']))throw new Error('Exact execution context or null required');
-    execution=runPreparedSkillExperiment({...value.execution,preparation,commands:source.commands});
+    execution=runPreparedSkillExperiment({...value.execution,preparation,commands:source.commands,states:source.states});
   }
   return {schemaVersion:1,status:execution?.status??'PREPARED',build:'pc-res144-build51',finalDamage:null,skillId:request.skillId,sourceHashes:{...source.sourceHashes},prepared,execution,
     commandSupport:execution?.support??inspectCommandSupport({command,allowedFunctions:Object.keys(request.stateQueries)}),commandSummary:{effectTypes,rowCount:Object.keys(command.data_list??{}).length},

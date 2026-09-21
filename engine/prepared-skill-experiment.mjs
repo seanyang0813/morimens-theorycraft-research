@@ -6,9 +6,10 @@ import {inspectCommandSupport} from './inspect-command-support.mjs';
 import {runActiveCommandExperiment} from './active-command-experiment.mjs';
 import {runTerminalStateCommand} from './terminal-state-command.mjs';
 import {runRoleStateCommand} from './role-state-command.mjs';
+import {assembleCatalogStateDefinitions} from './catalog-state-definitions.mjs';
 
 // Connect selected exported skills to supported imported rows without dropping effects.
-export function runPreparedSkillExperiment({preparation,commands,experiment,targetBinding,lifecycle}){
+export function runPreparedSkillExperiment({preparation,commands,states,experiment,targetBinding,lifecycle}){
   if(!commands||!experiment||Object.hasOwn(experiment,'rows')||Object.hasOwn(experiment,'command')||!experiment.variables||lifecycle!=='assumed-absent')throw new Error('Explicit command catalog, experiment without rows and absent lifecycle assumption required');
   const prepared=prepareSkillCommand(preparation);
   if(!Object.hasOwn(commands,prepared.commandId))throw new Error('Selected command is missing');
@@ -18,6 +19,7 @@ export function runPreparedSkillExperiment({preparation,commands,experiment,targ
   let targetResolution=null;
   if(setup){
     if(targetBinding.resolution!=='role-registry'||Object.keys(targetBinding).length!==3||!Number.isSafeInteger(targetBinding.roleId)||experiment.targetBindings?.[targetSelection.value]!==targetBinding.roleId)throw new Error('Setup skill target must bind to the explicit role registry');
+    if(Object.hasOwn(experiment,'definitions')||!Object.hasOwn(experiment,'stateRuntime'))throw new Error('Prepared setup skills require runtime state facts without caller definitions');
   }else if(targetBinding.resolution==='front-enemy-context'){
     if(targetSelection.value!=='FrontEnemy'||Object.keys(targetBinding).length!==4||!Number.isSafeInteger(targetBinding.targetUid))throw new Error('FrontEnemy context and target snapshot UID required');
     targetResolution=selectFrontEnemy(targetBinding.context);
@@ -32,8 +34,15 @@ export function runPreparedSkillExperiment({preparation,commands,experiment,targ
   const base={build:'pc-res144-build51',finalDamage:null,prepared,targetSelection,targetResolution,targetBinding:{...targetBinding},support,unresolvedDependencies:dependencies};
   if(!support.structurallyCompatible)return {...base,status:'UNSUPPORTED_COMMAND',calculation:null};
   for(const name of Object.keys(experiment.variables))if(/^Arg\d+$/.test(name))throw new Error('Command ArgN bindings must come from prepared skill arguments');
-  const commandInput={...experiment,command:commands[prepared.commandId],variables:{...experiment.variables,...prepared.argumentBindings}};
+  const variables={...experiment.variables,...prepared.argumentBindings};
+  let catalogStateDefinitions=null,executionExperiment=experiment;
+  if(setup){
+    if(!states)throw new Error('Versioned State catalog required for prepared setup skills');
+    catalogStateDefinitions=assembleCatalogStateDefinitions({command:commands[prepared.commandId],variables,stateCatalog:states,runtime:experiment.stateRuntime});
+    const {stateRuntime,...withoutRuntime}=experiment;executionExperiment={...withoutRuntime,definitions:catalogStateDefinitions};
+  }
+  const commandInput={...executionExperiment,command:commands[prepared.commandId],variables};
   const calculation=setup?runRoleStateCommand(commandInput):terminal?runTerminalStateCommand({...commandInput,targetBinding:{...targetBinding}}):mixed?runDamageEnergyCommand(commandInput):runActiveCommandExperiment({...experiment,rows:support.normalizedRows,variables:{...experiment.variables,...prepared.argumentBindings}},
     {allowedFunctions:preparation.allowedFunctions??[],callFunction:preparation.callFunction});
-  return {...base,status:'EXPERIMENTAL',calculation,unresolvedDependencies:[...dependencies,...calculation.unresolvedDependencies]};
+  return {...base,status:'EXPERIMENTAL',catalogStateDefinitions,calculation,unresolvedDependencies:[...dependencies,...calculation.unresolvedDependencies]};
 }

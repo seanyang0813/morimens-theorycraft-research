@@ -45,7 +45,9 @@ setup-only skills. The first real case is skill 60397: an explicit
 `CmdCaster.atk` of 1000 resolves and rounds `Arg1` to 80, selects exported command
 60401, and executes all four supported state/presentation rows against the bound
 role registry. The command rows and `Arg1` cannot be replaced by the caller.
-State definitions and initial role properties remain explicit execution inputs;
+The host now assembles each required definition from the hashed State export.
+The caller supplies only live runtime facts for those states: skill level, caster
+role, special value and ban status. Initial role properties remain explicit;
 automatic monster/build assembly and original full-scheduler validation remain
 unfinished.
 
@@ -59,7 +61,9 @@ The setup-only Final Evolution example is also runnable end to end:
 node tools/prepare_skill_command.mjs research/examples/prepared-role-state-request.json research/examples/prepared-role-state-context.json
 ```
 
-The example is a `theorycrafting` input fixture. It demonstrates the recovered
+The example is a `theorycrafting` input fixture. Its `stateRuntime` entries do
+not contain catalog maxima or property expressions; those come from State.json
+and the response records that file's hash. It demonstrates the recovered
 execution path; it is not evidence that this setup was used in a replay, is a
 cheese strategy, or is independently verified.
 
@@ -69,7 +73,7 @@ The scope is selected command execution under absent-lifecycle assumptions, not 
 
 ## Shared agent API
 
-The versioned theorycraft API exposes the same bridge as operation `prepare-skill-command`. Its input is a `morimens-prepared-skill-request` containing the exact serializable preparation maps above and either `execution: null` or an exact execution context. The local API host loads and hashes the Skill, BattleApi and Cmd exports; callers cannot replace command rows inside the request.
+The versioned theorycraft API exposes the same bridge as operation `prepare-skill-command`. Its input is a `morimens-prepared-skill-request` containing the exact serializable preparation maps above and either `execution: null` or an exact execution context. The local API host loads and hashes the Skill, BattleApi, Cmd and State exports; callers cannot replace command rows or catalog state definitions inside the request.
 
 Run the preparation-only example with:
 
