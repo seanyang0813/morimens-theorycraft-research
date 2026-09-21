@@ -1,0 +1,316 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BEAttachPostAction": "866523f8c030dbeb2c1405430bff1f9c8fd3bce69df04ccfa637a6e3dbc462a4",
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+  },
+  "scope": "Original BEAttachPostAction.DoEffect initialization and one original __DoMultiEffect iteration for non-monster targets. Actual Card_AttachPost type membership, current-caster seal lookup, record request and UseAttachPostCard call are retained; role manager, record manager and target card-use endpoints are observers. No monster path, attached-card construction/execution, later repetition scheduling, gameplay or holdout.",
+  "fixtures": [
+    {
+      "input": {
+        "parameters": [
+          133381,
+          1,
+          0,
+          1,
+          7
+        ],
+        "casterUid": 77,
+        "targetUid": 99,
+        "casterSealAttachPost": 0,
+        "targetPresent": true
+      },
+      "expected": {
+        "initialization": {
+          "totalEffectTimes": 1.0,
+          "leftEffectTimes": 1.0
+        },
+        "propertyReads": [
+          "seal_attachpost"
+        ],
+        "records": [
+          {
+            "casterUid": 77.0,
+            "targetUid": 99.0,
+            "skillId": 133381.0,
+            "showPerform": 1.0
+          }
+        ],
+        "cardRequests": [
+          {
+            "targetUid": 99,
+            "skillId": 133381.0,
+            "skillLevel": 7.0,
+            "attachPostParam": {
+              "isTriggerBST": false
+            }
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          123159,
+          1,
+          0,
+          1
+        ],
+        "casterUid": 10,
+        "targetUid": 20,
+        "casterSealAttachPost": 0,
+        "targetPresent": true
+      },
+      "expected": {
+        "initialization": {
+          "totalEffectTimes": 1.0,
+          "leftEffectTimes": 1.0
+        },
+        "propertyReads": [
+          "seal_attachpost"
+        ],
+        "records": [
+          {
+            "casterUid": 10.0,
+            "targetUid": 20.0,
+            "skillId": 123159.0,
+            "showPerform": 1.0
+          }
+        ],
+        "cardRequests": [
+          {
+            "targetUid": 20,
+            "skillId": 123159.0,
+            "skillLevel": 1.0,
+            "attachPostParam": {
+              "isTriggerBST": false
+            }
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          133381,
+          2.2,
+          1,
+          3,
+          7
+        ],
+        "casterUid": 77,
+        "targetUid": 99,
+        "casterSealAttachPost": 0,
+        "targetPresent": true
+      },
+      "expected": {
+        "initialization": {
+          "totalEffectTimes": 2.2,
+          "leftEffectTimes": 2.2
+        },
+        "propertyReads": [
+          "seal_attachpost"
+        ],
+        "records": [
+          {
+            "casterUid": 77.0,
+            "targetUid": 99.0,
+            "skillId": 133381.0,
+            "showPerform": 3.0
+          }
+        ],
+        "cardRequests": [
+          {
+            "targetUid": 99,
+            "skillId": 133381.0,
+            "skillLevel": 7.0,
+            "attachPostParam": {
+              "isTriggerBST": true
+            }
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          133381,
+          1,
+          2,
+          0,
+          4
+        ],
+        "casterUid": 77,
+        "targetUid": 99,
+        "casterSealAttachPost": 0,
+        "targetPresent": true
+      },
+      "expected": {
+        "initialization": {
+          "totalEffectTimes": 1.0,
+          "leftEffectTimes": 1.0
+        },
+        "propertyReads": [
+          "seal_attachpost"
+        ],
+        "records": [
+          {
+            "casterUid": 77.0,
+            "targetUid": 99.0,
+            "skillId": 133381.0,
+            "showPerform": 0.0
+          }
+        ],
+        "cardRequests": [
+          {
+            "targetUid": 99,
+            "skillId": 133381.0,
+            "skillLevel": 4.0,
+            "attachPostParam": {
+              "isTriggerBST": false
+            }
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          133381
+        ],
+        "casterUid": 77,
+        "targetUid": 99,
+        "casterSealAttachPost": 0,
+        "targetPresent": true
+      },
+      "expected": {
+        "initialization": {
+          "totalEffectTimes": 1.0,
+          "leftEffectTimes": 1.0
+        },
+        "propertyReads": [
+          "seal_attachpost"
+        ],
+        "records": [
+          {
+            "casterUid": 77.0,
+            "targetUid": 99.0,
+            "skillId": 133381.0,
+            "showPerform": 0.0
+          }
+        ],
+        "cardRequests": [
+          {
+            "targetUid": 99,
+            "skillId": 133381.0,
+            "skillLevel": 1.0,
+            "attachPostParam": {
+              "isTriggerBST": false
+            }
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          133381,
+          1,
+          1,
+          1,
+          7
+        ],
+        "casterUid": 77,
+        "targetUid": 99,
+        "casterSealAttachPost": 1,
+        "targetPresent": true
+      },
+      "expected": {
+        "initialization": {
+          "totalEffectTimes": 1.0,
+          "leftEffectTimes": 1.0
+        },
+        "propertyReads": [
+          "seal_attachpost"
+        ],
+        "records": [],
+        "cardRequests": [],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          133381,
+          1,
+          1,
+          1,
+          7
+        ],
+        "casterUid": 77,
+        "targetUid": 99,
+        "casterSealAttachPost": -1,
+        "targetPresent": true
+      },
+      "expected": {
+        "initialization": {
+          "totalEffectTimes": 1.0,
+          "leftEffectTimes": 1.0
+        },
+        "propertyReads": [
+          "seal_attachpost"
+        ],
+        "records": [
+          {
+            "casterUid": 77.0,
+            "targetUid": 99.0,
+            "skillId": 133381.0,
+            "showPerform": 1.0
+          }
+        ],
+        "cardRequests": [
+          {
+            "targetUid": 99,
+            "skillId": 133381.0,
+            "skillLevel": 7.0,
+            "attachPostParam": {
+              "isTriggerBST": true
+            }
+          }
+        ],
+        "returned": true
+      }
+    },
+    {
+      "input": {
+        "parameters": [
+          133381,
+          1,
+          1,
+          1,
+          7
+        ],
+        "casterUid": 77,
+        "targetUid": 99,
+        "casterSealAttachPost": 0,
+        "targetPresent": false
+      },
+      "expected": {
+        "initialization": {
+          "totalEffectTimes": 1.0,
+          "leftEffectTimes": 1.0
+        },
+        "propertyReads": [],
+        "records": [],
+        "cardRequests": [],
+        "returned": true
+      }
+    }
+  ]
+}

@@ -4192,6 +4192,32 @@
       ]
     },
     {
+      "id": "PC144:AttachPostActionRequest",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "For non-monsters, BEAttachPostAction preserves its repeat value, maps skill/show/level parameters into record and UseAttachPostCard requests, enables isTriggerBST only for flag 1, defaults missing show/level to 0/1, and suppresses requests only when caster seal_attachpost is positive",
+      "scope": "Eight original protected-runtime cases covering one non-monster iteration, Arachne and Mouchette parameter shapes, defaults, trigger flags, seal signs and no target. Role/record/card endpoints are observers. Monster routing, later repetitions, temporary-card construction/execution, callbacks, gameplay and holdout validation are excluded.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "BEAttachPostAction",
+          "member": "DoEffect,__DoMultiEffect",
+          "sha256": "866523f8c030dbeb2c1405430bff1f9c8fd3bce69df04ccfa637a6e3dbc462a4"
+        },
+        {
+          "module": "BattleConst",
+          "member": "RoleType,CardType",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+        }
+      ],
+      "checks": [
+        "tools/attach_post_action_oracle.py",
+        "engine/attach-post-action.mjs",
+        "tests/attach-post-action.test.mjs",
+        "tests/synthetic/original-attach-post-action.json",
+        "docs/ATTACH_POST_ACTION.md"
+      ]
+    },
+    {
       "id": "PC144:GeneratedCardPipeline",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
       "claim": "The authored generated-card pipeline composes tested request construction, Draw/Hand mutation, owner resolution, command-constructor requests and main-command Arg bindings while retaining each boundary trace and unresolved dependency",
