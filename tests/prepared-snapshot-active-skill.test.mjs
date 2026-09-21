@@ -28,6 +28,12 @@ function mixedInput(build='pc-res150-build51'){
   value.energy={source:{castRoleUid:7,cmdServerUid:2},target:{uid:7,role:'Awaker',energy:95,maximumProperties:{ulti_energy_max:100,ulti_energy_cost_per:0,ulti_energy_cost_flat:0,ulti_energy_max_per:0},calculation:{dimension:0,properties:{card_ulti_per:0,card_ulti_plus:0,o_ulti_energy_per:0,ulti_energy_per:0,i_ulti_energy_per:0,ulti_energy_efficiency:0,ulti_per_strikecard:0,ulti_energy_plus:0,gain_ulti_energy_per:0,gain_ulti_energy_plus:0}}}};
   return value;
 }
+function conditionalMixedInput(skillId=4165,build='pc-res150-build51'){
+  const value=mixedInput(build);value.schemaVersion=3;
+  value.preparation={skillId,skillLevel:1,isAwaker:true,breakSkillLevel:0,potencyLevel:0,overrides:[],variables:{BattleAtkForce:100},conditionResults:{},stateQueries:{'CmdCaster.GetStateLayer':{'55487':1}}};
+  value.targetBinding={expression:'FrontEnemy',resolution:'front-enemy-context',targetUid:8,context:{casterCamp:1,lockedUid:null,tauntUid:null,roles:[{uid:8,camp:2,hasHpBar:true,dead:false,position:1,sneak:0},{uid:9,camp:2,hasHpBar:true,dead:false,position:2,sneak:0}]}};
+  value.snapshot.critRolls=[null,null];return value;
+}
 
 for(const build of Object.keys(roots))test(`catalog-prepared ordinary Active skill reaches a complete-property sequence on ${build}`,()=>{
   const value=input(build),before=JSON.stringify(value),result=runPreparedSnapshotActiveSkill(value,source(build));
@@ -90,6 +96,46 @@ test('version 2 rejects reordered effects and mismatched energy identity',()=>{
   assert.throws(()=>runPreparedSnapshotActiveSkill(reordered,data),/ActiveDamage row first/);
   const identity=mixedInput();identity.energy.target.uid=8;assert.throws(()=>runPreparedSnapshotActiveSkill(identity,source(identity.build)),/self-target/);
   const role=mixedInput();role.energy.target.role='Monster';assert.throws(()=>runPreparedSnapshotActiveSkill(role,source(role.build)),/self-target Awakener/);
+});
+
+for(const build of Object.keys(roots))test(`schema 3 executes conditional multi-row damage then energy on ${build}`,()=>{
+  const value=conditionalMixedInput(4165,build),result=runPreparedSnapshotActiveSkill(value,source(build));
+  assert.equal(result.prepared.commandId,393);assert.deepEqual(result.prepared.arguments,[10,5]);
+  assert.deepEqual(result.targetResolution,{targets:[8],reason:'position'});
+  assert.deepEqual(result.rowExecutions.map(row=>[row.rowId,row.executed,row.condition?.passed??null]),[['1',true,null],['2',true,true]]);
+  assert.deepEqual(result.rowExecutions.map(row=>row.parameterEvaluation?.values),[[10,1],[10,1]]);
+  assert.deepEqual(result.derivedSequenceInput.hits.map(hit=>hit.hitContext.damageSubtype),['Ordinary','Ordinary']);
+  assert.equal(result.calculation.modeledHpLost,20);assert.equal(result.energy.targetsAfter[0].energy,100);assert.equal(result.completed,true);
+});
+
+test('schema 3 skips a false conditional row and requires only executed-hit rolls',()=>{
+  const value=conditionalMixedInput();value.preparation.stateQueries['CmdCaster.GetStateLayer']['55487']=0;value.snapshot.critRolls=[null];
+  const result=runPreparedSnapshotActiveSkill(value,source(value.build));
+  assert.deepEqual(result.rowExecutions.map(row=>row.executed),[true,false]);assert.equal(result.calculation.modeledHpLost,10);
+  const extra=conditionalMixedInput();extra.preparation.stateQueries['CmdCaster.GetStateLayer']['55487']=0;
+  assert.throws(()=>runPreparedSnapshotActiveSkill(extra,source(extra.build)),/every derived hit/);
+});
+
+test('schema 3 preserves LastConditionRet fallback and Puncture subtype from skill 4203',()=>{
+  const value=conditionalMixedInput(4203);value.preparation.potencyLevel=15;value.preparation.stateQueries={'CmdCaster.GetStateLayer':{'2799':1},'PlayerRole.GetStateLayer':{'19677':7}};value.snapshot.critRolls=[null,null,null,null];
+  const result=runPreparedSnapshotActiveSkill(value,source(value.build));
+  assert.equal(result.prepared.commandId,1363);assert.deepEqual(result.prepared.arguments,[10,5,1]);assert.deepEqual(result.paraPlus.bindings,{ParaPlus1:7});
+  assert.deepEqual(result.rowExecutions.map(row=>[row.executed,row.condition.passed]),[[true,true],[false,false]]);
+  assert.equal(result.rowExecutions[1].condition.reads.find(row=>row.name==='LastConditionRet').value,1);
+  assert.deepEqual(result.derivedSequenceInput.hits.map(hit=>hit.hitContext.damageSubtype),['Puncture','Puncture','Puncture','Puncture']);
+  assert.equal(result.calculation.modeledHpLost,68);
+
+  const fallback=conditionalMixedInput(4203);fallback.preparation.stateQueries={'CmdCaster.GetStateLayer':{'2799':0},'PlayerRole.GetStateLayer':{'19677':7}};fallback.snapshot.critRolls=[null];
+  const fallbackResult=runPreparedSnapshotActiveSkill(fallback,source(fallback.build));
+  assert.deepEqual(fallbackResult.rowExecutions.map(row=>[row.executed,row.condition.passed]),[[false,false],[true,true]]);
+  assert.equal(fallbackResult.rowExecutions[1].condition.reads.find(row=>row.name==='LastConditionRet').value,0);
+  assert.deepEqual(fallbackResult.derivedSequenceInput.hits.map(hit=>hit.hitContext.damageSubtype),['Ordinary']);assert.equal(fallbackResult.calculation.modeledHpLost,17);
+});
+
+test('schema 3 fails closed on target mismatch and unsupported later rows',()=>{
+  const mismatch=conditionalMixedInput();mismatch.targetBinding.targetUid=9;assert.throws(()=>runPreparedSnapshotActiveSkill(mismatch,source(mismatch.build)),/does not match/);
+  const data=source('pc-res150-build51'),value=conditionalMixedInput();data.commands['393'].data_list['2']={...data.commands['393'].data_list['2'],Type:'BEAddState'};
+  assert.throws(()=>runPreparedSnapshotActiveSkill(value,data),/only selected-target Active rows/);
 });
 
 test('prepared snapshot bridge rejects mixed commands and monster intents before calculation',()=>{

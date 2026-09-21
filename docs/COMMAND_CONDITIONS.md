@@ -14,4 +14,6 @@ The numeric parameter API remains strict: it does not accept comparisons or bool
 
 `tools/command_condition_oracle.py` executes seven distinct original FuncTable conditions from commands 80572, 81060 and 117337 over 84 environments. Authored evaluation matches each boolean result and exact state-query sequence, including short-circuit skips. The state getter is supplied and observed; original parser lookup, state storage and CheckCondition itself are not executed by this oracle. Strict gating and remaining grammar semantics have authored tests/source support rather than a claim of full original-runtime coverage.
 
+`tools/conditional_active_command_oracle.py` adds 48 original closure executions for the three conditions selected by commands 393 and 1363. These cover caster state 55487, the potency/state conjunction, and the numeric `LastConditionRet~=1` fallback over boundary potency levels and both prior results. The prepared snapshot skill path uses these conditions in row order, updates its local prior-condition value after every conditional row, and records reads, calls and pass decisions. The original full command scheduler is still outside this fixture.
+
 These are expression-level rules. Row scheduling, effect handlers, target resolution and complete card execution still need integration. No card is newly declared gameplay-validated.

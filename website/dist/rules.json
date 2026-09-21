@@ -5954,6 +5954,52 @@
       ]
     },
     {
+      "id": "Theorycraft:ConditionalPreparedActiveEnergy",
+      "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
+      "claim": "The catalog-prepared theorycraft path executes ordered conditional Active rows with per-row repeat and ordinary/Puncture subtype, threads HP and Block, preserves LastConditionRet fallback, then applies capped caster energy",
+      "scope": "Forty-eight original FuncTable condition cases plus authored composition for matching resource-144 and resource-150 catalog rows. Skill 4165 covers an optional second ordinary hit; skill 4203 covers potency/state selection, numeric LastConditionRet fallback, four Puncture hits versus one ordinary hit, ParaPlus, FrontEnemy selection and energy. Explicit live property, role, state-query and critical-roll inputs remain required. Later damage rows retain the selected target; post-death retargeting, state mutation between rows, callbacks, full original scheduling, gameplay and holdout validation are excluded. Theorycraft track only; no cheese or observed-strategy claim.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Skill",
+          "member": "4165,4203",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8"
+        },
+        {
+          "module": "Cmd",
+          "member": "393,1363",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "CheckCondition",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b"
+        },
+        {
+          "module": "BattleCmdParser",
+          "member": "LastConditionRet",
+          "sha256": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d"
+        },
+        {
+          "module": "BEActiveDamage",
+          "member": "DoEffect,__DoMultiEffect",
+          "sha256": "6d87f4da91293c019579f5d586a093763d3fb1051d6efed8652cdbc3b114e208"
+        },
+        {
+          "module": "BEGainUltiEnergy",
+          "member": "DoEffect",
+          "sha256": "eaa49d0dcbeb60d4894c725e97cc35eb37c840c47ffe287f8d77f0d63e3993e2"
+        }
+      ],
+      "checks": [
+        "tools/conditional_active_command_oracle.py",
+        "tests/conditional-active-command.test.mjs",
+        "tests/synthetic/original-conditional-active-command.json",
+        "tests/prepared-snapshot-active-skill.test.mjs",
+        "research/examples/theorycraft-prepared-conditional-active-energy-skill.json"
+      ]
+    },
+    {
       "id": "ANDROID83:StartupLuaArchiveInspection",
       "status": "CONFIRMED_FROM_LOCAL_ARCHIVE_PARSER",
       "claim": "The protected packaged Android startup archive deserializes without execution into seven Lua prototypes and 109 string constants; its one literal URL is telemetry and no literal resource-download URL is present",

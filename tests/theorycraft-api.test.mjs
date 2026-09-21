@@ -135,3 +135,15 @@ test('agent API exposes real exported skill preparation through explicit version
   assert.equal(response.result.status,'PREPARED');
   assert.equal(response.result.finalDamage,null);
 });
+
+test('agent API executes the catalog conditional Puncture branch with LastConditionRet tracing',()=>{
+  const read=name=>{const bytes=readFileSync(new URL(`../research/extracted/config/${name}.json`,import.meta.url));return {data:JSON.parse(bytes),sha256:createHash('sha256').update(bytes).digest('hex')};};
+  const skill=read('Skill'),battleApi=read('BattleApi'),command=read('Cmd'),state=read('State');
+  const skillCommandData={build:'pc-res144-build51',skills:skill.data,battleApi:battleApi.data,commands:command.data,states:state.data,sourceHashes:{Skill:skill.sha256,BattleApi:battleApi.sha256,Cmd:command.sha256,State:state.sha256}};
+  const example=JSON.parse(readFileSync(new URL('../research/examples/theorycraft-prepared-conditional-active-energy-skill.json',import.meta.url)));
+  const response=runTheorycraftRequest(example,{skillCommandData});
+  assert.equal(response.analysisTrack,'theorycrafting');assert.equal(response.result.skillId,4203);assert.equal(response.result.command.id,1363);
+  assert.deepEqual(response.result.rowExecutions.map(row=>[row.executed,row.condition.passed]),[[true,true],[false,false]]);
+  assert.deepEqual(response.result.derivedSequenceInput.hits.map(hit=>hit.hitContext.damageSubtype),['Puncture','Puncture','Puncture','Puncture']);
+  assert.deepEqual(response.result.calculation.targetAfter,{hp:932,block:0});assert.equal(response.result.energy.targetsAfter[0].energy,100);assert.equal(response.result.finalDamage,null);
+});
