@@ -1,0 +1,3245 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleCmdServer": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+    "BattlePropertyServer": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76"
+  },
+  "scope": "144 original __GetFinalBlock cases with explicit recipient properties plus 160 original BattlePropertyServer.AddProperty block-cap/storage cases. Owner/send callbacks are observational spies. No show formula assembly, effect repetition, listeners, Block events, full command or gameplay.",
+  "finalBlock": [
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": -200,
+        "gainBlockPlus": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": -200,
+        "gainBlockPlus": -1
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": -200,
+        "gainBlockPlus": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": -200,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": -200,
+        "gainBlockPlus": 25
+      },
+      "expected": 24.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": -200,
+        "gainBlockPlus": 100
+      },
+      "expected": 99.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": -100,
+        "gainBlockPlus": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": -100,
+        "gainBlockPlus": -1
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": -100,
+        "gainBlockPlus": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": -100,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": -100,
+        "gainBlockPlus": 25
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": -100,
+        "gainBlockPlus": 100
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": -25,
+        "gainBlockPlus": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": -25,
+        "gainBlockPlus": -1
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": -25,
+        "gainBlockPlus": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": -25,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": -25,
+        "gainBlockPlus": 25
+      },
+      "expected": 26.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": -25,
+        "gainBlockPlus": 100
+      },
+      "expected": 101.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": 0,
+        "gainBlockPlus": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": 0,
+        "gainBlockPlus": -1
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": 0,
+        "gainBlockPlus": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": 0,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 2.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": 0,
+        "gainBlockPlus": 25
+      },
+      "expected": 26.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": 0,
+        "gainBlockPlus": 100
+      },
+      "expected": 101.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": 50,
+        "gainBlockPlus": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": 50,
+        "gainBlockPlus": -1
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": 50,
+        "gainBlockPlus": 0
+      },
+      "expected": 2.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": 50,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 2.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": 50,
+        "gainBlockPlus": 25
+      },
+      "expected": 27.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": 50,
+        "gainBlockPlus": 100
+      },
+      "expected": 102.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": 100,
+        "gainBlockPlus": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": 100,
+        "gainBlockPlus": -1
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": 100,
+        "gainBlockPlus": 0
+      },
+      "expected": 2.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": 100,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 3.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": 100,
+        "gainBlockPlus": 25
+      },
+      "expected": 27.0
+    },
+    {
+      "input": {
+        "showBlock": 1,
+        "gainBlockPer": 100,
+        "gainBlockPlus": 100
+      },
+      "expected": 102.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": -200,
+        "gainBlockPlus": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": -200,
+        "gainBlockPlus": -1
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": -200,
+        "gainBlockPlus": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": -200,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": -200,
+        "gainBlockPlus": 25
+      },
+      "expected": 15.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": -200,
+        "gainBlockPlus": 100
+      },
+      "expected": 90.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": -100,
+        "gainBlockPlus": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": -100,
+        "gainBlockPlus": -1
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": -100,
+        "gainBlockPlus": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": -100,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": -100,
+        "gainBlockPlus": 25
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": -100,
+        "gainBlockPlus": 100
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": -25,
+        "gainBlockPlus": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": -25,
+        "gainBlockPlus": -1
+      },
+      "expected": 7.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": -25,
+        "gainBlockPlus": 0
+      },
+      "expected": 8.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": -25,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 8.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": -25,
+        "gainBlockPlus": 25
+      },
+      "expected": 33.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": -25,
+        "gainBlockPlus": 100
+      },
+      "expected": 108.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": 0,
+        "gainBlockPlus": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": 0,
+        "gainBlockPlus": -1
+      },
+      "expected": 9.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": 0,
+        "gainBlockPlus": 0
+      },
+      "expected": 10.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": 0,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 11.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": 0,
+        "gainBlockPlus": 25
+      },
+      "expected": 35.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": 0,
+        "gainBlockPlus": 100
+      },
+      "expected": 110.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": 50,
+        "gainBlockPlus": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": 50,
+        "gainBlockPlus": -1
+      },
+      "expected": 14.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": 50,
+        "gainBlockPlus": 0
+      },
+      "expected": 15.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": 50,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 16.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": 50,
+        "gainBlockPlus": 25
+      },
+      "expected": 40.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": 50,
+        "gainBlockPlus": 100
+      },
+      "expected": 115.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": 100,
+        "gainBlockPlus": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": 100,
+        "gainBlockPlus": -1
+      },
+      "expected": 19.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": 100,
+        "gainBlockPlus": 0
+      },
+      "expected": 20.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": 100,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 21.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": 100,
+        "gainBlockPlus": 25
+      },
+      "expected": 45.0
+    },
+    {
+      "input": {
+        "showBlock": 10,
+        "gainBlockPer": 100,
+        "gainBlockPlus": 100
+      },
+      "expected": 120.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": -200,
+        "gainBlockPlus": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": -200,
+        "gainBlockPlus": -1
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": -200,
+        "gainBlockPlus": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": -200,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": -200,
+        "gainBlockPlus": 25
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": -200,
+        "gainBlockPlus": 100
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": -100,
+        "gainBlockPlus": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": -100,
+        "gainBlockPlus": -1
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": -100,
+        "gainBlockPlus": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": -100,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": -100,
+        "gainBlockPlus": 25
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": -100,
+        "gainBlockPlus": 100
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": -25,
+        "gainBlockPlus": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": -25,
+        "gainBlockPlus": -1
+      },
+      "expected": 74.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": -25,
+        "gainBlockPlus": 0
+      },
+      "expected": 75.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": -25,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 76.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": -25,
+        "gainBlockPlus": 25
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": -25,
+        "gainBlockPlus": 100
+      },
+      "expected": 175.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": 0,
+        "gainBlockPlus": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": 0,
+        "gainBlockPlus": -1
+      },
+      "expected": 99.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": 0,
+        "gainBlockPlus": 0
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": 0,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 101.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": 0,
+        "gainBlockPlus": 25
+      },
+      "expected": 125.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": 0,
+        "gainBlockPlus": 100
+      },
+      "expected": 200.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": 50,
+        "gainBlockPlus": -100
+      },
+      "expected": 50.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": 50,
+        "gainBlockPlus": -1
+      },
+      "expected": 149.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": 50,
+        "gainBlockPlus": 0
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": 50,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 151.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": 50,
+        "gainBlockPlus": 25
+      },
+      "expected": 175.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": 50,
+        "gainBlockPlus": 100
+      },
+      "expected": 250.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": 100,
+        "gainBlockPlus": -100
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": 100,
+        "gainBlockPlus": -1
+      },
+      "expected": 199.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": 100,
+        "gainBlockPlus": 0
+      },
+      "expected": 200.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": 100,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 201.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": 100,
+        "gainBlockPlus": 25
+      },
+      "expected": 225.0
+    },
+    {
+      "input": {
+        "showBlock": 100,
+        "gainBlockPer": 100,
+        "gainBlockPlus": 100
+      },
+      "expected": 300.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": -200,
+        "gainBlockPlus": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": -200,
+        "gainBlockPlus": -1
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": -200,
+        "gainBlockPlus": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": -200,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": -200,
+        "gainBlockPlus": 25
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": -200,
+        "gainBlockPlus": 100
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": -100,
+        "gainBlockPlus": -100
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": -100,
+        "gainBlockPlus": -1
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": -100,
+        "gainBlockPlus": 0
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": -100,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": -100,
+        "gainBlockPlus": 25
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": -100,
+        "gainBlockPlus": 100
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": -25,
+        "gainBlockPlus": -100
+      },
+      "expected": 650.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": -25,
+        "gainBlockPlus": -1
+      },
+      "expected": 749.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": -25,
+        "gainBlockPlus": 0
+      },
+      "expected": 750.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": -25,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 751.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": -25,
+        "gainBlockPlus": 25
+      },
+      "expected": 775.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": -25,
+        "gainBlockPlus": 100
+      },
+      "expected": 850.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": 0,
+        "gainBlockPlus": -100
+      },
+      "expected": 900.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": 0,
+        "gainBlockPlus": -1
+      },
+      "expected": 999.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": 0,
+        "gainBlockPlus": 0
+      },
+      "expected": 1000.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": 0,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 1001.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": 0,
+        "gainBlockPlus": 25
+      },
+      "expected": 1025.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": 0,
+        "gainBlockPlus": 100
+      },
+      "expected": 1100.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": 50,
+        "gainBlockPlus": -100
+      },
+      "expected": 1400.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": 50,
+        "gainBlockPlus": -1
+      },
+      "expected": 1499.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": 50,
+        "gainBlockPlus": 0
+      },
+      "expected": 1500.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": 50,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 1501.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": 50,
+        "gainBlockPlus": 25
+      },
+      "expected": 1525.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": 50,
+        "gainBlockPlus": 100
+      },
+      "expected": 1600.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": 100,
+        "gainBlockPlus": -100
+      },
+      "expected": 1900.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": 100,
+        "gainBlockPlus": -1
+      },
+      "expected": 1999.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": 100,
+        "gainBlockPlus": 0
+      },
+      "expected": 2000.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": 100,
+        "gainBlockPlus": 0.2
+      },
+      "expected": 2001.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": 100,
+        "gainBlockPlus": 25
+      },
+      "expected": 2025.0
+    },
+    {
+      "input": {
+        "showBlock": 1000,
+        "gainBlockPer": 100,
+        "gainBlockPlus": 100
+      },
+      "expected": 2100.0
+    }
+  ],
+  "storage": [
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 0,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 0.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 0,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 0.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 1,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 0.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 1,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 1.0,
+        "actualBlockGained": 1.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 25,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 0.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 25,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 25.0,
+        "actualBlockGained": 25.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 100,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 0.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 100,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 100.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 200,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 0.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 200,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 200.0,
+        "actualBlockGained": 200.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 0,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 0.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 0,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 0.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 1,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 0.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 1,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 1.0,
+        "actualBlockGained": 1.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 25,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 0.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 25,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 25.0,
+        "actualBlockGained": 25.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 100,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 0.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 100,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 100.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 200,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 0.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 200,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 200.0,
+        "actualBlockGained": 200.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 0,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 0.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 0,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 0.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 1,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 1.0,
+        "actualBlockGained": 1.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 1,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 1.0,
+        "actualBlockGained": 1.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 25,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 25.0,
+        "actualBlockGained": 25.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 25,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 25.0,
+        "actualBlockGained": 25.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 100,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 100.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 100,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 100.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 200,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 100.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 200,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 200.0,
+        "actualBlockGained": 200.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 0,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 0.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 0,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 0.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 1,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 1.0,
+        "actualBlockGained": 1.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 1,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 1.0,
+        "actualBlockGained": 1.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 25,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 25.0,
+        "actualBlockGained": 25.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 25,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 25.0,
+        "actualBlockGained": 25.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 100,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 100.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 100,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 100.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 200,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 150.0
+      }
+    },
+    {
+      "input": {
+        "block": 0,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 200,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 200.0,
+        "actualBlockGained": 200.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 0,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 50.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 0,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 50.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 1,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 50.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 1,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 51.0,
+        "actualBlockGained": 1.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 25,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 50.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 25,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 75.0,
+        "actualBlockGained": 25.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 100,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 50.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 100,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 100.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 200,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 50.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 200,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 250.0,
+        "actualBlockGained": 200.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 0,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 50.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 0,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 50.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 1,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 50.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 1,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 51.0,
+        "actualBlockGained": 1.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 25,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 50.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 25,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 75.0,
+        "actualBlockGained": 25.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 100,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 50.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 100,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 100.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 200,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 50.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 200,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 250.0,
+        "actualBlockGained": 200.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 0,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 50.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 0,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 50.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 1,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 51.0,
+        "actualBlockGained": 1.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 1,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 51.0,
+        "actualBlockGained": 1.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 25,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 75.0,
+        "actualBlockGained": 25.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 25,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 75.0,
+        "actualBlockGained": 25.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 100,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 50.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 100,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 100.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 200,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 50.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 200,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 250.0,
+        "actualBlockGained": 200.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 0,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 50.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 0,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 50.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 1,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 51.0,
+        "actualBlockGained": 1.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 1,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 51.0,
+        "actualBlockGained": 1.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 25,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 75.0,
+        "actualBlockGained": 25.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 25,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 75.0,
+        "actualBlockGained": 25.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 100,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 100.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 100,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 100.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 200,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 100.0
+      }
+    },
+    {
+      "input": {
+        "block": 50,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 200,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 250.0,
+        "actualBlockGained": 200.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 0,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 0,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 1,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 1,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 101.0,
+        "actualBlockGained": 1.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 25,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 25,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 125.0,
+        "actualBlockGained": 25.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 100,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 100,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 200.0,
+        "actualBlockGained": 100.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 200,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 200,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 300.0,
+        "actualBlockGained": 200.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 0,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 0,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 1,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 1,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 101.0,
+        "actualBlockGained": 1.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 25,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 25,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 125.0,
+        "actualBlockGained": 25.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 100,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 100,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 200.0,
+        "actualBlockGained": 100.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 200,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 200,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 300.0,
+        "actualBlockGained": 200.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 0,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 0,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 1,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 1,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 101.0,
+        "actualBlockGained": 1.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 25,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 25,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 125.0,
+        "actualBlockGained": 25.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 100,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 100,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 200.0,
+        "actualBlockGained": 100.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 200,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 200,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 300.0,
+        "actualBlockGained": 200.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 0,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 0,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 100.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 1,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 101.0,
+        "actualBlockGained": 1.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 1,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 101.0,
+        "actualBlockGained": 1.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 25,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 125.0,
+        "actualBlockGained": 25.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 25,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 125.0,
+        "actualBlockGained": 25.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 100,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 50.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 100,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 200.0,
+        "actualBlockGained": 100.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 200,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 50.0
+      }
+    },
+    {
+      "input": {
+        "block": 100,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 200,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 300.0,
+        "actualBlockGained": 200.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 0,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 0,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 1,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 1,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 151.0,
+        "actualBlockGained": 1.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 25,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 25,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 175.0,
+        "actualBlockGained": 25.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 100,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 100,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 250.0,
+        "actualBlockGained": 100.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 200,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 0,
+        "blockMaxPer": 0,
+        "request": 200,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 350.0,
+        "actualBlockGained": 200.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 0,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 0,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 1,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 1,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 151.0,
+        "actualBlockGained": 1.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 25,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 25,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 175.0,
+        "actualBlockGained": 25.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 100,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 100,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 250.0,
+        "actualBlockGained": 100.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 200,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 0,
+        "blockMaxPer": 50,
+        "request": 200,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 350.0,
+        "actualBlockGained": 200.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 0,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 0,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 1,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 1,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 151.0,
+        "actualBlockGained": 1.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 25,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 25,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 175.0,
+        "actualBlockGained": 25.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 100,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 100,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 250.0,
+        "actualBlockGained": 100.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 200,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 100,
+        "blockMaxPer": 0,
+        "request": 200,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 350.0,
+        "actualBlockGained": 200.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 0,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 0,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 1,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 1,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 151.0,
+        "actualBlockGained": 1.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 25,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 25,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 175.0,
+        "actualBlockGained": 25.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 100,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 100,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 250.0,
+        "actualBlockGained": 100.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 200,
+        "ignoreMax": false
+      },
+      "expected": {
+        "blockAfter": 150.0,
+        "actualBlockGained": 0.0
+      }
+    },
+    {
+      "input": {
+        "block": 150,
+        "maxHp": 100,
+        "blockMaxPer": 50,
+        "request": 200,
+        "ignoreMax": true
+      },
+      "expected": {
+        "blockAfter": 350.0,
+        "actualBlockGained": 200.0
+      }
+    }
+  ]
+}

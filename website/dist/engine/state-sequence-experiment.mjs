@@ -16,6 +16,7 @@ import {limitStateLayers} from './state-layer-limits.mjs';
 import {resolveStateImmunity} from './state-immunity.mjs';
 import {subtractStateLayer} from './sub-state-layer.mjs';
 import {runUltiEnergyExperiment} from './ulti-energy-experiment.mjs';
+import {calculateBlockGain} from './block-gain.mjs';
 
 const actorOffenseBindings={basic_damage_per:'basicDamagePer'};
 const actorTargetBindings={crit_damage:'awakerCritDamage'};
@@ -26,9 +27,14 @@ const exact=(o,keys)=>o&&typeof o==='object'&&!Array.isArray(o)&&Object.keys(o).
 // no claim of original complete battle execution or inferred build attributes.
 export function runStateSequenceExperiment(value){
   const input=JSON.parse(JSON.stringify(value));
-  const baseKeys=['schemaVersion','kind','build','otherEvents','crossesTurnBoundary','actorProperties','targetProperties','stateQueries','definitions','steps','attackBase'],hasEnergy=Object.hasOwn(input,'energy');
-  if(!exact(input,hasEnergy?[...baseKeys,'energy']:baseKeys)||input.schemaVersion!==1||input.kind!=='morimens-state-sequence'||input.build!==build||input.otherEvents!=='assumed-absent'||input.crossesTurnBoundary!==false)throw new Error('Explicit within-turn state sequence with absent other events required');
+  const baseKeys=['schemaVersion','kind','build','otherEvents','crossesTurnBoundary','actorProperties','targetProperties','stateQueries','definitions','steps','attackBase'],hasEnergy=Object.hasOwn(input,'energy'),hasBlock=Object.hasOwn(input,'block');
+  const optionalKeys=[...(hasEnergy?['energy']:[]),...(hasBlock?['block']:[])];
+  if(!exact(input,[...baseKeys,...optionalKeys])||input.schemaVersion!==1||input.kind!=='morimens-state-sequence'||input.build!==build||input.otherEvents!=='assumed-absent'||input.crossesTurnBoundary!==false)throw new Error('Explicit within-turn state sequence with absent other events required');
   if(hasEnergy&&(!exact(input.energy,['source','target'])||input.energy.source?.castRoleUid!==input.energy.target?.uid))throw new Error('Explicit caster energy context required');
+  const blockRecipientKeys=['block','maxHp','blockMaxPer','ignoreMax','gainBlockPer','gainBlockPlus'];
+  if(hasBlock&&(!exact(input.block,['modifiers','actor','target'])||!exact(input.block.actor,blockRecipientKeys)||!exact(input.block.target,blockRecipientKeys)||
+    Object.values(input.block.modifiers??{}).some(value=>!Number.isFinite(value))||['actor','target'].some(owner=>Object.entries(input.block[owner]).some(([key,value])=>key==='ignoreMax'?typeof value!=='boolean':!Number.isFinite(value)))||
+    input.block.actor.block<0||input.block.target.block<0||input.block.actor.maxHp<0||input.block.target.maxHp<0||input.block.target.block!==input.attackBase?.targetState?.block))throw new Error('Explicit Block formula and recipient snapshots required');
   for(const [who,props] of [['actor',input.actorProperties],['target',input.targetProperties]])if(!exact(props,requiredProperties[who])||!Object.values(props).every(Number.isFinite))throw new Error('All live bound and amplification properties must be explicit');
   if(!input.stateQueries||Array.isArray(input.stateQueries)||Object.entries(input.stateQueries).some(([name,ids])=>!name||!ids||typeof ids!=='object'||Array.isArray(ids)||
     (Object.hasOwn(ids,'liveOwner')?(!exact(ids,['liveOwner'])||!['actor','target'].includes(ids.liveOwner)||!name.endsWith('.GetStateLayer')):Object.entries(ids).some(([id,n])=>!/^\d+$/.test(id)||!Number.isFinite(n)))))throw new Error('Explicit static state values or live GetStateLayer owner bindings required');
@@ -59,12 +65,14 @@ export function runStateSequenceExperiment(value){
       if(!exact(step,['type','definitionId','amount'])||!defs.has(step.definitionId)||!(step.amount===null||Number.isFinite(step.amount)))throw new Error('Explicit known state layer subtraction required');
     }else if(step?.type==='gainUltiEnergy'){
       if(!exact(step,['type','parameters'])||!hasEnergy||!Array.isArray(step.parameters)||step.parameters.length<1||step.parameters.length>2||step.parameters.some(value=>!Number.isFinite(value)))throw new Error('Explicit ultimate-energy step and caster context required');
+    }else if(step?.type==='gainBlock'){
+      if(!exact(step,['type','owner','base'])||!hasBlock||!['actor','target'].includes(step.owner)||!Number.isFinite(step.base))throw new Error('Explicit resolved Block step and recipient context required');
     }else if(step?.type==='attack'){
       if(!exact(step,['type','rows'])||!Array.isArray(step.rows))throw new Error('Explicit attack rows required');
     }else throw new Error('Unsupported sequence operation');
   }
   const registry=new Map(),properties={actor:{...input.actorProperties},target:{...input.targetProperties}},trace=[];
-  let nextUid=100,target={...input.attackBase.targetState},casterEnergy=hasEnergy?input.energy.target.energy:null,stop=null;
+  let nextUid=100,target={...input.attackBase.targetState},casterEnergy=hasEnergy?input.energy.target.energy:null,actorBlock=hasBlock?input.block.actor.block:null,stop=null;
   const resolveStateQuery=(name,args)=>{
       if(args.length!==1||!Number.isSafeInteger(args[0]))throw new Error('One integer state ID required');
       const query=input.stateQueries[name];
@@ -124,6 +132,12 @@ export function runStateSequenceExperiment(value){
       const result=runUltiEnergyExperiment({schemaVersion:1,kind:'morimens-ulti-energy-experiment',build,otherEvents:'assumed-absent',parameters:step.parameters,source:input.energy.source,targetOrder:[input.energy.target.uid],targets:[{...input.energy.target,energy:casterEnergy}]});
       casterEnergy=result.targetsAfter[0].energy;trace.push({index,type:'gainUltiEnergy',result});continue;
     }
+    if(step.type==='gainBlock'){
+      const recipient=input.block[step.owner],block=step.owner==='actor'?actorBlock:target.block;
+      const result=calculateBlockGain({base:step.base,modifiers:input.block.modifiers,target:{gainBlockPer:recipient.gainBlockPer,gainBlockPlus:recipient.gainBlockPlus},storage:{block,maxHp:recipient.maxHp,blockMaxPer:recipient.blockMaxPer,ignoreMax:recipient.ignoreMax}});
+      if(step.owner==='actor')actorBlock=result.blockAfter;else target={...target,block:result.blockAfter};
+      trace.push({index,type:'gainBlock',owner:step.owner,result});continue;
+    }
     const d=defs.get(step.definitionId),ownerUid=d.owner==='actor'?1:2,operation={index,type:'addState',definitionId:d.id,expressions:[],mutations:[],events:[]};
     let resolvedLayers=step.resolvedLayers;
     if(step.type==='applyState'){
@@ -177,6 +191,6 @@ export function runStateSequenceExperiment(value){
       queueOnAdd:event=>operation.events.push({kind:'StateOnAdd',stateUid:event.stateUid,handling:'listeners-assumed-absent'}),recordStats:()=>{}}});
     operation.managerTrace=manager.trace;operation.state=manager.state?JSON.parse(JSON.stringify(manager.state)):null;trace.push(operation);
   }
-  return {schemaVersion:1,status:'EXPERIMENTAL',build,finalDamage:null,completed:stop===null,stop,properties,targetAfter:target,casterEnergyAfter:casterEnergy,modeledHpLost:input.attackBase.targetState.hp-target.hp,
-    states:[...registry.values()].flat(),trace,unresolvedDependencies:['Authored component composition, not connected original full battle execution or independent gameplay validation','addState uses already-resolved layers; applyState uses explicit immunity, modifier mappings, dimension role/player context and supplied limit results, not automatic property/rule derivation','Layer subtraction excludes caster attribution; no trigger listeners, expiry, death handling, team/card property routing or source attribution; within one turn only','State queries use explicit static inputs or explicitly bound live registry owners; no automatic parser target binding or build/skill assembly','Damage eligibility modifiers outside the five bound properties remain explicitly supplied','Ultimate-energy steps use explicit caster/build/card context; later attack rows read live CmdCaster.ulti_energy, while state-mutation expressions do not']};
+  return {schemaVersion:1,status:'EXPERIMENTAL',build,finalDamage:null,completed:stop===null,stop,properties,targetAfter:target,casterEnergyAfter:casterEnergy,actorBlockAfter:actorBlock,modeledHpLost:input.attackBase.targetState.hp-target.hp,
+    states:[...registry.values()].flat(),trace,unresolvedDependencies:['Authored component composition, not connected original full battle execution or independent gameplay validation','addState uses already-resolved layers; applyState uses explicit immunity, modifier mappings, dimension role/player context and supplied limit results, not automatic property/rule derivation','Layer subtraction excludes caster attribution; no trigger listeners, expiry, death handling, team/card property routing or source attribution; within one turn only','State queries use explicit static inputs or explicitly bound live registry owners; no automatic parser target binding or build/skill assembly','Damage eligibility modifiers outside the five bound properties remain explicitly supplied','Ultimate-energy steps use explicit caster/build/card context; later attack rows read live CmdCaster.ulti_energy, while state-mutation expressions do not','Block steps use explicit resolved formula properties and recipient snapshots; optional state descendants and Block events are excluded']};
 }

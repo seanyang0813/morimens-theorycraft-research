@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {runOrderedStateCommand} from '../engine/ordered-state-command.mjs';
+import {neutralBlockInputs} from '../engine/show-block.mjs';
 
 const read=name=>JSON.parse(readFileSync(new URL(name,import.meta.url),'utf8'));
 function input(){
@@ -81,4 +82,25 @@ test('a later damage row reads ultimate energy changed by an earlier row',()=>{
   const r=runOrderedStateCommand(v);
   assert.equal(r.casterEnergyAfter,15);assert.equal(r.modeledHpLost,115);
   assert.deepEqual(r.calculation.trace.filter(step=>step.type==='attack').map(step=>step.result.modeledHpLost),[100,15]);
+});
+
+test('ordered target Block gain is consumed by a later hit',()=>{
+  const v=input(),{value,...modifiers}=neutralBlockInputs(0);
+  v.command={data_list:{1:{Type:'BEGainBlock',Target:'UpperTarget',Para:'Arg1'},2:{Type:'BEActiveDamage',Target:'UpperTarget',Para:'100'}}};v.variables={Arg1:200};
+  v.state.definitions=[];v.state.requests=[];
+  v.block={modifiers,actor:{block:0,maxHp:1000,blockMaxPer:0,ignoreMax:false,gainBlockPer:0,gainBlockPlus:0},target:{block:0,maxHp:1000,blockMaxPer:0,ignoreMax:false,gainBlockPer:0,gainBlockPlus:0}};
+  const r=runOrderedStateCommand(v);
+  assert.equal(r.modeledHpLost,0);assert.equal(r.targetAfter.block,100);assert.equal(r.targetAfter.hp,1000);
+  assert.deepEqual(r.calculation.trace.map(step=>step.type),['gainBlock','attack']);
+  assert.equal(r.rowPlan[0].evaluation.values[0],200);
+  const first=v.command.data_list['1'];v.command.data_list['1']=v.command.data_list['2'];v.command.data_list['2']=first;
+  const reversed=runOrderedStateCommand(v);assert.equal(reversed.modeledHpLost,100);assert.equal(reversed.targetAfter.block,200);
+});
+
+test('ordered caster Block remains separate from the supplied damage target',()=>{
+  const v=input(),{value,...modifiers}=neutralBlockInputs(0);
+  v.command={data_list:{1:{Type:'BEGainBlock',Target:'CmdCaster',Para:'200'},2:{Type:'BEActiveDamage',Target:'UpperTarget',Para:'100'}}};v.state.definitions=[];v.state.requests=[];
+  v.block={modifiers,actor:{block:50,maxHp:1000,blockMaxPer:0,ignoreMax:false,gainBlockPer:0,gainBlockPlus:0},target:{block:0,maxHp:1000,blockMaxPer:0,ignoreMax:false,gainBlockPer:0,gainBlockPlus:0}};
+  const r=runOrderedStateCommand(v);assert.equal(r.actorBlockAfter,250);assert.equal(r.targetAfter.block,0);assert.equal(r.modeledHpLost,100);
+  delete v.block;assert.throws(()=>runOrderedStateCommand(v),/Block gain requires/i);
 });

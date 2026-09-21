@@ -57,3 +57,15 @@ test('ordered-state command UI shows state and damage rows in command order',()=
  assert.match(nodes.get('summary').textContent,/States 19534 \+1/);assert.equal(nodes.get('rows').children.length,2);
  assert.match(nodes.get('rows').children[0].children[4].textContent,/State 19534/);assert.equal(nodes.get('rows').children[1].children[2].textContent,'100 → 75');
 });
+
+test('ordered command UI shows target Block gain before later damage',()=>{
+ class Element{constructor(){this.children=[];this.textContent='';this.value='';this.hidden=false;}append(...items){this.children.push(...items);}replaceChildren(...items){this.children=items;}}
+ const nodes=new Map(),doc={getElementById(id){if(!nodes.has(id))nodes.set(id,new Element());return nodes.get(id);},createElement(){return new Element();}};
+ const input={kind:'morimens-ordered-state-command',attackBase:{targetState:{hp:100,block:0}},command:{data_list:{1:{},2:{}}}};
+ const rowPlan=[{rowId:'1',type:'gainBlock',evaluation:{values:[50]}},{rowId:'2',type:'attack'}];
+ const runOrderedStateCommand=()=>({completed:true,modeledHpLost:0,casterEnergyAfter:null,actorBlockAfter:10,targetAfter:{hp:100,block:25},stop:null,rowPlan,calculation:{trace:[{type:'gainBlock',owner:'target',result:{blockAfter:50,actualBlockGained:50}},{type:'attack',result:{completed:true,targetAfter:{hp:100,block:25}}}]},unresolvedDependencies:[]});
+ startActions({runCardActionTimeline,syntheticCardActionExample,runDamageEnergyCommand,runTerminalStateCommand:()=>{},runOrderedStateCommand,syntheticDamageEnergyExample,runtimeFingerprint:'f'.repeat(64)},doc);
+ doc.getElementById('action-input').value=JSON.stringify(input);nodes.get('run').onclick();
+ assert.match(nodes.get('summary').textContent,/Caster Block: 10/);assert.equal(nodes.get('rows').children[0].children[3].textContent,'0 → 50');assert.match(nodes.get('rows').children[0].children[4].textContent,/Target Block \+50/);
+ assert.equal(nodes.get('rows').children[1].children[3].textContent,'50 → 25');
+});

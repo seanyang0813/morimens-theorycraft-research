@@ -757,6 +757,96 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC144:ShowBlockFormula",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Resolved Block generation preserves the original base multiplier bucket, flat additions, Frail reduction, inside and card-category multipliers, five Spellbound reductions, Chaos defense multiplier and both rounding stages",
+      "sources": [
+        {
+          "module": "BattleUtilServer",
+          "member": "ShowBlockFormula,GetNewChaosDefMultiplier",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "474ffc63b18f67340996578081c60402d2c84c597af5261f028e59f2c8e5a007",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2744136527417000302_BattleUtilServer.lua"
+        }
+      ],
+      "tests": [
+        "tools/block_formula_oracle.py",
+        "tests/show-block.test.mjs"
+      ],
+      "scope": "607 direct copied-original ShowBlockFormula executions with explicit resolved numeric vectors and both returned values. No BattleCmdServer property assembly, recipient modifiers, Block cap/storage, events, full command or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:FinalBlockStorage",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Recipient Block modifiers ceil after gain percentage and flat additions with a minimum of one; Block storage applies the rounded max-HP cap unless ignoreMax is explicit",
+      "sources": [
+        {
+          "module": "BattleCmdServer",
+          "member": "__GetFinalBlock",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "GetMaxBlock,BeforeAdd,AddProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        }
+      ],
+      "tests": [
+        "tools/block_target_storage_oracle.py",
+        "tests/block-gain.test.mjs"
+      ],
+      "scope": "144 original __GetFinalBlock executions and 160 original block AddProperty cap/storage executions with explicit properties. Owner/send callbacks are observational spies. No automatic property assembly, effect repetition, listeners, Block events, full command or gameplay",
+      "gameplayValidation": false
+    },
+    {
+      "id": "PC144:OrderedBlockGain",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "The ordered command subset can apply one-parameter Block gain to the caster or supplied target in row order, and target Block is consumed by later supported damage rows",
+      "sources": [
+        {
+          "module": "BEGainBlock",
+          "member": "__DoMultiEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "d96a78714e93a7e6b7d3b5bb4e87f2aaea65a1063784ec1e8d5de8d6034b10a9",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\4209661331355151386_BEGainBlock.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "GainBlock",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "GetMaxBlock,AddProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "GetRealBlock",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        }
+      ],
+      "tests": [
+        "tests/ordered-state-command.test.mjs",
+        "tests/state-sequence-experiment.test.mjs",
+        "tests/actions-ui.test.mjs",
+        "docs/ORDERED_STATE_COMMAND.md"
+      ],
+      "scope": "Authored composition of separately tested formula, recipient, storage and hit components. Explicit resolved Block modifiers/recipient snapshots; caster and one supplied damage target only; one numeric effect parameter. Optional state descendants, repeat parameters, conditional Block rows, PlayerRole/AllAlly targeting, property/listener events and connected original full-command execution are excluded. No gameplay validation",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC144:StateImmunityCatalog",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
       "claim": "Original specific-immunity mapping resolves four properties and five state IDs; all 6973 exported states retain explicit buff/debuff/untyped classification",

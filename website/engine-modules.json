@@ -3,6 +3,8 @@
   "experiments.mjs",
   "calculate-damage.mjs",
   "show-damage.mjs",
+  "show-block.mjs",
+  "block-gain.mjs",
   "active-target.mjs",
   "card-offensive-setup.mjs",
   "offensive-setup.mjs",

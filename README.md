@@ -25,6 +25,8 @@ Run from this directory:
 
 `website/dist/index.html` is the local general formula sandbox. The adjacent Actions, States, Timeline, Builds and Rules pages expose bounded research components for human or agent-led theorycrafting; they do not yet form a complete battle simulator. Mouchette/Arachne remains a case study at `website/dist/mouchette.html`. The site uses copied versions of allowlisted authored engine modules, checked for byte equality. Run `tools/prepare_local_website.py` after changing a shared module. A bounded browser smoke test loads every page and exercises the general formula and one Actions example; full interactive, responsive and WebMCP QA remains incomplete. See `docs/WEBSITE_STATUS.md`.
 
+The ordered Actions runner now supports a strict single-parameter Block-gain subset for the caster or supplied target. Its formula, recipient modifiers and storage cap match 911 copied-original runtime executions in total, and later damage consumes target Block in row order. Automatic property assembly, multi-target Block, optional state descendants and Block-trigger events remain outside that subset.
+
 The earlier equipped Mouchette PDF omitted intrinsic Arachne realm effects and is not a complete team prediction. Its builder is disabled. Final investigation Realm Mastery is still needed for the corrected scenario; see `docs/ARACHNE_SIGNATURE_COMPARISON.md`.
 
 ## Offline replay pipeline
