@@ -19,6 +19,7 @@ import {runSnapshotActiveSequence} from './snapshot-active-sequence.mjs';
 import {runPreparedSnapshotActiveSkill} from './prepared-snapshot-active-skill.mjs';
 import {runUltiEnergyExperiment} from './ulti-energy-experiment.mjs';
 import {runPreparedSnapshotBlockSkill} from './prepared-snapshot-block-skill.mjs';
+import {runPreparedStateActiveSequence} from './prepared-state-active-sequence.mjs';
 
 export const theorycraftOperations=Object.freeze([
   {name:'describe-capabilities',context:[],scope:'List supported versioned operations and evidence boundaries'},
@@ -27,6 +28,7 @@ export const theorycraftOperations=Object.freeze([
   {name:'run-snapshot-active-sequence',context:[],scope:'Repeated complete-property Active hits with recovered HP and Block mutations threaded between hits'},
   {name:'run-prepared-snapshot-active-skill',context:['skillCommandData'],scope:'Catalog-prepared ordinary/Puncture Active rows through complete-property hits, conditions and optional caster ultimate-energy gain'},
   {name:'run-prepared-snapshot-block-skill',context:['skillCommandData'],scope:'Catalog-prepared ordinary PvE Defend Block gain and capped caster ultimate-energy gain from complete property snapshots'},
+  {name:'run-prepared-state-active-sequence',context:['skillCommandData'],scope:'Catalog-backed role-state card followed by a prepared Active skill with explicit live-property and caster-state handoff'},
   {name:'run-ulti-energy-effect',context:[],scope:'Ordinary ultimate-energy calculation, repetition and capped Awakener storage for resource 144 or 150'},
   {name:'run-hit-timeline',context:[],scope:'Supplied resolved hit sequence with an explicit intervening-effect policy'},
   {name:'run-card-actions',context:[],scope:'Card payment plus supplied hit or supported numeric-command sequence'},
@@ -67,6 +69,7 @@ function execute(operation,input,context){
   if(operation==='run-snapshot-active-sequence')return runSnapshotActiveSequence(input);
   if(operation==='run-prepared-snapshot-active-skill')return runPreparedSnapshotActiveSkill(input,context.skillCommandData);
   if(operation==='run-prepared-snapshot-block-skill')return runPreparedSnapshotBlockSkill(input,context.skillCommandData);
+  if(operation==='run-prepared-state-active-sequence')return runPreparedStateActiveSequence(input,context.skillCommandData);
   if(operation==='run-ulti-energy-effect')return runUltiEnergyExperiment(input);
   if(operation==='run-hit-timeline')return runResearchTimeline(input);
   if(operation==='run-card-actions')return runCardActionTimeline(input);

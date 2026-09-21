@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-theorycraft-request",
+  "requestId": "catalog-state-then-active-sequence",
+  "operation": "run-prepared-state-active-sequence",
+  "input": {
+    "schemaVersion": 1,
+    "kind": "morimens-prepared-state-active-sequence",
+    "build": "pc-res144-build51",
+    "stateCard": {
+      "preparation": {
+        "skillId": 134203,
+        "skillLevel": 1,
+        "isAwaker": false,
+        "breakSkillLevel": 0,
+        "potencyLevel": 0,
+        "overrides": [],
+        "variables": {},
+        "conditionResults": {},
+        "stateQueries": {}
+      },
+      "execution": {
+        "experiment": {
+          "schemaVersion": 1,
+          "kind": "morimens-role-state-command",
+          "build": "pc-res144-build51",
+          "otherEvents": "assumed-absent",
+          "variables": {},
+          "targetBindings": {
+            "PlayerRole": 8
+          },
+          "roles": [
+            {
+              "id": 7,
+              "roleType": "Awakener",
+              "properties": {
+                "i_crit_per": 0,
+                "i_crit_damage_per": 0
+              },
+              "tentacleContext": null
+            },
+            {
+              "id": 8,
+              "roleType": "Awakener",
+              "properties": {
+                "i_crit_per": 0,
+                "i_crit_damage_per": 50,
+                "crit_damage": 0
+              },
+              "tentacleContext": null
+            }
+          ],
+          "stateRuntime": [
+            {
+              "id": 3835,
+              "skillLevel": 1,
+              "casterRoleId": 7,
+              "specialValue": 0,
+              "banned": false
+            }
+          ]
+        },
+        "targetBinding": {
+          "expression": "PlayerRole",
+          "resolution": "role-registry",
+          "roleId": 8
+        },
+        "lifecycle": "assumed-absent"
+      }
+    },
+    "activeSkill": {
+      "schemaVersion": 1,
+      "kind": "morimens-prepared-snapshot-active-skill",
+      "build": "pc-res144-build51",
+      "preparation": {
+        "skillId": 3997,
+        "skillLevel": 1,
+        "isAwaker": true,
+        "breakSkillLevel": 0,
+        "potencyLevel": 0,
+        "overrides": [],
+        "variables": {},
+        "conditionResults": {},
+        "stateQueries": {}
+      },
+      "targetBinding": {
+        "expression": "FrontEnemy",
+        "resolution": "supplied-single-UpperTarget"
+      },
+      "lifecycle": "assumed-absent",
+      "snapshot": {
+        "snapshotStage": "battle-property-server-live",
+        "snapshotCompleteness": "complete-map",
+        "casterProperties": {
+          "crit": 100,
+          "crit_damage": 0,
+          "crit_damage_per": 0,
+          "crit_damage_from_strikecard": 0,
+          "i_crit_per": 0,
+          "i_crit_damage_per": 50
+        },
+        "playerProperties": {
+          "dimension_fix_per": 0
+        },
+        "initialTargetProperties": {
+          "hp": 1000,
+          "max_hp": 1000,
+          "block": 0,
+          "be_damage_per": 0,
+          "vulnerable_per": 0
+        },
+        "cardProperties": {},
+        "targetBattleTag": "Monster",
+        "targetStateIds": [],
+        "critRolls": [
+          100
+        ]
+      },
+      "repeatModifiers": {
+        "plus": 0,
+        "per": 0
+      }
+    },
+    "roleBinding": {
+      "stateRecipientRoleId": 8,
+      "activeCasterRoleId": 8
+    }
+  }
+}

@@ -1,0 +1,9 @@
+# Prepared state-to-Active sequence
+
+`run-prepared-state-active-sequence` connects two catalog-backed theorycraft operations. It executes one supported role-state card, binds its recipient to the caster of a later prepared Active card, carries changed numeric role properties and explicitly declared `CmdCaster.GetStateLayer` values, then executes the Active card from that updated snapshot.
+
+The caller supplies both cards' progression and runtime inputs, the initial role registry, a complete Active snapshot and one explicit role binding. The engine loads Skill, BattleApi, Cmd and State rows from one pinned build. It rejects mismatched builds, different state-recipient and Active-caster identities, missing recipients, nonnumeric property changes and any pre-state property or declared layer that disagrees with the Active snapshot.
+
+The example in `research/examples/theorycraft-prepared-state-active-sequence.json` uses exported skill 134203 and state 3835. A recipient with `i_crit_damage_per = 50` stores the state's 70-point contribution and receives a 105-point live `crit_damage` addition. That updated role then casts exported skill 3997. With the example's explicit 100% critical chance and roll, its one-point base hit becomes three damage after the recovered critical rounding path. The number is a small integration fixture, not a build recommendation.
+
+This boundary carries one state card into one Active card. It does not infer party/player proxy routing, costs, card zones, target selection, state duration or expiry, callbacks, other actors, target-state mutations or reactive effects. It remains an experimental theorycraft result with `finalDamage: null`; it is not cheese evidence or independent gameplay verification.
