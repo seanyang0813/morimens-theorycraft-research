@@ -4,8 +4,8 @@ import json
 from offensive_setup_oracle import SetupOracle, ROOT
 
 class CardSetupOracle(SetupOracle):
-    def __init__(self):
-        super().__init__();L=self.state
+    def __init__(self, asset_overrides=None):
+        super().__init__(asset_overrides);L=self.state
         self.getglobal(L,b'table')
         def contains(s):
             # The tested tag sets explicitly exclude Card_Awake.

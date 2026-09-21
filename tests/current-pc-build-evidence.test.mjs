@@ -112,3 +112,18 @@ test('current PC card and Strike-tag target path matches the inherited runtime d
     assert.equal(runtime.data.sourceHashes['current'+name.replace('.lua','')],row.current[0].sha256);
   }
 });
+
+test('current PC offensive input assembly matches inherited no-card and card domains',()=>{
+  const comparison=read('research/evidence/pc-res144-to-res150-combat-build.json');
+  const runtime=read('research/evidence/pc-res150-offensive-setup-runtime.json');
+  const noCard=read('tests/synthetic/original-offensive-setup.json');
+  const card=read('tests/synthetic/original-card-setup.json');
+  assert.equal(runtime.data.status,'EXACT_MATCH_IN_FIXTURE_DOMAIN');
+  assert.equal(runtime.data.fixtures,noCard.data.fixtures.length+card.data.fixtures.length);
+  assert.deepEqual(runtime.data.domains,{noCard:{fixtures:549,exactMatches:549,mismatches:0},card:{fixtures:330,exactMatches:330,mismatches:0}});
+  assert.equal(runtime.data.exactMatches,runtime.data.fixtures);
+  assert.equal(runtime.data.mismatches,0);
+  assert.equal(runtime.data.sourceHashes.comparison,hash(comparison.bytes));
+  assert.equal(runtime.data.sourceHashes.noCardFixture,hash(noCard.bytes));
+  assert.equal(runtime.data.sourceHashes.cardFixture,hash(card.bytes));
+});
