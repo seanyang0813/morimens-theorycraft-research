@@ -14,10 +14,12 @@ import {enumerateLegalCardActions} from './legal-card-actions.mjs';
 import {runCommandDamagePrefix} from './command-damage-prefix.mjs';
 import {runAttachedCardPipeline} from './attached-card-pipeline.mjs';
 import {runConditionalRoleStateSuffix} from './conditional-role-state-suffix.mjs';
+import {calculateSnapshotActiveDamage} from './battle-property-snapshot-damage.mjs';
 
 export const theorycraftOperations=Object.freeze([
   {name:'describe-capabilities',context:[],scope:'List supported versioned operations and evidence boundaries'},
   {name:'calculate-damage',context:[],scope:'Resolved single-hit Active, Passive, Fixed or Pure research calculation'},
+  {name:'calculate-snapshot-active-damage',context:[],scope:'Complete captured battle-property maps through the bounded PvE Active path'},
   {name:'run-hit-timeline',context:[],scope:'Supplied resolved hit sequence with an explicit intervening-effect policy'},
   {name:'run-card-actions',context:[],scope:'Card payment plus supplied hit or supported numeric-command sequence'},
   {name:'run-ordered-state-command',context:[],scope:'Supported ordered state/resource/damage command rows'},
@@ -53,6 +55,7 @@ function execute(operation,input,context){
     return {apiVersion:1,supportedCombatBuilds:['pc-res144-build51','pc-res150-build51'],operations:clone(theorycraftOperations),labels:['CATALOG_DERIVED','PLAN_ONLY','EXPERIMENTAL','UNVERIFIED'],publicationStatus:'NOT_READY'};
   }
   if(operation==='calculate-damage')return calculateDamage(input);
+  if(operation==='calculate-snapshot-active-damage')return calculateSnapshotActiveDamage(input);
   if(operation==='run-hit-timeline')return runResearchTimeline(input);
   if(operation==='run-card-actions')return runCardActionTimeline(input);
   if(operation==='run-ordered-state-command')return runOrderedStateCommand(input);

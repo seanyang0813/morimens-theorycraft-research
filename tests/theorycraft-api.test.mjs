@@ -17,9 +17,21 @@ test('agent API advertises explicit bounded operations',()=>{
   assert.ok(response.claimBoundary.mustNotClaim.includes('observed cheese'));
   assert.deepEqual(response.result.operations,theorycraftOperations);
   assert.ok(response.result.operations.some(row=>row.name==='run-command-damage-prefix'));
+  assert.ok(response.result.operations.some(row=>row.name==='calculate-snapshot-active-damage'));
   assert.ok(response.result.operations.some(row=>row.name==='run-attached-card-pipeline'));
   assert.ok(response.result.operations.some(row=>row.name==='run-conditional-role-state-suffix'));
   assert.equal(response.result.publicationStatus,'NOT_READY');
+});
+
+test('agent API runs a complete current-build property snapshot without inventing missing maps',()=>{
+  const input={schemaVersion:1,kind:'morimens-battle-property-snapshot-damage',build:'pc-res150-build51',snapshotStage:'battle-property-server-live',snapshotCompleteness:'complete-map',baseValue:100,skillArgsPlus:0,tags:['Card_Strike'],casterProperties:{crit:100,crit_damage:50,crit_damage_from_strikecard:10,crit_damage_per:0,damage_per2monster_boss:20},playerProperties:{dimension_fix_per:0},targetProperties:{hp:100,max_hp:100,block:0,be_damage_per:10,vulnerable_per:50},cardProperties:{},cardContext:{present:false,instructionCard:false,stateTriggerAdd:false},targetContext:{critRoll:null,targetBattleTag:'Boss',targetStateIds:[]}};
+  const response=runTheorycraftRequest(request('calculate-snapshot-active-damage',input));
+  assert.equal(response.analysisTrack,'theorycrafting');
+  assert.equal(response.result.build,'pc-res150-build51');
+  assert.equal(response.result.preHitDamage,317);
+  assert.equal(response.result.finalDamage,null);
+  input.snapshotCompleteness='partial';
+  assert.throws(()=>runTheorycraftRequest(request('calculate-snapshot-active-damage',input)),/complete supported/);
 });
 
 test('agent API dispatches the general damage calculator without promoting verification',()=>{
