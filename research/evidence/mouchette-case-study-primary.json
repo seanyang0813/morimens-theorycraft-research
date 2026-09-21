@@ -6,7 +6,7 @@
   "characters": {
     "mouchette": {
       "status": "EXPERIMENTAL",
-      "build": "pc-res144-build51",
+      "build": "pc-res150-build51",
       "characterId": "awakener-0033",
       "stats": {
         "CON": 219,
@@ -91,12 +91,14 @@
       ],
       "sourceHashes": {
         "catalog": "439e01e929634ef2e3d6d48ae66ee8d31e94d9b7548faac0fd7e49df10cba219",
-        "characters": "cff6c329450dcc655adcf79380645727f3c1c4a79cc134faeeab82a3a20e3c13",
-        "upgrades": "7a22109a154257c1973ad59b94d804efeb47be9c5da43095116e52d4ae521d7c",
-        "constants": "b0ed369aca9517413588ab832de487c90181cd2c78e9fa20f0d982cc5c9f8785",
-        "talents": "4d12de9f5d8ba69800252490972e599b434f6f2e215ec98a34d400f3392a79d4",
-        "clientReader": "00ea89a618099cd29952033fc5c59c452ec86e2799f3f45752cd5b48da31a4a0",
-        "actorAttrTypes": "ac7124e0662905d77a52cb08c7cdbf1f299bedf8575cbcc1122c16cde2147361"
+        "AwakerConfig": "a53cd2c0df3ffb6f1035ace2846bc84e78b7b108193768c3553ed3d32828477b",
+        "AwakerTalent": "800bdfa30827a17565237184853b3faa7f2e7275b8d62606d6dbda21b121895d",
+        "ActorAttrType": "45ef44ee7d59e7a7f0a978602ff7967b8c1582c598abcd20b0eb24f04ab0a996",
+        "AwakerUpgrade": "67a680485c0032031bdf4ebee481cf8dc614e13c14b9844d44ef7a32edc9a661",
+        "Constant": "6aad53c24d962e226afa4288af691b4455d6a459bc155b0c88f0cc263c8dc398",
+        "FuncTable": "28977d3dbdf5ffe8d56967ca3d77ed50a4c9d302a8fd9ec3eb5e695888fd0e43",
+        "AwakerDataUtils": "38fa6dc9e7d5c6971d21180eb48df5c033c6d03673781ad318b661d8b0413897",
+        "AttrUtils": "b00369326c56e98ec47aed7bd437b6aabc2e96e42e1bf12659076acb656f1f86"
       },
       "finalDamage": null,
       "unresolvedDependencies": [
@@ -108,7 +110,7 @@
     },
     "arachne": {
       "status": "EXPERIMENTAL",
-      "build": "pc-res144-build51",
+      "build": "pc-res150-build51",
       "characterId": "awakener-0056",
       "stats": {
         "CON": 192,
@@ -193,12 +195,14 @@
       ],
       "sourceHashes": {
         "catalog": "439e01e929634ef2e3d6d48ae66ee8d31e94d9b7548faac0fd7e49df10cba219",
-        "characters": "cff6c329450dcc655adcf79380645727f3c1c4a79cc134faeeab82a3a20e3c13",
-        "upgrades": "7a22109a154257c1973ad59b94d804efeb47be9c5da43095116e52d4ae521d7c",
-        "constants": "b0ed369aca9517413588ab832de487c90181cd2c78e9fa20f0d982cc5c9f8785",
-        "talents": "4d12de9f5d8ba69800252490972e599b434f6f2e215ec98a34d400f3392a79d4",
-        "clientReader": "00ea89a618099cd29952033fc5c59c452ec86e2799f3f45752cd5b48da31a4a0",
-        "actorAttrTypes": "ac7124e0662905d77a52cb08c7cdbf1f299bedf8575cbcc1122c16cde2147361"
+        "AwakerConfig": "a53cd2c0df3ffb6f1035ace2846bc84e78b7b108193768c3553ed3d32828477b",
+        "AwakerTalent": "800bdfa30827a17565237184853b3faa7f2e7275b8d62606d6dbda21b121895d",
+        "ActorAttrType": "45ef44ee7d59e7a7f0a978602ff7967b8c1582c598abcd20b0eb24f04ab0a996",
+        "AwakerUpgrade": "67a680485c0032031bdf4ebee481cf8dc614e13c14b9844d44ef7a32edc9a661",
+        "Constant": "6aad53c24d962e226afa4288af691b4455d6a459bc155b0c88f0cc263c8dc398",
+        "FuncTable": "28977d3dbdf5ffe8d56967ca3d77ed50a4c9d302a8fd9ec3eb5e695888fd0e43",
+        "AwakerDataUtils": "38fa6dc9e7d5c6971d21180eb48df5c033c6d03673781ad318b661d8b0413897",
+        "AttrUtils": "b00369326c56e98ec47aed7bd437b6aabc2e96e42e1bf12659076acb656f1f86"
       },
       "finalDamage": null,
       "unresolvedDependencies": [

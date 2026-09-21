@@ -1,7 +1,7 @@
 import {readFileSync,writeFileSync} from 'node:fs';
 import {resolveClientAdvancementPrimary} from '../engine/client-build-stats.mjs';
 
-const data=JSON.parse(readFileSync(new URL('../research/evidence/client-build-data.json',import.meta.url),'utf8'));
+const data=JSON.parse(readFileSync(new URL('../research/evidence/client-build-data-res150.json',import.meta.url),'utf8'));
 const resolve=(characterId,advancementTalentId,advancementLevel)=>resolveClientAdvancementPrimary({build:data.build,characterId,level:90,gnosticRank:5,advancementTalentId,advancementLevel},data);
 const pick=result=>({status:result.status,build:result.build,characterId:result.characterId,stats:result.stats,baseStats:result.baseStats,progression:result.progression,trace:result.trace,sourceHashes:result.sourceHashes,finalDamage:result.finalDamage,unresolvedDependencies:result.unresolvedDependencies});
 const report={
