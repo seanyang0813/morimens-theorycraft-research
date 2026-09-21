@@ -10,3 +10,21 @@ test('decoded replay index preserves initialization and chronological evidence e
   assert.deepEqual(result.actionSnapshots[0].window.selectedTargetCommands[0].data.uids,[2]);assert.equal(result.actionSnapshots[0].window.hits.length,1);assert.equal(result.commandResults[0].commandName,'lg_SelectTargets');
   assert.equal(result.hitSnapshots.length,1);assert.equal(result.hitSnapshots[0].boundaryStatus,'COMPLETE');assert.equal(result.hitSnapshots[0].roles['2'].properties.hp,999);assert.equal(result.hitSnapshots[0].roles['2'].properties.block,20);assert.equal(result.hitSnapshots[0].activeStates[0].stateId,2934);assert.equal(result.actionSnapshots[0].window.hitSnapshots[0].hitIndex,0);
 });
+
+test('decoded replay index preserves nonobject presentation event data',()=>{
+  const code=`import json\nfrom tools.replay_index import build_replay_index\nc=json.load(open('research/evidence/replay-protocol.json',encoding='utf-8'))\na={'schemaVersion':1,'kind':'MORIMENS_DECODED_REPLAY','inputSha256':'abc','decoded':{'battleDat':{},'unZippedRecord':[{'time':0,'msgId':c['commands']['rd_InitBattle'],'msgData':{'roleDataList':[],'monsterDataList':[],'cardDataList':[]}},{'time':1,'msgId':c['commands']['rd_BattleCut'],'msgData':{'frameList':[{'time':1.1,'eventId':c['renderEvents']['BattleBegin'],'data':[]}]}}]}}\nprint(json.dumps(build_replay_index(a,c),separators=(',',':')))\n`;
+  const run=spawnSync('python',['-c',code],{encoding:'utf8'});assert.equal(run.status,0,run.stderr);const result=JSON.parse(run.stdout);
+  assert.deepEqual(result.events[0].data,[]);assert.equal(result.events[0].eventName,'BattleBegin');assert.equal(result.snapshotBoundaryStatus,'COMPLETE');
+});
+
+test('decoded replay index resolves property changes serialized before AddNewCard',()=>{
+  const code=`import json\nfrom tools.replay_index import build_replay_index\nc=json.load(open('research/evidence/replay-protocol.json',encoding='utf-8'))\na={'schemaVersion':1,'kind':'MORIMENS_DECODED_REPLAY','inputSha256':'abc','decoded':{'battleDat':{},'unZippedRecord':[{'time':0,'msgId':c['commands']['rd_InitBattle'],'msgData':{'roleDataList':[],'monsterDataList':[],'cardDataList':[]}},{'time':1,'msgId':c['commands']['rd_BattleCut'],'msgData':{'frameList':[{'time':1.0,'eventId':c['renderEvents']['PropertyChanged'],'data':{'uid':7,'propertyType':'card_origin_cost','value':2}},{'time':1.1,'eventId':c['renderEvents']['AddNewCard'],'data':{'cards':[{'uid':7,'properties':{}}]}},{'time':1.2,'eventId':c['renderEvents']['UseCard'],'data':{'cardUid':7,'camp':1}}]}}]}}\nprint(json.dumps(build_replay_index(a,c),separators=(',',':')))\n`;
+  const run=spawnSync('python',['-c',code],{encoding:'utf8'});assert.equal(run.status,0,run.stderr);const result=JSON.parse(run.stdout);
+  assert.equal(result.actionSnapshots[0].cards['7'].properties.card_origin_cost,2);assert.equal(result.actionSnapshots[0].boundaryStatus,'COMPLETE');assert.equal(result.snapshotBoundaryStatus,'COMPLETE');
+});
+
+test('decoded replay index normalizes an empty Lua property map encoded as a list',()=>{
+  const code=`import json\nfrom tools.replay_index import build_replay_index\nc=json.load(open('research/evidence/replay-protocol.json',encoding='utf-8'))\na={'schemaVersion':1,'kind':'MORIMENS_DECODED_REPLAY','inputSha256':'abc','decoded':{'battleDat':{},'unZippedRecord':[{'time':0,'msgId':c['commands']['rd_InitBattle'],'msgData':{'roleDataList':[],'monsterDataList':[],'cardDataList':[{'uid':7,'properties':[]}]}},{'time':1,'msgId':c['commands']['rd_BattleCut'],'msgData':{'frameList':[{'time':1.0,'eventId':c['renderEvents']['PropertyChanged'],'data':{'uid':7,'propertyType':'reserve','value':1}},{'time':1.1,'eventId':c['renderEvents']['UseCard'],'data':{'cardUid':7,'camp':1}}]}}]}}\nprint(json.dumps(build_replay_index(a,c),separators=(',',':')))\n`;
+  const run=spawnSync('python',['-c',code],{encoding:'utf8'});assert.equal(run.status,0,run.stderr);const result=JSON.parse(run.stdout);
+  assert.equal(result.actionSnapshots[0].cards['7'].properties.reserve,1);assert.equal(result.snapshotBoundaryStatus,'COMPLETE');
+});

@@ -4,6 +4,7 @@ from collections import Counter
 import copy
 
 STATE_EVENTS={'AddState','ChangeStateLayer','DelState','AddCardState','ChangeCardStateLayer'}
+STRUCTURED_EVENTS=STATE_EVENTS|{'PropertyChanged','ChangeCardId','AddNewCard','CardArgsChange','SkillArgsChange','SilverKeyAwakeArgsChange','ModifyCardCost','SetCardAttribute','SpawnMonster','SpawnWaveMonster','RemoveRole','UseCard','BeHit'}
 
 def build_replay_index(artifact,catalog):
     if not isinstance(artifact,dict) or artifact.get('schemaVersion')!=1 or artifact.get('kind')!='MORIMENS_DECODED_REPLAY' or not isinstance(artifact.get('decoded'),dict):raise ValueError('Supported decoded replay artifact required')
@@ -31,14 +32,13 @@ def build_replay_index(artifact,catalog):
             if not isinstance(event_id,int):raise ValueError(f'Noninteger event ID {record_index}:{frame_index}')
             event_name=event_names.get(event_id);event_counts[event_name or f'UNKNOWN:{event_id}']+=1
             data=frame.get('data',{})
-            if not isinstance(data,dict):raise ValueError(f'Nonobject event data {record_index}:{frame_index}')
             row={'recordIndex':record_index,'frameIndex':frame_index,'recordTime':record.get('time'),'frameTime':frame.get('time'),'eventId':event_id,'eventName':event_name,'data':copy.deepcopy(data)};events.append(row)
             if event_name is None:unknown_events.append({'recordIndex':record_index,'frameIndex':frame_index,'eventId':event_id})
             elif event_name=='PropertyChanged':property_changes.append(row)
             elif event_name in STATE_EVENTS:state_events.append(row)
             elif event_name=='UseCard':card_uses.append(row)
             elif event_name=='BeHit':hits.append(row)
-    boundary_issues=[];action_snapshots=[];hit_snapshots=[];roles={};cards={};states={}
+    boundary_issues=[];action_snapshots=[];hit_snapshots=[];roles={};cards={};states={};pending_property_changes={}
     for row in unknown_commands:boundary_issues.append({'code':'UNKNOWN_COMMAND',**row})
     if len(initializations)!=1:boundary_issues.append({'code':'INIT_COUNT','count':len(initializations)})
     else:
@@ -46,6 +46,11 @@ def build_replay_index(artifact,catalog):
         def add_entity(target,row,label):
             if not isinstance(row,dict) or not isinstance(row.get('uid'),int):boundary_issues.append({'code':'MALFORMED_INITIAL_ENTITY','kind':label});return
             target[str(row['uid'])]=copy.deepcopy(row)
+            entity=target[str(row['uid'])]
+            if entity.get('properties')==[]:entity['properties']={}
+            elif 'properties' in entity and not isinstance(entity['properties'],dict):boundary_issues.append({'code':'MALFORMED_ENTITY_PROPERTIES','kind':label,'uid':row['uid']});entity['properties']={}
+            for pending in pending_property_changes.pop(str(row['uid']),[]):
+                entity.setdefault('properties',{})[pending['propertyType']]=pending['value']
             for state in row.get('stateList',[]) if isinstance(row.get('stateList',[]),list) else []:
                 if isinstance(state,dict) and isinstance(state.get('stateUid'),int):states[str(state['stateUid'])]=copy.deepcopy(state)
                 else:boundary_issues.append({'code':'MALFORMED_INITIAL_STATE','ownerUid':row['uid']})
@@ -54,9 +59,12 @@ def build_replay_index(artifact,catalog):
         for event in events:
             name,data=event['eventName'],event['data']
             if name is None:boundary_issues.append({'code':'UNKNOWN_EVENT','recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'eventId':event['eventId']})
+            elif name in STRUCTURED_EVENTS and not isinstance(data,dict):
+                boundary_issues.append({'code':'NONOBJECT_SEMANTIC_EVENT_DATA','recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'eventId':event['eventId'],'eventName':name,'dataType':type(data).__name__})
             elif name=='PropertyChanged':
                 uid=data.get('uid');entity=roles.get(str(uid)) or cards.get(str(uid));prop=data.get('propertyType')
-                if entity is None or not isinstance(prop,str) or not isinstance(data.get('value'),(int,float)):boundary_issues.append({'code':'UNBOUND_PROPERTY_CHANGE','recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'uid':uid,'propertyType':prop})
+                if not isinstance(uid,int) or not isinstance(prop,str) or not isinstance(data.get('value'),(int,float)):boundary_issues.append({'code':'MALFORMED_PROPERTY_CHANGE','recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'uid':uid,'propertyType':prop})
+                elif entity is None:pending_property_changes.setdefault(str(uid),[]).append({'recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'propertyType':prop,'value':data['value']})
                 else:entity.setdefault('properties',{})[prop]=data['value']
             elif name in {'AddState','AddCardState'}:
                 uid=data.get('stateUid')
@@ -101,7 +109,8 @@ def build_replay_index(artifact,catalog):
             elif name=='RemoveRole':roles.pop(str(data.get('roleUid')),None)
             elif name=='UseCard':
                 active_states=[copy.deepcopy(state) for state in states.values() if not state.get('isDeleted')]
-                action_snapshots.append({'actionIndex':len(action_snapshots),'recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'time':event['frameTime'] if event['frameTime'] is not None else event['recordTime'],'cardUid':data.get('cardUid'),'camp':data.get('camp'),'roles':copy.deepcopy(roles),'cards':copy.deepcopy(cards),'activeStates':active_states,'boundaryStatus':'COMPLETE' if not boundary_issues else 'INCOMPLETE','boundaryIssueCount':len(boundary_issues)})
+                pending_count=sum(len(rows) for rows in pending_property_changes.values())
+                action_snapshots.append({'actionIndex':len(action_snapshots),'recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'time':event['frameTime'] if event['frameTime'] is not None else event['recordTime'],'cardUid':data.get('cardUid'),'camp':data.get('camp'),'roles':copy.deepcopy(roles),'cards':copy.deepcopy(cards),'activeStates':active_states,'boundaryStatus':'COMPLETE' if not boundary_issues and not pending_count else 'INCOMPLETE','boundaryIssueCount':len(boundary_issues)+pending_count})
             elif name=='BeHit':
                 role_uid=data.get('roleUid');config=data.get('beHitConfig');role=roles.get(str(role_uid));issues=[]
                 if role is None or not isinstance(config,dict):issues.append({'code':'MALFORMED_HIT_SNAPSHOT','recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'roleUid':role_uid})
@@ -113,8 +122,11 @@ def build_replay_index(artifact,catalog):
                 if not issues:
                     target_properties=snapshot_roles[str(role_uid)]['properties'];target_properties['hp']=config['oldHp'];target_properties['block']=target_properties['block']+config['blockLose']
                 active_states=[copy.deepcopy(state) for state in states.values() if not state.get('isDeleted')]
-                hit_snapshots.append({'hitIndex':len(hit_snapshots),'recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'time':event['frameTime'] if event['frameTime'] is not None else event['recordTime'],'roleUid':role_uid,'roles':snapshot_roles,'cards':copy.deepcopy(cards),'activeStates':active_states,'hitData':copy.deepcopy(data),'boundaryStatus':'COMPLETE' if not boundary_issues and not issues else 'INCOMPLETE','boundaryIssueCount':len(boundary_issues)+len(issues),'boundaryIssues':issues,
+                pending_count=sum(len(rows) for rows in pending_property_changes.values())
+                hit_snapshots.append({'hitIndex':len(hit_snapshots),'recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'time':event['frameTime'] if event['frameTime'] is not None else event['recordTime'],'roleUid':role_uid,'roles':snapshot_roles,'cards':copy.deepcopy(cards),'activeStates':active_states,'hitData':copy.deepcopy(data),'boundaryStatus':'COMPLETE' if not boundary_issues and not issues and not pending_count else 'INCOMPLETE','boundaryIssueCount':len(boundary_issues)+len(issues)+pending_count,'boundaryIssues':issues,
                   'reconstruction':{'targetHp':'beHitConfig.oldHp','targetBlock':'post-event target block + beHitConfig.blockLose','otherProperties':'latest serialized/property-change values before BeHit record'}})
+        for uid,rows in pending_property_changes.items():
+            for pending in rows:boundary_issues.append({'code':'UNBOUND_PROPERTY_CHANGE','uid':int(uid),**pending})
     for index,action in enumerate(action_snapshots):
         start=(action['recordIndex'],action['frameIndex']);next_action=action_snapshots[index+1] if index+1<len(action_snapshots) else None;end=(next_action['recordIndex'],next_action['frameIndex']) if next_action else None
         in_window=lambda record_index,frame_index=-1:(record_index,frame_index)>start and (end is None or (record_index,frame_index)<end)

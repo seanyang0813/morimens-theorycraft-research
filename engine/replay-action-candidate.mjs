@@ -18,8 +18,9 @@ function dense(value,label){
     return [...value];
   }
   if(!value||typeof value!=='object')throw new Error(`${label} must be a dense Lua list`);
-  const keys=Object.keys(value).sort((a,b)=>Number(a)-Number(b));
+  const keys=Object.keys(value).filter(key=>key!=='n').sort((a,b)=>Number(a)-Number(b));
   if(keys.some((key,i)=>key!==String(i+1)))throw new Error(`${label} must use contiguous one-based keys`);
+  if(Object.hasOwn(value,'n')&&(!Number.isSafeInteger(value.n)||value.n!==keys.length+1))throw new Error(`${label}.n must be the one-past-end Lua cursor`);
   return keys.map(key=>value[key]);
 }
 function finiteMap(value,label){
@@ -173,7 +174,20 @@ export function buildReplayActionCandidate({index,actionIndex,hitIndex=null,skil
     selectorValidation=tempMainTargetValidation;targetBindingSource='reconstructed-stored-main-target-and-recorded-hit';
   }
   const parameters=compileNumericCommand(row.Para,{allowedFunctions,allowLogicalNumeric:true})(readVariable,callFunction).values;
-  if(parameters.length>4||!Number.isFinite(parameters[0])||Math.ceil(parameters[1]??1)!==1||(parameters[2]??0)!==0)throw new Error('One ordinary zero-subtype Active hit required');
+  const repetitionCount=Math.ceil(parameters[1]??1);
+  if(parameters.length>4||!Number.isFinite(parameters[0])||!Number.isSafeInteger(repetitionCount)||repetitionCount<1||(parameters[2]??0)!==0)throw new Error('Positive-repeat zero-subtype Active hit required');
+  let directHitOrdinal=1,directExecutionOrdinal=1,observedDirectHits=1;
+  if(repetitionCount>1){
+    if(livingEnemies(hitSnapshot,caster.camp).length!==1)throw new Error('Repeated-hit replay validation currently requires one living enemy');
+    const directHitSnapshots=hitSnapshots.filter(snapshot=>{
+      const matching=hits.find(item=>item.recordIndex===snapshot.recordIndex&&item.frameIndex===snapshot.frameIndex);
+      return matching?.data?.beHitConfig?.castRoleUid===caster.uid&&matching.data.beHitConfig.skillConfigId===card.tid;
+    }).sort(chronological);
+    if(!directHitSnapshots.length||directHitSnapshots.length%repetitionCount!==0)throw new Error('Recorded direct-hit count must be a positive multiple of command repetition count');
+    const directIndex=directHitSnapshots.indexOf(hitSnapshot);
+    if(directIndex<0)throw new Error('Selected hit must belong to the repeated direct-hit sequence');
+    observedDirectHits=directHitSnapshots.length;directHitOrdinal=directIndex%repetitionCount+1;directExecutionOrdinal=Math.floor(directIndex/repetitionCount)+1;
+  }
   const skillArgsPlus=parameters.length===4?parameters[3]:0;
   if(!Number.isFinite(skillArgsPlus))throw new Error('Resolved finite ParaPlus value required');
   const tags=dense(skill.Type,'Skill type tags');
@@ -191,5 +205,5 @@ export function buildReplayActionCandidate({index,actionIndex,hitIndex=null,skil
   const observedCastDamage=Number.isFinite(observed.castDamage)?observed.castDamage:null;
   const comparison=calculation&&observedCastDamage!==null?{metric:'preHitDamage-vs-beHitConfig.castDamage',predicted:calculation.preHitDamage,observed:observedCastDamage,difference:calculation.preHitDamage-observedCastDamage}:null;
   return {schemaVersion:1,kind:'MORIMENS_REPLAY_ACTION_REGRESSION_CANDIDATE',build,status:calculation?'CALCULATED_REGRESSION_CANDIDATE':'PREOUTCOME_INPUT_REQUIRED',actionIndex,hitIndex:hitSnapshot.hitIndex,identities:{cardUid:card.uid,skillId:card.tid,casterUid:caster.uid,playerUid:player.uid,targetUid,commandId:selectedCommand.value,rowId:row.id},routing:{selectedCommand,importMetadata:imported.metadata,rowSelection:rowSelection.map(item=>({rowId:item.row.id,target:item.row.Target,condition:item.condition,targetMatched:item.targetMatched})),competingDamageSelection:competingDamageSelection.map(item=>({rowId:item.row.id,type:item.row.Type,target:item.row.Target,condition:item.condition})),awakerSchoolCounts,targetBindingSource,selectorValidation,superUltimateResolution:{isSuperUltimate:superUltimate,doubleUltiEnergy:doubleEnergy,maximumEnergy:maxUltiEnergy,currentEnergy:prop('ulti_energy'),levelUp:prop('ulti_skill_level_up')},parameters,plusValues,tags},scenario,calculation,calculationBlocker,
-    damageInputReconstruction:JSON.parse(JSON.stringify(hitSnapshot.reconstruction)),observedHit:JSON.parse(JSON.stringify(hit)),comparison,unresolvedDependencies:['Retrospective replay evidence cannot become a blind holdout','Action window and identity still require human review for triggered or overlapping actions','Observed hit and post-outcome critical fields are excluded from scenario construction','Target HP and block are reconstructed from explicit BeHit fields because the render record follows their mutations','No connected original card-use, trigger graph, hit resolution or independent gameplay validation']};
+    damageInputReconstruction:JSON.parse(JSON.stringify(hitSnapshot.reconstruction)),observedHit:JSON.parse(JSON.stringify(hit)),comparison,repetition:{perExecution:repetitionCount,hitOrdinal:directHitOrdinal,executionOrdinal:directExecutionOrdinal,observedDirectHits},unresolvedDependencies:['Retrospective replay evidence cannot become a blind holdout','Action window and identity still require human review for triggered or overlapping actions','Observed hit and post-outcome critical fields are excluded from scenario construction','Target HP and block are reconstructed from explicit BeHit fields because the render record follows their mutations','Multiple executions sharing a card and skill identity require trigger-graph review','No connected original card-use, trigger graph, hit resolution or independent gameplay validation']};
 }

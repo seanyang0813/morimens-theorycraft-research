@@ -42,6 +42,10 @@ Arachne's [Fate Cut path](FATE_CUT.md) is now traced through its accumulated sta
 
 Capture one isolated Active hit while this resource is sufficient, one that exhausts it, and one after depletion. Compare direct hit numbers, resource consumption and precise HP change separately. Then test a Fixed/Passive event's half-sized trigger input. Preserve different high-difficulty records as holdouts before examining their individual damage outputs. Reconstruct character state and boss rules before interpreting million-scale aggregate totals.
 
+## Native replay batch
+
+Seven authorized server replay containers are now preserved privately. The first selected Frenzy replay contains the Lv70 Mouchette case; its indexed action reproduces 751 noncritical and 2,028 critical `castDamage` branches exactly. Six additional records from the same selected profile add 44,532 events and 432 hits. Fifteen supported Active-hit candidates exactly match one of the independently evaluated roll-1 and roll-100 branches, including 11 in another record with the same stage ID as the Mouchette case. This is substantially stronger than matching screen totals because every candidate uses serialized pre-hit property/state maps, card identity, skill arguments and target state. It still receives no publication or holdout credit: outcomes were already present, the original critical draws were not captured, and the replay payloads contain no explicit resource/build fingerprint.
+
 ## Live Old Embers command order
 
 Cmd80572 and81060 each have eight rows. Rows1 and2 separately test remaining stacks against Arg1 and add marker80593 or80594. They are not encoded as a single if/else. Rows3/4 independently check marker80593 and exclusion states before HP loss and stack subtraction. Rows5/6 independently check marker80594 and exclusions before loss based on current80575 layers and complete removal of that state. Rows7/8 remove the markers.

@@ -8,7 +8,7 @@ For a quick shareable overview, read [`FRIEND_PREVIEW.md`](FRIEND_PREVIEW.md). A
 
 ## Current checkpoint
 
-The reproducible checkpoint is `research/evidence/verification-snapshot.json`, which records the latest full-suite result and test-file count. Two full gameplay observation records remain incomplete; zero reconstructed damage predictions and zero independent holdouts qualify for review. One retrospective high-difficulty mechanic regression exactly matches the recovered Old Embers 3x source-statistics relationship, but its recorded combat build is unknown and it receives no publication credit. Synthetic runtime comparisons do not count as gameplay validation.
+The reproducible checkpoint is `research/evidence/verification-snapshot.json`, which records the latest full-suite result and test-file count. Two screenshot-based gameplay observation records remain incomplete. Seven privately preserved high-difficulty native replays now decode and index successfully; the six-record batch adds 44,532 events, 303 card uses and 432 hits. Fifteen supported Active-hit candidates exactly match one of the independently evaluated critical/noncritical formula branches, including eleven in another record from the same high-difficulty stage as the Mouchette case. The branch rolls were evaluated retrospectively and the replays have no explicit combat-build fingerprint, so zero reconstructed predictions and zero independent holdouts qualify for publication review. The separate Old Embers 3x source-statistics regression also remains retrospective and build-unconfirmed. Synthetic runtime comparisons do not count as gameplay validation.
 
 Run from this directory:
 

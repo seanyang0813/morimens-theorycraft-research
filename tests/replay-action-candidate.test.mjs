@@ -17,6 +17,18 @@ test('replay card boundary becomes a calculated regression candidate without rea
   assert.equal(buildReplayActionCandidate({...input,actionIndex:0}).calculation.preHitDamage,250);
 });
 
+test('replay adapter accepts the captured one-past-end Lua cursor in card arguments',()=>{
+  const input=fixture(),action=input.index.actionSnapshots[0];action.cards['30'].cardArgs={1:100,n:2};action.window.hitSnapshots[0].cards['30'].cardArgs={1:100,n:2};
+  assert.equal(buildReplayActionCandidate({...input,actionIndex:0}).scenario.baseValue,100);
+});
+
+test('replay adapter validates repeated hits against a one-enemy action window',()=>{
+  const input=fixture(),action=input.index.actionSnapshots[0],first=action.window.hitSnapshots[0];input.commands['20'].data_list['1'].Para='Arg1,2';
+  const second=JSON.parse(JSON.stringify(first));second.hitIndex=1;second.recordIndex=5;second.frameIndex=1;action.window.hitSnapshots.push(second);
+  const secondHit={recordIndex:5,frameIndex:1,eventName:'BeHit',data:JSON.parse(JSON.stringify(second.hitData))};action.window.hits.push(secondHit);action.window.events.push(secondHit);
+  const result=buildReplayActionCandidate({...input,actionIndex:0,hitIndex:1});assert.deepEqual(result.repetition,{perExecution:2,hitOrdinal:2,executionOrdinal:1,observedDirectHits:2});assert.equal(result.comparison.difference,0);
+});
+
 test('replay adapter refuses ambiguity and uses reconstructed damage-input maps after mutations',()=>{
   const target=fixture();target.index.actionSnapshots[0].window.selectedTargetCommands[0].data.uids.push(3);assert.throws(()=>buildReplayActionCandidate({...target,actionIndex:0}),/selected target/);
   const mutation=fixture();mutation.index.actionSnapshots[0].window.events.unshift({recordIndex:4,frameIndex:1,eventName:'PropertyChanged',data:{uid:1,propertyType:'crit_damage',value:200}});mutation.index.actionSnapshots[0].window.hitSnapshots[0].roles['1'].properties.crit_damage=200;

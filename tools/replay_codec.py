@@ -117,8 +117,9 @@ class ReplayCodec:
         return self.encode({'battleDat':{'stageId':42,'svrRunBattle':True},'recordZips':[self.encode(rows)]})
 
 
-def container_compstr(path:Path,encoding:str):
-    container=json.loads(path.read_text(encoding='utf-8'))
+def container_compstr(path:Path,encoding:str,json_encoding:str='utf8'):
+    if json_encoding not in {'utf8','latin1'}:raise ValueError('JSON encoding must be utf8 or latin1')
+    container=json.loads(path.read_bytes().decode('utf-8' if json_encoding=='utf8' else 'latin-1'))
     if not isinstance(container,dict) or not isinstance(container.get('compStr'),str):raise ValueError('Replay container must be a JSON object with string compStr')
     text=container['compStr']
     if encoding=='latin1':
