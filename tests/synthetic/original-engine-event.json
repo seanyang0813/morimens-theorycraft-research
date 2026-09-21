@@ -1,0 +1,107 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleEngine": "0ee07c8fd06f29787f8139306b55d16c726eaf8cabcd1ad0b128d907c8dbbeea",
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+  },
+  "scope": "Original BattleEngine.CreateEventEffect with supplied auto-operation result and observed effect-manager request. No effect construction, scheduler traversal, dispatch, listeners or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "dataMode": "absent",
+        "autoBattle": false
+      },
+      "expected": {
+        "effectType": "BESendEvent",
+        "eventId": 203.0,
+        "isAutoOp": false,
+        "samePayload": null
+      }
+    },
+    {
+      "input": {
+        "dataMode": "absent",
+        "autoBattle": true
+      },
+      "expected": {
+        "effectType": "BESendEvent",
+        "eventId": 203.0,
+        "isAutoOp": true,
+        "samePayload": null
+      }
+    },
+    {
+      "input": {
+        "dataMode": "noFlag",
+        "autoBattle": false
+      },
+      "expected": {
+        "effectType": "BESendEvent",
+        "eventId": 203.0,
+        "isAutoOp": false,
+        "samePayload": true
+      }
+    },
+    {
+      "input": {
+        "dataMode": "noFlag",
+        "autoBattle": true
+      },
+      "expected": {
+        "effectType": "BESendEvent",
+        "eventId": 203.0,
+        "isAutoOp": true,
+        "samePayload": true
+      }
+    },
+    {
+      "input": {
+        "dataMode": "false",
+        "autoBattle": false
+      },
+      "expected": {
+        "effectType": "BESendEvent",
+        "eventId": 203.0,
+        "isAutoOp": false,
+        "samePayload": true
+      }
+    },
+    {
+      "input": {
+        "dataMode": "false",
+        "autoBattle": true
+      },
+      "expected": {
+        "effectType": "BESendEvent",
+        "eventId": 203.0,
+        "isAutoOp": false,
+        "samePayload": true
+      }
+    },
+    {
+      "input": {
+        "dataMode": "true",
+        "autoBattle": false
+      },
+      "expected": {
+        "effectType": "BESendEvent",
+        "eventId": 203.0,
+        "isAutoOp": true,
+        "samePayload": true
+      }
+    },
+    {
+      "input": {
+        "dataMode": "true",
+        "autoBattle": true
+      },
+      "expected": {
+        "effectType": "BESendEvent",
+        "eventId": 203.0,
+        "isAutoOp": true,
+        "samePayload": true
+      }
+    }
+  ]
+}

@@ -3623,6 +3623,31 @@
       ]
     },
     {
+      "id": "PC150:BattleEngine.CreateEventEffect",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "The installed resource-150 BattleEngine reproduces all 8 inherited event-effect request fixtures exactly, including defaulted and explicitly preserved auto-operation flags",
+      "scope": "Actual resource-150 request construction with absent or supplied payloads, payload identity, event ID and BattleEngine auto-operation defaulting. Effect construction, scheduler traversal, event dispatch, listeners, gameplay and holdout credit remain outside scope.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 build comparison",
+          "member": "download manifest and selected TextAsset hashes",
+          "sha256": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5"
+        },
+        {
+          "module": "PC resource-150 event-effect runtime comparison",
+          "member": "CreateEventEffect fixture-domain result",
+          "sha256": "95951c3bff8d23c334efc34aef6309412038acb2510b6b66c9810c020891c87b"
+        }
+      ],
+      "checks": [
+        "tools/engine_event_oracle.py",
+        "tools/verify_current_engine_event.py",
+        "tests/engine-event.test.mjs",
+        "tests/current-pc-build-evidence.test.mjs"
+      ]
+    },
+    {
       "id": "PC150:BEActiveDamage.RepeatInitialization",
       "status": "BUILD_SPECIFIC_CHANGE_CONFIRMED_BY_RUNTIME_TEST",
       "claim": "Resource 150 clamps nonpositive base repetitions to one before flat and percentage repeat modifiers; resource 144 applies modifiers before the final minimum-one clamp",
