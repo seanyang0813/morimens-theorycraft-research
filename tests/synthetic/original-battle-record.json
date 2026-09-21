@@ -1,0 +1,164 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleRecord": "aee64145e334f212666d259b6960d16e9a2b9bec751fee9fdba46fa63b8febf1",
+    "BattleRenderEvent": "192c99c371dd363fae96ccb8c6125bfeb2da54cbb827959942b632222e817aad",
+    "BattleCommand": "7b5748cdbb422a88051e49568e35266fedea4ec75ae4ee127216fc3a9c3e2480"
+  },
+  "scope": "Selected original BattleRecord frame constructors for card use, hit, property, target and state events. Time is supplied; PushRecord is observed. No record queue, serialization, replay playback or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "method": "OnUseCard",
+        "time": 0,
+        "cardUid": 101,
+        "camp": 1
+      },
+      "expected": {
+        "time": 0.0,
+        "eventId": 1023.0,
+        "data": {
+          "cardUid": 101.0,
+          "camp": 1.0
+        }
+      }
+    },
+    {
+      "input": {
+        "method": "OnUseCard",
+        "time": 12.5,
+        "cardUid": 987654,
+        "camp": 2
+      },
+      "expected": {
+        "time": 12.5,
+        "eventId": 1023.0,
+        "data": {
+          "cardUid": 987654.0,
+          "camp": 2.0
+        }
+      }
+    },
+    {
+      "input": {
+        "method": "OnBeHit",
+        "time": 3.25,
+        "roleUid": 44
+      },
+      "expected": {
+        "time": 3.25,
+        "eventId": 1014.0,
+        "data": {
+          "roleUid": 44.0,
+          "sameBeHitConfig": true
+        }
+      }
+    },
+    {
+      "input": {
+        "method": "OnBeHit",
+        "time": 99,
+        "roleUid": 9001
+      },
+      "expected": {
+        "time": 99.0,
+        "eventId": 1014.0,
+        "data": {
+          "roleUid": 9001.0,
+          "sameBeHitConfig": true
+        }
+      }
+    },
+    {
+      "input": {
+        "method": "OnPropertyChanged",
+        "time": 4,
+        "uid": 8,
+        "propertyType": 17,
+        "changedValue": -5,
+        "value": 95,
+        "reason": "damage"
+      },
+      "expected": {
+        "time": 4.0,
+        "eventId": 1028.0,
+        "data": {
+          "uid": 8.0,
+          "propertyType": 17.0,
+          "changedValue": -5.0,
+          "value": 95.0,
+          "reason": "damage",
+          "sameExtraData": true
+        }
+      }
+    },
+    {
+      "input": {
+        "method": "OnPropertyChanged",
+        "time": 4.5,
+        "uid": 9,
+        "propertyType": 23,
+        "changedValue": 2.75,
+        "value": 12.25,
+        "reason": "state"
+      },
+      "expected": {
+        "time": 4.5,
+        "eventId": 1028.0,
+        "data": {
+          "uid": 9.0,
+          "propertyType": 23.0,
+          "changedValue": 2.75,
+          "value": 12.25,
+          "reason": "state",
+          "sameExtraData": true
+        }
+      }
+    },
+    {
+      "input": {
+        "method": "OnSelectTargets",
+        "time": 5
+      },
+      "expected": {
+        "time": 5.0,
+        "eventId": 1046.0,
+        "samePayload": true
+      }
+    },
+    {
+      "input": {
+        "method": "OnSelectTargets",
+        "time": 6.5
+      },
+      "expected": {
+        "time": 6.5,
+        "eventId": 1046.0,
+        "samePayload": true
+      }
+    },
+    {
+      "input": {
+        "method": "OnAddState",
+        "time": 7
+      },
+      "expected": {
+        "time": 7.0,
+        "eventId": 1004.0,
+        "samePayload": true
+      }
+    },
+    {
+      "input": {
+        "method": "OnChangeStateLayer",
+        "time": 8.75
+      },
+      "expected": {
+        "time": 8.75,
+        "eventId": 1007.0,
+        "samePayload": true
+      }
+    }
+  ]
+}
