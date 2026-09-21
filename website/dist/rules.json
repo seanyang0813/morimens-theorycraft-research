@@ -3647,6 +3647,31 @@
       ]
     },
     {
+      "id": "PC150:BEActiveDamage.RepetitionRouting",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "Resource 150 reproduces all 16 inherited Active repetition owner-stop, delay, retarget and child-creation routing fixtures exactly",
+      "scope": "Actual __DoMultiEffect with explicit owner/targets: owner stop, first/skip delay, later delay, dead single-target regeneration and child-effect creation order. No child execution, full scheduler traversal, formula, HP, gameplay or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 build comparison",
+          "member": "download manifest and selected TextAsset hashes",
+          "sha256": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5"
+        },
+        {
+          "module": "PC resource-150 Active routing comparison",
+          "member": "__DoMultiEffect fixture-domain result",
+          "sha256": "84dfa9ebdc048d7c0318c4a98e46fb6e0e78d9b4a25c29c337ccdd7a5bbfd787"
+        }
+      ],
+      "checks": [
+        "tools/active_damage_routing_oracle.py",
+        "tools/verify_current_active_routing.py",
+        "tests/active-damage-routing.test.mjs",
+        "tests/current-pc-build-evidence.test.mjs"
+      ]
+    },
+    {
       "id": "ANDROID83:ScriptGroupManifest",
       "status": "CONFIRMED_FROM_LOCAL_MANIFEST",
       "claim": "The packaged Android resource-83 manifest identifies seven Scripts-group bundles by filename, size, resource index and MD5; the hash interpretation is established by a direct bundled Android startup-archive match",

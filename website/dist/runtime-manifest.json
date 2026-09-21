@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "143e57a798d0b2d338cdbf5e0b29d7b91984c582b468a7972c93842d24146f2c",
+  "fingerprint": "5e93fceb9e187150f6a5f7a38dafd6368fdc7d0a79972d3ae14e892cac15e130",
   "files": {
     "build-catalog.json": "2d1188fadcaff7a1eb53af580c509756b21a3f003065c7c9036aa919958a1496",
     "client-build-data.json": "70a21813f8a491f521323971e6a6af9d1250102ad5bb76db8b16f80730fe7e34",
     "engine/active-command-experiment.mjs": "d5ccad4f034c3152f90a8e35992d706875bc8b8ee26d84baba9fa3404e3ae76e",
-    "engine/active-damage-command.mjs": "741ea400020cb6decb87d79abec8d29631a7e8e68e6002dd598f6308430b089d",
+    "engine/active-damage-command.mjs": "dcadc069c018448ccda3f5cc96f45d324842662dbd557852585fec1bae6ee2d5",
     "engine/active-prevention.mjs": "f05174c6eb461fe92583c562dfd9b8844e8559fb3a11a4282f1d942f2b3fde7b",
     "engine/active-target.mjs": "99497dd55c3a411f80afdb79080bec65965d63bc4b7effc35d849d8efa5693a1",
     "engine/add-state-layer.mjs": "f48dab804914d5a36adad723f2f75617396f8b718347d42c107cd09123c223e7",
@@ -93,7 +93,7 @@
     "engine/ulti-energy-experiment.mjs": "6de163423a1e99c6be4922093711a797fa3012554589484c4ae5fd864bc35973",
     "engine/ulti-energy-gain.mjs": "08a4f4f32a7700422d6999e19e0e58fb2cace3bcbf7d0a910a9bcacf3b520468",
     "engine/wheel-stats.mjs": "484a5b4a51fbbd9c4759b27457ae9eec71fceb0420354823f54654edfb78fadd",
-    "rules.json": "532a98b233c00a7eda8d9ab6994d4575e2a9102713a747f1a0191c5411ebf2b7",
+    "rules.json": "bc1fa9390c35d3c9cdb7b67edf697eb6f730a7a86719d6f8e8f7cf8360dda4e1",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af"
   }
 }

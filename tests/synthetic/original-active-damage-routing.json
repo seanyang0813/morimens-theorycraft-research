@@ -1,0 +1,613 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BEActiveDamage": "6d87f4da91293c019579f5d586a093763d3fb1051d6efed8652cdbc3b114e208"
+  },
+  "scope": "Original __DoMultiEffect owner stop, delay, dead single-target retarget and child-effect creation. Explicit targets and adapters; no child execution, formula, HP, scheduler traversal or gameplay.",
+  "fixtures": [
+    {
+      "input": {
+        "ownerPresent": false,
+        "ownerMonster": false,
+        "ownerDead": false,
+        "skipPhase": false,
+        "total": 3,
+        "left": 3,
+        "delay": 0.25,
+        "singleTarget": false,
+        "targets": [
+          {
+            "uid": 1,
+            "dead": false
+          },
+          {
+            "uid": 2,
+            "dead": false
+          }
+        ],
+        "regeneratedTargets": [
+          {
+            "uid": 3,
+            "dead": false
+          }
+        ]
+      },
+      "expected": {
+        "returned": false,
+        "leftAfter": 3.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "ownerPresent": false,
+        "ownerMonster": false,
+        "ownerDead": true,
+        "skipPhase": false,
+        "total": 3,
+        "left": 3,
+        "delay": 0.25,
+        "singleTarget": false,
+        "targets": [
+          {
+            "uid": 1,
+            "dead": false
+          },
+          {
+            "uid": 2,
+            "dead": false
+          }
+        ],
+        "regeneratedTargets": [
+          {
+            "uid": 3,
+            "dead": false
+          }
+        ]
+      },
+      "expected": {
+        "returned": false,
+        "leftAfter": 3.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "ownerPresent": false,
+        "ownerMonster": true,
+        "ownerDead": false,
+        "skipPhase": false,
+        "total": 3,
+        "left": 3,
+        "delay": 0.25,
+        "singleTarget": false,
+        "targets": [
+          {
+            "uid": 1,
+            "dead": false
+          },
+          {
+            "uid": 2,
+            "dead": false
+          }
+        ],
+        "regeneratedTargets": [
+          {
+            "uid": 3,
+            "dead": false
+          }
+        ]
+      },
+      "expected": {
+        "returned": false,
+        "leftAfter": 3.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "ownerPresent": false,
+        "ownerMonster": true,
+        "ownerDead": true,
+        "skipPhase": false,
+        "total": 3,
+        "left": 3,
+        "delay": 0.25,
+        "singleTarget": false,
+        "targets": [
+          {
+            "uid": 1,
+            "dead": false
+          },
+          {
+            "uid": 2,
+            "dead": false
+          }
+        ],
+        "regeneratedTargets": [
+          {
+            "uid": 3,
+            "dead": false
+          }
+        ]
+      },
+      "expected": {
+        "returned": false,
+        "leftAfter": 3.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "ownerPresent": true,
+        "ownerMonster": false,
+        "ownerDead": false,
+        "skipPhase": false,
+        "total": 3,
+        "left": 3,
+        "delay": 0.25,
+        "singleTarget": false,
+        "targets": [
+          {
+            "uid": 1,
+            "dead": false
+          },
+          {
+            "uid": 2,
+            "dead": false
+          }
+        ],
+        "regeneratedTargets": [
+          {
+            "uid": 3,
+            "dead": false
+          }
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "leftAfter": 2.0,
+        "events": [
+          {
+            "delay": 0.0
+          },
+          {
+            "createFor": 1.0
+          },
+          {
+            "createFor": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "ownerPresent": true,
+        "ownerMonster": false,
+        "ownerDead": true,
+        "skipPhase": false,
+        "total": 3,
+        "left": 3,
+        "delay": 0.25,
+        "singleTarget": false,
+        "targets": [
+          {
+            "uid": 1,
+            "dead": false
+          },
+          {
+            "uid": 2,
+            "dead": false
+          }
+        ],
+        "regeneratedTargets": [
+          {
+            "uid": 3,
+            "dead": false
+          }
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "leftAfter": 2.0,
+        "events": [
+          {
+            "delay": 0.0
+          },
+          {
+            "createFor": 1.0
+          },
+          {
+            "createFor": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "ownerPresent": true,
+        "ownerMonster": true,
+        "ownerDead": false,
+        "skipPhase": false,
+        "total": 3,
+        "left": 3,
+        "delay": 0.25,
+        "singleTarget": false,
+        "targets": [
+          {
+            "uid": 1,
+            "dead": false
+          },
+          {
+            "uid": 2,
+            "dead": false
+          }
+        ],
+        "regeneratedTargets": [
+          {
+            "uid": 3,
+            "dead": false
+          }
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "leftAfter": 2.0,
+        "events": [
+          {
+            "delay": 0.0
+          },
+          {
+            "createFor": 1.0
+          },
+          {
+            "createFor": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "ownerPresent": true,
+        "ownerMonster": true,
+        "ownerDead": true,
+        "skipPhase": false,
+        "total": 3,
+        "left": 3,
+        "delay": 0.25,
+        "singleTarget": false,
+        "targets": [
+          {
+            "uid": 1,
+            "dead": false
+          },
+          {
+            "uid": 2,
+            "dead": false
+          }
+        ],
+        "regeneratedTargets": [
+          {
+            "uid": 3,
+            "dead": false
+          }
+        ]
+      },
+      "expected": {
+        "returned": false,
+        "leftAfter": 3.0,
+        "events": []
+      }
+    },
+    {
+      "input": {
+        "ownerPresent": true,
+        "ownerMonster": false,
+        "ownerDead": false,
+        "skipPhase": false,
+        "total": 3,
+        "left": 3,
+        "delay": 0.25,
+        "singleTarget": false,
+        "targets": [
+          {
+            "uid": 1,
+            "dead": false
+          },
+          {
+            "uid": 2,
+            "dead": false
+          }
+        ],
+        "regeneratedTargets": [
+          {
+            "uid": 3,
+            "dead": false
+          }
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "leftAfter": 2.0,
+        "events": [
+          {
+            "delay": 0.0
+          },
+          {
+            "createFor": 1.0
+          },
+          {
+            "createFor": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "ownerPresent": true,
+        "ownerMonster": false,
+        "ownerDead": false,
+        "skipPhase": false,
+        "total": 3,
+        "left": 2,
+        "delay": 0.25,
+        "singleTarget": false,
+        "targets": [
+          {
+            "uid": 1,
+            "dead": false
+          },
+          {
+            "uid": 2,
+            "dead": false
+          }
+        ],
+        "regeneratedTargets": [
+          {
+            "uid": 3,
+            "dead": false
+          }
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "leftAfter": 1.0,
+        "events": [
+          {
+            "delay": 0.25
+          },
+          {
+            "createFor": 1.0
+          },
+          {
+            "createFor": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "ownerPresent": true,
+        "ownerMonster": false,
+        "ownerDead": false,
+        "skipPhase": true,
+        "total": 3,
+        "left": 3,
+        "delay": 0.25,
+        "singleTarget": false,
+        "targets": [
+          {
+            "uid": 1,
+            "dead": false
+          },
+          {
+            "uid": 2,
+            "dead": false
+          }
+        ],
+        "regeneratedTargets": [
+          {
+            "uid": 3,
+            "dead": false
+          }
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "leftAfter": 2.0,
+        "events": [
+          {
+            "delay": 0.0
+          },
+          {
+            "createFor": 1.0
+          },
+          {
+            "createFor": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "ownerPresent": true,
+        "ownerMonster": false,
+        "ownerDead": false,
+        "skipPhase": true,
+        "total": 3,
+        "left": 2,
+        "delay": 0.25,
+        "singleTarget": false,
+        "targets": [
+          {
+            "uid": 1,
+            "dead": false
+          },
+          {
+            "uid": 2,
+            "dead": false
+          }
+        ],
+        "regeneratedTargets": [
+          {
+            "uid": 3,
+            "dead": false
+          }
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "leftAfter": 1.0,
+        "events": [
+          {
+            "delay": 0.0
+          },
+          {
+            "createFor": 1.0
+          },
+          {
+            "createFor": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "ownerPresent": true,
+        "ownerMonster": false,
+        "ownerDead": false,
+        "skipPhase": false,
+        "total": 3,
+        "left": 3,
+        "delay": 0.25,
+        "singleTarget": true,
+        "targets": [
+          {
+            "uid": 1,
+            "dead": true
+          }
+        ],
+        "regeneratedTargets": [
+          {
+            "uid": 3,
+            "dead": false
+          }
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "leftAfter": 2.0,
+        "events": [
+          {
+            "delay": 0.0
+          },
+          "GenerateTargetsExp",
+          {
+            "createFor": 3.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "ownerPresent": true,
+        "ownerMonster": false,
+        "ownerDead": false,
+        "skipPhase": false,
+        "total": 3,
+        "left": 3,
+        "delay": 0.25,
+        "singleTarget": true,
+        "targets": [
+          {
+            "uid": 1,
+            "dead": false
+          }
+        ],
+        "regeneratedTargets": [
+          {
+            "uid": 3,
+            "dead": false
+          }
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "leftAfter": 2.0,
+        "events": [
+          {
+            "delay": 0.0
+          },
+          {
+            "createFor": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "ownerPresent": true,
+        "ownerMonster": false,
+        "ownerDead": false,
+        "skipPhase": false,
+        "total": 3,
+        "left": 3,
+        "delay": 0.25,
+        "singleTarget": false,
+        "targets": [
+          {
+            "uid": 1,
+            "dead": true
+          }
+        ],
+        "regeneratedTargets": [
+          {
+            "uid": 3,
+            "dead": false
+          }
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "leftAfter": 2.0,
+        "events": [
+          {
+            "delay": 0.0
+          },
+          {
+            "createFor": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "ownerPresent": true,
+        "ownerMonster": false,
+        "ownerDead": false,
+        "skipPhase": false,
+        "total": 3,
+        "left": 3,
+        "delay": 0.25,
+        "singleTarget": false,
+        "targets": [],
+        "regeneratedTargets": [
+          {
+            "uid": 3,
+            "dead": false
+          }
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "leftAfter": 2.0,
+        "events": [
+          {
+            "delay": 0.0
+          }
+        ]
+      }
+    }
+  ]
+}

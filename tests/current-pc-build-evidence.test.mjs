@@ -141,3 +141,17 @@ test('current PC BeHit through HP mutation matches the inherited runtime domain'
   const row=comparison.data.combatModules.find(item=>item.name==='BattlePropertyServer.lua');
   assert.equal(runtime.data.sourceHashes.currentBattlePropertyServer,row.current[0].sha256);
 });
+
+test('current PC Active repetition routing matches the inherited runtime domain',()=>{
+  const comparison=read('research/evidence/pc-res144-to-res150-combat-build.json');
+  const runtime=read('research/evidence/pc-res150-active-routing-runtime.json');
+  const fixture=read('tests/synthetic/original-active-damage-routing.json');
+  assert.equal(runtime.data.status,'EXACT_MATCH_IN_FIXTURE_DOMAIN');
+  assert.equal(runtime.data.fixtures,fixture.data.fixtures.length);
+  assert.equal(runtime.data.exactMatches,runtime.data.fixtures);
+  assert.equal(runtime.data.mismatches,0);
+  assert.equal(runtime.data.sourceHashes.comparison,hash(comparison.bytes));
+  assert.equal(runtime.data.sourceHashes.fixture,hash(fixture.bytes));
+  const row=comparison.data.combatModules.find(item=>item.name==='BEActiveDamage.lua');
+  assert.equal(runtime.data.sourceHashes.currentBEActiveDamage,row.current[0].sha256);
+});
