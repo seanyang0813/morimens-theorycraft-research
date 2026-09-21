@@ -45,6 +45,7 @@
   "card-action-timeline.mjs",
   "active-command-experiment.mjs",
   "passive-command-experiment.mjs",
+  "fixed-pure-command-experiment.mjs",
   "active-damage-command.mjs",
   "card-use-resources.mjs",
   "energy-payment.mjs",

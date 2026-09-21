@@ -91,3 +91,14 @@ test('ordered command UI advances target state for Passive damage rows',()=>{
  doc.getElementById('action-input').value=JSON.stringify(input);nodes.get('run').onclick();
  assert.equal(nodes.get('rows').children[0].children[2].textContent,'500 → 425');assert.equal(nodes.get('rows').children[0].children[3].textContent,'50 → 0');assert.equal(nodes.get('rows').children[0].children[4].textContent,'Passive damage');
 });
+
+test('ordered command UI labels Fixed and Pure damage categories',()=>{
+ class Element{constructor(){this.children=[];this.textContent='';this.value='';this.hidden=false;}append(...items){this.children.push(...items);}replaceChildren(...items){this.children=items;}}
+ const nodes=new Map(),doc={getElementById(id){if(!nodes.has(id))nodes.set(id,new Element());return nodes.get(id);},createElement(){return new Element();}};
+ const input={kind:'morimens-ordered-state-command',attackBase:{targetState:{hp:500,block:20}},command:{data_list:{1:{},2:{}}}};
+ const rowPlan=[{rowId:'1',type:'effectAttack',category:'FIXED'},{rowId:'2',type:'effectAttack',category:'PURE'}];
+ const runOrderedStateCommand=()=>({completed:true,modeledHpLost:180,casterEnergyAfter:null,actorBlockAfter:null,actorHpAfter:null,targetAfter:{hp:320,block:0},stop:null,rowPlan,calculation:{trace:[{type:'effectAttack',category:'FIXED',result:{completed:true,targetAfter:{hp:420,block:0}}},{type:'effectAttack',category:'PURE',result:{completed:true,targetAfter:{hp:320,block:0}}}]},unresolvedDependencies:[]});
+ startActions({runCardActionTimeline,syntheticCardActionExample,runDamageEnergyCommand,runTerminalStateCommand:()=>{},runOrderedStateCommand,syntheticDamageEnergyExample,runtimeFingerprint:'2'.repeat(64)},doc);
+ doc.getElementById('action-input').value=JSON.stringify(input);nodes.get('run').onclick();
+ assert.equal(nodes.get('rows').children[0].children[4].textContent,'FIXED damage');assert.equal(nodes.get('rows').children[1].children[4].textContent,'PURE damage');assert.equal(nodes.get('rows').children[1].children[2].textContent,'420 → 320');
+});

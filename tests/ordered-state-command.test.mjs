@@ -137,3 +137,16 @@ test('ordered target Block is consumed by a later Passive hit',()=>{
   const first=v.command.data_list['1'];v.command.data_list['1']=v.command.data_list['2'];v.command.data_list['2']=first;
   const reversed=runOrderedStateCommand(v);assert.equal(reversed.modeledHpLost,111);assert.equal(reversed.targetAfter.block,50);
 });
+
+test('ordered Fixed and Pure rows share live Block and HP with Heal',()=>{
+  const v=input(),{value:blockValue,...blockModifiers}=neutralBlockInputs(0),{value:healValue,...healModifiers}=neutralHealInputs(0);
+  v.command={data_list:{1:{Type:'BEGainBlock',Target:'UpperTarget',Para:'50'},2:{Type:'BEFixedDamage',Target:'UpperTarget',Para:'100'},3:{Type:'BEHeal',Target:'UpperTarget',Para:'20'},4:{Type:'BEPureDamage',Target:'UpperTarget',Para:'100.2,1,1'}}};v.variables={};v.state.definitions=[];v.state.requests=[];
+  v.block={modifiers:blockModifiers,actor:{block:0,maxHp:1000,blockMaxPer:0,ignoreMax:false,gainBlockPer:0,gainBlockPlus:0},target:{block:0,maxHp:1000,blockMaxPer:0,ignoreMax:false,gainBlockPer:0,gainBlockPlus:0}};
+  v.heal={modifiers:healModifiers,actor:{hp:500,maxHp:1000,beHealPer:0,beHealPlus:0,dead:false},target:{hp:1000,maxHp:1000,beHealPer:0,beHealPlus:0,dead:false}};
+  v.fixedBase={dimensionFixPer:0,fixed1:0,fixed2:0,fixed3:0,fixed4:0,fixed5:0};v.pureBase={};
+  const result=runOrderedStateCommand(v);
+  assert.equal(result.completed,true);assert.equal(result.targetAfter.hp,869);assert.equal(result.modeledHpLost,131);assert.equal(result.targetAfter.block,0);
+  assert.deepEqual(result.calculation.trace.map(step=>step.type),['gainBlock','effectAttack','heal','effectAttack']);
+  assert.deepEqual(result.calculation.trace.filter(step=>step.type==='effectAttack').map(step=>step.category),['FIXED','PURE']);
+  assert.deepEqual(result.rowPlan.filter(row=>row.type==='effectAttack').map(row=>row.category),['FIXED','PURE']);
+});

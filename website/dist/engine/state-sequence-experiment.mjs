@@ -6,6 +6,7 @@ import {initializeStateProperty,updateStateProperty} from './state-property-cont
 import {changeCombatProperty} from './combat-property-mutation.mjs';
 import {runActiveCommandExperiment} from './active-command-experiment.mjs';
 import {runPassiveCommandExperiment} from './passive-command-experiment.mjs';
+import {runFixedPureCommandExperiment} from './fixed-pure-command-experiment.mjs';
 import {build} from './calculate-damage.mjs';
 import {getLiveStateLayer} from './live-state-lookup.mjs';
 import {endStateLife} from './state-life-end.mjs';
@@ -29,8 +30,8 @@ const exact=(o,keys)=>o&&typeof o==='object'&&!Array.isArray(o)&&Object.keys(o).
 // no claim of original complete battle execution or inferred build attributes.
 export function runStateSequenceExperiment(value){
   const input=JSON.parse(JSON.stringify(value));
-  const baseKeys=['schemaVersion','kind','build','otherEvents','crossesTurnBoundary','actorProperties','targetProperties','stateQueries','definitions','steps','attackBase'],hasEnergy=Object.hasOwn(input,'energy'),hasBlock=Object.hasOwn(input,'block'),hasHeal=Object.hasOwn(input,'heal'),hasPassive=Object.hasOwn(input,'passiveBase');
-  const optionalKeys=[...(hasEnergy?['energy']:[]),...(hasBlock?['block']:[]),...(hasHeal?['heal']:[]),...(hasPassive?['passiveBase']:[])];
+  const baseKeys=['schemaVersion','kind','build','otherEvents','crossesTurnBoundary','actorProperties','targetProperties','stateQueries','definitions','steps','attackBase'],hasEnergy=Object.hasOwn(input,'energy'),hasBlock=Object.hasOwn(input,'block'),hasHeal=Object.hasOwn(input,'heal'),hasPassive=Object.hasOwn(input,'passiveBase'),hasFixed=Object.hasOwn(input,'fixedBase'),hasPure=Object.hasOwn(input,'pureBase');
+  const optionalKeys=[...(hasEnergy?['energy']:[]),...(hasBlock?['block']:[]),...(hasHeal?['heal']:[]),...(hasPassive?['passiveBase']:[]),...(hasFixed?['fixedBase']:[]),...(hasPure?['pureBase']:[])];
   if(!exact(input,[...baseKeys,...optionalKeys])||input.schemaVersion!==1||input.kind!=='morimens-state-sequence'||input.build!==build||input.otherEvents!=='assumed-absent'||input.crossesTurnBoundary!==false)throw new Error('Explicit within-turn state sequence with absent other events required');
   if(hasEnergy&&(!exact(input.energy,['source','target'])||input.energy.source?.castRoleUid!==input.energy.target?.uid))throw new Error('Explicit caster energy context required');
   const blockRecipientKeys=['block','maxHp','blockMaxPer','ignoreMax','gainBlockPer','gainBlockPlus'];
@@ -78,6 +79,8 @@ export function runStateSequenceExperiment(value){
       if(!exact(step,['type','rows'])||!Array.isArray(step.rows))throw new Error('Explicit attack rows required');
     }else if(step?.type==='passiveAttack'){
       if(!exact(step,['type','rows'])||!hasPassive||!Array.isArray(step.rows))throw new Error('Explicit Passive rows and resolved context required');
+    }else if(step?.type==='effectAttack'){
+      if(!exact(step,['type','category','rows'])||!['FIXED','PURE'].includes(step.category)||!(step.category==='FIXED'?hasFixed:hasPure)||!Array.isArray(step.rows))throw new Error('Explicit Fixed/Pure rows and resolved context required');
     }else throw new Error('Unsupported sequence operation');
   }
   const registry=new Map(),properties={actor:{...input.actorProperties},target:{...input.targetProperties}},trace=[];
@@ -105,6 +108,8 @@ export function runStateSequenceExperiment(value){
   };
   const passiveInput=rows=>({schemaVersion:1,kind:'morimens-passive-command-experiment',build,interveningEffects:'assumed-absent',rows,
     variables:{...input.attackBase.variables,...(hasEnergy?{'CmdCaster.ulti_energy':casterEnergy}:{})},passive:input.passiveBase,targetState:target,repeatModifiers:input.attackBase.repeatModifiers,immune:input.attackBase.immune});
+  const fixedPureInput=(category,rows)=>({schemaVersion:1,kind:'morimens-fixed-pure-command-experiment',build,category,interveningEffects:'assumed-absent',rows,
+    variables:{...input.attackBase.variables,...(hasEnergy?{'CmdCaster.ulti_energy':casterEnergy}:{})},effect:category==='FIXED'?input.fixedBase:input.pureBase,targetState:target,repeatModifiers:input.attackBase.repeatModifiers,immune:input.attackBase.immune});
   const changeProperties=(d,state,operation,initial)=>{
     for(const p of d.properties){
       const specialValue=p.property==='vulnerable_per'?d.specialValue:null;
@@ -132,6 +137,8 @@ export function runStateSequenceExperiment(value){
   // Validate attack inputs before changing any state; a false row deals no hits.
   runActiveCommandExperiment(attackInput([{id:'validate',Type:'BEActiveDamage',Target:'UpperTarget',Para:'0',Cond:'false'}]));
   if(hasPassive)runPassiveCommandExperiment(passiveInput([{id:'validate-passive',Type:'BEPassiveDamage',Target:'UpperTarget',Para:'0',Cond:'false'}]));
+  if(hasFixed)runFixedPureCommandExperiment(fixedPureInput('FIXED',[{id:'validate-fixed',Type:'BEFixedDamage',Target:'UpperTarget',Para:'0',Cond:'false'}]));
+  if(hasPure)runFixedPureCommandExperiment(fixedPureInput('PURE',[{id:'validate-pure',Type:'BEPureDamage',Target:'UpperTarget',Para:'1',Cond:'false'}]));
   if(hasEnergy)runUltiEnergyExperiment({schemaVersion:1,kind:'morimens-ulti-energy-experiment',build,otherEvents:'assumed-absent',parameters:[0,0],source:input.energy.source,targetOrder:[input.energy.target.uid],targets:[{...input.energy.target,energy:casterEnergy}]});
   for(const [index,step] of input.steps.entries()){
     if(step.type==='attack'){
@@ -143,6 +150,12 @@ export function runStateSequenceExperiment(value){
     if(step.type==='passiveAttack'){
       const result=runPassiveCommandExperiment(passiveInput(step.rows),expressionBindings);target=result.targetAfter;
       trace.push({index,type:'passiveAttack',result});
+      if(!result.completed){stop={index,reason:result.stop};break;}
+      continue;
+    }
+    if(step.type==='effectAttack'){
+      const result=runFixedPureCommandExperiment(fixedPureInput(step.category,step.rows),expressionBindings);target=result.targetAfter;
+      trace.push({index,type:'effectAttack',category:step.category,result});
       if(!result.completed){stop={index,reason:result.stop};break;}
       continue;
     }
@@ -217,5 +230,5 @@ export function runStateSequenceExperiment(value){
     operation.managerTrace=manager.trace;operation.state=manager.state?JSON.parse(JSON.stringify(manager.state)):null;trace.push(operation);
   }
   return {schemaVersion:1,status:'EXPERIMENTAL',build,finalDamage:null,completed:stop===null,stop,properties,targetAfter:target,casterEnergyAfter:casterEnergy,actorBlockAfter:actorBlock,actorHpAfter:actorHp,modeledHpLost:input.attackBase.targetState.hp-target.hp,
-    states:[...registry.values()].flat(),trace,unresolvedDependencies:['Authored component composition, not connected original full battle execution or independent gameplay validation','addState uses already-resolved layers; applyState uses explicit immunity, modifier mappings, dimension role/player context and supplied limit results, not automatic property/rule derivation','Layer subtraction excludes caster attribution; no trigger listeners, expiry, death handling, team/card property routing or source attribution; within one turn only','State queries use explicit static inputs or explicitly bound live registry owners; no automatic parser target binding or build/skill assembly','Damage eligibility modifiers outside the five bound Active properties remain explicitly supplied; Passive properties are an explicit static snapshot','Ultimate-energy steps use explicit caster/build/card context; later damage rows read live CmdCaster.ulti_energy, while state-mutation expressions do not','Block steps use explicit resolved formula properties and recipient snapshots; optional state descendants and Block events are excluded','Heal steps use explicit resolved formula properties and recipient snapshots; effect repeats, Heal events and revival are excluded']};
+    states:[...registry.values()].flat(),trace,unresolvedDependencies:['Authored component composition, not connected original full battle execution or independent gameplay validation','addState uses already-resolved layers; applyState uses explicit immunity, modifier mappings, dimension role/player context and supplied limit results, not automatic property/rule derivation','Layer subtraction excludes caster attribution; no trigger listeners, expiry, death handling, team/card property routing or source attribution; within one turn only','State queries use explicit static inputs or explicitly bound live registry owners; no automatic parser target binding or build/skill assembly','Damage eligibility modifiers outside the five bound Active properties remain explicitly supplied; Passive and Fixed properties are explicit static snapshots','Ultimate-energy steps use explicit caster/build/card context; later damage rows read live CmdCaster.ulti_energy, while state-mutation expressions do not','Block steps use explicit resolved formula properties and recipient snapshots; optional state descendants and Block events are excluded','Heal steps use explicit resolved formula properties and recipient snapshots; effect repeats, Heal events and revival are excluded','Pure includeStats is retained but combat statistics are not executed']};
 }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "ebeaeaf64a9042cffb94564004e219aabd83e63a45b0a59730c3c6d3612e7562",
+  "fingerprint": "8c8386f92fba7e370a6fb0c35ff1f649644f475ef343c406a357ac589cbc337f",
   "files": {
     "build-catalog.json": "2d1188fadcaff7a1eb53af580c509756b21a3f003065c7c9036aa919958a1496",
     "client-build-data.json": "f857768a28bb9865d35158ae47c0cf453dcc0ae9cb9114dd0082d1ea73f17c0f",
@@ -37,6 +37,7 @@
     "engine/effect-order.mjs": "03c9e57ac4707bdec8be4cf1f87e8e33e20686449a3c6b6ef9416977ad3ce131",
     "engine/energy-payment.mjs": "b31b16dee520da604b7a0c5d60e47aa10ef6da43bbab3764bfb1c89893f44493",
     "engine/experiments.mjs": "7387fd4c7c35272da3dd4873362ba8a826767ffc700371b9d55ae9eda7a3ae95",
+    "engine/fixed-pure-command-experiment.mjs": "f05f0e1b35c6610b5b5aa8835453a0d981a0f8c22996a1e6817ffb47b0929141",
     "engine/fixed-pure-prehit.mjs": "54089493a50593337a3dd969f28e9a6f9e3e20bda8ce825aa6942c1209c1dd63",
     "engine/heal.mjs": "a3729de3aad53bab54278f4b596779ccea77cc6df783477bb57a1a84c80cd556",
     "engine/hit-limits.mjs": "7e38e799877208e4047aa6044efa53e9cc0cc5ba55de2ae2abef7b672de753fb",
@@ -53,7 +54,7 @@
     "engine/old-embers-command.mjs": "eb70d3a75af30bcfe6411a2e93833ad169e705b1a5bdf7e8d4a1fc2e656d7e96",
     "engine/old-embers-hit-timeline.mjs": "f9c1282bfd73d66f94d9a134f955699a74d28fa51c323ac9d721148b33e9349e",
     "engine/old-embers-steps.mjs": "a1c1e4ce8a448c20e6367cc8a0d99a809f0e5cd249bbd3c3c47bb1e46b371c0e",
-    "engine/ordered-state-command.mjs": "0587303c774e2a7e02eb571b2779a4dbd858611a27066a31843a42b52a402e7b",
+    "engine/ordered-state-command.mjs": "4d9f8f8529feae7ad0767cbb56f1f892a0923cd6a22b218f61d57617bd07d229",
     "engine/passive-command-experiment.mjs": "38bbdd17dc535e58fc844b22b1761546fcc98867964972dc4aa4ef3ac535881f",
     "engine/passive-prehit.mjs": "c8b1ccfb7c47ce49c3bd09842fef15058ed78277d9de743d772c79ba0d85a77e",
     "engine/property-initialization.mjs": "a57ff39cf0a1860b857b5c3cafb6d54324e118fc6f97fa738afa41abcf792fbb",
@@ -77,7 +78,7 @@
     "engine/state-property-contribution.mjs": "183c53742cdea0e7eb897b8691bc5c688eac9daed6d4d3ec314e5f1d9a0acedd",
     "engine/state-property-removal.mjs": "23c6ced50142f7b886a6f536f90d639d94ce833d4f63cfbfdc4563a473c1d12b",
     "engine/state-sequence-example.mjs": "648cfd1b4e836fd7c340164ed4830b72685c6e979e9eb59ef65b77676c56902f",
-    "engine/state-sequence-experiment.mjs": "4198f381a3a92b92002a8eb36fa7955135559f21f5799d86c43ba506d53fae43",
+    "engine/state-sequence-experiment.mjs": "da7068e727942de3a918bff3c59d3a69ea025e543ac9083950310fa628fb3e37",
     "engine/state-type-catalog.mjs": "6ea6e4485c14527fb13019a298a16d043cd333d78dfbc06379e1cfbc1aef5ed2",
     "engine/sub-state-layer.mjs": "712f54e3b4d1744769912955995c23fcd16505a7a15c903848dfb68e2a2ddaeb",
     "engine/target-damage-eligibility.mjs": "8e2f0eecd97302645311469fec8d9239682c9bf0dfb0c65fdb702bc9a62780c1",
@@ -89,7 +90,7 @@
     "engine/ulti-energy-experiment.mjs": "6de163423a1e99c6be4922093711a797fa3012554589484c4ae5fd864bc35973",
     "engine/ulti-energy-gain.mjs": "08a4f4f32a7700422d6999e19e0e58fb2cace3bcbf7d0a910a9bcacf3b520468",
     "engine/wheel-stats.mjs": "484a5b4a51fbbd9c4759b27457ae9eec71fceb0420354823f54654edfb78fadd",
-    "rules.json": "9e61a929a1c14ae967ac5e828fabe09eb5d869d34ec0887098501811df7c27d9",
+    "rules.json": "8a214f1013f2ff4666d4cb9515d465c12f813afbf249d3575e872929778488ad",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af"
   }
 }
