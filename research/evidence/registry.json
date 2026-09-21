@@ -3635,6 +3635,46 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC144-PC150:FinalEvolutionCatalog",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "Final Evolution applies 20 permanent Reinforce, ceil(ATK*0.08) Strength and an HP-loss listener whose later accepted HP-change event adds 2 temporary Reinforce; all seven selected rows match both PC catalogs",
+      "sources": [
+        {
+          "module": "Skill",
+          "member": "60397",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\2015861756545847808_Skill.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "60401,60402",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "State",
+          "member": "60089,2900,60404,60083",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
+        },
+        {
+          "module": "Final Evolution cross-build trace",
+          "member": "normalized selected rows and derived lifecycle",
+          "bundle": "public hash-only/selected-row report",
+          "sha256": "f4a14347243cb93c13488cd2777c0aa728e43e3a5e6580f373db8df7d6da3919"
+        }
+      ],
+      "tests": [
+        "tools/build_final_evolution_mechanic.py",
+        "tests/final-evolution-mechanic.test.mjs"
+      ],
+      "scope": "Exact selected Skill/Cmd/State rows after BaseSortID exclusion. Per actual negative HP-change event; permanent/temporary clear conditions and properties retained. Skill-argument ceiling, add-state/property and HP-listener mechanics have separate evidence. No full command scheduling, bubble execution, clear-event execution, gameplay, holdout, cheese, budget or leaderboard claim.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC144:PhaseLiveLayerEffects",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "Original add-state effect routing finds an existing counter through the real state manager and applies original AddLayer; original subtract-state routing then finds the phase state in the same live registry and applies original SubLayer",

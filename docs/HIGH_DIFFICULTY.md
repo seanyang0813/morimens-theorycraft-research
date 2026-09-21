@@ -6,6 +6,14 @@ This bridge passes raw signed loss into the effect before applying its HP cap; p
 
 Per the user's instruction, higher-difficulty content takes priority over further work on the Normal baseline.
 
+## Ghost-faced dog phase transition
+
+At the 66% phase boundary, command 60406 changes the monster's intent to skill 60397 using change type `Insert`. Original-runtime tests show that this updates the displayed/current intent and queues an idle prior intent; it does not execute skill 60397 inside the HP-change callback.
+
+When skill 60397 (“Final Evolution”) later executes, its exact command 60401 applies 20 layers of permanent Reinforce state 60089, applies `ceil(ATK × 0.08)` layers of Strength state 2900, records a `BEMonsterBubble` row, and installs listener state 60404. That listener responds only to a later `BSTHpChanged` event whose signed `TriggerValue` is negative. Command 60402 then adds two layers of temporary Reinforce state 60083. This is tied to actual HP decrease events rather than every attempted or fully blocked hit.
+
+Permanent Reinforce 60089 clears before battle end. Temporary Reinforce 60083 caps at 99 and clears before the next bout begins or before battle end. Both subtract their layer count from Active, Fixed and Passive received-damage properties; Strength adds its layer count to `damage_plus` and half that amount to `tentacle_dmg`. These seven selected Skill/Cmd/State rows match resource 144 and installed resource 150 exactly after excluding `BaseSortID` metadata. The trace is published in `research/evidence/final-evolution-mechanic.json`. Full command scheduling, the bubble row, clear-event execution and independent gameplay remain outside this result.
+
 ## Selected record
 
 融灾禁区 / 星辰篇 / wave 1 / 癫狂 (Frenzy), recommended level 92, boss preview level 95. Record: Banana, displayed 2026/9/20 3:22. Team: 茉夏 level 80, 阿拉克涅 level 80, 蚀灭·萝珀 level 64, 奥尔拉 level 60. Twelve total turns, six boss turns; record summary peak turn damage 4,896,613 and peak STR 680. These maxima are aggregate observations, not a single damage fixture.

@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_HIGH_DIFFICULTY_MECHANIC_TRACE",
+  "analysisTrack": "mechanics",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "status": "EXACT_CATALOG_MATCH",
+  "mechanic": "Ghost-faced dog Final Evolution",
+  "sourceHashes": {
+    "baseline": {
+      "Skill": "dd47c38241edb513c71bd09e6f1f9a8ecdbfc7080f59b0c12a300ac7be2f7a2d",
+      "Cmd": "7e298514fde1e0555b2e5d11118c8b5c4d5e3695a4062a49d4d51bfa110d2eed",
+      "State": "955c979b9c2f2c3f8252a847ca9c663baadc1c5040338f1ce8f9403c4597eced"
+    },
+    "currentPrivateExports": {
+      "Skill": "8bf12c24be0f79308e2fb6a9a4e6bfc6a1a4420ab558dfe336686ca08d6f3aff",
+      "Cmd": "52fea8a140dd391096450c67354d8de81f924e47f7265fb582bf3f095597c706",
+      "State": "77788cf5217a2dca351d16726edf6c1e23c5009ba8fc90a10fef148895eb91f8"
+    }
+  },
+  "normalizedMatches": [
+    "Skill:60397",
+    "Cmd:60401",
+    "Cmd:60402",
+    "State:60089",
+    "State:2900",
+    "State:60404",
+    "State:60083"
+  ],
+  "rows": {
+    "Skill": {
+      "60397": {
+        "Type": {
+          "1": "Intent_Burst2"
+        },
+        "Name": "Skill_60397_Name|\u7ec8\u7109\u8fdb\u5316",
+        "Para": "CmdCaster.atk*0.08",
+        "CmdList": 60401,
+        "ID": 60397,
+        "CnID": "\u6280\u80fd@\u9b3c\u9762\u72acBOSS@\u7ec8\u7109\u8715\u53d8",
+        "PerformType": {
+          "1": "Timeline"
+        },
+        "Desc": "Skill_60397_Desc|\u83b7\u5f97 20 \u5c42<ReinforcePVEKeywords:\u52a0\u56fa>\u548c [Arg1] \u70b9<PowerIconKeywords:\u529b\u91cf>\u3002\u540e\u7eed\u6bcf\u53d7\u5230 1 \u6b21\u4f24\u5bb3\u5c31\u83b7\u5f97 2 \u5c42\u4e34\u65f6<ReinforcePVEKeywords:\u52a0\u56fa>\u3002",
+        "CmdTarget": "CmdCaster",
+        "Perform": {
+          "1": "Skill2"
+        }
+      }
+    },
+    "Cmd": {
+      "60401": {
+        "CnID": "\u6307\u4ee4@\u9b3c\u9762\u72ac@\u7ec8\u7109\u8715\u53d8",
+        "ID": 60401,
+        "data_list": {
+          "1": {
+            "Para": "60089,20",
+            "Target": "CmdCaster",
+            "Type": "BEAddState"
+          },
+          "2": {
+            "Para": "2900,Arg1",
+            "Target": "CmdCaster",
+            "Type": "BEAddState"
+          },
+          "3": {
+            "Para": "Monster_Chapter8_08,8000",
+            "Target": "CmdCaster",
+            "Type": "BEMonsterBubble"
+          },
+          "4": {
+            "Para": 60404,
+            "Target": "CmdCaster",
+            "Type": "BEAddState"
+          }
+        }
+      },
+      "60402": {
+        "CnID": "\u6307\u4ee4@\u9b3c\u9762\u72ac@\u7ec8\u7109\u8715\u53d8@\u72b6\u6001\u6548\u679c",
+        "ID": 60402,
+        "data_list": {
+          "1": {
+            "Para": "60083,2",
+            "Target": "UpperTarget",
+            "Type": "BEAddState"
+          }
+        }
+      }
+    },
+    "State": {
+      "60089": {
+        "ClearCond": {
+          "1": "BSTBeforeBattleEnd"
+        },
+        "CnID": "\u72b6\u6001@\u901a\u7528\u52a0\u56fa",
+        "Desc": "State_60089_Desc|\u627f\u53d7\u7684\u6240\u6709\u4f24\u5bb3\u964d\u4f4e [Layer] %\u3002",
+        "ExistProperty": {
+          "be_damage_per": "ChangedLayer*(-1)",
+          "be_fixed_damage_per1": "ChangedLayer*(-1)",
+          "be_passive_damage_per": "ChangedLayer*(-1)"
+        },
+        "ID": 60089,
+        "Icon": "IconS_Buff_046.png",
+        "IsBuff": "TRUE",
+        "MaxLayer": 999999999,
+        "MergeStateDisplay": 97744,
+        "Name": "State_60089_Name|<ReinforceColour:\u52a0\u56fa>",
+        "Owner": "StateOwner",
+        "ShowType": "Normal",
+        "Statistic": "Disable",
+        "TriggerPriority": 99,
+        "WeaponDesc": "State_60089_WeaponDesc|\u9020\u6210\u7684\u6240\u6709\u4f24\u5bb3\u964d\u4f4e [DescArg1] %\u3002"
+      },
+      "2900": {
+        "ClearCond": {
+          "1": "BSTBeforeBattleEnd"
+        },
+        "CnID": "\u72b6\u6001@\u901a\u7528\u529b\u91cf",
+        "Desc": "State_2900_Desc|\u672c\u573a\u6218\u6597\u5185\u9020\u6210\u7684\u4f24\u5bb3\u63d0\u9ad8 [Layer] \u70b9\u3002",
+        "ExistProperty": {
+          "damage_plus": "ChangedLayer",
+          "tentacle_dmg": "ChangedLayer*0.5"
+        },
+        "ID": 2900,
+        "Icon": "IconS_Buff_021.png",
+        "IsBuff": "TRUE",
+        "MaxLayer": 999999999,
+        "MergeStateDisplay": 97743,
+        "Name": "State_2900_Name|\u529b\u91cf",
+        "Owner": "StateOwner",
+        "ShowType": "Normal",
+        "Statistic": "Disable",
+        "TriggerPriority": 99,
+        "WeaponDesc": "State_2900_WeaponDesc|\u672c\u573a\u6218\u6597\u5185\u9020\u6210\u7684\u4f24\u5bb3\u63d0\u9ad8 [Layer] \u70b9\u3002"
+      },
+      "60404": {
+        "CnID": "\u72b6\u6001@\u9b3c\u9762\u72ac@\u7ec8\u7109\u8715\u53d8",
+        "Desc": "State_60404_Desc|\u6bcf\u53d7\u5230 1 \u6b21\u4f24\u5bb3\uff0c\u83b7\u5f97 2 \u5c42\u4e34\u65f6\u52a0\u56fa\u3002",
+        "ID": 60404,
+        "Icon": "IconS_Buff_016.png",
+        "Judgement1": "TriggerValue<0",
+        "MaxLayer": 1,
+        "Name": "State_60404_Name|\u7ec8\u7109\u8715\u53d8",
+        "Owner": "StateOwner",
+        "ShowType": "Normal",
+        "Statistic": "Disable",
+        "TriggerCmd1": 60402,
+        "TriggerCond1": {
+          "1": "BSTHpChanged"
+        },
+        "TriggerPriority": 99,
+        "TriggerTarget1": "StateOwner"
+      },
+      "60083": {
+        "ClearCond": {
+          "1": "BSTBeforeBoutBegin",
+          "2": "BSTBeforeBattleEnd"
+        },
+        "CnID": "\u72b6\u6001@\u901a\u7528\u4e34\u65f6\u52a0\u56fa",
+        "Desc": "State_60083_Desc|\u672c\u56de\u5408\u627f\u53d7\u7684\u4f24\u5bb3\u964d\u4f4e [Layer] %\u3002",
+        "ExistProperty": {
+          "be_damage_per": "ChangedLayer*(-1)",
+          "be_fixed_damage_per1": "ChangedLayer*(-1)",
+          "be_passive_damage_per": "ChangedLayer*(-1)"
+        },
+        "ID": 60083,
+        "Icon": "IconS_Buff_046.png",
+        "IsBuff": "TRUE",
+        "MaxLayer": 99,
+        "MergeStateDisplay": 97744,
+        "Name": "State_60083_Name|<ReinforceColour:\u52a0\u56fa>",
+        "Owner": "StateOwner",
+        "ShowType": "Normal",
+        "Statistic": "Disable",
+        "TriggerPriority": 99,
+        "WeaponDesc": "State_60083_WeaponDesc|\u9020\u6210\u7684\u6240\u6709\u4f24\u5bb3\u964d\u4f4e [DescArg1] %\u3002"
+      }
+    }
+  },
+  "derived": {
+    "skillArgument": "ceil(CmdCaster.atk * 0.08) through the separately verified ordinary skill-argument path",
+    "onSkillExecution": [
+      "add 20 layers of state 60089 permanent Reinforce",
+      "add Arg1 layers of state 2900 Strength",
+      "execute BEMonsterBubble presentation/record row with Monster_Chapter8_08 and 8000",
+      "add one layer of listener state 60404"
+    ],
+    "onLaterHpDecrease": "state 60404 accepts TriggerValue < 0 on BSTHpChanged and command 60402 adds 2 layers of state 60083 temporary Reinforce",
+    "clearBoundaries": {
+      "state60089": [
+        "BSTBeforeBattleEnd"
+      ],
+      "state60083": [
+        "BSTBeforeBoutBegin",
+        "BSTBeforeBattleEnd"
+      ]
+    },
+    "properties": {
+      "state60089": {
+        "be_damage_per": "ChangedLayer*(-1)",
+        "be_fixed_damage_per1": "ChangedLayer*(-1)",
+        "be_passive_damage_per": "ChangedLayer*(-1)"
+      },
+      "state2900": {
+        "damage_plus": "ChangedLayer",
+        "tentacle_dmg": "ChangedLayer*0.5"
+      },
+      "state60083": {
+        "be_damage_per": "ChangedLayer*(-1)",
+        "be_fixed_damage_per1": "ChangedLayer*(-1)",
+        "be_passive_damage_per": "ChangedLayer*(-1)"
+      }
+    }
+  },
+  "scope": "Exact normalized selected Skill/Cmd/State rows in both pinned PC catalogs; BaseSortID transport/order metadata excluded. Skill-argument ceiling, add-state/property and HP-event behavior are established by separate registry evidence. This report does not execute command 60401, BEMonsterBubble, clear events or transition-skill scheduling.",
+  "limitations": [
+    "Per actual negative HP-change event, not every attempted hit",
+    "No full command scheduler, state-clear event execution, gameplay observation or holdout credit",
+    "No cheese, budget-comp or leaderboard claim"
+  ]
+}
