@@ -3858,6 +3858,33 @@
       ]
     },
     {
+      "id": "PC150:SkillPhaseSelectedBoundary",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "Resource 150 reproduces all 137 inherited phase-cleanup, StateOwner target-handoff, ArgN lookup and connected skill-argument fixtures exactly",
+      "scope": "BattleCmdServer phase cleanup and skill-argument construction; BattleCmdParser StateOwner selection, target handoff and ArgN lookup. TriggerCmd body, target-expression initialization, event listener dispatch, complete card phases, gameplay and holdout credit remain outside scope.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 skill-phase module comparison",
+          "member": "selected command/parser hashes",
+          "sha256": "bbd0493d8073989dd99e9d15b8ea7f89ee35de9fbd40687112c03ddbef1ae8a9"
+        },
+        {
+          "module": "PC resource-150 selected skill-phase runtime comparison",
+          "member": "fixture-domain result",
+          "sha256": "bb793fe88b458888df5633b4cf0b7dab4335d58150230d3bd254c03e5469d0d6"
+        }
+      ],
+      "checks": [
+        "tools/verify_current_skill_phase_boundary.py",
+        "tests/current-skill-phase-boundary.test.mjs",
+        "tests/skill-phase-finish.test.mjs",
+        "tests/state-owner-target.test.mjs",
+        "tests/command-arguments.test.mjs",
+        "tests/skill-arguments.test.mjs"
+      ]
+    },
+    {
       "id": "PC150:BattleRecord.SelectedFrames",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
       "claim": "The installed resource-150 BattleRecord reproduces all 14 inherited selected replay-frame and queue fixtures exactly",

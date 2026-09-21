@@ -4,8 +4,8 @@ import ctypes as C
 from state_owner_target_oracle import StateOwnerOracle, ROOT
 
 class ArgumentOracle(StateOwnerOracle):
-    def __init__(self):
-        super().__init__()
+    def __init__(self,asset_overrides=None):
+        super().__init__(asset_overrides)
         self.rawseti = self.lib.lua_rawseti
         self.rawseti.argtypes = [C.c_void_p, C.c_int, C.c_longlong]
         self.rawseti.restype = None

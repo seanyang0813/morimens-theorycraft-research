@@ -4,8 +4,8 @@ import json
 from target_runtime_oracle import TargetOracle, ROOT
 
 class ConnectedArguments(TargetOracle):
-    def __init__(self):
-        super().__init__();self.module('FuncTable');self.setglobal(self.state,b'_argument_closures')
+    def __init__(self,asset_overrides=None):
+        super().__init__(asset_overrides);self.module('FuncTable',(asset_overrides or {}).get('FuncTable'));self.setglobal(self.state,b'_argument_closures')
         self.rawset=self.lib.lua_rawseti;self.rawset.argtypes=[C.c_void_p,C.c_int,C.c_longlong];self.rawset.restype=None
         self.rawget=self.lib.lua_rawgeti;self.rawget.argtypes=[C.c_void_p,C.c_int,C.c_longlong];self.rawget.restype=C.c_int
         self.pushstr=self.lib.lua_pushstring;self.pushstr.argtypes=[C.c_void_p,C.c_char_p];self.pushstr.restype=C.c_char_p

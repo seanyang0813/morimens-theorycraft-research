@@ -3,8 +3,8 @@ import ctypes as C
 import json
 from behit_hp_oracle import BeHitHpOracle, ROOT
 class StateOwnerOracle(BeHitHpOracle):
-    def __init__(self):
-        super().__init__();L=self.state
+    def __init__(self,asset_overrides=None):
+        asset_overrides=asset_overrides or {};super().__init__(asset_overrides);L=self.state
         self.rawgeti=self.lib.lua_rawgeti;self.rawgeti.argtypes=[C.c_void_p,C.c_int,C.c_longlong];self.rawgeti.restype=C.c_int
         def expression(s):
             self.table(s,0,2);self.pushvalue(s,2);self.setfield(s,-2,b'targets')
@@ -20,8 +20,8 @@ class StateOwnerOracle(BeHitHpOracle):
             else:self.errors.append(repr(name));self.nil(s)
             return 1
         self.callback(require);self.setglobal(L,b'require')
-        self.module('BattleCmdTargetsExp');self.setglobal(L,b'_target_expression')
-        self.module('BattleCmdParser');self.setglobal(L,b'_target_parser')
+        self.module('BattleCmdTargetsExp',asset_overrides.get('BattleCmdTargetsExp'));self.setglobal(L,b'_target_expression')
+        self.module('BattleCmdParser',asset_overrides.get('BattleCmdParser'));self.setglobal(L,b'_target_parser')
         if self.errors:raise RuntimeError(self.errors)
     def run_target(self,v):
         L=self.state;self.top(L,0);self.lookups=[];self.errorCount=0

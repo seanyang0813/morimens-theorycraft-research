@@ -2,8 +2,8 @@
 import json
 from behit_hp_oracle import BeHitHpOracle, ROOT
 class PhaseFinishOracle(BeHitHpOracle):
-    def __init__(self):
-        super().__init__();L=self.state
+    def __init__(self,asset_overrides=None):
+        asset_overrides=asset_overrides or {};super().__init__(asset_overrides);L=self.state
         self.table(L,0,1)
         def base_do(s):return 0
         self.method('DoEffect',base_do);self.setglobal(L,b'_phase_super')
@@ -19,7 +19,7 @@ class PhaseFinishOracle(BeHitHpOracle):
             else:self.errors.append(repr(name));self.nil(s)
             return 1
         self.callback(require);self.setglobal(L,b'require')
-        self.module('BECreateSkillPhase');self.setglobal(L,b'_phase_original')
+        self.module('BECreateSkillPhase',asset_overrides.get('BECreateSkillPhase'));self.setglobal(L,b'_phase_original')
         if self.errors:raise RuntimeError(self.errors)
     def run_finish(self,v):
         L=self.state;self.top(L,0);self.trace=[]
