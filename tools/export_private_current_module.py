@@ -14,7 +14,7 @@ def main():
     except ValueError as error:raise ValueError('Output must stay inside ignored observations') from error
     if output.exists():raise FileExistsError('Refusing to overwrite private module')
     key=ROOT/'research/raw/bundle-key.bin';UnityPy.set_assetbundle_decrypt_key(key.read_bytes());matches=[]
-    for bundle_name in ('share.ab','gamescript.ab','foundation.ab'):
+    for bundle_name in ('share.ab','gamescript.ab','foundation.ab','config.ab'):
         path=args.install_root.resolve()/'_game_data_'/'DownLoad'/bundle_name
         for obj in UnityPy.load(str(path)).objects:
             if obj.type.name!='TextAsset':continue

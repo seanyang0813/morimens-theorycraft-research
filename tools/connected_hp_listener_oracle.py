@@ -14,6 +14,15 @@ PHASE_CAP_COMMAND_60406 = [
     {'Cond':'UpperTarget.GetStateLayer(60409)==1','Type':'BERemoveState','Para':'60407,Arg1','Target':'UpperTarget'},
     {'Cond':'UpperTarget.GetStateLayer(60409)==1','Type':'BERemoveState','Para':60409,'Target':'UpperTarget'},
 ]
+PHASE_CAP_COMMAND_60405 = [
+    {'Para':'60407,Arg1','Type':'BEAddState','Target':'UpperTarget','BaseSortID':3771},
+    {'Cond':'UpperTarget.GetStateLayer(60408)>Arg1','Type':'BESubStateLayer','Para':'60408,Arg1','Target':'UpperTarget'},
+    {'Cond':'LastConditionRet~=1','Type':'BESubStateLayer','Para':'60408,UpperTarget.GetStateLayer(60408)-1','Target':'UpperTarget'},
+    {'Cond':'UpperTarget.GetStateLayer(60408)==1','Type':'BEAddState','Para':'46441,1','Target':'UpperTarget'},
+    {'Cond':'UpperTarget.GetStateLayer(60408)==1','Type':'BEMonsterChangeSkill','Para':'60398,1','Target':'UpperTarget'},
+    {'Cond':'UpperTarget.GetStateLayer(60408)==1','Type':'BERemoveState','Para':'60407,Arg1','Target':'UpperTarget'},
+    {'Cond':'UpperTarget.GetStateLayer(60408)==1','Type':'BERemoveState','Para':60408,'Target':'UpperTarget'},
+]
 
 
 class ConnectedHpListenerOracle(ConnectedEventListenerOracle):

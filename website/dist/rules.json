@@ -2680,6 +2680,30 @@
       ]
     },
     {
+      "id": "PC144:PhaseCapExpressions",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "The authored phase-cap transition model matches the original compiled conditions and parameters for both phase commands, including boundary retention, counter saturation and second-phase installation",
+      "scope": "450 original compiled-expression sequences across max HP, phase identity/layers, counter and HP-loss boundaries. Python row iteration applies separately recovered integer state mutations; no original parser, effect construction/body, state manager, scheduler, gameplay or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "FuncTable",
+          "member": "all Cond and Para closures referenced by Cmd 60406/60405",
+          "sha256": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3"
+        },
+        {
+          "module": "Cmd",
+          "member": "60406,60405",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2"
+        }
+      ],
+      "checks": [
+        "tools/phase_cap_expression_oracle.py",
+        "tests/phase-cap-expressions.test.mjs",
+        "tests/phase-cap.test.mjs"
+      ]
+    },
+    {
       "id": "PC144:PveInitialPlayerProperties",
       "status": "CONFIRMED_FROM_CODE",
       "claim": "PVEGameplay passes battleInitData.copyProperties to the player, separately from Awakener attrs; property construction ceils supplied values",
@@ -4068,25 +4092,49 @@
     {
       "id": "PC150:ConnectedHpPhaseCapCommand",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
-      "claim": "Resource 150 reproduces all 4 HP-event-to-command-60406 row-construction fixtures exactly and its current 60406 catalog row set matches the baseline",
-      "scope": "Actual HP listener, cached state trigger, target/phase bodies, current TriggerCmd and GenerateEffectList traverse the eight configured rows. StateOwner, TriggerPara-to-Arg1, delays and final constructors remain adapters; no condition/effect-body execution, gameplay or holdout credit.",
+      "claim": "Resource 150 reproduces all 4 HP-event-to-command-60406 row-construction fixtures exactly and its current 60406/60405 catalog row sets match the baseline",
+      "scope": "Actual HP listener, cached state trigger, target/phase bodies, current TriggerCmd and GenerateEffectList traverse the eight first-phase rows; all seven second-phase rows are catalog-compared. StateOwner, TriggerPara-to-Arg1, delays and final constructors remain adapters; no condition/effect-body execution, gameplay or holdout credit.",
       "gameplayValidation": false,
       "sources": [
         {
           "module": "PC resource-150 command catalog",
-          "member": "exact command 60406 rows",
+          "member": "exact command 60406 and 60405 rows",
           "sha256": "52fea8a140dd391096450c67354d8de81f924e47f7265fb582bf3f095597c706"
         },
         {
           "module": "PC resource-150 connected phase-cap runtime comparison",
           "member": "fixture-domain result",
-          "sha256": "8fdccdfe2a5e9d6253eee4244c82f709ef4156d73635bd2eb7e9763c860b18d8"
+          "sha256": "2cb1f3624d8b60f8dccafa3840e51643a89592608984688001e400a268f51c79"
         }
       ],
       "checks": [
         "tools/connected_hp_phase_cap_command_oracle.py",
         "tools/verify_current_connected_hp_phase_cap_command.py",
         "tests/connected-hp-phase-cap-command.test.mjs"
+      ]
+    },
+    {
+      "id": "PC150:PhaseCapExpressions",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "The installed resource-150 FuncTable reproduces all 450 inherited phase-cap condition and parameter sequences exactly for the current 60406/60405 rows",
+      "scope": "Actual current FuncTable closures for every Cond/Para expression in both phase commands. Python row iteration and separately recovered integer mutations; no original parser, effect body, state manager, scheduler, gameplay or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 installed config bundle",
+          "member": "FuncTable.lua and Cmd catalog hashes",
+          "sha256": "95083098911cb6b1f54fcddb03e5dc797489bd080e55ddd9f72fc0da9b39a1e4"
+        },
+        {
+          "module": "PC resource-150 phase-cap expression runtime comparison",
+          "member": "fixture-domain result",
+          "sha256": "326c85424d821404b48d8c1f4a7f6b392bbbb48420e332d199fafa4e0c58b686"
+        }
+      ],
+      "checks": [
+        "tools/export_private_current_module.py",
+        "tools/verify_current_phase_cap_expressions.py",
+        "tests/phase-cap-expressions.test.mjs"
       ]
     },
     {

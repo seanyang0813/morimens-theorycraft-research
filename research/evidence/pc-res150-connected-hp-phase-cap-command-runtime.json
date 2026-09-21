@@ -18,11 +18,16 @@
   "exactMatches": 4,
   "mismatches": 0,
   "results": [],
-  "scope": "Current engine/constants/command bytecode, an exact current command-60406 row comparison, and identical state/target/phase/effect modules. The original runtime traverses all eight configured command rows after eligible HP changes.",
+  "resultsCatalogRows": {
+    "60406": 8,
+    "60405": 7
+  },
+  "scope": "Current engine/constants/command bytecode, exact current command-60406 and command-60405 row comparisons, and identical state/target/phase/effect modules. The original runtime traverses all eight configured first-phase command rows after eligible HP changes.",
   "limitations": [
     "StateOwner and TriggerPara-to-Arg1 are explicit adapters",
     "Delays and final effect constructors are observers",
     "No command conditions or effect bodies execute",
+    "Second-phase rows are catalog-compared but not connected through the HP runtime fixture",
     "No scheduler completion, gameplay or holdout credit"
   ]
 }
