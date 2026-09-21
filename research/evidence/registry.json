@@ -4953,6 +4953,31 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC144-PC150:ReplayCatalogBuildAttribution",
+      "status": "CONFIRMED_FROM_REPLAY_EMBEDDED_CATALOGS",
+      "claim": "Exact normalized embedded Cmd/Skill comparisons attribute 35 private replays to resource 144, 3 to resource 150 and leave 4 unmatched/intermediate",
+      "sources": [
+        {
+          "module": "Replay catalog build attribution",
+          "member": "anonymous per-replay comparison counts",
+          "bundle": "private decoded replays plus pinned complete catalog exports",
+          "sha256": "a74754f48c36326f6c80fd36f319af9d8cec79e7bca01f0666e755daa2de8567"
+        },
+        {
+          "module": "PC Awake-card catalog audit",
+          "member": "pinned catalog export hashes",
+          "bundle": "resource-144 exports plus installed resource-150 config bundle",
+          "sha256": "165b22607c5fe59b544e2469c06aa2c73ba9623e1252e7020e015ad451ed2d42"
+        }
+      ],
+      "tests": [
+        "tools/attribute_replay_catalog_builds.py",
+        "tests/replay-catalog-build-attribution.test.mjs"
+      ],
+      "scope": "Every embedded Cmd and Skill row; exact comparison after numeric-key Lua-list normalization and BaseSortID exclusion. Three resource-150 catalog matches include two audited replays with 13 retrospective chance-branch consistency matches and zero mismatches. Catalog attribution does not identify engine bytecode directly, make retrospective checks blind, execute event listeners or provide holdout/publication credit.",
+      "gameplayValidation": false
+    },
+    {
       "id": "ANDROID83:ScriptGroupManifest",
       "status": "CONFIRMED_FROM_LOCAL_MANIFEST",
       "claim": "The packaged Android resource-83 manifest identifies seven Scripts-group bundles by filename, size, resource index and MD5; the hash interpretation is established by a direct bundled Android startup-archive match",

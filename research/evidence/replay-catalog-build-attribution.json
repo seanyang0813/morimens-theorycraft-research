@@ -1,0 +1,1083 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_REPLAY_CATALOG_BUILD_ATTRIBUTION",
+  "builds": [
+    "pc-res144-build51",
+    "pc-res150-build51"
+  ],
+  "sourceHashes": {
+    "pc-res144-build51": {
+      "Cmd": "855355ad600a5c419a7704c9dfbba0c199ce57d6b474478e75b94e8d714e030c",
+      "Skill": "dd47c38241edb513c71bd09e6f1f9a8ecdbfc7080f59b0c12a300ac7be2f7a2d"
+    },
+    "pc-res150-build51": {
+      "Cmd": "52fea8a140dd391096450c67354d8de81f924e47f7265fb582bf3f095597c706",
+      "Skill": "8bf12c24be0f79308e2fb6a9a4e6bfc6a1a4420ab558dfe336686ca08d6f3aff"
+    }
+  },
+  "method": "Exact normalized comparison of every replay-embedded Cmd and Skill row against both complete pinned catalogs. Numeric-key Lua tables become arrays and BaseSortID transport/order metadata is excluded.",
+  "summary": {
+    "PC_RES144_BUILD51_CATALOG_MATCH": 35,
+    "PC_RES150_BUILD51_CATALOG_MATCH": 3,
+    "UNMATCHED_OR_INTERMEDIATE_CATALOG": 4
+  },
+  "replays": [
+    {
+      "observationId": "replay-batch-01",
+      "comparableRows": 291,
+      "sharedRows": 269,
+      "baselineExclusiveRows": 22,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 159,
+          "sharedRows": 157,
+          "baselineExclusiveRows": 2,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 132,
+          "sharedRows": 112,
+          "baselineExclusiveRows": 20,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-02",
+      "comparableRows": 199,
+      "sharedRows": 184,
+      "baselineExclusiveRows": 0,
+      "currentExclusiveRows": 15,
+      "unmatchedRows": 0,
+      "classification": "PC_RES150_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 111,
+          "sharedRows": 104,
+          "baselineExclusiveRows": 0,
+          "currentExclusiveRows": 7,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 88,
+          "sharedRows": 80,
+          "baselineExclusiveRows": 0,
+          "currentExclusiveRows": 8,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-03",
+      "comparableRows": 282,
+      "sharedRows": 259,
+      "baselineExclusiveRows": 23,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 158,
+          "sharedRows": 157,
+          "baselineExclusiveRows": 1,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 124,
+          "sharedRows": 102,
+          "baselineExclusiveRows": 22,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-04",
+      "comparableRows": 313,
+      "sharedRows": 301,
+      "baselineExclusiveRows": 12,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 169,
+          "sharedRows": 168,
+          "baselineExclusiveRows": 1,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 144,
+          "sharedRows": 133,
+          "baselineExclusiveRows": 11,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-05",
+      "comparableRows": 276,
+      "sharedRows": 260,
+      "baselineExclusiveRows": 16,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 149,
+          "sharedRows": 146,
+          "baselineExclusiveRows": 3,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 127,
+          "sharedRows": 114,
+          "baselineExclusiveRows": 13,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-06",
+      "comparableRows": 283,
+      "sharedRows": 266,
+      "baselineExclusiveRows": 17,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 152,
+          "sharedRows": 148,
+          "baselineExclusiveRows": 4,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 131,
+          "sharedRows": 118,
+          "baselineExclusiveRows": 13,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-07",
+      "comparableRows": 257,
+      "sharedRows": 245,
+      "baselineExclusiveRows": 12,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 156,
+          "sharedRows": 154,
+          "baselineExclusiveRows": 2,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 101,
+          "sharedRows": 91,
+          "baselineExclusiveRows": 10,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-08",
+      "comparableRows": 281,
+      "sharedRows": 260,
+      "baselineExclusiveRows": 21,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 158,
+          "sharedRows": 155,
+          "baselineExclusiveRows": 3,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 123,
+          "sharedRows": 105,
+          "baselineExclusiveRows": 18,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-09",
+      "comparableRows": 275,
+      "sharedRows": 262,
+      "baselineExclusiveRows": 13,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 177,
+          "sharedRows": 174,
+          "baselineExclusiveRows": 3,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 98,
+          "sharedRows": 88,
+          "baselineExclusiveRows": 10,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-10",
+      "comparableRows": 272,
+      "sharedRows": 253,
+      "baselineExclusiveRows": 0,
+      "currentExclusiveRows": 19,
+      "unmatchedRows": 0,
+      "classification": "PC_RES150_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 155,
+          "sharedRows": 149,
+          "baselineExclusiveRows": 0,
+          "currentExclusiveRows": 6,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 117,
+          "sharedRows": 104,
+          "baselineExclusiveRows": 0,
+          "currentExclusiveRows": 13,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-12",
+      "comparableRows": 305,
+      "sharedRows": 296,
+      "baselineExclusiveRows": 9,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 189,
+          "sharedRows": 189,
+          "baselineExclusiveRows": 0,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 116,
+          "sharedRows": 107,
+          "baselineExclusiveRows": 9,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-13",
+      "comparableRows": 330,
+      "sharedRows": 320,
+      "baselineExclusiveRows": 10,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 225,
+          "sharedRows": 225,
+          "baselineExclusiveRows": 0,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 105,
+          "sharedRows": 95,
+          "baselineExclusiveRows": 10,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-14",
+      "comparableRows": 199,
+      "sharedRows": 189,
+      "baselineExclusiveRows": 10,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 113,
+          "sharedRows": 113,
+          "baselineExclusiveRows": 0,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 86,
+          "sharedRows": 76,
+          "baselineExclusiveRows": 10,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-15",
+      "comparableRows": 244,
+      "sharedRows": 234,
+      "baselineExclusiveRows": 10,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 151,
+          "sharedRows": 151,
+          "baselineExclusiveRows": 0,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 93,
+          "sharedRows": 83,
+          "baselineExclusiveRows": 10,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-16",
+      "comparableRows": 265,
+      "sharedRows": 254,
+      "baselineExclusiveRows": 11,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 167,
+          "sharedRows": 166,
+          "baselineExclusiveRows": 1,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 98,
+          "sharedRows": 88,
+          "baselineExclusiveRows": 10,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-17",
+      "comparableRows": 204,
+      "sharedRows": 195,
+      "baselineExclusiveRows": 9,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 114,
+          "sharedRows": 114,
+          "baselineExclusiveRows": 0,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 90,
+          "sharedRows": 81,
+          "baselineExclusiveRows": 9,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-18",
+      "comparableRows": 304,
+      "sharedRows": 289,
+      "baselineExclusiveRows": 15,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 200,
+          "sharedRows": 198,
+          "baselineExclusiveRows": 2,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 104,
+          "sharedRows": 91,
+          "baselineExclusiveRows": 13,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-19",
+      "comparableRows": 305,
+      "sharedRows": 289,
+      "baselineExclusiveRows": 16,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 196,
+          "sharedRows": 192,
+          "baselineExclusiveRows": 4,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 109,
+          "sharedRows": 97,
+          "baselineExclusiveRows": 12,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-20",
+      "comparableRows": 287,
+      "sharedRows": 256,
+      "baselineExclusiveRows": 6,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 25,
+      "classification": "UNMATCHED_OR_INTERMEDIATE_CATALOG",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 185,
+          "sharedRows": 183,
+          "baselineExclusiveRows": 1,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 1
+        },
+        "Skill": {
+          "comparableRows": 102,
+          "sharedRows": 73,
+          "baselineExclusiveRows": 5,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 24
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-21",
+      "comparableRows": 330,
+      "sharedRows": 307,
+      "baselineExclusiveRows": 23,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 195,
+          "sharedRows": 188,
+          "baselineExclusiveRows": 7,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 135,
+          "sharedRows": 119,
+          "baselineExclusiveRows": 16,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-22",
+      "comparableRows": 274,
+      "sharedRows": 254,
+      "baselineExclusiveRows": 20,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 170,
+          "sharedRows": 166,
+          "baselineExclusiveRows": 4,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 104,
+          "sharedRows": 88,
+          "baselineExclusiveRows": 16,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-23",
+      "comparableRows": 257,
+      "sharedRows": 246,
+      "baselineExclusiveRows": 11,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 152,
+          "sharedRows": 151,
+          "baselineExclusiveRows": 1,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 105,
+          "sharedRows": 95,
+          "baselineExclusiveRows": 10,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-24",
+      "comparableRows": 247,
+      "sharedRows": 228,
+      "baselineExclusiveRows": 19,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 152,
+          "sharedRows": 149,
+          "baselineExclusiveRows": 3,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 95,
+          "sharedRows": 79,
+          "baselineExclusiveRows": 16,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-25",
+      "comparableRows": 253,
+      "sharedRows": 242,
+      "baselineExclusiveRows": 11,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 153,
+          "sharedRows": 151,
+          "baselineExclusiveRows": 2,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 100,
+          "sharedRows": 91,
+          "baselineExclusiveRows": 9,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-26",
+      "comparableRows": 276,
+      "sharedRows": 247,
+      "baselineExclusiveRows": 7,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 22,
+      "classification": "UNMATCHED_OR_INTERMEDIATE_CATALOG",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 177,
+          "sharedRows": 175,
+          "baselineExclusiveRows": 2,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 99,
+          "sharedRows": 72,
+          "baselineExclusiveRows": 5,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 22
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-27",
+      "comparableRows": 254,
+      "sharedRows": 242,
+      "baselineExclusiveRows": 12,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 146,
+          "sharedRows": 144,
+          "baselineExclusiveRows": 2,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 108,
+          "sharedRows": 98,
+          "baselineExclusiveRows": 10,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-28",
+      "comparableRows": 235,
+      "sharedRows": 203,
+      "baselineExclusiveRows": 6,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 26,
+      "classification": "UNMATCHED_OR_INTERMEDIATE_CATALOG",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 137,
+          "sharedRows": 137,
+          "baselineExclusiveRows": 0,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 98,
+          "sharedRows": 66,
+          "baselineExclusiveRows": 6,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 26
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-29",
+      "comparableRows": 296,
+      "sharedRows": 279,
+      "baselineExclusiveRows": 17,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 194,
+          "sharedRows": 193,
+          "baselineExclusiveRows": 1,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 102,
+          "sharedRows": 86,
+          "baselineExclusiveRows": 16,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-30",
+      "comparableRows": 346,
+      "sharedRows": 328,
+      "baselineExclusiveRows": 18,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 223,
+          "sharedRows": 216,
+          "baselineExclusiveRows": 7,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 123,
+          "sharedRows": 112,
+          "baselineExclusiveRows": 11,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-31",
+      "comparableRows": 356,
+      "sharedRows": 301,
+      "baselineExclusiveRows": 16,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 39,
+      "classification": "UNMATCHED_OR_INTERMEDIATE_CATALOG",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 212,
+          "sharedRows": 204,
+          "baselineExclusiveRows": 6,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 2
+        },
+        "Skill": {
+          "comparableRows": 144,
+          "sharedRows": 97,
+          "baselineExclusiveRows": 10,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 37
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-32",
+      "comparableRows": 275,
+      "sharedRows": 252,
+      "baselineExclusiveRows": 23,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 151,
+          "sharedRows": 148,
+          "baselineExclusiveRows": 3,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 124,
+          "sharedRows": 104,
+          "baselineExclusiveRows": 20,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-33",
+      "comparableRows": 277,
+      "sharedRows": 262,
+      "baselineExclusiveRows": 15,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 178,
+          "sharedRows": 174,
+          "baselineExclusiveRows": 4,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 99,
+          "sharedRows": 88,
+          "baselineExclusiveRows": 11,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-34",
+      "comparableRows": 293,
+      "sharedRows": 270,
+      "baselineExclusiveRows": 23,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 161,
+          "sharedRows": 159,
+          "baselineExclusiveRows": 2,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 132,
+          "sharedRows": 111,
+          "baselineExclusiveRows": 21,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-35",
+      "comparableRows": 275,
+      "sharedRows": 264,
+      "baselineExclusiveRows": 11,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 162,
+          "sharedRows": 161,
+          "baselineExclusiveRows": 1,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 113,
+          "sharedRows": 103,
+          "baselineExclusiveRows": 10,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-36",
+      "comparableRows": 344,
+      "sharedRows": 318,
+      "baselineExclusiveRows": 26,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 208,
+          "sharedRows": 204,
+          "baselineExclusiveRows": 4,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 136,
+          "sharedRows": 114,
+          "baselineExclusiveRows": 22,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-37",
+      "comparableRows": 303,
+      "sharedRows": 287,
+      "baselineExclusiveRows": 16,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 200,
+          "sharedRows": 195,
+          "baselineExclusiveRows": 5,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 103,
+          "sharedRows": 92,
+          "baselineExclusiveRows": 11,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-38",
+      "comparableRows": 231,
+      "sharedRows": 221,
+      "baselineExclusiveRows": 10,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 130,
+          "sharedRows": 130,
+          "baselineExclusiveRows": 0,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 101,
+          "sharedRows": 91,
+          "baselineExclusiveRows": 10,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-39",
+      "comparableRows": 276,
+      "sharedRows": 264,
+      "baselineExclusiveRows": 12,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 174,
+          "sharedRows": 172,
+          "baselineExclusiveRows": 2,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 102,
+          "sharedRows": 92,
+          "baselineExclusiveRows": 10,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-40",
+      "comparableRows": 277,
+      "sharedRows": 266,
+      "baselineExclusiveRows": 11,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 175,
+          "sharedRows": 175,
+          "baselineExclusiveRows": 0,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 102,
+          "sharedRows": 91,
+          "baselineExclusiveRows": 11,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-41",
+      "comparableRows": 261,
+      "sharedRows": 241,
+      "baselineExclusiveRows": 20,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 138,
+          "sharedRows": 135,
+          "baselineExclusiveRows": 3,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 123,
+          "sharedRows": 106,
+          "baselineExclusiveRows": 17,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-42",
+      "comparableRows": 287,
+      "sharedRows": 275,
+      "baselineExclusiveRows": 12,
+      "currentExclusiveRows": 0,
+      "unmatchedRows": 0,
+      "classification": "PC_RES144_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 181,
+          "sharedRows": 180,
+          "baselineExclusiveRows": 1,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 106,
+          "sharedRows": 95,
+          "baselineExclusiveRows": 11,
+          "currentExclusiveRows": 0,
+          "unmatchedRows": 0
+        }
+      }
+    },
+    {
+      "observationId": "replay-batch-43",
+      "comparableRows": 138,
+      "sharedRows": 130,
+      "baselineExclusiveRows": 0,
+      "currentExclusiveRows": 8,
+      "unmatchedRows": 0,
+      "classification": "PC_RES150_BUILD51_CATALOG_MATCH",
+      "catalogs": {
+        "Cmd": {
+          "comparableRows": 92,
+          "sharedRows": 91,
+          "baselineExclusiveRows": 0,
+          "currentExclusiveRows": 1,
+          "unmatchedRows": 0
+        },
+        "Skill": {
+          "comparableRows": 46,
+          "sharedRows": 39,
+          "baselineExclusiveRows": 0,
+          "currentExclusiveRows": 7,
+          "unmatchedRows": 0
+        }
+      }
+    }
+  ],
+  "privacy": "Only anonymous batch labels and aggregate comparison counts are published; no player, account, replay, battle or instance identifiers.",
+  "limitations": [
+    "Catalog attribution identifies the resource data used by the replay, not the engine bytecode build by itself",
+    "Rows shared by both builds provide no discriminating evidence",
+    "Unmatched rows are not forced to either pinned build",
+    "Retrospective attribution does not create a blind prediction or holdout"
+  ]
+}
