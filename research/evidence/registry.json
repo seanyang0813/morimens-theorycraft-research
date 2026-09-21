@@ -2666,7 +2666,7 @@
     {
       "id": "PC144:ActiveEffectExecutionBoundary",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
-      "claim": "Effect-manager construction of BEActiveDamage proceeds through original constructors and repetition routing; original BEFunctionEffect dispatch invokes original Damage2SingleTarget and GetRealDmg arithmetic",
+      "claim": "Effect-manager construction of BEActiveDamage proceeds through original repetition routing, formula, BeHit and HP mutation",
       "sources": [
         {
           "module": "BattleEffectMgrServer",
@@ -2702,13 +2702,27 @@
           "bundle": "pc\\downloaded\\share.ab",
           "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "BeHit,ImmueDamage,SubProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "SubProperty,BeforeSub,AfterSub",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
         }
       ],
       "tests": [
         "tools/active_effect_execution_oracle.py",
         "tests/active-effect-execution.test.mjs"
       ],
-      "scope": "4 original-runtime positive-repeat cases with explicit neutral PvE actor/player/target adapters and empty skill types. BeHit records the request. Original BeHit/HP, scheduler completion, gameplay and holdout remain outside scope.",
+      "scope": "4 original-runtime positive-repeat cases with explicit neutral PvE actor/player/target adapters and empty skill types. Property callbacks and hit recording are observers; animation and downstream events are no-op adapters. Scheduler completion, event lifecycle, gameplay and holdout remain outside scope.",
       "gameplayValidation": false
     },
     {
@@ -4781,7 +4795,7 @@
     {
       "id": "PC150:SkillPhaseSelectedBoundary",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
-      "claim": "Resource 150 reproduces all 256 inherited connected phase-start, TriggerCmd, effect-construction, Active/Function-effect, formula, cleanup, target-handoff, argument, timing and command-row-order fixtures exactly",
+      "claim": "Resource 150 reproduces all 256 inherited connected phase-start, TriggerCmd, effect-construction, Active/Function-effect, formula/HP, cleanup, target-handoff, argument, timing and command-row-order fixtures exactly",
       "sources": [
         {
           "module": "PC resource-150 skill-phase module comparison",
@@ -4793,7 +4807,7 @@
           "module": "PC resource-150 selected skill-phase runtime comparison",
           "member": "fixture-domain result",
           "bundle": "copied XLua runtime; hashes only",
-          "sha256": "ea1d31ac9eec18a73df0468cd96e7eddab1bd3fa7d59092ef871876c5c3839f1"
+          "sha256": "007471dee276209dad5aa6535ad27891a33701da19c440dc744d70084b4982cb"
         }
       ],
       "tests": [
@@ -4808,7 +4822,7 @@
         "tests/command-delays.test.mjs",
         "tools/command_row_order_oracle.py"
       ],
-      "scope": "BECreateSkillPhase start through BattleCmdServer TriggerCmd and child PreTrigger; original GenerateEffectObj through original effect-manager creation; real BEActiveDamage/BEFunctionEffect construction, target/parameter binding, repetition routing, function dispatch and GetRealDmg offensive/final-target arithmetic; phase cleanup, arguments, delay planning, row ordering and selected parser paths. Formula fixtures use explicit neutral PvE adapters and empty skill types; BeHit records the request. Original BeHit/HP, target-expression initialization, event listeners, complete card phases, gameplay and holdout credit remain outside scope.",
+      "scope": "BECreateSkillPhase start through BattleCmdServer TriggerCmd and child PreTrigger; original GenerateEffectObj through original effect-manager creation; real BEActiveDamage/BEFunctionEffect construction, repetition routing, formula, BattleUnitBase.BeHit and BattlePropertyServer HP mutation; phase cleanup, arguments, delay planning, row ordering and selected parser paths. Connected hit fixtures use explicit neutral PvE adapters and empty skill types; property/hit observers and no-op animation/downstream-event adapters remain. Target-expression initialization, event lifecycle, complete card phases, gameplay and holdout credit remain outside scope.",
       "gameplayValidation": false
     },
     {
