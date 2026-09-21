@@ -3672,6 +3672,25 @@
       ]
     },
     {
+      "id": "PC150:CoreSchedulerModuleEquality",
+      "status": "CONFIRMED_FROM_IDENTICAL_CODE",
+      "claim": "Resource 150 retains byte-identical BattleEffectServer, BattleEffectMgrServer, BEFunctionEffect, BEAttachPostAction and BESendEvent modules",
+      "scope": "Carries source/runtime evidence for these exact modules across builds, including tested child/repetition and root-attachment order. Changed BattleEngine update/dispatch loop, complete battle traversal, gameplay and holdout credit remain outside scope.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 scheduler comparison",
+          "member": "selected TextAsset content hashes",
+          "sha256": "ef4f9953bdd0e3313e3ce940fd780bfad6659b642ffed27d0ab9c5831e4874d8"
+        }
+      ],
+      "checks": [
+        "tools/compare_current_scheduler_modules.py",
+        "tests/current-scheduler-modules.test.mjs",
+        "tests/effect-order.test.mjs"
+      ]
+    },
+    {
       "id": "PC144-PC150:AwakeCardCommandBoundary",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
       "claim": "Both inspected PC catalogs contain 69 Awake skills linked to 64 commands and zero directly linked damage rows; one-level literal traversal reaches one conditional Passive-damage row in each build",
