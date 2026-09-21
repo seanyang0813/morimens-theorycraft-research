@@ -1,0 +1,111 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleCmdServer": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+    "BattleEffectMgrServer": "9a94157af60365d26188b578ca7f69987503b980ce51a420765eca45b4b8ab41"
+  },
+  "scope": "Original GenerateEffectObj connected to original BattleEffectMgrServer.CreateEffect. Synthetic callable BEProbe class observes the complete effect configuration and creates an inert object. Covers CMD/non-CMD, BE/non-BE and fixed-argument routing. No real effect class, PreTrigger, scheduling, damage, gameplay or holdout.",
+  "fixtures": [
+    {
+      "input": {
+        "name": "basic",
+        "type": "BEProbe",
+        "apiType": "cmd",
+        "delay": 0.25,
+        "skipPhase": false,
+        "index": 1,
+        "interrupt": null
+      },
+      "expected": {
+        "returnedEffect": true,
+        "managerEffectCount": 1,
+        "constructed": [
+          {
+            "effectType": "BEProbe",
+            "fixArg": null,
+            "cmdIndex": 1.0,
+            "beforeDelay": 0.25,
+            "castRoleUid": 9.0,
+            "skipPhase": false,
+            "isFromCmd": true,
+            "interruptCmdCond": null,
+            "commandIdentity": true,
+            "rowIdentity": true
+          }
+        ],
+        "preTriggers": 0,
+        "warnings": []
+      }
+    },
+    {
+      "input": {
+        "name": "fixed-argument",
+        "type": "BEProbe.Fixed",
+        "apiType": "cmd",
+        "delay": 0,
+        "skipPhase": true,
+        "index": 2,
+        "interrupt": "Arg1>0"
+      },
+      "expected": {
+        "returnedEffect": true,
+        "managerEffectCount": 1,
+        "constructed": [
+          {
+            "effectType": "BEProbe",
+            "fixArg": "Fixed",
+            "cmdIndex": 2.0,
+            "beforeDelay": 0.0,
+            "castRoleUid": 9.0,
+            "skipPhase": true,
+            "isFromCmd": true,
+            "interruptCmdCond": "Arg1>0",
+            "commandIdentity": true,
+            "rowIdentity": true
+          }
+        ],
+        "preTriggers": 0,
+        "warnings": []
+      }
+    },
+    {
+      "input": {
+        "name": "non-be-command",
+        "type": "PlainEffect",
+        "apiType": "cmd",
+        "delay": 1,
+        "skipPhase": false,
+        "index": 3,
+        "interrupt": null
+      },
+      "expected": {
+        "returnedEffect": false,
+        "managerEffectCount": 0,
+        "constructed": [],
+        "preTriggers": 0,
+        "warnings": [
+          "PlainEffect"
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "non-command-api",
+        "type": "BEProbe",
+        "apiType": "other",
+        "delay": 1,
+        "skipPhase": false,
+        "index": 4,
+        "interrupt": null
+      },
+      "expected": {
+        "returnedEffect": false,
+        "managerEffectCount": 0,
+        "constructed": [],
+        "preTriggers": 0,
+        "warnings": []
+      }
+    }
+  ]
+}

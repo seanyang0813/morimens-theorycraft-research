@@ -2637,6 +2637,33 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC144:CommandEffectConstruction",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "GenerateEffectObj routes supported BE command rows through the effect manager with the original row/command objects and complete construction metadata, using onlyCreate to defer PreTrigger",
+      "sources": [
+        {
+          "module": "BattleCmdServer",
+          "member": "GenerateEffectObj",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        },
+        {
+          "module": "BattleEffectMgrServer",
+          "member": "CreateEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9a94157af60365d26188b578ca7f69987503b980ce51a420765eca45b4b8ab41",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\5828893898592423491_BattleEffectMgrServer.lua"
+        }
+      ],
+      "tests": [
+        "tools/command_effect_construction_oracle.py",
+        "tests/trigger-cmd.test.mjs"
+      ],
+      "scope": "4 original-runtime cases covering CMD/non-CMD, BE/non-BE and fixed-argument routing. The callable BEProbe class is synthetic and inert; real effect classes, PreTrigger, scheduling, damage, gameplay and holdout remain outside scope.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC144:ConnectedSkillPhaseStart",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "BECreateSkillPhase.DoEffect enters the phase hooks and then executes TriggerCmd through effect-list creation and child PreTrigger calls",
@@ -4706,7 +4733,7 @@
     {
       "id": "PC150:SkillPhaseSelectedBoundary",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
-      "claim": "Resource 150 reproduces all 248 inherited connected phase-start, TriggerCmd, cleanup, target-handoff, argument, timing and command-row-order fixtures exactly",
+      "claim": "Resource 150 reproduces all 252 inherited connected phase-start, TriggerCmd, effect-construction, cleanup, target-handoff, argument, timing and command-row-order fixtures exactly",
       "sources": [
         {
           "module": "PC resource-150 skill-phase module comparison",
@@ -4718,7 +4745,7 @@
           "module": "PC resource-150 selected skill-phase runtime comparison",
           "member": "fixture-domain result",
           "bundle": "copied XLua runtime; hashes only",
-          "sha256": "c79dba8010fa163ae4dc897306c0cd03932bf123f09ef83cdbc002df739b3ba0"
+          "sha256": "3b24edced8c8b7bed02420c1e74bff75ee930c74912d879af96cbb4cc2e8760b"
         }
       ],
       "tests": [
@@ -4732,7 +4759,7 @@
         "tests/command-delays.test.mjs",
         "tools/command_row_order_oracle.py"
       ],
-      "scope": "BECreateSkillPhase start through BattleCmdServer TriggerCmd and observer effect construction; phase cleanup, skill arguments, delay planning and row ordering; BattleCmdParser StateOwner selection, target handoff and ArgN lookup. Real generated-effect execution, target-expression initialization, event listener dispatch, complete card phases, gameplay and holdout credit remain outside scope.",
+      "scope": "BECreateSkillPhase start through BattleCmdServer TriggerCmd and child PreTrigger; original GenerateEffectObj through original effect-manager creation; phase cleanup, skill arguments, delay planning and row ordering; BattleCmdParser StateOwner selection, target handoff and ArgN lookup. Constructed effect classes are inert probes; real effect-class execution, target-expression initialization, event listener dispatch, complete card phases, gameplay and holdout credit remain outside scope.",
       "gameplayValidation": false
     },
     {

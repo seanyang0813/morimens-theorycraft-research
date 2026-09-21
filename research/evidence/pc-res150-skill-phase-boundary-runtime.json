@@ -16,14 +16,15 @@
     "delayFixture": "36d05cda618824febe2993a10f04b9b655f516e4286c5f931fbd6473ec664e6c",
     "triggerFixture": "1dafc124510a38ab4d851f582c5b7048ddc9541afb8e7e3f95ef215c6ee0dbfe",
     "connectedPhaseFixture": "b4db7de615267dbebab1182211b8548c0424114da331522410b5e9b50dd65047",
+    "constructionFixture": "7071b60e7cc7aaa23a5072cf297c62ae8be7a8c0dc3ec82416fd42040bf48ef0",
     "currentBattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
     "currentBattleUtilServer": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
     "currentBattlePropertyServer": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5",
     "currentBattleCmdServer": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9",
     "currentBattleCmdParser": "237b93d625372c9b334ffc4ee3c7b535e152b4fdf127dce461c2fe30f88ee92e"
   },
-  "fixtures": 248,
-  "exactMatches": 248,
+  "fixtures": 252,
+  "exactMatches": 252,
   "mismatches": 0,
   "domains": {
     "phaseFinish": {
@@ -61,6 +62,11 @@
       "exactMatches": 4,
       "mismatches": 0
     },
+    "effectConstruction": {
+      "fixtures": 4,
+      "exactMatches": 4,
+      "mismatches": 0
+    },
     "commandRowOrder": {
       "fixtures": 6,
       "exactMatches": 6,
@@ -68,8 +74,8 @@
     }
   },
   "results": [],
-  "scope": "Resource-150 BattleCmdServer TriggerCmd through effect-list construction, phase cleanup, skill arguments, delay planning and row ordering plus BattleCmdParser StateOwner selection, target handoff and ArgN lookup, with byte-identical phase and target-expression modules.",
+  "scope": "Resource-150 BattleCmdServer TriggerCmd through effect-list construction, original GenerateEffectObj to original effect-manager creation, phase cleanup, skill arguments, delay planning and row ordering plus BattleCmdParser StateOwner selection, target handoff and ArgN lookup, with byte-identical phase, target-expression and effect-manager modules.",
   "limitations": [
-    "Effect objects are observed adapters rather than real effects; no target-expression initialization, event listener dispatch, complete card phase, gameplay or holdout credit"
+    "Constructed effect classes are inert synthetic probes; no real effect-class execution, target-expression initialization, event listener dispatch, complete card phase, gameplay or holdout credit"
   ]
 }

@@ -6,8 +6,8 @@ const report=JSON.parse(readFileSync(new URL('../research/evidence/pc-res150-ski
 
 test('current selected command/parser skill-phase boundaries match baseline',()=>{
   assert.equal(report.status,'EXACT_MATCH_IN_FIXTURE_DOMAIN');
-  assert.equal(report.fixtures,248);
-  assert.equal(report.exactMatches,248);
+  assert.equal(report.fixtures,252);
+  assert.equal(report.exactMatches,252);
   assert.equal(report.mismatches,0);
   assert.deepEqual(report.domains,{
     phaseFinish:{fixtures:4,exactMatches:4,mismatches:0},
@@ -17,6 +17,7 @@ test('current selected command/parser skill-phase boundaries match baseline',()=
     commandDelays:{fixtures:96,exactMatches:96,mismatches:0},
     triggerCmd:{fixtures:5,exactMatches:5,mismatches:0},
     connectedPhaseStart:{fixtures:4,exactMatches:4,mismatches:0},
+    effectConstruction:{fixtures:4,exactMatches:4,mismatches:0},
     commandRowOrder:{fixtures:6,exactMatches:6,mismatches:0},
   });
 });

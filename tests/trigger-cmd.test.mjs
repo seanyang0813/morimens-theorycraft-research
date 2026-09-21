@@ -4,6 +4,7 @@ import {readFileSync} from 'node:fs';
 
 const trigger=JSON.parse(readFileSync(new URL('./synthetic/original-trigger-cmd.json',import.meta.url)));
 const connected=JSON.parse(readFileSync(new URL('./synthetic/original-connected-skill-phase.json',import.meta.url)));
+const construction=JSON.parse(readFileSync(new URL('./synthetic/original-command-effect-construction.json',import.meta.url)));
 
 test('original TriggerCmd replaces its effect list and shares trigger data across child pre-triggers',()=>{
   assert.equal(trigger.fixtures.length,5);
@@ -25,4 +26,17 @@ test('original phase start connects phase hooks to TriggerCmd effect constructio
   const skipped=connected.fixtures.find(row=>row.input.name==='skip-phase').expected;
   assert.equal(skipped.trace.includes('GetSkillCastTime'),false);
   assert.deepEqual(skipped.trace.filter(row=>Array.isArray(row)&&row[0]==='GenerateEffectObj').map(row=>row[1].delay),[0,0]);
+});
+
+test('original command effect construction preserves row and command identity',()=>{
+  assert.equal(construction.fixtures.length,4);
+  const basic=construction.fixtures.find(row=>row.input.name==='basic').expected;
+  assert.equal(basic.returnedEffect,true);
+  assert.equal(basic.managerEffectCount,1);
+  assert.equal(basic.preTriggers,0);
+  assert.deepEqual(basic.constructed,[{effectType:'BEProbe',fixArg:null,cmdIndex:1,beforeDelay:.25,castRoleUid:9,skipPhase:false,isFromCmd:true,interruptCmdCond:null,commandIdentity:true,rowIdentity:true}]);
+  const fixed=construction.fixtures.find(row=>row.input.name==='fixed-argument').expected.constructed[0];
+  assert.equal(fixed.fixArg,'Fixed');
+  assert.equal(fixed.interruptCmdCond,'Arg1>0');
+  assert.equal(construction.fixtures.find(row=>row.input.name==='non-be-command').expected.warnings[0],'PlainEffect');
 });
