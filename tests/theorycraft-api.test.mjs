@@ -70,6 +70,12 @@ test('agent API exposes monster intent insertion as theorycraft state mutation',
   assert.ok(!response.result.effects.some(effect=>effect.type==='executeIntention'));
 });
 
+test('agent API exposes setup-only role state commands without a damage target',()=>{
+  const input={schemaVersion:1,kind:'morimens-role-state-command',build:'pc-res144-build51',otherEvents:'assumed-absent',command:{data_list:{1:{Type:'BEAddState',Target:'CmdCaster',Para:'90001,2'}}},variables:{},targetBindings:{CmdCaster:5},roles:[{id:5,roleType:'Monster',properties:{i_crit_per:0,i_crit_damage_per:0},tentacleContext:{pve:true,ownerMonster:true,maxTentacleCount:0}}],definitions:[{id:90001,maximum:'10',properties:[],skillLevel:1,casterRoleId:5,specialValue:0,banned:false}]};
+  const response=runTheorycraftRequest(request('run-role-state-command',input));
+  assert.equal(response.analysisTrack,'theorycrafting');assert.equal(response.result.finalDamage,null);assert.deepEqual(response.result.states.map(row=>[row.roleId,row.stateId,row.layer]),[[5,90001,2]]);
+});
+
 test('agent API exposes real exported skill preparation through explicit versioned context',()=>{
   const read=name=>{const bytes=readFileSync(new URL(`../research/extracted/config/${name}.json`,import.meta.url));return {data:JSON.parse(bytes),sha256:createHash('sha256').update(bytes).digest('hex')};};
   const skill=read('Skill'),battleApi=read('BattleApi'),command=read('Cmd');

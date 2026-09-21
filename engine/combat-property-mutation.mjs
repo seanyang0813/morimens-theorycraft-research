@@ -1,6 +1,6 @@
 const crit=new Set(['crit','crit_per_from_ulti','crit_per_from_strikecard','card_crit']);
 const critDamage=new Set(['crit_damage','card_crit_damage','crit_damage_from_strikecard','crit_damage_from_ulti']);
-export const combatMutableProperties=Object.freeze(['basic_damage_per','damage_plus','tentacle_dmg','be_damage_per','be_damage_per2','be_damage_per3','vulnerable_per','weak_per','frail_per',...crit,...critDamage]);
+export const combatMutableProperties=Object.freeze(['basic_damage_per','damage_plus','tentacle_dmg','be_damage_per','be_damage_per2','be_damage_per3','be_fixed_damage_per1','be_passive_damage_per','vulnerable_per','weak_per','frail_per',...crit,...critDamage]);
 
 // Only non-resource properties without cascading refresh branches. Callback payloads
 // are exposed for dispatch by the caller; this does not execute event listeners.

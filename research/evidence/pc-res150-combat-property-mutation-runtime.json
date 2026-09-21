@@ -4,12 +4,12 @@
   "baselineBuild": "pc-res144-build51",
   "currentBuild": "pc-res150-build51",
   "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
-  "fixtures": 1536,
-  "exactMatches": 1536,
+  "fixtures": 1716,
+  "exactMatches": 1716,
   "mismatches": [],
   "sourceHashes": {
     "comparison": "16464bee98816feed6afba63a3600b37cba57d00be368a1d111d105810d7d3e5",
-    "fixture": "ea69778caaaac21e6ddb7734b8d9e98d0e5e3f60f6fa994bae0f5d2c0fe2d76b",
+    "fixture": "f24e6eecd0610eca205fbe778d12837a45e394c0dd82d430689a82faab42d6f5",
     "currentModules": {
       "BattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
       "BattleUtilServer": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",

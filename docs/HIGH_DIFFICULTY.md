@@ -30,6 +30,12 @@ When skill 60397 (“Final Evolution”) later executes, its exact command 60401
 
 Permanent Reinforce 60089 clears before battle end. Temporary Reinforce 60083 caps at 99 and clears before the next bout begins or before battle end. Both subtract their layer count from Active, Fixed and Passive received-damage properties; Strength adds its layer count to `damage_plus` and half that amount to `tentacle_dmg`. These seven selected Skill/Cmd/State rows match resource 144 and installed resource 150 exactly after excluding `BaseSortID` metadata. The trace is published in `research/evidence/final-evolution-mechanic.json`. Full integrated command scheduling, clear-event execution and independent gameplay remain outside this result.
 
+The general role-state runner now executes all four Cmd60401 setup rows over an
+explicit monster snapshot without requiring a damage target. This is an authored
+component composition: it applies the three states and preserves the bubble as a
+presentation record, but it does not claim original-scheduler or gameplay proof.
+See `docs/ROLE_STATE_COMMAND.md`.
+
 ## Selected record
 
 融灾禁区 / 星辰篇 / wave 1 / 癫狂 (Frenzy), recommended level 92, boss preview level 95. Record: Banana, displayed 2026/9/20 3:22. Team: 茉夏 level 80, 阿拉克涅 level 80, 蚀灭·萝珀 level 64, 奥尔拉 level 60. Twelve total turns, six boss turns; record summary peak turn damage 4,896,613 and peak STR 680. These maxima are aggregate observations, not a single damage fixture.

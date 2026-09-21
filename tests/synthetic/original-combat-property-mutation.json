@@ -5,7 +5,7 @@
     "BattlePropertyServer": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
     "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
   },
-  "scope": "Original ChangeProperty, CheckTentacleDamage, positive/negative branches, pre/post helpers and original property/category rules for 16 ordinary non-resource properties plus tentacle_dmg. Existing numeric properties, supplied crit amplification, explicit PvE/owner/tentacle-capacity context, owner/send callbacks observed. No state construction, callback dispatch, resource/mastery/HP mutation or gameplay.",
+  "scope": "Original ChangeProperty, CheckTentacleDamage, positive/negative branches, pre/post helpers and original property/category rules for 18 ordinary non-resource properties plus tentacle_dmg. Existing numeric properties, supplied crit amplification, explicit PvE/owner/tentacle-capacity context, owner/send callbacks observed. No state construction, callback dispatch, resource/mastery/HP mutation or gameplay.",
   "fixtures": [
     {
       "input": {
@@ -11881,6 +11881,4758 @@
           {
             "kind": "send",
             "property": "be_damage_per3",
+            "delta": -50.0,
+            "new": -20.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": 0,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": -2.2,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": 0,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -2.2,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": 0,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": -2.2,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": 0,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -2.2,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": 0,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": -2.2,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": 0,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -2.2,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": 0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": -1.8000000000000003,
+        "returned": -1.8000000000000003,
+        "castValue": 0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": -1.8000000000000003
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 0.4,
+            "new": -1.8000000000000003
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": 0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -1.8000000000000003,
+        "returned": -1.8000000000000003,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": -1.8000000000000003
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 0.4,
+            "new": -1.8000000000000003
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": 0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": -1.8000000000000003,
+        "returned": -1.8000000000000003,
+        "castValue": 0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": -1.8000000000000003
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 0.4,
+            "new": -1.8000000000000003
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": 0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -1.8000000000000003,
+        "returned": -1.8000000000000003,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": -1.8000000000000003
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 0.4,
+            "new": -1.8000000000000003
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": 0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": -1.8000000000000003,
+        "returned": -1.8000000000000003,
+        "castValue": 0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": -1.8000000000000003
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 0.4,
+            "new": -1.8000000000000003
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": 0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -1.8000000000000003,
+        "returned": -1.8000000000000003,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": -1.8000000000000003
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 0.4,
+            "new": -1.8000000000000003
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": 2.2,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": 0.0,
+        "castValue": 2.2,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 2.2,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": 2.2,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": 0.0,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 2.2,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": 2.2,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": 0.0,
+        "castValue": 2.2,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 2.2,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": 2.2,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": 0.0,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 2.2,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": 2.2,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": 0.0,
+        "castValue": 2.2,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 2.2,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": 2.2,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": 0.0,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 2.2,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": -0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": -2.6,
+        "returned": -2.6,
+        "castValue": -0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": -2.6
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -0.4,
+            "new": -2.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": -0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -2.6,
+        "returned": -2.6,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": -2.6
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -0.4,
+            "new": -2.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": -0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": -2.6,
+        "returned": -2.6,
+        "castValue": -0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": -2.6
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -0.4,
+            "new": -2.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": -0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -2.6,
+        "returned": -2.6,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": -2.6
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -0.4,
+            "new": -2.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": -0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": -2.6,
+        "returned": -2.6,
+        "castValue": -0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": -2.6
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -0.4,
+            "new": -2.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": -0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -2.6,
+        "returned": -2.6,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": -2.6
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -0.4,
+            "new": -2.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": -50,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": -52.2,
+        "returned": -52.2,
+        "castValue": -50.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": -52.2
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -50.0,
+            "new": -52.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": -50,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -52.2,
+        "returned": -52.2,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": -52.2
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -50.0,
+            "new": -52.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": -50,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": -52.2,
+        "returned": -52.2,
+        "castValue": -50.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": -52.2
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -50.0,
+            "new": -52.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": -50,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -52.2,
+        "returned": -52.2,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": -52.2
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -50.0,
+            "new": -52.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": -50,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": -52.2,
+        "returned": -52.2,
+        "castValue": -50.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": -52.2
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -50.0,
+            "new": -52.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": -2.2,
+        "delta": -50,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -52.2,
+        "returned": -52.2,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": -2.2,
+            "new": -52.2
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -50.0,
+            "new": -52.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": 0,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": 0,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": 0,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": 0,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": 0,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": 0,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": 0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": 0.4,
+        "returned": 0.4,
+        "castValue": 0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": 0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 0.4,
+            "new": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": 0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 0.4,
+        "returned": 0.4,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": 0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 0.4,
+            "new": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": 0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": 0.4,
+        "returned": 0.4,
+        "castValue": 0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": 0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 0.4,
+            "new": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": 0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 0.4,
+        "returned": 0.4,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": 0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 0.4,
+            "new": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": 0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": 0.4,
+        "returned": 0.4,
+        "castValue": 0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": 0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 0.4,
+            "new": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": 0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 0.4,
+        "returned": 0.4,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": 0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 0.4,
+            "new": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": 2.2,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": 2.2,
+        "returned": 2.2,
+        "castValue": 2.2,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": 2.2
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 2.2,
+            "new": 2.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": 2.2,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 2.2,
+        "returned": 2.2,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": 2.2
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 2.2,
+            "new": 2.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": 2.2,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": 2.2,
+        "returned": 2.2,
+        "castValue": 2.2,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": 2.2
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 2.2,
+            "new": 2.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": 2.2,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 2.2,
+        "returned": 2.2,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": 2.2
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 2.2,
+            "new": 2.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": 2.2,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": 2.2,
+        "returned": 2.2,
+        "castValue": 2.2,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": 2.2
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 2.2,
+            "new": 2.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": 2.2,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 2.2,
+        "returned": 2.2,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": 2.2
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 2.2,
+            "new": 2.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": -0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": -0.4,
+        "returned": -0.4,
+        "castValue": -0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": -0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -0.4,
+            "new": -0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": -0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -0.4,
+        "returned": -0.4,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": -0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -0.4,
+            "new": -0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": -0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": -0.4,
+        "returned": -0.4,
+        "castValue": -0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": -0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -0.4,
+            "new": -0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": -0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -0.4,
+        "returned": -0.4,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": -0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -0.4,
+            "new": -0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": -0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": -0.4,
+        "returned": -0.4,
+        "castValue": -0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": -0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -0.4,
+            "new": -0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": -0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -0.4,
+        "returned": -0.4,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": -0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -0.4,
+            "new": -0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": -50,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": -50.0,
+        "returned": -50.0,
+        "castValue": -50.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": -50.0
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -50.0,
+            "new": -50.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": -50,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -50.0,
+        "returned": -50.0,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": -50.0
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -50.0,
+            "new": -50.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": -50,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": -50.0,
+        "returned": -50.0,
+        "castValue": -50.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": -50.0
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -50.0,
+            "new": -50.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": -50,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -50.0,
+        "returned": -50.0,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": -50.0
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -50.0,
+            "new": -50.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": -50,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": -50.0,
+        "returned": -50.0,
+        "castValue": -50.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": -50.0
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -50.0,
+            "new": -50.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 0,
+        "delta": -50,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -50.0,
+        "returned": -50.0,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 0.0,
+            "new": -50.0
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -50.0,
+            "new": -50.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": 0,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": 30.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": 0,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 30.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": 0,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": 30.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": 0,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 30.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": 0,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": 30.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": 0,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 30.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": 0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": 30.4,
+        "returned": 30.4,
+        "castValue": 0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": 30.4
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 0.4,
+            "new": 30.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": 0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 30.4,
+        "returned": 30.4,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": 30.4
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 0.4,
+            "new": 30.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": 0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": 30.4,
+        "returned": 30.4,
+        "castValue": 0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": 30.4
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 0.4,
+            "new": 30.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": 0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 30.4,
+        "returned": 30.4,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": 30.4
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 0.4,
+            "new": 30.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": 0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": 30.4,
+        "returned": 30.4,
+        "castValue": 0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": 30.4
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 0.4,
+            "new": 30.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": 0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 30.4,
+        "returned": 30.4,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": 30.4
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 0.4,
+            "new": 30.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": 2.2,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": 32.2,
+        "returned": 32.2,
+        "castValue": 2.2,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": 32.2
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 2.2,
+            "new": 32.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": 2.2,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 32.2,
+        "returned": 32.2,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": 32.2
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 2.2,
+            "new": 32.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": 2.2,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": 32.2,
+        "returned": 32.2,
+        "castValue": 2.2,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": 32.2
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 2.2,
+            "new": 32.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": 2.2,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 32.2,
+        "returned": 32.2,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": 32.2
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 2.2,
+            "new": 32.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": 2.2,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": 32.2,
+        "returned": 32.2,
+        "castValue": 2.2,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": 32.2
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 2.2,
+            "new": 32.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": 2.2,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 32.2,
+        "returned": 32.2,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": 32.2
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": 2.2,
+            "new": 32.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": -0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": 29.6,
+        "returned": 29.6,
+        "castValue": -0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": 29.6
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -0.4,
+            "new": 29.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": -0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 29.6,
+        "returned": 29.6,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": 29.6
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -0.4,
+            "new": 29.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": -0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": 29.6,
+        "returned": 29.6,
+        "castValue": -0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": 29.6
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -0.4,
+            "new": 29.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": -0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 29.6,
+        "returned": 29.6,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": 29.6
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -0.4,
+            "new": 29.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": -0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": 29.6,
+        "returned": 29.6,
+        "castValue": -0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": 29.6
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -0.4,
+            "new": 29.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": -0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 29.6,
+        "returned": 29.6,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": 29.6
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -0.4,
+            "new": 29.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": -50,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": -20.0,
+        "returned": -20.0,
+        "castValue": -50.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": -20.0
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -50.0,
+            "new": -20.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": -50,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -20.0,
+        "returned": -20.0,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": -20.0
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -50.0,
+            "new": -20.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": -50,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": -20.0,
+        "returned": -20.0,
+        "castValue": -50.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": -20.0
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -50.0,
+            "new": -20.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": -50,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -20.0,
+        "returned": -20.0,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": -20.0
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -50.0,
+            "new": -20.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": -50,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": -20.0,
+        "returned": -20.0,
+        "castValue": -50.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": -20.0
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -50.0,
+            "new": -20.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_fixed_damage_per1",
+        "before": 30,
+        "delta": -50,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -20.0,
+        "returned": -20.0,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_fixed_damage_per1",
+            "old": 30.0,
+            "new": -20.0
+          },
+          {
+            "kind": "send",
+            "property": "be_fixed_damage_per1",
+            "delta": -50.0,
+            "new": -20.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": 0,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": -2.2,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": 0,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -2.2,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": 0,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": -2.2,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": 0,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -2.2,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": 0,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": -2.2,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": 0,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -2.2,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": 0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": -1.8000000000000003,
+        "returned": -1.8000000000000003,
+        "castValue": 0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": -1.8000000000000003
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 0.4,
+            "new": -1.8000000000000003
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": 0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -1.8000000000000003,
+        "returned": -1.8000000000000003,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": -1.8000000000000003
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 0.4,
+            "new": -1.8000000000000003
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": 0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": -1.8000000000000003,
+        "returned": -1.8000000000000003,
+        "castValue": 0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": -1.8000000000000003
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 0.4,
+            "new": -1.8000000000000003
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": 0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -1.8000000000000003,
+        "returned": -1.8000000000000003,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": -1.8000000000000003
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 0.4,
+            "new": -1.8000000000000003
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": 0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": -1.8000000000000003,
+        "returned": -1.8000000000000003,
+        "castValue": 0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": -1.8000000000000003
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 0.4,
+            "new": -1.8000000000000003
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": 0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -1.8000000000000003,
+        "returned": -1.8000000000000003,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": -1.8000000000000003
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 0.4,
+            "new": -1.8000000000000003
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": 2.2,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": 0.0,
+        "castValue": 2.2,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 2.2,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": 2.2,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": 0.0,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 2.2,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": 2.2,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": 0.0,
+        "castValue": 2.2,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 2.2,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": 2.2,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": 0.0,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 2.2,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": 2.2,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": 0.0,
+        "castValue": 2.2,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 2.2,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": 2.2,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": 0.0,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": 0.0
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 2.2,
+            "new": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": -0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": -2.6,
+        "returned": -2.6,
+        "castValue": -0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": -2.6
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -0.4,
+            "new": -2.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": -0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -2.6,
+        "returned": -2.6,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": -2.6
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -0.4,
+            "new": -2.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": -0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": -2.6,
+        "returned": -2.6,
+        "castValue": -0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": -2.6
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -0.4,
+            "new": -2.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": -0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -2.6,
+        "returned": -2.6,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": -2.6
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -0.4,
+            "new": -2.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": -0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": -2.6,
+        "returned": -2.6,
+        "castValue": -0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": -2.6
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -0.4,
+            "new": -2.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": -0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -2.6,
+        "returned": -2.6,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": -2.6
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -0.4,
+            "new": -2.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": -50,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": -52.2,
+        "returned": -52.2,
+        "castValue": -50.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": -52.2
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -50.0,
+            "new": -52.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": -50,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -52.2,
+        "returned": -52.2,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": -52.2
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -50.0,
+            "new": -52.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": -50,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": -52.2,
+        "returned": -52.2,
+        "castValue": -50.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": -52.2
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -50.0,
+            "new": -52.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": -50,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -52.2,
+        "returned": -52.2,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": -52.2
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -50.0,
+            "new": -52.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": -50,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": -52.2,
+        "returned": -52.2,
+        "castValue": -50.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": -52.2
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -50.0,
+            "new": -52.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": -2.2,
+        "delta": -50,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -52.2,
+        "returned": -52.2,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": -2.2,
+            "new": -52.2
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -50.0,
+            "new": -52.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": 0,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": 0,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": 0,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": 0,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": 0,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": 0,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 0.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": 0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": 0.4,
+        "returned": 0.4,
+        "castValue": 0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": 0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 0.4,
+            "new": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": 0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 0.4,
+        "returned": 0.4,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": 0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 0.4,
+            "new": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": 0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": 0.4,
+        "returned": 0.4,
+        "castValue": 0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": 0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 0.4,
+            "new": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": 0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 0.4,
+        "returned": 0.4,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": 0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 0.4,
+            "new": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": 0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": 0.4,
+        "returned": 0.4,
+        "castValue": 0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": 0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 0.4,
+            "new": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": 0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 0.4,
+        "returned": 0.4,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": 0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 0.4,
+            "new": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": 2.2,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": 2.2,
+        "returned": 2.2,
+        "castValue": 2.2,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": 2.2
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 2.2,
+            "new": 2.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": 2.2,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 2.2,
+        "returned": 2.2,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": 2.2
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 2.2,
+            "new": 2.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": 2.2,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": 2.2,
+        "returned": 2.2,
+        "castValue": 2.2,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": 2.2
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 2.2,
+            "new": 2.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": 2.2,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 2.2,
+        "returned": 2.2,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": 2.2
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 2.2,
+            "new": 2.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": 2.2,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": 2.2,
+        "returned": 2.2,
+        "castValue": 2.2,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": 2.2
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 2.2,
+            "new": 2.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": 2.2,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 2.2,
+        "returned": 2.2,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": 2.2
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 2.2,
+            "new": 2.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": -0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": -0.4,
+        "returned": -0.4,
+        "castValue": -0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": -0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -0.4,
+            "new": -0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": -0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -0.4,
+        "returned": -0.4,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": -0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -0.4,
+            "new": -0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": -0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": -0.4,
+        "returned": -0.4,
+        "castValue": -0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": -0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -0.4,
+            "new": -0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": -0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -0.4,
+        "returned": -0.4,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": -0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -0.4,
+            "new": -0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": -0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": -0.4,
+        "returned": -0.4,
+        "castValue": -0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": -0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -0.4,
+            "new": -0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": -0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -0.4,
+        "returned": -0.4,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": -0.4
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -0.4,
+            "new": -0.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": -50,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": -50.0,
+        "returned": -50.0,
+        "castValue": -50.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": -50.0
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -50.0,
+            "new": -50.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": -50,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -50.0,
+        "returned": -50.0,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": -50.0
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -50.0,
+            "new": -50.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": -50,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": -50.0,
+        "returned": -50.0,
+        "castValue": -50.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": -50.0
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -50.0,
+            "new": -50.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": -50,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -50.0,
+        "returned": -50.0,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": -50.0
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -50.0,
+            "new": -50.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": -50,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": -50.0,
+        "returned": -50.0,
+        "castValue": -50.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": -50.0
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -50.0,
+            "new": -50.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 0,
+        "delta": -50,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -50.0,
+        "returned": -50.0,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 0.0,
+            "new": -50.0
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -50.0,
+            "new": -50.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": 0,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": 30.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": 0,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 30.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": 0,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": 30.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": 0,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 30.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": 0,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": 30.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": 0,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 30.0,
+        "returned": null,
+        "castValue": 0.0,
+        "callbacks": []
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": 0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": 30.4,
+        "returned": 30.4,
+        "castValue": 0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": 30.4
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 0.4,
+            "new": 30.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": 0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 30.4,
+        "returned": 30.4,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": 30.4
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 0.4,
+            "new": 30.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": 0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": 30.4,
+        "returned": 30.4,
+        "castValue": 0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": 30.4
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 0.4,
+            "new": 30.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": 0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 30.4,
+        "returned": 30.4,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": 30.4
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 0.4,
+            "new": 30.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": 0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": 30.4,
+        "returned": 30.4,
+        "castValue": 0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": 30.4
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 0.4,
+            "new": 30.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": 0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 30.4,
+        "returned": 30.4,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": 30.4
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 0.4,
+            "new": 30.4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": 2.2,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": 32.2,
+        "returned": 32.2,
+        "castValue": 2.2,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": 32.2
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 2.2,
+            "new": 32.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": 2.2,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 32.2,
+        "returned": 32.2,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": 32.2
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 2.2,
+            "new": 32.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": 2.2,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": 32.2,
+        "returned": 32.2,
+        "castValue": 2.2,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": 32.2
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 2.2,
+            "new": 32.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": 2.2,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 32.2,
+        "returned": 32.2,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": 32.2
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 2.2,
+            "new": 32.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": 2.2,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": 32.2,
+        "returned": 32.2,
+        "castValue": 2.2,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": 32.2
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 2.2,
+            "new": 32.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": 2.2,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 32.2,
+        "returned": 32.2,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": 32.2
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": 2.2,
+            "new": 32.2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": -0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": 29.6,
+        "returned": 29.6,
+        "castValue": -0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": 29.6
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -0.4,
+            "new": 29.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": -0.4,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 29.6,
+        "returned": 29.6,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": 29.6
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -0.4,
+            "new": 29.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": -0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": 29.6,
+        "returned": 29.6,
+        "castValue": -0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": 29.6
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -0.4,
+            "new": 29.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": -0.4,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 29.6,
+        "returned": 29.6,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": 29.6
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -0.4,
+            "new": 29.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": -0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": 29.6,
+        "returned": 29.6,
+        "castValue": -0.4,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": 29.6
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -0.4,
+            "new": 29.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": -0.4,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": 29.6,
+        "returned": 29.6,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": 29.6
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -0.4,
+            "new": 29.6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": -50,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": null
+      },
+      "expected": {
+        "after": -20.0,
+        "returned": -20.0,
+        "castValue": -50.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": -20.0
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -50.0,
+            "new": -20.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": -50,
+        "critScale": -150,
+        "critDamageScale": -150,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -20.0,
+        "returned": -20.0,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": -20.0
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -50.0,
+            "new": -20.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": -50,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": null
+      },
+      "expected": {
+        "after": -20.0,
+        "returned": -20.0,
+        "castValue": -50.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": -20.0
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -50.0,
+            "new": -20.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": -50,
+        "critScale": 0,
+        "critDamageScale": 0,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -20.0,
+        "returned": -20.0,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": -20.0
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -50.0,
+            "new": -20.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": -50,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": null
+      },
+      "expected": {
+        "after": -20.0,
+        "returned": -20.0,
+        "castValue": -50.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": -20.0
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
+            "delta": -50.0,
+            "new": -20.0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "property": "be_passive_damage_per",
+        "before": 30,
+        "delta": -50,
+        "critScale": 25,
+        "critDamageScale": 25,
+        "castValue": 0
+      },
+      "expected": {
+        "after": -20.0,
+        "returned": -20.0,
+        "castValue": 0.0,
+        "callbacks": [
+          {
+            "kind": "owner",
+            "property": "be_passive_damage_per",
+            "old": 30.0,
+            "new": -20.0
+          },
+          {
+            "kind": "send",
+            "property": "be_passive_damage_per",
             "delta": -50.0,
             "new": -20.0
           }

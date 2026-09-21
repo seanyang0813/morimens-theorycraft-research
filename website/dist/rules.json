@@ -1288,7 +1288,7 @@
       "id": "PC144:CombatPropertyMutation",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "Explicit non-resource combat properties preserve numeric storage, asymmetric crit-add amplification, tentacle-capacity gating, zero-request behavior and callback payloads",
-      "scope": "1536 original cases: 1440 ordinary cases across 16 properties and 96 tentacle_dmg gate cases. Existing numeric storage, supplied crit amplification and explicit PvE/owner/tentacle-capacity context; callback observers. No resource/mastery/HP mutation, listener dispatch or gameplay",
+      "scope": "1716 original cases: 1620 ordinary cases across 18 properties and 96 tentacle_dmg gate cases. Existing numeric storage, supplied crit amplification and explicit PvE/owner/tentacle-capacity context; callback observers. No resource/mastery/HP mutation, listener dispatch or gameplay",
       "gameplayValidation": false,
       "sources": [
         {
@@ -1305,6 +1305,46 @@
       "checks": [
         "tools/combat_property_mutation_oracle.py",
         "tests/combat-property-mutation.test.mjs"
+      ]
+    },
+    {
+      "id": "PC144:RoleStateSetupCommand",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "The general setup-only runner applies and merges supported states against explicit role snapshots while preserving baseline-proven MonsterBubble presentation rows without requiring a damage target",
+      "scope": "Authored composition using explicit roles, selector bindings, variables, state definitions and properties. Cmd60401 is a regression case, not a special implementation path. BEAddState and BEMonsterBubble only; no immunity/layer modifiers/limits, trigger callbacks, original full-command scheduler, damage, gameplay or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Cmd",
+          "member": "60401",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2"
+        },
+        {
+          "module": "State",
+          "member": "60089,2900,60404",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8"
+        },
+        {
+          "module": "BEMonsterBubble",
+          "member": "DoEffect",
+          "sha256": "5e2fc3fd2041eb66bcf8a71a6deaa6e9ee0e68d5f4fe7e6f7e6149aaaa8f9c38"
+        },
+        {
+          "module": "BattleStateServer",
+          "member": "InitProperty,UpdatePropertyWhenLayerChanges",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "ChangeProperty,CheckTentacleDamage",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76"
+        }
+      ],
+      "checks": [
+        "tests/role-state-command.test.mjs",
+        "tests/combat-property-mutation.test.mjs",
+        "tests/monster-bubble.test.mjs",
+        "docs/ROLE_STATE_COMMAND.md"
       ]
     },
     {
@@ -4334,8 +4374,8 @@
     {
       "id": "PC150:BattlePropertyServer.CombatPropertyMutation",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
-      "claim": "The installed resource-150 BattlePropertyServer reproduces all 1,536 inherited ordinary combat-property and tentacle-capacity-gate fixtures exactly",
-      "scope": "Actual resource-150 numeric storage, asymmetric critical-property amplification, callback payloads and explicit PvE monster tentacle-capacity gating across 16 ordinary properties plus tentacle_dmg. No state construction, event dispatch, gameplay or holdout credit.",
+      "claim": "The installed resource-150 BattlePropertyServer reproduces all 1,716 inherited ordinary combat-property and tentacle-capacity-gate fixtures exactly",
+      "scope": "Actual resource-150 numeric storage, asymmetric critical-property amplification, callback payloads and explicit PvE monster tentacle-capacity gating across 18 ordinary properties plus tentacle_dmg. No state construction, event dispatch, gameplay or holdout credit.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -4346,7 +4386,7 @@
         {
           "module": "PC resource-150 combat-property mutation runtime comparison",
           "member": "ChangeProperty and CheckTentacleDamage fixture-domain result",
-          "sha256": "2786d33ef195700dd865d5b2f8c191ce63becc99a2701ebd76d96d61cd960bb7"
+          "sha256": "d4397ac32f5babd2ae57fd1f58b74683233aaffa4f58985a048ade8bd20625eb"
         }
       ],
       "checks": [

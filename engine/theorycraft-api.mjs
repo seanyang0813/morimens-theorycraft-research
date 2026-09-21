@@ -9,6 +9,7 @@ import {assembleKnownBuildComponents} from './build-component-assembly.mjs';
 import {searchCardOrders} from './card-order-search.mjs';
 import {runPreparedSkillRequest} from './prepared-skill-request.mjs';
 import {applyMonsterSkillChange} from './monster-skill-change.mjs';
+import {runRoleStateCommand} from './role-state-command.mjs';
 
 export const theorycraftOperations=Object.freeze([
   {name:'describe-capabilities',context:[],scope:'List supported versioned operations and evidence boundaries'},
@@ -24,6 +25,7 @@ export const theorycraftOperations=Object.freeze([
   {name:'search-card-orders',context:[],scope:'Exact bounded permutation search over supplied resolved card actions'},
   {name:'prepare-skill-command',context:['skillCommandData'],scope:'Exported skill selection, argument preparation and optional supported command execution'},
   {name:'apply-monster-skill-change',context:[],scope:'Original-runtime-matched monster intent replacement/queue mutation without executing the selected skill'},
+  {name:'run-role-state-command',context:[],scope:'Setup-only state and presentation rows over explicit role/property snapshots'},
 ]);
 
 export const theorycraftClaimBoundary=Object.freeze({
@@ -57,6 +59,7 @@ function execute(operation,input,context){
     if(!exact(input,['state','skillId','changeType']))throw new Error('Exact monster skill-change input required');
     return applyMonsterSkillChange(input.state,input.skillId,input.changeType);
   }
+  if(operation==='run-role-state-command')return runRoleStateCommand(input);
   throw new Error('Unsupported theorycraft operation');
 }
 

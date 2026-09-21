@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "4184f97f9432fc46853d5b2ff5cf8156b2a13a8acd09e0b9cbc78144ef275409",
+  "fingerprint": "f5a74084779aea64f9455c3a9948021342e6ef678805700649e767065020f550",
   "files": {
     "build-catalog.json": "2d1188fadcaff7a1eb53af580c509756b21a3f003065c7c9036aa919958a1496",
     "client-build-data.json": "70a21813f8a491f521323971e6a6af9d1250102ad5bb76db8b16f80730fe7e34",
@@ -29,7 +29,7 @@
     "engine/card-use-resources.mjs": "7b8fa44a41d4fc18bd6e5f03777c9b4fe43f7af1c66126223ab570c64ccc839e",
     "engine/client-build-stats.mjs": "caede016e80431ff2f03532537002cf4f6b92a663e5921bf661ef517f0c3e18e",
     "engine/client-primary-stats.mjs": "f841de44fef7a3ceb80e348582220cdb4ca453b5e3818812ece2aac38713f197",
-    "engine/combat-property-mutation.mjs": "d896e3339b3d322639e874d1352fb93a1f99460fe9641b9652f5a56c703141c2",
+    "engine/combat-property-mutation.mjs": "95a0b25ffbef54b94038722653fde8b9d588f7bbdb16c97da1b73684c470b52c",
     "engine/command-expressions.mjs": "13228f83821241b9812b9ad1198e96f9fba8963abbebd66c53a209a5cadc8131",
     "engine/command-rows.mjs": "f44d5bbb4036e84fe8c6c900dcb35ce719b60f460f424221faea970162e556ab",
     "engine/crit-resolution.mjs": "58841b28db82b3d4e2c8493616a64d8995650dbd9717f8296adf03b27ea91eae",
@@ -93,7 +93,7 @@
     "engine/ulti-energy-experiment.mjs": "6de163423a1e99c6be4922093711a797fa3012554589484c4ae5fd864bc35973",
     "engine/ulti-energy-gain.mjs": "08a4f4f32a7700422d6999e19e0e58fb2cace3bcbf7d0a910a9bcacf3b520468",
     "engine/wheel-stats.mjs": "484a5b4a51fbbd9c4759b27457ae9eec71fceb0420354823f54654edfb78fadd",
-    "rules.json": "528a7e41a5afafd6485441abe2a33a7259c6fdd99e2827b2b4322ee3591f2efe",
+    "rules.json": "277a34f2417818fb3eb52cd8e6ebb43ddf6d2ace243b62b5e387024b9bf5d9fb",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af"
   }
 }
