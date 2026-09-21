@@ -4218,6 +4218,32 @@
       ]
     },
     {
+      "id": "PC144:UseAttachPostCardRequest",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "UseAttachPostCard constructs a NoneDeck temporary card owned by the target, binds the caller attachPostParam to its main command, records and selects the card, then emits target-generation, before-use, optional skipped pre-phase, main-phase and after-use requests in order",
+      "scope": "Four original protected-runtime cases covering Arachne and Mouchette identifiers, owner/camp/target propagation, optional pre-command and attach trigger-parameter identity. Card constructor, manager and effect endpoints are observers. Card initialization internals, effect execution, callbacks, gameplay and holdout validation are excluded.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "BattleUnitBase",
+          "member": "UseAttachPostCard",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410"
+        },
+        {
+          "module": "BattleConst",
+          "member": "CardDeck",
+          "sha256": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+        }
+      ],
+      "checks": [
+        "tools/use_attach_post_card_oracle.py",
+        "engine/use-attach-post-card.mjs",
+        "tests/use-attach-post-card.test.mjs",
+        "tests/synthetic/original-use-attach-post-card.json",
+        "docs/USE_ATTACH_POST_CARD.md"
+      ]
+    },
+    {
       "id": "PC144:GeneratedCardPipeline",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
       "claim": "The authored generated-card pipeline composes tested request construction, Draw/Hand mutation, owner resolution, command-constructor requests and main-command Arg bindings while retaining each boundary trace and unresolved dependency",
@@ -5175,6 +5201,25 @@
         "tests/current-generated-card-runtime.test.mjs",
         "tests/generated-card-pipeline.test.mjs",
         "tests/card-command-init.test.mjs"
+      ]
+    },
+    {
+      "id": "PC150:UseAttachPostCardRequest",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "The installed resource-150 UseAttachPostCard method reproduces all four inherited temporary-card and ordered effect-request fixtures exactly with current dependencies",
+      "scope": "Byte-identical BattleUnitBase method executed with resource-150 dependencies over main-only, optional pre-command and trigger-parameter cases. Card constructor and managers are observers; effect execution, callbacks, gameplay and holdout validation are excluded.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 UseAttachPostCard runtime comparison",
+          "member": "BattleUnitBase method and current dependency hashes",
+          "sha256": "645a2bd031eaec11abfb76de8fc70b2e6163396208b1652cbf392f932838e140"
+        }
+      ],
+      "checks": [
+        "tools/verify_current_use_attach_post_card.py",
+        "tests/current-use-attach-post-card-runtime.test.mjs",
+        "tests/use-attach-post-card.test.mjs"
       ]
     },
     {

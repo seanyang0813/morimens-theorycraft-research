@@ -1,0 +1,576 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BattleUnitBase": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+    "BattleConst": "f5134c902864327cdd9a563e5cb997321c2bc4d7bbc73fe8ec6fb56dcd358d4e"
+  },
+  "scope": "Original BattleUnitBase.UseAttachPostCard with explicit card-constructor, card-manager, record-manager and effect-manager observers. Covers main-only, optional pre-command and trigger-parameter binding. No card initialization internals, effect execution, callbacks, gameplay or holdout.",
+  "fixtures": [
+    {
+      "input": {
+        "name": "arachne-main-only",
+        "skillId": 133381,
+        "skillLevel": 7,
+        "camp": 3,
+        "ownerUid": 99,
+        "cardUid": 900,
+        "targetType": 123,
+        "hasPre": false,
+        "isTriggerBST": false
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "CreateCardByInfo",
+            "arguments": {
+              "tid": 133381.0,
+              "level": 7.0,
+              "deck": "NoneDeck",
+              "camp": 3.0,
+              "ownerIsInput": true
+            }
+          },
+          {
+            "stage": "OnAddNewCard",
+            "arguments": [
+              {
+                "type": "table",
+                "identity": "other"
+              },
+              {
+                "type": "string",
+                "value": "NoneDeck"
+              },
+              {
+                "type": "boolean",
+                "value": true
+              },
+              {
+                "type": "number",
+                "value": 3.0
+              }
+            ]
+          },
+          {
+            "stage": "SetCurUseCard",
+            "arguments": [
+              {
+                "type": "table",
+                "identity": "card"
+              },
+              {
+                "type": "number",
+                "value": 99.0
+              }
+            ]
+          },
+          {
+            "stage": "CreateEffect",
+            "request": {
+              "effectType": "BEGenerateTargets",
+              "castRoleUid": 99.0,
+              "cardUid": null,
+              "camp": 3.0,
+              "targetType": 123.0,
+              "cancelable": true,
+              "skipPhase": null,
+              "cmdServer": {
+                "type": "table",
+                "identity": "mainCommand"
+              },
+              "clientTargetCount": 0
+            }
+          },
+          {
+            "stage": "CreateEffect",
+            "request": {
+              "effectType": "BEBeforeUseCard",
+              "castRoleUid": 99.0,
+              "cardUid": 900.0,
+              "camp": null,
+              "targetType": null,
+              "cancelable": null,
+              "skipPhase": null,
+              "cmdServer": {
+                "type": "table",
+                "identity": "mainCommand"
+              },
+              "clientTargetCount": null
+            }
+          },
+          {
+            "stage": "CreateEffect",
+            "request": {
+              "effectType": "BECreateSkillPhase",
+              "castRoleUid": 99.0,
+              "cardUid": 900.0,
+              "camp": null,
+              "targetType": null,
+              "cancelable": null,
+              "skipPhase": null,
+              "cmdServer": {
+                "type": "table",
+                "identity": "mainCommand"
+              },
+              "clientTargetCount": null
+            }
+          },
+          {
+            "stage": "CreateEffect",
+            "request": {
+              "effectType": "BEAfterUseCard",
+              "castRoleUid": 99.0,
+              "cardUid": 900.0,
+              "camp": 3.0,
+              "targetType": null,
+              "cancelable": null,
+              "skipPhase": null,
+              "cmdServer": {
+                "type": "nil",
+                "value": null
+              },
+              "clientTargetCount": null
+            }
+          }
+        ],
+        "mainCommandAttachPostParam": {
+          "binding": {
+            "type": "table",
+            "identity": "attachPostParam"
+          },
+          "isTriggerBST": false
+        }
+      }
+    },
+    {
+      "input": {
+        "name": "mouchette-main-only",
+        "skillId": 123159,
+        "skillLevel": 1,
+        "camp": 2,
+        "ownerUid": 71,
+        "cardUid": 901,
+        "targetType": 456,
+        "hasPre": false,
+        "isTriggerBST": false
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "CreateCardByInfo",
+            "arguments": {
+              "tid": 123159.0,
+              "level": 1.0,
+              "deck": "NoneDeck",
+              "camp": 2.0,
+              "ownerIsInput": true
+            }
+          },
+          {
+            "stage": "OnAddNewCard",
+            "arguments": [
+              {
+                "type": "table",
+                "identity": "other"
+              },
+              {
+                "type": "string",
+                "value": "NoneDeck"
+              },
+              {
+                "type": "boolean",
+                "value": true
+              },
+              {
+                "type": "number",
+                "value": 2.0
+              }
+            ]
+          },
+          {
+            "stage": "SetCurUseCard",
+            "arguments": [
+              {
+                "type": "table",
+                "identity": "card"
+              },
+              {
+                "type": "number",
+                "value": 71.0
+              }
+            ]
+          },
+          {
+            "stage": "CreateEffect",
+            "request": {
+              "effectType": "BEGenerateTargets",
+              "castRoleUid": 71.0,
+              "cardUid": null,
+              "camp": 2.0,
+              "targetType": 456.0,
+              "cancelable": true,
+              "skipPhase": null,
+              "cmdServer": {
+                "type": "table",
+                "identity": "mainCommand"
+              },
+              "clientTargetCount": 0
+            }
+          },
+          {
+            "stage": "CreateEffect",
+            "request": {
+              "effectType": "BEBeforeUseCard",
+              "castRoleUid": 71.0,
+              "cardUid": 901.0,
+              "camp": null,
+              "targetType": null,
+              "cancelable": null,
+              "skipPhase": null,
+              "cmdServer": {
+                "type": "table",
+                "identity": "mainCommand"
+              },
+              "clientTargetCount": null
+            }
+          },
+          {
+            "stage": "CreateEffect",
+            "request": {
+              "effectType": "BECreateSkillPhase",
+              "castRoleUid": 71.0,
+              "cardUid": 901.0,
+              "camp": null,
+              "targetType": null,
+              "cancelable": null,
+              "skipPhase": null,
+              "cmdServer": {
+                "type": "table",
+                "identity": "mainCommand"
+              },
+              "clientTargetCount": null
+            }
+          },
+          {
+            "stage": "CreateEffect",
+            "request": {
+              "effectType": "BEAfterUseCard",
+              "castRoleUid": 71.0,
+              "cardUid": 901.0,
+              "camp": 2.0,
+              "targetType": null,
+              "cancelable": null,
+              "skipPhase": null,
+              "cmdServer": {
+                "type": "nil",
+                "value": null
+              },
+              "clientTargetCount": null
+            }
+          }
+        ],
+        "mainCommandAttachPostParam": {
+          "binding": {
+            "type": "table",
+            "identity": "attachPostParam"
+          },
+          "isTriggerBST": false
+        }
+      }
+    },
+    {
+      "input": {
+        "name": "pre-command",
+        "skillId": 133381,
+        "skillLevel": 3,
+        "camp": 3,
+        "ownerUid": 88,
+        "cardUid": 902,
+        "targetType": 789,
+        "hasPre": true,
+        "isTriggerBST": false
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "CreateCardByInfo",
+            "arguments": {
+              "tid": 133381.0,
+              "level": 3.0,
+              "deck": "NoneDeck",
+              "camp": 3.0,
+              "ownerIsInput": true
+            }
+          },
+          {
+            "stage": "OnAddNewCard",
+            "arguments": [
+              {
+                "type": "table",
+                "identity": "other"
+              },
+              {
+                "type": "string",
+                "value": "NoneDeck"
+              },
+              {
+                "type": "boolean",
+                "value": true
+              },
+              {
+                "type": "number",
+                "value": 3.0
+              }
+            ]
+          },
+          {
+            "stage": "SetCurUseCard",
+            "arguments": [
+              {
+                "type": "table",
+                "identity": "card"
+              },
+              {
+                "type": "number",
+                "value": 88.0
+              }
+            ]
+          },
+          {
+            "stage": "CreateEffect",
+            "request": {
+              "effectType": "BEGenerateTargets",
+              "castRoleUid": 88.0,
+              "cardUid": null,
+              "camp": 3.0,
+              "targetType": 789.0,
+              "cancelable": true,
+              "skipPhase": null,
+              "cmdServer": {
+                "type": "table",
+                "identity": "mainCommand"
+              },
+              "clientTargetCount": 0
+            }
+          },
+          {
+            "stage": "CreateEffect",
+            "request": {
+              "effectType": "BEBeforeUseCard",
+              "castRoleUid": 88.0,
+              "cardUid": 902.0,
+              "camp": null,
+              "targetType": null,
+              "cancelable": null,
+              "skipPhase": null,
+              "cmdServer": {
+                "type": "table",
+                "identity": "mainCommand"
+              },
+              "clientTargetCount": null
+            }
+          },
+          {
+            "stage": "CreateEffect",
+            "request": {
+              "effectType": "BECreateSkillPhase",
+              "castRoleUid": 88.0,
+              "cardUid": 902.0,
+              "camp": null,
+              "targetType": null,
+              "cancelable": null,
+              "skipPhase": true,
+              "cmdServer": {
+                "type": "table",
+                "identity": "preCommand"
+              },
+              "clientTargetCount": null
+            }
+          },
+          {
+            "stage": "CreateEffect",
+            "request": {
+              "effectType": "BECreateSkillPhase",
+              "castRoleUid": 88.0,
+              "cardUid": 902.0,
+              "camp": null,
+              "targetType": null,
+              "cancelable": null,
+              "skipPhase": null,
+              "cmdServer": {
+                "type": "table",
+                "identity": "mainCommand"
+              },
+              "clientTargetCount": null
+            }
+          },
+          {
+            "stage": "CreateEffect",
+            "request": {
+              "effectType": "BEAfterUseCard",
+              "castRoleUid": 88.0,
+              "cardUid": 902.0,
+              "camp": 3.0,
+              "targetType": null,
+              "cancelable": null,
+              "skipPhase": null,
+              "cmdServer": {
+                "type": "nil",
+                "value": null
+              },
+              "clientTargetCount": null
+            }
+          }
+        ],
+        "mainCommandAttachPostParam": {
+          "binding": {
+            "type": "table",
+            "identity": "attachPostParam"
+          },
+          "isTriggerBST": false
+        }
+      }
+    },
+    {
+      "input": {
+        "name": "trigger-bst",
+        "skillId": 123159,
+        "skillLevel": 5,
+        "camp": 1,
+        "ownerUid": 42,
+        "cardUid": 903,
+        "targetType": 321,
+        "hasPre": false,
+        "isTriggerBST": true
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "stage": "CreateCardByInfo",
+            "arguments": {
+              "tid": 123159.0,
+              "level": 5.0,
+              "deck": "NoneDeck",
+              "camp": 1.0,
+              "ownerIsInput": true
+            }
+          },
+          {
+            "stage": "OnAddNewCard",
+            "arguments": [
+              {
+                "type": "table",
+                "identity": "other"
+              },
+              {
+                "type": "string",
+                "value": "NoneDeck"
+              },
+              {
+                "type": "boolean",
+                "value": true
+              },
+              {
+                "type": "number",
+                "value": 1.0
+              }
+            ]
+          },
+          {
+            "stage": "SetCurUseCard",
+            "arguments": [
+              {
+                "type": "table",
+                "identity": "card"
+              },
+              {
+                "type": "number",
+                "value": 42.0
+              }
+            ]
+          },
+          {
+            "stage": "CreateEffect",
+            "request": {
+              "effectType": "BEGenerateTargets",
+              "castRoleUid": 42.0,
+              "cardUid": null,
+              "camp": 1.0,
+              "targetType": 321.0,
+              "cancelable": true,
+              "skipPhase": null,
+              "cmdServer": {
+                "type": "table",
+                "identity": "mainCommand"
+              },
+              "clientTargetCount": 0
+            }
+          },
+          {
+            "stage": "CreateEffect",
+            "request": {
+              "effectType": "BEBeforeUseCard",
+              "castRoleUid": 42.0,
+              "cardUid": 903.0,
+              "camp": null,
+              "targetType": null,
+              "cancelable": null,
+              "skipPhase": null,
+              "cmdServer": {
+                "type": "table",
+                "identity": "mainCommand"
+              },
+              "clientTargetCount": null
+            }
+          },
+          {
+            "stage": "CreateEffect",
+            "request": {
+              "effectType": "BECreateSkillPhase",
+              "castRoleUid": 42.0,
+              "cardUid": 903.0,
+              "camp": null,
+              "targetType": null,
+              "cancelable": null,
+              "skipPhase": null,
+              "cmdServer": {
+                "type": "table",
+                "identity": "mainCommand"
+              },
+              "clientTargetCount": null
+            }
+          },
+          {
+            "stage": "CreateEffect",
+            "request": {
+              "effectType": "BEAfterUseCard",
+              "castRoleUid": 42.0,
+              "cardUid": 903.0,
+              "camp": 1.0,
+              "targetType": null,
+              "cancelable": null,
+              "skipPhase": null,
+              "cmdServer": {
+                "type": "nil",
+                "value": null
+              },
+              "clientTargetCount": null
+            }
+          }
+        ],
+        "mainCommandAttachPostParam": {
+          "binding": {
+            "type": "table",
+            "identity": "attachPostParam"
+          },
+          "isTriggerBST": true
+        }
+      }
+    }
+  ]
+}
