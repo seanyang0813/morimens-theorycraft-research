@@ -173,3 +173,11 @@ test('agent API carries a catalog state card into a later prepared Active card',
   const response=runTheorycraftRequest(requestValue,{skillCommandData});
   assert.equal(response.analysisTrack,'theorycrafting');assert.equal(response.result.carry.activeCasterProperties.crit_damage,105);assert.equal(response.result.modeledHpLost,3);assert.equal(response.result.finalDamage,null);
 });
+
+test('agent API executes an ordered catalog state-to-Active chain',()=>{
+  const read=name=>{const bytes=readFileSync(new URL(`../research/extracted/config/${name}.json`,import.meta.url));return {data:JSON.parse(bytes),sha256:createHash('sha256').update(bytes).digest('hex')};};
+  const skill=read('Skill'),battleApi=read('BattleApi'),command=read('Cmd'),state=read('State'),skillCommandData={build:'pc-res144-build51',skills:skill.data,battleApi:battleApi.data,commands:command.data,states:state.data,sourceHashes:{Skill:skill.sha256,BattleApi:battleApi.sha256,Cmd:command.sha256,State:state.sha256}};
+  const requestValue=JSON.parse(readFileSync(new URL('../research/examples/theorycraft-prepared-state-active-chain.json',import.meta.url)));
+  const response=runTheorycraftRequest(requestValue,{skillCommandData});
+  assert.equal(response.analysisTrack,'theorycrafting');assert.equal(response.result.executedActions,5);assert.equal(response.result.modeledHpLost,15);assert.deepEqual(response.result.targetAfter,{hp:985,block:0});assert.equal(response.result.finalDamage,null);
+});

@@ -7447,6 +7447,56 @@
       "gameplayValidation": false
     },
     {
+      "id": "Theorycraft:PreparedStateActiveChain",
+      "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
+      "claim": "One catalog-backed role-state card can feed an ordered list of prepared Active skills while target HP, Block and exposed caster energy carry between actions",
+      "sources": [
+        {
+          "module": "Skill",
+          "member": "134203,3997,4046",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\2015861756545847808_Skill.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "134192,2350,2112",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "State",
+          "member": "3835",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "GetRealDmg,GetRealUltiEnergy,__GetFinalDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "BeHit",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        }
+      ],
+      "tests": [
+        "tests/prepared-state-active-chain.test.mjs",
+        "tests/theorycraft-api.test.mjs",
+        "research/examples/theorycraft-prepared-state-active-chain.json",
+        "docs/PREPARED_STATE_ACTIVE_SEQUENCE.md"
+      ],
+      "scope": "Authored ordered composition over the supported state-to-Active handoff and prepared Active/energy paths. Every action declares the same initial target/caster context; only state-derived caster properties/layers, target HP/Block and exposed energy carry. Stops after incomplete/lethal actions. Costs, card zones, expiry, callbacks, retargeting, other actors, reactive effects, death execution, gameplay and holdout validation are excluded. Theorycraft track only; no cheese, budget or observed-strategy claim.",
+      "gameplayValidation": false
+    },
+    {
       "id": "ANDROID83:StartupLuaArchiveInspection",
       "status": "CONFIRMED_FROM_LOCAL_ARCHIVE_PARSER",
       "claim": "The protected packaged Android startup archive deserializes without execution into seven Lua prototypes and 109 string constants; its one literal URL is telemetry and no literal resource-download URL is present",
