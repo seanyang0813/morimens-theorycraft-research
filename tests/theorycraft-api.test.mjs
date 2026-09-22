@@ -25,6 +25,7 @@ test('agent API advertises explicit bounded operations',()=>{
   assert.ok(response.result.operations.some(row=>row.name==='run-attached-card-pipeline'));
   assert.ok(response.result.operations.some(row=>row.name==='run-conditional-role-state-suffix'));
   assert.ok(response.result.operations.some(row=>row.name==='search-wheel-catalog'));
+  assert.ok(response.result.operations.some(row=>row.name==='select-copy-history-cards'));
   assert.equal(response.result.publicationStatus,'NOT_READY');
 });
 
@@ -137,6 +138,15 @@ test('agent API assembles known build components with both catalogs',()=>{
 test('agent API rejects extra fields and unsupported operations',()=>{
   assert.throws(()=>runTheorycraftRequest({...request('describe-capabilities',null),extra:true}),/exact version 1/);
   assert.throws(()=>runTheorycraftRequest(request('invent-result',{})),/Unsupported/);
+});
+
+test('agent API selects the newest eligible copy-history Strike without inventing later card effects',()=>{
+  const card=(uid,id,stateIds=[])=>({uid,id,level:90,camp:1,specialOwner:null,performSkillId:id,cardTypes:['Card_Strike'],stateIds,createCardArgs:[]});
+  const input={schemaVersion:1,kind:'morimens-copy-history-card-selection',build:'pc-res150-build51',cardTypes:['Card_Strike'],endNum:0,beginNum:99,needNum:1,skipSameId:0,exceptCardTypes:[],exceptStateIds:[123811,124733],history:[[card(1,1001)], [card(2,1002,[123811])]]};
+  const response=runTheorycraftRequest(request('select-copy-history-cards',input));
+  assert.deepEqual(response.result.selectedUids,[1]);
+  assert.deepEqual(response.result.trace.map(row=>row.decision),['SKIP_EXCLUDED_STATE','SELECT']);
+  assert.equal(response.result.finalDamage,null);
 });
 
 test('agent API composes explicit Wheel events with later Active hits',()=>{

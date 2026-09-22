@@ -53,8 +53,11 @@ created card through `LastTarget`.
 
 The compatibility report exposes every row and marks the command non-executable.
 A sequence calculator must resolve all-enemy targeting and presentation RNG,
-history-card selection, card creation, `LastTarget`, and created-card state
-attachment before it may claim complete Mortal Blast execution. The existing
+card creation, `LastTarget`, and created-card state attachment before it may
+claim complete Mortal Blast execution. History selection itself is now bounded:
+original-runtime fixtures prove newest-first traversal and show that candidates
+carrying Human Explosion marker 123811 or pursuit marker 124733 are skipped in
+favor of an older eligible Strike. The existing
 catalog-prepared paid Wheel bridge therefore continues to reject Mortal Blast
 instead of calculating its damage row while silently discarding its card and
 state effects.
@@ -67,3 +70,7 @@ critical, property and HP paths, then returns `stop.beforeRowId = "2"` for the
 supplied target cannot represent `AllEnemy`. This result is only Mortal Blast's
 direct-hit component; the copied Strike and three later state effects remain
 outside it.
+
+The public `select-copy-history-cards` operation accepts only explicit reconstructed
+history cards and reproduces this filter. It cannot infer the live replay history,
+and its selected card is not yet passed through creation and card-state attachment.

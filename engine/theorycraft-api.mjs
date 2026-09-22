@@ -31,6 +31,7 @@ import {compareWheelActiveTimelines} from './wheel-active-comparison.mjs';
 import {runPaidWheelActiveTimeline} from './paid-wheel-active-timeline.mjs';
 import {searchPaidWheelOrders} from './paid-wheel-order-search.mjs';
 import {runPreparedPaidWheelActiveTimeline} from './prepared-paid-wheel-active-timeline.mjs';
+import {selectCopyHistoryCards} from './copy-history-card-selection.mjs';
 
 export const theorycraftOperations=Object.freeze([
   {name:'describe-capabilities',context:[],scope:'List supported versioned operations and evidence boundaries'},
@@ -70,6 +71,7 @@ export const theorycraftOperations=Object.freeze([
   {name:'run-command-damage-prefix',context:[],scope:'Leading ordinary Active-damage rows until the first unsupported command row'},
   {name:'run-attached-card-pipeline',context:['skillCommandData'],scope:'Attach request, temporary-card construction, catalog command resolution and optional leading damage prefix'},
   {name:'run-conditional-role-state-suffix',context:[],scope:'Conditional state-only command suffix over explicit role and query snapshots'},
+  {name:'select-copy-history-cards',context:[],scope:'Original-runtime-matched newest-first history selection with type, duplicate and excluded-state filters'},
 ]);
 
 export const theorycraftClaimBoundary=Object.freeze({
@@ -130,6 +132,7 @@ function execute(operation,input,context){
     return runAttachedCardPipeline(input,{build:input.build,skills:data.skills,battleApi:data.battleApi,commands:data.commands,sourceHashes:{Skill:data.sourceHashes.Skill,BattleApi:data.sourceHashes.BattleApi,Cmd:data.sourceHashes.Cmd}});
   }
   if(operation==='run-conditional-role-state-suffix')return runConditionalRoleStateSuffix(input);
+  if(operation==='select-copy-history-cards')return selectCopyHistoryCards(input);
   throw new Error('Unsupported theorycraft operation');
 }
 

@@ -130,5 +130,6 @@
   "wheel-active-timeline.mjs",
   "wheel-active-comparison.mjs",
   "paid-wheel-active-timeline.mjs",
-  "paid-wheel-order-search.mjs"
+  "paid-wheel-order-search.mjs",
+  "copy-history-card-selection.mjs"
 ]

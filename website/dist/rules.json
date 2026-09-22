@@ -4042,7 +4042,7 @@
       "id": "PC144:CopiedCardAttribution",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
       "claim": "History copies preserve skill identity and special-owner metadata; card owner determines command caster, and skill statistics use command caster and skill ID",
-      "limitations": "Actual replay card identity and animation binding unresolved; history state-filter branch not runtime tested",
+      "limitations": "Actual replay card identity and animation binding unresolved; exact history filtering is covered by PC144:CopyHistoryCardSelection",
       "gameplayValidation": false,
       "sources": [
         {
@@ -4087,6 +4087,43 @@
         }
       ],
       "checks": []
+    },
+    {
+      "id": "PC144:CopyHistoryCardSelection",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Copy-history selection scans included bouts and cards newest first, requires a requested card type, applies excluded type and state filters, and can skip duplicate skill IDs",
+      "scope": "Seven original protected-runtime cases prove newest-first traversal, required/excluded-type matching, duplicate skill-ID suppression and excluded-state handling for explicit reconstructed history. Mouchette markers 123811 and 124733 each cause the newer Strike to be skipped; all-excluded returns no selection. Current resource 150 inherits this bounded method because BattleCardMgrServer is byte-identical. Actual replay history reconstruction, card creation, LastTarget, state attachment, copied-card execution, gameplay and holdout validation are excluded.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "BattleCardMgrServer",
+          "member": "CheckHistoryCardParam,GetBoutHistoryCard",
+          "sha256": "2237271bdbb3cb34aa16cff08ee0f202382e6c9b3f1613c1477168e0a3b021c9"
+        },
+        {
+          "module": "BattleCmdParser",
+          "member": "GetCopyHistoryCard",
+          "sha256": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d"
+        },
+        {
+          "module": "Skill",
+          "member": "122483",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8"
+        },
+        {
+          "module": "Cmd",
+          "member": "122499",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2"
+        }
+      ],
+      "checks": [
+        "tools/history_card_oracle.py",
+        "tests/synthetic/original-history-card-selection.json",
+        "engine/copy-history-card-selection.mjs",
+        "tests/copy-history-card-selection.test.mjs",
+        "tests/theorycraft-api.test.mjs",
+        "docs/CARD_ATTRIBUTION.md"
+      ]
     },
     {
       "id": "PC144:GeneratedCardRequest",
@@ -6552,7 +6589,7 @@
       "id": "Theorycraft:PreparedActivePrefix",
       "status": "SUPPORTED_BY_COMPONENT_AND_CATALOG_TESTS",
       "claim": "A mixed catalog command can execute only its contiguous leading Active-damage rows through complete live property snapshots and expose the first unsupported row as a mandatory stop",
-      "scope": "Resource-150 Mouchette Mortal Blast prepares the real two-hit leading Active row and stops before BECreateCard. A non-UpperTarget selector is accepted only with exactly one declared eligible target. The card-copy and three state rows, history selection, LastTarget, multi-enemy execution, costs, callbacks, death execution, gameplay and holdout validation remain excluded. Direct-hit component only; no complete skill total, cheese, budget or optimality claim.",
+      "scope": "Resource-150 Mouchette Mortal Blast prepares the real two-hit leading Active row and stops before BECreateCard. A non-UpperTarget selector is accepted only with exactly one declared eligible target. The card-copy and three state rows, binding from a separately supported history selection into creation, LastTarget, multi-enemy execution, costs, callbacks, death execution, gameplay and holdout validation remain excluded. Direct-hit component only; no complete skill total, cheese, budget or optimality claim.",
       "gameplayValidation": false,
       "sources": [
         {
