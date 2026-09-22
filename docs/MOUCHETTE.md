@@ -51,13 +51,17 @@ no damage result. The complete command contains five rows: one two-repeat
 `GetCopyHistoryCard`, then three conditional `BEAddState` rows targeting the
 created card through `LastTarget`.
 
-The compatibility report exposes every row and marks the command non-executable.
-A sequence calculator must resolve all-enemy targeting and presentation RNG,
-card creation, `LastTarget`, and created-card state attachment before it may
-claim complete Mortal Blast execution. History selection itself is now bounded:
+The compatibility report exposes every row and marks the complete command
+non-executable. History selection itself is now bounded:
 original-runtime fixtures prove newest-first traversal and show that candidates
 carrying Human Explosion marker 123811 or pursuit marker 124733 are skipped in
-favor of an older eligible Strike. The existing
+favor of an older eligible Strike. Card creation now also preserves the command's
+`TOP` hand placement. `BECreateCard` replaces its effect targets with cards
+actually returned by `AddNewCard`; the next `LastTarget` rows therefore bind the
+new playable card, while a full hand produces no state target. Connected original
+state construction proves that states 2948, 2454 and 2983 register as Card states
+and store `card_cost = -1`, `consume = 1` and `nothingness = 1`. Resource 150
+reproduces all three connected fixtures. The existing
 catalog-prepared paid Wheel bridge therefore continues to reject Mortal Blast
 instead of calculating its damage row while silently discarding its card and
 state effects.
@@ -72,5 +76,9 @@ direct-hit component; the copied Strike and three later state effects remain
 outside it.
 
 The public `select-copy-history-cards` operation accepts only explicit reconstructed
-history cards and reproduces this filter. It cannot infer the live replay history,
-and its selected card is not yet passed through creation and card-state attachment.
+history cards and reproduces this filter. `run-mortal-blast-copy-suffix` composes
+selection, top-of-hand creation, the tested manager return/overflow branch,
+`LastTarget` handoff and the three proven Card properties after the caller proves
+`Arg2 > 1`. It cannot infer live history, hand state or allocated UIDs. The leading
+damage prefix and this suffix are not yet one connected scheduled command; copied-card
+execution, listeners, multi-enemy execution, gameplay and holdout validation remain.

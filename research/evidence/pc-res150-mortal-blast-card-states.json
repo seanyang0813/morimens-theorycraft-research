@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CROSS_BUILD_RUNTIME_COMPARISON",
+  "baselineBuild": "pc-res144-build51",
+  "currentBuild": "pc-res150-build51",
+  "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+  "fixtures": 3,
+  "matched": 3,
+  "mismatches": 0,
+  "mechanicsFields": {
+    "2948": {
+      "ID": 2948,
+      "MaxLayer": 999,
+      "ExistProperty": {
+        "card_cost": "ChangedLayer*(-1)"
+      }
+    },
+    "2454": {
+      "ID": 2454,
+      "MaxLayer": 999999,
+      "ExistProperty": {
+        "consume": 1
+      }
+    },
+    "2983": {
+      "ID": 2983,
+      "MaxLayer": 1,
+      "ExistProperty": {
+        "nothingness": 1
+      }
+    }
+  },
+  "sourceHashes": {
+    "baselineFixture": "105320610c34ad1c865c22f139e47087db47495b50f273a0f826070cbb89ef97",
+    "currentStateCatalog": "77788cf5217a2dca351d16726edf6c1e23c5009ba8fc90a10fef148895eb91f8",
+    "currentBEAddStateParent": "a568aafa46331f3c9967404dd3f67399a0f7f93bbfa34b878b8e939d3cfcdc71",
+    "currentBattlePropertyServer": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5",
+    "stateCreationValidation": "11b7877205c5ca3124b337fea2b43e128d246e6d7ed8cd21f5b8fc31aafdc2c8",
+    "propertyValidation": "7ca3867fa82e521210bd146d83b71d3769bb9056b0d60c91738a050ce104cb76"
+  },
+  "scope": "Resource-150 add-state parent and property storage reproduce three inherited Card-target fixtures; ID, MaxLayer and ExistProperty fields also match.",
+  "limitations": [
+    "Synthetic Card target and parser adapters",
+    "No LastTarget binding, full command scheduling, card play, gameplay or holdout credit"
+  ]
+}

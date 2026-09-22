@@ -1,0 +1,227 @@
+{
+  "kind": "SYNTHETIC_ORIGINAL_RUNTIME",
+  "build": "pc-res144-build51",
+  "sourceHashes": {
+    "BEAddState": "1465ac7c4f7b101ded98c429e9bb089ebabaad7c48a4b6f4c4519419e6eec133",
+    "BEAddStateParent": "00871a473b5c4ced3824c28afb88fc3cfe6cbfca01d23bc2a0d3bac6afa0f8b3",
+    "BattleStateMgrServer": "dc7653a427f1fe0bfd21b7495980cc173f4cb298e7dd7086a224ee40640c11a4",
+    "BattleStateServer": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+    "BattleStateData": "3d24986198cdab349ed790e58756292c086f7e3d8ffc76f5d61e9fdc15c21e26",
+    "BattlePropertyServer": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76"
+  },
+  "catalogStates": {
+    "2948": {
+      "BaseSortID": 299,
+      "ClearCond": {
+        "1": "BSTBeforeBattleEnd"
+      },
+      "CnID": "状态@通用打出前卡牌算力降低",
+      "Desc": "State_2948_Desc|打出前改变卡牌算力",
+      "ExistProperty": {
+        "card_cost": "ChangedLayer*(-1)"
+      },
+      "ID": 2948,
+      "Icon": "IconS_Buff_001.png",
+      "Judgement1": "StateOwner.IsInDeck(DimensionDeck)==1 and StateOwner.GetStateLayer(81428)==0 and PlayerRole.GetStateLayer(119083)==0",
+      "Judgement2": "TriggerAssociator.UniqueID==StateOwner.UniqueID",
+      "MaxLayer": 999,
+      "Name": "State_2948_Name|打出前改变卡牌算力",
+      "Owner": "StateOwner",
+      "ShowType": "Hide",
+      "Statistic": "Disable",
+      "TriggerCmd1": 61096,
+      "TriggerCmd2": 127259,
+      "TriggerCond1": {
+        "1": "BSTStateOnAdd"
+      },
+      "TriggerCond2": {
+        "1": "BSTAfterUseCard"
+      },
+      "TriggerPara2": 2948,
+      "TriggerPriority": 999,
+      "TriggerTarget1": "StateOwner",
+      "TriggerTarget2": "StateOwner",
+      "WeaponDesc": "State_2948_WeaponDesc|打出前改变卡牌算力"
+    },
+    "2454": {
+      "BaseSortID": 310,
+      "CnID": "状态@卡牌消耗",
+      "Desc": "State_2454_Desc|打出后不会进入弃牌堆，而是从牌库中移除。",
+      "ExistProperty": {
+        "consume": 1
+      },
+      "ID": 2454,
+      "MaxLayer": 999999,
+      "MergeStateDisplay": 20806,
+      "Name": "State_2454_Name|<DepleteIconKeywords:消耗>",
+      "Owner": "StateOwner",
+      "ShowType": "Normal",
+      "Statistic": "Disable",
+      "TriggerPriority": 99,
+      "WeaponDesc": "State_2454_WeaponDesc|打出后卡牌不会进入弃牌堆，在本场战斗中无法再次使用。"
+    },
+    "2983": {
+      "BaseSortID": 323,
+      "CnID": "状态@卡牌虚无",
+      "Desc": "State_2983_Desc|若弃牌阶段仍在手牌中，卡牌将被消耗，本场战斗中不再出现。",
+      "ExistProperty": {
+        "nothingness": 1
+      },
+      "ID": 2983,
+      "MaxLayer": 1,
+      "Name": "State_2983_Name|<NothingnessIconKeywords:虚无>",
+      "Owner": "StateOwner",
+      "ShowType": "Normal",
+      "Statistic": "Disable",
+      "TriggerPriority": 99,
+      "WeaponDesc": "State_2983_WeaponDesc|若弃牌阶段仍然在手牌中，则不进入弃牌堆，而是在本场战斗中无法再次使用。"
+    }
+  },
+  "scope": "Original BEAddState through manager/state construction and BattlePropertyServer storage for Mortal Blast states 2948, 2454 and 2983 on explicit Card targets. Parser values, target construction and callbacks are adapters. No LastTarget binding, card creation, card play, event body, gameplay or holdout validation.",
+  "fixtures": [
+    {
+      "input": {
+        "stateId": 2948,
+        "property": "card_cost",
+        "expression": "ChangedLayer*(-1)",
+        "catalogValue": "ChangedLayer*(-1)",
+        "expectedValue": -1,
+        "requestedLayer": 1,
+        "maximum": 999,
+        "targetKind": "Card"
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 2948.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers9": 1.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          {
+            "event": "ownerProperty",
+            "property": "card_cost",
+            "old": 0.0,
+            "new": -1.0
+          },
+          {
+            "event": "sendProperty",
+            "property": "card_cost",
+            "delta": -1.0,
+            "new": -1.0
+          },
+          {
+            "event": "modifyCardCost"
+          },
+          "Serialize",
+          "recordCard",
+          "onAdd",
+          "stats"
+        ],
+        "storedProperty": {
+          "name": "card_cost",
+          "value": -1.0
+        }
+      }
+    },
+    {
+      "input": {
+        "stateId": 2454,
+        "property": "consume",
+        "expression": "1",
+        "catalogValue": 1,
+        "expectedValue": 1,
+        "requestedLayer": 1,
+        "maximum": 999999,
+        "targetKind": "Card"
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 2454.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers9": 1.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          {
+            "event": "ownerProperty",
+            "property": "consume",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "event": "sendProperty",
+            "property": "consume",
+            "delta": 1.0,
+            "new": 1.0
+          },
+          "Serialize",
+          "recordCard",
+          "onAdd",
+          "stats"
+        ],
+        "storedProperty": {
+          "name": "consume",
+          "value": 1.0
+        }
+      }
+    },
+    {
+      "input": {
+        "stateId": 2983,
+        "property": "nothingness",
+        "expression": "1",
+        "catalogValue": 1,
+        "expectedValue": 1,
+        "requestedLayer": 1,
+        "maximum": 1,
+        "targetKind": "Card"
+      },
+      "expected": {
+        "registryCount": 1,
+        "uid": 88.0,
+        "stateId": 2983.0,
+        "layer": 1.0,
+        "changedLayer": 1.0,
+        "casterLayers9": 1.0,
+        "trace": [
+          "construct",
+          "uid",
+          "parser",
+          "InitTrigger",
+          "LogBattleLayer",
+          {
+            "event": "ownerProperty",
+            "property": "nothingness",
+            "old": 0.0,
+            "new": 1.0
+          },
+          {
+            "event": "sendProperty",
+            "property": "nothingness",
+            "delta": 1.0,
+            "new": 1.0
+          },
+          "Serialize",
+          "recordCard",
+          "onAdd",
+          "stats"
+        ],
+        "storedProperty": {
+          "name": "nothingness",
+          "value": 1.0
+        }
+      }
+    }
+  ]
+}

@@ -29,6 +29,14 @@ test('each selected source card produces a separate manager request',()=>{
   assert.equal(observed.events.length,2);assert.equal(observed.outputTargetUids.length,2);
 });
 
+test('top placement is preserved into the card-manager request',()=>{
+  const result=runCreateCardCommand({...base,count:1,deckExpression:{cardDeck:'HandDeck',camp:3,targetPos:'TOP'}});
+  assert.equal(result.requests[0].config.targetPos,'TOP');
+  const observed=original.fixtures.find(item=>item.input.name==='top-hand-placement').expected;
+  assert.equal(observed.events[0].addNewCard.config.targetPos,'TOP');
+  assert.deepEqual(observed.outputTargetUids,[9001]);
+});
+
 test('generated-card adapter fails closed outside its tested boundary',()=>{
   for(const value of [{...base,deckExpression:{cardDeck:'NoSuchDeck',camp:3}},{...base,count:Infinity},{...base,count:Number.MAX_SAFE_INTEGER+1},{...base,targets:[{...base.targets[0],level:null}]},{...base,extra:true}])assert.throws(()=>runCreateCardCommand(value));
 });

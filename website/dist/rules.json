@@ -1144,6 +1144,51 @@
       ]
     },
     {
+      "id": "PC144:MortalBlastCardStates",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "Mortal Blast states 2948, 2454 and 2983 register through the Card-state route and store card_cost -1, consume 1 and nothingness 1 respectively",
+      "scope": "Three connected original-runtime cases with actual State mechanics fields and explicit Card targets. State 2948 also reaches the card-cost modification record callback. Parser values, target construction and callbacks are adapters. No LastTarget binding, full command scheduling, card play, gameplay or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "State",
+          "member": "2948,2454,2983",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8"
+        },
+        {
+          "module": "BEAddState",
+          "member": "DoEffect",
+          "sha256": "1465ac7c4f7b101ded98c429e9bb089ebabaad7c48a4b6f4c4519419e6eec133"
+        },
+        {
+          "module": "BEAddStateParent",
+          "member": "AddState,__AddStateInternal",
+          "sha256": "00871a473b5c4ced3824c28afb88fc3cfe6cbfca01d23bc2a0d3bac6afa0f8b3"
+        },
+        {
+          "module": "BattleStateMgrServer",
+          "member": "CreateState,__CreateState",
+          "sha256": "dc7653a427f1fe0bfd21b7495980cc173f4cb298e7dd7086a224ee40640c11a4"
+        },
+        {
+          "module": "BattleStateServer",
+          "member": "InitProperty,ChangeOwnerProperty",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "ChangeProperty,AddProperty",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76"
+        }
+      ],
+      "checks": [
+        "tools/mortal_blast_card_states_oracle.py",
+        "tests/synthetic/original-mortal-blast-card-states.json",
+        "tests/mortal-blast-card-states.test.mjs",
+        "docs/MOUCHETTE.md"
+      ]
+    },
+    {
       "id": "PC144:ConnectedCounterPropertyCreation",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
       "claim": "First creation of phase counter 60407 reaches original state property initialization/routing and original BattlePropertyServer storage, adding ChangedLayer to be_damage_statics",
@@ -4128,8 +4173,8 @@
     {
       "id": "PC144:GeneratedCardRequest",
       "status": "SUPPORTED_BY_RUNTIME_TEST",
-      "claim": "BECreateCard rounds requested count upward, preserves selected card identity and level, resolves show/argument defaults, and sends caster, camp, special-owner, perform-skill and card-type metadata to AddNewCard as distinct fields",
-      "scope": "Six original protected-runtime cases with explicit deck-expression, selected-card and card-manager adapters, including two selected source cards. The authored engine reproduces request construction only. History selection, AddNewCard deck/hand mutation and capacity, entry triggers, returned UID semantics, generated-card execution, gameplay and holdout validation are excluded.",
+      "claim": "BECreateCard rounds requested count upward, preserves selected card identity and level, resolves top/bottom placement plus show/argument defaults, and sends caster, camp, special-owner, perform-skill and card-type metadata to AddNewCard as distinct fields",
+      "scope": "Seven original protected-runtime cases with explicit deck-expression, placement, selected-card and card-manager adapters, including two selected source cards. The authored engine reproduces request construction only. History selection, AddNewCard deck/hand mutation and capacity, entry triggers, returned UID semantics, generated-card execution, gameplay and holdout validation are excluded.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -5407,6 +5452,25 @@
       ]
     },
     {
+      "id": "PC150:MortalBlastCardStates",
+      "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
+      "claim": "Resource 150 reproduces all three connected Mortal Blast Card-state construction and property-storage fixtures",
+      "scope": "Current State ID/MaxLayer/ExistProperty fields plus changed add-state parent and current BattlePropertyServer over three explicit Card targets. Parser values, target construction and callbacks are adapters. No LastTarget binding, full command scheduling, card play, gameplay or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 Mortal Blast Card-state comparison",
+          "member": "state mechanics-field comparison and connected runtime results",
+          "sha256": "27dfb81679ab820835ff30b945a65247542feb8b771b6f78a8a09264eb8f774f"
+        }
+      ],
+      "checks": [
+        "tools/verify_current_mortal_blast_card_states.py",
+        "tests/mortal-blast-card-states.test.mjs",
+        "tests/synthetic/original-mortal-blast-card-states.json"
+      ]
+    },
+    {
       "id": "PC150:ConnectedCounterPropertyCreation",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
       "claim": "Changed resource-150 BEAddStateParent and BattlePropertyServer reproduce all 5 first-time counter-60407 construction and be_damage_statics storage fixtures",
@@ -5555,8 +5619,8 @@
     {
       "id": "PC150:GeneratedCardPipeline",
       "status": "SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST",
-      "claim": "Current resource-150 generated-card modules are byte-identical and reproduce all 21 inherited request, selected deck-mutation, owner-resolution and command-initialization-request fixtures with current dependencies",
-      "scope": "Current BattleConst and BattleLogicEvent plus byte-identical generated-card modules over six BECreateCard, five AddNewCard, six InitOwner and four InitCmdServer fixtures. Draw/Hand top/bottom mutation, hand overflow, extra-bout Dimension early exit, owner fallbacks and command constructor payloads are covered. Other deck capacities, random placement, BattleCmdServer constructor internals, card state initialization, listeners, gameplay and holdout validation are excluded.",
+      "claim": "Current resource-150 generated-card modules are byte-identical and reproduce all 22 inherited request, selected deck-mutation, owner-resolution and command-initialization-request fixtures with current dependencies",
+      "scope": "Current BattleConst and BattleLogicEvent plus byte-identical generated-card modules over seven BECreateCard, five AddNewCard, six InitOwner and four InitCmdServer fixtures. Draw/Hand top/bottom mutation, hand overflow, extra-bout Dimension early exit, owner fallbacks and command constructor payloads are covered. Other deck capacities, random placement, BattleCmdServer constructor internals, card state initialization, listeners, gameplay and holdout validation are excluded.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -5567,7 +5631,7 @@
         {
           "module": "PC resource-150 generated-card runtime comparison",
           "member": "request, AddNewCard, InitOwner and InitCmdServer fixture domains",
-          "sha256": "928146f8c1f47799b5e563044547c28b19ffbb40d4c3bda2a78eec04bd6c2027"
+          "sha256": "15cdada65b0756ff1d2ae1eba769fb884494e83cfd492846eaef9b46248496f8"
         }
       ],
       "checks": [
@@ -6622,6 +6686,56 @@
         "tests/prepared-snapshot-active-skill.test.mjs",
         "tests/theorycraft-api.test.mjs",
         "docs/PREPARED_SNAPSHOT_ACTIVE_SKILL.md",
+        "docs/MOUCHETTE.md"
+      ]
+    },
+    {
+      "id": "Theorycraft:MortalBlastCopySuffix",
+      "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
+      "claim": "After a proven potency branch, the theorycraft API composes Mortal Blast history selection, one top-of-hand copy request, tested hand mutation/overflow, BECreateCard-to-LastTarget handoff and three proven Card-state property deltas",
+      "scope": "Authored immutable composition for resource 144 or 150 over separately original-runtime-matched boundaries. Exact Mortal Blast selector, explicit reconstructed history/manager state/UID/camp and proven Arg2>1 branch are required. Full-hand overflow leaves no LastTarget card. Leading damage, connected full-command scheduling, state listener/event bodies, copied-card execution, gameplay and holdout validation are excluded; finalDamage remains null.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Skill",
+          "member": "122483",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8"
+        },
+        {
+          "module": "Cmd",
+          "member": "122499",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2"
+        },
+        {
+          "module": "BattleCmdParser",
+          "member": "GetCopyHistoryCard,LastTarget",
+          "sha256": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d"
+        },
+        {
+          "module": "BECreateCard",
+          "member": "DoEffect",
+          "sha256": "f068ef334f66ac38cbc48c4829a3bb26d05476c904e0b562c00561fc80e7d3f6"
+        },
+        {
+          "module": "BattleCardMgrServer",
+          "member": "GetBoutHistoryCard,AddNewCard",
+          "sha256": "2237271bdbb3cb34aa16cff08ee0f202382e6c9b3f1613c1477168e0a3b021c9"
+        },
+        {
+          "module": "State",
+          "member": "2948,2454,2983",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8"
+        }
+      ],
+      "checks": [
+        "tests/copy-history-card-selection.test.mjs",
+        "tests/create-card-command.test.mjs",
+        "tests/add-new-card.test.mjs",
+        "tests/basic-command-targets.test.mjs",
+        "tests/mortal-blast-card-states.test.mjs",
+        "tests/mortal-blast-copy-suffix.test.mjs",
+        "tests/theorycraft-api.test.mjs",
+        "engine/mortal-blast-copy-suffix.mjs",
         "docs/MOUCHETTE.md"
       ]
     },

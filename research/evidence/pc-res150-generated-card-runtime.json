@@ -4,13 +4,13 @@
   "baselineBuild": "pc-res144-build51",
   "currentBuild": "pc-res150-build51",
   "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
-  "fixtures": 21,
+  "fixtures": 22,
   "domains": [
     {
       "domain": "create",
-      "fixtures": 6,
+      "fixtures": 7,
       "exactMatch": true,
-      "baselineFixtureSha256": "7e225daf126e1837260bd638a3f94bd90a8af6aed8317a713f9703619f4ded2c"
+      "baselineFixtureSha256": "8c316d535883bc6fcff55f6d7c6a1143a90f13a0b0f8f1e94d4f77888a99d092"
     },
     {
       "domain": "add",

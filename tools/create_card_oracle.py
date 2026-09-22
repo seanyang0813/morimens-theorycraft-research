@@ -150,7 +150,7 @@ class CreateCardOracle(Oracle):
                 "deck": self.scalar(state, 3),
                 "config": {key: self.field(state, config, key) for key in (
                     "enternal", "show", "castRoleUid", "owner", "camp",
-                    "performSkillId", "cardTypes")},
+                    "performSkillId", "cardTypes", "targetPos")},
             }
             self.getfield(state, config, b"cardArgs")
             request["config"]["cardArgs"] = self.list_scalars(state, -1)
@@ -246,6 +246,8 @@ CASES = [
      "targets": [{"id": 1003}]},
     {"name": "multiple-target-cards", "params": [{"cardDeck": "DrawDeck", "__camp": 4}, None, 1, 9],
      "targets": [{"id": 1004, "level": 2}, {"id": 1005, "level": 3}]},
+    {"name": "top-hand-placement", "params": [{"cardDeck": "HandDeck", "__camp": 3}, "TOP", 1],
+     "targets": [{"id": 1006, "level": 4}]},
 ]
 
 

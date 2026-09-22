@@ -32,6 +32,7 @@ import {runPaidWheelActiveTimeline} from './paid-wheel-active-timeline.mjs';
 import {searchPaidWheelOrders} from './paid-wheel-order-search.mjs';
 import {runPreparedPaidWheelActiveTimeline} from './prepared-paid-wheel-active-timeline.mjs';
 import {selectCopyHistoryCards} from './copy-history-card-selection.mjs';
+import {runMortalBlastCopySuffix} from './mortal-blast-copy-suffix.mjs';
 
 export const theorycraftOperations=Object.freeze([
   {name:'describe-capabilities',context:[],scope:'List supported versioned operations and evidence boundaries'},
@@ -72,6 +73,7 @@ export const theorycraftOperations=Object.freeze([
   {name:'run-attached-card-pipeline',context:['skillCommandData'],scope:'Attach request, temporary-card construction, catalog command resolution and optional leading damage prefix'},
   {name:'run-conditional-role-state-suffix',context:[],scope:'Conditional state-only command suffix over explicit role and query snapshots'},
   {name:'select-copy-history-cards',context:[],scope:'Original-runtime-matched newest-first history selection with type, duplicate and excluded-state filters'},
+  {name:'run-mortal-blast-copy-suffix',context:[],scope:'Mortal Blast history selection, top-of-hand creation, LastTarget handoff and three proven Card-state properties after a proven potency branch'},
 ]);
 
 export const theorycraftClaimBoundary=Object.freeze({
@@ -133,6 +135,7 @@ function execute(operation,input,context){
   }
   if(operation==='run-conditional-role-state-suffix')return runConditionalRoleStateSuffix(input);
   if(operation==='select-copy-history-cards')return selectCopyHistoryCards(input);
+  if(operation==='run-mortal-blast-copy-suffix')return runMortalBlastCopySuffix(input);
   throw new Error('Unsupported theorycraft operation');
 }
 

@@ -26,6 +26,7 @@ test('agent API advertises explicit bounded operations',()=>{
   assert.ok(response.result.operations.some(row=>row.name==='run-conditional-role-state-suffix'));
   assert.ok(response.result.operations.some(row=>row.name==='search-wheel-catalog'));
   assert.ok(response.result.operations.some(row=>row.name==='select-copy-history-cards'));
+  assert.ok(response.result.operations.some(row=>row.name==='run-mortal-blast-copy-suffix'));
   assert.equal(response.result.publicationStatus,'NOT_READY');
 });
 
@@ -146,6 +147,15 @@ test('agent API selects the newest eligible copy-history Strike without inventin
   const response=runTheorycraftRequest(request('select-copy-history-cards',input));
   assert.deepEqual(response.result.selectedUids,[1]);
   assert.deepEqual(response.result.trace.map(row=>row.decision),['SKIP_EXCLUDED_STATE','SELECT']);
+  assert.equal(response.result.finalDamage,null);
+});
+
+test('agent API composes the proven Mortal Blast copy suffix without claiming copied-card damage',()=>{
+  const card=(uid,id,stateIds=[])=>({uid,id,level:90,camp:1,specialOwner:56,performSkillId:id,cardTypes:['Card_Strike'],stateIds,createCardArgs:[]});
+  const historySelection={schemaVersion:1,kind:'morimens-copy-history-card-selection',build:'pc-res150-build51',cardTypes:['Card_Strike'],endNum:0,beginNum:99,needNum:1,skipSameId:0,exceptCardTypes:[],exceptStateIds:[123811,124733],history:[[card(1,126484)]]};
+  const input={schemaVersion:1,kind:'morimens-mortal-blast-copy-suffix',build:'pc-res150-build51',potencyGreaterThanOne:true,historySelection,castRoleUid:94450,camp:1,cardManagerState:{decks:{NoneDeck:[],DrawDeck:[],HandDeck:[],DimensionDeck:[]},enternalCardUids:[]},allocatedCardUid:99,maxHand:5};
+  const response=runTheorycraftRequest(request('run-mortal-blast-copy-suffix',input));
+  assert.deepEqual(response.result.cardsAfter[0].propertyDeltas,{card_cost:-1,consume:1,nothingness:1});
   assert.equal(response.result.finalDamage,null);
 });
 

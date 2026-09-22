@@ -211,13 +211,14 @@ class ConnectedStateCreationOracle(ConstructorOracle):
         self.method('OnAddState', lambda state: (self.trace.append('recordRole'), 0)[1])
         self.method('OnAddCardState', lambda state: (self.trace.append('recordCard'), 0)[1])
         self.method('OnChangeStateLayer', lambda state: 0)
+        self.method('OnModifyCardCost', lambda state: (self.trace.append({'event': 'modifyCardCost'}), 0)[1])
         self.setfield(L, -2, b'recordMgr')
         self.table(L, 0, 1)
         self.method('ChangeUniqueStateRole', lambda state: (self.trace.append('unique'), 0)[1])
         self.setfield(L, -2, b'roleMgr')
         self.setglobal(L, global_name)
 
-    def run(self, state_id, requested_layer, maximum, property_value=None):
+    def run(self, state_id, requested_layer, maximum, property_value=None, target_kind='Role'):
         L = self.state
         self.top(L, 0)
         self.trace = []
@@ -232,9 +233,13 @@ class ConnectedStateCreationOracle(ConstructorOracle):
         self.setfield(L, -2, b'uid')
         self.number(L, 1)
         self.setfield(L, -2, b'camp')
-        self.method('IsRoleType', lambda state: (self.boolean(state, True), 1)[1])
+        if target_kind not in ('Role', 'Card'):
+            raise ValueError('target_kind must be Role or Card')
+        self.method('IsRoleType', lambda state: (self.boolean(state, target_kind == 'Role'), 1)[1])
         self.method('IsDead', lambda state: (self.boolean(state, False), 1)[1])
-        self.method('is', lambda state: (self.boolean(state, False), 1)[1])
+        self.method('is', lambda state: (self.boolean(state, target_kind == 'Card'), 1)[1])
+        if target_kind == 'Card':
+            self.method('GetCurCost', lambda state: (self.number(state, 3), 1)[1])
         self.method('CalcStateLayerLimit', lambda state: (self.number(state, self.tonumber(state, 3, None)), 1)[1])
         self.method('CalcStateLayerLimitTotal', lambda state: (self.number(state, self.tonumber(state, 3, None)), 1)[1])
         self.getglobal(L, b'_connected_owner_engine')

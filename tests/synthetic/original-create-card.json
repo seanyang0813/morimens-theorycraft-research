@@ -103,6 +103,7 @@
                 "camp": 3.0,
                 "performSkillId": 123.0,
                 "cardTypes": "copied-types",
+                "targetPos": null,
                 "cardArgs": [
                   11.0,
                   22.0
@@ -162,6 +163,7 @@
                 "camp": 6.0,
                 "performSkillId": 0.0,
                 "cardTypes": "types",
+                "targetPos": null,
                 "cardArgs": [
                   31.0,
                   32.0,
@@ -216,6 +218,7 @@
                 "camp": 3.0,
                 "performSkillId": 0.0,
                 "cardTypes": "types",
+                "targetPos": null,
                 "cardArgs": [
                   41.0
                 ]
@@ -271,6 +274,7 @@
                 "camp": 4.0,
                 "performSkillId": 0.0,
                 "cardTypes": "types",
+                "targetPos": null,
                 "cardArgs": []
               }
             }
@@ -292,6 +296,7 @@
                 "camp": 4.0,
                 "performSkillId": 0.0,
                 "cardTypes": "types",
+                "targetPos": null,
                 "cardArgs": []
               }
             }
@@ -299,6 +304,55 @@
         ],
         "outputTargetUids": [
           9001.0,
+          9001.0
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "top-hand-placement",
+        "params": [
+          {
+            "cardDeck": "HandDeck",
+            "__camp": 3
+          },
+          "TOP",
+          1
+        ],
+        "targets": [
+          {
+            "id": 1006,
+            "level": 4
+          }
+        ]
+      },
+      "expected": {
+        "returned": true,
+        "events": [
+          {
+            "addNewCard": {
+              "cards": [
+                {
+                  "tid": 1006.0,
+                  "level": 4.0
+                }
+              ],
+              "deck": "HandDeck",
+              "config": {
+                "enternal": 0.0,
+                "show": true,
+                "castRoleUid": 77.0,
+                "owner": 0.0,
+                "camp": 3.0,
+                "performSkillId": 0.0,
+                "cardTypes": "types",
+                "targetPos": "TOP",
+                "cardArgs": []
+              }
+            }
+          }
+        ],
+        "outputTargetUids": [
           9001.0
         ]
       }

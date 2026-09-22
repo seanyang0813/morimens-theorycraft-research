@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "3544b1362e96d3a566a3f6d0ddd7261409fe19824deb24cc9e9af450bbc25f81",
+  "fingerprint": "e1dd7dbae6a3908448f65a4a48667d49b1e099d0a583ada80072ba57972465b7",
   "files": {
     "build-catalog.json": "71d0e0d14959e933ae8942ac0064de95c0a63b84ce9065e2bdcef4509090b98b",
     "client-build-data-res150.json": "49d4bf5abe419360df47e4959a26fb50bdaa37ed8189c022a644ff518f6fba80",
@@ -47,7 +47,7 @@
     "engine/conditional-role-state-suffix.mjs": "990a8cf0be0ed78d9fa9909a850ee92368e682b50577c27d821381c4ce856012",
     "engine/conditional-variant.mjs": "cea73e9470f39b004e4adf30d570f28f7446162fa56116862a2a10e9f0ba2a95",
     "engine/copy-history-card-selection.mjs": "d2105ae08b916cc8a45a6e2393a69209d2dfe5b27c194217c2856422a3dc3785",
-    "engine/create-card-command.mjs": "9d9cd59e7adbf090a6ffbc19b41ceb645c40b00b94d7b7d7af820f4fc629d3cf",
+    "engine/create-card-command.mjs": "cf56ebadb7f690b03c014a312f617ec01c763bca09559d3f329e3ec6bd4bacd2",
     "engine/crit-resolution.mjs": "58841b28db82b3d4e2c8493616a64d8995650dbd9717f8296adf03b27ea91eae",
     "engine/damage-energy-command.mjs": "039aca152a761da8cb86483ee7e0b0cad517d5e8f61d46c0c259a2a7a5d5c782",
     "engine/damage-energy-example.mjs": "74a3418458d1038101196466edaebb229b704e3e2386a3465aceb122f8301f89",
@@ -70,6 +70,7 @@
     "engine/inspect-command-support.mjs": "13db4f7c8772fb5a3e06a49a9bc8bb5b0b370fd5aa29923a71c7a25ba3aa77b9",
     "engine/legal-card-actions.mjs": "92aad421c959d1b5360133fd4577d95c4634cef46868aff8c8d2f6ffe5f11d4b",
     "engine/live-state-lookup.mjs": "db44a2056b38ae9f758ee4c29ebb1a5da9e35fcb44a7a62b16d807c8e9703908",
+    "engine/mortal-blast-copy-suffix.mjs": "7672f1b4c9f0fedb13cedefaf63a234c25bc3123a17efd014defbd2706f57efb",
     "engine/observation-scenario.mjs": "dcd44c775767372e014f6b1a7c61a1b49742c403341608d351f27523254bb201",
     "engine/offensive-setup.mjs": "17631bb6023e2a435cd09aff837ae20e1855eea0b5b2bbbdd4aa7e0868b18753",
     "engine/old-embers-activation.mjs": "e756371a091e55d384e8e80b3344e18eb085ddab1d46695d6787801957a5300f",
@@ -139,7 +140,7 @@
     "engine/wheel-search.mjs": "5055b6d67b72ea7d4dbc882dec7df9b6bb32812cc6f8675d355b6d9aff83b36e",
     "engine/wheel-stats.mjs": "d0eac4ca93b72cd91595dc6650b363f4b35e2262aac018e1c0e41c77f31b813e",
     "engine/wheel-trigger-transitions.mjs": "6628e20f50b739c35f59a3b86dd86b01cabc244a4e6fae6f0882254ace812bef",
-    "rules.json": "73495a18f12c3897d6d6af0ad4df75c710de30ac1e381605646460cfd07b5168",
+    "rules.json": "4d42934c311592bab3207f53b6be9eefa5c4f6b6709296fa81064c654734c8f8",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af",
     "wheel-mechanics-capability-catalog.json": "f544b9f24176c216532d050136a56aac58bccb20086f3acd78bd56613ca61af0"
   }
