@@ -7366,6 +7366,27 @@
       "gameplayValidation": false
     },
     {
+      "id": "Mechanics:WheelCapabilitySearch",
+      "status": "AUTHORED_DISCOVERY_API",
+      "claim": "A strict mechanics-track API and CLI search the sanitized Wheel capability catalog by text, category, effect type, crosswalk status and static-cycle presence without entering the theorycraft track",
+      "sources": [
+        {
+          "module": "Wheel mechanics capability catalog",
+          "member": "146 sanitized static fingerprints",
+          "bundle": "derived mechanics metadata",
+          "sha256": "f544b9f24176c216532d050136a56aac58bccb20086f3acd78bd56613ca61af0"
+        }
+      ],
+      "tests": [
+        "engine/wheel-mechanics-search.mjs",
+        "tools/search_wheel_mechanics.mjs",
+        "tests/wheel-mechanics-search.test.mjs",
+        "research/examples/mechanics-search-wheel-capabilities.json"
+      ],
+      "scope": "Authored read-only search over static metadata. It does not execute passives, interpret formulas, rank Wheels, recommend a build or create a theorycraft, cheese, budget-scouting, gameplay-validation or holdout result.",
+      "gameplayValidation": false
+    },
+    {
       "id": "Theorycraft:LegalCardActionEnumeration",
       "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
       "claim": "The theorycraft API enumerates ordinary non-keeper PvE card actions from explicit dispatch, energy, hand and status state while retaining global and per-card rejection gates",

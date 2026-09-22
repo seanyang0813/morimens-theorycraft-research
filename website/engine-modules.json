@@ -120,5 +120,6 @@
   "ulti-energy-experiment.mjs",
   "ulti-energy-calculation.mjs",
   "ulti-energy-effect.mjs",
-  "ulti-energy-gain.mjs"
+  "ulti-energy-gain.mjs",
+  "wheel-mechanics-search.mjs"
 ]

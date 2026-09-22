@@ -46,3 +46,19 @@ The hit-resolution object now accepts exactly one of `immune` (an explicit boole
 This predicate matches 270 original-runtime cases. Fixed/Pure API integration also compares resulting HP and shield against the original BeHit fixtures with raw immunity properties supplied. This removes the need for callers to calculate the decision but does not reconstruct the properties from equipment/states. Pure's effect supplies subtype 0, so Pure Puncture remains rejected even though the lower-level predicate can evaluate it.
 
 `node --test tests/research-api.test.mjs tests/active-pipeline.test.mjs tests/skill-arguments.test.mjs` passes. The integration cases check cross-stage value propagation, rounding/cap ordering, immunity preserving incoming damage while not consuming shield, input rejection, build consistency and strict-mode withholding. Argument integration additionally distinguishes an ordinary fractional argument from a fractional override before card scaling, preserves zero overrides, and rejects ambiguous values and invalid indices. They are hand-designed synthetic integration cases, not additional original-runtime differential vectors or gameplay fixtures. The 6,878 component differential cases and 288 separate routing assertions retain their existing scopes.
+
+## Separate Wheel mechanics search
+
+Wheel passive graph discovery is intentionally outside the theorycraft request
+API. `engine/wheel-mechanics-search.mjs` accepts an exact versioned mechanics
+request and filters the sanitized capability catalog by free text, broad
+mechanic category, effect type, crosswalk status and static-cycle presence.
+`tools/search_wheel_mechanics.mjs` exposes the same operation to local agents.
+
+Run:
+
+`node tools/search_wheel_mechanics.mjs --input research/examples/mechanics-search-wheel-capabilities.json`
+
+The response carries `analysisTrack: "mechanics"`. It returns static potential
+graph metadata only; it does not execute passives, rank Wheels or become a
+theorycraft, cheese, budget-scouting, gameplay-validation or holdout result.

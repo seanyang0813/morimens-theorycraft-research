@@ -87,6 +87,11 @@ The sanitized per-Wheel capability index is available at
 `research/evidence/wheel-mechanics-capability-catalog.json` and in the prepared
 website package for agent or human discovery.
 
+Agents can query that index without entering the theorycraft track by running
+`node tools/search_wheel_mechanics.mjs --input research/examples/mechanics-search-wheel-capabilities.json`.
+The versioned response remains labeled `analysisTrack: "mechanics"` and exposes
+only static fingerprints and their limitations.
+
 ## Offline replay pipeline
 
 An explicitly exported PC replay can now be processed without running game logic or reading process memory:

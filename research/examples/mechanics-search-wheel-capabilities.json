@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-wheel-mechanics-search",
+  "requestId": "eternal-weave-static-capabilities",
+  "query": "Eternal Weave",
+  "mechanicCategories": [
+    "state"
+  ],
+  "effectTypes": [],
+  "crosswalkStatuses": [
+    "UNIQUE"
+  ],
+  "hasStaticCycle": null,
+  "limit": 20
+}
