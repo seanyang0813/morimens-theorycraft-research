@@ -87,7 +87,7 @@ def audit_observation(row):
             if frozen.get('predictedDamage')!=predicted:raise ValueError('Frozen predicted damage differs')
             before=frozen.get('beforeOutcomeEvidence')
             if not isinstance(before,list) or not before:raise ValueError('Independent evidence of freeze timing missing')
-            replay_input_hashes=set()
+            replay_input_hashes=set();before_evidence_paths=[]
             for item in before:
                 evidence_path=(ROOT/item['path']).resolve()
                 if not evidence_path.is_relative_to(ROOT) or not evidence_path.is_file():raise ValueError('Pre-outcome evidence missing or outside workspace')
@@ -98,6 +98,7 @@ def audit_observation(row):
                     input_hash=before_value.get('inputSha256')
                     if not isinstance(input_hash,str) or len(input_hash)!=64 or any(char not in '0123456789abcdef' for char in input_hash):raise ValueError('Replay pre-outcome evidence has an invalid container hash')
                     replay_input_hashes.add(input_hash)
+                before_evidence_paths.append(evidence_path)
                 hashes.append({'path':item['path'],'sha256':item['sha256'],'purpose':'pre-outcome state; chronology requires manual review'})
             if len(replay_input_hashes)>1:raise ValueError('Replay pre-outcome evidence refers to multiple containers')
             recorded_build=row.get('version',{}).get('recordedCombatBuild')
@@ -106,7 +107,8 @@ def audit_observation(row):
                 if not isinstance(build,dict) or build.get('id')!=recorded_build:raise ValueError('Frozen recorded build is missing or differs from the observation')
                 build_evidence=build.get('evidence')
                 if not isinstance(build_evidence,list) or not build_evidence:raise ValueError('Frozen recorded build needs pre-outcome evidence')
-                recognized_build_evidence=False;recognized_session_capture=False
+                recognized_build_evidence=False
+                recognized_session_capture=bool(replay_input_hashes) and any(recognized_replay_session_capture(path,recorded_build,next(iter(replay_input_hashes))) for path in before_evidence_paths)
                 for item in build_evidence:
                     evidence_path=(ROOT/item['path']).resolve()
                     if not evidence_path.is_relative_to(ROOT) or not evidence_path.is_file():raise ValueError('Build evidence missing or outside workspace')

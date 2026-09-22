@@ -16,20 +16,28 @@ For a fresh controlled replay that is independently tied to the installed
 resource-150 session, freeze the build at the same time:
 
 ```text
-node tools/freeze_blind_replay_prediction.mjs --index research/observations/<private>/index.json --decoded research/observations/<private>/decoded.json --id replay-holdout-001 --recorded-build pc-res150-build51 --build-evidence research/evidence/pc-res144-to-res150-combat-build.json
+node tools/freeze_blind_replay_prediction.mjs --index research/observations/<private>/index.json --decoded research/observations/<private>/decoded.json --id replay-holdout-001 --recorded-build pc-res150-build51 --build-evidence research/evidence/pc-res144-to-res150-combat-build.json --capture-evidence research/evidence/<reviewed-session-capture>.json
 ```
 
 For resource 151, the freeze requires both installed-build identity and the
 exact bounded adapter carry-forward:
 
 ```text
-node tools/freeze_blind_replay_prediction.mjs --index research/observations/<private>/index.json --decoded research/observations/<private>/decoded.json --id replay-holdout-001 --recorded-build pc-res151-build51 --build-evidence research/evidence/pc-res144-to-res151-combat-build.json --build-evidence research/evidence/pc-res151-replay-adapter-compatibility.json
+node tools/freeze_blind_replay_prediction.mjs --index research/observations/<private>/index.json --decoded research/observations/<private>/decoded.json --id replay-holdout-001 --recorded-build pc-res151-build51 --build-evidence research/evidence/pc-res144-to-res151-combat-build.json --build-evidence research/evidence/pc-res151-replay-adapter-compatibility.json --capture-evidence research/evidence/<reviewed-session-capture>.json
 ```
 
 Resource-151 support is limited to the same complete live-property ordinary
 Active adapter. Six required client modules are byte-identical to resource 150,
 and Skill, Cmd, State, BattleApi and Constant have no Lua-semantic gameplay
 changes. This carry-forward does not enable other simulator operations.
+
+For resource 150 or 151, the freezer now requires a reviewed
+`MORIMENS_REPLAY_SESSION_CAPTURE_EVIDENCE` whose exact container hash, PvE
+domain, recorded build, private baseline/delta/attestation commitments and all
+six same-session checks match the decoded replay. It adds that artifact as a
+second pre-outcome evidence file. Reveal verifies that every frozen evidence
+file is committed unchanged at `HEAD`; a build report alone cannot create a
+current-build holdout.
 
 The resource-150 replay adapter is intentionally narrower than the historical
 resource-144 adapter. It accepts only complete live property maps. Target-state

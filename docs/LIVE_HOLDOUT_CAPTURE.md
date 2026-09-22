@@ -47,6 +47,7 @@ Use `tools/freeze_blind_replay_prediction.mjs` with:
 --recorded-build pc-res151-build51
 --build-evidence research/evidence/pc-res144-to-res151-combat-build.json
 --build-evidence research/evidence/pc-res151-replay-adapter-compatibility.json
+--capture-evidence research/evidence/<reviewed-session-capture>.json
 ```
 
-Commit and push the frozen prediction. Only then reveal the selected damage outcome and compare it through the review tools. Already viewed damage, a restarted process, an uncommitted baseline, PvP/mixed-domain routing or a missing controlled-battle attestation cannot receive holdout credit.
+The freezer rejects a resource-150/151 claim unless that reviewed capture matches the decoded container hash, PvE domain, recorded build and every same-session provenance check. Commit and push the frozen prediction and all referenced evidence. Only then reveal the selected damage outcome and compare it through the review tools. Already viewed damage, a restarted process, an uncommitted baseline, PvP/mixed-domain routing or a missing controlled-battle attestation cannot receive holdout credit.

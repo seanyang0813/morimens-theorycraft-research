@@ -7,12 +7,25 @@ import {freezeGameplayPrediction,validateRecordedBuildEvidence} from './freeze_g
 import {verifyRuntimeManifest} from './verify_runtime_manifest.mjs';
 
 const root=resolve(fileURLToPath(new URL('../',import.meta.url)));
-const hash=value=>createHash('sha256').update(typeof value==='string'?value:JSON.stringify(value)).digest('hex');
+const publicEvidenceRoot=resolve(root,'research/evidence');
+const hash=value=>createHash('sha256').update(Buffer.isBuffer(value)?value:typeof value==='string'?value:JSON.stringify(value)).digest('hex');
 const rel=path=>relative(root,path).replaceAll('\\','/');
 const read=path=>JSON.parse(readFileSync(path,'utf8'));
 function inside(value,label){const path=resolve(root,value),r=relative(root,path);if(!r||r.startsWith('..')||isAbsolute(r))throw new Error(`${label} must be inside the workspace`);return path;}
 
-export function freezeBlindReplayPrediction({indexFile,decodedFile,id,recordedCombatBuild=null,buildEvidenceFiles=[],now=()=>new Date()}){
+function reviewedCaptureEvidence(value,recordedCombatBuild,inputSha256){
+  const current=['pc-res150-build51','pc-res151-build51'].includes(recordedCombatBuild);
+  if(!current){if(value!==null)throw new Error('Same-session capture evidence is accepted only with a supported current recorded build');return null;}
+  if(typeof value!=='string'||!value)throw new Error('Current-build replay predictions require reviewed same-session capture evidence');
+  const path=inside(value,'Capture evidence'),r=relative(publicEvidenceRoot,path);if(!r||r.startsWith('..')||isAbsolute(r))throw new Error('Reviewed capture evidence must be under research/evidence');
+  const bytes=readFileSync(path),report=JSON.parse(bytes.toString('utf8'));
+  const checks=['sameProcessStart','sameExecutable','installedBuildUnchanged','newReferenceAbsentFromBaseline','controlledPveBattleConfirmed','containerPreservedBeforeDecode'];
+  const commitments=[report?.baselineCommitment?.sha256,report?.baselineCommitment?.privateBaselineSha256,report?.privateCaptureCommitment?.sha256,report?.privateAttestationCommitment?.sha256];
+  if(report?.schemaVersion!==1||report.kind!=='MORIMENS_REPLAY_SESSION_CAPTURE_EVIDENCE'||report.status!=='REVIEWED_SAME_SESSION_CONTROLLED_PVE_CAPTURE'||report.analysisTrack!=='verification'||report.build?.id!==recordedCombatBuild||report.containerSha256!==inputSha256||report.combatDomain!=='PVE_MONSTER_TARGETS'||checks.some(key=>report.sessionChecks?.[key]!==true)||commitments.some(value=>!/^[0-9a-f]{64}$/.test(value??'')))throw new Error('Reviewed same-session capture evidence does not match this PvE replay and recorded build');
+  return {path,bytes};
+}
+
+export function freezeBlindReplayPrediction({indexFile,decodedFile,id,recordedCombatBuild=null,buildEvidenceFiles=[],captureEvidenceFile=null,now=()=>new Date()}){
   if(!/^[a-z0-9][a-z0-9-]{2,63}$/.test(id))throw new Error('Holdout ID must be a lowercase slug');
   validateRecordedBuildEvidence(recordedCombatBuild,buildEvidenceFiles);
   verifyRuntimeManifest();
@@ -20,6 +33,7 @@ export function freezeBlindReplayPrediction({indexFile,decodedFile,id,recordedCo
   if(!existsSync(indexPath)||!existsSync(decodedPath))throw new Error('Private index and decoded replay are required');
   const index=read(indexPath),decoded=read(decodedPath),records=decoded?.decoded?.resourceRecords;
   if(decoded?.kind!=='MORIMENS_DECODED_REPLAY'||decoded.inputSha256!==index.inputSha256||!records||!['Skill','Cmd','MonsterConfig','AwakerConfig'].every(name=>records[name]&&typeof records[name]==='object'))throw new Error('Matching decoded replay with embedded combat catalogs required');
+  const captureEvidence=reviewedCaptureEvidence(captureEvidenceFile,recordedCombatBuild,decoded.inputSha256);
   const combatBuild=recordedCombatBuild??'pc-res144-build51';
   const prediction=buildBlindReplayPrediction({index,skills:records.Skill,commands:records.Cmd,monsters:records.MonsterConfig,awakeners:records.AwakerConfig,combatBuild});
   const directory=resolve(root,'research/evidence/holdouts',id);mkdirSync(directory,{recursive:true});
@@ -31,18 +45,19 @@ export function freezeBlindReplayPrediction({indexFile,decodedFile,id,recordedCo
     identityCommitmentSha256:prediction.identityCommitmentSha256,sealedProjectionSha256:prediction.sealedProjectionSha256,
     catalogSha256:Object.fromEntries(['Skill','Cmd','MonsterConfig','AwakerConfig'].map(name=>[name,hash(records[name])])),
     excludedOutcomeFields:['castDamage','isCrit','oldHp','blockLose','realDamage','hpLose'],recordedCombatBuild,
+    sameSessionCaptureEvidence:captureEvidence?{path:rel(captureEvidence.path),sha256:hash(captureEvidence.bytes)}:null,
     limitations:prediction.unresolvedDependencies};
   writeFileSync(scenarioPath,JSON.stringify(scenario,null,2)+'\n',{encoding:'utf8',flag:'wx'});
   writeFileSync(evidencePath,JSON.stringify(evidence,null,2)+'\n',{encoding:'utf8',flag:'wx'});
-  const frozen=freezeGameplayPrediction({scenarioFile:rel(scenarioPath),metric:'preHitDamage',evidenceFiles:[rel(evidencePath)],outputFile:rel(freezePath),recordedCombatBuild,buildEvidenceFiles,now});
+  const frozen=freezeGameplayPrediction({scenarioFile:rel(scenarioPath),metric:'preHitDamage',evidenceFiles:[rel(evidencePath),...(captureEvidence?[rel(captureEvidence.path)]:[])],outputFile:rel(freezePath),recordedCombatBuild,buildEvidenceFiles,now});
   if(frozen.predictedDamage!==prediction.predictedDamage)throw new Error('Frozen scenario result differs from blind projection');
   return {id,predictedDamage:frozen.predictedDamage,scenarioFile:rel(scenarioPath),preOutcomeEvidenceFile:rel(evidencePath),freezeFile:frozen.path,freezeSha256:frozen.sha256,inputSha256:decoded.inputSha256};
 }
 
 if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
   try{
-    const args=process.argv.slice(2),options={buildEvidenceFiles:[]};for(let i=0;i<args.length;i+=2){if(!['--index','--decoded','--id','--recorded-build','--build-evidence'].includes(args[i])||!args[i+1])throw new Error('Usage: node tools/freeze_blind_replay_prediction.mjs --index FILE --decoded FILE --id SLUG [--recorded-build BUILD --build-evidence FILE ...]');if(args[i]==='--build-evidence')options.buildEvidenceFiles.push(args[i+1]);else options[args[i]]=args[i+1];}
+    const args=process.argv.slice(2),options={buildEvidenceFiles:[]};for(let i=0;i<args.length;i+=2){if(!['--index','--decoded','--id','--recorded-build','--build-evidence','--capture-evidence'].includes(args[i])||!args[i+1])throw new Error('Usage: node tools/freeze_blind_replay_prediction.mjs --index FILE --decoded FILE --id SLUG [--recorded-build BUILD --build-evidence FILE ... --capture-evidence FILE]');if(args[i]==='--build-evidence')options.buildEvidenceFiles.push(args[i+1]);else options[args[i]]=args[i+1];}
     if(!options['--index']||!options['--decoded']||!options['--id'])throw new Error('Index, decoded replay and ID are required');
-    console.log(JSON.stringify(freezeBlindReplayPrediction({indexFile:options['--index'],decodedFile:options['--decoded'],id:options['--id'],recordedCombatBuild:options['--recorded-build']??null,buildEvidenceFiles:options.buildEvidenceFiles}),null,2));
+    console.log(JSON.stringify(freezeBlindReplayPrediction({indexFile:options['--index'],decodedFile:options['--decoded'],id:options['--id'],recordedCombatBuild:options['--recorded-build']??null,buildEvidenceFiles:options.buildEvidenceFiles,captureEvidenceFile:options['--capture-evidence']??null}),null,2));
   }catch(error){console.error(error.message);process.exitCode=1;}
 }

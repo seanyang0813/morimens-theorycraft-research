@@ -61,7 +61,7 @@ class ObservationAuditTests(unittest.TestCase):
             freeze=directory/'freeze.json';freeze.write_text(json.dumps(frozen),encoding='utf-8')
             row={**self.row(),'version':{'recordedCombatBuild':build},'holdout':True,'prediction':prediction,'predictionFrozenBeforeOutcomeEvidence':item(freeze)}
             self.assertIn('Holdout freeze: Replay holdout lacks reviewed same-session controlled-PvE capture evidence',audit_observation(row)['reasons'])
-            frozen['recordedBuild']['evidence'].append(item(capture));freeze.write_text(json.dumps(frozen),encoding='utf-8');row['predictionFrozenBeforeOutcomeEvidence']=item(freeze)
+            frozen['beforeOutcomeEvidence'].append(item(capture));freeze.write_text(json.dumps(frozen),encoding='utf-8');row['predictionFrozenBeforeOutcomeEvidence']=item(freeze)
             self.assertFalse(any(reason.startswith('Holdout freeze:') for reason in audit_observation(row)['reasons']))
     def test_no_implicit_tolerance(self):
         result=audit_observation({**self.row(),'predictedDamage':101})

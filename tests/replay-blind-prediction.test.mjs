@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {existsSync,mkdtempSync,readFileSync,rmSync,writeFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {existsSync,mkdirSync,mkdtempSync,readFileSync,rmSync,writeFileSync} from 'node:fs';
 import {join,relative} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {buildBlindReplayPrediction} from '../engine/replay-blind-prediction.mjs';
@@ -9,6 +10,7 @@ import {freezeBlindReplayPrediction} from '../tools/freeze_blind_replay_predicti
 const root=fileURLToPath(new URL('../',import.meta.url));
 
 const properties={hp:1000,max_hp:1000,block:0,crit:0,crit_damage:150};
+const captureEvidence=(build,containerSha256)=>({schemaVersion:1,kind:'MORIMENS_REPLAY_SESSION_CAPTURE_EVIDENCE',status:'REVIEWED_SAME_SESSION_CONTROLLED_PVE_CAPTURE',analysisTrack:'verification',build:{id:build},containerSha256,combatDomain:'PVE_MONSTER_TARGETS',baselineCommitment:{sha256:'1'.repeat(64),privateBaselineSha256:'2'.repeat(64)},privateCaptureCommitment:{sha256:'3'.repeat(64)},privateAttestationCommitment:{sha256:'4'.repeat(64)},sessionChecks:{sameProcessStart:true,sameExecutable:true,installedBuildUnchanged:true,newReferenceAbsentFromBaseline:true,controlledPveBattleConfirmed:true,containerPreservedBeforeDecode:true}});
 const fixture=castDamage=>({
   index:{kind:'MORIMENS_REPLAY_EVENT_INDEX',build:'pc-res144-build51',actionSnapshots:[{actionIndex:0,boundaryStatus:'COMPLETE',cardUid:30,camp:1,
     roles:{'1':{uid:1,tid:101,camp:1,roleType:1,breakSkillLevel:0,potencyLevel:0,properties:{...properties,crit:0}},'2':{uid:2,tid:201,camp:2,roleType:2,properties:{...properties}},'3':{uid:3,tid:0,camp:1,roleType:3,properties:{...properties}}},
@@ -59,10 +61,12 @@ test('blind replay freeze pins an explicitly evidenced resource-150 build',()=>{
     const indexFile=join(privateDir,'index.json'),decodedFile=join(privateDir,'decoded.json');
     writeFileSync(indexFile,JSON.stringify(input.index));
     writeFileSync(decodedFile,JSON.stringify({kind:'MORIMENS_DECODED_REPLAY',inputSha256:input.index.inputSha256,decoded:{resourceRecords:{Skill:input.skills,Cmd:input.commands,MonsterConfig:input.monsters,AwakerConfig:input.awakeners}}}));
-    const buildEvidence='research/evidence/pc-res144-to-res150-combat-build.json';
-    const result=freezeBlindReplayPrediction({indexFile:relative(root,indexFile),decodedFile:relative(root,decodedFile),id,recordedCombatBuild:'pc-res150-build51',buildEvidenceFiles:[buildEvidence],now:()=>new Date('2026-09-21T00:00:00Z')});
+    const buildEvidence='research/evidence/pc-res144-to-res150-combat-build.json',captureFile=join(publicDir,'capture.json');
+    mkdirSync(publicDir,{recursive:true});writeFileSync(captureFile,JSON.stringify(captureEvidence('pc-res150-build51',input.index.inputSha256)));
+    assert.throws(()=>freezeBlindReplayPrediction({indexFile:relative(root,indexFile),decodedFile:relative(root,decodedFile),id,recordedCombatBuild:'pc-res150-build51',buildEvidenceFiles:[buildEvidence],now:()=>new Date('2026-09-21T00:00:00Z')}),/reviewed same-session capture evidence/i);
+    const result=freezeBlindReplayPrediction({indexFile:relative(root,indexFile),decodedFile:relative(root,decodedFile),id,recordedCombatBuild:'pc-res150-build51',buildEvidenceFiles:[buildEvidence],captureEvidenceFile:relative(root,captureFile),now:()=>new Date('2026-09-21T00:00:00Z')});
     const freeze=JSON.parse(readFileSync(join(publicDir,'prediction-freeze.json'),'utf8')),evidence=JSON.parse(readFileSync(join(publicDir,'preoutcome-evidence.json'),'utf8'));
-    assert.equal(result.predictedDamage,100);assert.equal(freeze.recordedBuild.id,'pc-res150-build51');assert.equal(freeze.prediction.runtimeContract.fullRuntimeFingerprint,freeze.prediction.runtimeFingerprint);assert.equal(evidence.recordedCombatBuild,'pc-res150-build51');
+    assert.equal(result.predictedDamage,100);assert.equal(freeze.recordedBuild.id,'pc-res150-build51');assert.equal(freeze.prediction.runtimeContract.fullRuntimeFingerprint,freeze.prediction.runtimeFingerprint);assert.equal(evidence.recordedCombatBuild,'pc-res150-build51');assert.equal(freeze.beforeOutcomeEvidence.length,2);assert.equal(evidence.sameSessionCaptureEvidence.path,relative(root,captureFile).replaceAll('\\','/'));assert.equal(evidence.sameSessionCaptureEvidence.sha256,createHash('sha256').update(readFileSync(captureFile)).digest('hex'));
     const invalid=join(privateDir,'invalid-build.json'),invalidId=`blind-invalid-build-${process.pid}`;writeFileSync(invalid,'{}');
     assert.throws(()=>freezeBlindReplayPrediction({indexFile:relative(root,indexFile),decodedFile:relative(root,decodedFile),id:invalidId,recordedCombatBuild:'pc-res150-build51',buildEvidenceFiles:[relative(root,invalid)]}),/recognized build report/);
     assert.equal(existsSync(join(root,'research/evidence/holdouts',invalidId)),false);
@@ -76,11 +80,15 @@ test('blind replay freeze requires both resource-151 build identity and adapter 
     const indexFile=join(privateDir,'index.json'),decodedFile=join(privateDir,'decoded.json');
     writeFileSync(indexFile,JSON.stringify(input.index));
     writeFileSync(decodedFile,JSON.stringify({kind:'MORIMENS_DECODED_REPLAY',inputSha256:input.index.inputSha256,decoded:{resourceRecords:{Skill:input.skills,Cmd:input.commands,MonsterConfig:input.monsters,AwakerConfig:input.awakeners}}}));
-    const build='research/evidence/pc-res144-to-res151-combat-build.json',compatibility='research/evidence/pc-res151-replay-adapter-compatibility.json';
+    const build='research/evidence/pc-res144-to-res151-combat-build.json',compatibility='research/evidence/pc-res151-replay-adapter-compatibility.json',captureFile=join(publicDir,'capture.json');
     assert.throws(()=>freezeBlindReplayPrediction({indexFile:relative(root,indexFile),decodedFile:relative(root,decodedFile),id:missingId,recordedCombatBuild:'pc-res151-build51',buildEvidenceFiles:[build]}),/adapter compatibility report/);
     assert.equal(existsSync(join(root,'research/evidence/holdouts',missingId)),false);
-    const result=freezeBlindReplayPrediction({indexFile:relative(root,indexFile),decodedFile:relative(root,decodedFile),id,recordedCombatBuild:'pc-res151-build51',buildEvidenceFiles:[build,compatibility],now:()=>new Date('2026-09-22T00:00:00Z')});
+    assert.throws(()=>freezeBlindReplayPrediction({indexFile:relative(root,indexFile),decodedFile:relative(root,decodedFile),id,recordedCombatBuild:'pc-res151-build51',buildEvidenceFiles:[build,compatibility],now:()=>new Date('2026-09-22T00:00:00Z')}),/reviewed same-session capture evidence/i);
+    mkdirSync(publicDir,{recursive:true});writeFileSync(captureFile,JSON.stringify(captureEvidence('pc-res151-build51','c'.repeat(64))));
+    assert.throws(()=>freezeBlindReplayPrediction({indexFile:relative(root,indexFile),decodedFile:relative(root,decodedFile),id,recordedCombatBuild:'pc-res151-build51',buildEvidenceFiles:[build,compatibility],captureEvidenceFile:relative(root,captureFile),now:()=>new Date('2026-09-22T00:00:00Z')}),/does not match this PvE replay/);
+    writeFileSync(captureFile,JSON.stringify(captureEvidence('pc-res151-build51',input.index.inputSha256)));
+    const result=freezeBlindReplayPrediction({indexFile:relative(root,indexFile),decodedFile:relative(root,decodedFile),id,recordedCombatBuild:'pc-res151-build51',buildEvidenceFiles:[build,compatibility],captureEvidenceFile:relative(root,captureFile),now:()=>new Date('2026-09-22T00:00:00Z')});
     const freeze=JSON.parse(readFileSync(join(publicDir,'prediction-freeze.json'),'utf8'));
-    assert.equal(result.predictedDamage,100);assert.equal(freeze.recordedBuild.id,'pc-res151-build51');assert.equal(freeze.recordedBuild.evidence.length,2);
+    assert.equal(result.predictedDamage,100);assert.equal(freeze.recordedBuild.id,'pc-res151-build51');assert.equal(freeze.recordedBuild.evidence.length,2);assert.equal(freeze.beforeOutcomeEvidence.length,2);
   }finally{rmSync(privateDir,{recursive:true,force:true});rmSync(publicDir,{recursive:true,force:true});rmSync(join(root,'research/evidence/holdouts',missingId),{recursive:true,force:true});}
 });

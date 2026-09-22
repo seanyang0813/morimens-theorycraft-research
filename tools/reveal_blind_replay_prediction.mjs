@@ -11,13 +11,18 @@ const read=path=>JSON.parse(readFileSync(path,'utf8'));
 function inside(value,label){const path=resolve(root,value),r=relative(root,path);if(!r||r.startsWith('..')||isAbsolute(r))throw new Error(`${label} must be inside the workspace`);return path;}
 function committedUnchanged(path){const name=rel(path);let bytes;try{bytes=execFileSync('git',['show',`HEAD:${name}`],{cwd:root});}catch{throw new Error(`Freeze chronology artifact is not committed at HEAD: ${name}`);}if(hash(bytes)!==hash(readFileSync(path)))throw new Error(`Freeze chronology artifact differs from HEAD: ${name}`);}
 
+export function validateFrozenEvidence(freeze,{commitCheck=committedUnchanged}={}){
+  const evidenceItems=freeze?.beforeOutcomeEvidence,evidenceItem=evidenceItems?.[0];
+  if(!Array.isArray(evidenceItems)||!evidenceItems.length)throw new Error('Frozen pre-outcome evidence required');
+  const evidencePaths=evidenceItems.map((item,index)=>{const path=inside(item?.path??'',index?'Additional pre-outcome evidence':'Pre-outcome evidence');if(hash(readFileSync(path))!==item.sha256)throw new Error('Pre-outcome evidence hash mismatch');commitCheck(path);return path;});
+  return {evidenceItems,evidenceItem,evidencePaths,evidencePath:evidencePaths[0]};
+}
+
 export function revealBlindReplayPrediction({indexFile,freezeFile,observationFile}){
   const indexPath=inside(indexFile,'Index'),freezePath=inside(freezeFile,'Freeze'),outputPath=inside(observationFile,'Observation output');
   if(!existsSync(indexPath)||!existsSync(freezePath))throw new Error('Replay index and committed prediction freeze required');
   const freeze=read(freezePath);if(freeze.kind!=='MORIMENS_PREDICTION_FREEZE')throw new Error('Supported prediction freeze required');
-  const evidenceItem=freeze.beforeOutcomeEvidence?.[0],evidencePath=inside(evidenceItem?.path??'','Pre-outcome evidence');
-  if(hash(readFileSync(evidencePath))!==evidenceItem.sha256)throw new Error('Pre-outcome evidence hash mismatch');
-  committedUnchanged(freezePath);committedUnchanged(evidencePath);committedUnchanged(inside(freeze.prediction.scenarioFile,'Scenario'));
+  committedUnchanged(freezePath);const {evidenceItems,evidenceItem,evidencePath}=validateFrozenEvidence(freeze);committedUnchanged(inside(freeze.prediction.scenarioFile,'Scenario'));
   for(const item of freeze.recordedBuild?.evidence??[]){const path=inside(item.path,'Build evidence');if(hash(readFileSync(path))!==item.sha256)throw new Error('Build evidence hash mismatch');committedUnchanged(path);}
   if(existsSync(outputPath))throw new Error('Observation already exists; refusing to overwrite reveal evidence');
   const index=read(indexPath),evidence=read(evidencePath);if(index.inputSha256!==evidence.inputSha256)throw new Error('Reveal replay differs from frozen input commitment');
@@ -33,7 +38,7 @@ export function revealBlindReplayPrediction({indexFile,freezeFile,observationFil
   writeFileSync(outcomePath,JSON.stringify(outcome,null,2)+'\n',{encoding:'utf8',flag:'wx'});
   const recordedCombatBuild=freeze.recordedBuild?.id??null,buildConfirmed=typeof recordedCombatBuild==='string'&&recordedCombatBuild.length>0;
   if(evidence.recordedCombatBuild!==recordedCombatBuild)throw new Error('Frozen replay evidence and build commitment differ');
-  const observation={id:evidence.holdoutId,kind:'REAL_GAME_OBSERVATION',status:buildConfirmed?'COMPLETE':'COMPLETE_BUILD_UNCONFIRMED',holdout:true,source:'Authorized selected-profile native replay; identifiers withheld',version:{viewingClient:recordedCombatBuild,recordedCombatBuild},visibleState:{sourceActionIndex:evidence.sourceActionIndex,sourceHitIndex:evidence.sourceHitIndex,skillId:evidence.routing.skillId,commandId:evidence.routing.commandId,rowId:evidence.routing.rowId,repetitionPerExecution:evidence.routing.repetitionPerExecution},assumedState:{},uncertainState:buildConfirmed?[]:['Recorded engine-code version is not explicit in the replay payload'],observedDamage:observed.castDamage,predictedDamage:predicted,difference,mechanicsExercised:['Deterministic Active damage','Replay-embedded combat catalogs','One-enemy first-hit prediction'],prediction:freeze.prediction,predictionFrozenBeforeOutcomeEvidence:{path:rel(freezePath),sha256:hash(readFileSync(freezePath))},evidence:[evidenceItem.path,...(freeze.recordedBuild?.evidence??[]).map(item=>item.path),rel(outcomePath)]};
+  const observation={id:evidence.holdoutId,kind:'REAL_GAME_OBSERVATION',status:buildConfirmed?'COMPLETE':'COMPLETE_BUILD_UNCONFIRMED',holdout:true,source:'Authorized selected-profile native replay; identifiers withheld',version:{viewingClient:recordedCombatBuild,recordedCombatBuild},visibleState:{sourceActionIndex:evidence.sourceActionIndex,sourceHitIndex:evidence.sourceHitIndex,skillId:evidence.routing.skillId,commandId:evidence.routing.commandId,rowId:evidence.routing.rowId,repetitionPerExecution:evidence.routing.repetitionPerExecution},assumedState:{},uncertainState:buildConfirmed?[]:['Recorded engine-code version is not explicit in the replay payload'],observedDamage:observed.castDamage,predictedDamage:predicted,difference,mechanicsExercised:['Deterministic Active damage','Replay-embedded combat catalogs','One-enemy first-hit prediction'],prediction:freeze.prediction,predictionFrozenBeforeOutcomeEvidence:{path:rel(freezePath),sha256:hash(readFileSync(freezePath))},evidence:[...evidenceItems.map(item=>item.path),...(freeze.recordedBuild?.evidence??[]).map(item=>item.path),rel(outcomePath)]};
   writeFileSync(outputPath,JSON.stringify(observation,null,2)+'\n',{encoding:'utf8',flag:'wx'});
   return {id:evidence.holdoutId,observedDamage:observed.castDamage,predictedDamage:predicted,difference,outcomeEvidenceFile:rel(outcomePath),observationFile:rel(outputPath)};
 }
