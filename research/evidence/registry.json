@@ -8510,6 +8510,25 @@
       "gameplayValidation": false
     },
     {
+      "id": "ANDROID83:NativeEndpointStringAudit",
+      "status": "CONFIRMED_FROM_LOCAL_NATIVE_STRING_SCAN",
+      "claim": "A bounded ASCII and UTF-16LE audit of all three packaged ARM64 libraries separates 54 URL-shaped strings into standards, documentation, malformed DNS and markup fragments; none is an unclassified external or resource-download candidate",
+      "sources": [
+        {
+          "module": "Android packaged ARM64 native libraries",
+          "member": "all libil2cpp, libtuanjie and libxlua printable strings; source hashes and aggregate classifications only",
+          "bundle": "Android APK native libraries",
+          "sha256": "8f3031226640d0216ebb56ef212c10c2a10457ccea80a95e73a0c09266192036"
+        }
+      ],
+      "tests": [
+        "tools/inspect_android_native_endpoints.py",
+        "tests/android-native-endpoint-inspection.test.mjs"
+      ],
+      "scope": "Static printable-string inventory over three source-hashed native binaries. Endpoint values stay in an ignored private inventory; public evidence contains aggregate classes and candidate commitments only. Encoded, encrypted, assembled, service-supplied and downloaded values remain possible. No Android combat bundles, formula parity, gameplay or holdout credit.",
+      "gameplayValidation": false
+    },
+    {
       "id": "ANDROID83:ScriptGroupManifest",
       "status": "CONFIRMED_FROM_LOCAL_MANIFEST",
       "claim": "The packaged Android resource-83 manifest identifies seven Scripts-group bundles by filename, size, resource index and MD5; the hash interpretation is established by a direct bundled Android startup-archive match",

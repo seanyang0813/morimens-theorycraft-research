@@ -89,3 +89,21 @@ research/raw/tools/Il2CppDumper/Il2CppDumper.exe research/raw/android/unpacked/l
 The dumper may warn that the ARM64 player is protected, but it must finish with
 `Done!`; the inspection then verifies every required type, field, method and
 literal before writing the report.
+
+## Native-library endpoint audit
+
+`tools/inspect_android_native_endpoints.py` performs a separate bounded scan of
+all three packaged ARM64 libraries: `libil2cpp.so`, `libtuanjie.so` and
+`libxlua.so`. It extracts unique printable ASCII and UTF-16LE strings of 4–4096
+characters and rejects longer binary runs rather than truncating them into
+false literals. The exact binary hashes, extraction counts and classifications
+are published in `research/evidence/android-native-endpoint-inspection.json`;
+endpoint values remain in an ignored private inventory.
+
+The 54 URL-shaped matches consist of one standards URL, three Android/LLVM or
+curl documentation URLs, 43 malformed or non-DNS fragments and seven clipped
+markup hosts. There are zero resource/download candidates and zero remaining
+unclassified external URLs. This closes the printable native-literal branch of
+the endpoint search. It does not exclude encoded, encrypted, assembled,
+service-supplied or downloaded values, so device filesystem capture remains the
+next evidence needed for Android combat support.

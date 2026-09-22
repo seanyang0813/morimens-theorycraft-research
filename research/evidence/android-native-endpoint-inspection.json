@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_ANDROID_NATIVE_ENDPOINT_INSPECTION",
+  "status": "NO_LITERAL_RESOURCE_DOWNLOAD_ENDPOINT_FOUND",
+  "input": {
+    "abi": "arm64-v8a",
+    "libraryCount": 3,
+    "minimumStringLength": 4,
+    "maximumStringLength": 4096,
+    "encodings": [
+      "ASCII",
+      "UTF-16LE"
+    ]
+  },
+  "libraries": [
+    {
+      "name": "libil2cpp.so",
+      "bytes": 61160408,
+      "sha256": "f8d8f3181094b093c2580a6d548f4411eecf701dfe36953b6fa532066c1b4153",
+      "extraction": {
+        "uniqueAsciiStrings": 29754,
+        "uniqueUtf16LeStrings": 69,
+        "oversizedAsciiRunsRejected": 0,
+        "oversizedUtf16LeRunsRejected": 0
+      },
+      "literalUrls": {
+        "total": 52,
+        "classifications": {
+          "standards": 1,
+          "documentation": 1,
+          "localhost": 0,
+          "malformedOrNonDns": 43,
+          "markupFragment": 7,
+          "resourceDownloadCandidate": 0,
+          "otherExternal": 0
+        },
+        "resourceCandidateSha256Commitments": []
+      },
+      "fragmentHits": {
+        "downloadStorage": {
+          "_game_data_": 0,
+          "download": 15,
+          "persistentdatapath": 1
+        },
+        "bundleArtifacts": {
+          "config.ab": 0,
+          "share.ab": 0,
+          "gamescript.ab": 0,
+          "_ab_info.json": 0,
+          "patches_info.json": 0
+        },
+        "platformRouting": {
+          "platformcode": 0,
+          "downloadplatformcode": 0,
+          "resversion": 0,
+          "branchname": 0
+        },
+        "networkRouting": {
+          "http://": 44,
+          "https://": 6,
+          "cdn": 0,
+          "host": 7,
+          "urlroot": 0
+        },
+        "publisherMarkers": {
+          "qookka": 0,
+          "ejoy": 5
+        }
+      }
+    },
+    {
+      "name": "libtuanjie.so",
+      "bytes": 19939776,
+      "sha256": "d6d5bf3cac4b876e484d36a0b5b5e20e760a94b02cd99063d34bd1651192c22e",
+      "extraction": {
+        "uniqueAsciiStrings": 46559,
+        "uniqueUtf16LeStrings": 40,
+        "oversizedAsciiRunsRejected": 0,
+        "oversizedUtf16LeRunsRejected": 0
+      },
+      "literalUrls": {
+        "total": 2,
+        "classifications": {
+          "standards": 0,
+          "documentation": 2,
+          "localhost": 0,
+          "malformedOrNonDns": 0,
+          "markupFragment": 0,
+          "resourceDownloadCandidate": 0,
+          "otherExternal": 0
+        },
+        "resourceCandidateSha256Commitments": []
+      },
+      "fragmentHits": {
+        "downloadStorage": {
+          "_game_data_": 0,
+          "download": 34,
+          "persistentdatapath": 1
+        },
+        "bundleArtifacts": {
+          "config.ab": 0,
+          "share.ab": 0,
+          "gamescript.ab": 0,
+          "_ab_info.json": 0,
+          "patches_info.json": 0
+        },
+        "platformRouting": {
+          "platformcode": 0,
+          "downloadplatformcode": 0,
+          "resversion": 0,
+          "branchname": 0
+        },
+        "networkRouting": {
+          "http://": 1,
+          "https://": 3,
+          "cdn": 0,
+          "host": 50,
+          "urlroot": 0
+        },
+        "publisherMarkers": {
+          "qookka": 0,
+          "ejoy": 0
+        }
+      }
+    },
+    {
+      "name": "libxlua.so",
+      "bytes": 2565464,
+      "sha256": "6e507493e836757b9e8c41595c7a2ad059fd82a180a09cb19294331b00434820",
+      "extraction": {
+        "uniqueAsciiStrings": 6145,
+        "uniqueUtf16LeStrings": 3,
+        "oversizedAsciiRunsRejected": 0,
+        "oversizedUtf16LeRunsRejected": 0
+      },
+      "literalUrls": {
+        "total": 0,
+        "classifications": {
+          "standards": 0,
+          "documentation": 0,
+          "localhost": 0,
+          "malformedOrNonDns": 0,
+          "markupFragment": 0,
+          "resourceDownloadCandidate": 0,
+          "otherExternal": 0
+        },
+        "resourceCandidateSha256Commitments": []
+      },
+      "fragmentHits": {
+        "downloadStorage": {
+          "_game_data_": 0,
+          "download": 0,
+          "persistentdatapath": 0
+        },
+        "bundleArtifacts": {
+          "config.ab": 0,
+          "share.ab": 0,
+          "gamescript.ab": 0,
+          "_ab_info.json": 0,
+          "patches_info.json": 0
+        },
+        "platformRouting": {
+          "platformcode": 0,
+          "downloadplatformcode": 0,
+          "resversion": 0,
+          "branchname": 0
+        },
+        "networkRouting": {
+          "http://": 0,
+          "https://": 0,
+          "cdn": 0,
+          "host": 8,
+          "urlroot": 0
+        },
+        "publisherMarkers": {
+          "qookka": 0,
+          "ejoy": 98
+        }
+      }
+    }
+  ],
+  "summary": {
+    "literalUrls": 54,
+    "classifications": {
+      "standards": 1,
+      "documentation": 3,
+      "localhost": 0,
+      "malformedOrNonDns": 43,
+      "markupFragment": 7,
+      "resourceDownloadCandidate": 0,
+      "otherExternal": 0
+    },
+    "distinctUrlCommitments": 54
+  },
+  "privacy": {
+    "publishedEndpointValues": 0,
+    "privateCandidateInventory": "research/raw/android/native-endpoint-candidates.json",
+    "privateInventorySha256": "e55a39854c6a6d630363909b731843bf860b29abd6de05a161f6e0e31c8f8a6b"
+  },
+  "scope": "Deterministic printable-string extraction from the three packaged Android ARM64 native libraries. Values are not executed, decoded as managed metadata, or treated as network observations.",
+  "limitations": [
+    "Absence of a printable literal cannot exclude an encoded, encrypted, assembled, server-supplied or downloaded endpoint",
+    "A URL marker classifies a string for review; it does not prove that the client uses it for Morimens resources",
+    "Native string evidence does not supply Android combat bundles or establish formula parity with PC",
+    "No gameplay, prediction or holdout credit"
+  ],
+  "nextEvidenceNeeded": "If no privately reviewed native candidate resolves the resource path, capture the client-defined DownLoad and _game_data_/DownLoad trees from a version-fingerprinted Android session."
+}
