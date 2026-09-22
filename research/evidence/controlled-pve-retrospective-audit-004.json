@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_CONTROLLED_REPLAY_RETROSPECTIVE_AUDIT_CANDIDATE",
+  "status": "SAME_BATTLE_REVIEW_PENDING",
+  "analysisTrack": "verification",
+  "captureCandidate": {
+    "path": "research/evidence/controlled-pve-session-capture-004-01.json",
+    "sha256": "612410a7700e12b57fd2cd1101a1486715e33cd9d81256af84cad9c6793624c5"
+  },
+  "adapterCompatibility": {
+    "path": "research/evidence/pc-res151-replay-adapter-compatibility.json",
+    "sha256": "9cdb9750b4486d8297c1c55401afb85bd0ef263fa70aa81cb8e89759ca437f8e"
+  },
+  "privateAuditCommitment": {
+    "sha256": "fbf6f844580a1b8822712ce8baf04baeb8a2dab28f506b36bb5e8fdb55e5eae2",
+    "identifiersPublished": false
+  },
+  "calculationBuild": "pc-res151-build51",
+  "recordedCombatBuild": null,
+  "combatDomain": "PVE_MONSTER_TARGETS",
+  "totals": {
+    "records": 202,
+    "events": 2973,
+    "cardUses": 30,
+    "hits": 77,
+    "completeHitSnapshots": 77,
+    "retrospectiveActiveCandidates": 6,
+    "deterministicExactChecks": 0,
+    "deterministicMismatches": 0,
+    "exactRngBranchConsistencyChecks": 6,
+    "rngBranchMismatches": 0
+  },
+  "excludedHits": [
+    {
+      "reason": "At least one ordinary Active row required",
+      "count": 33
+    },
+    {
+      "reason": "Played card must resolve to its captured Awakener owner",
+      "count": 34
+    },
+    {
+      "reason": "Recorded hit must be ordinary Active damage type 1",
+      "count": 2
+    },
+    {
+      "reason": "Single captured enemy monster target required",
+      "count": 2
+    }
+  ],
+  "scope": "Retrospective ordinary Active damage branch consistency for one mechanically isolated resource-151 capture candidate.",
+  "limitations": [
+    "The user has not yet attested that the candidate container is the controlled battle loaded in the same session, so recorded build remains unconfirmed.",
+    "Outcomes were decoded before calculation; this is not prediction-before-reveal evidence and cannot receive holdout or publication credit.",
+    "Six chance-dependent hits match one independently evaluated critical branch; the random draw itself is not reconstructed.",
+    "Excluded hit categories are not evaluated and contribute no agreement claim.",
+    "No player, account, replay, role-instance or card-instance identifier is published."
+  ]
+}

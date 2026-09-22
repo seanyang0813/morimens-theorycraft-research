@@ -6,8 +6,8 @@ const properties={hp:1000,max_hp:1000,block:0,crit:0,crit_damage:150};
 const fixture=()=>({
   index:{kind:'MORIMENS_REPLAY_EVENT_INDEX',build:'pc-res144-build51',actionSnapshots:[{actionIndex:0,boundaryStatus:'COMPLETE',cardUid:30,camp:1,
     roles:{'1':{uid:1,tid:101,camp:1,roleType:1,breakSkillLevel:0,potencyLevel:0,properties:{...properties,crit:100}},'2':{uid:2,tid:201,camp:2,roleType:2,properties:{...properties}},'3':{uid:3,tid:0,camp:1,roleType:3,properties:{...properties}}},
-    cards:{'30':{uid:30,tid:10,ownerUid:1,camp:1,cardArgs:{1:100},properties:{crit:0}}},activeStates:[],window:{selectedTargetCommands:[{data:{uids:[2]}}],events:[{recordIndex:4,frameIndex:2,eventName:'BeHit',data:{roleUid:2,beHitConfig:{castRoleUid:1,skillConfigId:10,castDamage:250,isCrit:true}}}],hits:[{recordIndex:4,frameIndex:2,eventName:'BeHit',data:{roleUid:2,beHitConfig:{castRoleUid:1,skillConfigId:10,castDamage:250,isCrit:true}}}],
-      hitSnapshots:[{hitIndex:0,recordIndex:4,frameIndex:2,boundaryStatus:'COMPLETE',roles:{'1':{uid:1,tid:101,camp:1,roleType:1,breakSkillLevel:0,potencyLevel:0,properties:{...properties,crit:100}},'2':{uid:2,tid:201,camp:2,roleType:2,properties:{...properties}},'3':{uid:3,tid:0,camp:1,roleType:3,properties:{...properties}}},cards:{'30':{uid:30,tid:10,ownerUid:1,camp:1,cardArgs:{1:100},properties:{crit:0}}},activeStates:[],hitData:{roleUid:2,beHitConfig:{castRoleUid:1,skillConfigId:10,castDamage:250,isCrit:true}},reconstruction:{targetHp:'beHitConfig.oldHp',targetBlock:'post-event target block + beHitConfig.blockLose'}}]}}]},
+    cards:{'30':{uid:30,tid:10,ownerUid:1,camp:1,cardArgs:{1:100},properties:{crit:0}}},activeStates:[],window:{selectedTargetCommands:[{data:{uids:[2]}}],events:[{recordIndex:4,frameIndex:2,eventName:'BeHit',data:{roleUid:2,beHitConfig:{castRoleUid:1,skillConfigId:10,damageType:1,castDamage:250,isCrit:true}}}],hits:[{recordIndex:4,frameIndex:2,eventName:'BeHit',data:{roleUid:2,beHitConfig:{castRoleUid:1,skillConfigId:10,damageType:1,castDamage:250,isCrit:true}}}],
+      hitSnapshots:[{hitIndex:0,recordIndex:4,frameIndex:2,boundaryStatus:'COMPLETE',roles:{'1':{uid:1,tid:101,camp:1,roleType:1,breakSkillLevel:0,potencyLevel:0,properties:{...properties,crit:100}},'2':{uid:2,tid:201,camp:2,roleType:2,properties:{...properties}},'3':{uid:3,tid:0,camp:1,roleType:3,properties:{...properties}}},cards:{'30':{uid:30,tid:10,ownerUid:1,camp:1,cardArgs:{1:100},properties:{crit:0}}},activeStates:[],hitData:{roleUid:2,beHitConfig:{castRoleUid:1,skillConfigId:10,damageType:1,castDamage:250,isCrit:true}},reconstruction:{targetHp:'beHitConfig.oldHp',targetBlock:'post-event target block + beHitConfig.blockLose'}}]}}]},
   skills:{'10':{ID:10,CmdList:20,Type:{1:'Card_Strike'}}},commands:{'20':{data_list:{1:{Type:'BEActiveDamage',Target:'UpperTarget',Para:'Arg1'},2:{Type:'BEGainUltiEnergy',Target:'CmdCaster',Para:5}}}},monsters:{'201':{ID:201,BattleTag:'Boss'}},awakeners:{'101':{ID:101,School:1}}});
 
 test('replay card boundary becomes a calculated regression candidate without reading observed damage',()=>{
@@ -35,6 +35,15 @@ test('replay adapter requires explicit direct-hit caster and skill identity',()=
   assert.throws(()=>buildReplayActionCandidate({...missingSkill,actionIndex:0}),/skill identity/);
   const missingCaster=fixture();delete missingCaster.index.actionSnapshots[0].window.hits[0].data.beHitConfig.castRoleUid;
   assert.throws(()=>buildReplayActionCandidate({...missingCaster,actionIndex:0}),/caster identity/);
+});
+test('replay adapter rejects non-Active hits that share caster and skill identity',()=>{
+  const input=fixture();input.index.actionSnapshots[0].window.hits[0].data.beHitConfig.damageType=3;input.index.actionSnapshots[0].window.events[0].data.beHitConfig.damageType=3;
+  assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0}),/ordinary Active damage type 1/);
+});
+test('UpperTarget can remain an explicit recorded-hit identity when selection transport is absent',()=>{
+  const input=fixture();input.index.actionSnapshots[0].window.selectedTargetCommands=[];
+  const result=buildReplayActionCandidate({...input,actionIndex:0});
+  assert.equal(result.routing.targetBindingSource,'recorded-hit-without-selection-command');assert.equal(result.identities.targetUid,2);assert.equal(result.calculation.preHitDamage,250);
 });
 
 test('replay adapter accepts the captured one-past-end Lua cursor in card arguments',()=>{

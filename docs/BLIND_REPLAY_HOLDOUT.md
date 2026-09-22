@@ -55,3 +55,12 @@ The resulting observation remains ineligible for the publication gate while `rec
 For a future controlled battle, `tools/commit_replay_session_baseline.py` verifies the live installation against the recognized combat-build report and publishes only a hash commitment to an ignored private pre-battle reference inventory. The commitment is not recorded-build evidence on its own. Later review must prove the same process and executable, a newly appearing replay reference, a post-baseline object timestamp, PvE domain, and prediction-before-reveal chronology.
 
 After the private delta is captured, `tools/build_replay_session_capture_evidence.py` can bind those mechanical checks into a public candidate without publishing identifiers. The candidate remains ineligible until the user explicitly confirms that the new record is the controlled PvE battle and that the loaded record is the same battle. Store that confirmation as an ignored private attestation and run `tools/review_replay_session_capture.py`; only its reviewed output may be included in the frozen build evidence. This verification artifact establishes provenance only. It cannot be reused as a cheese, budget-scouting or theorycraft conclusion.
+
+Sparse live property maps use the original `GetProperty` zero default. Replay
+indexing therefore reconstructs an omitted post-hit `block` key as zero while
+still rejecting a present nonnumeric value. Candidate selection also requires
+recorded `damageType == 1`; a later Fixed or other secondary hit sharing the
+same caster and skill identity cannot be misclassified as ordinary Active
+damage. `UpperTarget` may use the recorded hit identity when selection-command
+transport is absent, because the prediction explicitly conditions on target
+identity and does not claim to predict target selection.

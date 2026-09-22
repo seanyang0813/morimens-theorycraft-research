@@ -5876,6 +5876,29 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC151:ControlledReplayAuditCandidate004",
+      "status": "SAME_BATTLE_REVIEW_PENDING",
+      "claim": "One mechanically isolated resource-151 capture candidate yields six retrospective ordinary-Active critical-branch matches and zero mismatches after 71 out-of-scope hits are rejected",
+      "sources": [
+        {
+          "module": "Controlled PvE retrospective audit candidate 004",
+          "member": "identifier-free aggregate and private-audit commitment",
+          "bundle": "private replay index and embedded catalogs; no identifiers",
+          "sha256": "5b14aadb96ec9270f1ca4a9f12fec4346598e3431da20a12b8114b5c6e00426b"
+        }
+      ],
+      "tests": [
+        "tools/replay_index.py",
+        "tools/audit_replay_batch.mjs",
+        "tools/sanitize_controlled_replay_audit.py",
+        "tests/replay-index.test.mjs",
+        "tests/replay-action-candidate.test.mjs",
+        "tests/controlled-replay-audit-candidate.test.mjs"
+      ],
+      "scope": "Verification-track retrospective candidate only. Same-battle user attestation is pending, outcomes preceded calculations, critical RNG draws are unknown, and excluded hits receive no agreement claim. No recorded-build, holdout or publication credit.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC150:PrimaryStatAndAdvancementLookup",
       "status": "SUPPORTED_BY_CURRENT_RUNTIME_TEST",
       "claim": "The installed resource-150 character tables and original GetAwakerBaseAttrValue path match all 2,700 authored primary-stat checks; supported current advancement rows are exposed separately through the tested client rounding rule",

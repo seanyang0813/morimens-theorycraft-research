@@ -22,7 +22,7 @@ export function buildBlindReplayPrediction({index,skills,commands,monsters,awake
       const snapshots=[...(sourceAction.window?.hitSnapshots??[])].sort((a,b)=>(a.recordIndex-b.recordIndex)||(a.frameIndex-b.frameIndex));
       if(!snapshots.length)throw new Error('A pre-hit boundary is required');
       const hits=sourceAction.window?.hits??[];
-      const direct=snapshots.map(snapshot=>({snapshot,hit:hits.find(item=>item.recordIndex===snapshot.recordIndex&&item.frameIndex===snapshot.frameIndex)})).find(({snapshot,hit})=>snapshot.boundaryStatus==='COMPLETE'&&hit?.data?.beHitConfig?.castRoleUid===caster.uid&&hit.data.beHitConfig.skillConfigId===played.tid&&Number.isSafeInteger(hit.data?.roleUid));
+      const direct=snapshots.map(snapshot=>({snapshot,hit:hits.find(item=>item.recordIndex===snapshot.recordIndex&&item.frameIndex===snapshot.frameIndex)})).find(({snapshot,hit})=>snapshot.boundaryStatus==='COMPLETE'&&hit?.data?.beHitConfig?.damageType===1&&hit.data.beHitConfig.castRoleUid===caster.uid&&hit.data.beHitConfig.skillConfigId===played.tid&&Number.isSafeInteger(hit.data?.roleUid));
       if(!direct)throw new Error('Complete direct-hit identity boundary required');
       const first=clone(direct.snapshot),target=sourceAction.roles?.[String(direct.hit.data.roleUid)];
       if(!target||target.roleType!==roleType.Monster||target.camp===played.camp||!Number.isFinite(target.properties?.hp)||target.properties.hp<=0)throw new Error('Living enemy target identity required before outcome');
@@ -31,7 +31,7 @@ export function buildBlindReplayPrediction({index,skills,commands,monsters,awake
       first.roles[String(target.uid)].properties.hp=actionTarget.properties.hp;
       first.roles[String(target.uid)].properties.block=actionTarget.properties.block;
       first.reconstruction={};
-      first.hitData={roleUid:target.uid,beHitConfig:{castRoleUid:caster.uid,skillConfigId:played.tid}};
+      first.hitData={roleUid:target.uid,beHitConfig:{castRoleUid:caster.uid,skillConfigId:played.tid,damageType:1}};
       const syntheticHit={recordIndex:first.recordIndex,frameIndex:first.frameIndex,eventName:'BeHit',data:clone(first.hitData)};
       const action=clone(sourceAction);
       action.window={selectedTargetCommands:clone(sourceAction.window?.selectedTargetCommands??[]),events:[clone(syntheticHit)],hits:[clone(syntheticHit)],hitSnapshots:[first]};

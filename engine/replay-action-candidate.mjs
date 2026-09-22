@@ -165,7 +165,7 @@ export function buildReplayActionCandidate({index,actionIndex,hitIndex=null,skil
     const selectedUids=dense(selections[0].data?.uids,'Selected target UIDs');
     if(selectedUids.length!==1||selectedUids[0]!==targetUid)throw new Error('Recorded selected target must match the hit target');
     targetBindingSource='selected-target-command-and-recorded-hit';
-  }else if(row.Target==='UpperTarget')throw new Error('UpperTarget requires a recorded target-selection command');
+  }else if(row.Target==='UpperTarget')targetBindingSource='recorded-hit-without-selection-command';
   let selectorValidation=null;
   if(scalarEnemySelectors.has(row.Target)){
     selectorValidation=resolveScalarEnemySelector(hitSnapshot,caster.camp,row.Target);
@@ -198,6 +198,7 @@ export function buildReplayActionCandidate({index,actionIndex,hitIndex=null,skil
   const targetStateIds=[...new Set((hitSnapshot.activeStates??[]).filter(state=>state?.ownerUid===targetUid&&!state.isDeleted).map(state=>state.stateId))];
   if(targetStateIds.some(id=>!Number.isSafeInteger(id)||id<=0))throw new Error('Captured positive target state IDs required');
   const observed=hit.data.beHitConfig??{};
+  if(observed.damageType!==1)throw new Error('Recorded hit must be ordinary Active damage type 1');
   if(preOutcome&&['castDamage','isCrit','oldHp','blockLose','realDamage','hpLose'].some(key=>Object.hasOwn(observed,key)))throw new Error('Pre-outcome candidate must not contain observed damage, critical, HP or block fields');
   if(observed.castRoleUid!==caster.uid)throw new Error('Recorded hit caster identity must match card owner');
   if(observed.skillConfigId!==card.tid)throw new Error('Recorded hit skill identity must match played card');

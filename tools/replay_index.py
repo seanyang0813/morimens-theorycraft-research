@@ -119,11 +119,12 @@ def build_replay_index(artifact,catalog):
                 if role is None or not isinstance(config,dict):issues.append({'code':'MALFORMED_HIT_SNAPSHOT','recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'roleUid':role_uid})
                 else:
                     properties=role.get('properties')
-                    if not isinstance(properties,dict) or not isinstance(config.get('oldHp'),(int,float)) or not isinstance(config.get('blockLose'),(int,float)) or not isinstance(properties.get('block'),(int,float)):
+                    block_value=properties.get('block',0) if isinstance(properties,dict) else None
+                    if not isinstance(properties,dict) or not isinstance(config.get('oldHp'),(int,float)) or not isinstance(config.get('blockLose'),(int,float)) or not isinstance(block_value,(int,float)):
                         issues.append({'code':'MISSING_HIT_PRESTATE','recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'roleUid':role_uid})
                 snapshot_roles=copy.deepcopy(roles)
                 if not issues:
-                    target_properties=snapshot_roles[str(role_uid)]['properties'];target_properties['hp']=config['oldHp'];target_properties['block']=target_properties['block']+config['blockLose']
+                    target_properties=snapshot_roles[str(role_uid)]['properties'];target_properties['hp']=config['oldHp'];target_properties['block']=target_properties.get('block',0)+config['blockLose']
                 active_states=[copy.deepcopy(state) for state in states.values() if not state.get('isDeleted')]
                 pending_count=sum(len(rows) for rows in pending_property_changes.values())
                 hit_snapshots.append({'hitIndex':len(hit_snapshots),'recordIndex':event['recordIndex'],'frameIndex':event['frameIndex'],'time':event['frameTime'] if event['frameTime'] is not None else event['recordTime'],'roleUid':role_uid,'roles':snapshot_roles,'cards':copy.deepcopy(cards),'activeStates':active_states,'hitData':copy.deepcopy(data),'boundaryStatus':'COMPLETE' if not boundary_issues and not issues and not pending_count else 'INCOMPLETE','boundaryIssueCount':len(boundary_issues)+len(issues)+pending_count,'boundaryIssues':issues,
