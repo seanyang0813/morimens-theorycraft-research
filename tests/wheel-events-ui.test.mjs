@@ -7,6 +7,7 @@ import {runWheelActiveTimeline} from '../engine/wheel-active-timeline.mjs';
 import {runWheelEventSequence} from '../engine/wheel-event-sequence.mjs';
 import {advanceDoomsdayAfterUseCard,advanceLightOfIntellectAfterKeeperSkill,advanceArachneAfterPursuit} from '../engine/wheel-trigger-transitions.mjs';
 import {runPaidWheelActiveTimeline} from '../engine/paid-wheel-active-timeline.mjs';
+import {searchPaidWheelOrders} from '../engine/paid-wheel-order-search.mjs';
 
 const html=readFileSync(new URL('../website/dist/wheel-events.html',import.meta.url),'utf8');
 const source=readFileSync(new URL('../website/dist/wheel-events.mjs',import.meta.url),'utf8');
@@ -18,6 +19,7 @@ test('Wheel event lab exposes every supported transition and bounded damage comp
   assert.match(source,/runWheelEventSequence/);assert.match(source,/AFTER_BOUT_END/);
   assert.match(source,/runWheelActiveTimeline/);assert.match(source,/morimens-wheel-active-timeline/);
   assert.match(html,/Pin timeline/);assert.match(html,/Compare with pin/);assert.match(source,/compareWheelActiveTimelines/);assert.match(source,/orderOnly/);
+  assert.match(html,/Search paid card orders/);assert.match(source,/searchPaidWheelOrders/);
   assert.match(source,/finalDamage is/);
 });
 
@@ -28,8 +30,9 @@ test('primary workbench pages link to the Wheel event lab',()=>{
 test('Wheel event lab pins and compares a reordered damage timeline',()=>{
   class Element{constructor(){this.textContent='';this.value='';this.hidden=false;}}
   const nodes=new Map(),doc={getElementById(id){if(!nodes.has(id))nodes.set(id,new Element());return nodes.get(id);}};
-  startWheelEventLab({runPaidWheelActiveTimeline,compareWheelActiveTimelines,runWheelActiveTimeline,runWheelEventSequence,advanceDoomsdayAfterUseCard,advanceLightOfIntellectAfterKeeperSkill,advanceArachneAfterPursuit,runtimeFingerprint:'a'.repeat(64)},doc);
+  startWheelEventLab({searchPaidWheelOrders,runPaidWheelActiveTimeline,compareWheelActiveTimelines,runWheelActiveTimeline,runWheelEventSequence,advanceDoomsdayAfterUseCard,advanceLightOfIntellectAfterKeeperSkill,advanceArachneAfterPursuit,runtimeFingerprint:'a'.repeat(64)},doc);
   nodes.get('paid').onclick();let result=JSON.parse(nodes.get('output').textContent);assert.equal(result.kind,'morimens-paid-wheel-active-timeline-result');assert.equal(result.modeledHpLost,450);assert.equal(result.energyAfter,0);
+  nodes.get('search-paid').onclick();result=JSON.parse(nodes.get('output').textContent);assert.equal(result.kind,'morimens-paid-wheel-order-search-result');assert.equal(result.evaluatedPermutations,2);assert.equal(result.best.modeledHpLost,450);
   nodes.get('damage').onclick();result=JSON.parse(nodes.get('output').textContent);assert.equal(result.kind,'morimens-wheel-active-timeline-result');assert.equal(result.modeledHpLost,855);
   nodes.get('pin').onclick();assert.match(nodes.get('pin-status').textContent,/Pinned 5 steps/);
   const candidate=JSON.parse(nodes.get('input').value);candidate.steps=[candidate.steps[0],candidate.steps[2],candidate.steps[1],candidate.steps[3],candidate.steps[4]];nodes.get('input').value=JSON.stringify(candidate);nodes.get('compare').onclick();

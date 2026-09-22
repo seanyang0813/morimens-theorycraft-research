@@ -77,3 +77,17 @@ This boundary does not simulate hand removal, draws, refunds, changing costs,
 turn transitions or pursuit generation. The ordering of other listeners and
 whether an after-use listener completes following lethal damage remain
 unresolved, so the runner stops at that boundary.
+
+## Searching supplied card orders
+
+`engine/paid-wheel-order-search.mjs` exhaustively permutes the paid actions when
+the full factorial fits the caller's explicit evaluation cap. It excludes
+orders that stop on an unaffordable or otherwise rejected card, while retaining
+complete and target-defeating terminal executions. The result contains the
+winning timeline and full trace plus compact eligible and incomplete rankings.
+
+The Arachne test supplies one 100-base setup card whose pursuit activates both
+Wheels and one 500-base card. Searching both orders selects setup then burst:
+1,125 modeled HP loss versus 850 in reverse. The search claims optimality only
+within those two supplied actions and the supported runner. It does not choose
+the build, cards, draws, targets, hit snapshots or missing mechanics.

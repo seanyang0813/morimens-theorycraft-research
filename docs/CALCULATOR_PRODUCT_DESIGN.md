@@ -111,6 +111,12 @@ HP, Block and Wheel state carry into the next action; a rejected card exposes
 neither damage nor a trigger. Hand mutation, draws, refunds, dynamic conditions
 and automatic pursuit generation remain explicit gaps.
 
+A bounded search operation now exhaustively permutes those supplied paid
+Wheel-aware actions. It filters rejected partial executions, retains complete
+or target-defeating orders and returns the full winning trace. Its optimality
+claim is restricted to the enumerated cards, explicit snapshots and supported
+mechanics; it does not select a build or invent missing actions.
+
 The first experiment layer now accepts reproducible versioned JSON containing two explicit research scenarios. `engine/experiments.mjs` evaluates both with the same calculator, reports changed input paths, metric deltas and aligned stage differences, and retains both full results/dependencies. Missing results remain null. The website can pin A, compare edited B, and run pasted experiments. Agents can use `node tools/compare_experiment.mjs experiment.json`. These are single-hit experiments, not yet general team/sequence simulations or an optimizer.
 
 The shared theorycraft API also accepts `prepare-skill-command`: an agent supplies an exported skill ID, explicit progression, combat variables, condition results and state-query results. The host selects the version-pinned skill and command rows, prepares arguments and can optionally execute the whole command through a supported narrow profile. Setup-only execution also assembles state maxima and property expressions from the hashed State export while accepting only live state facts from the caller. It never accepts caller-authored command rows or catalog state definitions through this operation, and it returns blockers instead of dropping unsupported effects. This connects real skill definitions to agents; automatic build-to-variable assembly and the website skill picker remain unfinished.

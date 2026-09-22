@@ -1,4 +1,4 @@
-export function startWheelEventLab({runPaidWheelActiveTimeline,compareWheelActiveTimelines,runWheelActiveTimeline,runWheelEventSequence,advanceDoomsdayAfterUseCard,advanceLightOfIntellectAfterKeeperSkill,advanceArachneAfterPursuit,runtimeFingerprint},doc=document){
+export function startWheelEventLab({searchPaidWheelOrders,runPaidWheelActiveTimeline,compareWheelActiveTimelines,runWheelActiveTimeline,runWheelEventSequence,advanceDoomsdayAfterUseCard,advanceLightOfIntellectAfterKeeperSkill,advanceArachneAfterPursuit,runtimeFingerprint},doc=document){
   const $=id=>doc.getElementById(id);
   let pinned=null;
   const examples={
@@ -19,6 +19,7 @@ export function startWheelEventLab({runPaidWheelActiveTimeline,compareWheelActiv
     if(input.kind==='morimens-wheel-active-timeline')return runWheelActiveTimeline(input);
     if(input.kind==='morimens-wheel-active-comparison')return compareWheelActiveTimelines(input,{runtimeFingerprint});
     if(input.kind==='morimens-paid-wheel-active-timeline')return runPaidWheelActiveTimeline(input);
+    if(input.kind==='morimens-paid-wheel-order-search')return searchPaidWheelOrders(input);
     throw new Error('Unsupported Wheel event request kind');
   };
   const render=input=>{
@@ -29,12 +30,14 @@ export function startWheelEventLab({runPaidWheelActiveTimeline,compareWheelActiv
     else if(result.kind==='morimens-wheel-event-sequence-result')summary=`${result.trace.length} events · final Strike flat ${result.finalState.doomsday?.strikecardDamagePlus??'not tracked'} · final team amplification ${result.finalState.arachne?.basicDamagePer??'not tracked'}`;
     else if(result.kind==='morimens-wheel-active-timeline-result')summary=`${result.executedSteps} steps · ${result.modeledHpLost} modeled HP lost · final Strike flat ${result.finalWheelState.doomsday?.strikecardDamagePlus??'not tracked'} · final team amplification ${result.finalWheelState.arachne?.basicDamagePer??'not tracked'}`;
     else if(result.kind==='morimens-paid-wheel-active-timeline-result')summary=`${result.acceptedActions} accepted cards · ${result.modeledEnergyLost} energy spent · ${result.modeledHpLost} modeled HP lost · final Strike flat ${result.finalWheelState.doomsday?.strikecardDamagePlus??'not tracked'}`;
+    else if(result.kind==='morimens-paid-wheel-order-search-result')summary=`${result.evaluatedPermutations} orders checked · best ${result.best?.modeledHpLost??'none'} modeled HP lost · ${result.best?.order.join(' → ')??'no eligible order'}`;
     else summary=`${result.orderOnly?'Order-only':'Input'} comparison · ${result.modeledHpLostDelta===null?'incomplete':`${result.modeledHpLostDelta>=0?'+':''}${result.modeledHpLostDelta} modeled HP lost`} · ${result.alignedSteps.length} aligned steps`;
     $('result').hidden=false;$('summary').textContent=summary;$('scope').textContent=`${result.event??(result.kind==='morimens-wheel-active-comparison-result'?'aligned comparison':'ordered events')} · ${result.status} · finalDamage is ${result.finalDamage}`;$('output').textContent=JSON.stringify({...result,runtimeFingerprint},null,2);$('error').textContent='';
   };
   $('run').onclick=()=>{try{render(JSON.parse($('input').value));}catch(error){$('result').hidden=true;$('error').textContent=error.message;}};
   $('pin').onclick=()=>{try{const input=JSON.parse($('input').value);if(input.kind!=='morimens-wheel-active-timeline')throw new Error('Pin requires a Wheel + damage timeline');runWheelActiveTimeline(input);pinned=JSON.parse(JSON.stringify(input));$('pin-status').textContent=`Pinned ${input.steps.length} steps to verified runtime ${runtimeFingerprint.slice(0,12)}…`;$('error').textContent='';}catch(error){$('error').textContent=error.message;}};
   $('compare').onclick=()=>{try{if(!pinned)throw new Error('Pin a Wheel + damage timeline first');const candidate=JSON.parse($('input').value);if(candidate.kind!=='morimens-wheel-active-timeline')throw new Error('Comparison candidate must be a Wheel + damage timeline');render({schemaVersion:1,kind:'morimens-wheel-active-comparison',runtimeFingerprint,baseline:pinned,candidate});}catch(error){$('result').hidden=true;$('error').textContent=error.message;}};
+  $('search-paid').onclick=()=>{try{const timeline=JSON.parse($('input').value);if(timeline.kind!=='morimens-paid-wheel-active-timeline')throw new Error('Order search requires a paid Wheel timeline');render({schemaVersion:1,kind:'morimens-paid-wheel-order-search',objective:'MAX_MODELED_HP_LOST',timeline,maxEvaluations:10000,returnTop:5});}catch(error){$('result').hidden=true;$('error').textContent=error.message;}};
   for(const id of Object.keys(examples))$(id).onclick=()=>{$('input').value=JSON.stringify(examples[id],null,2);render(examples[id]);};
   $('runtime-status').textContent=`Verified local engine ${runtimeFingerprint.slice(0,12)}…`;
 }

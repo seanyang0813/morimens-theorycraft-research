@@ -161,6 +161,13 @@ test('agent API suppresses Wheel-aware effects for an unaffordable card',()=>{
   const response=runTheorycraftRequest(request('run-paid-wheel-active-timeline',input));assert.equal(response.result.acceptedActions,1);assert.equal(response.result.modeledHpLost,100);assert.equal(response.result.finalWheelState.doomsday.counter,1);assert.equal(response.result.trace[1].effect,null);
 });
 
+test('agent API searches every supplied paid Wheel action order',()=>{
+  const requestValue=JSON.parse(readFileSync(new URL('../research/examples/theorycraft-paid-wheel-active-timeline.json',import.meta.url)));const timeline=requestValue.input;
+  const setup=timeline.actions[0],big=timeline.actions[1];setup.id='setup';setup.cardInstanceId='card-setup';setup.effects[0].id='setup:hit';setup.effects.push({id:'setup:pursuit',type:'AFTER_PURSUIT',pursuitOwnerUid:56});big.id='big';big.cardInstanceId='card-big';big.effects[0].id='big:hit';big.effects[0].baseValue=500;timeline.initialWheelState.arachne={ownerUid:56,baseBasicDamagePer:0,wheelBasicDamagePer:0,wheels:[{slotId:'signature',wheelId:'wheel-0128',refinementLevel:3,triggersUsed:0},{slotId:'secondary',wheelId:'wheel-0132',refinementLevel:3,triggersUsed:0}]};timeline.basePlayerProperties.basic_damage_per=0;
+  const response=runTheorycraftRequest(request('search-paid-wheel-orders',{schemaVersion:1,kind:'morimens-paid-wheel-order-search',objective:'MAX_MODELED_HP_LOST',timeline,maxEvaluations:10,returnTop:2}));
+  assert.deepEqual(response.result.best.order,['setup','big']);assert.equal(response.result.best.modeledHpLost,1125);assert.equal(response.result.evaluatedPermutations,2);assert.equal(response.result.finalDamage,null);
+});
+
 test('agent API exposes bounded card-order search without a global optimum claim',()=>{
   const input={schemaVersion:1,kind:'morimens-card-order-search',objective:'MAX_MODELED_HP_LOST',timeline:syntheticCardActionExample(),maxEvaluations:10,returnTop:2};
   const response=runTheorycraftRequest(request('search-card-orders',input));
