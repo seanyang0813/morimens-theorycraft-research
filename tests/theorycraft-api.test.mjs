@@ -181,6 +181,18 @@ test('agent API pays and searches actions from different caster snapshots',()=>{
   const searched=runTheorycraftRequest(request('search-paid-wheel-orders',{schemaVersion:1,kind:'morimens-paid-wheel-order-search',objective:'MAX_MODELED_HP_LOST',timeline,maxEvaluations:10,returnTop:2}));assert.deepEqual(searched.result.best.order,['mouchette','arachne']);assert.equal(searched.result.best.modeledHpLost,595);
 });
 
+test('agent API derives a paid Wheel action from pinned catalog commands',()=>{
+  const read=name=>{const bytes=readFileSync(new URL(`../research/extracted/config/${name}.json`,import.meta.url));return {data:JSON.parse(bytes),sha256:createHash('sha256').update(bytes).digest('hex')};};
+  const loaded=Object.fromEntries(['Skill','BattleApi','Cmd','State'].map(name=>[name,read(name)]));
+  const skillCommandData={build:'pc-res144-build51',skills:loaded.Skill.data,battleApi:loaded.BattleApi.data,commands:loaded.Cmd.data,states:loaded.State.data,sourceHashes:Object.fromEntries(Object.entries(loaded).map(([name,row])=>[name,row.sha256]))};
+  const preparedSkill=JSON.parse(readFileSync(new URL('../research/examples/theorycraft-prepared-snapshot-active-skill.json',import.meta.url))).input;
+  const conditions={cardExists:true,inHand:true,judgeCost:true,commandExists:true,dead:false,strike:true,allowIgnoreCost:false,cardUseless:0,ownerUseless:0,coma:0,comaImmunity:0,ownerForbid:0,playerForbid:0,ownerForbidStrike:0,playerForbidStrike:0};
+  const input={schemaVersion:1,kind:'morimens-prepared-paid-wheel-active-timeline',build:'pc-res144-build51',initialEnergy:1,wheelContributionPolicy:'excluded-from-prepared-snapshots',initialWheelContributions:{doomsday:null,light:null,arachne:null},actions:[{id:'catalog-strike',cardInstanceId:'card-catalog-strike',costInput:{cfgCost:'1',originCost:1,delta:0,harmonize:0,fixedSwitches:{},keeper:false,keeperCost:null,pvp:false},conditions,preparedSkill,postEvents:[]}]};
+  assert.throws(()=>runTheorycraftRequest(request('run-prepared-paid-wheel-active-timeline',input)),/requires context skillCommandData/);
+  const response=runTheorycraftRequest(request('run-prepared-paid-wheel-active-timeline',input),{skillCommandData});
+  assert.deepEqual(response.result.preparedActions.map(row=>[row.skillId,row.commandId,row.cardType]),[[3997,2350,'Card_Strike']]);assert.equal(response.result.modeledHpLost,1);assert.equal(response.result.energyAfter,0);assert.equal(response.result.finalDamage,null);
+});
+
 test('agent API exposes bounded card-order search without a global optimum claim',()=>{
   const input={schemaVersion:1,kind:'morimens-card-order-search',objective:'MAX_MODELED_HP_LOST',timeline:syntheticCardActionExample(),maxEvaluations:10,returnTop:2};
   const response=runTheorycraftRequest(request('search-card-orders',input));

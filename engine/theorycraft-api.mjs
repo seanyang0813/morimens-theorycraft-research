@@ -30,6 +30,7 @@ import {runWheelActiveTimeline} from './wheel-active-timeline.mjs';
 import {compareWheelActiveTimelines} from './wheel-active-comparison.mjs';
 import {runPaidWheelActiveTimeline} from './paid-wheel-active-timeline.mjs';
 import {searchPaidWheelOrders} from './paid-wheel-order-search.mjs';
+import {runPreparedPaidWheelActiveTimeline} from './prepared-paid-wheel-active-timeline.mjs';
 
 export const theorycraftOperations=Object.freeze([
   {name:'describe-capabilities',context:[],scope:'List supported versioned operations and evidence boundaries'},
@@ -59,6 +60,7 @@ export const theorycraftOperations=Object.freeze([
   {name:'run-wheel-active-timeline',context:[],scope:'Explicit supported Wheel events composed with complete-property Active hits and shared HP/Block state'},
   {name:'compare-wheel-active-timelines',context:[],scope:'Align two explicit Wheel/damage timelines by stable step identity and report order, input, damage, property and counter differences'},
   {name:'run-paid-wheel-active-timeline',context:[],scope:'Ordinary PvE play checks and energy payment before explicit Wheel-aware Active card effects and accepted-card Doomsday transitions'},
+  {name:'run-prepared-paid-wheel-active-timeline',context:['skillCommandData'],scope:'Pinned catalog Active commands derived into paid multi-caster Wheel actions with explicit snapshots and pursuit events'},
   {name:'search-paid-wheel-orders',context:[],scope:'Exact bounded permutation search over supplied paid Wheel-aware actions with legal terminal filtering and full winning trace'},
   {name:'search-card-orders',context:[],scope:'Exact bounded permutation search over supplied resolved card actions'},
   {name:'prepare-skill-command',context:['skillCommandData'],scope:'Exported skill selection, argument preparation and optional supported command execution'},
@@ -112,6 +114,7 @@ function execute(operation,input,context){
   if(operation==='run-wheel-active-timeline')return runWheelActiveTimeline(input);
   if(operation==='compare-wheel-active-timelines')return compareWheelActiveTimelines(input);
   if(operation==='run-paid-wheel-active-timeline')return runPaidWheelActiveTimeline(input);
+  if(operation==='run-prepared-paid-wheel-active-timeline')return runPreparedPaidWheelActiveTimeline(input,context.skillCommandData);
   if(operation==='search-paid-wheel-orders')return searchPaidWheelOrders(input);
   if(operation==='search-card-orders')return searchCardOrders(input);
   if(operation==='prepare-skill-command')return runPreparedSkillRequest(input,context.skillCommandData);
