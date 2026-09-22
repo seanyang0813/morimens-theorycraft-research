@@ -19,6 +19,8 @@ test('browser loader executes checked module bytes with the CLI runtime fingerpr
   actions.steps.reverse();assert.equal(runtime.runCardActionTimeline(actions).completed,false);
   const mixed=runtime.runDamageEnergyCommand(runtime.syntheticDamageEnergyExample());
   assert.equal(mixed.modeledHpLost,120);assert.equal(mixed.casterEnergyAfter,100);
+  const wheel=runtime.advanceDoomsdayAfterUseCard({schemaVersion:1,kind:'morimens-after-use-card-wheel-trigger',build:'pc-res144-build51',wheelId:'wheel-0029',refinementLevel:3,cardType:'Card_Strike',ownerAttack:1000,counter:0,strikecardDamagePlus:0});
+  assert.equal(wheel.transition.strikecardDamagePlusAfter,250);assert.equal(wheel.finalDamage,null);
   const states=runtime.syntheticStateSequenceExample();
   assert.equal(runtime.runStateSequenceExperiment(states).modeledHpLost,520);
   [states.steps[0],states.steps[1]]=[states.steps[1],states.steps[0]];
