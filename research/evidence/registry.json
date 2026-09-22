@@ -7560,7 +7560,7 @@
     {
       "id": "Theorycraft:RecoveredWheelTriggerTransitions",
       "status": "SOURCE_DERIVED_COMPONENT_TESTS",
-      "claim": "Explicit post-event transitions, lifecycle-aware ordering and a verified-runtime web lab model Doomsday Strike-flat stacking, Light of Intellect Strike retrieval, and Eternal Weave plus Rota Fortunae pursuit amplification",
+      "claim": "Explicit post-event transitions, lifecycle-aware ordering and a verified-runtime web lab model Doomsday Strike-flat stacking, Light of Intellect Strike retrieval, and Eternal Weave plus Rota Fortunae pursuit amplification for resource 144 and 150",
       "sources": [
         {
           "module": "BattleStateServer",
@@ -7588,14 +7588,23 @@
           "member": "eighteen checked event, judgement, command-order, card-request, property, clear-event and cap facts",
           "bundle": "resource-144 static source/config audit",
           "sha256": "1fea6ec7789ae04fa0a6b14a2cd50edbde68ca246c829dadcf72184ee6b933d3"
+        },
+        {
+          "module": "Resource-144 to resource-150 Wheel-row comparison",
+          "member": "nine State rows, four Cmd rows and explicit Doomsday attack-property migration",
+          "bundle": "sanitized comparison of private current catalogs",
+          "sha256": "ad1ad3cd45eb504fdeccd410cadaea2e003634017388161d222c71b22c8a186b"
         }
       ],
       "tests": [
         "tools/audit_recovered_wheel_triggers.mjs",
+        "tools/audit_current_wheel_catalog.py",
         "research/evidence/recovered-wheel-trigger-audit.json",
+        "research/evidence/pc-res144-to-res150-wheel-transitions.json",
         "engine/wheel-trigger-transitions.mjs",
         "engine/wheel-event-sequence.mjs",
         "tests/wheel-trigger-source-audit.test.mjs",
+        "tests/current-wheel-catalog.test.mjs",
         "tests/wheel-trigger-transitions.test.mjs",
         "tests/wheel-event-sequence.test.mjs",
         "tests/theorycraft-api.test.mjs",
@@ -7603,7 +7612,7 @@
         "tests/wheel-events-ui.test.mjs",
         "website/dist/wheel-events.html"
       ],
-      "scope": "Source-derived authored transitions and ordering for resource-144 only. Requires explicit ATK, random roll, card availability, base versus temporary properties, event owner and counters. Eternal resets per turn; Rota counter persists until battle end; their temporary amplification clears per turn. Light returns an aggregate move request without choosing a card identity. Arachne TriggerCmd2 is excluded because no TriggerCond2 is registered. The web lab runs the hash-verified engine and does not emit damage. No original connected trigger execution, full deck mutation, card/pursuit creation, damage, gameplay validation, ranking or holdout credit.",
+      "scope": "Source-derived authored transitions and ordering for resource 144 and 150. Resource 150 reads Doomsday from live StateOwner.AtkForce instead of StateOwner.atk; callers supply the matching resolved value. Random roll, card availability, base versus temporary properties, event owner and counters remain explicit. Eternal resets per turn; Rota counter persists until battle end; their temporary amplification clears per turn. Light returns an aggregate move request without choosing a card identity. Arachne TriggerCmd2 is excluded because no TriggerCond2 is registered. No original connected trigger execution, full deck mutation, card/pursuit creation, gameplay validation, ranking or holdout credit.",
       "gameplayValidation": false
     },
     {
@@ -8023,6 +8032,66 @@
         "docs/PREPARED_STATE_ACTIVE_SEQUENCE.md"
       ],
       "scope": "Authored payment-before-effect composition over separately runtime-matched ordinary PvE play checks, connected payment, state-card execution and prepared Active chain. All resource/effect suffixes are prevalidated; distinct instances and supplied hand/status conditions are required. Hand removal, draws, refunds, cost changes, turn gates, lifecycle callbacks, reactive effects, death execution, gameplay and holdout validation remain excluded. Theorycraft track only; no cheese, budget or observed-strategy claim.",
+      "gameplayValidation": false
+    },
+    {
+      "id": "Theorycraft:PreparedPaidWheelActiveTimeline",
+      "status": "SUPPORTED_BY_COMPONENT_AND_CATALOG_TESTS",
+      "claim": "A local agent derives supported Active hits and Strike/Skill tags from pinned resource-144 or resource-150 catalogs, then composes ordinary PvE payment, per-caster snapshots, shared Wheel state and bounded action-order search",
+      "sources": [
+        {
+          "module": "Skill",
+          "member": "3997,4808",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\2015861756545847808_Skill.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "2350,1059",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "CanUseCard",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BEBeforeUseCard",
+          "member": "__CostEnergy",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b660610845cc1181bab671a07d5df91814b2b39419aed2d4ba826bee2be8699c",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7020487249631624131_BEBeforeUseCard.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "GetRealDmg,__GetFinalDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        },
+        {
+          "module": "Resource-144 to resource-150 Wheel-row comparison",
+          "member": "nine State rows, four Cmd rows and explicit Doomsday attack-property migration",
+          "bundle": "sanitized comparison of private current catalogs",
+          "sha256": "ad1ad3cd45eb504fdeccd410cadaea2e003634017388161d222c71b22c8a186b"
+        }
+      ],
+      "tests": [
+        "engine/prepared-paid-wheel-active-timeline.mjs",
+        "engine/paid-wheel-active-timeline.mjs",
+        "engine/paid-wheel-order-search.mjs",
+        "tests/prepared-paid-wheel-active-timeline.test.mjs",
+        "tests/current-wheel-catalog.test.mjs",
+        "tests/theorycraft-api.test.mjs",
+        "tools/run_theorycraft_request.mjs",
+        "docs/WHEEL_ACTIVE_TIMELINE.md"
+      ],
+      "scope": "Authored composition over separately supported catalog preparation, complete-property Active damage, ordinary non-keeper PvE legality/payment and four recovered Wheel transitions. Every action supplies complete live caster/player maps and one common target context; shared Wheel contributions must be excluded from those snapshots. Pursuit events remain explicit. Hand mutation, draws, refunds, changing costs/status, target selection, automatic pursuit creation, other listeners, death execution, resource-151 composition, gameplay validation and global build/sequence optimality remain excluded. Theorycraft track only; no cheese, budget or observed-strategy claim.",
       "gameplayValidation": false
     },
     {
