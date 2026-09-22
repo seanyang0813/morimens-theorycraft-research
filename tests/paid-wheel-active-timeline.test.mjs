@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {runPaidWheelActiveTimeline} from '../engine/paid-wheel-active-timeline.mjs';
+import {readFileSync} from 'node:fs';
 
 const conditions=strike=>({cardExists:true,inHand:true,judgeCost:true,commandExists:true,dead:false,strike,allowIgnoreCost:false,cardUseless:0,ownerUseless:0,coma:0,comaImmunity:0,ownerForbid:0,playerForbid:0,ownerForbidStrike:0,playerForbidStrike:0});
 const hit=id=>({id,type:'ACTIVE_HIT',baseValue:100,skillArgsPlus:0,tags:['Card_Strike'],cardProperties:{},cardContext:{present:false,instructionCard:false,stateTriggerAdd:false},targetContext:{critRoll:null,targetBattleTag:'Boss',targetStateIds:[]},hitContext:{damageSubtype:'Ordinary'}});
@@ -28,4 +29,12 @@ test('paid Wheel actions fail closed for mismatched card type and invalid suffix
   const mismatch=input();mismatch.actions[0].cardType='Card_Skill';assert.throws(()=>runPaidWheelActiveTimeline(mismatch),/must agree/);
   const invalid=input();invalid.initialEnergy=0;invalid.actions[1].effects.push({id:'bad',type:'AFTER_BOUT_END'});assert.throws(()=>runPaidWheelActiveTimeline(invalid),/only explicit Active hits/);
   const duplicate=input();duplicate.actions[1].effects[0].id=duplicate.actions[0].effects[0].id;assert.throws(()=>runPaidWheelActiveTimeline(duplicate),/unique/);
+});
+
+test('schema 2 pays different casters while carrying only shared Wheel contributions',()=>{
+  const multi=JSON.parse(readFileSync(new URL('../research/examples/theorycraft-multi-caster-wheel-active-timeline.json',import.meta.url))).input,[mouchette,,pursuit,arachne]=multi.steps;
+  const paid={schemaVersion:2,kind:'morimens-paid-wheel-active-timeline',build:multi.build,initialEnergy:2,snapshotStage:multi.snapshotStage,snapshotCompleteness:multi.snapshotCompleteness,initialWheelContributions:multi.initialWheelContributions,initialTargetProperties:multi.initialTargetProperties,actions:[{id:'mouchette-card',cardInstanceId:'card-m',cardType:'Card_Strike',costInput:{cfgCost:'1',originCost:1,delta:0,harmonize:0,fixedSwitches:{},keeper:false,keeperCost:null,pvp:false},conditions:conditions(true),effects:[mouchette,pursuit]},{id:'arachne-card',cardInstanceId:'card-a',cardType:'Card_Strike',costInput:{cfgCost:'1',originCost:1,delta:0,harmonize:0,fixedSwitches:{},keeper:false,keeperCost:null,pvp:false},conditions:conditions(true),effects:[arachne]}]};
+  const result=runPaidWheelActiveTimeline(paid);assert.equal(result.schemaVersion,2);assert.equal(result.wheelStateSemantics,'SHARED_WHEEL_CONTRIBUTIONS');assert.equal(result.acceptedActions,2);assert.equal(result.energyAfter,0);assert.equal(result.modeledHpLost,595);
+  assert.deepEqual(result.trace.map(row=>row.effect.trace.find(step=>step.type==='ACTIVE_HIT').result.preHitDamage),[110,485]);assert.equal(result.finalWheelState.doomsday.strikecardDamagePlus,500);assert.equal(result.finalWheelState.arachne.basicDamagePer,55);
+  paid.initialEnergy=1;const rejected=runPaidWheelActiveTimeline(paid);assert.equal(rejected.acceptedActions,1);assert.equal(rejected.modeledHpLost,110);assert.equal(rejected.trace[1].effect,null);assert.equal(rejected.finalWheelState.doomsday.strikecardDamagePlus,250);
 });

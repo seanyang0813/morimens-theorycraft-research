@@ -90,9 +90,9 @@ second card before effects and leaves one stack.
 This boundary does not simulate hand removal, draws, refunds, changing costs,
 turn transitions or pursuit generation. The ordering of other listeners and
 whether an after-use listener completes following lethal damage remain
-unresolved, so the runner stops at that boundary. The paid runner and its order
-search currently use the schema 1 single-caster maps; schema 2 multi-caster
-payment/search remains a separate integration step.
+unresolved, so the runner stops at that boundary. Schema 2 paid actions retain
+the complete caster/player maps on every Active hit while carrying only the
+shared Wheel contributions between cards.
 
 ## Searching supplied card orders
 
@@ -107,3 +107,8 @@ Wheels and one 500-base card. Searching both orders selects setup then burst:
 1,125 modeled HP loss versus 850 in reverse. The search claims optimality only
 within those two supplied actions and the supported runner. It does not choose
 the build, cards, draws, targets, hit snapshots or missing mechanics.
+
+The multi-caster paid example also searches across different character
+snapshots. With one energy per card, the Mouchette-like setup followed by the
+Arachne-like hit produces 595 modeled HP loss; reversing them produces 540.
+Both payment and search preserve each hit's own base properties.

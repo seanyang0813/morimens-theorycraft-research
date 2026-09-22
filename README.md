@@ -45,9 +45,9 @@ The agent API includes `calculate-snapshot-active-damage` for complete captured 
 
 `compare-wheel-active-timelines` aligns two such executions by stable step identity. It distinguishes a pure reorder from changed inputs and reports per-step differences in damage, HP, Block, temporary properties and Wheel counters. The Wheel lab exposes the same verified-runtime pin-and-compare workflow.
 
-`run-paid-wheel-active-timeline` adds ordinary PvE card legality and energy payment before explicit Wheel-aware hit sequences. Rejected cards expose neither damage nor a Doomsday post-use transition; accepted cards carry energy, target state and Wheel counters forward. See [`research/examples/theorycraft-paid-wheel-active-timeline.json`](research/examples/theorycraft-paid-wheel-active-timeline.json).
+`run-paid-wheel-active-timeline` adds ordinary PvE card legality and energy payment before explicit Wheel-aware hit sequences. Rejected cards expose neither damage nor a Doomsday post-use transition; accepted cards carry energy, target state and Wheel counters forward. Schema 2 preserves different caster/player maps across paid team actions. See [`research/examples/theorycraft-paid-wheel-active-timeline.json`](research/examples/theorycraft-paid-wheel-active-timeline.json).
 
-`search-paid-wheel-orders` evaluates every permutation of the supplied paid Wheel-aware actions within an explicit cap. It returns the highest modeled HP-loss legal order and its full trace, with optimality limited to the enumerated action set and supported mechanics.
+`search-paid-wheel-orders` evaluates every permutation of the supplied paid Wheel-aware actions within an explicit cap, including schema 2 actions from different characters. It returns the highest modeled HP-loss legal order and its full trace, with optimality limited to the enumerated action set and supported mechanics.
 
 `run-ulti-energy-effect` exposes the ordinary ultimate-energy calculation, effect repetition and capped Awakener storage path for both supported PC builds. Resource-150 support is backed by 516 exact executions of the installed modules against inherited fixtures. Callers still supply the resolved energy properties, card/tag eligibility, source, target order and starting energy.
 

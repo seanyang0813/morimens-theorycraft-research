@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {searchPaidWheelOrders} from '../engine/paid-wheel-order-search.mjs';
+import {readFileSync} from 'node:fs';
 
 const conditions={cardExists:true,inHand:true,judgeCost:true,commandExists:true,dead:false,strike:true,allowIgnoreCost:false,cardUseless:0,ownerUseless:0,coma:0,comaImmunity:0,ownerForbid:0,playerForbid:0,ownerForbidStrike:0,playerForbidStrike:0};
 const hit=(id,baseValue)=>({id,type:'ACTIVE_HIT',baseValue,skillArgsPlus:0,tags:['Card_Strike'],cardProperties:{},cardContext:{present:false,instructionCard:false,stateTriggerAdd:false},targetContext:{critRoll:null,targetBattleTag:'Boss',targetStateIds:[]},hitContext:{damageSubtype:'Ordinary'}});
@@ -17,4 +18,11 @@ test('paid Wheel search rejects partial enumeration, duplicate IDs and unsupport
   const value=timeline();value.actions.push(action('third',10));assert.throws(()=>searchPaidWheelOrders({...request(value),maxEvaluations:5}),/needs 6 evaluations/);
   value.actions[2].id='big';assert.throws(()=>searchPaidWheelOrders(request(value)),/unique/);
   assert.throws(()=>searchPaidWheelOrders({...request(timeline()),objective:'GLOBAL_OPTIMUM'}),/Unsupported/);
+});
+
+test('paid Wheel search preserves different caster snapshots while permuting actions',()=>{
+  const multi=JSON.parse(readFileSync(new URL('../research/examples/theorycraft-multi-caster-wheel-active-timeline.json',import.meta.url))).input,[mouchette,,pursuit,arachne]=multi.steps;arachne.baseValue=500;
+  const resource=(id,effects)=>({id,cardInstanceId:`card-${id}`,cardType:'Card_Strike',costInput:{cfgCost:'1',originCost:1,delta:0,harmonize:0,fixedSwitches:{},keeper:false,keeperCost:null,pvp:false},conditions:{...conditions},effects});
+  const paid={schemaVersion:2,kind:'morimens-paid-wheel-active-timeline',build:multi.build,initialEnergy:2,snapshotStage:multi.snapshotStage,snapshotCompleteness:multi.snapshotCompleteness,initialWheelContributions:multi.initialWheelContributions,initialTargetProperties:multi.initialTargetProperties,actions:[resource('big',[arachne]),resource('setup',[mouchette,pursuit])]};
+  const result=searchPaidWheelOrders(request(paid));assert.deepEqual(result.best.order,['setup','big']);assert.deepEqual(result.topEligible.map(row=>row.modeledHpLost),[1415,1140]);assert.equal(result.best.result.wheelStateSemantics,'SHARED_WHEEL_CONTRIBUTIONS');
 });

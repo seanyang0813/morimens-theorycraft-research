@@ -173,6 +173,14 @@ test('agent API keeps distinct caster snapshots in a shared Wheel timeline',()=>
   assert.equal(response.result.wheelStateSemantics,'SHARED_WHEEL_CONTRIBUTIONS');assert.deepEqual(response.result.trace.filter(row=>row.type==='ACTIVE_HIT').map(row=>row.result.preHitDamage),[110,485]);assert.equal(response.result.modeledHpLost,595);assert.equal(response.result.finalDamage,null);
 });
 
+test('agent API pays and searches actions from different caster snapshots',()=>{
+  const multi=JSON.parse(readFileSync(new URL('../research/examples/theorycraft-multi-caster-wheel-active-timeline.json',import.meta.url))).input,[mouchette,,pursuit,arachne]=multi.steps;
+  const conditions={cardExists:true,inHand:true,judgeCost:true,commandExists:true,dead:false,strike:true,allowIgnoreCost:false,cardUseless:0,ownerUseless:0,coma:0,comaImmunity:0,ownerForbid:0,playerForbid:0,ownerForbidStrike:0,playerForbidStrike:0},action=(id,effects)=>({id,cardInstanceId:`card-${id}`,cardType:'Card_Strike',costInput:{cfgCost:'1',originCost:1,delta:0,harmonize:0,fixedSwitches:{},keeper:false,keeperCost:null,pvp:false},conditions:{...conditions},effects});
+  const timeline={schemaVersion:2,kind:'morimens-paid-wheel-active-timeline',build:multi.build,initialEnergy:2,snapshotStage:multi.snapshotStage,snapshotCompleteness:multi.snapshotCompleteness,initialWheelContributions:multi.initialWheelContributions,initialTargetProperties:multi.initialTargetProperties,actions:[action('arachne',[arachne]),action('mouchette',[mouchette,pursuit])]};
+  const paid=runTheorycraftRequest(request('run-paid-wheel-active-timeline',timeline));assert.equal(paid.result.modeledHpLost,540);assert.equal(paid.result.wheelStateSemantics,'SHARED_WHEEL_CONTRIBUTIONS');
+  const searched=runTheorycraftRequest(request('search-paid-wheel-orders',{schemaVersion:1,kind:'morimens-paid-wheel-order-search',objective:'MAX_MODELED_HP_LOST',timeline,maxEvaluations:10,returnTop:2}));assert.deepEqual(searched.result.best.order,['mouchette','arachne']);assert.equal(searched.result.best.modeledHpLost,595);
+});
+
 test('agent API exposes bounded card-order search without a global optimum claim',()=>{
   const input={schemaVersion:1,kind:'morimens-card-order-search',objective:'MAX_MODELED_HP_LOST',timeline:syntheticCardActionExample(),maxEvaluations:10,returnTop:2};
   const response=runTheorycraftRequest(request('search-card-orders',input));

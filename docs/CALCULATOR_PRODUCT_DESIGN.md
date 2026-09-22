@@ -107,9 +107,9 @@ changes from edited inputs. See WHEEL_ACTIVE_TIMELINE.md.
 Wheel timelines now also support per-hit complete caster/player maps. Shared
 Doomsday and Arachne Wheel contributions are added over each character's own
 baseline, so a generated pursuit no longer inherits the main card caster's
-properties. The current paid runner and order search remain single-caster; the
-multi-caster schema first establishes correct property ownership before those
-layers are joined.
+properties. The paid runner and bounded order search now preserve those maps
+across different character actions while sharing payment, target state and
+Wheel contributions.
 
 The same boundary now has a paid-card runner. It checks ordinary PvE legality
 and spends energy before exposing a card's supplied Active hits, then appends
