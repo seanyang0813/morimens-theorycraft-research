@@ -7387,6 +7387,52 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC144:WheelRefinementParameterArithmetic",
+      "status": "SUPPORTED_BY_RUNTIME_TEST",
+      "claim": "All 58 dynamic initial Wheel parameter expression forms exactly match the original compiled FuncTable at refinement levels 0 through 3 across 232 comparisons; five other unique forms are numeric literals",
+      "sources": [
+        {
+          "module": "FuncTable",
+          "member": "GetRefiningLevel parameter expressions used by uniquely crosswalked Wheel Item rows",
+          "bundle": "config",
+          "sha256": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3"
+        },
+        {
+          "module": "Sanitized Wheel refinement runtime audit",
+          "member": "aggregate expression and fixture counts plus private fixture hash",
+          "bundle": "copied original Lua runtime; private detailed fixtures",
+          "sha256": "8088d4c6edcafcf897ddc0a33f4bfbadb5f22d697f469ab16cfb139980417430"
+        }
+      ],
+      "tests": [
+        "tools/wheel_refinement_oracle.py",
+        "tests/wheel-refinement-runtime-audit.test.mjs"
+      ],
+      "scope": "Explicit refinement levels 0\u20133 and the 63 observed initial parameter forms only. No equipment, refinement provenance, state attachment, direct property mutation, trigger execution, gameplay agreement or holdout credit. Mechanics reconstruction only; no theorycraft, cheese or budget claim.",
+      "gameplayValidation": false
+    },
+    {
+      "id": "Mechanics:WheelRefinementResolver",
+      "status": "SUPPORTED_BY_ORIGINAL_RUNTIME_FIXTURES",
+      "claim": "A strict mechanics resolver converts a uniquely crosswalked Wheel and explicit refinement level into source-bound initial StateArg values using original-runtime-matched arithmetic",
+      "sources": [
+        {
+          "module": "Wheel refinement runtime audit",
+          "member": "232 exact original-runtime comparisons",
+          "bundle": "sanitized mechanics evidence",
+          "sha256": "8088d4c6edcafcf897ddc0a33f4bfbadb5f22d697f469ab16cfb139980417430"
+        }
+      ],
+      "tests": [
+        "engine/wheel-refinement-parameters.mjs",
+        "tools/resolve_wheel_refinement.mjs",
+        "tests/wheel-refinement-parameters.test.mjs",
+        "research/examples/mechanics-resolve-eternal-weave-refinement.json"
+      ],
+      "scope": "Local resolver requires the ignored private client crosswalk and returns parameters without source expressions. It does not infer equipment, attach or execute states, mutate properties, fire triggers, rank builds or create a theorycraft, cheese, budget-scouting, gameplay-validation or holdout result.",
+      "gameplayValidation": false
+    },
+    {
       "id": "Theorycraft:LegalCardActionEnumeration",
       "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
       "claim": "The theorycraft API enumerates ordinary non-keeper PvE card actions from explicit dispatch, energy, hand and status state while retaining global and per-card rejection gates",

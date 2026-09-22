@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_WHEEL_REFINEMENT_EXPRESSION_RUNTIME_AUDIT",
+  "analysisTrack": "mechanics",
+  "build": "pc-res144-build51",
+  "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+  "source": {
+    "module": "FuncTable.lua",
+    "sha256": "4dfd3a7155198cef4f73befb2d61c63a8daee9ccead5b524ad1a2bfaf5ad92f3",
+    "privateCrosswalkSha256": "7cdf18708c864dbf86f53c607709db78243f5acd1d07164f61a7b6e94d8a388d",
+    "privateFixtureSha256": "c99ce3b5e8db2547292619022a75e9cdb8aa20fdec20b2f53ddfbeee417718c2"
+  },
+  "uniqueExpressions": 63,
+  "dynamicExpressionsComparedToOriginalRuntime": 58,
+  "uniqueNumericLiterals": 5,
+  "refinementLevels": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "fixtures": 232,
+  "mismatches": 0,
+  "grammar": "numeric constant or base + GetRefiningLevel() * slope, with optional implicit slope 1",
+  "limitations": [
+    "The original-runtime comparisons cover dynamic refinement expressions at explicit levels 0 through 3; numeric literals are counted separately.",
+    "It does not establish that a Wheel is equipped, its refinement level, state attachment, trigger execution, targets, stacking, gameplay agreement, or holdout credit.",
+    "Detailed expressions and values remain private; the public report contains aggregate counts and source hashes only.",
+    "This mechanics artifact makes no theorycraft recommendation, cheese or budget-scouting claim."
+  ]
+}

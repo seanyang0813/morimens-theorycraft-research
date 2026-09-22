@@ -62,3 +62,12 @@ Run:
 The response carries `analysisTrack: "mechanics"`. It returns static potential
 graph metadata only; it does not execute passives, rank Wheels or become a
 theorycraft, cheese, budget-scouting, gameplay-validation or holdout result.
+
+The separate refinement resolver accepts a public Wheel ID and explicit client
+refinement level, joins the ignored private crosswalk, and returns the initial
+StateArg values without exposing source expressions. Run:
+
+`node tools/resolve_wheel_refinement.mjs --input research/examples/mechanics-resolve-eternal-weave-refinement.json`
+
+Its arithmetic is backed by 232 exact original-runtime comparisons. The result
+remains in the mechanics track and stops before state attachment or execution.

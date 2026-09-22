@@ -90,3 +90,19 @@ does not show that any Wheel is equipped, active, legal, optimal, or uniquely
 owned. The public report contains aggregate counts, hashes, and a small derived
 case-study boundary; raw client rows stay private. See
 `research/evidence/wheel-state-crosswalk-audit.json`.
+
+## Wheel refinement parameters
+
+The private client crosswalk contains 63 unique initial `StatePara` expression
+forms. Five are numeric literals; the other 58 use a restricted
+`base + GetRefiningLevel() * slope` grammar, including an optional implicit
+slope of one. `tools/wheel_refinement_oracle.py` executes every dynamic form at
+refinement levels 0–3 through the original compiled PC `FuncTable`. All 232
+comparisons match the authored arithmetic exactly.
+
+`engine/wheel-refinement-parameters.mjs` exposes the strict arithmetic boundary,
+and `tools/resolve_wheel_refinement.mjs` joins a public Wheel ID to the private
+client row locally. For example, Eternal Weave at refinement level 3 resolves
+StateArg1/2/3 to 25, 40 and 10. This supplies initial state arguments only; it
+does not equip the Wheel, attach the state, execute direct properties or fire a
+trigger. Detailed expressions and the full per-Wheel values remain private.

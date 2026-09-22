@@ -6,7 +6,7 @@ The Property Snapshots page accepts complete live resource-144 or resource-150 c
 
 The Builds page now has separate selectors and payloads for the installed resource-150 client and the historical resource-144 research build. Current progression covers 60 resolved character identities and is bound to 2,700 exact executions of the original resource-150 primary-stat lookup. Advancement primary-stat rows are included where supported. Its Wheel picker searches all 146 pinned identities by name, associated owner, main stat and normalized mechanic tags, marks owner matches without assuming a unique signature, and keeps passive execution unresolved. The page refuses cross-build data use; advancement passives, equipment effects and battle-property assembly remain unresolved.
 
-`tools/prepare_local_website.py` prepares 123 explicitly allowlisted authored engine modules plus sanitized catalogs and page assets. It does not publish original Lua, native libraries, keys, screenshots, replay observations or private research directories. The verification suite checks copied engine modules byte-for-byte against their authored sources, along with static references, JavaScript syntax and calculation integrations.
+`tools/prepare_local_website.py` prepares 124 explicitly allowlisted authored engine modules plus sanitized catalogs and page assets. It does not publish original Lua, native libraries, keys, screenshots, replay observations or private research directories. The verification suite checks copied engine modules byte-for-byte against their authored sources, along with static references, JavaScript syntax and calculation integrations.
 
 The Actions page can render ordered single-target Block gain and the shield consumed by later supported damage rows. The underlying formula/recipient/storage path has 911 exact copied-original component comparisons. This adds an evidence-backed command operation, not automatic loadout-property resolution or gameplay validation.
 
@@ -53,6 +53,11 @@ The packaged authored module `wheel-mechanics-search.mjs` and its local CLI
 provide the same catalog as a strict mechanics-track query. This API remains
 separate from `theorycraft-api.mjs`; a search result cannot inherit a simulated
 build, strategy, cheese, budget or verification claim.
+
+The authored Wheel refinement module is also packaged, but the full private
+parameter map is not. Its local resolver uses the ignored client crosswalk and
+returns StateArg values for an explicit refinement level. The arithmetic has
+232 exact original-runtime comparisons and stops before passive execution.
 
 No hosted Site is registered or deployed. There is no `.openai/hosting.json` project ID. The source checkpoint is on GitHub, labeled as unverified research. Deployment as an accurate build recommender remains prohibited until the gameplay prediction and independent holdout gate passes.
 

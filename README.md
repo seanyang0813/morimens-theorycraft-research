@@ -92,6 +92,12 @@ Agents can query that index without entering the theorycraft track by running
 The versioned response remains labeled `analysisTrack: "mechanics"` and exposes
 only static fingerprints and their limitations.
 
+The local mechanics resolver can also convert an explicit Wheel refinement
+level into its source-bound initial StateArg values. Its restricted arithmetic
+matches 232 executions of the original PC `FuncTable` with zero mismatches. See
+`research/evidence/wheel-refinement-runtime-audit.json` and
+`research/examples/mechanics-resolve-eternal-weave-refinement.json`.
+
 ## Offline replay pipeline
 
 An explicitly exported PC replay can now be processed without running game logic or reading process memory:

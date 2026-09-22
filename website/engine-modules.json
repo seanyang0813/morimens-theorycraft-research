@@ -121,5 +121,6 @@
   "ulti-energy-calculation.mjs",
   "ulti-energy-effect.mjs",
   "ulti-energy-gain.mjs",
-  "wheel-mechanics-search.mjs"
+  "wheel-mechanics-search.mjs",
+  "wheel-refinement-parameters.mjs"
 ]
