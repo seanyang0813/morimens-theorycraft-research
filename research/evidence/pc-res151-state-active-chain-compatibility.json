@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_STATE_ACTIVE_CHAIN_COMPATIBILITY",
+  "build": "pc-res151-build51",
+  "status": "SUPPORTED_BY_EXACT_COMPONENT_COMPOSITION",
+  "operation": "run-prepared-state-active-chain",
+  "sourceHashes": {
+    "singularCompatibility": "48262ef2dd67a32459c25ac85233edf6ef5826690cb82c1d2d3b36988e64cd37",
+    "activeCompatibility": "9cdb9750b4486d8297c1c55401afb85bd0ef263fa70aa81cb8e89759ca437f8e",
+    "installedExample": "6466b272c495b1db854900bb2da57f236004b76ac78fe98ddb6cf4d702138693",
+    "chainEngine": "fa46059a03e681f21ebb1a23b68cb8c1e0f51fa21d6567328381490e39d66a9d"
+  },
+  "composedEvidence": {
+    "directStateMutationFixtures": 432,
+    "directStateMutationMismatches": 0,
+    "catalogSemanticChanges": 0,
+    "activeClientModuleDependencies": 6,
+    "activeConfigDependencies": 5,
+    "supportedActiveSchemas": [
+      1,
+      4
+    ],
+    "installedExampleActions": 5,
+    "installedExampleSchemas": [
+      1
+    ]
+  },
+  "scope": "One supported resource-151 catalog state setup followed by a nonempty ordered list of schema-1 or schema-4 prepared Active actions, carrying only state-derived caster properties/layers, target HP/Block and any already exposed energy.",
+  "limitations": [
+    "Schema 2/3 prepared Active actions remain excluded from this chain even though ultimate energy has a separate resource-151 boundary",
+    "Costs, card zones, expiry, callbacks, reactive effects, retargeting, other actors and death execution are excluded",
+    "No gameplay, prediction or holdout credit"
+  ]
+}

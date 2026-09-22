@@ -23,6 +23,7 @@ const setEnergy=(action,value)=>{
 export function runPreparedStateActiveChain(value,source){
   const input=clone(value);
   if(!exact(input,['schemaVersion','kind','build','stateCard','activeSkills','roleBinding','targetRoleId'])||input.schemaVersion!==1||input.kind!=='morimens-prepared-state-active-chain'||!Array.isArray(input.activeSkills)||input.activeSkills.length===0||!Number.isSafeInteger(input.targetRoleId))throw new Error('Exact nonempty prepared state-to-Active chain with target identity required');
+  if(input.build==='pc-res151-build51'&&input.activeSkills.some(action=>![1,4].includes(action?.schemaVersion)))throw new Error('Resource-151 state-to-Active chains require bounded schema 1 or 4 Active actions');
   const [firstTemplate,...laterTemplates]=input.activeSkills;
   const first=runPreparedStateActiveSequence({schemaVersion:1,kind:'morimens-prepared-state-active-sequence',build:input.build,stateCard:input.stateCard,activeSkill:firstTemplate,roleBinding:input.roleBinding},source);
   const availableCasterStateLayers=first.stateCard.execution.calculation.states.filter(state=>state.roleId===input.roleBinding.activeCasterRoleId&&!state.isDeleted).map(state=>({stateId:state.stateId,layer:state.layer}));

@@ -40,3 +40,15 @@ test('prepared chain rejects target and shared-baseline drift',()=>{
   const energy=chain([one.activeSkill,copy(one.activeSkill)]);energy.activeSkills[1].snapshot.casterProperties.crit_damage=1;
   assert.throws(()=>runPreparedStateActiveChain(energy,source),/property drift/);
 });
+
+test('resource-151 chain composes only bounded schema 1 or 4 Active actions',()=>{
+  const readCurrent=name=>{const bytes=readFileSync(new URL(`../research/observations/current-res151-build51/modules/${name}.json`,import.meta.url));return {data:JSON.parse(bytes),sha256:createHash('sha256').update(bytes).digest('hex')};};
+  const current=Object.fromEntries(['Skill','BattleApi','Cmd','State'].map(name=>[name,readCurrent(name)]));
+  const currentSource={build:'pc-res151-build51',skills:current.Skill.data,battleApi:current.BattleApi.data,commands:current.Cmd.data,states:current.State.data,sourceHashes:Object.fromEntries(Object.entries(current).map(([name,row])=>[name,row.sha256]))};
+  const one=singular();one.build='pc-res151-build51';one.stateCard.execution.experiment.build='pc-res151-build51';one.activeSkill.build='pc-res151-build51';
+  const value={schemaVersion:1,kind:'morimens-prepared-state-active-chain',build:one.build,stateCard:one.stateCard,activeSkills:[one.activeSkill,one.activeSkill],roleBinding:one.roleBinding,targetRoleId:9};
+  const result=runPreparedStateActiveChain(value,currentSource);
+  assert.equal(result.executedActions,2);assert.equal(result.modeledHpLost,6);assert.deepEqual(result.targetAfter,{hp:994,block:0});
+  value.activeSkills[1]={...value.activeSkills[1],schemaVersion:2,energy:{}};
+  assert.throws(()=>runPreparedStateActiveChain(value,currentSource),/bounded schema 1 or 4/);
+});

@@ -29,7 +29,7 @@ test('agent API advertises explicit bounded operations',()=>{
   assert.ok(response.result.operations.some(row=>row.name==='run-mortal-blast-copy-suffix'));
   assert.ok(response.result.operations.some(row=>row.name==='run-prepared-mortal-blast'));
   assert.ok(response.result.supportedCombatBuilds.includes('pc-res151-build51'));
-  assert.deepEqual(response.result.resource151OperationScope,['calculate-snapshot-active-damage','run-snapshot-active-sequence','prepare-skill-command','run-prepared-snapshot-active-skill','run-ulti-energy-effect','run-prepared-snapshot-block-skill','run-prepared-state-active-sequence']);
+  assert.deepEqual(response.result.resource151OperationScope,['calculate-snapshot-active-damage','run-snapshot-active-sequence','prepare-skill-command','run-prepared-snapshot-active-skill','run-ulti-energy-effect','run-prepared-snapshot-block-skill','run-prepared-state-active-sequence','run-prepared-state-active-chain']);
   assert.equal(response.result.publicationStatus,'NOT_READY');
 });
 

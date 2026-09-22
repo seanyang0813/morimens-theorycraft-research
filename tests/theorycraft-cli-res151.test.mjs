@@ -50,6 +50,13 @@ test('agent CLI carries a resource-151 catalog state into a prepared Active hit'
   assert.equal(response.result.build,'pc-res151-build51');assert.equal(response.result.carry.activeCasterProperties.crit_damage,105);assert.equal(response.result.modeledHpLost,3);assert.equal(response.result.targetAfter.hp,997);assert.equal(response.result.finalDamage,null);
 });
 
+test('agent CLI carries a resource-151 catalog state through five prepared Active hits',()=>{
+  const result=run('research/examples/theorycraft-installed-prepared-state-active-chain.json');
+  assert.equal(result.status,0,result.stderr);
+  const response=JSON.parse(result.stdout);
+  assert.equal(response.result.build,'pc-res151-build51');assert.equal(response.result.executedActions,5);assert.equal(response.result.modeledHpLost,15);assert.equal(response.result.targetAfter.hp,985);assert.equal(response.result.finalDamage,null);
+});
+
 test('agent CLI rejects resource-151 operations outside the proven dependency graph',()=>{
   const result=run('tests/synthetic/theorycraft-res151-unsupported-operation.json');
   assert.equal(result.status,1);

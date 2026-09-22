@@ -6047,6 +6047,28 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC151:PreparedStateActiveChain",
+      "status": "SUPPORTED_BY_EXACT_COMPONENT_COMPOSITION",
+      "claim": "The proved singular resource-151 state handoff composes with an ordered nonempty list of schema-1/4 prepared Active actions while carrying target HP, Block and exposed state-derived caster values",
+      "sources": [
+        {
+          "module": "PC resource-151 state-to-Active chain compatibility",
+          "member": "singular handoff, Active boundary, engine and five-action installed example hashes",
+          "bundle": "public evidence composition",
+          "sha256": "de5c41a2b617619d56cab675a08b6d38af2b61729b59f06373675c11391beb5a"
+        }
+      ],
+      "tests": [
+        "tools/build_res151_state_active_chain_compatibility.py",
+        "tests/pc-res151-state-active-chain-compatibility.test.mjs",
+        "tests/prepared-state-active-chain.test.mjs",
+        "tests/theorycraft-api.test.mjs",
+        "tests/theorycraft-cli-res151.test.mjs"
+      ],
+      "scope": "Resource-151 authored ordered composition of one supported state setup and schema-1/4 prepared Active actions. Schema 2/3 actions, costs, card zones, expiry, callbacks, reactive effects, retargeting, other actors, death execution, gameplay, prediction and holdout credit remain excluded.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC151:ControlledReplayAuditCandidate004",
       "status": "SAME_BATTLE_REVIEW_PENDING",
       "claim": "One mechanically isolated resource-151 capture candidate yields six retrospective ordinary-Active critical-branch matches and zero mismatches after 71 out-of-scope hits are rejected",
@@ -8336,15 +8358,24 @@
           "bundle": "pc\\downloaded\\share.ab",
           "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "PC resource-151 state-to-Active chain compatibility",
+          "member": "singular handoff plus schema-1/4 ordered composition",
+          "bundle": "public evidence composition",
+          "sha256": "de5c41a2b617619d56cab675a08b6d38af2b61729b59f06373675c11391beb5a"
         }
       ],
       "tests": [
+        "tools/build_res151_state_active_chain_compatibility.py",
+        "tests/pc-res151-state-active-chain-compatibility.test.mjs",
         "tests/prepared-state-active-chain.test.mjs",
         "tests/theorycraft-api.test.mjs",
         "research/examples/theorycraft-prepared-state-active-chain.json",
+        "research/examples/theorycraft-installed-prepared-state-active-chain.json",
         "docs/PREPARED_STATE_ACTIVE_SEQUENCE.md"
       ],
-      "scope": "Authored ordered composition over the supported state-to-Active handoff and prepared Active/energy paths. Every action declares the same initial target/caster context; only state-derived caster properties/layers, target HP/Block and exposed energy carry. Stops after incomplete/lethal actions. Costs, card zones, expiry, callbacks, retargeting, other actors, reactive effects, death execution, gameplay and holdout validation are excluded. Theorycraft track only; no cheese, budget or observed-strategy claim.",
+      "scope": "Authored ordered composition over the supported state-to-Active handoff and prepared Active/energy paths. Resource 151 is restricted to schema-1/4 Active actions; resource 144/150 retain the wider tested component forms. Every action declares the same initial target/caster context; only state-derived caster properties/layers, target HP/Block and exposed energy carry. Stops after incomplete/lethal actions. Costs, card zones, expiry, callbacks, retargeting, other actors, reactive effects, death execution, gameplay and holdout validation are excluded. Theorycraft track only; no cheese, budget or observed-strategy claim.",
       "gameplayValidation": false
     },
     {
