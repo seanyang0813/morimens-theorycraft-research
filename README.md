@@ -83,6 +83,9 @@ Literal state-add links expand that boundary to a static potential graph of 353
 states, 260 distinct trigger commands and 32 effect types. The graph records
 cycles and dynamic state identities explicitly; it is an implementation map,
 not permission to execute every branch or a claim that every effect activates.
+The sanitized per-Wheel capability index is available at
+`research/evidence/wheel-mechanics-capability-catalog.json` and in the prepared
+website package for agent or human discovery.
 
 ## Offline replay pipeline
 

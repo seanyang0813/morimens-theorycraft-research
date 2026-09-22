@@ -7,7 +7,7 @@ export async function loadVerifiedRuntime({fetchFile=path=>fetch(path,{cache:'no
   if(manifest.schemaVersion!==1||manifest.algorithm!=='sha256'||!manifest.files||!Object.keys(manifest.files).length)throw new Error('Unsupported runtime manifest');
   const names=Object.keys(manifest.files).sort(),files={},bytes=new Map();
   for(const name of names){
-    if(!/^(engine\/[a-z0-9-]+\.mjs|build-catalog\.json|client-build-data(?:-res150)?\.json|scenario\.json|rules\.json)$/.test(name))throw new Error('Unsupported runtime asset path');
+    if(!/^(engine\/[a-z0-9-]+\.mjs|build-catalog\.json|client-build-data(?:-res150)?\.json|wheel-mechanics-capability-catalog\.json|scenario\.json|rules\.json)$/.test(name))throw new Error('Unsupported runtime asset path');
     const data=await read(name);files[name]=await hash(data);
     if(files[name]!==manifest.files[name])throw new Error('Runtime asset changed: '+name);
     bytes.set(name,data);

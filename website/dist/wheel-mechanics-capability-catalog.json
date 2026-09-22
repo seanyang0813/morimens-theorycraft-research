@@ -1,0 +1,2551 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_WHEEL_STATIC_MECHANICS_CAPABILITY_CATALOG",
+  "analysisTrack": "mechanics",
+  "status": "STATIC_MECHANICS_FINGERPRINTS",
+  "sourceAudit": "research/evidence/wheel-state-crosswalk-audit.json",
+  "summary": {
+    "wheelCount": 146,
+    "uniqueMechanicsFingerprints": 141,
+    "unresolvedFingerprints": 5,
+    "mechanicCategoryCount": 13
+  },
+  "wheels": [
+    {
+      "wheelId": "wheel-0001",
+      "name": "Merciful Nurturing",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 3,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState",
+        "BEChangeKeeperEnergy",
+        "BEGainUltiEnergy",
+        "BEScarletBloodChange"
+      ],
+      "mechanicCategories": [
+        "character-resource",
+        "keeper-energy",
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0002",
+      "name": "Tablet of Scriptures",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 3,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState",
+        "BEGainKeeperEnergy",
+        "BEGainUltiEnergy"
+      ],
+      "mechanicCategories": [
+        "keeper-energy",
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0003",
+      "name": "Winter's Requiem",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 3,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState",
+        "BEScarletBloodChange"
+      ],
+      "mechanicCategories": [
+        "character-resource",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0004",
+      "name": "By Rose Alone",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 3,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState",
+        "BEActiveDamage",
+        "BEScarletBloodChange"
+      ],
+      "mechanicCategories": [
+        "character-resource",
+        "damage",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0005",
+      "name": "Chains Unbound",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState",
+        "BECreateCard",
+        "BERemoveState"
+      ],
+      "mechanicCategories": [
+        "card",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0006",
+      "name": "Drowning in Crimson",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState",
+        "BEMoveCard"
+      ],
+      "mechanicCategories": [
+        "card",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0007",
+      "name": "Pale Descendant",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState",
+        "BETriggerState",
+        "BEPassiveDamage",
+        "BEScarletBloodChange"
+      ],
+      "mechanicCategories": [
+        "character-resource",
+        "damage",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": true
+    },
+    {
+      "wheelId": "wheel-0008",
+      "name": "Bloody Feast",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0009",
+      "name": "The Glutton's Tale",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState",
+        "BEGainBlock"
+      ],
+      "mechanicCategories": [
+        "block",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0010",
+      "name": "Lullaby Devoured",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 3,
+      "potentiallyLinkedStates": 5,
+      "effectTypes": [
+        "BEAddState",
+        "BEPassiveDamage",
+        "BETriggerState",
+        "BEScarletBloodChange",
+        "BESubStateLayer"
+      ],
+      "mechanicCategories": [
+        "character-resource",
+        "damage",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0011",
+      "name": "Kiss of Repose",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0012",
+      "name": "Paradoxical Realism",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BERemoveState",
+        "BEAddState",
+        "BEGainUltiEnergy"
+      ],
+      "mechanicCategories": [
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0013",
+      "name": "Vain Regrets",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState",
+        "BEScarletBloodChange"
+      ],
+      "mechanicCategories": [
+        "character-resource",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0014",
+      "name": "Rewinding Time",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState",
+        "BEMoveCard"
+      ],
+      "mechanicCategories": [
+        "card",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0015",
+      "name": "Deathless Ascent",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [
+        "BEGainUltiEnergy"
+      ],
+      "mechanicCategories": [
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0016",
+      "name": "Manikin of Oblivion",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState",
+        "BEGainUltiEnergy",
+        "BERemoveState",
+        "BETriggerState"
+      ],
+      "mechanicCategories": [
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0017",
+      "name": "Heart of a Knight",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0018",
+      "name": "Celestial Beast",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0019",
+      "name": "Hour of Fortune",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEDisplayFloatingText",
+        "BEAddState",
+        "BETriggerState",
+        "BEGainUltiEnergy",
+        "BERemoveState",
+        "BESetTempArg"
+      ],
+      "mechanicCategories": [
+        "command-context",
+        "presentation",
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0020",
+      "name": "Aberrant Devour",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 7,
+      "effectTypes": [
+        "BEAddState",
+        "BERemoveState",
+        "BEGainUltiEnergy"
+      ],
+      "mechanicCategories": [
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0021",
+      "name": "Memory Spiral",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [
+        "BEChangeAttr.block"
+      ],
+      "mechanicCategories": [
+        "block"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0022",
+      "name": "Gift of Decay",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState",
+        "BETriggerState",
+        "BEGainUltiEnergy",
+        "BEPassiveDamage"
+      ],
+      "mechanicCategories": [
+        "damage",
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": true
+    },
+    {
+      "wheelId": "wheel-0023",
+      "name": "Drifting in Desire",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 5,
+      "effectTypes": [
+        "BEAddState",
+        "BEPassiveDamage",
+        "BETriggerState",
+        "BESubStateLayer"
+      ],
+      "mechanicCategories": [
+        "damage",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0024",
+      "name": "Grace Through Pain",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState",
+        "BEGainBlock"
+      ],
+      "mechanicCategories": [
+        "block",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0025",
+      "name": "Will Unyielding",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 3,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState",
+        "BECreateCard",
+        "BERemoveState"
+      ],
+      "mechanicCategories": [
+        "card",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0026",
+      "name": "Silent Banquet",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [
+        "BEHeal"
+      ],
+      "mechanicCategories": [
+        "healing"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0027",
+      "name": "Wheel Unseen",
+      "crosswalkStatus": "AMBIGUOUS"
+    },
+    {
+      "wheelId": "wheel-0028",
+      "name": "Amber-Tinted Death",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0029",
+      "name": "Doomsday Rampage",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0030",
+      "name": "Fouett\u00e9",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 3,
+      "potentiallyLinkedStates": 6,
+      "effectTypes": [
+        "BEAddState",
+        "BEPassiveDamage",
+        "BETriggerState"
+      ],
+      "mechanicCategories": [
+        "damage",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": true
+    },
+    {
+      "wheelId": "wheel-0031",
+      "name": "Treasured Rarity",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 3,
+      "potentiallyLinkedStates": 5,
+      "effectTypes": [
+        "BEAddState",
+        "BEChangeMoney"
+      ],
+      "mechanicCategories": [
+        "run-resource",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0032",
+      "name": "Song of the Bound",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BECreateCard",
+        "BEAddState",
+        "BEDrawCard"
+      ],
+      "mechanicCategories": [
+        "card",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0033",
+      "name": "Queen's Edict",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 6,
+      "effectTypes": [
+        "BEAddState",
+        "BEPassiveDamage",
+        "BETriggerState",
+        "BEGainUltiEnergy",
+        "BESubStateLayer"
+      ],
+      "mechanicCategories": [
+        "damage",
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0034",
+      "name": "Incalculable Factor",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [
+        "BEChangeKeeperEnergy"
+      ],
+      "mechanicCategories": [
+        "keeper-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0035",
+      "name": "The Last Verse",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 3,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState",
+        "BERemoveState",
+        "BEChangeKeeperEnergy",
+        "BERunKeeperSkillCmd",
+        "BESubStateLayer"
+      ],
+      "mechanicCategories": [
+        "command-dispatch",
+        "keeper-energy",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0036",
+      "name": "Path Forsaken",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState",
+        "BEMoveCard"
+      ],
+      "mechanicCategories": [
+        "card",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0037",
+      "name": "Core Meltdown",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 4,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0038",
+      "name": "Happy Magic Show",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEChangeKeeperEnergy",
+        "BEGainUltiEnergy",
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "keeper-energy",
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0039",
+      "name": "Unbearable Freedom",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 3,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState",
+        "BEGainUltiEnergy"
+      ],
+      "mechanicCategories": [
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0040",
+      "name": "Eternal Requiem",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 3,
+      "potentiallyLinkedStates": 5,
+      "effectTypes": [
+        "BEAddState",
+        "BEDestroyCard",
+        "BEChangeKeeperEnergy",
+        "BECreateCard"
+      ],
+      "mechanicCategories": [
+        "card",
+        "keeper-energy",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0041",
+      "name": "Veiled Anguish",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 4,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState",
+        "BEGainUltiEnergy"
+      ],
+      "mechanicCategories": [
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0042",
+      "name": "Twisted Knight Ballad",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 4,
+      "potentiallyLinkedStates": 8,
+      "effectTypes": [
+        "BEAddState",
+        "BERemoveState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": true
+    },
+    {
+      "wheelId": "wheel-0043",
+      "name": "Special Training",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0044",
+      "name": "School Day",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [
+        "BEGainUltiEnergy"
+      ],
+      "mechanicCategories": [
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0045",
+      "name": "Dear Papa Noel",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0046",
+      "name": "Countdown Moment",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState",
+        "BECreateCard"
+      ],
+      "mechanicCategories": [
+        "card",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0047",
+      "name": "Stakes of Wisdom",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [
+        "BECreateCard"
+      ],
+      "mechanicCategories": [
+        "card"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0048",
+      "name": "Unsent Flowers",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0049",
+      "name": "Roses in Mud",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0050",
+      "name": "Hymn of the Sovereign",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 3,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEGainUltiEnergy",
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0051",
+      "name": "Shrouded Birth",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState",
+        "BEGainKeeperEnergy",
+        "BEGainUltiEnergy"
+      ],
+      "mechanicCategories": [
+        "keeper-energy",
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0052",
+      "name": "Amidst the Downpour",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState",
+        "BEChangeEnergy",
+        "BEExecuteCmd",
+        "BEPassiveDamage"
+      ],
+      "mechanicCategories": [
+        "action-energy",
+        "command-dispatch",
+        "damage",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0053",
+      "name": "Fin of Sorrow",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 7,
+      "effectTypes": [
+        "BEAddState",
+        "BEPassiveDamage",
+        "BETriggerState",
+        "BESubStateLayer"
+      ],
+      "mechanicCategories": [
+        "damage",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0054",
+      "name": "Dream of the Sea",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 3,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState",
+        "BEGainUltiEnergy"
+      ],
+      "mechanicCategories": [
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0055",
+      "name": "Blade of the Titan",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0056",
+      "name": "Power of the Pious",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState",
+        "BEChangeMaxTentacleCount",
+        "BEChangeTentacleCount"
+      ],
+      "mechanicCategories": [
+        "character-resource",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0057",
+      "name": "Death of Ms. Coral",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState",
+        "BEGainBlock"
+      ],
+      "mechanicCategories": [
+        "block",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0058",
+      "name": "Sail of Providence",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState",
+        "BEPassiveHeal"
+      ],
+      "mechanicCategories": [
+        "healing",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0059",
+      "name": "Flamebound Navigator",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState",
+        "BEHeal"
+      ],
+      "mechanicCategories": [
+        "healing",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0060",
+      "name": "The Faraway Eden",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 3,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState",
+        "BEGainUltiEnergy",
+        "BERemoveState"
+      ],
+      "mechanicCategories": [
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 1,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0061",
+      "name": "Gluttony",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0062",
+      "name": "Frenzy",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState",
+        "BEChangeMoney"
+      ],
+      "mechanicCategories": [
+        "run-resource",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0063",
+      "name": "Favor",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState",
+        "BEDrawCard",
+        "BEGainUltiEnergy"
+      ],
+      "mechanicCategories": [
+        "card",
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0064",
+      "name": "Emerge",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 5,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0065",
+      "name": "Delirium",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 5,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0066",
+      "name": "Whisper",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState",
+        "BEGainUltiEnergy"
+      ],
+      "mechanicCategories": [
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0067",
+      "name": "Hope",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState",
+        "BEChangeAttr.hp"
+      ],
+      "mechanicCategories": [
+        "healing",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0068",
+      "name": "Epiphany",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState",
+        "BEChangeEnergy",
+        "BEGainKeeperEnergy"
+      ],
+      "mechanicCategories": [
+        "action-energy",
+        "keeper-energy",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0069",
+      "name": "Punishment",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState",
+        "BEChangeAttr.death_resist",
+        "BEChangeMoney"
+      ],
+      "mechanicCategories": [
+        "healing",
+        "run-resource",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0070",
+      "name": "Blessing",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 5,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0071",
+      "name": "Vitality",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 5,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0072",
+      "name": "Exile",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 5,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0073",
+      "name": "Suction",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0074",
+      "name": "Aged",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState",
+        "BEChangeKeeperEnergy"
+      ],
+      "mechanicCategories": [
+        "keeper-energy",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0076",
+      "name": "Insight",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 5,
+      "effectTypes": [
+        "BEAddState",
+        "BEChangeMoney"
+      ],
+      "mechanicCategories": [
+        "run-resource",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0077",
+      "name": "Duty's Gravitas",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [
+        "BEGainUltiEnergy"
+      ],
+      "mechanicCategories": [
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0078",
+      "name": "Elevated Focus",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [
+        "BEGainUltiEnergy"
+      ],
+      "mechanicCategories": [
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0079",
+      "name": "Cursed Binding",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 5,
+      "effectTypes": [
+        "BEAddState",
+        "BETriggerState",
+        "BEPassiveDamage"
+      ],
+      "mechanicCategories": [
+        "damage",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": true
+    },
+    {
+      "wheelId": "wheel-0080",
+      "name": "Sever and Scar",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0081",
+      "name": "Cloaked in the Night",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState",
+        "BEPassiveDamage",
+        "BETriggerState",
+        "BESubStateLayer"
+      ],
+      "mechanicCategories": [
+        "damage",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0082",
+      "name": "Adventurer's Pack",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0083",
+      "name": "Analysis of Death",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState",
+        "BEGainUltiEnergy"
+      ],
+      "mechanicCategories": [
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0084",
+      "name": "To My Dearest Friend",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0085",
+      "name": "Memory Syndrome",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState",
+        "BEGainUltiEnergy"
+      ],
+      "mechanicCategories": [
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0086",
+      "name": "Mind Barrier",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [
+        "BEGainBlock"
+      ],
+      "mechanicCategories": [
+        "block"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0087",
+      "name": "Critical Point",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState",
+        "BERemoveState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0088",
+      "name": "Nobleman's Staff",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 0,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [],
+      "mechanicCategories": [],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0089",
+      "name": "Data is Flesh",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 0,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [],
+      "mechanicCategories": [],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0090",
+      "name": "Moment of Reunion",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState",
+        "BEChangeKeeperEnergy"
+      ],
+      "mechanicCategories": [
+        "keeper-energy",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0091",
+      "name": "The Land of Nonexistence",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [
+        "BECreateCard"
+      ],
+      "mechanicCategories": [
+        "card"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0092",
+      "name": "Hand of Oblivion",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [
+        "BECreateCard"
+      ],
+      "mechanicCategories": [
+        "card"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0093",
+      "name": "35mm Magic",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0094",
+      "name": "The Gaze of Isarawu",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [
+        "BEChangeAttr.ulti_energy"
+      ],
+      "mechanicCategories": [
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0095",
+      "name": "Man in the Mirror",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 6,
+      "effectTypes": [
+        "BEAddState",
+        "BEGainUltiEnergy",
+        "BEPassiveBlock",
+        "BESetTempArg"
+      ],
+      "mechanicCategories": [
+        "block",
+        "command-context",
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0096",
+      "name": "Silver Cod's Determination",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 8,
+      "effectTypes": [
+        "BEAddState",
+        "BERemoveState",
+        "BEChangeKeeperEnergy"
+      ],
+      "mechanicCategories": [
+        "keeper-energy",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0097",
+      "name": "Til the Snow Melts",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState",
+        "BEGainUltiEnergy",
+        "BESubStateLayer"
+      ],
+      "mechanicCategories": [
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0098",
+      "name": "Deep Sea's Call",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0099",
+      "name": "Kiss of Farewell",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState",
+        "BEScarletBloodChange"
+      ],
+      "mechanicCategories": [
+        "character-resource",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0100",
+      "name": "Poetic Bygone Days",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BERemoveState",
+        "BEAddState",
+        "BEMoveCard"
+      ],
+      "mechanicCategories": [
+        "card",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0101",
+      "name": "Million Loving Gaze",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0102",
+      "name": "Slumber Beneath the Glacier",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 6,
+      "effectTypes": [
+        "BEAddState",
+        "BEPassiveDamage",
+        "BERemoveState",
+        "BESubStateLayer"
+      ],
+      "mechanicCategories": [
+        "damage",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0103",
+      "name": "Fate Roulette",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState",
+        "BEChangeMoney"
+      ],
+      "mechanicCategories": [
+        "run-resource",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0104",
+      "name": "Gateway of Truth",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEGainKeeperEnergy",
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "keeper-energy",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0105",
+      "name": "Never-Ending Performance",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState",
+        "BEGainUltiEnergy",
+        "BERemoveState"
+      ],
+      "mechanicCategories": [
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0106",
+      "name": "Shepherd's Staff",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEGainUltiEnergy",
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0107",
+      "name": "Blue Stone Throne",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState",
+        "BEChangeEnergy"
+      ],
+      "mechanicCategories": [
+        "action-energy",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0109",
+      "name": "Macabre Delicacies",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 5,
+      "effectTypes": [
+        "BEAddState",
+        "BESetTempArg"
+      ],
+      "mechanicCategories": [
+        "command-context",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0110",
+      "name": "Witch's Wide-brimmed Hat",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState",
+        "BERemoveState",
+        "BEGainUltiEnergy"
+      ],
+      "mechanicCategories": [
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0111",
+      "name": "Blue-Ringed Toxin",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0112",
+      "name": "Lone Feather",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [
+        "BEGainBlock"
+      ],
+      "mechanicCategories": [
+        "block"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0113",
+      "name": "The Divus' Visage",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 5,
+      "effectTypes": [
+        "BEAddState",
+        "BERemoveState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": true
+    },
+    {
+      "wheelId": "wheel-0114",
+      "name": "Navigator at Sea",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState",
+        "BEGainBlock"
+      ],
+      "mechanicCategories": [
+        "block",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0115",
+      "name": "Thirsting Brush",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState",
+        "BERemoveState",
+        "BEGainUltiEnergy"
+      ],
+      "mechanicCategories": [
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0116",
+      "name": "Impending Sun",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0117",
+      "name": "Light of Intellect",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState",
+        "BEMoveCard"
+      ],
+      "mechanicCategories": [
+        "card",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0118",
+      "name": "Magnolia's Lure",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0119",
+      "name": "Imprisoned Madness",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 1,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0120",
+      "name": "Spring in Yakutsk",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [
+        "BEChangeKeeperEnergy",
+        "BEGainUltiEnergy"
+      ],
+      "mechanicCategories": [
+        "keeper-energy",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0121",
+      "name": "Sunfall",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0122",
+      "name": "Birth of a Soul",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 3,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState",
+        "BEChangeMaxHp",
+        "BEGainBlock",
+        "BEHeal"
+      ],
+      "mechanicCategories": [
+        "block",
+        "healing",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0123",
+      "name": "Dusk and Dawn",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 3,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEChangeKeeperEnergy",
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "keeper-energy",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0124",
+      "name": "Heart of Silver",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 3,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState",
+        "BEGainBlock",
+        "BEGainUltiEnergy"
+      ],
+      "mechanicCategories": [
+        "block",
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0125",
+      "name": "Annihilated Rebirth",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 4,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0126",
+      "name": "We Will Meet Again",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 4,
+      "potentiallyLinkedStates": 5,
+      "effectTypes": [
+        "BEAddState",
+        "BEMoveCard"
+      ],
+      "mechanicCategories": [
+        "card",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0128",
+      "name": "Eternal Weave",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState",
+        "BEGainUltiEnergy"
+      ],
+      "mechanicCategories": [
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0130",
+      "name": "Private Afternoon",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [
+        "BECreateCard"
+      ],
+      "mechanicCategories": [
+        "card"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0131",
+      "name": "Uteri Somnia",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 4,
+      "potentiallyLinkedStates": 13,
+      "effectTypes": [
+        "BEAddState",
+        "BEGainUltiEnergy",
+        "BEPassiveDamage",
+        "BERemoveState",
+        "BESubStateLayer"
+      ],
+      "mechanicCategories": [
+        "damage",
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0132",
+      "name": "Rota Fortunae",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0136",
+      "name": "Greed",
+      "crosswalkStatus": "AMBIGUOUS"
+    },
+    {
+      "wheelId": "wheel-0137",
+      "name": "Hypnotic Pendulum",
+      "crosswalkStatus": "AMBIGUOUS"
+    },
+    {
+      "wheelId": "wheel-0165",
+      "name": "Sakura Reveries",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState",
+        "BECreateCard"
+      ],
+      "mechanicCategories": [
+        "card",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0166",
+      "name": "To the Stars",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 4,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [
+        "BEAddState",
+        "BEChangeAttr.hp",
+        "BERemoveState"
+      ],
+      "mechanicCategories": [
+        "healing",
+        "state"
+      ],
+      "dynamicAddStateRows": 2,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0167",
+      "name": "Fragrant Morphogenesis",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState",
+        "BERemoveState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 1,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0168",
+      "name": "Muddied Fairy Tale",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState",
+        "BEGainUltiEnergy"
+      ],
+      "mechanicCategories": [
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0169",
+      "name": "Compass to False North",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0170",
+      "name": "Dreaming of Wonderland",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BECreateCard",
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "card",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0171",
+      "name": "The Living Cage",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 3,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 2,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0172",
+      "name": "Cetus Occasus",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 2,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0173",
+      "name": "Undying Hungerbone",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 0,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [],
+      "mechanicCategories": [],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0174",
+      "name": "Falling Upward",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BECreateCard",
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "card",
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0175",
+      "name": "Honeyed Deceit",
+      "crosswalkStatus": "AMBIGUOUS"
+    },
+    {
+      "wheelId": "wheel-0176",
+      "name": "Serene Truth",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 2,
+      "potentiallyLinkedStates": 3,
+      "effectTypes": [
+        "BEAddState",
+        "BERemoveState",
+        "BESubStateLayer"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0177",
+      "name": "Soul Synchronization",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": false,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 7,
+      "effectTypes": [
+        "BEDestroyCard",
+        "BEAddState",
+        "BECreateCard",
+        "BEChangeAttr.ulti_energy",
+        "BEHeal",
+        "BEPVERebirth",
+        "BERemoveState"
+      ],
+      "mechanicCategories": [
+        "card",
+        "healing",
+        "state",
+        "ultimate-energy"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0178",
+      "name": "Ever Sunward",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 1,
+      "potentiallyLinkedStates": 2,
+      "effectTypes": [
+        "BEAddState"
+      ],
+      "mechanicCategories": [
+        "state"
+      ],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0179",
+      "name": "Shadowed by the Past",
+      "crosswalkStatus": "UNIQUE",
+      "initialStateHasDirectProperties": true,
+      "initialTriggerCount": 0,
+      "potentiallyLinkedStates": 1,
+      "effectTypes": [],
+      "mechanicCategories": [],
+      "dynamicAddStateRows": 0,
+      "hasStaticCycle": false
+    },
+    {
+      "wheelId": "wheel-0180",
+      "name": "Darker than Darkness",
+      "crosswalkStatus": "MISSING"
+    }
+  ],
+  "limitations": [
+    "Categories and effect types describe a static potential graph; they do not prove activation, magnitude, target, timing, legality, stacking, or gameplay behavior.",
+    "Conditional and mutually exclusive rows are included. Dynamic state identities and cycles are reported without executing them.",
+    "The catalog contains no client descriptions, parameter expressions, judgement expressions, or localized text.",
+    "This mechanics artifact is discovery metadata only and makes no cheese, budget-scouting, theorycraft recommendation, optimality, gameplay-validation, or holdout claim."
+  ]
+}

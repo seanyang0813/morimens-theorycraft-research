@@ -24,7 +24,7 @@ character selection being displayed as an owner match. Search behavior remains
 covered by the deterministic engine/API tests; this browser check does not
 validate Wheel passives.
 
-The Rules catalog now contains 239 entries. Its Wheel mechanics entry reports
+The Rules catalog now contains 240 entries. Its Wheel mechanics entry reports
 the sanitized 141-of-146 identity-to-initial-state crosswalk, 63 direct property
 maps and 229 fully resolved trigger-command references. The Builds page still
 uses only public discovery metadata and main-stat preview; it does not execute
@@ -35,6 +35,13 @@ potential graph of 353 states, 260 distinct trigger commands, 589 command-row
 occurrences and 32 effect types. Three cyclic components and nine runtime-state
 identities remain explicit blockers to naïve graph evaluation. This inventory
 guides engine coverage work but does not widen the website's execution claims.
+
+The packaged site also includes
+`wheel-mechanics-capability-catalog.json`, a 146-row mechanics-discovery index.
+For 141 uniquely crosswalked Wheels it reports static graph size, effect types
+and thirteen broad categories without client text or formulas. Five unresolved
+crosswalks remain fail-closed. This is machine-readable inspection data rather
+than passive execution or theorycraft ranking.
 
 No hosted Site is registered or deployed. There is no `.openai/hosting.json` project ID. The source checkpoint is on GitHub, labeled as unverified research. Deployment as an accurate build recommender remains prohibited until the gameplay prediction and independent holdout gate passes.
 

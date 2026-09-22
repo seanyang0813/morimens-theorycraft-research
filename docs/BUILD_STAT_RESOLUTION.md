@@ -72,6 +72,13 @@ static superset: conditions, event timing, targets and mutually exclusive rows
 still decide which edges execute. A simulator must dispatch events and enforce
 state lifecycle rules; recursively applying every edge would be incorrect.
 
+`research/evidence/wheel-mechanics-capability-catalog.json` converts that graph
+into a public per-Wheel discovery index. It exposes only public Wheel identity,
+crosswalk status, graph-size facts, effect-type names and broad categories such
+as state, damage, block, healing, energy and card operations. It excludes client
+descriptions, parameters and judgement expressions. The local website package
+ships this JSON for human or agent inspection, but does not execute it.
+
 This establishes a general entry point for passive reconstruction:
 
 `Wheel identity -> client Weapon row -> initial State -> later state/command graph`

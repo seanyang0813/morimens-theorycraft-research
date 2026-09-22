@@ -7334,7 +7334,7 @@
           "module": "Sanitized Wheel-to-state crosswalk audit",
           "member": "source hashes, exact join rule, initial-state coverage, aggregate potential graph and four bounded case-study identities",
           "bundle": "pinned SKeyDB public-v3 catalogs plus private PC Item, State and Cmd exports",
-          "sha256": "36d69ad9572982e9c97f02fd6bd67c8034d963d5d4d63e8634484275f0933940"
+          "sha256": "e9fa0176f01b9bda5d6af80da6caf7d182bbbf9c9cc874721d6a99f3ed0f220a"
         }
       ],
       "tests": [
@@ -7343,6 +7343,26 @@
         "docs/BUILD_STAT_RESOLUTION.md"
       ],
       "scope": "Static mechanics crosswalk only. One Wheel is missing and four fail closed as ambiguous. Potential links include conditional and mutually exclusive rows, three cycles and nine runtime-supplied state identities. It does not execute the graph, interpret private expressions, establish equipment, legality, signature uniqueness, stacking, optimality, gameplay agreement or holdout credit. Raw client rows remain private; no cheese, budget-scouting or theorycraft conclusion.",
+      "gameplayValidation": false
+    },
+    {
+      "id": "Mechanics:WheelCapabilityCatalog",
+      "status": "STATIC_MECHANICS_FINGERPRINTS",
+      "claim": "A sanitized per-Wheel catalog exposes static potential effect types and thirteen broad mechanic categories for 141 uniquely crosswalked Wheels while leaving five unresolved",
+      "sources": [
+        {
+          "module": "Wheel mechanics capability catalog",
+          "member": "public Wheel identities, crosswalk status, aggregate graph shape, effect enums and broad categories",
+          "bundle": "derived from the source-hashed Wheel state crosswalk; no private expressions or descriptions",
+          "sha256": "f544b9f24176c216532d050136a56aac58bccb20086f3acd78bd56613ca61af0"
+        }
+      ],
+      "tests": [
+        "tools/audit_wheel_state_crosswalk.py",
+        "tests/wheel-mechanics-capability-catalog.test.mjs",
+        "tests/wheel-state-crosswalk-audit.test.mjs"
+      ],
+      "scope": "Mechanics discovery metadata only. Static fingerprints include conditional and mutually exclusive paths and do not establish activation, magnitude, targets, timing, legality, stacking, execution support, optimality, gameplay agreement or holdout credit. No cheese, budget-scouting or theorycraft recommendation.",
       "gameplayValidation": false
     },
     {

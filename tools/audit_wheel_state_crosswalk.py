@@ -17,12 +17,47 @@ DEFAULT_ITEMS = ROOT / "research" / "observations" / "wheel-config-audit" / "Ite
 DEFAULT_STATES = ROOT / "research" / "extracted" / "config" / "State.json"
 DEFAULT_COMMANDS = ROOT / "research" / "extracted" / "config" / "Cmd.json"
 PUBLIC_OUTPUT = ROOT / "research" / "evidence" / "wheel-state-crosswalk-audit.json"
+CAPABILITY_OUTPUT = ROOT / "research" / "evidence" / "wheel-mechanics-capability-catalog.json"
 PRIVATE_OUTPUT = ROOT / "research" / "observations" / "wheel-config-audit" / "crosswalk-audit.json"
 CASE_WHEELS = {
     "wheel-0029": "Mouchette-associated: Doomsday Rampage",
     "wheel-0117": "Mouchette-associated: Light of Intellect",
     "wheel-0128": "Arachne-associated: Eternal Weave",
     "wheel-0132": "Arachne-associated: Rota Fortunae",
+}
+EFFECT_CATEGORIES = {
+    "BEAddState": "state",
+    "BERemoveState": "state",
+    "BETriggerState": "state",
+    "BESubStateLayer": "state",
+    "BEActiveDamage": "damage",
+    "BEPassiveDamage": "damage",
+    "BEGainBlock": "block",
+    "BEPassiveBlock": "block",
+    "BEChangeAttr.block": "block",
+    "BEHeal": "healing",
+    "BEPassiveHeal": "healing",
+    "BEChangeAttr.hp": "healing",
+    "BEChangeMaxHp": "healing",
+    "BEPVERebirth": "healing",
+    "BEChangeAttr.death_resist": "healing",
+    "BEGainUltiEnergy": "ultimate-energy",
+    "BEChangeAttr.ulti_energy": "ultimate-energy",
+    "BEChangeKeeperEnergy": "keeper-energy",
+    "BEGainKeeperEnergy": "keeper-energy",
+    "BECreateCard": "card",
+    "BEMoveCard": "card",
+    "BEDrawCard": "card",
+    "BEDestroyCard": "card",
+    "BEChangeEnergy": "action-energy",
+    "BEScarletBloodChange": "character-resource",
+    "BEChangeMoney": "run-resource",
+    "BEChangeMaxTentacleCount": "character-resource",
+    "BEChangeTentacleCount": "character-resource",
+    "BEExecuteCmd": "command-dispatch",
+    "BERunKeeperSkillCmd": "command-dispatch",
+    "BESetTempArg": "command-context",
+    "BEDisplayFloatingText": "presentation",
 }
 
 
@@ -36,7 +71,7 @@ def icon_stem(value: object) -> str:
 
 def potential_state_graph(root_ids: set[str], states: dict, commands: dict) -> dict:
     """Follow literal BEAddState targets; this is connectivity, not execution."""
-    queue = deque((state_id, 0) for state_id in root_ids)
+    queue = deque((state_id, 0) for state_id in sorted(root_ids))
     seen: set[str] = set()
     depths: dict[str, int] = {}
     command_ids: list[str] = []
@@ -87,7 +122,7 @@ def potential_state_graph(root_ids: set[str], states: dict, commands: dict) -> d
         indexes[state_id] = lowlinks[state_id] = len(indexes)
         stack.append(state_id)
         on_stack.add(state_id)
-        for child_id in adjacency[state_id]:
+        for child_id in sorted(adjacency[state_id]):
             if child_id not in indexes:
                 strong_connect(child_id)
                 lowlinks[state_id] = min(lowlinks[state_id], lowlinks[child_id])
@@ -104,7 +139,7 @@ def potential_state_graph(root_ids: set[str], states: dict, commands: dict) -> d
                 break
         components.append(component)
 
-    for state_id in seen:
+    for state_id in sorted(seen):
         if state_id not in indexes:
             strong_connect(state_id)
     cycles = [
@@ -122,7 +157,7 @@ def potential_state_graph(root_ids: set[str], states: dict, commands: dict) -> d
         "uniqueTriggerCommands": len(set(command_ids)),
         "effectRowOccurrences": effect_row_occurrences,
         "effectTypeCount": len(effect_types),
-        "effectRowTypeHistogram": dict(effect_types.most_common()),
+        "effectRowTypeHistogram": dict(sorted(effect_types.items(), key=lambda item: (-item[1], item[0]))),
         "literalAddStateEdges": len(edges),
         "uniqueLiteralAddStateEdges": len(set(edges)),
         "dynamicAddStateRows": dynamic_add_state_rows,
@@ -141,7 +176,7 @@ def load_inputs(skeydb: Path, item_path: Path) -> tuple[list[dict], dict, dict, 
     return wheels_doc["records"], assets_doc["assets"], items, wheels_path, assets_path
 
 
-def audit(skeydb: Path, item_path: Path, state_path: Path, command_path: Path) -> tuple[dict, dict]:
+def audit(skeydb: Path, item_path: Path, state_path: Path, command_path: Path) -> tuple[dict, dict, dict]:
     wheels, assets, items, wheels_path, assets_path = load_inputs(skeydb, item_path)
     states = json.loads(state_path.read_text(encoding="utf-8"))
     commands = json.loads(command_path.read_text(encoding="utf-8"))
@@ -343,7 +378,58 @@ def audit(skeydb: Path, item_path: Path, state_path: Path, command_path: Path) -
             "This mechanics artifact makes no cheese, budget-scouting, theorycraft recommendation, gameplay-validation, or holdout claim.",
         ],
     }
-    return private, public
+    unknown_effect_types = sorted(set(graph["effectRowTypeHistogram"]) - set(EFFECT_CATEGORIES))
+    if unknown_effect_types:
+        raise ValueError(f"Unclassified Wheel effect types: {unknown_effect_types}")
+    capability_rows = []
+    for row in private_rows:
+        capability = {
+            "wheelId": row["wheelId"],
+            "name": row["wheelName"],
+            "crosswalkStatus": row["status"],
+        }
+        if row["status"] == "UNIQUE":
+            state_id = str(row["candidates"][0]["initialStateId"])
+            state = states[state_id]
+            wheel_graph = potential_state_graph({state_id}, states, commands)
+            effect_types = list(wheel_graph["effectRowTypeHistogram"])
+            capability.update(
+                {
+                    "initialStateHasDirectProperties": bool(state.get("ExistProperty")),
+                    "initialTriggerCount": sum(
+                        1
+                        for key, value in state.items()
+                        if re.fullmatch(r"TriggerCmd\d+", key) and isinstance(value, (int, float)) and value
+                    ),
+                    "potentiallyLinkedStates": wheel_graph["potentiallyLinkedStates"],
+                    "effectTypes": effect_types,
+                    "mechanicCategories": sorted({EFFECT_CATEGORIES[value] for value in effect_types}),
+                    "dynamicAddStateRows": wheel_graph["dynamicAddStateRows"],
+                    "hasStaticCycle": wheel_graph["cyclicComponents"] > 0,
+                }
+            )
+        capability_rows.append(capability)
+    capability_catalog = {
+        "schemaVersion": 1,
+        "kind": "MORIMENS_WHEEL_STATIC_MECHANICS_CAPABILITY_CATALOG",
+        "analysisTrack": "mechanics",
+        "status": "STATIC_MECHANICS_FINGERPRINTS",
+        "sourceAudit": "research/evidence/wheel-state-crosswalk-audit.json",
+        "summary": {
+            "wheelCount": len(capability_rows),
+            "uniqueMechanicsFingerprints": sum(row["crosswalkStatus"] == "UNIQUE" for row in capability_rows),
+            "unresolvedFingerprints": sum(row["crosswalkStatus"] != "UNIQUE" for row in capability_rows),
+            "mechanicCategoryCount": len(set(EFFECT_CATEGORIES.values())),
+        },
+        "wheels": capability_rows,
+        "limitations": [
+            "Categories and effect types describe a static potential graph; they do not prove activation, magnitude, target, timing, legality, stacking, or gameplay behavior.",
+            "Conditional and mutually exclusive rows are included. Dynamic state identities and cycles are reported without executing them.",
+            "The catalog contains no client descriptions, parameter expressions, judgement expressions, or localized text.",
+            "This mechanics artifact is discovery metadata only and makes no cheese, budget-scouting, theorycraft recommendation, optimality, gameplay-validation, or holdout claim.",
+        ],
+    }
+    return private, public, capability_catalog
 
 
 def main() -> None:
@@ -353,14 +439,17 @@ def main() -> None:
     parser.add_argument("--states", type=Path, default=DEFAULT_STATES)
     parser.add_argument("--commands", type=Path, default=DEFAULT_COMMANDS)
     parser.add_argument("--public-output", type=Path, default=PUBLIC_OUTPUT)
+    parser.add_argument("--capability-output", type=Path, default=CAPABILITY_OUTPUT)
     parser.add_argument("--private-output", type=Path, default=PRIVATE_OUTPUT)
     args = parser.parse_args()
-    private, public = audit(args.skeydb, args.items, args.states, args.commands)
+    private, public, capability_catalog = audit(args.skeydb, args.items, args.states, args.commands)
     args.private_output.parent.mkdir(parents=True, exist_ok=True)
     args.public_output.parent.mkdir(parents=True, exist_ok=True)
+    args.capability_output.parent.mkdir(parents=True, exist_ok=True)
     args.private_output.write_text(json.dumps(private, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     args.public_output.write_text(json.dumps(public, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"output": str(args.public_output), "summary": public["summary"]}, indent=2))
+    args.capability_output.write_text(json.dumps(capability_catalog, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps({"output": str(args.public_output), "capabilityOutput": str(args.capability_output), "summary": public["summary"]}, indent=2))
 
 
 if __name__ == "__main__":
