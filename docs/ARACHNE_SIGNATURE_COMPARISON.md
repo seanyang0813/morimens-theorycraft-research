@@ -4,6 +4,8 @@ SKeyDB wheel-0128 identifies Eternal Weave as Arachne's SSR signature. Maximum e
 
 PC State134231 checks TriggerAssociator2.UniqueID against StateOwner.UniqueID and player counter134383<5. Cmd134385 adds State70350 to PlayerRole; that state's property is basic_damage_per=ChangedLayer. It is therefore team Damage Amplification, not a global final-damage multiplier. Mouchette's pursuits do not satisfy the wielder identity check. The small engine helper/tests preserve that owner distinction and cap at code-derived scope, not original-runtime or gameplay validation.
 
+`engine/wheel-trigger-transitions.mjs` now advances both equipped Arachne Wheel counters from an explicit pursuit event. At refinement 3, Eternal Weave adds 40 and Rota Fortunae adds 15 percentage points of `basic_damage_per` after each eligible Arachne-owned pursuit, with independent five-trigger counters. The combined transition is therefore +55 per eligible pursuit while both counters remain below five. It exposes the property before and after each trigger so a sequence simulator can apply the increase only to later damage. This is source-derived transition logic, not an observed damage result.
+
 ## Newly identified omission in previous worked examples
 
 SKeyDB's Destined Threads talent and PC Cmd133367/134282 show intrinsic Arachne realm effects. Cmd133367 adds permanent Prism state133368 to all Awakeners, with ceil(15*(1+player.occupation_master_final*0.0005)) layers. State133368 supplies card_damage_per3_n2=2*ChangedLayer, including eligible attached Strike cards. The command adds realm Damage Amplification and checks Pure Ultra eligibility separately. The approved 150% team Damage Amplification should be treated as the supplied final total, not increased again automatically.

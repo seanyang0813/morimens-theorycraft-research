@@ -88,6 +88,15 @@ test('agent API composes two source-bound Wheel direct-property ledgers',()=>{
   assert.equal(response.analysisTrack,'theorycrafting');assert.deepEqual(response.result.members[0].rawPropertyValues,{o_block_per:35});assert.equal(response.result.finalDamage,null);
 });
 
+test('agent API advances recovered Wheel triggers without returning invented damage',()=>{
+  const doomsday={schemaVersion:1,kind:'morimens-after-use-card-wheel-trigger',build:'pc-res144-build51',wheelId:'wheel-0029',refinementLevel:3,cardType:'Card_Strike',ownerAttack:1001,counter:0,strikecardDamagePlus:0};
+  let response=runTheorycraftRequest(request('advance-after-use-card-wheel-trigger',doomsday));
+  assert.equal(response.result.transition.addedStrikecardDamagePlus,251);assert.equal(response.result.damageSnapshot.strikecardDamagePlus,0);assert.equal(response.result.finalDamage,null);
+  const arachne={schemaVersion:1,kind:'morimens-after-pursuit-wheel-triggers',build:'pc-res144-build51',ownerUid:56,pursuitOwnerUid:56,basicDamagePer:150,wheels:[{slotId:'a',wheelId:'wheel-0128',refinementLevel:3,triggersUsed:0},{slotId:'b',wheelId:'wheel-0132',refinementLevel:3,triggersUsed:0}]};
+  response=runTheorycraftRequest(request('advance-after-pursuit-wheel-triggers',arachne));
+  assert.equal(response.result.addedBasicDamagePer,55);assert.equal(response.result.finalDamage,null);
+});
+
 test('agent API searches Wheel candidates without turning metadata into a recommendation',()=>{
   const catalog=JSON.parse(readFileSync(new URL('../website/dist/build-catalog.json',import.meta.url),'utf8'));
   const input={catalogRevision:catalog.source.revision,query:'pursuit',characterId:null,ownerMatchOnly:false,tags:['Pursuit'],realms:[],mainstatKeys:[],limit:20};

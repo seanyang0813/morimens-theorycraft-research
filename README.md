@@ -65,6 +65,8 @@ The build planner and `assemble-build-components` API operation now produce one 
 
 For local agent workflows, `assemble-wheel-loadout-properties` resolves both selected resource-144 Wheels' initial direct-property expressions from their explicit refinement levels and returns per-Wheel plus summed ledgers. Raw serialized-battle values stay separate from local-client initialization rounding, and every trigger graph remains visibly unresolved.
 
+Two source-derived transition operations cover the first reconstructed Wheel triggers. One advances Doomsday Rampage after a played Strike, retaining the pre-event flat-damage snapshot and adding the rounded ATK-scaled layer for later Strikes up to eight. The other advances Eternal Weave and Rota Fortunae after an Arachne-owned pursuit, applying their separate counters and team-amplification additions. Both require explicit combat state and return no damage total.
+
 The ordered Actions runner now supports a strict single-parameter Block-gain subset for the caster or supplied target. Its formula, recipient modifiers and storage cap match 911 copied-original runtime executions in total, and later damage consumes target Block in row order. Automatic property assembly, multi-target Block, optional state descendants and Block-trigger events remain outside that subset.
 
 The same runner supports a strict single-parameter Heal subset. Formula, recipient and HP-storage boundaries match 871 copied-original runtime executions, including maximum-HP overflow and the distinction between a locally reported negative Heal and HP clamped at zero. Target healing changes the live HP used by later damage rows. Multi-target/repeated healing, Heal events and revival remain unresolved.

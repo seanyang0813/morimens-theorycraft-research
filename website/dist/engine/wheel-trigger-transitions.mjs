@@ -1,0 +1,42 @@
+// Bounded source-derived Wheel trigger transitions for resource-144.
+// These functions advance explicit combat state; they do not create cards or calculate damage.
+const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(key=>Object.hasOwn(value,key));
+const refinement=value=>Number.isSafeInteger(value)&&value>=0&&value<=3;
+
+export function advanceDoomsdayAfterUseCard(input){
+  const keys=['schemaVersion','kind','build','wheelId','refinementLevel','cardType','ownerAttack','counter','strikecardDamagePlus'];
+  if(!exact(input,keys)||input.schemaVersion!==1||input.kind!=='morimens-after-use-card-wheel-trigger'||input.build!=='pc-res144-build51'||input.wheelId!=='wheel-0029'||!refinement(input.refinementLevel)||typeof input.cardType!=='string'||!Number.isFinite(input.ownerAttack)||input.ownerAttack<0||!Number.isSafeInteger(input.counter)||input.counter<0||input.counter>8||!Number.isFinite(input.strikecardDamagePlus))throw new Error('Explicit supported Doomsday after-card state required');
+  const flatPercent=13+input.refinementLevel*4;
+  const eligible=input.cardType==='Card_Strike'&&input.counter<8;
+  const addedStrikecardDamagePlus=eligible?Math.ceil(input.ownerAttack*flatPercent*0.01):0;
+  return {
+    schemaVersion:1,kind:'morimens-after-use-card-wheel-trigger-result',analysisTrack:'theorycrafting',status:'SOURCE_DERIVED_TRANSITION',
+    event:'BSTAfterUseCard',wheelId:input.wheelId,refinementLevel:input.refinementLevel,
+    damageSnapshot:{counter:input.counter,strikecardDamagePlus:input.strikecardDamagePlus},
+    transition:{eligible,flatPercent,addedStrikecardDamagePlus,counterBefore:input.counter,counterAfter:input.counter+(eligible?1:0),strikecardDamagePlusBefore:input.strikecardDamagePlus,strikecardDamagePlusAfter:input.strikecardDamagePlus+addedStrikecardDamagePlus},
+    finalDamage:null,
+    limitations:['The triggering card has already been used; damageSnapshot is the state available to that card','Models only State123521/Cmd124065/State124066/counter123518 for resource-144','Does not create or play the Strike, calculate damage, clear turn-scoped state, execute callbacks or validate gameplay']
+  };
+}
+
+const arachneWheels=Object.freeze({
+  'wheel-0128':{counterStateId:134383,amplification:level=>25+level*5},
+  'wheel-0132':{counterStateId:134382,amplification:level=>9+level*2},
+});
+
+export function advanceArachneAfterPursuit(input){
+  const keys=['schemaVersion','kind','build','ownerUid','pursuitOwnerUid','basicDamagePer','wheels'];
+  if(!exact(input,keys)||input.schemaVersion!==1||input.kind!=='morimens-after-pursuit-wheel-triggers'||input.build!=='pc-res144-build51'||!Number.isSafeInteger(input.ownerUid)||!Number.isSafeInteger(input.pursuitOwnerUid)||!Number.isFinite(input.basicDamagePer)||!Array.isArray(input.wheels)||input.wheels.length>2)throw new Error('Explicit supported Arachne pursuit-Wheel state required');
+  const seen=new Set();let basicDamagePer=input.basicDamagePer;
+  const transitions=input.wheels.map(wheel=>{
+    if(!exact(wheel,['slotId','wheelId','refinementLevel','triggersUsed'])||typeof wheel.slotId!=='string'||!wheel.slotId||seen.has(wheel.slotId)||!Object.hasOwn(arachneWheels,wheel.wheelId)||!refinement(wheel.refinementLevel)||!Number.isSafeInteger(wheel.triggersUsed)||wheel.triggersUsed<0||wheel.triggersUsed>5)throw new Error('Each Arachne Wheel trigger state must be supported and explicit');
+    seen.add(wheel.slotId);const definition=arachneWheels[wheel.wheelId],eligible=input.ownerUid===input.pursuitOwnerUid&&wheel.triggersUsed<5,addedBasicDamagePer=eligible?definition.amplification(wheel.refinementLevel):0;
+    const result={slotId:wheel.slotId,wheelId:wheel.wheelId,refinementLevel:wheel.refinementLevel,counterStateId:definition.counterStateId,eligible,addedBasicDamagePer,triggersUsedBefore:wheel.triggersUsed,triggersUsedAfter:wheel.triggersUsed+(eligible?1:0),basicDamagePerBefore:basicDamagePer,basicDamagePerAfter:basicDamagePer+addedBasicDamagePer};
+    basicDamagePer=result.basicDamagePerAfter;return result;
+  });
+  return {
+    schemaVersion:1,kind:'morimens-after-pursuit-wheel-triggers-result',analysisTrack:'theorycrafting',status:'SOURCE_DERIVED_TRANSITION',event:'BSTAfterAttachPostAction',
+    ownerMatched:input.ownerUid===input.pursuitOwnerUid,basicDamagePerBefore:input.basicDamagePer,basicDamagePerAfter:basicDamagePer,addedBasicDamagePer:basicDamagePer-input.basicDamagePer,transitions,finalDamage:null,
+    limitations:['The pursuit must already exist; this operation only advances the two supported Wheel trigger states','Owner identity follows the source judgement, so another character pursuit does not trigger Arachne-owned Wheels','Models State134231/Cmd134385 and State134313/Cmd134386 for resource-144; the unregistered TriggerCmd2 field is excluded','Does not create pursuits, calculate damage, clear turn counters, execute callbacks or validate gameplay']
+  };
+}

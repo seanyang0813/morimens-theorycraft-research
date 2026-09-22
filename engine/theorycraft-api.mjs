@@ -24,6 +24,7 @@ import {runPreparedStateActiveSequence} from './prepared-state-active-sequence.m
 import {runPreparedStateActiveChain} from './prepared-state-active-chain.mjs';
 import {runPaidPreparedStateActiveChain} from './paid-prepared-state-active-chain.mjs';
 import {assembleWheelLoadoutProperties} from './wheel-loadout-properties.mjs';
+import {advanceDoomsdayAfterUseCard,advanceArachneAfterPursuit} from './wheel-trigger-transitions.mjs';
 
 export const theorycraftOperations=Object.freeze([
   {name:'describe-capabilities',context:[],scope:'List supported versioned operations and evidence boundaries'},
@@ -46,6 +47,8 @@ export const theorycraftOperations=Object.freeze([
   {name:'search-wheel-catalog',context:['buildCatalog'],scope:'Catalog Wheel discovery by name, associated owner, realm, main stat and normalized mechanic tags; no passive execution or ranking'},
   {name:'assemble-build-components',context:['buildCatalog','clientBuildData'],scope:'Known character primary-stat and Wheel-main-stat contribution ledger'},
   {name:'assemble-wheel-loadout-properties',context:['buildCatalog','wheelMechanicsData'],scope:'Two-slot Wheel refinement and initial direct-property contribution ledger; trigger effects remain unresolved'},
+  {name:'advance-after-use-card-wheel-trigger',context:[],scope:'Source-derived Doomsday post-card Strike-flat transition with explicit pre-event state'},
+  {name:'advance-after-pursuit-wheel-triggers',context:[],scope:'Source-derived Arachne two-Wheel pursuit-amplification transition with owner and cap checks'},
   {name:'search-card-orders',context:[],scope:'Exact bounded permutation search over supplied resolved card actions'},
   {name:'prepare-skill-command',context:['skillCommandData'],scope:'Exported skill selection, argument preparation and optional supported command execution'},
   {name:'apply-monster-skill-change',context:[],scope:'Original-runtime-matched monster intent replacement/queue mutation without executing the selected skill'},
@@ -91,6 +94,8 @@ function execute(operation,input,context){
   if(operation==='search-wheel-catalog')return searchWheelCatalog(input,context.buildCatalog);
   if(operation==='assemble-build-components')return assembleKnownBuildComponents(input,context.buildCatalog,context.clientBuildData);
   if(operation==='assemble-wheel-loadout-properties')return assembleWheelLoadoutProperties(input,context.buildCatalog,context.wheelMechanicsData);
+  if(operation==='advance-after-use-card-wheel-trigger')return advanceDoomsdayAfterUseCard(input);
+  if(operation==='advance-after-pursuit-wheel-triggers')return advanceArachneAfterPursuit(input);
   if(operation==='search-card-orders')return searchCardOrders(input);
   if(operation==='prepare-skill-command')return runPreparedSkillRequest(input,context.skillCommandData);
   if(operation==='apply-monster-skill-change'){

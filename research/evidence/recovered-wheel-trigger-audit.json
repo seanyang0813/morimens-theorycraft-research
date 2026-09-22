@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-recovered-wheel-trigger-audit",
+  "analysisTrack": "mechanics",
+  "status": "SOURCE_ROWS_MATCH_EXPECTED_TRANSITIONS",
+  "build": "pc-res144-build51",
+  "summary": {
+    "checks": 9,
+    "passed": 9,
+    "doomsdayCounterCap": 8,
+    "arachneCounterCapPerWheel": 5,
+    "maxRefinementDoomsdayFlatPercent": 25,
+    "maxRefinementEternalAmplification": 40,
+    "maxRefinementRotaAmplification": 15,
+    "eternalSecondCommandRegistered": false
+  },
+  "checks": [
+    "effect-trigger-requires-condition",
+    "doomsday-event-and-judgement",
+    "doomsday-attack-rounding",
+    "doomsday-command-order",
+    "doomsday-flat-property-and-cap",
+    "eternal-owner-and-cap",
+    "rota-owner-and-cap",
+    "pursuit-command-properties",
+    "eternal-second-command-unregistered"
+  ],
+  "source": {
+    "StateSha256": "955c979b9c2f2c3f8252a847ca9c663baadc1c5040338f1ce8f9403c4597eced",
+    "CmdSha256": "7e298514fde1e0555b2e5d11118c8b5c4d5e3695a4062a49d4d51bfa110d2eed",
+    "BattleStateServerSha256": "d6b21a77548e1dda65549d0031e33fb34e728006e8fd4ab8dcef3df69c3d96bd"
+  },
+  "limitations": [
+    "Static source/config audit; no connected event execution or gameplay validation",
+    "Published report contains bounded derived facts and hashes, not complete proprietary rows"
+  ]
+}

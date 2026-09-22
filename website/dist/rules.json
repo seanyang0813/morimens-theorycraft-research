@@ -6377,6 +6377,43 @@
       ]
     },
     {
+      "id": "Theorycraft:RecoveredWheelTriggerTransitions",
+      "status": "SOURCE_DERIVED_COMPONENT_TESTS",
+      "claim": "Explicit post-event transitions model Doomsday Strike-flat stacking and the independently capped Eternal Weave plus Rota Fortunae pursuit amplification without retroactive application",
+      "scope": "Source-derived authored transitions for resource-144 only. Requires explicit ATK, current properties, event owner and counters. Arachne TriggerCmd2 is excluded because no TriggerCond2 is registered. No original connected trigger execution, card/pursuit creation, turn clearing, full sequence damage, gameplay validation, ranking or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "BattleStateServer",
+          "member": "InitEffectTrigger,Trigger",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369"
+        },
+        {
+          "module": "State",
+          "member": "123521,124066,123518,134231,134313,70350,134383,134382",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8"
+        },
+        {
+          "module": "Cmd",
+          "member": "124065,134385,134386",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2"
+        },
+        {
+          "module": "Sanitized recovered Wheel trigger audit",
+          "member": "nine checked event, judgement, command-order, property and cap facts",
+          "sha256": "04e1833491ace82f9aea4bebc6e240bad0af04a31448962476d96f4e6b1b498a"
+        }
+      ],
+      "checks": [
+        "tools/audit_recovered_wheel_triggers.mjs",
+        "research/evidence/recovered-wheel-trigger-audit.json",
+        "engine/wheel-trigger-transitions.mjs",
+        "tests/wheel-trigger-source-audit.test.mjs",
+        "tests/wheel-trigger-transitions.test.mjs",
+        "tests/theorycraft-api.test.mjs"
+      ]
+    },
+    {
       "id": "Theorycraft:LegalCardActionEnumeration",
       "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
       "claim": "The theorycraft API enumerates ordinary non-keeper PvE card actions from explicit dispatch, energy, hand and status state while retaining global and per-card rejection gates",
