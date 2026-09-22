@@ -39,3 +39,22 @@ This is not yet a runtime-tested event simulator: reentrancy, queued follow-ups 
 ## Replay consequence
 
 The selected Frenzy record shows Mouchette's talent summary 5/10/5 and a +653 flat team Strike bonus. Her level-10 Stars configuration identifies another potential input for Arachne's Strike: the separate +35% outside Strike property. Establish whether the state is active and whether any property already includes it before calculating. No missing multiplier is solved from the observed 2205 damage.
+
+## Mortal Blast command boundary
+
+The resource-150 inspection request at
+`research/examples/theorycraft-current-mouchette-mortal-blast-inspection.json`
+prepares real Skill 122483 and Command 122499 from the pinned catalog. With its
+deliberately small arithmetic fixture it derives arguments 15 and 2, but returns
+no damage result. The complete command contains five rows: one two-repeat
+`BEActiveDamage` against all enemies, conditional `BECreateCard` using
+`GetCopyHistoryCard`, then three conditional `BEAddState` rows targeting the
+created card through `LastTarget`.
+
+The compatibility report exposes every row and marks the command non-executable.
+A sequence calculator must resolve all-enemy targeting and presentation RNG,
+history-card selection, card creation, `LastTarget`, and created-card state
+attachment before it may claim complete Mortal Blast execution. The existing
+catalog-prepared paid Wheel bridge therefore continues to reject Mortal Blast
+instead of calculating its damage row while silently discarding its card and
+state effects.
