@@ -15,6 +15,7 @@ const source=readFileSync(new URL('../website/dist/wheel-events.mjs',import.meta
 test('Wheel event lab exposes every supported transition and bounded damage composition',()=>{
   assert.match(html,/Paid multi-caster example/);assert.match(html,/Multi-caster example/);assert.match(html,/Paid Strikes example/);assert.match(html,/Wheel \+ damage example/);assert.match(html,/Ordered sequence example/);assert.match(html,/Doomsday example/);assert.match(html,/Light example/);assert.match(html,/Arachne Wheels example/);
   assert.match(html,/does not infer a loadout, create triggering cards, emit events automatically, or fill unknown state/);
+  assert.match(html,/resource-150 baseline/);assert.match(html,/live AtkForce value/);assert.match(html,/resource-144 and resource-150/);
   assert.match(source,/advanceDoomsdayAfterUseCard/);assert.match(source,/advanceLightOfIntellectAfterKeeperSkill/);assert.match(source,/advanceArachneAfterPursuit/);
   assert.match(source,/runWheelEventSequence/);assert.match(source,/AFTER_BOUT_END/);
   assert.match(source,/runWheelActiveTimeline/);assert.match(source,/morimens-wheel-active-timeline/);
@@ -31,7 +32,8 @@ test('Wheel event lab pins and compares a reordered damage timeline',()=>{
   class Element{constructor(){this.textContent='';this.value='';this.hidden=false;}}
   const nodes=new Map(),doc={getElementById(id){if(!nodes.has(id))nodes.set(id,new Element());return nodes.get(id);}};
   startWheelEventLab({searchPaidWheelOrders,runPaidWheelActiveTimeline,compareWheelActiveTimelines,runWheelActiveTimeline,runWheelEventSequence,advanceDoomsdayAfterUseCard,advanceLightOfIntellectAfterKeeperSkill,advanceArachneAfterPursuit,runtimeFingerprint:'a'.repeat(64)},doc);
-  nodes.get('paid').onclick();let result=JSON.parse(nodes.get('output').textContent);assert.equal(result.kind,'morimens-paid-wheel-active-timeline-result');assert.equal(result.modeledHpLost,450);assert.equal(result.energyAfter,0);
+  nodes.get('doomsday').onclick();let result=JSON.parse(nodes.get('output').textContent);assert.equal(result.ownerAttackSourceProperty,'AtkForce');
+  nodes.get('paid').onclick();result=JSON.parse(nodes.get('output').textContent);assert.equal(result.kind,'morimens-paid-wheel-active-timeline-result');assert.equal(result.build,'pc-res150-build51');assert.equal(result.modeledHpLost,450);assert.equal(result.energyAfter,0);
   nodes.get('search-paid').onclick();result=JSON.parse(nodes.get('output').textContent);assert.equal(result.kind,'morimens-paid-wheel-order-search-result');assert.equal(result.evaluatedPermutations,2);assert.equal(result.best.modeledHpLost,450);
   nodes.get('multi').onclick();result=JSON.parse(nodes.get('output').textContent);assert.equal(result.schemaVersion,2);assert.equal(result.modeledHpLost,595);assert.equal(result.wheelStateSemantics,'SHARED_WHEEL_CONTRIBUTIONS');
   nodes.get('multi-paid').onclick();result=JSON.parse(nodes.get('output').textContent);assert.equal(result.schemaVersion,2);assert.equal(result.modeledHpLost,595);assert.equal(result.energyAfter,0);nodes.get('search-paid').onclick();result=JSON.parse(nodes.get('output').textContent);assert.equal(result.best.modeledHpLost,595);assert.deepEqual(result.best.order,['mouchette-card','arachne-card']);
