@@ -6093,6 +6093,33 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC151:WheelActiveTimeline",
+      "status": "SUPPORTED_BY_EXACT_CATALOG_AND_COMPONENT_CARRYFORWARD",
+      "claim": "The thirteen recovered Wheel State/Cmd rows have zero semantic changes from resource 150 to 151, carrying Doomsday AtkForce and the Arachne/Light transitions into nine explicit event, damage, payment, comparison and bounded-search operations",
+      "sources": [
+        {
+          "module": "PC resource-151 Wheel timeline compatibility",
+          "member": "Wheel-row, catalog, Active and payment evidence composition",
+          "bundle": "public hashes, counts and build-specific property rule",
+          "sha256": "3e5cbeace54db04a15fa098487ce8f85ca81f8879aea086cf049569e9709bcd4"
+        }
+      ],
+      "tests": [
+        "tools/build_res151_wheel_timeline_compatibility.py",
+        "tests/pc-res151-wheel-timeline-compatibility.test.mjs",
+        "tests/current-wheel-catalog.test.mjs",
+        "tests/wheel-trigger-transitions.test.mjs",
+        "tests/wheel-event-sequence.test.mjs",
+        "tests/wheel-active-timeline.test.mjs",
+        "tests/paid-wheel-active-timeline.test.mjs",
+        "tests/prepared-paid-wheel-active-timeline.test.mjs",
+        "tests/theorycraft-api.test.mjs",
+        "tests/theorycraft-cli-res151.test.mjs"
+      ],
+      "scope": "Four recovered Wheel transitions and their explicit event, complete-property Active, ordinary PvE payment, catalog-preparation, comparison and permutation compositions. Pursuit creation/events remain explicit; no connected trigger scheduling, deck mutation, other listeners, global optimization, gameplay, prediction or holdout credit.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC151:ControlledReplayAuditCandidate004",
       "status": "SAME_BATTLE_REVIEW_PENDING",
       "claim": "One mechanically isolated resource-151 capture candidate yields six retrospective ordinary-Active critical-branch matches and zero mismatches after 71 out-of-scope hits are rejected",
@@ -7831,9 +7858,17 @@
           "member": "nine State rows, four Cmd rows and explicit Doomsday attack-property migration",
           "bundle": "sanitized comparison of private current catalogs",
           "sha256": "ad1ad3cd45eb504fdeccd410cadaea2e003634017388161d222c71b22c8a186b"
+        },
+        {
+          "module": "PC resource-151 Wheel timeline compatibility",
+          "member": "unchanged Wheel rows plus Active/payment composition",
+          "bundle": "public evidence composition",
+          "sha256": "3e5cbeace54db04a15fa098487ce8f85ca81f8879aea086cf049569e9709bcd4"
         }
       ],
       "tests": [
+        "tools/build_res151_wheel_timeline_compatibility.py",
+        "tests/pc-res151-wheel-timeline-compatibility.test.mjs",
         "tools/audit_recovered_wheel_triggers.mjs",
         "tools/audit_current_wheel_catalog.py",
         "research/evidence/recovered-wheel-trigger-audit.json",
@@ -7849,7 +7884,7 @@
         "tests/wheel-events-ui.test.mjs",
         "website/dist/wheel-events.html"
       ],
-      "scope": "Source-derived authored transitions and ordering for resource 144 and 150. Resource 150 reads Doomsday from live StateOwner.AtkForce instead of StateOwner.atk; callers supply the matching resolved value. Random roll, card availability, base versus temporary properties, event owner and counters remain explicit. Eternal resets per turn; Rota counter persists until battle end; their temporary amplification clears per turn. Light returns an aggregate move request without choosing a card identity. Arachne TriggerCmd2 is excluded because no TriggerCond2 is registered. No original connected trigger execution, full deck mutation, card/pursuit creation, gameplay validation, ranking or holdout credit.",
+      "scope": "Source-derived authored transitions and ordering for resource 144, 150 and the exact carried resource-151 boundary. Resources 150/151 read Doomsday from live StateOwner.AtkForce instead of StateOwner.atk; callers supply the matching resolved value. Random roll, card availability, base versus temporary properties, event owner and counters remain explicit. Eternal resets per turn; Rota counter persists until battle end; their temporary amplification clears per turn. Light returns an aggregate move request without choosing a card identity. Arachne TriggerCmd2 is excluded because no TriggerCond2 is registered. No original connected trigger execution, full deck mutation, card/pursuit creation, gameplay validation, ranking or holdout credit.",
       "gameplayValidation": false
     },
     {
@@ -8515,9 +8550,17 @@
           "member": "nine State rows, four Cmd rows and explicit Doomsday attack-property migration",
           "bundle": "sanitized comparison of private current catalogs",
           "sha256": "ad1ad3cd45eb504fdeccd410cadaea2e003634017388161d222c71b22c8a186b"
+        },
+        {
+          "module": "PC resource-151 Wheel timeline compatibility",
+          "member": "unchanged Wheel rows plus Active/payment composition",
+          "bundle": "public evidence composition",
+          "sha256": "3e5cbeace54db04a15fa098487ce8f85ca81f8879aea086cf049569e9709bcd4"
         }
       ],
       "tests": [
+        "tools/build_res151_wheel_timeline_compatibility.py",
+        "tests/pc-res151-wheel-timeline-compatibility.test.mjs",
         "engine/prepared-paid-wheel-active-timeline.mjs",
         "engine/paid-wheel-active-timeline.mjs",
         "engine/paid-wheel-order-search.mjs",
@@ -8525,9 +8568,10 @@
         "tests/current-wheel-catalog.test.mjs",
         "tests/theorycraft-api.test.mjs",
         "tools/run_theorycraft_request.mjs",
+        "research/examples/theorycraft-installed-prepared-paid-wheel-active-timeline.json",
         "docs/WHEEL_ACTIVE_TIMELINE.md"
       ],
-      "scope": "Authored composition over separately supported catalog preparation, complete-property Active damage, ordinary non-keeper PvE legality/payment and four recovered Wheel transitions. Every action supplies complete live caster/player maps and one common target context; shared Wheel contributions must be excluded from those snapshots. Pursuit events remain explicit. Hand mutation, draws, refunds, changing costs/status, target selection, automatic pursuit creation, other listeners, death execution, resource-151 composition, gameplay validation and global build/sequence optimality remain excluded. Theorycraft track only; no cheese, budget or observed-strategy claim.",
+      "scope": "Authored composition for resource 144/150 and the exact carried resource-151 boundary over separately supported catalog preparation, complete-property Active damage, ordinary non-keeper PvE legality/payment and four recovered Wheel transitions. Every action supplies complete live caster/player maps and one common target context; shared Wheel contributions must be excluded from those snapshots. Pursuit events remain explicit. Hand mutation, draws, refunds, changing costs/status, target selection, automatic pursuit creation, other listeners, death execution, gameplay validation and global build/sequence optimality remain excluded. Theorycraft track only; no cheese, budget or observed-strategy claim.",
       "gameplayValidation": false
     },
     {

@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-theorycraft-request",
+  "requestId": "installed-prepared-paid-wheel-two-card-timeline",
+  "operation": "run-prepared-paid-wheel-active-timeline",
+  "input": {
+    "schemaVersion": 1,
+    "kind": "morimens-prepared-paid-wheel-active-timeline",
+    "build": "pc-res151-build51",
+    "initialEnergy": 2,
+    "wheelContributionPolicy": "excluded-from-prepared-snapshots",
+    "initialWheelContributions": {
+      "doomsday": {
+        "refinementLevel": 3,
+        "ownerAttack": 100,
+        "counter": 0,
+        "strikecardDamagePlus": 0
+      },
+      "light": null,
+      "arachne": {
+        "ownerUid": 56,
+        "basicDamagePer": 0,
+        "wheels": [
+          {
+            "slotId": "signature",
+            "wheelId": "wheel-0128",
+            "refinementLevel": 3,
+            "triggersUsed": 0
+          },
+          {
+            "slotId": "secondary",
+            "wheelId": "wheel-0132",
+            "refinementLevel": 3,
+            "triggersUsed": 0
+          }
+        ]
+      }
+    },
+    "actions": [
+      {
+        "id": "setup",
+        "cardInstanceId": "card-setup",
+        "costInput": {
+          "cfgCost": "1",
+          "originCost": 1,
+          "delta": 0,
+          "harmonize": 0,
+          "fixedSwitches": {},
+          "keeper": false,
+          "keeperCost": null,
+          "pvp": false
+        },
+        "conditions": {
+          "cardExists": true,
+          "inHand": true,
+          "judgeCost": true,
+          "commandExists": true,
+          "dead": false,
+          "strike": true,
+          "allowIgnoreCost": false,
+          "cardUseless": 0,
+          "ownerUseless": 0,
+          "coma": 0,
+          "comaImmunity": 0,
+          "ownerForbid": 0,
+          "playerForbid": 0,
+          "ownerForbidStrike": 0,
+          "playerForbidStrike": 0
+        },
+        "preparedSkill": {
+          "schemaVersion": 1,
+          "kind": "morimens-prepared-snapshot-active-skill",
+          "build": "pc-res151-build51",
+          "preparation": {
+            "skillId": 3997,
+            "skillLevel": 1,
+            "isAwaker": true,
+            "breakSkillLevel": 0,
+            "potencyLevel": 0,
+            "overrides": [],
+            "variables": {},
+            "conditionResults": {},
+            "stateQueries": {}
+          },
+          "targetBinding": {
+            "expression": "FrontEnemy",
+            "resolution": "supplied-single-UpperTarget"
+          },
+          "lifecycle": "assumed-absent",
+          "snapshot": {
+            "snapshotStage": "battle-property-server-live",
+            "snapshotCompleteness": "complete-map",
+            "casterProperties": {
+              "crit": 0,
+              "crit_damage": 0,
+              "crit_damage_from_strikecard": 0,
+              "crit_damage_per": 0,
+              "strikecard_damage_plus": 0
+            },
+            "playerProperties": {
+              "dimension_fix_per": 0,
+              "basic_damage_per": 0
+            },
+            "initialTargetProperties": {
+              "hp": 5000,
+              "max_hp": 5000,
+              "block": 0,
+              "be_damage_per": 0,
+              "vulnerable_per": 0
+            },
+            "cardProperties": {},
+            "targetBattleTag": "Monster",
+            "targetStateIds": [],
+            "critRolls": [
+              null
+            ]
+          },
+          "repeatModifiers": {
+            "plus": 0,
+            "per": 0
+          }
+        },
+        "postEvents": [
+          {
+            "id": "setup:pursuit",
+            "type": "AFTER_PURSUIT",
+            "pursuitOwnerUid": 56
+          }
+        ]
+      },
+      {
+        "id": "burst",
+        "cardInstanceId": "card-burst",
+        "costInput": {
+          "cfgCost": "1",
+          "originCost": 1,
+          "delta": 0,
+          "harmonize": 0,
+          "fixedSwitches": {},
+          "keeper": false,
+          "keeperCost": null,
+          "pvp": false
+        },
+        "conditions": {
+          "cardExists": true,
+          "inHand": true,
+          "judgeCost": true,
+          "commandExists": true,
+          "dead": false,
+          "strike": true,
+          "allowIgnoreCost": false,
+          "cardUseless": 0,
+          "ownerUseless": 0,
+          "coma": 0,
+          "comaImmunity": 0,
+          "ownerForbid": 0,
+          "playerForbid": 0,
+          "ownerForbidStrike": 0,
+          "playerForbidStrike": 0
+        },
+        "preparedSkill": {
+          "schemaVersion": 1,
+          "kind": "morimens-prepared-snapshot-active-skill",
+          "build": "pc-res151-build51",
+          "preparation": {
+            "skillId": 4808,
+            "skillLevel": 1,
+            "isAwaker": true,
+            "breakSkillLevel": 0,
+            "potencyLevel": 0,
+            "overrides": [],
+            "variables": {
+              "BattleAtkForce": 100,
+              "CmdCaster.death_resist": 0,
+              "PlayerRole.block": 10
+            },
+            "conditionResults": {},
+            "stateQueries": {
+              "CmdCaster.GetStateLayer": {
+                "119802": 0,
+                "2537": 0
+              }
+            }
+          },
+          "targetBinding": {
+            "expression": "FrontEnemy",
+            "resolution": "supplied-single-UpperTarget"
+          },
+          "lifecycle": "assumed-absent",
+          "snapshot": {
+            "snapshotStage": "battle-property-server-live",
+            "snapshotCompleteness": "complete-map",
+            "casterProperties": {
+              "crit": 0,
+              "crit_damage": 0,
+              "crit_damage_from_strikecard": 0,
+              "crit_damage_per": 0,
+              "strikecard_damage_plus": 0
+            },
+            "playerProperties": {
+              "dimension_fix_per": 0,
+              "basic_damage_per": 0
+            },
+            "initialTargetProperties": {
+              "hp": 5000,
+              "max_hp": 5000,
+              "block": 0,
+              "be_damage_per": 0,
+              "vulnerable_per": 0
+            },
+            "cardProperties": {},
+            "targetBattleTag": "Monster",
+            "targetStateIds": [],
+            "critRolls": [
+              null
+            ]
+          },
+          "repeatModifiers": {
+            "plus": 0,
+            "per": 0
+          }
+        },
+        "postEvents": []
+      }
+    ]
+  }
+}

@@ -4,7 +4,7 @@ import {runPaidWheelActiveTimeline} from './paid-wheel-active-timeline.mjs';
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(key=>Object.hasOwn(value,key));
 const clone=value=>JSON.parse(JSON.stringify(value));
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
-const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51']);
+const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51','pc-res151-build51']);
 
 // Derives each card's Active hits from pinned Skill/BattleApi/Cmd data before
 // joining explicit payment, per-caster snapshots and supported Wheel events.

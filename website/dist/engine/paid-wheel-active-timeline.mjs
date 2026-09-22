@@ -4,7 +4,7 @@ import {runWheelActiveTimeline} from './wheel-active-timeline.mjs';
 
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(key=>Object.hasOwn(value,key));
 const clone=value=>JSON.parse(JSON.stringify(value));
-const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51']);
+const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51','pc-res151-build51']);
 
 function privateWheelState(value){
   return {

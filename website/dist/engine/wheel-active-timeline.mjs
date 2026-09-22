@@ -3,7 +3,7 @@ import {runWheelEventSequence} from './wheel-event-sequence.mjs';
 
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(key=>Object.hasOwn(value,key));
 const clone=value=>JSON.parse(JSON.stringify(value));
-const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51']);
+const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51','pc-res151-build51']);
 const hitKeys=['id','type','baseValue','skillArgsPlus','tags','cardProperties','cardContext','targetContext','hitContext'];
 const multiHitKeys=[...hitKeys,'casterProperties','playerProperties'];
 const eventKeys={AFTER_USE_CARD:['id','type','cardType'],AFTER_KEEPER_SKILL:['id','type','roll','matchingStrikeAvailable'],AFTER_PURSUIT:['id','type','pursuitOwnerUid'],AFTER_BOUT_END:['id','type'],BEFORE_BATTLE_END:['id','type']};

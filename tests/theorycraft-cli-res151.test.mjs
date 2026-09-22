@@ -64,6 +64,13 @@ test('agent CLI pays for the resource-151 state card and five prepared Active hi
   assert.equal(response.result.build,'pc-res151-build51');assert.equal(response.result.acceptedCards,6);assert.equal(response.result.energyAfter,0);assert.equal(response.result.modeledHpLost,15);assert.equal(response.result.targetAfter.hp,985);assert.equal(response.result.finalDamage,null);
 });
 
+test('agent CLI derives and pays a resource-151 two-card Arachne Wheel timeline',()=>{
+  const result=run('research/examples/theorycraft-installed-prepared-paid-wheel-active-timeline.json');
+  assert.equal(result.status,0,result.stderr);
+  const response=JSON.parse(result.stdout);
+  assert.equal(response.result.build,'pc-res151-build51');assert.equal(response.result.preparedActions.length,2);assert.equal(response.result.energyAfter,0);assert.equal(response.result.modeledHpLost,139);assert.equal(response.result.calculation.trace[0].effect.trace.at(-1).result.ownerAttackSourceProperty,'AtkForce');assert.equal(response.result.finalDamage,null);
+});
+
 test('agent CLI rejects resource-151 operations outside the proven dependency graph',()=>{
   const result=run('tests/synthetic/theorycraft-res151-unsupported-operation.json');
   assert.equal(result.status,1);

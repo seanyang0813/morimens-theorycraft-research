@@ -11,6 +11,9 @@ const source={build:'pc-res144-build51',skills:loaded.Skill.data,battleApi:loade
 const readCurrent=name=>{const bytes=readFileSync(new URL(`../research/observations/current-res150-build51/modules/${name}.json`,import.meta.url));return {data:JSON.parse(bytes),sha256:createHash('sha256').update(bytes).digest('hex')};};
 const currentLoaded=Object.fromEntries(['Skill','BattleApi','Cmd','State'].map(name=>[name,readCurrent(name)]));
 const currentSource={build:'pc-res150-build51',skills:currentLoaded.Skill.data,battleApi:currentLoaded.BattleApi.data,commands:currentLoaded.Cmd.data,states:currentLoaded.State.data,sourceHashes:Object.fromEntries(Object.entries(currentLoaded).map(([name,row])=>[name,row.sha256]))};
+const readInstalled=name=>{const bytes=readFileSync(new URL(`../research/observations/current-res151-build51/modules/${name}.json`,import.meta.url));return {data:JSON.parse(bytes),sha256:createHash('sha256').update(bytes).digest('hex')};};
+const installedLoaded=Object.fromEntries(['Skill','BattleApi','Cmd','State'].map(name=>[name,readInstalled(name)]));
+const installedSource={build:'pc-res151-build51',skills:installedLoaded.Skill.data,battleApi:installedLoaded.BattleApi.data,commands:installedLoaded.Cmd.data,states:installedLoaded.State.data,sourceHashes:Object.fromEntries(Object.entries(installedLoaded).map(([name,row])=>[name,row.sha256]))};
 const conditions={cardExists:true,inHand:true,judgeCost:true,commandExists:true,dead:false,strike:true,allowIgnoreCost:false,cardUseless:0,ownerUseless:0,coma:0,comaImmunity:0,ownerForbid:0,playerForbid:0,ownerForbidStrike:0,playerForbidStrike:0};
 const preparedSkill=(skillId,casterProperties,preparation)=>({schemaVersion:1,kind:'morimens-prepared-snapshot-active-skill',build:'pc-res144-build51',preparation:{skillId,skillLevel:1,isAwaker:true,breakSkillLevel:0,potencyLevel:0,overrides:[],variables:{},conditionResults:{},stateQueries:{},...preparation},targetBinding:{expression:'FrontEnemy',resolution:'supplied-single-UpperTarget'},lifecycle:'assumed-absent',snapshot:{snapshotStage:'battle-property-server-live',snapshotCompleteness:'complete-map',casterProperties,playerProperties:{dimension_fix_per:0,basic_damage_per:0},initialTargetProperties:{hp:5000,max_hp:5000,block:0,be_damage_per:0,vulnerable_per:0},cardProperties:{},targetBattleTag:'Monster',targetStateIds:[],critRolls:[null]},repeatModifiers:{plus:0,per:0}});
 const resource=(id,preparedSkillValue,postEvents=[])=>({id,cardInstanceId:`card-${id}`,costInput:{cfgCost:'1',originCost:1,delta:0,harmonize:0,fixedSwitches:{},keeper:false,keeperCost:null,pvp:false},conditions:{...conditions},preparedSkill:preparedSkillValue,postEvents});
@@ -33,4 +36,10 @@ test('current resource-150 catalog derives the same bounded paid action fixture'
   const value=input();value.build='pc-res150-build51';for(const action of value.actions)action.preparedSkill.build=value.build;
   const result=runPreparedPaidWheelActiveTimeline(value,currentSource);
   assert.deepEqual(result.preparedActions.map(row=>[row.skillId,row.commandId,row.cardType]),[[3997,2350,'Card_Strike'],[4808,1059,'Card_Strike']]);assert.equal(result.modeledHpLost,139);assert.equal(result.calculation.trace[0].effect.trace.at(-1).result.ownerAttackSourceProperty,'AtkForce');
+});
+
+test('installed resource-151 catalog derives the same bounded paid Wheel fixture',()=>{
+  const value=input();value.build='pc-res151-build51';for(const action of value.actions)action.preparedSkill.build=value.build;
+  const result=runPreparedPaidWheelActiveTimeline(value,installedSource);
+  assert.deepEqual(result.preparedActions.map(row=>[row.skillId,row.commandId,row.cardType]),[[3997,2350,'Card_Strike'],[4808,1059,'Card_Strike']]);assert.equal(result.modeledHpLost,139);assert.equal(result.energyAfter,0);assert.equal(result.calculation.trace[0].effect.trace.at(-1).result.ownerAttackSourceProperty,'AtkForce');
 });

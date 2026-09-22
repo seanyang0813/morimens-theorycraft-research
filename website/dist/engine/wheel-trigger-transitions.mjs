@@ -2,13 +2,13 @@
 // These functions advance explicit combat state; they do not create cards or calculate damage.
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(key=>Object.hasOwn(value,key));
 const refinement=value=>Number.isSafeInteger(value)&&value>=0&&value<=3;
-const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51']);
+const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51','pc-res151-build51']);
 
 export function advanceDoomsdayAfterUseCard(input){
   const keys=['schemaVersion','kind','build','wheelId','refinementLevel','cardType','ownerAttack','counter','strikecardDamagePlus'];
   if(!exact(input,keys)||input.schemaVersion!==1||input.kind!=='morimens-after-use-card-wheel-trigger'||!supportedBuilds.has(input.build)||input.wheelId!=='wheel-0029'||!refinement(input.refinementLevel)||typeof input.cardType!=='string'||!Number.isFinite(input.ownerAttack)||input.ownerAttack<0||!Number.isSafeInteger(input.counter)||input.counter<0||input.counter>8||!Number.isFinite(input.strikecardDamagePlus))throw new Error('Explicit supported Doomsday after-card state required');
   const flatPercent=13+input.refinementLevel*4;
-  const ownerAttackSourceProperty=input.build==='pc-res150-build51'?'AtkForce':'atk';
+  const ownerAttackSourceProperty=input.build==='pc-res144-build51'?'atk':'AtkForce';
   const eligible=input.cardType==='Card_Strike'&&input.counter<8;
   const addedStrikecardDamagePlus=eligible?Math.ceil(input.ownerAttack*flatPercent*0.01):0;
   return {

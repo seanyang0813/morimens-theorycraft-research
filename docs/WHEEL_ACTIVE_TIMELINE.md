@@ -130,5 +130,4 @@ counters and the shared temporary-amplification state retain the same gameplay
 fields after ignoring `BaseSortID`. Doomsday changes its attack expression from
 `StateOwner.atk` to `StateOwner.AtkForce`; the transition result therefore
 reports `ownerAttackSourceProperty`, and callers must supply that live property
-for the selected build. Resource 151 is not accepted by this composition even
-though the narrower replay adapter has a separate 150-to-151 carry-forward.
+for the selected build. Resource 151 uses the resource-150 `AtkForce` rule: all relevant Wheel rows are semantically unchanged, and the separately proved resource-151 Active and payment boundaries carry the event, damage, prepared-card, comparison and bounded-order compositions. `research/evidence/pc-res151-wheel-timeline-compatibility.json` records this exact boundary.

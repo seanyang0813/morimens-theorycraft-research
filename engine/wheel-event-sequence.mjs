@@ -5,7 +5,7 @@ const clone=value=>JSON.parse(JSON.stringify(value));
 const finite=value=>Number.isFinite(value);
 const refinement=value=>Number.isSafeInteger(value)&&value>=0&&value<=3;
 const counter=(value,max)=>Number.isSafeInteger(value)&&value>=0&&value<=max;
-const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51']);
+const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51','pc-res151-build51']);
 
 function validateInitial(value){
   if(!exact(value,['doomsday','light','arachne']))throw new Error('Exact Wheel sequence initial state required');

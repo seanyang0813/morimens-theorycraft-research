@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_WHEEL_TIMELINE_COMPATIBILITY",
+  "build": "pc-res151-build51",
+  "status": "SUPPORTED_BY_EXACT_CATALOG_AND_COMPONENT_CARRYFORWARD",
+  "operations": [
+    "advance-after-use-card-wheel-trigger",
+    "advance-after-keeper-skill-wheel-trigger",
+    "advance-after-pursuit-wheel-triggers",
+    "run-wheel-event-sequence",
+    "run-wheel-active-timeline",
+    "compare-wheel-active-timelines",
+    "run-paid-wheel-active-timeline",
+    "run-prepared-paid-wheel-active-timeline",
+    "search-paid-wheel-orders"
+  ],
+  "sourceHashes": {
+    "resource150WheelTransitions": "ad1ad3cd45eb504fdeccd410cadaea2e003634017388161d222c71b22c8a186b",
+    "catalogCompatibility": "ca45070e0749bc8728d3a6bc2e261379120777e61f0d9d1241c8f2dbdcd4fe34",
+    "activeCompatibility": "9cdb9750b4486d8297c1c55401afb85bd0ef263fa70aa81cb8e89759ca437f8e",
+    "paymentCompatibility": "e72028f5ec1fd7859dcc4e45bc8a6c01ac04d4eddfdd59d3f0c80e2eb7b71939"
+  },
+  "composedEvidence": {
+    "wheelStateRows": 9,
+    "wheelCommandRows": 4,
+    "catalogSemanticChanges": 0,
+    "activeClientModuleDependencies": 6,
+    "activeConfigDependencies": 5,
+    "ordinaryPveCardPlayFixtures": 90,
+    "energyPaymentFixtures": 222
+  },
+  "buildSpecificRule": {
+    "doomsdayOwnerAttackSourceProperty": "AtkForce",
+    "reason": "Resource 151 is Lua-semantically equal to the resource-150 Wheel rows containing the migrated StateOwner.AtkForce expression"
+  },
+  "scope": "The four recovered Wheel transitions and their explicit event, complete-property Active, payment, catalog-preparation, comparison and bounded permutation compositions on resource 151.",
+  "limitations": [
+    "Pursuit generation and post-pursuit events remain explicit rather than inferred",
+    "Only recovered Doomsday Rampage, Light of Intellect, Eternal Weave and Rota Fortunae transitions are included",
+    "No connected trigger scheduling, automatic deck mutation, global optimization, gameplay, prediction or holdout credit"
+  ]
+}
