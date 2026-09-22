@@ -1,6 +1,6 @@
 # Current PC combat-build boundary
 
-The installed Steam client now uses downloaded resource 150 / content build 51. The calculator and its broad original-runtime suite remain pinned to resource 144 / build 51. `research/evidence/pc-res144-to-res150-combat-build.json` compares hash-only TextAsset inventories from the two checkpoints and records the installed download manifest and Steam build without account or replay identifiers.
+The installed Steam client now uses downloaded resource 151 / content build 51. The calculator's current supported path remains pinned to resource 150 / build 51, while its broad original-runtime suite remains pinned to resource 144 / build 51. `research/evidence/pc-res144-to-res151-combat-build.json` records the new installed manifest and hash-only TextAsset inventory. `research/evidence/pc-res150-to-res151-combat-carryforward.json` confirms that all 15 tracked combat modules are byte-identical between resources 150 and 151. Catalog and untracked dependency changes still require separate review before resource 151 becomes a calculator build.
 
 Of the selected combat modules, BattleConst, BattleUtilServer, BattleCmdServer, BattlePropertyServer, BEActiveDamage, BattleRecord and BattleEngine changed. BattleUnitBase, BattleStateServer, BEPureDamage, BEFixedDamage, BETentacleAttack, BattleReplayPlayer, PVEGameplay and BattleUnitUtil remained byte-identical. Path IDs are ignored because bundle repacking changes them without changing content.
 
