@@ -6025,6 +6025,28 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC151:PreparedStateActiveSequence",
+      "status": "SUPPORTED_BY_DIRECT_RUNTIME_AND_EXACT_COMPOSITION",
+      "claim": "Resource-151 state/property bytecode matches all 432 inherited mutation fixtures; combined with unchanged catalogs and the six-module/five-config Active boundary, the installed build supports one catalog-prepared state-to-Active handoff",
+      "sources": [
+        {
+          "module": "PC resource-151 state-to-Active compatibility",
+          "member": "direct state/property runtime plus catalog and Active dependency composition",
+          "bundle": "installed private modules and catalogs; public hashes and counts only",
+          "sha256": "48262ef2dd67a32459c25ac85233edf6ef5826690cb82c1d2d3b36988e64cd37"
+        }
+      ],
+      "tests": [
+        "tools/verify_res151_state_active_sequence.py",
+        "tests/pc-res151-state-active-sequence-compatibility.test.mjs",
+        "tests/prepared-state-active-sequence.test.mjs",
+        "tests/theorycraft-api.test.mjs",
+        "tests/theorycraft-cli-res151.test.mjs"
+      ],
+      "scope": "One catalog-backed role-state setup mutates one explicit recipient, then that same role executes one bounded catalog-prepared Active skill from the updated complete snapshot. Only changed numeric role properties and declared caster-state layers carry. General role-state execution, chains, costs, zones, callbacks, automatic targeting, gameplay, prediction and holdout credit remain excluded.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC151:ControlledReplayAuditCandidate004",
       "status": "SAME_BATTLE_REVIEW_PENDING",
       "claim": "One mechanically isolated resource-151 capture candidate yields six retrospective ordinary-Active critical-branch matches and zero mismatches after 71 out-of-scope hits are rejected",
@@ -8255,15 +8277,24 @@
           "bundle": "pc\\downloaded\\share.ab",
           "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        },
+        {
+          "module": "PC resource-151 state-to-Active compatibility",
+          "member": "432 direct mutation fixtures plus catalog and Active composition",
+          "bundle": "installed private modules and catalogs; public hashes and counts only",
+          "sha256": "48262ef2dd67a32459c25ac85233edf6ef5826690cb82c1d2d3b36988e64cd37"
         }
       ],
       "tests": [
+        "tools/verify_res151_state_active_sequence.py",
+        "tests/pc-res151-state-active-sequence-compatibility.test.mjs",
         "tests/prepared-state-active-sequence.test.mjs",
         "tests/theorycraft-api.test.mjs",
         "research/examples/theorycraft-prepared-state-active-sequence.json",
+        "research/examples/theorycraft-installed-prepared-state-active-sequence.json",
         "docs/PREPARED_STATE_ACTIVE_SEQUENCE.md"
       ],
-      "scope": "Authored composition of separately supported catalog preparation, role-state mutation and complete-property Active calculation. Explicit identical recipient/caster identity, initial role registry and complete damage snapshot; mismatched pre-state properties fail. Only changed numeric role properties and declared CmdCaster.GetStateLayer values carry. Costs, zones, party/player proxy routing, duration/expiry, callbacks, other roles, target-state changes, automatic targeting, gameplay and holdout validation are excluded. Theorycraft track only; no cheese, budget or observed-strategy claim.",
+      "scope": "Authored composition of separately supported catalog preparation, role-state mutation and complete-property Active calculation for resource 144, resource 150 and the bounded singular resource-151 operation. Explicit identical recipient/caster identity, initial role registry and complete damage snapshot; mismatched pre-state properties fail. Only changed numeric role properties and declared CmdCaster.GetStateLayer values carry. Costs, zones, party/player proxy routing, duration/expiry, callbacks, other roles, target-state changes, automatic targeting, gameplay and holdout validation are excluded. Theorycraft track only; no cheese, budget or observed-strategy claim.",
       "gameplayValidation": false
     },
     {

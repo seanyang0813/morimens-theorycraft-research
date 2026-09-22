@@ -8,8 +8,9 @@ import json
 from target_runtime_oracle import TargetOracle, ROOT
 
 class RoutingOracle(TargetOracle):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, asset_overrides=None, api_path=None):
+        asset_overrides = asset_overrides or {}
+        super().__init__(asset_overrides)
         self.events=[]
         self.case={}
         self.rawseti=self.lib.lua_rawseti
@@ -24,9 +25,9 @@ class RoutingOracle(TargetOracle):
             else:self.errors.append(repr(name));self.nil(s)
             return 1
         self.callback(require);self.setglobal(self.state,b'require')
-        self.module('BattleStateServer');self.setglobal(self.state,b'_routing_module')
+        self.module('BattleStateServer',asset_overrides.get('BattleStateServer'));self.setglobal(self.state,b'_routing_module')
         if self.errors:raise RuntimeError(self.errors)
-        self.api=json.loads((ROOT/'research/extracted/config/BattleApi.json').read_text(encoding='utf-8'))
+        self.api=json.loads((api_path or ROOT/'research/extracted/config/BattleApi.json').read_text(encoding='utf-8'))
         self.pushstring=self.lib.lua_pushstring
         self.pushstring.argtypes=[C.c_void_p,C.c_char_p];self.pushstring.restype=C.c_void_p
 

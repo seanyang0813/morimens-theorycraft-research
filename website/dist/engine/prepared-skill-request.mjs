@@ -7,13 +7,15 @@ const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&
 const map=value=>value&&typeof value==='object'&&!Array.isArray(value);
 
 // Serializable bridge from exported skill IDs to the existing prepared-command engine.
-export function runPreparedSkillRequest(value,source){
+export function runPreparedSkillRequest(value,source,options={}){
   const legacy=value?.schemaVersion===1&&exact(value,['schemaVersion','kind','preparation','execution']);
   const versioned=value?.schemaVersion===2&&exact(value,['schemaVersion','kind','build','preparation','execution']);
   if((!legacy&&!versioned)||value.kind!=='morimens-prepared-skill-request')throw new Error('Expected an exact version 1 or 2 prepared-skill request');
   const build=versioned?value.build:'pc-res144-build51';
   if(!['pc-res144-build51','pc-res150-build51','pc-res151-build51'].includes(build))throw new Error('Unsupported prepared-skill client build');
-  if(build==='pc-res151-build51'&&value.execution!==null)throw new Error('Resource-151 prepared-skill support is preparation-only; use the bounded snapshot Active operation for execution');
+  const resource151ExecutionProfile=options?.resource151ExecutionProfile??null;
+  if(!options||typeof options!=='object'||Array.isArray(options)||Object.keys(options).some(key=>key!=='resource151ExecutionProfile')||(resource151ExecutionProfile!==null&&resource151ExecutionProfile!=='role-state-setup'))throw new Error('Unsupported prepared-skill execution option');
+  if(build==='pc-res151-build51'&&value.execution!==null&&(resource151ExecutionProfile!=='role-state-setup'||value.execution?.experiment?.kind!=='morimens-role-state-command'))throw new Error('Resource-151 prepared-skill support is preparation-only outside the bounded role-state setup profile');
   if(!exact(value.preparation,preparationKeys))throw new Error('Explicit skill preparation inputs required');
   const request=value.preparation;
   for(const name of ['variables','conditionResults','stateQueries'])if(!map(request[name]))throw new Error(`Explicit ${name} map required`);
@@ -39,7 +41,7 @@ export function runPreparedSkillRequest(value,source){
   let execution=null;
   if(value.execution!==null){
     if(!exact(value.execution,['experiment','targetBinding','lifecycle']))throw new Error('Exact execution context or null required');
-    execution=runPreparedSkillExperiment({...value.execution,build,preparation,commands:source.commands,states:source.states});
+    execution=runPreparedSkillExperiment({...value.execution,build,preparation,commands:source.commands,states:source.states,resource151ExecutionProfile});
   }
   return {schemaVersion:1,status:execution?.status??'PREPARED',build,finalDamage:null,skillId:request.skillId,sourceHashes:{...source.sourceHashes},prepared,execution,
     commandSupport:execution?.support??inspectCommandSupport({command,allowedFunctions:['CmdCaster.GetPotencyLevel',...Object.keys(request.stateQueries)]}),commandSummary:{effectTypes,rowCount:Object.keys(command.data_list??{}).length},

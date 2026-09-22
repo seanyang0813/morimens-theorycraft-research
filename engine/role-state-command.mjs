@@ -14,9 +14,12 @@ const roleTypes=new Set(['Monster','Awakener','Player']);
 
 // Setup-only command execution over an explicit role registry. This boundary is
 // intentionally independent of the damage-target model used by state-sequence.
-export function runRoleStateCommand(value){
+export function runRoleStateCommand(value,options={}){
   const input=snapshot(value),keys=['schemaVersion','kind','build','otherEvents','command','variables','targetBindings','roles','definitions'];
-  if(!exact(input,keys)||input.schemaVersion!==1||input.kind!=='morimens-role-state-command'||!['pc-res144-build51','pc-res150-build51'].includes(input.build)||input.otherEvents!=='assumed-absent')throw new Error('Explicit setup-only role-state command required');
+  const resource151Profile=options?.resource151Profile??null;
+  if(!options||typeof options!=='object'||Array.isArray(options)||Object.keys(options).some(key=>key!=='resource151Profile')||(resource151Profile!==null&&resource151Profile!=='prepared-role-state-setup'))throw new Error('Unsupported role-state execution option');
+  const supportedBuild=['pc-res144-build51','pc-res150-build51'].includes(input?.build)||(input?.build==='pc-res151-build51'&&resource151Profile==='prepared-role-state-setup');
+  if(!exact(input,keys)||input.schemaVersion!==1||input.kind!=='morimens-role-state-command'||!supportedBuild||input.otherEvents!=='assumed-absent')throw new Error('Explicit setup-only role-state command required');
   if(!input.variables||Array.isArray(input.variables)||Object.entries(input.variables).some(([name,v])=>!name||!Number.isFinite(v)))throw new Error('Explicit finite command variables required');
   if(!input.targetBindings||Array.isArray(input.targetBindings)||Object.entries(input.targetBindings).some(([selector,id])=>!selector||!Number.isSafeInteger(id)))throw new Error('Explicit target-selector bindings required');
   if(!Array.isArray(input.roles)||!Array.isArray(input.definitions))throw new Error('Explicit roles and state definitions required');

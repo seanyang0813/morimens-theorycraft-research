@@ -9,13 +9,14 @@ import {runRoleStateCommand} from './role-state-command.mjs';
 import {assembleCatalogStateDefinitions} from './catalog-state-definitions.mjs';
 
 // Connect selected exported skills to supported imported rows without dropping effects.
-export function runPreparedSkillExperiment({build='pc-res144-build51',preparation,commands,states,experiment,targetBinding,lifecycle}){
-  if(!['pc-res144-build51','pc-res150-build51'].includes(build)||!commands||!experiment||experiment.build!==build||Object.hasOwn(experiment,'rows')||Object.hasOwn(experiment,'command')||!experiment.variables||lifecycle!=='assumed-absent')throw new Error('Explicit matching-build command catalog, experiment without rows and absent lifecycle assumption required');
+export function runPreparedSkillExperiment({build='pc-res144-build51',preparation,commands,states,experiment,targetBinding,lifecycle,resource151ExecutionProfile=null}){
+  const setup=experiment?.kind==='morimens-role-state-command';
+  const supportedBuild=['pc-res144-build51','pc-res150-build51'].includes(build)||(build==='pc-res151-build51'&&resource151ExecutionProfile==='role-state-setup'&&setup);
+  if(!supportedBuild||!commands||!experiment||experiment.build!==build||Object.hasOwn(experiment,'rows')||Object.hasOwn(experiment,'command')||!experiment.variables||lifecycle!=='assumed-absent')throw new Error('Explicit matching-build command catalog, experiment without rows and absent lifecycle assumption required');
   const prepared=prepareSkillCommand(preparation);
   if(!Object.hasOwn(commands,prepared.commandId))throw new Error('Selected command is missing');
   const targetSelection=resolveScalarSkillField({...preparation,field:'CmdTarget',evaluate:preparation.evaluateCondition});
   if(!targetBinding||targetBinding.expression!==targetSelection.value)throw new Error('Explicit binding of the selected skill target required');
-  const setup=experiment.kind==='morimens-role-state-command';
   let targetResolution=null;
   if(setup){
     if(targetBinding.resolution!=='role-registry'||Object.keys(targetBinding).length!==3||!Number.isSafeInteger(targetBinding.roleId)||experiment.targetBindings?.[targetSelection.value]!==targetBinding.roleId)throw new Error('Setup skill target must bind to the explicit role registry');
@@ -42,7 +43,8 @@ export function runPreparedSkillExperiment({build='pc-res144-build51',preparatio
     const {stateRuntime,...withoutRuntime}=experiment;executionExperiment={...withoutRuntime,definitions:catalogStateDefinitions};
   }
   const commandInput={...executionExperiment,command:commands[prepared.commandId],variables};
-  const calculation=setup?runRoleStateCommand(commandInput):terminal?runTerminalStateCommand({...commandInput,targetBinding:{...targetBinding}}):mixed?runDamageEnergyCommand(commandInput):runActiveCommandExperiment({...experiment,rows:support.normalizedRows,variables:{...experiment.variables,...prepared.argumentBindings}},
+  const roleStateOptions=build==='pc-res151-build51'?{resource151Profile:'prepared-role-state-setup'}:{};
+  const calculation=setup?runRoleStateCommand(commandInput,roleStateOptions):terminal?runTerminalStateCommand({...commandInput,targetBinding:{...targetBinding}}):mixed?runDamageEnergyCommand(commandInput):runActiveCommandExperiment({...experiment,rows:support.normalizedRows,variables:{...experiment.variables,...prepared.argumentBindings}},
     {allowedFunctions:preparation.allowedFunctions??[],callFunction:preparation.callFunction});
   return {...base,status:'EXPERIMENTAL',catalogStateDefinitions,calculation,unresolvedDependencies:[...dependencies,...calculation.unresolvedDependencies]};
 }

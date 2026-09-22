@@ -50,3 +50,12 @@ test('state-to-Active handoff uses matching installed resource-150 catalogs',()=
   const result=runPreparedStateActiveSequence(value,currentSource);
   assert.equal(result.build,'pc-res150-build51');assert.equal(result.carry.activeCasterProperties.crit_damage,105);assert.equal(result.modeledHpLost,3);
 });
+
+test('state-to-Active handoff uses the bounded installed resource-151 state profile',()=>{
+  const readCurrent=name=>{const bytes=readFileSync(new URL(`../research/observations/current-res151-build51/modules/${name}.json`,import.meta.url));return {data:JSON.parse(bytes),sha256:createHash('sha256').update(bytes).digest('hex')};};
+  const current=Object.fromEntries(['Skill','BattleApi','Cmd','State'].map(name=>[name,readCurrent(name)]));
+  const currentSource={build:'pc-res151-build51',skills:current.Skill.data,battleApi:current.BattleApi.data,commands:current.Cmd.data,states:current.State.data,sourceHashes:Object.fromEntries(Object.entries(current).map(([name,row])=>[name,row.sha256]))};
+  const value=input();value.build='pc-res151-build51';value.stateCard.execution.experiment.build='pc-res151-build51';value.activeSkill.build='pc-res151-build51';
+  const result=runPreparedStateActiveSequence(value,currentSource);
+  assert.equal(result.build,'pc-res151-build51');assert.equal(result.carry.activeCasterProperties.crit_damage,105);assert.equal(result.modeledHpLost,3);assert.equal(result.finalDamage,null);
+});

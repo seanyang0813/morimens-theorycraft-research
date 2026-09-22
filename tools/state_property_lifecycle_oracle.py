@@ -5,8 +5,8 @@ import json
 from state_property_routing_oracle import RoutingOracle, ROOT
 
 class PropertyLifecycleOracle(RoutingOracle):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, asset_overrides=None, api_path=None):
+        super().__init__(asset_overrides,api_path)
         self.tobool=self.lib.lua_toboolean;self.tobool.argtypes=[C.c_void_p,C.c_int];self.tobool.restype=C.c_int
 
     def lifecycle(self,v):

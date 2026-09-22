@@ -3,8 +3,9 @@ import json
 from state_property_lifecycle_oracle import PropertyLifecycleOracle, ROOT
 
 class MutationBridgeOracle(PropertyLifecycleOracle):
-    def __init__(self):
-        super().__init__();L=self.state
+    def __init__(self, asset_overrides=None, api_path=None):
+        asset_overrides = asset_overrides or {}
+        super().__init__(asset_overrides,api_path);L=self.state
         def require(s):
             name=self.string(s,1,None)
             known={b'System.System':b'_oracle_config_system',b'Battle.BattleConst':b'_oracle_bc',b'Battle.Util.BattleUtilServer':b'_oracle_util'}
@@ -12,7 +13,7 @@ class MutationBridgeOracle(PropertyLifecycleOracle):
             elif name in [b'Battle.Ecs.BattleComponent',b'Battle.DbgEngine.Event.BattleLogicEvent']:self.table(s,0,0)
             else:self.errors.append(repr(name));self.nil(s)
             return 1
-        self.callback(require);self.setglobal(L,b'require');self.module('BattlePropertyServer');self.setglobal(L,b'_bridge_property')
+        self.callback(require);self.setglobal(L,b'require');self.module('BattlePropertyServer',asset_overrides.get('BattlePropertyServer'));self.setglobal(L,b'_bridge_property')
 
     def run(self,case):
         super().run(case);L=self.state;self.top(L,0);self.actual=[]

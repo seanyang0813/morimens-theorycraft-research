@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_STATE_ACTIVE_SEQUENCE_COMPATIBILITY",
+  "build": "pc-res151-build51",
+  "status": "SUPPORTED_BY_DIRECT_RUNTIME_AND_EXACT_COMPOSITION",
+  "operation": "run-prepared-state-active-sequence",
+  "sourceHashes": {
+    "currentBattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+    "currentBattleUtilServer": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
+    "currentBattleCmdServer": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9",
+    "currentBattleStateServer": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+    "currentBattlePropertyServer": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5",
+    "currentBattleApi": "e79202cdba3e73bd9f8bbfa1943d9fc016dc3ac7f1a80ec7372c8d0639687e6d",
+    "fixture": "3b22ff9acab0a6ca9552740a2e4d32f362f5d4de891af727e9c95aabbb3ae5e7",
+    "catalogCompatibility": "ca45070e0749bc8728d3a6bc2e261379120777e61f0d9d1241c8f2dbdcd4fe34",
+    "activeCompatibility": "9cdb9750b4486d8297c1c55401afb85bd0ef263fa70aa81cb8e89759ca437f8e"
+  },
+  "directRuntime": {
+    "fixtures": 432,
+    "exactMatches": 432,
+    "mismatches": 0
+  },
+  "composedEvidence": {
+    "catalogStatus": "LUA_SEMANTICALLY_EQUIVALENT",
+    "catalogTableCount": 5,
+    "catalogSemanticChanges": 0,
+    "activeStatus": "SUPPORTED_FOR_NARROW_REPLAY_ADAPTER_BY_EXACT_CARRYFORWARD",
+    "activeClientModuleDependencies": 6,
+    "activeConfigDependencies": 5
+  },
+  "results": [],
+  "scope": "One catalog-backed role-state setup mutating one explicit recipient through original resource-151 state/property bytecode, followed by one bounded catalog-prepared Active skill cast by that same role from the updated complete snapshot.",
+  "limitations": [
+    "Only numeric role-property changes and explicitly declared caster-state layer queries carry into the Active step",
+    "Costs, zones, proxy routing, duration/expiry, callbacks, other actors, target-state mutation and automatic targeting are excluded",
+    "No gameplay, prediction or holdout credit"
+  ]
+}

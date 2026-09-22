@@ -41,3 +41,11 @@ test('role snapshots and tentacle context remain explicit',()=>{
   const v=input();delete v.roles[0].properties.damage_plus;assert.throws(()=>runRoleStateCommand(v),/lacks explicit property/);
   const nonMonster=input();nonMonster.roles[0].roleType='Awakener';nonMonster.roles[0].tentacleContext={pve:true,ownerMonster:false,maxTentacleCount:0};const result=runRoleStateCommand(nonMonster);assert.equal(result.trace[2].returned,false);assert.equal(result.trace[2].record,null);
 });
+
+test('resource-151 role-state execution requires the exact internal prepared-setup profile',()=>{
+  const v=input();v.build='pc-res151-build51';
+  assert.throws(()=>runRoleStateCommand(v),/Explicit setup-only/);
+  const result=runRoleStateCommand(v,{resource151Profile:'prepared-role-state-setup'});
+  assert.equal(result.build,'pc-res151-build51');assert.equal(result.roles[0].properties.damage_plus,80);
+  assert.throws(()=>runRoleStateCommand(v,{resource151Profile:'other'}),/Unsupported role-state execution option/);
+});

@@ -16,7 +16,7 @@ export function runPreparedStateActiveSequence(value,source){
   if(input.activeSkill?.build!==input.build)throw new Error('Active skill must use the sequence build');
 
   const stateRequest={schemaVersion:2,kind:'morimens-prepared-skill-request',build:input.build,...input.stateCard};
-  const stateCard=runPreparedSkillRequest(stateRequest,source);
+  const stateCard=runPreparedSkillRequest(stateRequest,source,input.build==='pc-res151-build51'?{resource151ExecutionProfile:'role-state-setup'}:{});
   if(stateCard.status!=='EXPERIMENTAL'||stateCard.execution?.calculation?.completed!==true)throw new Error('State card did not complete a supported execution');
   const roleId=input.roleBinding.stateRecipientRoleId;
   const beforeRoles=input.stateCard.execution.experiment?.roles;
