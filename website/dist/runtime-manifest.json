@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "e1dd7dbae6a3908448f65a4a48667d49b1e099d0a583ada80072ba57972465b7",
+  "fingerprint": "eb0c2ca9643264a8996eb796c178a8d76027f11e0bec60b2b668e28fbbddd6c5",
   "files": {
     "build-catalog.json": "71d0e0d14959e933ae8942ac0064de95c0a63b84ce9065e2bdcef4509090b98b",
     "client-build-data-res150.json": "49d4bf5abe419360df47e4959a26fb50bdaa37ed8189c022a644ff518f6fba80",
@@ -84,6 +84,7 @@
     "engine/passive-command-experiment.mjs": "38bbdd17dc535e58fc844b22b1761546fcc98867964972dc4aa4ef3ac535881f",
     "engine/passive-prehit.mjs": "c8b1ccfb7c47ce49c3bd09842fef15058ed78277d9de743d772c79ba0d85a77e",
     "engine/prepare-skill-command.mjs": "702ff70bc68e4c8a6f5dd4a6af9e131f98231ad28844fbcab8f12c559b03caa3",
+    "engine/prepared-mortal-blast.mjs": "a0aca171a54b4c384f59dd0111abf2e8f13a387967b01fc0b9918219b9d2958a",
     "engine/prepared-skill-experiment.mjs": "15fdc8f62fa116184554492e709e2e23e4c93bf9cad777fbee9e2e7b97960cee",
     "engine/prepared-skill-request.mjs": "e95f56deec22ac0051f6974f9647d0d32f2a1e3cb2c6a11d39f01d7b04acb070",
     "engine/prepared-snapshot-active-skill.mjs": "2afc6b965c8656ad40bf5f097b828a4776547db72a713ef6986588258604cf2a",
@@ -140,7 +141,7 @@
     "engine/wheel-search.mjs": "5055b6d67b72ea7d4dbc882dec7df9b6bb32812cc6f8675d355b6d9aff83b36e",
     "engine/wheel-stats.mjs": "d0eac4ca93b72cd91595dc6650b363f4b35e2262aac018e1c0e41c77f31b813e",
     "engine/wheel-trigger-transitions.mjs": "6628e20f50b739c35f59a3b86dd86b01cabc244a4e6fae6f0882254ace812bef",
-    "rules.json": "4d42934c311592bab3207f53b6be9eefa5c4f6b6709296fa81064c654734c8f8",
+    "rules.json": "3034b4cb90be970967ee083adc0a5f47e6424b9e2e2e99128174a0eb04584be6",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af",
     "wheel-mechanics-capability-catalog.json": "f544b9f24176c216532d050136a56aac58bccb20086f3acd78bd56613ca61af0"
   }

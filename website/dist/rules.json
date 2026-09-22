@@ -6740,6 +6740,52 @@
       ]
     },
     {
+      "id": "Theorycraft:PreparedMortalBlast",
+      "status": "SUPPORTED_BY_COMPONENT_AND_CATALOG_TESTS",
+      "claim": "One API operation derives current Mortal Blast direct hits and potency from pinned catalogs, calculates the direct-hit prefix from complete property snapshots, then joins the proven copy suffix and exposes all five bounded rows",
+      "scope": "Authored composition of the catalog-prepared schema-4 damage prefix and separately supported copy suffix for resource 150, with matching builds, Skill 122483, Command 122499, row-2 BECreateCard stop and derived Arg2>1 enforced. One explicitly eligible enemy and complete supplied property/history/manager inputs. The generated Strike is not played; full connected scheduling, multi-enemy execution, callbacks, statistics, death execution, gameplay and holdout validation are excluded. completeSkill is false and finalDamage remains null.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Skill",
+          "member": "122483",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8"
+        },
+        {
+          "module": "Cmd",
+          "member": "122499",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2"
+        },
+        {
+          "module": "BEActiveDamage",
+          "member": "DoEffect,__DoMultiEffect",
+          "sha256": "6d87f4da91293c019579f5d586a093763d3fb1051d6efed8652cdbc3b114e208"
+        },
+        {
+          "module": "BattleCmdParser",
+          "member": "GetCopyHistoryCard,LastTarget",
+          "sha256": "5b605a46a341666eae8576b211f9c171dceaa757a72e953d182a35d73511790d"
+        },
+        {
+          "module": "BECreateCard",
+          "member": "DoEffect",
+          "sha256": "f068ef334f66ac38cbc48c4829a3bb26d05476c904e0b562c00561fc80e7d3f6"
+        },
+        {
+          "module": "State",
+          "member": "2948,2454,2983",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8"
+        }
+      ],
+      "checks": [
+        "engine/prepared-mortal-blast.mjs",
+        "tests/prepared-mortal-blast.test.mjs",
+        "tests/theorycraft-api.test.mjs",
+        "docs/PREPARED_SNAPSHOT_ACTIVE_SKILL.md",
+        "docs/MOUCHETTE.md"
+      ]
+    },
+    {
       "id": "Theorycraft:PreparedDefendBlockEnergy",
       "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
       "claim": "The catalog-prepared theorycraft path executes an ordinary PvE Defend card as snapshot-derived Block gain followed by capped caster ultimate-energy gain",

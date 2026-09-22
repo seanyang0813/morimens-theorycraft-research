@@ -80,5 +80,10 @@ history cards and reproduces this filter. `run-mortal-blast-copy-suffix` compose
 selection, top-of-hand creation, the tested manager return/overflow branch,
 `LastTarget` handoff and the three proven Card properties after the caller proves
 `Arg2 > 1`. It cannot infer live history, hand state or allocated UIDs. The leading
-damage prefix and this suffix are not yet one connected scheduled command; copied-card
-execution, listeners, multi-enemy execution, gameplay and holdout validation remain.
+damage prefix and suffix can now be requested together through
+`run-prepared-mortal-blast`. That operation derives row 1 and `Arg2` from the pinned
+Skill/Cmd catalogs, then joins the explicit-history suffix and reports all five bounded
+rows in one trace. It deliberately returns `completeSkill = false` and `finalDamage = null`:
+the join is an authored composition rather than one connected scheduled command, and
+the generated Strike has not been played. Copied-card execution, listeners,
+multi-enemy execution, gameplay and holdout validation remain.

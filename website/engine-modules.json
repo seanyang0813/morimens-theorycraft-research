@@ -132,5 +132,6 @@
   "paid-wheel-active-timeline.mjs",
   "paid-wheel-order-search.mjs",
   "copy-history-card-selection.mjs",
-  "mortal-blast-copy-suffix.mjs"
+  "mortal-blast-copy-suffix.mjs",
+  "prepared-mortal-blast.mjs"
 ]

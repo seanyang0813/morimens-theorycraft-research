@@ -27,6 +27,7 @@ test('agent API advertises explicit bounded operations',()=>{
   assert.ok(response.result.operations.some(row=>row.name==='search-wheel-catalog'));
   assert.ok(response.result.operations.some(row=>row.name==='select-copy-history-cards'));
   assert.ok(response.result.operations.some(row=>row.name==='run-mortal-blast-copy-suffix'));
+  assert.ok(response.result.operations.some(row=>row.name==='run-prepared-mortal-blast'));
   assert.equal(response.result.publicationStatus,'NOT_READY');
 });
 
@@ -262,6 +263,11 @@ test('agent API exposes every real Mortal Blast row and refuses partial executio
   const response=runTheorycraftRequest(requestValue,{skillCommandData});assert.equal(response.result.skillId,122483);assert.equal(response.result.prepared.commandId,122499);assert.deepEqual(response.result.prepared.arguments,[15,2]);assert.equal(response.result.commandSupport.executable,false);assert.deepEqual(response.result.commandSummary,{effectTypes:['BEActiveDamage','BECreateCard','BEAddState'],rowCount:5});assert.deepEqual(response.result.commandSupport.normalizedRows.map(row=>row.Type),['BEActiveDamage','BECreateCard','BEAddState','BEAddState','BEAddState']);assert.equal(response.result.commandSupport.rows.slice(1).some(row=>row.blockers.some(blocker=>blocker.code==='EXPRESSION')),false);assert.equal(response.result.execution,null);assert.equal(response.result.finalDamage,null);
   const prefix={schemaVersion:4,kind:'morimens-prepared-snapshot-active-skill',build:'pc-res150-build51',preparation:requestValue.input.preparation,targetBinding:{expression:'AllEnemy',resolution:'supplied-single-target-selector',eligibleTargetCount:1},lifecycle:'assumed-absent',snapshot:{snapshotStage:'battle-property-server-live',snapshotCompleteness:'complete-map',casterProperties:{crit:0,crit_damage:0,crit_damage_from_strikecard:0,crit_damage_per:0},playerProperties:{dimension_fix_per:0},initialTargetProperties:{hp:1000,max_hp:1000,block:0,be_damage_per:0,vulnerable_per:0},cardProperties:{},targetBattleTag:'Monster',targetStateIds:[],critRolls:[null,null]},repeatModifiers:{plus:0,per:0}};
   const prefixResponse=runTheorycraftRequest(request('run-prepared-snapshot-active-skill',prefix),{skillCommandData});assert.equal(prefixResponse.result.calculation.modeledHpLost,30);assert.deepEqual(prefixResponse.result.stop,{beforeRowId:'2',type:'BECreateCard',reason:'Unsupported effect handler'});assert.equal(prefixResponse.result.completed,false);assert.equal(prefixResponse.result.finalDamage,null);
+  const card={uid:1,id:126484,level:90,camp:1,specialOwner:56,performSkillId:126484,cardTypes:['Card_Strike'],stateIds:[],createCardArgs:[]};
+  const historySelection={schemaVersion:1,kind:'morimens-copy-history-card-selection',build:'pc-res150-build51',cardTypes:['Card_Strike'],endNum:0,beginNum:99,needNum:1,skipSameId:0,exceptCardTypes:[],exceptStateIds:[123811,124733],history:[[card]]};
+  const copySuffix={schemaVersion:1,kind:'morimens-mortal-blast-copy-suffix',build:'pc-res150-build51',potencyGreaterThanOne:true,historySelection,castRoleUid:94450,camp:1,cardManagerState:{decks:{NoneDeck:[],DrawDeck:[],HandDeck:[],DimensionDeck:[]},enternalCardUids:[]},allocatedCardUid:99,maxHand:5};
+  const joined=runTheorycraftRequest(request('run-prepared-mortal-blast',{schemaVersion:1,kind:'morimens-prepared-mortal-blast',build:'pc-res150-build51',direct:prefix,copySuffix}),{skillCommandData});
+  assert.equal(joined.result.modeledDirectHpLost,30);assert.deepEqual(joined.result.generatedPlayableCardUids,[99]);assert.equal(joined.result.completeSkill,false);assert.equal(joined.result.finalDamage,null);
 });
 
 test('agent API executes the catalog conditional Puncture branch with LastConditionRet tracing',()=>{
