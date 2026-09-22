@@ -146,6 +146,14 @@ test('agent API composes explicit Wheel events with later Active hits',()=>{
   assert.equal(response.result.modeledHpLost,450);assert.deepEqual(response.result.trace.filter(row=>row.type==='ACTIVE_HIT').map(row=>row.result.preHitDamage),[100,350]);assert.equal(response.result.finalDamage,null);
 });
 
+test('agent API compares reordered Wheel/damage steps by stable identity',()=>{
+  const hit=id=>({id,type:'ACTIVE_HIT',baseValue:100,skillArgsPlus:0,tags:['Card_Strike'],cardProperties:{},cardContext:{present:false,instructionCard:false,stateTriggerAdd:false},targetContext:{critRoll:null,targetBattleTag:'Boss',targetStateIds:[]},hitContext:{damageSubtype:'Ordinary'}});
+  const timeline={schemaVersion:1,kind:'morimens-wheel-active-timeline',build:'pc-res144-build51',snapshotStage:'battle-property-server-live',snapshotCompleteness:'complete-map',initialWheelState:{doomsday:{refinementLevel:3,ownerAttack:1000,counter:0,baseStrikecardDamagePlus:0,wheelStrikecardDamagePlus:0},light:null,arachne:null},baseCasterProperties:{crit:0,crit_damage:0,crit_damage_from_strikecard:0,crit_damage_per:0,strikecard_damage_plus:0},basePlayerProperties:{dimension_fix_per:0},initialTargetProperties:{hp:2000,max_hp:2000,block:0,be_damage_per:0,vulnerable_per:0},steps:[hit('first'),{id:'after-first',type:'AFTER_USE_CARD',cardType:'Card_Strike'},hit('second')]};
+  const candidate=JSON.parse(JSON.stringify(timeline));candidate.steps=[candidate.steps[0],candidate.steps[2],candidate.steps[1]];
+  const response=runTheorycraftRequest(request('compare-wheel-active-timelines',{schemaVersion:1,kind:'morimens-wheel-active-comparison',baseline:timeline,candidate}));
+  assert.equal(response.result.orderOnly,true);assert.equal(response.result.modeledHpLostDelta,-250);assert.equal(response.result.alignedSteps.find(row=>row.id==='second').delta.preHitDamage,-250);
+});
+
 test('agent API exposes bounded card-order search without a global optimum claim',()=>{
   const input={schemaVersion:1,kind:'morimens-card-order-search',objective:'MAX_MODELED_HP_LOST',timeline:syntheticCardActionExample(),maxEvaluations:10,returnTop:2};
   const response=runTheorycraftRequest(request('search-card-orders',input));

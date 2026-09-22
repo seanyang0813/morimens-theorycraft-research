@@ -99,7 +99,10 @@ explicit Active hits among those events and applies the current Doomsday Strike
 flat and Arachne team amplification only to later hits. It requires complete
 property maps, cross-checks their baseline values against the Wheel state and
 does not infer event emission from card tags. Unsupported Wheels and incomplete
-inputs fail rather than receiving neutral defaults. See WHEEL_ACTIVE_TIMELINE.md.
+inputs fail rather than receiving neutral defaults. The lab can pin one such
+timeline and compare an edited order through the same runtime-fingerprinted
+contract used by agents, aligning steps by stable ID and separating order-only
+changes from edited inputs. See WHEEL_ACTIVE_TIMELINE.md.
 
 The first experiment layer now accepts reproducible versioned JSON containing two explicit research scenarios. `engine/experiments.mjs` evaluates both with the same calculator, reports changed input paths, metric deltas and aligned stage differences, and retains both full results/dependencies. Missing results remain null. The website can pin A, compare edited B, and run pasted experiments. Agents can use `node tools/compare_experiment.mjs experiment.json`. These are single-hit experiments, not yet general team/sequence simulations or an optimizer.
 

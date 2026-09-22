@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "1ce1af1a15cc46d22912011f1f6a93d6514738eeb9162f495c9327a5c8356ba2",
+  "fingerprint": "2c1f17f5331aabf8a29e8ae6a12afb37221334dfd4a7da58ce179710e976de7e",
   "files": {
     "build-catalog.json": "71d0e0d14959e933ae8942ac0064de95c0a63b84ce9065e2bdcef4509090b98b",
     "client-build-data-res150.json": "49d4bf5abe419360df47e4959a26fb50bdaa37ed8189c022a644ff518f6fba80",
@@ -126,6 +126,7 @@
     "engine/ulti-energy-experiment.mjs": "4fcd1bed7f27bbdd1d37070babbbeea5b5827bff8c1a82fb7e48f3c4f8592cd1",
     "engine/ulti-energy-gain.mjs": "08a4f4f32a7700422d6999e19e0e58fb2cace3bcbf7d0a910a9bcacf3b520468",
     "engine/use-attach-post-card.mjs": "a68fe61a2e770f751e8fbffcb417c85af9f1858968bf47ae492a4fca2bca0289",
+    "engine/wheel-active-comparison.mjs": "804b43882b169f505d2183b432be4d291f9497e50a4b44d01d88dee33641691c",
     "engine/wheel-active-timeline.mjs": "807eaf03511e264fd3654866ca5a9f6fb3a612cc936d6a25311fda91e0d65e6d",
     "engine/wheel-event-sequence.mjs": "ff56df8e2f473cdc7c53cd614efdc2d2abe8eea1518bc3c62a0a6362b04c69fd",
     "engine/wheel-initial-properties.mjs": "79e96c9b01a4d35edb222d11655d7ca35450670b03e018ec9bad994b56b61998",

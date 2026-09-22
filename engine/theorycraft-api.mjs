@@ -27,6 +27,7 @@ import {assembleWheelLoadoutProperties} from './wheel-loadout-properties.mjs';
 import {advanceDoomsdayAfterUseCard,advanceLightOfIntellectAfterKeeperSkill,advanceArachneAfterPursuit} from './wheel-trigger-transitions.mjs';
 import {runWheelEventSequence} from './wheel-event-sequence.mjs';
 import {runWheelActiveTimeline} from './wheel-active-timeline.mjs';
+import {compareWheelActiveTimelines} from './wheel-active-comparison.mjs';
 
 export const theorycraftOperations=Object.freeze([
   {name:'describe-capabilities',context:[],scope:'List supported versioned operations and evidence boundaries'},
@@ -54,6 +55,7 @@ export const theorycraftOperations=Object.freeze([
   {name:'advance-after-pursuit-wheel-triggers',context:[],scope:'Source-derived Arachne two-Wheel pursuit-amplification transition with owner and cap checks'},
   {name:'run-wheel-event-sequence',context:[],scope:'Ordered supported Wheel events with explicit temporary contributions and source-derived lifecycle clearing'},
   {name:'run-wheel-active-timeline',context:[],scope:'Explicit supported Wheel events composed with complete-property Active hits and shared HP/Block state'},
+  {name:'compare-wheel-active-timelines',context:[],scope:'Align two explicit Wheel/damage timelines by stable step identity and report order, input, damage, property and counter differences'},
   {name:'search-card-orders',context:[],scope:'Exact bounded permutation search over supplied resolved card actions'},
   {name:'prepare-skill-command',context:['skillCommandData'],scope:'Exported skill selection, argument preparation and optional supported command execution'},
   {name:'apply-monster-skill-change',context:[],scope:'Original-runtime-matched monster intent replacement/queue mutation without executing the selected skill'},
@@ -104,6 +106,7 @@ function execute(operation,input,context){
   if(operation==='advance-after-pursuit-wheel-triggers')return advanceArachneAfterPursuit(input);
   if(operation==='run-wheel-event-sequence')return runWheelEventSequence(input);
   if(operation==='run-wheel-active-timeline')return runWheelActiveTimeline(input);
+  if(operation==='compare-wheel-active-timelines')return compareWheelActiveTimelines(input);
   if(operation==='search-card-orders')return searchCardOrders(input);
   if(operation==='prepare-skill-command')return runPreparedSkillRequest(input,context.skillCommandData);
   if(operation==='apply-monster-skill-change'){

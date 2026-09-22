@@ -1,5 +1,6 @@
-export function startWheelEventLab({runWheelActiveTimeline,runWheelEventSequence,advanceDoomsdayAfterUseCard,advanceLightOfIntellectAfterKeeperSkill,advanceArachneAfterPursuit,runtimeFingerprint},doc=document){
+export function startWheelEventLab({compareWheelActiveTimelines,runWheelActiveTimeline,runWheelEventSequence,advanceDoomsdayAfterUseCard,advanceLightOfIntellectAfterKeeperSkill,advanceArachneAfterPursuit,runtimeFingerprint},doc=document){
   const $=id=>doc.getElementById(id);
+  let pinned=null;
   const examples={
     doomsday:{schemaVersion:1,kind:'morimens-after-use-card-wheel-trigger',build:'pc-res144-build51',wheelId:'wheel-0029',refinementLevel:3,cardType:'Card_Strike',ownerAttack:1000,counter:0,strikecardDamagePlus:0},
     light:{schemaVersion:1,kind:'morimens-after-keeper-skill-wheel-trigger',build:'pc-res144-build51',wheelId:'wheel-0117',refinementLevel:3,counter:0,roll:100,matchingStrikeAvailable:true},
@@ -13,6 +14,7 @@ export function startWheelEventLab({runWheelActiveTimeline,runWheelEventSequence
     if(input.kind==='morimens-after-pursuit-wheel-triggers')return advanceArachneAfterPursuit(input);
     if(input.kind==='morimens-wheel-event-sequence')return runWheelEventSequence(input);
     if(input.kind==='morimens-wheel-active-timeline')return runWheelActiveTimeline(input);
+    if(input.kind==='morimens-wheel-active-comparison')return compareWheelActiveTimelines(input,{runtimeFingerprint});
     throw new Error('Unsupported Wheel event request kind');
   };
   const render=input=>{
@@ -21,10 +23,13 @@ export function startWheelEventLab({runWheelActiveTimeline,runWheelEventSequence
     else if(result.kind==='morimens-after-keeper-skill-wheel-trigger-result')summary=`Move request ${result.transition.moveRequested?'passed':'did not pass'}; ${result.transition.movedCardCount} card moved; counter ${result.transition.counterBefore} → ${result.transition.counterAfter}`;
     else if(result.kind==='morimens-after-pursuit-wheel-triggers-result')summary=`Team damage amplification ${result.basicDamagePerBefore}% → ${result.basicDamagePerAfter}% (${result.addedBasicDamagePer>=0?'+':''}${result.addedBasicDamagePer})`;
     else if(result.kind==='morimens-wheel-event-sequence-result')summary=`${result.trace.length} events · final Strike flat ${result.finalState.doomsday?.strikecardDamagePlus??'not tracked'} · final team amplification ${result.finalState.arachne?.basicDamagePer??'not tracked'}`;
-    else summary=`${result.executedSteps} steps · ${result.modeledHpLost} modeled HP lost · final Strike flat ${result.finalWheelState.doomsday?.strikecardDamagePlus??'not tracked'} · final team amplification ${result.finalWheelState.arachne?.basicDamagePer??'not tracked'}`;
-    $('result').hidden=false;$('summary').textContent=summary;$('scope').textContent=`${result.event??'ordered events'} · ${result.status} · finalDamage is ${result.finalDamage}`;$('output').textContent=JSON.stringify({...result,runtimeFingerprint},null,2);$('error').textContent='';
+    else if(result.kind==='morimens-wheel-active-timeline-result')summary=`${result.executedSteps} steps · ${result.modeledHpLost} modeled HP lost · final Strike flat ${result.finalWheelState.doomsday?.strikecardDamagePlus??'not tracked'} · final team amplification ${result.finalWheelState.arachne?.basicDamagePer??'not tracked'}`;
+    else summary=`${result.orderOnly?'Order-only':'Input'} comparison · ${result.modeledHpLostDelta===null?'incomplete':`${result.modeledHpLostDelta>=0?'+':''}${result.modeledHpLostDelta} modeled HP lost`} · ${result.alignedSteps.length} aligned steps`;
+    $('result').hidden=false;$('summary').textContent=summary;$('scope').textContent=`${result.event??(result.kind==='morimens-wheel-active-comparison-result'?'aligned comparison':'ordered events')} · ${result.status} · finalDamage is ${result.finalDamage}`;$('output').textContent=JSON.stringify({...result,runtimeFingerprint},null,2);$('error').textContent='';
   };
   $('run').onclick=()=>{try{render(JSON.parse($('input').value));}catch(error){$('result').hidden=true;$('error').textContent=error.message;}};
+  $('pin').onclick=()=>{try{const input=JSON.parse($('input').value);if(input.kind!=='morimens-wheel-active-timeline')throw new Error('Pin requires a Wheel + damage timeline');runWheelActiveTimeline(input);pinned=JSON.parse(JSON.stringify(input));$('pin-status').textContent=`Pinned ${input.steps.length} steps to verified runtime ${runtimeFingerprint.slice(0,12)}…`;$('error').textContent='';}catch(error){$('error').textContent=error.message;}};
+  $('compare').onclick=()=>{try{if(!pinned)throw new Error('Pin a Wheel + damage timeline first');const candidate=JSON.parse($('input').value);if(candidate.kind!=='morimens-wheel-active-timeline')throw new Error('Comparison candidate must be a Wheel + damage timeline');render({schemaVersion:1,kind:'morimens-wheel-active-comparison',runtimeFingerprint,baseline:pinned,candidate});}catch(error){$('result').hidden=true;$('error').textContent=error.message;}};
   for(const id of Object.keys(examples))$(id).onclick=()=>{$('input').value=JSON.stringify(examples[id],null,2);render(examples[id]);};
   $('runtime-status').textContent=`Verified local engine ${runtimeFingerprint.slice(0,12)}…`;
 }

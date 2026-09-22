@@ -127,5 +127,6 @@
   "wheel-loadout-properties.mjs",
   "wheel-trigger-transitions.mjs",
   "wheel-event-sequence.mjs",
-  "wheel-active-timeline.mjs"
+  "wheel-active-timeline.mjs",
+  "wheel-active-comparison.mjs"
 ]

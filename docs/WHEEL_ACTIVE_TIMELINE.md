@@ -40,3 +40,19 @@ This remains an experimental composition. It does not execute card legality or
 payment, create a pursuit, dispatch arbitrary listeners, mutate a deck, resolve
 other Wheel passives, or provide gameplay validation. `finalDamage` remains
 null.
+
+## Comparing orders
+
+`engine/wheel-active-comparison.mjs` runs two complete timelines and aligns
+their steps by stable ID. It reports position changes separately from changed
+inputs, and for every aligned step exposes the delta in pre-hit damage, modeled
+HP loss, HP, Block, Strike flat damage, team amplification and each supported
+Wheel counter. A pure reorder is labeled `orderOnly`; changing an input is not
+silently attributed to order.
+
+The local Wheel lab can pin a timeline to the verified runtime, accept an edited
+candidate and display the same comparison returned by the agent operation
+`compare-wheel-active-timelines`. The saved comparison carries the runtime
+fingerprint and rejects replay against different checked bytes. Deltas compare
+the two executions; they are not isolated causal attribution when several
+positions or inputs change together.
