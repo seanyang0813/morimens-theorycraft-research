@@ -4,6 +4,17 @@ The installed Steam client now uses downloaded resource 151 / content build 51. 
 
 The narrow live-property replay adapter is now explicitly supported for resource 151 by exact dependency carry-forward. Its complete bounded dependency list contains six byte-identical client modules and the five semantically equivalent tables above. The composition report is `research/evidence/pc-res151-replay-adapter-compatibility.json`. This does not widen any other simulator or theorycraft operation. A resource-151 prediction freeze must include both the installed-build identity report and this adapter compatibility report.
 
+The paid Wheel timeline and its catalog-preparation bridge now support the
+resource-150 baseline in addition to resource 144. An exact row audit covers
+Doomsday Rampage, Light of Intellect, Eternal Weave, Rota Fortunae, their
+counters and their four trigger commands. The Arachne and Light gameplay fields
+are unchanged apart from `BaseSortID`. Resource 150 changes Doomsday's source
+expression from `StateOwner.atk` to `StateOwner.AtkForce`; the API exposes the
+selected source property and requires its live resolved value. The bridge was
+also exercised through `tools/run_theorycraft_request.mjs` with resource-150
+Skill/BattleApi/Cmd/State context. This does not carry the general Wheel or
+catalog-preparation APIs forward to resource 151.
+
 Of the selected combat modules, BattleConst, BattleUtilServer, BattleCmdServer, BattlePropertyServer, BEActiveDamage, BattleRecord and BattleEngine changed. BattleUnitBase, BattleStateServer, BEPureDamage, BEFixedDamage, BETentacleAttack, BattleReplayPlayer, PVEGameplay and BattleUnitUtil remained byte-identical. Path IDs are ignored because bundle repacking changes them without changing content.
 
 The actual resource-150 chunks were loaded through the copied client XLua runtime. `tools/verify_current_show_damage_formula.py` evaluated all 2,262 existing ShowDamageFormula fixture vectors and matched resource 144 exactly. The changed BattleCmdServer also matches 879 inherited PvE offensive-input assembly cases: 549 without a card and 330 with an explicit non-Awake card. `tools/verify_current_target_damage.py` checks another 2,097 no-card `__GetFinalDamage` and `GetTargetBeDmgPerMul` cases. The card extension matches 506 cases covering none/Strike/Ulti/combined tags, card and tag critical contributions, Ulti and instruction-card target amplification, state-trigger exclusion and supplied block/barrier eligibility. The source hashes and results are in the corresponding `pc-res150-*-runtime.json` evidence files.

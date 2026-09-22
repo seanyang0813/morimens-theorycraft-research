@@ -5,6 +5,7 @@ const clone=value=>JSON.parse(JSON.stringify(value));
 const finite=value=>Number.isFinite(value);
 const refinement=value=>Number.isSafeInteger(value)&&value>=0&&value<=3;
 const counter=(value,max)=>Number.isSafeInteger(value)&&value>=0&&value<=max;
+const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51']);
 
 function validateInitial(value){
   if(!exact(value,['doomsday','light','arachne']))throw new Error('Exact Wheel sequence initial state required');
@@ -24,7 +25,7 @@ function publicState(state){
 }
 
 export function runWheelEventSequence(input){
-  if(!exact(input,['schemaVersion','kind','build','initialState','steps'])||input.schemaVersion!==1||input.kind!=='morimens-wheel-event-sequence'||input.build!=='pc-res144-build51'||!Array.isArray(input.steps))throw new Error('Exact resource-144 Wheel event sequence required');
+  if(!exact(input,['schemaVersion','kind','build','initialState','steps'])||input.schemaVersion!==1||input.kind!=='morimens-wheel-event-sequence'||!supportedBuilds.has(input.build)||!Array.isArray(input.steps))throw new Error('Exact supported Wheel event sequence required');
   validateInitial(input.initialState);const state=clone(input.initialState),initialState=publicState(state),trace=[],ids=new Set();
   for(const step of input.steps){
     if(!step||typeof step.id!=='string'||!step.id||ids.has(step.id)||typeof step.type!=='string')throw new Error('Wheel sequence steps require unique IDs and explicit types');ids.add(step.id);

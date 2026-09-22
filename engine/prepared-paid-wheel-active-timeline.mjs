@@ -4,12 +4,13 @@ import {runPaidWheelActiveTimeline} from './paid-wheel-active-timeline.mjs';
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(key=>Object.hasOwn(value,key));
 const clone=value=>JSON.parse(JSON.stringify(value));
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51']);
 
 // Derives each card's Active hits from pinned Skill/BattleApi/Cmd data before
 // joining explicit payment, per-caster snapshots and supported Wheel events.
 export function runPreparedPaidWheelActiveTimeline(value,source){
   const input=clone(value),keys=['schemaVersion','kind','build','initialEnergy','wheelContributionPolicy','initialWheelContributions','actions'];
-  if(!exact(input,keys)||input.schemaVersion!==1||input.kind!=='morimens-prepared-paid-wheel-active-timeline'||input.build!=='pc-res144-build51'||input.wheelContributionPolicy!=='excluded-from-prepared-snapshots'||!Array.isArray(input.actions)||input.actions.length===0)throw new Error('Exact resource-144 prepared paid Wheel timeline required');
+  if(!exact(input,keys)||input.schemaVersion!==1||input.kind!=='morimens-prepared-paid-wheel-active-timeline'||!supportedBuilds.has(input.build)||input.wheelContributionPolicy!=='excluded-from-prepared-snapshots'||!Array.isArray(input.actions)||input.actions.length===0)throw new Error('Exact supported prepared paid Wheel timeline required');
   const preparedActions=[],derivedActions=[];let snapshotBaseline=null,targetTag=null,targetStateIds=null;
   for(const action of input.actions){
     if(!exact(action,['id','cardInstanceId','costInput','conditions','preparedSkill','postEvents'])||typeof action.id!=='string'||!action.id||typeof action.cardInstanceId!=='string'||!action.cardInstanceId||action.preparedSkill?.schemaVersion!==1||action.preparedSkill?.kind!=='morimens-prepared-snapshot-active-skill'||action.preparedSkill?.build!==input.build||!Array.isArray(action.postEvents)||action.postEvents.some(event=>!exact(event,['id','type','pursuitOwnerUid'])||event.type!=='AFTER_PURSUIT'))throw new Error('Each prepared paid Wheel action requires one supported catalog Active skill and explicit post-pursuit events');

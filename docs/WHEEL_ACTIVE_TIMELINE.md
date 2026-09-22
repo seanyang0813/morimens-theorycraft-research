@@ -116,10 +116,19 @@ Both payment and search preserve each hit's own base properties.
 ## Preparing paid actions from the catalog
 
 `engine/prepared-paid-wheel-active-timeline.mjs` is the catalog bridge used by
-local agents. For each action it resolves the pinned resource-144 skill and
+local agents. For each action it resolves the pinned resource-144 or resource-150 skill and
 command, derives supported Active hits and the Strike/Skill tag, then passes the
 result into the schema 2 paid timeline. Each action retains its own complete
 caster/player snapshot while target state and Wheel contributions remain shared.
 The caller must declare that Wheel contributions are excluded from those
 snapshots, and must still supply pursuit events explicitly. This prevents silent
 double counting and avoids implying that the catalog captures live battle state.
+
+The resource-150 boundary is backed by an exact comparison of the involved
+State and Cmd rows. Light of Intellect, Eternal Weave, Rota Fortunae, their
+counters and the shared temporary-amplification state retain the same gameplay
+fields after ignoring `BaseSortID`. Doomsday changes its attack expression from
+`StateOwner.atk` to `StateOwner.AtkForce`; the transition result therefore
+reports `ownerAttackSourceProperty`, and callers must supply that live property
+for the selected build. Resource 151 is not accepted by this composition even
+though the narrower replay adapter has a separate 150-to-151 carry-forward.

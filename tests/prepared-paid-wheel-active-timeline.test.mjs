@@ -8,6 +8,9 @@ import {searchPaidWheelOrders} from '../engine/paid-wheel-order-search.mjs';
 const read=name=>{const bytes=readFileSync(new URL(`../research/extracted/config/${name}.json`,import.meta.url));return {data:JSON.parse(bytes),sha256:createHash('sha256').update(bytes).digest('hex')};};
 const loaded=Object.fromEntries(['Skill','BattleApi','Cmd','State'].map(name=>[name,read(name)]));
 const source={build:'pc-res144-build51',skills:loaded.Skill.data,battleApi:loaded.BattleApi.data,commands:loaded.Cmd.data,states:loaded.State.data,sourceHashes:Object.fromEntries(Object.entries(loaded).map(([name,row])=>[name,row.sha256]))};
+const readCurrent=name=>{const bytes=readFileSync(new URL(`../research/observations/current-res150-build51/modules/${name}.json`,import.meta.url));return {data:JSON.parse(bytes),sha256:createHash('sha256').update(bytes).digest('hex')};};
+const currentLoaded=Object.fromEntries(['Skill','BattleApi','Cmd','State'].map(name=>[name,readCurrent(name)]));
+const currentSource={build:'pc-res150-build51',skills:currentLoaded.Skill.data,battleApi:currentLoaded.BattleApi.data,commands:currentLoaded.Cmd.data,states:currentLoaded.State.data,sourceHashes:Object.fromEntries(Object.entries(currentLoaded).map(([name,row])=>[name,row.sha256]))};
 const conditions={cardExists:true,inHand:true,judgeCost:true,commandExists:true,dead:false,strike:true,allowIgnoreCost:false,cardUseless:0,ownerUseless:0,coma:0,comaImmunity:0,ownerForbid:0,playerForbid:0,ownerForbidStrike:0,playerForbidStrike:0};
 const preparedSkill=(skillId,casterProperties,preparation)=>({schemaVersion:1,kind:'morimens-prepared-snapshot-active-skill',build:'pc-res144-build51',preparation:{skillId,skillLevel:1,isAwaker:true,breakSkillLevel:0,potencyLevel:0,overrides:[],variables:{},conditionResults:{},stateQueries:{},...preparation},targetBinding:{expression:'FrontEnemy',resolution:'supplied-single-UpperTarget'},lifecycle:'assumed-absent',snapshot:{snapshotStage:'battle-property-server-live',snapshotCompleteness:'complete-map',casterProperties,playerProperties:{dimension_fix_per:0,basic_damage_per:0},initialTargetProperties:{hp:5000,max_hp:5000,block:0,be_damage_per:0,vulnerable_per:0},cardProperties:{},targetBattleTag:'Monster',targetStateIds:[],critRolls:[null]},repeatModifiers:{plus:0,per:0}});
 const resource=(id,preparedSkillValue,postEvents=[])=>({id,cardInstanceId:`card-${id}`,costInput:{cfgCost:'1',originCost:1,delta:0,harmonize:0,fixedSwitches:{},keeper:false,keeperCost:null,pvp:false},conditions:{...conditions},preparedSkill:preparedSkillValue,postEvents});
@@ -24,4 +27,10 @@ test('prepared paid Wheel bridge rejects target drift, hidden Wheel contribution
   const drift=input();drift.actions[1].preparedSkill.snapshot.initialTargetProperties.hp=4999;assert.throws(()=>runPreparedPaidWheelActiveTimeline(drift,source),/same pre-sequence target/);
   const policy=input();policy.wheelContributionPolicy='maybe-included';assert.throws(()=>runPreparedPaidWheelActiveTimeline(policy,source),/prepared paid Wheel timeline/);
   const mixed=input();mixed.actions[1].preparedSkill.schemaVersion=2;assert.throws(()=>runPreparedPaidWheelActiveTimeline(mixed,source),/one supported catalog Active skill/);
+});
+
+test('current resource-150 catalog derives the same bounded paid action fixture',()=>{
+  const value=input();value.build='pc-res150-build51';for(const action of value.actions)action.preparedSkill.build=value.build;
+  const result=runPreparedPaidWheelActiveTimeline(value,currentSource);
+  assert.deepEqual(result.preparedActions.map(row=>[row.skillId,row.commandId,row.cardType]),[[3997,2350,'Card_Strike'],[4808,1059,'Card_Strike']]);assert.equal(result.modeledHpLost,139);assert.equal(result.calculation.trace[0].effect.trace.at(-1).result.ownerAttackSourceProperty,'AtkForce');
 });

@@ -3,6 +3,7 @@ import {runWheelEventSequence} from './wheel-event-sequence.mjs';
 
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(key=>Object.hasOwn(value,key));
 const clone=value=>JSON.parse(JSON.stringify(value));
+const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51']);
 const hitKeys=['id','type','baseValue','skillArgsPlus','tags','cardProperties','cardContext','targetContext','hitContext'];
 const multiHitKeys=[...hitKeys,'casterProperties','playerProperties'];
 const eventKeys={AFTER_USE_CARD:['id','type','cardType'],AFTER_KEEPER_SKILL:['id','type','roll','matchingStrikeAvailable'],AFTER_PURSUIT:['id','type','pursuitOwnerUid'],AFTER_BOUT_END:['id','type'],BEFORE_BATTLE_END:['id','type']};
@@ -66,7 +67,7 @@ function damageRequest(input,step,wheelState,targetProperties,multi){
 // complete-property Active hit adapter. It never infers which event a card emits.
 export function runWheelActiveTimeline(value){
   const input=clone(value),multi=input?.schemaVersion===2,keys=multi?['schemaVersion','kind','build','snapshotStage','snapshotCompleteness','initialWheelContributions','initialTargetProperties','steps']:['schemaVersion','kind','build','snapshotStage','snapshotCompleteness','initialWheelState','baseCasterProperties','basePlayerProperties','initialTargetProperties','steps'];
-  if(!exact(input,keys)||![1,2].includes(input.schemaVersion)||input.kind!=='morimens-wheel-active-timeline'||input.build!=='pc-res144-build51'||input.snapshotStage!=='battle-property-server-live'||input.snapshotCompleteness!=='complete-map'||!Array.isArray(input.steps)||input.steps.length===0)throw new Error('Exact resource-144 live-property Wheel Active timeline required');
+  if(!exact(input,keys)||![1,2].includes(input.schemaVersion)||input.kind!=='morimens-wheel-active-timeline'||!supportedBuilds.has(input.build)||input.snapshotStage!=='battle-property-server-live'||input.snapshotCompleteness!=='complete-map'||!Array.isArray(input.steps)||input.steps.length===0)throw new Error('Exact supported live-property Wheel Active timeline required');
   const initialState=multi?contributionInputState(input.initialWheelContributions):input.initialWheelState;
   // Reuse the Wheel sequence validator even when the timeline contains no event.
   runWheelEventSequence({schemaVersion:1,kind:'morimens-wheel-event-sequence',build:input.build,initialState,steps:[]});

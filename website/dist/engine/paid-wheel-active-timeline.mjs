@@ -4,6 +4,7 @@ import {runWheelActiveTimeline} from './wheel-active-timeline.mjs';
 
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(key=>Object.hasOwn(value,key));
 const clone=value=>JSON.parse(JSON.stringify(value));
+const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51']);
 
 function privateWheelState(value){
   return {
@@ -36,7 +37,7 @@ function wheelInput(input,wheelState,targetProperties,steps,multi){
 // cards and only after all supplied effects of that card finish.
 export function runPaidWheelActiveTimeline(value){
   const input=clone(value),multi=input?.schemaVersion===2,keys=multi?['schemaVersion','kind','build','initialEnergy','snapshotStage','snapshotCompleteness','initialWheelContributions','initialTargetProperties','actions']:['schemaVersion','kind','build','initialEnergy','snapshotStage','snapshotCompleteness','initialWheelState','baseCasterProperties','basePlayerProperties','initialTargetProperties','actions'];
-  if(!exact(input,keys)||![1,2].includes(input.schemaVersion)||input.kind!=='morimens-paid-wheel-active-timeline'||input.build!=='pc-res144-build51'||!Array.isArray(input.actions)||input.actions.length===0)throw new Error('Exact resource-144 paid Wheel Active timeline required');
+  if(!exact(input,keys)||![1,2].includes(input.schemaVersion)||input.kind!=='morimens-paid-wheel-active-timeline'||!supportedBuilds.has(input.build)||!Array.isArray(input.actions)||input.actions.length===0)throw new Error('Exact supported paid Wheel Active timeline required');
   const initialWheelState=multi?input.initialWheelContributions:input.initialWheelState;
   const resourceSteps=[],allEffects=[],ids=new Set();
   for(const action of input.actions){
