@@ -22,7 +22,7 @@ function readExisting(value,label){
   return {path,bytes:readFileSync(path)};
 }
 function validateBuildEvidence(items,recordedCombatBuild){
-  let recognized=false;
+  let recognized=false,adapterCompatibility=recordedCombatBuild!=='pc-res151-build51';
   for(const item of items){
     let value;try{value=JSON.parse(item.bytes.toString('utf8'));}catch{continue;}
     if(value?.schemaVersion===1&&value.kind==='MORIMENS_PC_COMBAT_BUILD_COMPARISON'&&value.currentBuild===recordedCombatBuild){
@@ -30,8 +30,10 @@ function validateBuildEvidence(items,recordedCombatBuild){
       if(!version||!Number.isInteger(version.resVersion)||!Number.isInteger(version.buildVersion)||typeof source?.versionManifest!=='string'||!/^[0-9a-f]{64}$/.test(source.versionManifest)||!source.bundles||typeof source.bundles!=='object')throw new Error('PC combat-build evidence is structurally incomplete');
       recognized=true;
     }
+    if(value?.schemaVersion===1&&value.kind==='MORIMENS_PC_REPLAY_ADAPTER_BUILD_COMPATIBILITY'&&value.afterBuild===recordedCombatBuild&&value.status==='SUPPORTED_FOR_NARROW_REPLAY_ADAPTER_BY_EXACT_CARRYFORWARD')adapterCompatibility=true;
   }
   if(!recognized)throw new Error('At least one recognized build report must identify the recorded combat build');
+  if(!adapterCompatibility)throw new Error('Resource-151 replay predictions require the exact adapter compatibility report');
 }
 
 export function validateRecordedBuildEvidence(recordedCombatBuild=null,buildEvidenceFiles=[]){

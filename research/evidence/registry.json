@@ -5854,6 +5854,28 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC151:NarrowReplayAdapter",
+      "status": "SUPPORTED_BY_EXACT_DEPENDENCY_CARRYFORWARD",
+      "claim": "The complete bounded resource-151 live-property replay adapter dependency set consists of six client modules byte-identical to resource 150 and five Lua-semantically equivalent config tables",
+      "sources": [
+        {
+          "module": "PC resource-151 replay adapter compatibility",
+          "member": "complete bounded dependency composition",
+          "bundle": "public hashes and dependency names only",
+          "sha256": "9cdb9750b4486d8297c1c55401afb85bd0ef263fa70aa81cb8e89759ca437f8e"
+        }
+      ],
+      "tests": [
+        "tools/build_res151_replay_adapter_compatibility.py",
+        "tests/pc-res151-replay-adapter-compatibility.test.mjs",
+        "tests/battle-property-snapshot-damage.test.mjs",
+        "tests/replay-action-candidate.test.mjs",
+        "tests/replay-blind-prediction.test.mjs"
+      ],
+      "scope": "Complete live property maps, PvE Awakener ordinary direct Active damage and optional ordinary/Puncture HP mutation. General simulator operations, transport, target prediction, RNG-stream reconstruction, callbacks, statistics, death scheduling, gameplay agreement and holdout credit remain outside this result.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC150:PrimaryStatAndAdvancementLookup",
       "status": "SUPPORTED_BY_CURRENT_RUNTIME_TEST",
       "claim": "The installed resource-150 character tables and original GetAwakerBaseAttrValue path match all 2,700 authored primary-stat checks; supported current advancement rows are exposed separately through the tested client rounding rule",

@@ -22,3 +22,7 @@ test('resource-150 target eligibility accepts current-only state IDs from its pi
   assert.equal(result.build,'pc-res150-build51');assert.equal(result.stateTypes[0].stateId,152061);
   assert.throws(()=>resolveTargetDamageEligibility({...base(),targetStateIds:[152061]}),/Unknown PC144 state ID/);
 });
+test('resource-151 target eligibility reuses the semantically identical current classifier',()=>{
+  const result=resolveTargetDamageEligibility({...base(),targetStateIds:[152061]},'pc-res151-build51');
+  assert.equal(result.build,'pc-res151-build51');assert.equal(result.stateTypes[0].stateId,152061);
+});

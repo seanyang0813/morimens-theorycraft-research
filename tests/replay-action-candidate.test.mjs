@@ -23,6 +23,12 @@ test('replay adapter can execute the narrow resource-150 live no-target-state pa
   input.index.actionSnapshots[0].window.hitSnapshots[0].activeStates=[{ownerUid:2,stateId:2934,layer:1,isDeleted:false}];
   const stateResult=buildReplayActionCandidate({...input,actionIndex:0,combatBuild:'pc-res150-build51'});assert.equal(stateResult.calculation.preHitDamage,250);assert.equal(stateResult.calculation.targetEligibility.targetHasDebuff,true);
 });
+test('replay adapter executes resource 151 only through the bounded carry-forward path',()=>{
+  const input=fixture(),result=buildReplayActionCandidate({...input,actionIndex:0,combatBuild:'pc-res151-build51'});
+  assert.equal(result.build,'pc-res151-build51');assert.equal(result.protocolBuild,'pc-res144-build51');assert.equal(result.scenario.build,'pc-res151-build51');assert.equal(result.calculation.preHitDamage,250);
+  assert.equal(result.calculation.target.status,'SUPPORTED_BY_EXACT_DEPENDENCY_CARRYFORWARD');
+  assert.match(result.calculation.unresolvedDependencies.at(-1),/Resource-151 support is restricted/);
+});
 
 test('replay adapter requires explicit direct-hit caster and skill identity',()=>{
   const missingSkill=fixture();delete missingSkill.index.actionSnapshots[0].window.hits[0].data.beHitConfig.skillConfigId;

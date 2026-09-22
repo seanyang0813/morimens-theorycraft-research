@@ -4,7 +4,7 @@ export const targetPercentKeys=['beDamagePer','beDamagePer2','beDamagePer3','beD
 export const targetKeys=['isCrit','awakerCritDamage','cardCritDamage','skillTypeCritDamage','awakerCardCritDamage','critDamagePer',...targetPercentKeys,'enemyStateDmgMultiplier','beDamagePlus'];
 
 export function activeTargetDamage(showDamage,data,build='pc-res144-build51',{cardPresent=false}={}){
-  if(!['pc-res144-build51','pc-res150-build51'].includes(build))throw new Error('Unsupported target-damage build');
+  if(!['pc-res144-build51','pc-res150-build51','pc-res151-build51'].includes(build))throw new Error('Unsupported target-damage build');
   if(typeof cardPresent!=='boolean')throw new Error('Explicit target-damage card presence required');
   if(!Number.isFinite(showDamage)||showDamage<1)throw new Error('showDamage must be finite and at least 1');
   const missing=targetKeys.filter(k=>k==='isCrit'?typeof data?.[k]!=='boolean':!Number.isFinite(data?.[k]));
@@ -26,6 +26,7 @@ export function activeTargetDamage(showDamage,data,build='pc-res144-build51',{ca
   const preHitDamage=Math.max(Math.ceil(result),1);
   if(!Number.isFinite(preHitDamage))throw new Error('Numerical overflow');
   trace.push({stage:'ceil, minimum 1',value:preHitDamage});
-  const evidence=build==='pc-res150-build51'?(cardPresent?'PC150:BattleCmdServer.CardTargetCrit':'PC150:BattleCmdServer.FinalTargetDamage'):'PC144:BattleCmdServer.__GetFinalDamage';
-  return {preHitDamage,trace,critBonusPercent:scaledCrit,evidence:[evidence],status:build==='pc-res150-build51'?'SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST':'CONFIRMED_FROM_CODE'};
+  const evidence=build==='pc-res144-build51'?'PC144:BattleCmdServer.__GetFinalDamage':build==='pc-res150-build51'?(cardPresent?'PC150:BattleCmdServer.CardTargetCrit':'PC150:BattleCmdServer.FinalTargetDamage'):(cardPresent?'PC151:BattleCmdServer.CardTargetCrit.ExactDependencyCarryforward':'PC151:BattleCmdServer.FinalTargetDamage.ExactDependencyCarryforward');
+  const status=build==='pc-res144-build51'?'CONFIRMED_FROM_CODE':build==='pc-res150-build51'?'SUPPORTED_BY_CROSS_BUILD_RUNTIME_TEST':'SUPPORTED_BY_EXACT_DEPENDENCY_CARRYFORWARD';
+  return {preHitDamage,trace,critBonusPercent:scaledCrit,evidence:[evidence],status};
 }

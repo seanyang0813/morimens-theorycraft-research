@@ -19,6 +19,18 @@ resource-150 session, freeze the build at the same time:
 node tools/freeze_blind_replay_prediction.mjs --index research/observations/<private>/index.json --decoded research/observations/<private>/decoded.json --id replay-holdout-001 --recorded-build pc-res150-build51 --build-evidence research/evidence/pc-res144-to-res150-combat-build.json
 ```
 
+For resource 151, the freeze requires both installed-build identity and the
+exact bounded adapter carry-forward:
+
+```text
+node tools/freeze_blind_replay_prediction.mjs --index research/observations/<private>/index.json --decoded research/observations/<private>/decoded.json --id replay-holdout-001 --recorded-build pc-res151-build51 --build-evidence research/evidence/pc-res144-to-res151-combat-build.json --build-evidence research/evidence/pc-res151-replay-adapter-compatibility.json
+```
+
+Resource-151 support is limited to the same complete live-property ordinary
+Active adapter. Six required client modules are byte-identical to resource 150,
+and Skill, Cmd, State, BattleApi and Constant have no Lua-semantic gameplay
+changes. This carry-forward does not enable other simulator operations.
+
 The resource-150 replay adapter is intentionally narrower than the historical
 resource-144 adapter. It accepts only complete live property maps. Target-state
 classification comes from all 6,959 installed resource-150 State rows, while

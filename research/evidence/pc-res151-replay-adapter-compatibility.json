@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_REPLAY_ADAPTER_BUILD_COMPATIBILITY",
+  "beforeBuild": "pc-res150-build51",
+  "afterBuild": "pc-res151-build51",
+  "status": "SUPPORTED_FOR_NARROW_REPLAY_ADAPTER_BY_EXACT_CARRYFORWARD",
+  "adapterScope": "Complete live property maps; PvE Awakener ordinary direct Active damage; replay-embedded Skill, Cmd, MonsterConfig and AwakerConfig routing; optional ordinary or Puncture HP mutation.",
+  "clientModuleDependencies": [
+    {
+      "name": "BattleConst.lua",
+      "status": "IDENTICAL",
+      "before": [
+        {
+          "sha256": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+          "size": 41981
+        }
+      ],
+      "after": [
+        {
+          "sha256": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+          "size": 41981
+        }
+      ]
+    },
+    {
+      "name": "BattleUtilServer.lua",
+      "status": "IDENTICAL",
+      "before": [
+        {
+          "sha256": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
+          "size": 27905
+        }
+      ],
+      "after": [
+        {
+          "sha256": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
+          "size": 27905
+        }
+      ]
+    },
+    {
+      "name": "BattleCmdServer.lua",
+      "status": "IDENTICAL",
+      "before": [
+        {
+          "sha256": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9",
+          "size": 65998
+        }
+      ],
+      "after": [
+        {
+          "sha256": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9",
+          "size": 65998
+        }
+      ]
+    },
+    {
+      "name": "BattleUnitBase.lua",
+      "status": "IDENTICAL",
+      "before": [
+        {
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "size": 42806
+        }
+      ],
+      "after": [
+        {
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "size": 42806
+        }
+      ]
+    },
+    {
+      "name": "BattlePropertyServer.lua",
+      "status": "IDENTICAL",
+      "before": [
+        {
+          "sha256": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5",
+          "size": 12825
+        }
+      ],
+      "after": [
+        {
+          "sha256": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5",
+          "size": 12825
+        }
+      ]
+    },
+    {
+      "name": "BEActiveDamage.lua",
+      "status": "IDENTICAL",
+      "before": [
+        {
+          "sha256": "e192a4ab7db968b526c13d3495b2072f4ac88fe167f524f1defd2d00c747875c",
+          "size": 5730
+        }
+      ],
+      "after": [
+        {
+          "sha256": "e192a4ab7db968b526c13d3495b2072f4ac88fe167f524f1defd2d00c747875c",
+          "size": 5730
+        }
+      ]
+    }
+  ],
+  "configDependencies": [
+    "Skill",
+    "Cmd",
+    "State",
+    "BattleApi",
+    "Constant"
+  ],
+  "sourceEvidence": {
+    "moduleCarryforward": {
+      "path": "research/evidence/pc-res150-to-res151-combat-carryforward.json",
+      "sha256": "0a315f9ca80bd0ce0b1c4bf067c605e3b8dc38b82874c628587e5d6f9b132b45"
+    },
+    "configComparison": {
+      "path": "research/evidence/pc-res150-to-res151-config-catalogs.json",
+      "sha256": "ca45070e0749bc8728d3a6bc2e261379120777e61f0d9d1241c8f2dbdcd4fe34"
+    },
+    "resource150Runtime": [
+      {
+        "path": "research/evidence/pc-res150-show-damage-runtime.json",
+        "sha256": "a09fc37174a8736e0571e2d43140cccc1f5df07b29142eb210aa8b85213e4cf6",
+        "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+        "fixtures": 2262
+      },
+      {
+        "path": "research/evidence/pc-res150-offensive-setup-runtime.json",
+        "sha256": "c08216ae60baa93a67097702a5ab766c2ebc8a8919d52be29d5f882288e59da7",
+        "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+        "fixtures": 879
+      },
+      {
+        "path": "research/evidence/pc-res150-target-damage-runtime.json",
+        "sha256": "5fc82c928075ecd380076652bdc5e74a50daf6ca8cc62c9e8ef32f48d469099e",
+        "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+        "fixtures": 2097
+      },
+      {
+        "path": "research/evidence/pc-res150-card-target-runtime.json",
+        "sha256": "9bd78db6de1630f2236f1aae9864bea910ca5889cfd57ab4a150ef10e2fec6fe",
+        "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+        "fixtures": 506
+      },
+      {
+        "path": "research/evidence/pc-res150-behit-hp-runtime.json",
+        "sha256": "6892473e2079659b3d8e1474dd52b6e7f71f6ea77b9d861e184dd088b513f5fd",
+        "status": "EXACT_MATCH_IN_FIXTURE_DOMAIN",
+        "fixtures": 18
+      }
+    ],
+    "activeInitialization": {
+      "path": "research/evidence/pc-res150-active-damage-runtime.json",
+      "sha256": "1868df0179fe45f590ffcd496b873f7dba82d07e3704e0e22f371339d2d0e4d7",
+      "status": "BEHAVIOR_CHANGE_CONFIRMED"
+    }
+  },
+  "reasoning": [
+    "The adapter consumes live battle-property maps, so it does not use the role-property constructor path.",
+    "Every client code module executed or translated by the bounded adapter is byte-identical between resources 150 and 151.",
+    "Every installed config table read by the adapter has zero Lua-semantic row changes between resources 150 and 151.",
+    "The resource-150 behavior remains bounded by its recorded synthetic runtime fixture domains; exact dependency equality carries those domains to resource 151 without widening them."
+  ],
+  "limitations": [
+    "This compatibility result applies only to the named replay adapter scope, not the general simulator or every combat mechanic.",
+    "Replay transport, target prediction, random-number-stream reconstruction, callbacks, statistics and full death scheduling remain outside the adapter.",
+    "This report supplies no gameplay agreement, chronology, same-session provenance or holdout credit."
+  ]
+}

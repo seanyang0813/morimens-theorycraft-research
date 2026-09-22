@@ -45,6 +45,16 @@ test('resource-150 uses the bounded cross-build-matched live snapshot path',()=>
   input.targetContext.targetStateIds=[2934];assert.equal(calculateSnapshotActiveDamage(input).preHitDamage,349);
   input.targetContext.targetStateIds=[];input.snapshotStage='roleData.properties-before-constructor';assert.throws(()=>calculateSnapshotActiveDamage(input),/live properties/);
 });
+test('resource-151 uses only the exact resource-150 dependency carry-forward path',()=>{
+  const input=base();input.build='pc-res151-build51';input.targetContext.targetStateIds=[152061];
+  const result=calculateSnapshotActiveDamage(input);
+  assert.equal(result.build,'pc-res151-build51');assert.equal(result.preHitDamage,317);
+  assert.ok(result.offense.evidence.includes('PC151:BattleCmdServer.OffensiveSetup.ExactDependencyCarryforward'));
+  assert.deepEqual(result.target.evidence,['PC151:BattleCmdServer.FinalTargetDamage.ExactDependencyCarryforward']);
+  assert.equal(result.target.status,'SUPPORTED_BY_EXACT_DEPENDENCY_CARRYFORWARD');
+  assert.match(result.unresolvedDependencies.at(-1),/Resource-151 support is restricted/);
+  input.snapshotStage='roleData.properties-before-constructor';assert.throws(()=>calculateSnapshotActiveDamage(input),/live properties/);
+});
 test('schema 2 continues a complete snapshot through shield, limits and HP mutation',()=>{
   const input=base();input.schemaVersion=2;input.hitContext={damageSubtype:'Ordinary'};
   Object.assign(input.targetProperties,{hp:1000,max_hp:1000,block:50,immue_damage:0,immue_puncture_damage:0,immue_active_damage:0,PreventBeActiveDamage:1,PreventBeActiveDamageRetainHP:800,be_damage_limit:0,be_damage_statics:0,pvp_death_resist:0});
@@ -69,6 +79,14 @@ test('resource-150 schema 2 cites the matched current BeHit and property paths',
   const result=calculateSnapshotActiveDamage(input);
   assert.equal(result.preHitDamage,317);assert.equal(result.modeledHpLost,300);assert.equal(result.hpResolution.hpAfter,700);
   assert.ok(result.hpResolution.evidence.includes('PC150:BattleUnitBase.BeHitHp'));assert.ok(result.hpResolution.evidence.includes('PC150:BattlePropertyServer.SelectedPaths'));
+});
+test('resource-151 schema 2 cites exact dependency carry-forward through HP mutation',()=>{
+  const input=base();input.schemaVersion=2;input.build='pc-res151-build51';input.targetContext.targetStateIds=[];input.hitContext={damageSubtype:'Ordinary'};
+  Object.assign(input.targetProperties,{hp:1000,max_hp:1000,block:17});
+  const result=calculateSnapshotActiveDamage(input);
+  assert.equal(result.preHitDamage,317);assert.equal(result.modeledHpLost,300);assert.equal(result.hpResolution.hpAfter,700);
+  assert.ok(result.hpResolution.evidence.includes('PC151:BattleUnitBase.BeHitHp.ExactDependencyCarryforward'));
+  assert.ok(result.hpResolution.evidence.includes('PC151:BattlePropertyServer.SelectedPaths.ExactDependencyCarryforward'));
 });
 test('partial claims, unknown dynamic selectors and malformed property values fail closed',()=>{
   const input=base();

@@ -59,3 +59,19 @@ test('blind replay freeze pins an explicitly evidenced resource-150 build',()=>{
     assert.equal(existsSync(join(root,'research/evidence/holdouts',invalidId)),false);
   }finally{rmSync(privateDir,{recursive:true,force:true});rmSync(publicDir,{recursive:true,force:true});}
 });
+test('blind replay freeze requires both resource-151 build identity and adapter compatibility',()=>{
+  const input=fixture(250),privateDir=mkdtempSync(join(root,'research/observations/blind-build151-test-')),id=`blind-build151-test-${process.pid}`;
+  const publicDir=join(root,'research/evidence/holdouts',id),missingId=`blind-build151-missing-${process.pid}`;
+  try{
+    input.index.inputSha256='b'.repeat(64);
+    const indexFile=join(privateDir,'index.json'),decodedFile=join(privateDir,'decoded.json');
+    writeFileSync(indexFile,JSON.stringify(input.index));
+    writeFileSync(decodedFile,JSON.stringify({kind:'MORIMENS_DECODED_REPLAY',inputSha256:input.index.inputSha256,decoded:{resourceRecords:{Skill:input.skills,Cmd:input.commands,MonsterConfig:input.monsters,AwakerConfig:input.awakeners}}}));
+    const build='research/evidence/pc-res144-to-res151-combat-build.json',compatibility='research/evidence/pc-res151-replay-adapter-compatibility.json';
+    assert.throws(()=>freezeBlindReplayPrediction({indexFile:relative(root,indexFile),decodedFile:relative(root,decodedFile),id:missingId,recordedCombatBuild:'pc-res151-build51',buildEvidenceFiles:[build]}),/adapter compatibility report/);
+    assert.equal(existsSync(join(root,'research/evidence/holdouts',missingId)),false);
+    const result=freezeBlindReplayPrediction({indexFile:relative(root,indexFile),decodedFile:relative(root,decodedFile),id,recordedCombatBuild:'pc-res151-build51',buildEvidenceFiles:[build,compatibility],now:()=>new Date('2026-09-22T00:00:00Z')});
+    const freeze=JSON.parse(readFileSync(join(publicDir,'prediction-freeze.json'),'utf8'));
+    assert.equal(result.predictedDamage,100);assert.equal(freeze.recordedBuild.id,'pc-res151-build51');assert.equal(freeze.recordedBuild.evidence.length,2);
+  }finally{rmSync(privateDir,{recursive:true,force:true});rmSync(publicDir,{recursive:true,force:true});rmSync(join(root,'research/evidence/holdouts',missingId),{recursive:true,force:true});}
+});
