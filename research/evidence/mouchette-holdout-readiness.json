@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_HOLDOUT_READINESS_RECIPE",
+  "status": "RETROSPECTIVE_RECIPE_REQUIRES_FRESH_CONTROLLED_RUN",
+  "analysisTrack": "verification",
+  "character": {
+    "name": "Mouchette",
+    "clientConfigId": 94450
+  },
+  "corpus": {
+    "replays": 102,
+    "completeHitSnapshots": 7948,
+    "privateAuditSha256": "8d441990a5a26641ed672daf4ccb12529a32c0c8621c1e779639e183b5edaf30",
+    "identifiersPublished": false
+  },
+  "deterministicExactHits": 69,
+  "deterministicMismatches": 0,
+  "skills": [
+    {
+      "skillId": 122483,
+      "name": "Mortal Blast",
+      "exactHits": 17,
+      "capturedCritChanceCeilRange": [
+        104,
+        109
+      ]
+    },
+    {
+      "skillId": 122484,
+      "name": "Shining Tornado",
+      "exactHits": 24,
+      "capturedCritChanceCeilRange": [
+        104,
+        104
+      ]
+    },
+    {
+      "skillId": 123159,
+      "name": "Dramatic Encounter",
+      "exactHits": 27,
+      "capturedCritChanceCeilRange": [
+        104,
+        109
+      ]
+    },
+    {
+      "skillId": 122488,
+      "name": "Strike",
+      "exactHits": 1,
+      "capturedCritChanceCeilRange": [
+        109,
+        109
+      ]
+    }
+  ],
+  "nextControlledRun": {
+    "requiredPreHitCondition": "Captured calculated critical chance ceiling is at least 100, making the result deterministic without an RNG draw value.",
+    "preferredDirectCards": [
+      "Mortal Blast",
+      "Shining Tornado"
+    ],
+    "procedure": [
+      "Commit the live-session replay-reference baseline before battle.",
+      "Use Mouchette with a pre-hit critical chance ceiling of at least 100 and play a supported direct card.",
+      "Capture and freeze the first complete deterministic ordinary-Active candidate before revealing its recorded damage.",
+      "Reveal only after the prediction freeze and required resource-151 build evidence are committed."
+    ]
+  },
+  "limitations": [
+    "The archive was decoded before calculation and has unknown recorded engine builds, so its matches are retrospective only.",
+    "The recipe does not prove that a specific live account or battle currently satisfies the critical-chance condition.",
+    "This verification plan is not a theorycraft recommendation, cheese classification or budget-build ranking.",
+    "Only a fresh prediction-before-reveal run can produce holdout or publication credit."
+  ]
+}

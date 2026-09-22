@@ -64,3 +64,22 @@ same caster and skill identity cannot be misclassified as ordinary Active
 damage. `UpperTarget` may use the recorded hit identity when selection-command
 transport is absent, because the prediction explicitly conditions on target
 identity and does not claim to predict target selection.
+
+## Mouchette deterministic holdout recipe
+
+`research/evidence/mouchette-holdout-readiness.json` records an identifier-free
+planning audit over 102 already decoded PvE replays. It finds 69 deterministic
+Mouchette ordinary-Active hits with zero mismatches. The set includes 17 Mortal
+Blast, 24 Shining Tornado, 27 Dramatic Encounter and one Strike hit; every
+captured critical-chance ceiling is at least 100. Because the archive was
+decoded before calculation and its recorded engine builds are unknown, these
+matches are retrospective and receive no holdout or publication credit.
+
+The next controlled run should commit the live-session replay baseline before
+battle, capture Mouchette with a calculated critical-chance ceiling of at least
+100, and play Mortal Blast or Shining Tornado. Freeze the first complete
+deterministic ordinary-Active candidate before revealing damage, with the
+resource-151 build identity and bounded adapter compatibility evidence included.
+The live snapshot must establish the critical-chance condition; the archive does
+not prove that any current account or battle has it. This recipe belongs only to
+the verification track and makes no theorycraft, cheese or budget-build claim.

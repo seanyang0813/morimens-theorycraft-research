@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "kind": "MORIMENS_SANITIZED_REPLAY_CAPTURE_ROUND",
-  "generatedAtUtc": "2026-09-22T01:09:52.875909+00:00",
+  "generatedAtUtc": "2026-09-22T02:46:47.929535+00:00",
   "analysisTrack": "verification",
   "identifiersPublished": false,
   "rawArtifactsPublished": false,
-  "privateAuditSha256": "6ffceb07df4cfbf8d3a4b026fcb0a1f9497e3c9a3e3e870374f1347e5ae98e12",
+  "privateAuditSha256": "baa9aa5d8dc88521b4203b7f223c5c7426edf5ff72f58b611779ff9c1809284b",
   "scope": "Aggregate acquisition and adapter-eligibility evidence only. Recorded combat builds are unknown. The records may be routed to separate budget-scouting or cheese-analysis artifacts, but this report does not make either claim and cannot supply a theorycraft conclusion or publication-gate holdout.",
   "totals": {
     "replays": 102,
@@ -16,10 +16,10 @@
     "completeHitSnapshots": 7948,
     "unknownCommands": 0,
     "unknownEvents": 0,
-    "retrospectiveActiveCandidates": 1573,
-    "deterministicExactChecks": 172,
+    "retrospectiveActiveCandidates": 1736,
+    "deterministicExactChecks": 182,
     "deterministicMismatches": 0,
-    "exactRngBranchConsistencyChecks": 1401,
+    "exactRngBranchConsistencyChecks": 1554,
     "rngBranchMismatches": 0,
     "completeHitTargetRoleTypes": {
       "Player": 2399,

@@ -7222,13 +7222,13 @@
     {
       "id": "ReplayCorpus:Round003RetrospectiveActiveConsistency",
       "status": "GAMEPLAY_CONSISTENCY_EXACT_ENGINE_VERSION_UNCONFIRMED",
-      "claim": "Across 102 private PvE Boss replay containers, 172 deterministic Active candidates and 1,401 chance-dependent candidates match the reconstructed calculation with zero mismatches",
+      "claim": "Across 102 private PvE Boss replay containers, 182 deterministic Active candidates and 1,554 chance-dependent candidates match the reconstructed calculation with zero mismatches",
       "sources": [
         {
           "module": "Sanitized replay capture round 003",
           "member": "identifier-free aggregate counts, combat-domain routing and private-audit hash",
           "bundle": "private decoded replays plus replay-embedded combat data",
-          "sha256": "29ef999689903d00ad94520b6a810ec1b25c3bd87d081fa95b20f711acab0000"
+          "sha256": "6f49699b33c637b409cff4141546cde42f3e974018bcce109ab40fa963524f06"
         }
       ],
       "tests": [
@@ -7238,7 +7238,27 @@
         "tests/replay-capture-round-003.test.mjs",
         "tests/replay-action-candidate.test.mjs"
       ],
-      "scope": "7,948 complete action-bound hit snapshots yield 1,573 strict retrospective Active candidates. All records match replay-embedded Boss configurations with declared monsters. Outcomes were decoded before calculation, recorded engine bytecode versions and random draws remain unknown, and zero blind-eligible records or publication credit are claimed. Verification regression track only; no budget ranking, cheese classification or theorycraft conclusion.",
+      "scope": "7,948 complete action-bound hit snapshots yield 1,736 strict retrospective Active candidates after sparse-zero Block reconstruction, recorded-hit UpperTarget binding and exact damage-type filtering. All records match replay-embedded Boss configurations with declared monsters. Outcomes were decoded before calculation, recorded engine bytecode versions and random draws remain unknown, and zero blind-eligible records or publication credit are claimed. Verification regression track only; no budget ranking, cheese classification or theorycraft conclusion.",
+      "gameplayValidation": false
+    },
+    {
+      "id": "Verification:MouchetteDeterministicHoldoutReadiness",
+      "status": "RETROSPECTIVE_RECIPE_REQUIRES_FRESH_CONTROLLED_RUN",
+      "claim": "A private 102-replay planning scan found 69 deterministic exact Mouchette ordinary-Active hits with zero mismatches, supporting a fresh controlled holdout recipe using a captured critical-chance ceiling of at least 100",
+      "sources": [
+        {
+          "module": "Sanitized Mouchette holdout readiness recipe",
+          "member": "identifier-free aggregate counts and next-run procedure",
+          "bundle": "private retrospective replay audit",
+          "sha256": "72b06712fdbef1f44e36afeb9b050fe86c2813ad8dd4945e8980237ae6e0c770"
+        }
+      ],
+      "tests": [
+        "tools/audit_holdout_readiness.mjs",
+        "tools/sanitize_holdout_readiness.py",
+        "tests/holdout-readiness-recipe.test.mjs"
+      ],
+      "scope": "Retrospective verification planning only. The archive was decoded before calculation and recorded engine builds are unknown. A live snapshot must independently prove the deterministic critical condition, and the prediction must be frozen before outcome reveal. No gameplay holdout or publication credit, theorycraft recommendation, cheese classification or budget-build ranking.",
       "gameplayValidation": false
     },
     {

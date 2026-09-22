@@ -1,13 +1,13 @@
 {
-  "generatedAtUtc": "2026-09-22T02:39:35.798296+00:00",
+  "generatedAtUtc": "2026-09-22T02:56:46.564922+00:00",
   "publicationStatus": "NOT_READY",
   "publicationAuthorized": false,
   "automatedSuite": {
-    "testFiles": 235,
+    "testFiles": 236,
     "passed": true,
     "exitCode": 0,
     "log": "research\\evidence\\latest-test-suite.tap",
-    "logSha256": "eff405c74933170abd7cd6227651a1c215481ffbb2501cedf60cf4eb34af4768"
+    "logSha256": "6f19eafcb44c202fe3647a0aaed07e5aa915a5e82d4a5e4dd6dcd8e985cc33ca"
   },
   "realObservations": {
     "records": 3,
@@ -688,14 +688,14 @@
     "additionalReports": [
       {
         "report": "research\\evidence\\replay-capture-round-003.json",
-        "reportSha256": "29ef999689903d00ad94520b6a810ec1b25c3bd87d081fa95b20f711acab0000"
+        "reportSha256": "6f49699b33c637b409cff4141546cde42f3e974018bcce109ab40fa963524f06"
       }
     ],
     "analysisTrack": "verification",
     "auditedReplays": 144,
-    "activeCandidates": 2001,
-    "deterministicExactChecks": 441,
-    "exactRngBranchConsistencyChecks": 1560,
+    "activeCandidates": 2164,
+    "deterministicExactChecks": 451,
+    "exactRngBranchConsistencyChecks": 1713,
     "mismatches": 0,
     "publicationCredit": false,
     "crossTrackClaims": []

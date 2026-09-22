@@ -166,7 +166,7 @@ def main():
     replay_round3_path=ROOT/'research/evidence/replay-capture-round-003.json'
     replay_round3=json.loads(replay_round3_path.read_text(encoding='utf-8'))
     replay_round3_totals=replay_round3.get('totals',{})
-    if replay_round3.get('analysisTrack')!='verification' or replay_round3.get('blindSelection',{}).get('eligibleReplays')!=0 or replay_round3_totals.get('replays')!=102 or replay_round3_totals.get('retrospectiveActiveCandidates')!=1573 or replay_round3_totals.get('deterministicMismatches')!=0 or replay_round3_totals.get('rngBranchMismatches')!=0:raise ValueError('Third replay capture round boundary is invalid')
+    if replay_round3.get('analysisTrack')!='verification' or replay_round3.get('blindSelection',{}).get('eligibleReplays')!=0 or replay_round3_totals.get('replays')!=102 or replay_round3_totals.get('retrospectiveActiveCandidates')!=1736 or replay_round3_totals.get('deterministicMismatches')!=0 or replay_round3_totals.get('rngBranchMismatches')!=0:raise ValueError('Third replay capture round boundary is invalid')
     reviewable=sum(row['eligibleForReview'] for row in rows)
     holdouts=sum(row['eligibleForReview'] and row['holdout'] for row in rows)
     reasons=[]
