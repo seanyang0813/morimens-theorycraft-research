@@ -6379,8 +6379,8 @@
     {
       "id": "Theorycraft:RecoveredWheelTriggerTransitions",
       "status": "SOURCE_DERIVED_COMPONENT_TESTS",
-      "claim": "Explicit post-event transitions model Doomsday Strike-flat stacking and the independently capped Eternal Weave plus Rota Fortunae pursuit amplification without retroactive application",
-      "scope": "Source-derived authored transitions for resource-144 only. Requires explicit ATK, current properties, event owner and counters. Arachne TriggerCmd2 is excluded because no TriggerCond2 is registered. No original connected trigger execution, card/pursuit creation, turn clearing, full sequence damage, gameplay validation, ranking or holdout credit.",
+      "claim": "Explicit post-event transitions model Doomsday Strike-flat stacking, Light of Intellect once-per-turn Strike retrieval, and independently capped Eternal Weave plus Rota Fortunae pursuit amplification",
+      "scope": "Source-derived authored transitions for resource-144 only. Requires explicit ATK, random roll, card availability, current properties, event owner and counters. Light of Intellect returns an aggregate move request without choosing a card identity. Arachne TriggerCmd2 is excluded because no TriggerCond2 is registered. No original connected trigger execution, full deck mutation, card/pursuit creation, full sequence damage, gameplay validation, ranking or holdout credit.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -6390,18 +6390,18 @@
         },
         {
           "module": "State",
-          "member": "123521,124066,123518,134231,134313,70350,134383,134382",
+          "member": "123520,124023,123521,124066,123518,134231,134313,70350,134383,134382",
           "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8"
         },
         {
           "module": "Cmd",
-          "member": "124065,134385,134386",
+          "member": "124022,124065,134385,134386",
           "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2"
         },
         {
           "module": "Sanitized recovered Wheel trigger audit",
-          "member": "nine checked event, judgement, command-order, property and cap facts",
-          "sha256": "04e1833491ace82f9aea4bebc6e240bad0af04a31448962476d96f4e6b1b498a"
+          "member": "fourteen checked event, judgement, command-order, card-request, property, clear-event and cap facts",
+          "sha256": "35198cde06213fbe40fa3779216cd8b1af23d84d0cfddec51cbb5e6fd45a83b8"
         }
       ],
       "checks": [

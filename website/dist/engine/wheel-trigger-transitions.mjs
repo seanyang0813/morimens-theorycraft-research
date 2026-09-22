@@ -19,6 +19,18 @@ export function advanceDoomsdayAfterUseCard(input){
   };
 }
 
+export function advanceLightOfIntellectAfterKeeperSkill(input){
+  const keys=['schemaVersion','kind','build','wheelId','refinementLevel','counter','roll','matchingStrikeAvailable'];
+  if(!exact(input,keys)||input.schemaVersion!==1||input.kind!=='morimens-after-keeper-skill-wheel-trigger'||input.build!=='pc-res144-build51'||input.wheelId!=='wheel-0117'||!refinement(input.refinementLevel)||![0,1].includes(input.counter)||!Number.isSafeInteger(input.roll)||input.roll<1||input.roll>100||typeof input.matchingStrikeAvailable!=='boolean')throw new Error('Explicit supported Light of Intellect keeper-skill state required');
+  const chancePercent=55+input.refinementLevel*15,conditionPassed=input.roll<=chancePercent&&input.counter===0;
+  return {
+    schemaVersion:1,kind:'morimens-after-keeper-skill-wheel-trigger-result',analysisTrack:'theorycrafting',status:'SOURCE_DERIVED_TRANSITION',event:'BSTAfterUseKeeperSkill',wheelId:input.wheelId,refinementLevel:input.refinementLevel,
+    transition:{chancePercent,roll:input.roll,counterBefore:input.counter,conditionPassed,moveRequested:conditionPassed,movedCardCount:conditionPassed&&input.matchingStrikeAvailable?1:0,sourceZones:['DrawDeck','GraveyardDeck'],ownerFilter:'WHEEL_OWNER',cardTypeFilter:'Card_Strike',destinationZone:'HandDeck',destinationPosition:'TOP',counterAfter:1,clearEvents:['BSTAfterBoutEnd','BSTBeforeBattleEnd']},
+    finalDamage:null,
+    limitations:['Models the configured condition, one-card request and unconditional once-per-turn counter only','matchingStrikeAvailable is an explicit aggregate input; exact draw/grave ordering and card identity are not reconstructed','Does not execute deck mutation, consume a Keeper skill, advance the RNG stream, dispatch callbacks or validate gameplay']
+  };
+}
+
 const arachneWheels=Object.freeze({
   'wheel-0128':{counterStateId:134383,amplification:level=>25+level*5},
   'wheel-0132':{counterStateId:134382,amplification:level=>9+level*2},

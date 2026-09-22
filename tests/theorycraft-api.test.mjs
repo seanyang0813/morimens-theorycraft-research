@@ -92,6 +92,9 @@ test('agent API advances recovered Wheel triggers without returning invented dam
   const doomsday={schemaVersion:1,kind:'morimens-after-use-card-wheel-trigger',build:'pc-res144-build51',wheelId:'wheel-0029',refinementLevel:3,cardType:'Card_Strike',ownerAttack:1001,counter:0,strikecardDamagePlus:0};
   let response=runTheorycraftRequest(request('advance-after-use-card-wheel-trigger',doomsday));
   assert.equal(response.result.transition.addedStrikecardDamagePlus,251);assert.equal(response.result.damageSnapshot.strikecardDamagePlus,0);assert.equal(response.result.finalDamage,null);
+  const light={schemaVersion:1,kind:'morimens-after-keeper-skill-wheel-trigger',build:'pc-res144-build51',wheelId:'wheel-0117',refinementLevel:3,counter:0,roll:100,matchingStrikeAvailable:true};
+  response=runTheorycraftRequest(request('advance-after-keeper-skill-wheel-trigger',light));
+  assert.equal(response.result.transition.movedCardCount,1);assert.equal(response.result.transition.counterAfter,1);assert.equal(response.result.finalDamage,null);
   const arachne={schemaVersion:1,kind:'morimens-after-pursuit-wheel-triggers',build:'pc-res144-build51',ownerUid:56,pursuitOwnerUid:56,basicDamagePer:150,wheels:[{slotId:'a',wheelId:'wheel-0128',refinementLevel:3,triggersUsed:0},{slotId:'b',wheelId:'wheel-0132',refinementLevel:3,triggersUsed:0}]};
   response=runTheorycraftRequest(request('advance-after-pursuit-wheel-triggers',arachne));
   assert.equal(response.result.addedBasicDamagePer,55);assert.equal(response.result.finalDamage,null);
