@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_PAID_STATE_ACTIVE_CHAIN_COMPATIBILITY",
+  "build": "pc-res151-build51",
+  "status": "SUPPORTED_BY_EXACT_DEPENDENCY_CARRYFORWARD_AND_COMPOSITION",
+  "operations": [
+    "run-card-resource-timeline",
+    "run-paid-prepared-state-active-chain"
+  ],
+  "sourceHashes": {
+    "cardModules": "d0c38c58404ebe0da4dfada285e96956b42bc4df86c7551e3be3d732ceccda9f",
+    "combatCarryforward": "0a315f9ca80bd0ce0b1c4bf067c605e3b8dc38b82874c628587e5d6f9b132b45",
+    "cardPlayRuntime": "013f807ef8bcad17973ce6f1533e0412e51aeafaa79c973e92487c5ded4ecf4f",
+    "energyPaymentRuntime": "626545dc1dfeb198b46875f9c30aff80c3bc8e19190617589c9bd92aaf4d2847",
+    "stateActiveChain": "de5c41a2b617619d56cab675a08b6d38af2b61729b59f06373675c11391beb5a"
+  },
+  "modules": [
+    {
+      "name": "BattleUnitBase.lua",
+      "resource150Sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+      "resource151Sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+      "status": "IDENTICAL"
+    },
+    {
+      "name": "BattleCardServer.lua",
+      "resource150Sha256": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53",
+      "resource151Sha256": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53",
+      "status": "IDENTICAL"
+    },
+    {
+      "name": "BEBeforeUseCard.lua",
+      "resource150Sha256": "b660610845cc1181bab671a07d5df91814b2b39419aed2d4ba826bee2be8699c",
+      "resource151Sha256": "b660610845cc1181bab671a07d5df91814b2b39419aed2d4ba826bee2be8699c",
+      "status": "IDENTICAL"
+    },
+    {
+      "name": "BattleUnitPlayer.lua",
+      "resource150Sha256": "14f007f69f6ce9e1d54cfb94ebd58da25f024a1262864c6e7f9af6292bceaf9f",
+      "resource151Sha256": "14f007f69f6ce9e1d54cfb94ebd58da25f024a1262864c6e7f9af6292bceaf9f",
+      "status": "IDENTICAL"
+    },
+    {
+      "name": "BattleConst.lua",
+      "resource150Sha256": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+      "resource151Sha256": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+      "status": "IDENTICAL"
+    },
+    {
+      "name": "BattleUtilServer.lua",
+      "resource150Sha256": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
+      "resource151Sha256": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
+      "status": "IDENTICAL"
+    },
+    {
+      "name": "BattlePropertyServer.lua",
+      "resource150Sha256": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5",
+      "resource151Sha256": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5",
+      "status": "IDENTICAL"
+    }
+  ],
+  "composedEvidence": {
+    "ordinaryPveCardPlayFixtures": 90,
+    "ordinaryPveCardPlayMismatches": 0,
+    "energyPaymentFixtures": 222,
+    "energyPaymentMismatches": 0,
+    "stateMutationFixtures": 432,
+    "supportedActiveSchemas": [
+      1,
+      4
+    ]
+  },
+  "scope": "Ordinary non-keeper PvE supplied card legality, resolved cost and energy payment before one supported resource-151 state card and schema-1/4 prepared Active actions.",
+  "limitations": [
+    "Card instances, hand/status facts and cost modifiers remain explicit inputs",
+    "Hand removal, draws, refunds, changing costs, turn gates, callbacks, reactive effects and death execution are excluded",
+    "No gameplay, prediction or holdout credit"
+  ]
+}

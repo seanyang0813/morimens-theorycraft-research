@@ -6069,6 +6069,30 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC151:PaidPreparedStateActiveChain",
+      "status": "SUPPORTED_BY_EXACT_DEPENDENCY_CARRYFORWARD_AND_COMPOSITION",
+      "claim": "Seven resource-151 legality/payment modules are byte-identical to the resource-150 boundary carrying 90 ordinary PvE play-check and 222 payment fixtures, supporting the resource timeline and paid schema-1/4 state-to-Active chain",
+      "sources": [
+        {
+          "module": "PC resource-151 paid state-to-Active chain compatibility",
+          "member": "seven module hashes plus card-play, payment and state-chain composition",
+          "bundle": "installed private modules; public hashes and counts only",
+          "sha256": "e72028f5ec1fd7859dcc4e45bc8a6c01ac04d4eddfdd59d3f0c80e2eb7b71939"
+        }
+      ],
+      "tests": [
+        "tools/extract_private_pc_module_subset.py",
+        "tools/build_res151_paid_chain_compatibility.py",
+        "tests/pc-res151-paid-chain-compatibility.test.mjs",
+        "tests/card-resource-timeline.test.mjs",
+        "tests/paid-prepared-state-active-chain.test.mjs",
+        "tests/theorycraft-api.test.mjs",
+        "tests/theorycraft-cli-res151.test.mjs"
+      ],
+      "scope": "Ordinary non-keeper PvE supplied legality, resolved cost and energy payment before one supported state card and schema-1/4 prepared Active actions. Explicit card/hand/status/cost facts, no hand mutation, draws, refunds, changing costs, turn gates, callbacks, reactive effects, death execution, gameplay, prediction or holdout credit.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC151:ControlledReplayAuditCandidate004",
       "status": "SAME_BATTLE_REVIEW_PENDING",
       "claim": "One mechanically isolated resource-151 capture candidate yields six retrospective ordinary-Active critical-branch matches and zero mismatches after 71 out-of-scope hits are rejected",
@@ -8424,17 +8448,26 @@
           "bundle": "pc\\downloaded\\config.ab",
           "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
           "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "PC resource-151 paid state-to-Active chain compatibility",
+          "member": "seven legality/payment module hashes and inherited fixtures",
+          "bundle": "installed private modules; public hashes and counts only",
+          "sha256": "e72028f5ec1fd7859dcc4e45bc8a6c01ac04d4eddfdd59d3f0c80e2eb7b71939"
         }
       ],
       "tests": [
+        "tools/build_res151_paid_chain_compatibility.py",
+        "tests/pc-res151-paid-chain-compatibility.test.mjs",
         "tests/paid-prepared-state-active-chain.test.mjs",
         "tests/card-resource-timeline.test.mjs",
         "tests/connected-card-payment.test.mjs",
         "tests/theorycraft-api.test.mjs",
         "research/examples/theorycraft-paid-prepared-state-active-chain.json",
+        "research/examples/theorycraft-installed-paid-prepared-state-active-chain.json",
         "docs/PREPARED_STATE_ACTIVE_SEQUENCE.md"
       ],
-      "scope": "Authored payment-before-effect composition over separately runtime-matched ordinary PvE play checks, connected payment, state-card execution and prepared Active chain. All resource/effect suffixes are prevalidated; distinct instances and supplied hand/status conditions are required. Hand removal, draws, refunds, cost changes, turn gates, lifecycle callbacks, reactive effects, death execution, gameplay and holdout validation remain excluded. Theorycraft track only; no cheese, budget or observed-strategy claim.",
+      "scope": "Authored payment-before-effect composition over separately runtime-matched ordinary PvE play checks, connected payment, state-card execution and prepared Active chain for resource 144/150 plus the bounded resource-151 schema-1/4 chain. All resource/effect suffixes are prevalidated; distinct instances and supplied hand/status conditions are required. Hand removal, draws, refunds, cost changes, turn gates, lifecycle callbacks, reactive effects, death execution, gameplay and holdout validation remain excluded. Theorycraft track only; no cheese, budget or observed-strategy claim.",
       "gameplayValidation": false
     },
     {

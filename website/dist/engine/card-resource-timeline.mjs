@@ -1,6 +1,6 @@
 import {resolvePveCardResources} from './card-use-resources.mjs';
 import {snapshot} from './experiments.mjs';
-const builds=new Set(['pc-res144-build51','pc-res150-build51']);
+const builds=new Set(['pc-res144-build51','pc-res150-build51','pc-res151-build51']);
 
 // Resource projection for distinct supplied card instances, not a full battle.
 export function runCardResourceTimeline(value){

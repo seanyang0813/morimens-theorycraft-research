@@ -18,3 +18,6 @@ test('rejection preserves energy, invalid suffixes reject, and duplicate card av
 test('the same resource projection accepts the current resource-150 build label',()=>{
   const value=timeline([card('a','3',3)]);value.build='pc-res150-build51';const result=runCardResourceTimeline(value);assert.equal(result.build,'pc-res150-build51');assert.equal(result.energyAfter,2);
 });
+test('the exact carried payment boundary accepts the installed resource-151 build label',()=>{
+  const value=timeline([card('a','3',3)]);value.build='pc-res151-build51';const result=runCardResourceTimeline(value);assert.equal(result.build,'pc-res151-build51');assert.equal(result.energyAfter,2);
+});
