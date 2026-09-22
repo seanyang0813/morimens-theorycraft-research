@@ -125,5 +125,6 @@
   "wheel-refinement-parameters.mjs",
   "wheel-initial-properties.mjs",
   "wheel-loadout-properties.mjs",
-  "wheel-trigger-transitions.mjs"
+  "wheel-trigger-transitions.mjs",
+  "wheel-event-sequence.mjs"
 ]

@@ -32,8 +32,8 @@ export function advanceLightOfIntellectAfterKeeperSkill(input){
 }
 
 const arachneWheels=Object.freeze({
-  'wheel-0128':{counterStateId:134383,amplification:level=>25+level*5},
-  'wheel-0132':{counterStateId:134382,amplification:level=>9+level*2},
+  'wheel-0128':{counterStateId:134383,amplification:level=>25+level*5,counterClearEvents:['BSTAfterBoutEnd','BSTBeforeBattleEnd']},
+  'wheel-0132':{counterStateId:134382,amplification:level=>9+level*2,counterClearEvents:['BSTBeforeBattleEnd']},
 });
 
 export function advanceArachneAfterPursuit(input){
@@ -43,12 +43,13 @@ export function advanceArachneAfterPursuit(input){
   const transitions=input.wheels.map(wheel=>{
     if(!exact(wheel,['slotId','wheelId','refinementLevel','triggersUsed'])||typeof wheel.slotId!=='string'||!wheel.slotId||seen.has(wheel.slotId)||!Object.hasOwn(arachneWheels,wheel.wheelId)||!refinement(wheel.refinementLevel)||!Number.isSafeInteger(wheel.triggersUsed)||wheel.triggersUsed<0||wheel.triggersUsed>5)throw new Error('Each Arachne Wheel trigger state must be supported and explicit');
     seen.add(wheel.slotId);const definition=arachneWheels[wheel.wheelId],eligible=input.ownerUid===input.pursuitOwnerUid&&wheel.triggersUsed<5,addedBasicDamagePer=eligible?definition.amplification(wheel.refinementLevel):0;
-    const result={slotId:wheel.slotId,wheelId:wheel.wheelId,refinementLevel:wheel.refinementLevel,counterStateId:definition.counterStateId,eligible,addedBasicDamagePer,triggersUsedBefore:wheel.triggersUsed,triggersUsedAfter:wheel.triggersUsed+(eligible?1:0),basicDamagePerBefore:basicDamagePer,basicDamagePerAfter:basicDamagePer+addedBasicDamagePer};
+    const result={slotId:wheel.slotId,wheelId:wheel.wheelId,refinementLevel:wheel.refinementLevel,counterStateId:definition.counterStateId,counterClearEvents:[...definition.counterClearEvents],eligible,addedBasicDamagePer,triggersUsedBefore:wheel.triggersUsed,triggersUsedAfter:wheel.triggersUsed+(eligible?1:0),basicDamagePerBefore:basicDamagePer,basicDamagePerAfter:basicDamagePer+addedBasicDamagePer};
     basicDamagePer=result.basicDamagePerAfter;return result;
   });
   return {
     schemaVersion:1,kind:'morimens-after-pursuit-wheel-triggers-result',analysisTrack:'theorycrafting',status:'SOURCE_DERIVED_TRANSITION',event:'BSTAfterAttachPostAction',
     ownerMatched:input.ownerUid===input.pursuitOwnerUid,basicDamagePerBefore:input.basicDamagePer,basicDamagePerAfter:basicDamagePer,addedBasicDamagePer:basicDamagePer-input.basicDamagePer,transitions,finalDamage:null,
-    limitations:['The pursuit must already exist; this operation only advances the two supported Wheel trigger states','Owner identity follows the source judgement, so another character pursuit does not trigger Arachne-owned Wheels','Models State134231/Cmd134385 and State134313/Cmd134386 for resource-144; the unregistered TriggerCmd2 field is excluded','Does not create pursuits, calculate damage, clear turn counters, execute callbacks or validate gameplay']
+    propertyClearEvents:['BSTAfterBoutEnd','BSTBeforeBattleEnd'],
+    limitations:['The pursuit must already exist; this operation only advances the two supported Wheel trigger states','Owner identity follows the source judgement, so another character pursuit does not trigger Arachne-owned Wheels','Eternal Weave counter clears after each turn; Rota Fortunae counter persists until battle end; their shared temporary amplification clears after each turn','Models State134231/Cmd134385 and State134313/Cmd134386 for resource-144; the unregistered TriggerCmd2 field is excluded','Does not create pursuits, calculate damage, execute lifecycle events or callbacks, or validate gameplay']
   };
 }

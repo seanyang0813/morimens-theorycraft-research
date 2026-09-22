@@ -21,6 +21,8 @@ test('browser loader executes checked module bytes with the CLI runtime fingerpr
   assert.equal(mixed.modeledHpLost,120);assert.equal(mixed.casterEnergyAfter,100);
   const wheel=runtime.advanceDoomsdayAfterUseCard({schemaVersion:1,kind:'morimens-after-use-card-wheel-trigger',build:'pc-res144-build51',wheelId:'wheel-0029',refinementLevel:3,cardType:'Card_Strike',ownerAttack:1000,counter:0,strikecardDamagePlus:0});
   assert.equal(wheel.transition.strikecardDamagePlusAfter,250);assert.equal(wheel.finalDamage,null);
+  const wheelSequence=runtime.runWheelEventSequence({schemaVersion:1,kind:'morimens-wheel-event-sequence',build:'pc-res144-build51',initialState:{doomsday:{refinementLevel:3,ownerAttack:1000,counter:0,baseStrikecardDamagePlus:0,wheelStrikecardDamagePlus:0},light:null,arachne:null},steps:[{id:'one',type:'AFTER_USE_CARD',cardType:'Card_Strike'},{id:'end',type:'AFTER_BOUT_END'}]});
+  assert.equal(wheelSequence.trace[0].after.doomsday.strikecardDamagePlus,250);assert.equal(wheelSequence.finalState.doomsday.strikecardDamagePlus,0);
   const states=runtime.syntheticStateSequenceExample();
   assert.equal(runtime.runStateSequenceExperiment(states).modeledHpLost,520);
   [states.steps[0],states.steps[1]]=[states.steps[1],states.steps[0]];

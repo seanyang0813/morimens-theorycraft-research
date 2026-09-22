@@ -39,6 +39,8 @@ test('Arachne two-Wheel loadout adds independent pursuit amplification counters'
   const result=advanceArachneAfterPursuit(input);
   assert.equal(result.addedBasicDamagePer,55);assert.equal(result.basicDamagePerAfter,205);
   assert.deepEqual(result.transitions.map(row=>row.triggersUsedAfter),[1,5]);
+  assert.deepEqual(result.transitions.map(row=>row.counterClearEvents),[['BSTAfterBoutEnd','BSTBeforeBattleEnd'],['BSTBeforeBattleEnd']]);
+  assert.deepEqual(result.propertyClearEvents,['BSTAfterBoutEnd','BSTBeforeBattleEnd']);
 });
 
 test('Mouchette-owned pursuit cannot trigger Arachne-owned Wheels and each cap is separate',()=>{

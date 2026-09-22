@@ -6379,8 +6379,8 @@
     {
       "id": "Theorycraft:RecoveredWheelTriggerTransitions",
       "status": "SOURCE_DERIVED_COMPONENT_TESTS",
-      "claim": "Explicit post-event transitions and a verified-runtime web lab model Doomsday Strike-flat stacking, Light of Intellect once-per-turn Strike retrieval, and independently capped Eternal Weave plus Rota Fortunae pursuit amplification",
-      "scope": "Source-derived authored transitions for resource-144 only. Requires explicit ATK, random roll, card availability, current properties, event owner and counters. Light of Intellect returns an aggregate move request without choosing a card identity. Arachne TriggerCmd2 is excluded because no TriggerCond2 is registered. The web lab runs the hash-verified engine and does not emit damage. No original connected trigger execution, full deck mutation, card/pursuit creation, full sequence damage, gameplay validation, ranking or holdout credit.",
+      "claim": "Explicit post-event transitions, lifecycle-aware ordering and a verified-runtime web lab model Doomsday Strike-flat stacking, Light of Intellect Strike retrieval, and Eternal Weave plus Rota Fortunae pursuit amplification",
+      "scope": "Source-derived authored transitions and ordering for resource-144 only. Requires explicit ATK, random roll, card availability, base versus temporary properties, event owner and counters. Eternal resets per turn; Rota counter persists until battle end; their temporary amplification clears per turn. Light returns an aggregate move request without choosing a card identity. Arachne TriggerCmd2 is excluded because no TriggerCond2 is registered. The web lab runs the hash-verified engine and does not emit damage. No original connected trigger execution, full deck mutation, card/pursuit creation, damage, gameplay validation, ranking or holdout credit.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -6400,16 +6400,18 @@
         },
         {
           "module": "Sanitized recovered Wheel trigger audit",
-          "member": "fourteen checked event, judgement, command-order, card-request, property, clear-event and cap facts",
-          "sha256": "35198cde06213fbe40fa3779216cd8b1af23d84d0cfddec51cbb5e6fd45a83b8"
+          "member": "eighteen checked event, judgement, command-order, card-request, property, clear-event and cap facts",
+          "sha256": "1fea6ec7789ae04fa0a6b14a2cd50edbde68ca246c829dadcf72184ee6b933d3"
         }
       ],
       "checks": [
         "tools/audit_recovered_wheel_triggers.mjs",
         "research/evidence/recovered-wheel-trigger-audit.json",
         "engine/wheel-trigger-transitions.mjs",
+        "engine/wheel-event-sequence.mjs",
         "tests/wheel-trigger-source-audit.test.mjs",
         "tests/wheel-trigger-transitions.test.mjs",
+        "tests/wheel-event-sequence.test.mjs",
         "tests/theorycraft-api.test.mjs",
         "tests/browser-runtime.test.mjs",
         "tests/wheel-events-ui.test.mjs",

@@ -6,9 +6,10 @@ const html=readFileSync(new URL('../website/dist/wheel-events.html',import.meta.
 const source=readFileSync(new URL('../website/dist/wheel-events.mjs',import.meta.url),'utf8');
 
 test('Wheel event lab exposes every supported transition without presenting a damage result',()=>{
-  assert.match(html,/Doomsday example/);assert.match(html,/Light example/);assert.match(html,/Arachne Wheels example/);
+  assert.match(html,/Ordered sequence example/);assert.match(html,/Doomsday example/);assert.match(html,/Light example/);assert.match(html,/Arachne Wheels example/);
   assert.match(html,/does not infer a loadout, create the triggering card, calculate damage, or fill unknown state/);
   assert.match(source,/advanceDoomsdayAfterUseCard/);assert.match(source,/advanceLightOfIntellectAfterKeeperSkill/);assert.match(source,/advanceArachneAfterPursuit/);
+  assert.match(source,/runWheelEventSequence/);assert.match(source,/AFTER_BOUT_END/);
   assert.match(source,/finalDamage is/);
 });
 

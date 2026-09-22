@@ -98,6 +98,9 @@ test('agent API advances recovered Wheel triggers without returning invented dam
   const arachne={schemaVersion:1,kind:'morimens-after-pursuit-wheel-triggers',build:'pc-res144-build51',ownerUid:56,pursuitOwnerUid:56,basicDamagePer:150,wheels:[{slotId:'a',wheelId:'wheel-0128',refinementLevel:3,triggersUsed:0},{slotId:'b',wheelId:'wheel-0132',refinementLevel:3,triggersUsed:0}]};
   response=runTheorycraftRequest(request('advance-after-pursuit-wheel-triggers',arachne));
   assert.equal(response.result.addedBasicDamagePer,55);assert.equal(response.result.finalDamage,null);
+  const sequence={schemaVersion:1,kind:'morimens-wheel-event-sequence',build:'pc-res144-build51',initialState:{doomsday:{refinementLevel:3,ownerAttack:1000,counter:0,baseStrikecardDamagePlus:0,wheelStrikecardDamagePlus:0},light:null,arachne:null},steps:[{id:'one',type:'AFTER_USE_CARD',cardType:'Card_Strike'},{id:'two',type:'AFTER_USE_CARD',cardType:'Card_Strike'}]};
+  response=runTheorycraftRequest(request('run-wheel-event-sequence',sequence));
+  assert.equal(response.result.finalState.doomsday.strikecardDamagePlus,500);assert.equal(response.result.finalDamage,null);
 });
 
 test('agent API searches Wheel candidates without turning metadata into a recommendation',()=>{

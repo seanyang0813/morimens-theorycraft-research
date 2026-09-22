@@ -6,8 +6,8 @@ const report=JSON.parse(readFileSync(new URL('../research/evidence/recovered-whe
 
 test('sanitized source audit pins the recovered Wheel transition boundaries',()=>{
   assert.equal(report.status,'SOURCE_ROWS_MATCH_EXPECTED_TRANSITIONS');
-  assert.deepEqual(report.summary,{checks:14,passed:14,doomsdayCounterCap:8,lightCounterCap:1,maxRefinementLightChancePercent:100,arachneCounterCapPerWheel:5,maxRefinementDoomsdayFlatPercent:25,maxRefinementEternalAmplification:40,maxRefinementRotaAmplification:15,eternalSecondCommandRegistered:false});
-  assert.equal(report.checks.length,14);
+  assert.deepEqual(report.summary,{checks:18,passed:18,doomsdayCounterCap:8,doomsdayClearsAfterBout:true,lightCounterCap:1,maxRefinementLightChancePercent:100,arachneCounterCapPerWheel:5,eternalCounterClearsAfterBout:true,rotaCounterClearsAfterBout:false,pursuitAmplificationClearsAfterBout:true,maxRefinementDoomsdayFlatPercent:25,maxRefinementEternalAmplification:40,maxRefinementRotaAmplification:15,eternalSecondCommandRegistered:false});
+  assert.equal(report.checks.length,18);
   assert.match(report.source.StateSha256,/^[0-9a-f]{64}$/);
   assert.match(report.source.CmdSha256,/^[0-9a-f]{64}$/);
   assert.match(report.source.BattleStateServerSha256,/^[0-9a-f]{64}$/);

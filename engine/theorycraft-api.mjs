@@ -25,6 +25,7 @@ import {runPreparedStateActiveChain} from './prepared-state-active-chain.mjs';
 import {runPaidPreparedStateActiveChain} from './paid-prepared-state-active-chain.mjs';
 import {assembleWheelLoadoutProperties} from './wheel-loadout-properties.mjs';
 import {advanceDoomsdayAfterUseCard,advanceLightOfIntellectAfterKeeperSkill,advanceArachneAfterPursuit} from './wheel-trigger-transitions.mjs';
+import {runWheelEventSequence} from './wheel-event-sequence.mjs';
 
 export const theorycraftOperations=Object.freeze([
   {name:'describe-capabilities',context:[],scope:'List supported versioned operations and evidence boundaries'},
@@ -50,6 +51,7 @@ export const theorycraftOperations=Object.freeze([
   {name:'advance-after-use-card-wheel-trigger',context:[],scope:'Source-derived Doomsday post-card Strike-flat transition with explicit pre-event state'},
   {name:'advance-after-keeper-skill-wheel-trigger',context:[],scope:'Source-derived Light of Intellect once-per-turn Strike retrieval request'},
   {name:'advance-after-pursuit-wheel-triggers',context:[],scope:'Source-derived Arachne two-Wheel pursuit-amplification transition with owner and cap checks'},
+  {name:'run-wheel-event-sequence',context:[],scope:'Ordered supported Wheel events with explicit temporary contributions and source-derived lifecycle clearing'},
   {name:'search-card-orders',context:[],scope:'Exact bounded permutation search over supplied resolved card actions'},
   {name:'prepare-skill-command',context:['skillCommandData'],scope:'Exported skill selection, argument preparation and optional supported command execution'},
   {name:'apply-monster-skill-change',context:[],scope:'Original-runtime-matched monster intent replacement/queue mutation without executing the selected skill'},
@@ -98,6 +100,7 @@ function execute(operation,input,context){
   if(operation==='advance-after-use-card-wheel-trigger')return advanceDoomsdayAfterUseCard(input);
   if(operation==='advance-after-keeper-skill-wheel-trigger')return advanceLightOfIntellectAfterKeeperSkill(input);
   if(operation==='advance-after-pursuit-wheel-triggers')return advanceArachneAfterPursuit(input);
+  if(operation==='run-wheel-event-sequence')return runWheelEventSequence(input);
   if(operation==='search-card-orders')return searchCardOrders(input);
   if(operation==='prepare-skill-command')return runPreparedSkillRequest(input,context.skillCommandData);
   if(operation==='apply-monster-skill-change'){
