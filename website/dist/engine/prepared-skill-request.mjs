@@ -12,7 +12,8 @@ export function runPreparedSkillRequest(value,source){
   const versioned=value?.schemaVersion===2&&exact(value,['schemaVersion','kind','build','preparation','execution']);
   if((!legacy&&!versioned)||value.kind!=='morimens-prepared-skill-request')throw new Error('Expected an exact version 1 or 2 prepared-skill request');
   const build=versioned?value.build:'pc-res144-build51';
-  if(!['pc-res144-build51','pc-res150-build51'].includes(build))throw new Error('Unsupported prepared-skill client build');
+  if(!['pc-res144-build51','pc-res150-build51','pc-res151-build51'].includes(build))throw new Error('Unsupported prepared-skill client build');
+  if(build==='pc-res151-build51'&&value.execution!==null)throw new Error('Resource-151 prepared-skill support is preparation-only; use the bounded snapshot Active operation for execution');
   if(!exact(value.preparation,preparationKeys))throw new Error('Explicit skill preparation inputs required');
   const request=value.preparation;
   for(const name of ['variables','conditionResults','stateQueries'])if(!map(request[name]))throw new Error(`Explicit ${name} map required`);

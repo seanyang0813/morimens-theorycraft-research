@@ -4875,8 +4875,8 @@
     {
       "id": "PC151:NarrowReplayAdapter",
       "status": "SUPPORTED_BY_EXACT_DEPENDENCY_CARRYFORWARD",
-      "claim": "The complete bounded resource-151 live-property replay adapter dependency set consists of six client modules byte-identical to resource 150 and five Lua-semantically equivalent config tables",
-      "scope": "Complete live property maps, PvE Awakener ordinary direct Active damage and optional ordinary/Puncture HP mutation. General simulator operations, transport, target prediction, RNG-stream reconstruction, callbacks, statistics, death scheduling, gameplay agreement and holdout credit remain outside this result.",
+      "claim": "The complete bounded resource-151 live-property replay adapter dependency set consists of six client modules byte-identical to resource 150 and five Lua-semantically equivalent config tables; the agent CLI exposes only snapshot damage, repeated snapshot damage, catalog-prepared snapshot Active damage and preparation-only skill inspection through this boundary",
+      "scope": "Complete live property maps, PvE Awakener ordinary direct Active damage, optional ordinary/Puncture HP mutation, schemas 1/4 catalog-prepared Active execution and preparation-only catalog inspection. Wheel, ultimate-energy, state, card-manager and lifecycle operations plus transport, target prediction, RNG-stream reconstruction, callbacks, statistics, death scheduling, gameplay agreement and holdout credit remain outside this result.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -4890,7 +4890,10 @@
         "tests/pc-res151-replay-adapter-compatibility.test.mjs",
         "tests/battle-property-snapshot-damage.test.mjs",
         "tests/replay-action-candidate.test.mjs",
-        "tests/replay-blind-prediction.test.mjs"
+        "tests/replay-blind-prediction.test.mjs",
+        "tests/active-damage-command.test.mjs",
+        "tests/prepared-skill-request.test.mjs",
+        "tests/theorycraft-cli-res151.test.mjs"
       ]
     },
     {

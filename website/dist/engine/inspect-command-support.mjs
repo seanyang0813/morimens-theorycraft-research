@@ -4,7 +4,7 @@ import {compileNumericCommand,compileCommandCondition} from './command-expressio
 // Conservative compatibility inspection; never removes unsupported effects.
 export function inspectCommandSupport({command,allowedFunctions=[],profile='ordinary-active-UpperTarget',targetExpression='UpperTarget'}){
   if(!['ordinary-active-UpperTarget','damage-and-energy','terminal-self-state','role-state-setup'].includes(profile))throw new Error('Unknown command support profile');
-  if(!command||!command.data_list||typeof command.data_list!=='object'||Array.isArray(command.data_list))throw new Error('Exported command data_list required');
+  if(!command||!command.data_list||typeof command.data_list!=='object')throw new Error('Exported command data_list required');
   const imported=importCommandRows(command);
   const terminal=profile==='terminal-self-state',setup=profile==='role-state-setup';
   const firstStateIndex=terminal?imported.rows.findIndex(row=>row.Type==='BEAddState'):-1;

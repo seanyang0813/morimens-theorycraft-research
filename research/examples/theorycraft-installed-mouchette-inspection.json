@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-theorycraft-request",
+  "requestId": "inspect-installed-mouchette-mortal-blast",
+  "operation": "prepare-skill-command",
+  "input": {
+    "schemaVersion": 2,
+    "kind": "morimens-prepared-skill-request",
+    "build": "pc-res151-build51",
+    "preparation": {
+      "skillId": 122483,
+      "skillLevel": 1,
+      "isAwaker": true,
+      "breakSkillLevel": 0,
+      "potencyLevel": 15,
+      "overrides": [],
+      "variables": {"BattleAtkForce": 100},
+      "conditionResults": {},
+      "stateQueries": {"CmdCaster.GetStateLayer": {"124039": 0}}
+    },
+    "execution": null
+  }
+}

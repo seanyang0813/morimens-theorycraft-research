@@ -44,6 +44,16 @@ test('version 2 prepared-skill requests require matching client-build catalogs',
   assert.equal(result.build,'pc-res150-build51');
 });
 
+test('resource 151 catalogs support preparation while wider command execution stays closed',()=>{
+  const readCurrent=name=>{const bytes=readFileSync(new URL(`../research/observations/current-res151-build51/modules/${name}.json`,import.meta.url));return {data:JSON.parse(bytes),sha256:createHash('sha256').update(bytes).digest('hex')};};
+  const current=Object.fromEntries(['Skill','BattleApi','Cmd','State'].map(name=>[name,readCurrent(name)])),currentSource={build:'pc-res151-build51',skills:current.Skill.data,battleApi:current.BattleApi.data,commands:current.Cmd.data,states:current.State.data,sourceHashes:Object.fromEntries(Object.entries(current).map(([name,row])=>[name,row.sha256]))};
+  const value={schemaVersion:2,kind:'morimens-prepared-skill-request',build:'pc-res151-build51',preparation:preparation(),execution:null};
+  const result=runPreparedSkillRequest(value,currentSource);
+  assert.equal(result.build,'pc-res151-build51');assert.equal(result.status,'PREPARED');assert.equal(result.prepared.commandId,743);
+  value.execution={};
+  assert.throws(()=>runPreparedSkillRequest(value,currentSource),/preparation-only/);
+});
+
 test('real Final Evolution skill derives Arg1 and executes its whole supported setup command',()=>{
   const stateDefinition=id=>{const row=states[String(id)];return {id,maximum:String(row.MaxLayer),properties:Object.entries(row.ExistProperty??{}).map(([property,expression])=>({property,expression:String(expression)})),skillLevel:1,casterRoleId:50,specialValue:0,banned:false};};
   const prep=JSON.parse(readFileSync(new URL('../research/examples/prepared-role-state-request.json',import.meta.url),'utf8'));

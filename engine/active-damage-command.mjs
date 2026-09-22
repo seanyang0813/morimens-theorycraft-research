@@ -13,7 +13,7 @@ export function initializeActiveDamage({repeat,plus,per}){
 
 export function initializeActiveDamageForBuild({build,repeat,plus,per}){
   if(build==='pc-res144-build51')return initializeActiveDamage({repeat,plus,per});
-  if(build!=='pc-res150-build51')throw new Error('Unsupported Active-damage build');
+  if(!['pc-res150-build51','pc-res151-build51'].includes(build))throw new Error('Unsupported Active-damage build');
   if(repeat!==null)finite(repeat,'Repeat');finite(plus,'Additional repetitions');finite(per,'Repeat percent');
   const baseTimes=Math.max(1,Math.ceil(repeat??1)),afterAddition=baseTimes+plus;
   const totalEffectTimes=Math.max(1,Math.ceil(afterAddition*(1+per/100)));

@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-theorycraft-request",
+  "requestId": "resource-151-unsupported-scope",
+  "operation": "calculate-damage",
+  "input": {"build": "pc-res151-build51"}
+}

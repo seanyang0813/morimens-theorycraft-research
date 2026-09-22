@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {initializeActiveDamage,enqueueActiveDamage} from '../engine/active-damage-command.mjs';
+import {initializeActiveDamage,initializeActiveDamageForBuild,enqueueActiveDamage} from '../engine/active-damage-command.mjs';
 import {ResearchEffectOrder} from '../engine/effect-order.mjs';
 const evidence=name=>JSON.parse(readFileSync(new URL(`./synthetic/${name}.json`,import.meta.url)));
 test('repetition arithmetic matches original ordinary initialization',()=>{
@@ -10,6 +10,9 @@ test('repetition arithmetic matches original ordinary initialization',()=>{
     const actual=initializeActiveDamage(input);
     assert.equal(actual.totalEffectTimes,expected.totalEffectTimes);assert.equal(expected.leftEffectTimes,actual.totalEffectTimes);assert.equal(expected.executionCalls,1);
   }
+});
+test('resource 151 inherits the resource 150 repeat clamp',()=>{
+  assert.deepEqual(initializeActiveDamageForBuild({build:'pc-res151-build51',repeat:0,plus:0,per:0}),{baseTimes:1,afterAddition:1,totalEffectTimes:1});
 });
 test('per-target live reads, clamping and crit forwarding match original binding observations',()=>{
   for(const {input,expected} of evidence('original-active-damage-binding').fixtures){
