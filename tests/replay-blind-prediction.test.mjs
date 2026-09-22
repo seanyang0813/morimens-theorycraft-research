@@ -42,6 +42,15 @@ test('blind replay prediction rejects chance-dependent critical outcomes',()=>{
   assert.throws(()=>buildBlindReplayPrediction(input),/No blind deterministic replay candidate/);
 });
 
+test('blind replay prediction continues to a later deterministic hit in the same action',()=>{
+  const input=fixture(250),action=input.index.actionSnapshots[0],firstSnapshot=action.window.hitSnapshots[0],firstHit=action.window.hits[0];
+  firstSnapshot.roles['1'].properties.crit=50;
+  const secondSnapshot=JSON.parse(JSON.stringify(firstSnapshot));secondSnapshot.hitIndex=1;secondSnapshot.recordIndex=5;secondSnapshot.frameIndex=3;secondSnapshot.roles['1'].properties.crit=0;
+  const secondHit=JSON.parse(JSON.stringify(firstHit));secondHit.recordIndex=5;secondHit.frameIndex=3;
+  action.window.hitSnapshots.push(secondSnapshot);action.window.hits.push(secondHit);
+  const result=buildBlindReplayPrediction(input);assert.equal(result.sourceHitIndex,1);assert.equal(result.predictedDamage,100);assert.deepEqual(result.blockersBeforeSelection.map(row=>[row.actionIndex,row.hitIndex]),[[0,0]]);assert.match(result.blockersBeforeSelection[0].reason,/RNG-dependent/);
+});
+
 test('blind replay freeze pins an explicitly evidenced resource-150 build',()=>{
   const input=fixture(250),privateDir=mkdtempSync(join(root,'research/observations/blind-build-test-')),id=`blind-build-test-${process.pid}`;
   const publicDir=join(root,'research/evidence/holdouts',id);
