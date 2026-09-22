@@ -21,10 +21,10 @@ export function resolveWheelMainstat(input,catalog){
   const rawValue=base.value+growth.value*growthSteps;
   if(!Number.isFinite(rawValue))throw new Error('Nonfinite Wheel stat');
   const value=Number(rawValue.toFixed(2));
-  return {status:'CATALOG_DERIVED',finalDamage:null,wheelId:wheel.id,stat:wheel.mainstatKey,value,unit:base.unit,
+  return {status:'CATALOG_DERIVED',finalDamage:null,wheelId:wheel.id,wheel:{name:wheel.name,realm:wheel.realm,rarity:wheel.rarity,ownerAwakenerId:wheel.ownerAwakenerId??null,ownerAwakenerName:wheel.ownerAwakenerName??null,searchTags:[...(wheel.searchTags??[])]},stat:wheel.mainstatKey,value,unit:base.unit,
     enhanceLevel:input.enhanceLevel,enhanceLabel:input.enhanceLevel<=3?`E${input.enhanceLevel}`:`E3 + ${input.enhanceLevel-3}`,
     descriptionRank:Math.min(input.enhanceLevel,3)+1,
     trace:{seriesKey,baseValue:base.value,perLevel:growth.value,growthStartLevel:scaling.growthStartLevel,growthSteps,rawValue,displayValue:value,rounding:'SKeyDB display formatting: at most two decimal places'},
     provenance:JSON.parse(JSON.stringify(catalog.source)),
-    unresolvedDependencies:['Equipment legality and activation conditions','Wheel passive effects','Combination with character and team battle properties','Independent gameplay validation']};
+    unresolvedDependencies:['Search tags are discovery metadata, not executable passive effects or proof of optimality','Equipment legality and activation conditions','Wheel passive effects','Combination with character and team battle properties','Independent gameplay validation']};
 }

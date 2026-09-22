@@ -6138,6 +6138,28 @@
       ]
     },
     {
+      "id": "Theorycraft:WheelCatalogDiscovery",
+      "status": "CATALOG_DERIVED",
+      "claim": "The theorycraft API and build planner can search 146 pinned Wheel identities by name, associated owner, realm, main stat and normalized mechanic tags while preserving main-stat scaling separately",
+      "scope": "Theorycraft discovery only. Search tags and owner associations do not execute passive effects, establish signature uniqueness, determine equipment legality, rank results, recommend a build, prove optimality or provide gameplay/holdout credit. No passive description or lore is included.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Pinned SKeyDB build catalog",
+          "member": "146 Wheel identities, 94 associated-owner labels, 134 nonempty normalized tag lists and main-stat scaling metadata",
+          "sha256": "71d0e0d14959e933ae8942ac0064de95c0a63b84ce9065e2bdcef4509090b98b"
+        }
+      ],
+      "checks": [
+        "tools/prepare_build_catalog.py",
+        "tests/wheel-search.test.mjs",
+        "tests/wheel-stats.test.mjs",
+        "tests/theorycraft-api.test.mjs",
+        "tests/browser-runtime.test.mjs",
+        "research/examples/theorycraft-search-wheel-catalog.json"
+      ]
+    },
+    {
       "id": "Theorycraft:LegalCardActionEnumeration",
       "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
       "claim": "The theorycraft API enumerates ordinary non-keeper PvE card actions from explicit dispatch, energy, hand and status state while retaining global and per-card rejection gates",

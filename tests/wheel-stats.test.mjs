@@ -21,6 +21,14 @@ test('SSR Realm Mastery stays 36 through E3, grows at E3 + 1, reaches 72 at E3 +
   const crit=catalog.wheels.find(w=>w.rarity==='SSR'&&w.mainstatKey==='CRIT_DMG');
   const r=resolveWheelMainstat(input(crit.id,15),catalog);assert.equal(r.value,43.2);assert.equal(r.unit,'percent');
 });
+test('Wheel selection metadata exposes signatures and discovery tags without executing passives',()=>{
+  const arachne=catalog.wheels.find(w=>w.name==='Eternal Weave'),mouchette=catalog.wheels.find(w=>w.name==='Doomsday Rampage');
+  assert.equal(arachne.ownerAwakenerName,'Arachne');assert.ok(arachne.searchTags.includes('Pursuit'));
+  assert.equal(mouchette.ownerAwakenerName,'Mouchette');assert.ok(mouchette.searchTags.includes('Strike'));
+  const result=resolveWheelMainstat(input(mouchette.id,15),catalog);
+  assert.equal(result.wheel.ownerAwakenerName,'Mouchette');assert.deepEqual(result.wheel.searchTags,mouchette.searchTags);
+  assert.ok(result.unresolvedDependencies.some(row=>row.includes('not executable passive effects')));
+});
 test('unknown and invalid enhancements reject rather than clamp or default',()=>{
   for(const level of [null,undefined,'0',-1,16,2.5,NaN,Infinity])assert.throws(()=>resolveWheelMainstat(input(catalog.wheels[0].id,level),catalog));
   assert.throws(()=>resolveWheelMainstat(input('missing',0),catalog));

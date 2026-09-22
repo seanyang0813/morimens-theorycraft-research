@@ -51,7 +51,7 @@ export function assembleKnownBuildComponents(plan,catalog,clientBuildData){
     else{
       const wheel=catalog.wheels.find(row=>row.id===member.wheelId);
       const mainstat=resolveWheelMainstat({catalogRevision:validated.catalogRevision,wheelId:member.wheelId,enhanceLevel:member.wheelEnhanceLevel},catalog);
-      assembled.wheelMainstat={wheelId:wheel.id,wheelName:wheel.name,property:mainstat.stat,value:mainstat.value,unit:mainstat.unit,enhanceLevel:mainstat.enhanceLevel,enhanceLabel:mainstat.enhanceLabel};
+      assembled.wheelMainstat={wheelId:wheel.id,wheelName:wheel.name,property:mainstat.stat,value:mainstat.value,unit:mainstat.unit,enhanceLevel:mainstat.enhanceLevel,enhanceLabel:mainstat.enhanceLabel,ownerMatchesSelectedCharacter:member.characterId!==null&&wheel.ownerAwakenerId===member.characterId,catalogOwner:wheel.ownerAwakenerName??null,searchTags:[...(wheel.searchTags??[])]};
       assembled.contributionLedger.push({property:mainstat.stat,value:mainstat.value,unit:mainstat.unit,sourceKind:'WHEEL_MAINSTAT',sourceId:wheel.id,evidenceStatus:mainstat.status,trace:clone(mainstat.trace)});
     }
     members.push(assembled);

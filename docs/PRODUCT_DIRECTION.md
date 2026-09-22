@@ -22,6 +22,12 @@ Context sources:
 
 The first assembly slice is implemented as `assemble-build-components`: it joins recovered character primary-stat progression, explicit Season/Soulforge percentage promotion and catalog Wheel main stats into a provenance-bearing ledger. It reports missing inputs as typed issues. It is not a final property snapshot because advancement passive states, equipment and battle-start effects are still unresolved.
 
+Wheel discovery is also shared across interfaces. The build planner and
+`search-wheel-catalog` agent operation search 146 pinned identities by name,
+associated owner, realm, main stat and normalized mechanic tags. Results are
+candidates for later mechanics work, not passive execution, rankings or build
+recommendations.
+
 For captured battles, `calculate-snapshot-active-damage` accepts complete live caster, player, target and optional card property maps and executes the bounded PvE Active path. Schema 2 continues from pre-hit damage through the runtime-matched BeHit-to-HP numerical path while retaining both metrics and withholding verified final damage. This is the agent bridge for independent replay predictions while full build-to-property reconstruction remains incomplete. Partial maps, observed critical outcomes in place of required pre-outcome rolls, and unsupported skill branches fail closed.
 
 The agent skill-preparation boundary is also build-pinned. Version 2 requests name resource 144 or 150, and the host refuses to execute them against another build's Skill, BattleApi, Cmd or State tables. Current tables remain local installed-client evidence rather than public catalog payloads.

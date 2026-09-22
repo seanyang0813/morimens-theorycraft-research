@@ -24,6 +24,7 @@ test('agent API advertises explicit bounded operations',()=>{
   assert.ok(response.result.operations.some(row=>row.name==='run-ulti-energy-effect'));
   assert.ok(response.result.operations.some(row=>row.name==='run-attached-card-pipeline'));
   assert.ok(response.result.operations.some(row=>row.name==='run-conditional-role-state-suffix'));
+  assert.ok(response.result.operations.some(row=>row.name==='search-wheel-catalog'));
   assert.equal(response.result.publicationStatus,'NOT_READY');
 });
 
@@ -66,6 +67,15 @@ test('catalog-backed operations require explicit host context',()=>{
   const character=catalog.characters[0];
   const response=runTheorycraftRequest(request('validate-build-plan',{schemaVersion:1,kind:'morimens-build-plan',catalogRevision:catalog.source.revision,team:[{slotId:'a',characterId:character.id,level:1,wheelId:null}]}),{buildCatalog:catalog});
   assert.equal(response.result.status,'PLAN_ONLY');
+});
+
+test('agent API searches Wheel candidates without turning metadata into a recommendation',()=>{
+  const catalog=JSON.parse(readFileSync(new URL('../website/dist/build-catalog.json',import.meta.url),'utf8'));
+  const input={catalogRevision:catalog.source.revision,query:'pursuit',characterId:null,ownerMatchOnly:false,tags:['Pursuit'],realms:[],mainstatKeys:[],limit:20};
+  assert.throws(()=>runTheorycraftRequest(request('search-wheel-catalog',input)),/requires context buildCatalog/);
+  const response=runTheorycraftRequest(request('search-wheel-catalog',input),{buildCatalog:catalog});
+  assert.equal(response.analysisTrack,'theorycrafting');assert.ok(response.result.results.length>0);assert.equal(response.result.finalDamage,null);
+  assert.ok(response.result.limitations.some(row=>row.includes('not a ranking')));
 });
 
 test('agent API assembles known build components with both catalogs',()=>{

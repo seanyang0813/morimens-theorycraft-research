@@ -5,6 +5,7 @@ import {runOrderedStateCommand} from './ordered-state-command.mjs';
 import {validateBuildPlan} from './build-plan.mjs';
 import {resolveClientBuildPrimary,resolveClientAdvancementPrimary} from './client-build-stats.mjs';
 import {resolveWheelMainstat} from './wheel-stats.mjs';
+import {searchWheelCatalog} from './wheel-search.mjs';
 import {assembleKnownBuildComponents} from './build-component-assembly.mjs';
 import {searchCardOrders} from './card-order-search.mjs';
 import {runPreparedSkillRequest} from './prepared-skill-request.mjs';
@@ -41,6 +42,7 @@ export const theorycraftOperations=Object.freeze([
   {name:'resolve-character-primary',context:['clientBuildData'],scope:'Client-derived primary CON/ATK/DEF baseline'},
   {name:'resolve-character-advancement-primary',context:['clientBuildData'],scope:'Client-derived primary stats plus explicit Season/Soulforge percentage promotion'},
   {name:'resolve-wheel-mainstat',context:['buildCatalog'],scope:'Catalog-derived Wheel main-stat scaling'},
+  {name:'search-wheel-catalog',context:['buildCatalog'],scope:'Catalog Wheel discovery by name, associated owner, realm, main stat and normalized mechanic tags; no passive execution or ranking'},
   {name:'assemble-build-components',context:['buildCatalog','clientBuildData'],scope:'Known character primary-stat and Wheel-main-stat contribution ledger'},
   {name:'search-card-orders',context:[],scope:'Exact bounded permutation search over supplied resolved card actions'},
   {name:'prepare-skill-command',context:['skillCommandData'],scope:'Exported skill selection, argument preparation and optional supported command execution'},
@@ -84,6 +86,7 @@ function execute(operation,input,context){
   if(operation==='resolve-character-primary')return resolveClientBuildPrimary(input,context.clientBuildData);
   if(operation==='resolve-character-advancement-primary')return resolveClientAdvancementPrimary(input,context.clientBuildData);
   if(operation==='resolve-wheel-mainstat')return resolveWheelMainstat(input,context.buildCatalog);
+  if(operation==='search-wheel-catalog')return searchWheelCatalog(input,context.buildCatalog);
   if(operation==='assemble-build-components')return assembleKnownBuildComponents(input,context.buildCatalog,context.clientBuildData);
   if(operation==='search-card-orders')return searchCardOrders(input);
   if(operation==='prepare-skill-command')return runPreparedSkillRequest(input,context.skillCommandData);

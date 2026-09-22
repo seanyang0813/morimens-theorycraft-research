@@ -28,3 +28,21 @@ Substats, Wheel effects, team properties, action sequences, and final battle sta
 `engine/wheel-stats.mjs` accepts catalogRevision, wheelId and explicit enhanceLevel (0–15, corresponding to E0 through E3 + 12). It uses saved `gameplay-math.json` series selected by rarity and mainstatKey. Growth starts at enhancement 4: `base + max(0, enhanceLevel - 3) * perLevel`. The output distinguishes flat values from percentages and preserves raw arithmetic before the source's two-decimal display formatting. Description rank caps at four (E3); this does not execute a passive.
 
 The planner now previews this calculation and exports optional wheelEnhanceLevel. Legacy plans without this field preserve its absence; null is explicitly unknown; zero means E0. Changing the selected Wheel clears enhancement to unknown. All 146 catalog Wheels have matching scaling series. Coverage exercises all sixteen enhancement levels, the no-growth boundary through E3, SSR Realm Mastery 36 → 39 → 72, and SSR Crit DMG 43.2% at maximum. This remains catalog-derived evidence, not final character stats or gameplay validation.
+
+## Wheel discovery metadata
+
+The pinned catalog now retains normalized associated-owner labels and mechanic
+search tags where SKeyDB provides them. `engine/wheel-search.mjs` exposes the
+same exact search to the build planner and agent API across all 146 Wheel
+identities. It can filter by free text, associated owner, realm, main stat and
+exact tags, and it reports truncation explicitly.
+
+This is a discovery surface rather than a passive simulator. An owner match is
+not called a unique signature because one character can have multiple associated
+Wheels. Tags such as Strike or Pursuit identify candidates to investigate; they
+do not specify numbers, activation rules, stacking, legality or optimality. No
+passive description or lore is copied into the public calculator catalog.
+
+Agents can run the same search through
+`research/examples/theorycraft-search-wheel-catalog.json` and
+`tools/run_theorycraft_request.mjs`.

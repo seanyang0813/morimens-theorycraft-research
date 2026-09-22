@@ -1,5 +1,6 @@
 import {validateBuildPlan} from './engine/build-plan.mjs';
 import {resolveWheelMainstat} from './engine/wheel-stats.mjs';
+import {searchWheelCatalog} from './engine/wheel-search.mjs';
 import {resolveClientBuildPrimary,resolveClientAdvancementPrimary} from './engine/client-build-stats.mjs';
 import {assembleKnownBuildComponents} from './engine/build-component-assembly.mjs';
 const $=id=>document.getElementById(id);let catalog,clientDataByBuild={},clientBuild,team=[],nextId=1;
@@ -7,6 +8,13 @@ const selectedClientData=()=>clientDataByBuild[clientBuild]??null;
 function invalidate(){$('plan-status').textContent='Plan changed. Export to update the saved JSON.';$('error').textContent='';}
 function select(rows,value,onChange,label){const s=document.createElement('select'),empty=document.createElement('option');empty.value='';empty.textContent=label;s.append(empty);for(const row of rows){const o=document.createElement('option');o.value=row.id;o.textContent=`${row.name} · ${row.realm}`;s.append(o);}s.value=value??'';s.addEventListener('change',()=>{onChange(s.value||null);invalidate();});return s;}
 function labelled(text,input,id){const label=document.createElement('label');label.htmlFor=id;label.textContent=text;input.id=id;return [label,input];}
+function wheelPicker(member){
+  const wrap=document.createElement('div'),filter=document.createElement('input'),filterLabel=document.createElement('label'),picker=document.createElement('select'),pickerLabel=document.createElement('label');
+  wrap.className='wheel-picker';filter.id=member.slotId+'-wheel-filter';filter.type='search';filter.placeholder='Name, owner, main stat or mechanic tag';filterLabel.htmlFor=filter.id;filterLabel.textContent='Filter Wheels';
+  picker.id=member.slotId+'-wheel';pickerLabel.htmlFor=picker.id;pickerLabel.textContent='Wheel';
+  const fill=()=>{const selected=member.wheelId,result=searchWheelCatalog({catalogRevision:catalog.source.revision,query:filter.value,characterId:member.characterId,ownerMatchOnly:false,tags:[],realms:[],mainstatKeys:[],limit:catalog.wheels.length},catalog),rows=[...result.results];if(selected&&!rows.some(row=>row.id===selected))rows.push(catalog.wheels.find(row=>row.id===selected));picker.replaceChildren();const empty=document.createElement('option');empty.value='';empty.textContent='Unspecified — not assumed unequipped';picker.append(empty);for(const wheel of rows){const option=document.createElement('option');option.value=wheel.id;const ownerMatch=member.characterId!==null&&wheel.ownerAwakenerId===member.characterId?' · owner match':'',owner=wheel.ownerAwakenerName?` · ${wheel.ownerAwakenerName}`:'';option.textContent=`${wheel.name} · ${wheel.realm} · ${wheel.mainstatKey}${owner}${ownerMatch}`;picker.append(option);}picker.value=selected??'';};
+  filter.addEventListener('input',fill);picker.addEventListener('change',()=>{member.wheelId=picker.value||null;member.wheelEnhanceLevel=null;render();invalidate();});fill();wrap.append(filterLabel,filter,pickerLabel,picker);return wrap;
+}
 function render(){
   $('team').replaceChildren();
   for(const [i,member] of team.entries()){
@@ -29,14 +37,14 @@ function render(){
     const selectedTalent=talents.find(row=>row.clientTalentId===member.advancementTalentId),advancementLevel=document.createElement('select'),levelUnknown=document.createElement('option');levelUnknown.value='';levelUnknown.textContent='Unknown advancement level';advancementLevel.append(levelUnknown);
     if(selectedTalent)for(let n=0;n<=selectedTalent.maximumLevel;n++){const option=document.createElement('option');option.value=String(n);option.textContent=String(n);advancementLevel.append(option);}
     advancementLevel.value=member.advancementLevel??'';advancementLevel.disabled=!selectedTalent;advancementLevel.addEventListener('change',()=>{member.advancementLevel=advancementLevel.value===''?null:Number(advancementLevel.value);updatePrimary();invalidate();});section.append(...labelled('Advancement level',advancementLevel,member.slotId+'-advancement-level'));
-    section.append(...labelled('Wheel',select(catalog.wheels,member.wheelId,v=>{member.wheelId=v;member.wheelEnhanceLevel=null;render();},'Unspecified — not assumed unequipped'),member.slotId+'-wheel'));
+    section.append(wheelPicker(member));
     const upgrade=document.createElement('select'),unknown=document.createElement('option');unknown.value='';unknown.textContent='Unknown enhancement';upgrade.append(unknown);
     for(let n=0;n<=15;n++){const o=document.createElement('option');o.value=String(n);o.textContent=n<=3?`E${n}`:`E3 + ${n-3}`;upgrade.append(o);}
     upgrade.value=member.wheelEnhanceLevel??'';upgrade.disabled=member.wheelId===null;
     const preview=document.createElement('p');preview.className='help';preview.setAttribute('aria-live','polite');
     function updatePreview(){
       if(member.wheelId===null||member.wheelEnhanceLevel==null){preview.textContent='Choose a Wheel and explicit enhancement to preview its catalog main stat.';return;}
-      try{const r=resolveWheelMainstat({catalogRevision:catalog.source.revision,wheelId:member.wheelId,enhanceLevel:member.wheelEnhanceLevel},catalog);preview.textContent=`Catalog main stat: ${r.stat} +${r.value}${r.unit==='percent'?'%':''}. ${r.trace.baseValue} + ${r.trace.growthSteps} × ${r.trace.perLevel} = ${r.value}. Passive effects and equipment legality remain unresolved.`;}catch(e){preview.textContent=e.message;}
+      try{const r=resolveWheelMainstat({catalogRevision:catalog.source.revision,wheelId:member.wheelId,enhanceLevel:member.wheelEnhanceLevel},catalog),owner=member.characterId!==null&&r.wheel.ownerAwakenerId===member.characterId?' Catalog owner matches the selected character.':r.wheel.ownerAwakenerName?` Catalog-associated owner: ${r.wheel.ownerAwakenerName}.`:'';const tags=r.wheel.searchTags.length?` Discovery tags: ${r.wheel.searchTags.join(', ')}.`:'';preview.textContent=`Catalog main stat: ${r.stat} +${r.value}${r.unit==='percent'?'%':''}. ${r.trace.baseValue} + ${r.trace.growthSteps} × ${r.trace.perLevel} = ${r.value}.${owner}${tags} Owner and tags are discovery metadata; passive effects and equipment legality remain unresolved.`;}catch(e){preview.textContent=e.message;}
     }
     upgrade.addEventListener('change',()=>{member.wheelEnhanceLevel=upgrade.value===''?null:Number(upgrade.value);updatePreview();invalidate();});
     section.append(...labelled('Wheel enhancement',upgrade,member.slotId+'-enhance'),preview);updatePreview();

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-theorycraft-request",
+  "requestId": "discover-pursuit-wheels",
+  "operation": "search-wheel-catalog",
+  "input": {
+    "catalogRevision": "a2ff07765b2e0c78af827577f881054dbe224d8d",
+    "query": "pursuit",
+    "characterId": null,
+    "ownerMatchOnly": false,
+    "tags": [
+      "Pursuit"
+    ],
+    "realms": [],
+    "mainstatKeys": [],
+    "limit": 20
+  }
+}
