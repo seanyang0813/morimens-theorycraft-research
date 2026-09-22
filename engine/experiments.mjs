@@ -29,7 +29,9 @@ function metrics(result){
 }
 export function compareScenarios(experiment,{runtimeFingerprint=null}={}){
   const frozen=snapshot(experiment);
-  if(!frozen||frozen.schemaVersion!==1||Object.keys(frozen).some(k=>!['schemaVersion','baseline','candidate','runtimeFingerprint'].includes(k)))throw new Error('Expected experiment schemaVersion 1 with baseline and candidate');
+  if(!frozen||frozen.schemaVersion!==1||Object.keys(frozen).some(k=>!['schemaVersion','analysisTrack','baseline','candidate','runtimeFingerprint'].includes(k)))throw new Error('Expected experiment schemaVersion 1 with baseline and candidate');
+  if(Object.hasOwn(frozen,'analysisTrack')&&frozen.analysisTrack!=='theorycrafting')throw new Error('Formula experiments belong to the theorycrafting analysis track');
+  frozen.analysisTrack='theorycrafting';
   const validHash=value=>typeof value==='string'&&/^[a-f0-9]{64}$/.test(value);
   if(runtimeFingerprint!==null&&!validHash(runtimeFingerprint))throw new Error('Invalid runtime fingerprint');
   if(Object.hasOwn(frozen,'runtimeFingerprint')){
@@ -44,7 +46,7 @@ export function compareScenarios(experiment,{runtimeFingerprint=null}={}){
   const at=baseline.experimentalModels[0]?.trace??[],bt=candidate.experimentalModels[0]?.trace??[];
   const traceComparable=frozen.baseline.damageType===frozen.candidate.damageType&&at.length===bt.length&&at.every((s,i)=>s.stage===bt[i].stage);
   const stageChanges=traceComparable?at.map((s,i)=>({stage:s.stage,baseline:s.value,candidate:bt[i].value,delta:bt[i].value-s.value})):[];
-  return {schemaVersion:1,status:'EXPERIMENTAL',finalDamage:null,experiment:frozen,reproducibility:runtimeFingerprint===null?'UNPINNED':'RUNTIME_PINNED',
+  return {schemaVersion:1,analysisTrack:'theorycrafting',status:'EXPERIMENTAL',finalDamage:null,experiment:frozen,reproducibility:runtimeFingerprint===null?'UNPINNED':'RUNTIME_PINNED',
     inputChanges:changes(frozen.baseline,frozen.candidate),metrics:{baseline:a,candidate:b,delta:deltas},traceComparable,stageChanges,
     interpretation:'Deltas compare the supplied scenarios. They do not attribute an individual causal contribution when several inputs change. Missing metrics remain null, not zero.',
     unresolvedDependencies:[...new Set([...baseline.unresolvedDependencies,...candidate.unresolvedDependencies])],baseline,candidate};

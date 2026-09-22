@@ -6,7 +6,7 @@ const setup=type=>({damageType:type,values:Object.fromEntries(fieldsFor(type).ma
 test('general website supports all four recovered formula categories without a character preset',()=>{
   for(const category of ['ACTIVE','PASSIVE','FIXED','PURE']){
     const input=setup(category),result=calculateGeneral(input);
-    assert.equal(result.experimentalModels[0].preHitDamage,100);assert.equal(result.finalDamage,null);
+    assert.equal(result.experimentalModels[0].preHitDamage,100);assert.equal(result.finalDamage,null);assert.equal(result.analysisTrack,'theorycrafting');
     input.values[category==='ACTIVE'?'offense.value':'baseDamage']='';assert.throws(()=>calculateGeneral(input));
     for(const missing of [null,true,'   ']){input.values[category==='ACTIVE'?'offense.value':'baseDamage']=missing;assert.throws(()=>calculateGeneral(input));}
   }

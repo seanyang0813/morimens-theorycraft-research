@@ -35,4 +35,4 @@ export function buildGeneralScenario({damageType,values,isCrit,hitEnabled,hitVal
   }
   return scenario;
 }
-export function calculateGeneral(input){return calculateDamage(buildGeneralScenario(input));}
+export function calculateGeneral(input){return {...calculateDamage(buildGeneralScenario(input)),analysisTrack:'theorycrafting',claimBoundary:{purpose:'Evaluate supplied damage inputs and A/B hypotheses',mustNotClaim:['observed cheese','leaderboard prevalence','independent gameplay verification']}};}

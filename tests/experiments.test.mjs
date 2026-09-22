@@ -5,13 +5,14 @@ import {build} from '../engine/calculate-damage.mjs';
 const base=()=>({build,mode:'experimental',damageType:'FIXED',effect:{build,category:'FIXED',targetDead:false,baseDamage:100,dimensionFixPer:0,fixed1:0,fixed2:0,fixed3:0,fixed4:0,fixed5:0}});
 test('pinned experiments refuse missing or different runtime identities',()=>{
   const experiment={schemaVersion:1,baseline:base(),candidate:base()},runtimeFingerprint='a'.repeat(64);
-  const result=compareScenarios(experiment,{runtimeFingerprint});assert.equal(result.reproducibility,'RUNTIME_PINNED');
+  const result=compareScenarios(experiment,{runtimeFingerprint});assert.equal(result.reproducibility,'RUNTIME_PINNED');assert.equal(result.analysisTrack,'theorycrafting');assert.equal(result.experiment.analysisTrack,'theorycrafting');
   assert.equal(experiment.runtimeFingerprint,undefined);
   assert.deepEqual(compareScenarios(result.experiment,{runtimeFingerprint}),result);
   assert.throws(()=>compareScenarios(result.experiment));
   assert.throws(()=>compareScenarios(result.experiment,{runtimeFingerprint:'b'.repeat(64)}));
   assert.throws(()=>compareScenarios({...experiment,runtimeFingerprint:null}));
   assert.equal(compareScenarios(experiment).reproducibility,'UNPINNED');
+  assert.throws(()=>compareScenarios({...experiment,analysisTrack:'cheese-analysis'}),/theorycrafting/);
 });
 test('experiments preserve exact input changes, trace deltas and immutable snapshots',()=>{
   const baseline=base(),candidate=base();candidate.effect.fixed1=50;

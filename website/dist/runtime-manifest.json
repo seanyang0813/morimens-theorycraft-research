@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "a85f5ee67b56e0df7b158be820f05b48b43599c41dc93d6687b274487134cae3",
+  "fingerprint": "f281a795b943b91204691787fa5ba6328ffd68e2093eac22a017a7861422b4ec",
   "files": {
     "build-catalog.json": "2d1188fadcaff7a1eb53af580c509756b21a3f003065c7c9036aa919958a1496",
     "client-build-data-res150.json": "49d4bf5abe419360df47e4959a26fb50bdaa37ed8189c022a644ff518f6fba80",
@@ -54,7 +54,7 @@
     "engine/dimension-final-value.mjs": "027653e8bffe351dc85d40d42dc72df41c4ff2d64a659be79d0e931b4ca983dd",
     "engine/effect-order.mjs": "03c9e57ac4707bdec8be4cf1f87e8e33e20686449a3c6b6ef9416977ad3ce131",
     "engine/energy-payment.mjs": "b31b16dee520da604b7a0c5d60e47aa10ef6da43bbab3764bfb1c89893f44493",
-    "engine/experiments.mjs": "7387fd4c7c35272da3dd4873362ba8a826767ffc700371b9d55ae9eda7a3ae95",
+    "engine/experiments.mjs": "da1a90fd1488e012e74b00a8a657a2825f54e2d1b50d0d68c9d4d93ba7b10305",
     "engine/fixed-pure-command-experiment.mjs": "f05f0e1b35c6610b5b5aa8835453a0d981a0f8c22996a1e6817ffb47b0929141",
     "engine/fixed-pure-prehit.mjs": "54089493a50593337a3dd969f28e9a6f9e3e20bda8ce825aa6942c1209c1dd63",
     "engine/front-enemy-target.mjs": "c513bd115639344c6f6981d5b167b29bfaae0e8750c86772f0e7b49aebc92f06",
