@@ -123,5 +123,6 @@
   "ulti-energy-gain.mjs",
   "wheel-mechanics-search.mjs",
   "wheel-refinement-parameters.mjs",
-  "wheel-initial-properties.mjs"
+  "wheel-initial-properties.mjs",
+  "wheel-loadout-properties.mjs"
 ]

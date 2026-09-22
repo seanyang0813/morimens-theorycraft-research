@@ -11,7 +11,7 @@ if(!options['--input']){console.error('Theorycraft request input is required');p
 const inside=(value,label)=>{const path=resolve(root,value),r=relative(root,path);if(!r||r.startsWith('..')||isAbsolute(r))throw new Error(`${label} must be inside the workspace`);return path;};
 try{
   const request=JSON.parse(readFileSync(inside(options['--input'],'Input'),'utf8'));
-  const requestedClientBuild=request.operation.startsWith('resolve-character-')?request.input?.build:(request.input?.clientBuild??request.input?.build);
+  const requestedClientBuild=request.operation.startsWith('resolve-character-')?request.input?.build:request.operation==='assemble-wheel-loadout-properties'?request.input?.buildPlan?.clientBuild:(request.input?.clientBuild??request.input?.build);
   const selectedBuild=requestedClientBuild??'pc-res144-build51';
   if(!['pc-res144-build51','pc-res150-build51'].includes(selectedBuild))throw new Error('Unsupported requested client build');
   const configRoot=selectedBuild==='pc-res150-build51'?'research/observations/current-res150-build51/modules':'research/extracted/config';
@@ -24,6 +24,11 @@ try{
   if(['prepare-skill-command','run-prepared-snapshot-active-skill','run-prepared-snapshot-block-skill','run-prepared-state-active-sequence','run-prepared-state-active-chain','run-paid-prepared-state-active-chain','run-attached-card-pipeline'].includes(request.operation)){
     const skill=readConfig('Skill'),battleApi=readConfig('BattleApi'),command=readConfig('Cmd'),state=readConfig('State');
     context.skillCommandData={build:selectedBuild,skills:skill.data,battleApi:battleApi.data,commands:command.data,states:state.data,sourceHashes:{Skill:skill.sha256,BattleApi:battleApi.sha256,Cmd:command.sha256,State:state.sha256}};
+  }
+  if(request.operation==='assemble-wheel-loadout-properties'){
+    if(selectedBuild!=='pc-res144-build51')throw new Error('Wheel loadout-property assembly currently requires pc-res144-build51');
+    const crosswalkBytes=readFileSync(resolve(root,'research/observations/wheel-config-audit/crosswalk-audit.json')),crosswalk=JSON.parse(crosswalkBytes),state=readConfig('State');
+    context.wheelMechanicsData={build:selectedBuild,crosswalkRows:crosswalk.rows,states:state.data,sourceHashes:{crosswalk:createHash('sha256').update(crosswalkBytes).digest('hex'),State:state.sha256}};
   }
   const response=runTheorycraftRequest(request,context),text=JSON.stringify(response,null,2)+'\n';
   if(options['--output'])writeFileSync(inside(options['--output'],'Output'),text,{encoding:'utf8',flag:'wx'});else process.stdout.write(text);

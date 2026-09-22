@@ -79,6 +79,15 @@ test('agent API validates the two-Wheel build-plan example without filling comba
   assert.equal(response.result.finalDamage,null);
 });
 
+test('agent API composes two source-bound Wheel direct-property ledgers',()=>{
+  const catalog=JSON.parse(readFileSync(new URL('../website/dist/build-catalog.json',import.meta.url),'utf8'));
+  const plan={schemaVersion:2,kind:'morimens-build-plan',catalogRevision:catalog.source.revision,clientBuild:'pc-res144-build51',team:[{slotId:'arachne',characterId:'awakener-0056',level:90,wheelSlots:[{slotId:'a',wheelId:'wheel-0128',enhanceLevel:15,refinementLevel:3},{slotId:'b',wheelId:'wheel-0132',enhanceLevel:15,refinementLevel:3}]}]};
+  const input={schemaVersion:1,kind:'morimens-wheel-loadout-properties',buildPlan:plan,ownerPropertiesByMember:{arachne:null}},wheelMechanicsData={build:'pc-res144-build51',crosswalkRows:[{wheelId:'wheel-0128',status:'UNIQUE',candidates:[{initialStateId:134231,stateTarget:'TargetCmdOwner',stateParameters:{1:'13+GetRefiningLevel()*4',2:'25+GetRefiningLevel()*5',3:'4+GetRefiningLevel()*2'}}]},{wheelId:'wheel-0132',status:'UNIQUE',candidates:[{initialStateId:134313,stateTarget:'TargetCmdOwner',stateParameters:{1:'4+GetRefiningLevel()*2',2:'9+GetRefiningLevel()*2'}}]}],states:{134231:{ExistProperty:{o_block_per:'StateArg1'},TriggerCmd1:1},134313:{ExistProperty:{o_block_per:'StateArg1'},TriggerCmd1:2}},sourceHashes:{crosswalk:'a'.repeat(64),State:'b'.repeat(64)}};
+  assert.throws(()=>runTheorycraftRequest(request('assemble-wheel-loadout-properties',input),{buildCatalog:catalog}),/requires context wheelMechanicsData/);
+  const response=runTheorycraftRequest(request('assemble-wheel-loadout-properties',input),{buildCatalog:catalog,wheelMechanicsData});
+  assert.equal(response.analysisTrack,'theorycrafting');assert.deepEqual(response.result.members[0].rawPropertyValues,{o_block_per:35});assert.equal(response.result.finalDamage,null);
+});
+
 test('agent API searches Wheel candidates without turning metadata into a recommendation',()=>{
   const catalog=JSON.parse(readFileSync(new URL('../website/dist/build-catalog.json',import.meta.url),'utf8'));
   const input={catalogRevision:catalog.source.revision,query:'pursuit',characterId:null,ownerMatchOnly:false,tags:['Pursuit'],realms:[],mainstatKeys:[],limit:20};

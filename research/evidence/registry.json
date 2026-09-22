@@ -7531,6 +7531,33 @@
       "gameplayValidation": false
     },
     {
+      "id": "Theorycraft:WheelLoadoutDirectProperties",
+      "status": "SUPPORTED_BY_COMPONENT_AND_RETROSPECTIVE_TESTS",
+      "claim": "A local agent operation resolves and sums initial direct-property expressions for two explicit Wheel slots per character while preserving every trigger graph as unresolved",
+      "sources": [
+        {
+          "module": "Sanitized Wheel replay-state audit",
+          "member": "793 exact raw serialized contribution matches and five explicit client-rounding differences",
+          "bundle": "retrospective private replay aggregate",
+          "sha256": "63d51cec74efae84c16c423000c91fc9d2654872af0f01c26efc248c84791906"
+        },
+        {
+          "module": "Wheel refinement runtime audit",
+          "member": "232 exact original-runtime comparisons",
+          "bundle": "sanitized mechanics evidence",
+          "sha256": "8088d4c6edcafcf897ddc0a33f4bfbadb5f22d697f469ab16cfb139980417430"
+        }
+      ],
+      "tests": [
+        "engine/wheel-loadout-properties.mjs",
+        "tests/wheel-loadout-properties.test.mjs",
+        "tools/run_theorycraft_request.mjs",
+        "research/examples/theorycraft-mouchette-arachne-wheel-properties.json"
+      ],
+      "scope": "Authored theorycraft composition over source-bound refinement and direct-property components. Requires the ignored local crosswalk and State catalog; stat-scaled expressions require explicit owner battle properties. It does not execute trigger commands, prove legality or team uniqueness, apply later state changes, calculate damage, rank builds, validate gameplay independently or satisfy the holdout gate.",
+      "gameplayValidation": false
+    },
+    {
       "id": "Theorycraft:LegalCardActionEnumeration",
       "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
       "claim": "The theorycraft API enumerates ordinary non-keeper PvE card actions from explicit dispatch, energy, hand and status state while retaining global and per-card rejection gates",

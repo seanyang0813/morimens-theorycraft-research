@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "036502326727bf3f601075b0ef5ae9924a495063a739c188c1e8401f28875600",
+  "fingerprint": "56a95f4d947cb2b5f9f2c9f0a2ce947c3a971e3ce4084d3dac7114a7d7b8a395",
   "files": {
     "build-catalog.json": "71d0e0d14959e933ae8942ac0064de95c0a63b84ce9065e2bdcef4509090b98b",
     "client-build-data-res150.json": "49d4bf5abe419360df47e4959a26fb50bdaa37ed8189c022a644ff518f6fba80",
@@ -127,11 +127,12 @@
     "engine/ulti-energy-gain.mjs": "08a4f4f32a7700422d6999e19e0e58fb2cace3bcbf7d0a910a9bcacf3b520468",
     "engine/use-attach-post-card.mjs": "a68fe61a2e770f751e8fbffcb417c85af9f1858968bf47ae492a4fca2bca0289",
     "engine/wheel-initial-properties.mjs": "79e96c9b01a4d35edb222d11655d7ca35450670b03e018ec9bad994b56b61998",
+    "engine/wheel-loadout-properties.mjs": "dde90972a3a0978bd521beb0948698c7d6b15d52e494e8b7b6fa563f5b764457",
     "engine/wheel-mechanics-search.mjs": "40423093bf647c9a8eac70a3c2ace9db0deaec7c1cb9693fd01902a89d6f91c2",
     "engine/wheel-refinement-parameters.mjs": "90f9556bc8dc54a0b94aaa2d5e9c9b86bca64cd6adb0bf4ca5a4a5fda3a6c8b2",
     "engine/wheel-search.mjs": "5055b6d67b72ea7d4dbc882dec7df9b6bb32812cc6f8675d355b6d9aff83b36e",
     "engine/wheel-stats.mjs": "d0eac4ca93b72cd91595dc6650b363f4b35e2262aac018e1c0e41c77f31b813e",
-    "rules.json": "e1fdcf53d61674dc8ed3421714c8a6435744010beb366c7c3887c440c562da91",
+    "rules.json": "9a327527dd427f4f2dbebcdb42e311addb3c8970c1944d6b3bce3eb15f8fa6c2",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af",
     "wheel-mechanics-capability-catalog.json": "f544b9f24176c216532d050136a56aac58bccb20086f3acd78bd56613ca61af0"
   }
