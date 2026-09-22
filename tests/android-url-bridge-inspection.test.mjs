@@ -18,6 +18,10 @@ test('Android XLua URL bridge receives its base string from Lua and only normali
   assert.equal(report.normalization.suffixCheck.literal.value,'/');
   assert.equal(report.normalization.missingSuffixAction.appendedLiteral,'/');
   assert.equal(report.normalization.hostOrSchemeLiteralIntroduced,false);
+  assert.equal(report.wholeBinaryDirectCallAudit.executableSegmentsScanned,true);
+  assert.equal(report.wholeBinaryDirectCallAudit.directCallerCount,1);
+  assert.deepEqual(report.wholeBinaryDirectCallAudit.callers,[{rva:'0x195d608',owner:'XLua.CSObjectWrap.ResourceManagerDownloadHelperWrap._m_FixUrlRoot_xlua_st_'}]);
   assert.equal(report.startupLuaCrossCheck.resourceDownloadCandidates,0);
+  assert.deepEqual(report.startupLuaCrossCheck.bridgeReferenceConstants,{FixUrlRoot:0,DownloadHelper:0,GetTextFromUrl:0});
   assert.match(report.nextEvidenceNeeded,/Scripts group|download trees/i);
 });

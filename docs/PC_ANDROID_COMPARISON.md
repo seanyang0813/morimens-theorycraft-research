@@ -113,11 +113,15 @@ edges show `ResourceManagerDownloadHelperWrap._m_FixUrlRoot_xlua_st_` reading
 Lua stack argument 1 with `lua_tostring`, calling `DownloadHelper.FixUrlRoot`,
 and returning one value with `lua_pushstring`. `FixUrlRoot` calls `FixPath`,
 checks whether the result ends in `/`, and otherwise appends `/`; it introduces
-no host or scheme. Therefore this public normalizer receives its base string
-from Lua/runtime data. The packaged startup Lua archive contains no literal
-resource endpoint, leaving later downloaded Lua or a service response as the
-remaining source at this boundary. The source-hashed call-edge report is
-`research/evidence/android-url-bridge-inspection.json`.
+no host or scheme. A scan of every file-backed executable segment in
+`libil2cpp.so` finds exactly one direct ARM64 `BL` caller: the generated XLua
+wrapper itself. The packaged startup Lua archive contains neither a literal
+resource endpoint nor a string-constant reference to `FixUrlRoot`,
+`DownloadHelper` or `GetTextFromUrl`. Therefore this public normalizer receives
+its base string from later Lua/runtime data. Indirect native calls remain
+outside the direct-call scan. A later downloaded Lua component or a service
+response is still the unresolved source at this boundary. The source-hashed
+call-edge report is `research/evidence/android-url-bridge-inspection.json`.
 
 ## Lua bundle lookup order
 

@@ -10,6 +10,7 @@ test('Android startup Lua inspection proves parsing but no literal resource endp
   assert.equal(report.sourceHashes.androidStartupArchive,sha(readFileSync('research/raw/android/unpacked/assets/luascript_update.archive')));
   assert.equal(report.prototypeCount,7);assert.equal(report.stringConstantCount,109);assert.equal(report.uniqueStringConstantCount,91);
   assert.deepEqual(report.literalUrlClassification,{total:1,telemetry:1,resourceDownloadCandidates:0});
+  assert.deepEqual(report.bridgeReferenceConstants,{FixUrlRoot:0,DownloadHelper:0,GetTextFromUrl:0});
   assert.match(report.rootSource,/ApusUpdateComp\.lua$/);assert.match(report.scope,/without executing/i);
   assert.ok(report.limitations.some(row=>/dynamically assembled/i.test(row)));assert.ok(report.limitations.some(row=>/no Android\/PC formula parity/i.test(row)));
 });

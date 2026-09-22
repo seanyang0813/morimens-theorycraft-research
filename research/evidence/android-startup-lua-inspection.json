@@ -16,10 +16,15 @@
     "telemetry": 1,
     "resourceDownloadCandidates": 0
   },
+  "bridgeReferenceConstants": {
+    "FixUrlRoot": 0,
+    "DownloadHelper": 0,
+    "GetTextFromUrl": 0
+  },
   "scope": "Protected packaged Android startup Lua deserialized by the copied legitimate loader without executing the chunk; aggregate prototype/string inventory and literal URL classification only.",
   "limitations": [
     "The only literal URL is classified as telemetry from its host/path and surrounding startup component; its value is not published",
-    "No literal resource-download URL does not exclude dynamically assembled, encrypted, server-supplied or later-downloaded endpoints",
+    "No literal resource-download URL or named download-helper bridge reference does not exclude dynamically assembled, encrypted, server-supplied or later-downloaded endpoints",
     "The startup component is not a combat module and establishes no Android/PC formula parity",
     "The copied Windows parser demonstrates compatible deserialization of byte-identical startup bytes; it is not Android runtime execution"
   ]

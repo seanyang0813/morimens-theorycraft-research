@@ -2,6 +2,7 @@
 from pathlib import Path
 import hashlib
 import json
+import struct
 
 from capstone import Cs, CS_ARCH_ARM64, CS_MODE_LITTLE_ENDIAN
 from elftools.elf.elffile import ELFFile
@@ -41,6 +42,27 @@ def require(code, address, mnemonic, operand):
         raise ValueError(f"Android URL bridge changed at {address:#x}: expected {expected}, found {actual}")
 
 
+def direct_bl_callers(elf, target):
+    """Return every file-backed executable ARM64 BL whose destination is target."""
+    callers = []
+    for segment in elf.iter_segments():
+        if segment['p_type'] != 'PT_LOAD' or not (segment['p_flags'] & 1):
+            continue
+        data = segment.data()
+        base = segment['p_vaddr']
+        for offset in range(0, len(data) - 3, 4):
+            word = struct.unpack_from('<I', data, offset)[0]
+            if word >> 26 != 0b100101:
+                continue
+            immediate = word & 0x3ffffff
+            if immediate & 0x2000000:
+                immediate -= 0x4000000
+            caller = base + offset
+            if caller + immediate * 4 == target:
+                callers.append(caller)
+    return callers
+
+
 def main():
     dump = DUMP.read_text(encoding="utf-8")
     required_dump = [
@@ -70,11 +92,15 @@ def main():
         require(normalizer, 0x2EFF484, "bl", f"#{ENDS_WITH_RVA:#x}")
         require(normalizer, 0x2EFF4B0, "b", f"#{STRING_CONCAT_RVA:#x}")
         slash = relocated_literal(elf, stream, SLASH_LITERAL_SLOT, literals)
+        direct_callers = direct_bl_callers(elf, FIX_URL_ROOT_RVA)
     if slash["value"] != "/":
         raise ValueError("Android FixUrlRoot suffix literal changed")
+    if direct_callers != [0x195D608]:
+        raise ValueError("Android FixUrlRoot direct-call boundary changed")
 
     startup = json.loads(STARTUP_REPORT.read_text(encoding="utf-8"))
-    if startup.get("status") != "PARSED_WITHOUT_EXECUTION" or startup.get("literalUrlClassification", {}).get("resourceDownloadCandidates") != 0:
+    expected_startup_references = {"FixUrlRoot": 0, "DownloadHelper": 0, "GetTextFromUrl": 0}
+    if startup.get("status") != "PARSED_WITHOUT_EXECUTION" or startup.get("literalUrlClassification", {}).get("resourceDownloadCandidates") != 0 or startup.get("bridgeReferenceConstants") != expected_startup_references:
         raise ValueError("Android startup Lua cross-check changed")
 
     report = {
@@ -104,16 +130,25 @@ def main():
             "missingSuffixAction": {"api": "System.String.Concat", "rva": hex(STRING_CONCAT_RVA), "appendedLiteral": "/"},
             "hostOrSchemeLiteralIntroduced": False,
         },
+        "wholeBinaryDirectCallAudit": {
+            "target": {"api": "ResourceManager.DownloadHelper.FixUrlRoot", "rva": hex(FIX_URL_ROOT_RVA)},
+            "executableSegmentsScanned": True,
+            "directCallerCount": len(direct_callers),
+            "callers": [{"rva": hex(value), "owner": "XLua.CSObjectWrap.ResourceManagerDownloadHelperWrap._m_FixUrlRoot_xlua_st_"} for value in direct_callers],
+            "interpretation": "The generated XLua wrapper is the only direct ARM64 BL caller of FixUrlRoot in packaged libil2cpp.so. Indirect or reflection-based calls are outside this scan.",
+        },
         "startupLuaCrossCheck": {
             "status": startup["status"],
             "prototypeCount": startup["prototypeCount"],
             "stringConstantCount": startup["stringConstantCount"],
             "resourceDownloadCandidates": startup["literalUrlClassification"]["resourceDownloadCandidates"],
+            "bridgeReferenceConstants": startup["bridgeReferenceConstants"],
         },
-        "interpretation": "The generated XLua wrapper reads argument 1 from the Lua stack, passes that string to FixUrlRoot, and pushes one string result. FixUrlRoot normalizes the path and only preserves or appends '/'; it introduces no host or scheme. The resource base URL therefore reaches this boundary from Lua/runtime data rather than being created by the normalizer.",
+        "interpretation": "The generated XLua wrapper reads argument 1 from the Lua stack, passes that string to FixUrlRoot, and pushes one string result. It is the only direct ARM64 caller in packaged libil2cpp.so. FixUrlRoot normalizes the path and only preserves or appends '/'; it introduces no host or scheme. The packaged startup Lua has no named reference to this bridge or DownloadHelper. The resource base URL therefore reaches this boundary from later Lua/runtime data rather than being created by managed startup code or the normalizer.",
         "scope": "Static ARM64 call-edge, relocation and generated-XLua-wrapper inspection. No native or managed method was executed and no endpoint value is published.",
         "limitations": [
             "This identifies the source side of one public URL-normalization bridge, not every possible Android network path",
+            "The whole-binary caller scan covers direct ARM64 BL instructions; delegates, reflection, virtual dispatch and other indirect calls are not classified",
             "The packaged startup Lua archive has no literal resource endpoint, but later downloaded Lua or a service response can supply the argument",
             "No Android downloaded combat bundle, formula parity, gameplay or holdout credit",
         ],

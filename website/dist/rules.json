@@ -7263,7 +7263,7 @@
     {
       "id": "ANDROID83:StartupLuaArchiveInspection",
       "status": "CONFIRMED_FROM_LOCAL_ARCHIVE_PARSER",
-      "claim": "The protected packaged Android startup archive deserializes without execution into seven Lua prototypes and 109 string constants; its one literal URL is telemetry and no literal resource-download URL is present",
+      "claim": "The protected packaged Android startup archive deserializes without execution into seven Lua prototypes and 109 string constants; its one literal URL is telemetry, with no literal resource-download URL or string-constant reference to FixUrlRoot, DownloadHelper or GetTextFromUrl",
       "scope": "Static protected-chunk deserialization with the copied Windows parser over startup bytes already proven identical across APK and PC copies. No endpoint value is published. Absence is confined to literal URLs in this telemetry startup component; dynamic/server-supplied/later-bundle endpoints, Android runtime execution, downloaded combat modules, formula parity, gameplay and holdout credit remain unresolved.",
       "gameplayValidation": false,
       "sources": [
@@ -7275,7 +7275,7 @@
         {
           "module": "Sanitized Android startup Lua inspection",
           "member": "aggregate counts and literal URL classification",
-          "sha256": "ff0dc49404be38ad1a205649418aff914939afc39dbc20f576f90d94cada7e8d"
+          "sha256": "75c3b1e519f9796d0571f7ef08b3d5731dd80df5d4ebc8fd34608b7c764ad320"
         }
       ],
       "checks": [
@@ -7350,14 +7350,14 @@
     {
       "id": "ANDROID83:LuaSuppliedUrlNormalizer",
       "status": "CONFIRMED_FROM_LOCAL_ARM64_CALL_EDGES",
-      "claim": "The generated Android XLua wrapper reads argument 1 from the Lua stack, passes it to DownloadHelper.FixUrlRoot and returns one string; the normalizer only applies FixPath and preserves or appends a slash, introducing no host or scheme",
+      "claim": "The generated Android XLua wrapper is the only direct ARM64 caller of DownloadHelper.FixUrlRoot, reads Lua argument 1 and returns one normalized string; FixUrlRoot introduces no host or scheme, and packaged startup Lua has no named bridge reference",
       "scope": "Static generated-wrapper, ARM64 call-edge and relocated-literal inspection. Establishes that this public normalizer receives its base string from Lua/runtime data; it does not identify all networking paths or the endpoint value. Later Lua/service data, downloaded combat bundles, Android formula behavior, gameplay and holdout credit remain unresolved.",
       "gameplayValidation": false,
       "sources": [
         {
           "module": "Android XLua DownloadHelper bridge and FixUrlRoot",
           "member": "ARM64 wrapper input, managed call, output and slash-normalization edges",
-          "sha256": "01b44a80cfe00590c4496e3901163e841fb0cf7b73ea3e2bdc2e3ba1ebbacee9"
+          "sha256": "04cbc96d197f95ff658155597ffb966796e0671d2d01b8832de52c7c25034cc5"
         }
       ],
       "checks": [

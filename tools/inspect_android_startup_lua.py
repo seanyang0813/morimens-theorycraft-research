@@ -65,6 +65,8 @@ finally:close(state)
 urls=sorted({value for value in strings if re.match(r'^https?://',value,re.I)})
 telemetry=[value for value in urls if sources[0].endswith('ApusUpdateComp.lua') and urlparse(value).path.endswith('/v1/logs')]
 resource_urls=[value for value in urls if value not in telemetry]
+bridge_markers=('FixUrlRoot','DownloadHelper','GetTextFromUrl')
+bridge_reference_counts={marker:sum(marker.lower() in value.lower() for value in strings if isinstance(value,str)) for marker in bridge_markers}
 literal_hash=hashlib.sha256(json.dumps(strings,ensure_ascii=False,separators=(',',':')).encode()).hexdigest()
 report={
     'schemaVersion':1,
@@ -76,10 +78,11 @@ report={
     'stringConstantCount':len(strings),
     'uniqueStringConstantCount':len(set(strings)),
     'literalUrlClassification':{'total':len(urls),'telemetry':len(telemetry),'resourceDownloadCandidates':len(resource_urls)},
+    'bridgeReferenceConstants':bridge_reference_counts,
     'scope':'Protected packaged Android startup Lua deserialized by the copied legitimate loader without executing the chunk; aggregate prototype/string inventory and literal URL classification only.',
     'limitations':[
         'The only literal URL is classified as telemetry from its host/path and surrounding startup component; its value is not published',
-        'No literal resource-download URL does not exclude dynamically assembled, encrypted, server-supplied or later-downloaded endpoints',
+        'No literal resource-download URL or named download-helper bridge reference does not exclude dynamically assembled, encrypted, server-supplied or later-downloaded endpoints',
         'The startup component is not a combat module and establishes no Android/PC formula parity',
         'The copied Windows parser demonstrates compatible deserialization of byte-identical startup bytes; it is not Android runtime execution'
     ]
