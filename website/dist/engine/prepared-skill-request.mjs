@@ -41,6 +41,6 @@ export function runPreparedSkillRequest(value,source){
     execution=runPreparedSkillExperiment({...value.execution,build,preparation,commands:source.commands,states:source.states});
   }
   return {schemaVersion:1,status:execution?.status??'PREPARED',build,finalDamage:null,skillId:request.skillId,sourceHashes:{...source.sourceHashes},prepared,execution,
-    commandSupport:execution?.support??inspectCommandSupport({command,allowedFunctions:Object.keys(request.stateQueries)}),commandSummary:{effectTypes,rowCount:Object.keys(command.data_list??{}).length},
+    commandSupport:execution?.support??inspectCommandSupport({command,allowedFunctions:['CmdCaster.GetPotencyLevel',...Object.keys(request.stateQueries)]}),commandSummary:{effectTypes,rowCount:Object.keys(command.data_list??{}).length},
     unresolvedDependencies:execution?.unresolvedDependencies??[...prepared.unresolvedDependencies,'Command prepared but not executed; supply an explicit execution context','No automatic build, target, lifecycle or gameplay validation']};
 }
