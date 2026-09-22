@@ -20,5 +20,13 @@ test('Wheel state crosswalk is mechanics-only and fails closed on ambiguous join
     initialStateTriggerCountHistogram:{0:4,1:75,2:38,3:18,4:6},
     judgementExpressionsPresent:104,
   });
+  assert.equal(report.potentialStateGraph.potentiallyLinkedStates,353);
+  assert.equal(report.potentialStateGraph.maximumLiteralAddStateDepth,3);
+  assert.deepEqual(report.potentialStateGraph.stateDepthHistogram,{0:141,1:176,2:35,3:1});
+  assert.equal(report.potentialStateGraph.uniqueTriggerCommands,260);
+  assert.equal(report.potentialStateGraph.effectRowOccurrences,589);
+  assert.equal(report.potentialStateGraph.effectTypeCount,32);
+  assert.equal(report.potentialStateGraph.effectRowTypeHistogram.BEAddState,341);
+  assert.equal(report.potentialStateGraph.cyclicComponents,3);
   assert.ok(report.limitations.some(row=>row.includes('no cheese')));
 });

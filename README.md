@@ -79,6 +79,11 @@ graphs, not passive execution or a build recommendation. See
 `research/evidence/wheel-state-crosswalk-audit.json` and
 `tools/audit_wheel_state_crosswalk.py`.
 
+Literal state-add links expand that boundary to a static potential graph of 353
+states, 260 distinct trigger commands and 32 effect types. The graph records
+cycles and dynamic state identities explicitly; it is an implementation map,
+not permission to execute every branch or a claim that every effect activates.
+
 ## Offline replay pipeline
 
 An explicitly exported PC replay can now be processed without running game logic or reading process memory:

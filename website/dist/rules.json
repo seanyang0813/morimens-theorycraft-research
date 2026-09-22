@@ -6162,14 +6162,14 @@
     {
       "id": "PC144-SKeyDB:WheelStateCrosswalk",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
-      "claim": "An exact icon-asset join uniquely maps 141 of 146 public SKeyDB Wheel identities to a PC client Weapon row and initial state; those states contain 63 direct property maps and 229 fully resolved trigger-command references across 190 commands",
-      "scope": "Static mechanics crosswalk only. One Wheel is missing and four fail closed as ambiguous. It does not execute the initial state or descendants, interpret private parameter or judgement expressions, establish equipment, legality, signature uniqueness, stacking, optimality, gameplay agreement or holdout credit. Raw client rows and ambiguous candidates remain private; no cheese, budget-scouting or theorycraft conclusion.",
+      "claim": "An exact icon-asset join uniquely maps 141 of 146 public SKeyDB Wheels to initial states; literal state-add links form a static potential graph of 353 states, 260 trigger commands, 589 effect-row occurrences and 32 effect types",
+      "scope": "Static mechanics crosswalk only. One Wheel is missing and four fail closed as ambiguous. Potential links include conditional and mutually exclusive rows, three cycles and nine runtime-supplied state identities. It does not execute the graph, interpret private expressions, establish equipment, legality, signature uniqueness, stacking, optimality, gameplay agreement or holdout credit. Raw client rows remain private; no cheese, budget-scouting or theorycraft conclusion.",
       "gameplayValidation": false,
       "sources": [
         {
           "module": "Sanitized Wheel-to-state crosswalk audit",
-          "member": "source hashes, exact join rule, aggregate coverage, initial-state graph counts and four bounded case-study identities",
-          "sha256": "3e113bd61fa23f86687ad95528d2dc99b3f3f212a8b44130ff4683beae76e04f"
+          "member": "source hashes, exact join rule, initial-state coverage, aggregate potential graph and four bounded case-study identities",
+          "sha256": "36d69ad9572982e9c97f02fd6bd67c8034d963d5d4d63e8634484275f0933940"
         }
       ],
       "checks": [

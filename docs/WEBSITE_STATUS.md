@@ -30,6 +30,12 @@ maps and 229 fully resolved trigger-command references. The Builds page still
 uses only public discovery metadata and main-stat preview; it does not execute
 those passive state graphs.
 
+The same mechanics report now expands literal state-add links into a static
+potential graph of 353 states, 260 distinct trigger commands, 589 command-row
+occurrences and 32 effect types. Three cyclic components and nine runtime-state
+identities remain explicit blockers to naïve graph evaluation. This inventory
+guides engine coverage work but does not widen the website's execution claims.
+
 No hosted Site is registered or deployed. There is no `.openai/hosting.json` project ID. The source checkpoint is on GitHub, labeled as unverified research. Deployment as an accurate build recommender remains prohibited until the gameplay prediction and independent holdout gate passes.
 
 Remaining product work includes source-backed character/build normalization, broader action and encounter execution, complete event/HP behavior, full browser and responsive QA, independent gameplay regression, a separately frozen holdout, discrepancy review, and publication only after the original gate passes.

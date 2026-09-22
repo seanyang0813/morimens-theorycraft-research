@@ -63,6 +63,15 @@ initial states have no trigger command, while the others have one to four. This
 shows that a general passive engine must support both retained properties and
 event-triggered command graphs instead of treating every Wheel as one scalar.
 
+Following only literal `BEAddState` targets expands the 141 initial states into
+353 potentially linked states at a maximum depth of three. Those states refer
+to 260 distinct trigger commands and 589 command-row occurrences across 32
+effect types. The graph includes three small cyclic components and nine dynamic
+state-add rows whose state identity comes from runtime arguments. This is a
+static superset: conditions, event timing, targets and mutually exclusive rows
+still decide which edges execute. A simulator must dispatch events and enforce
+state lifecycle rules; recursively applying every edge would be incorrect.
+
 This establishes a general entry point for passive reconstruction:
 
 `Wheel identity -> client Weapon row -> initial State -> later state/command graph`

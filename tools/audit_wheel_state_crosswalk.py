@@ -7,7 +7,7 @@ import hashlib
 import json
 import re
 import subprocess
-from collections import defaultdict
+from collections import Counter, defaultdict, deque
 from pathlib import Path, PurePosixPath
 
 
@@ -32,6 +32,104 @@ def sha256(path: Path) -> str:
 
 def icon_stem(value: object) -> str:
     return PurePosixPath(str(value or "").replace("\\", "/")).stem
+
+
+def potential_state_graph(root_ids: set[str], states: dict, commands: dict) -> dict:
+    """Follow literal BEAddState targets; this is connectivity, not execution."""
+    queue = deque((state_id, 0) for state_id in root_ids)
+    seen: set[str] = set()
+    depths: dict[str, int] = {}
+    command_ids: list[str] = []
+    edges: list[tuple[str, str]] = []
+    dynamic_add_state_rows = 0
+    effect_types: Counter[str] = Counter()
+    effect_row_occurrences = 0
+    while queue:
+        state_id, depth = queue.popleft()
+        if state_id in seen:
+            continue
+        seen.add(state_id)
+        depths[state_id] = depth
+        state = states.get(state_id)
+        if state is None:
+            raise ValueError(f"Potential Wheel graph state is absent: {state_id}")
+        for key, value in state.items():
+            if not (re.fullmatch(r"TriggerCmd\d+", key) and isinstance(value, (int, float)) and value):
+                continue
+            command_id = str(int(value))
+            if command_id not in commands:
+                raise ValueError(f"Potential Wheel graph command is absent: {command_id}")
+            command_ids.append(command_id)
+            for row in (commands[command_id].get("data_list") or {}).values():
+                effect_row_occurrences += 1
+                effect_type = str(row.get("Type"))
+                effect_types[effect_type] += 1
+                if effect_type != "BEAddState":
+                    continue
+                match = re.match(r"^\s*(\d+)(?:\s*,|\s*$)", str(row.get("Para")))
+                if not match or match.group(1) not in states:
+                    dynamic_add_state_rows += 1
+                    continue
+                child_id = match.group(1)
+                edges.append((state_id, child_id))
+                queue.append((child_id, depth + 1))
+
+    adjacency: dict[str, set[str]] = defaultdict(set)
+    for source, target in set(edges):
+        adjacency[source].add(target)
+    indexes: dict[str, int] = {}
+    lowlinks: dict[str, int] = {}
+    stack: list[str] = []
+    on_stack: set[str] = set()
+    components: list[list[str]] = []
+
+    def strong_connect(state_id: str) -> None:
+        indexes[state_id] = lowlinks[state_id] = len(indexes)
+        stack.append(state_id)
+        on_stack.add(state_id)
+        for child_id in adjacency[state_id]:
+            if child_id not in indexes:
+                strong_connect(child_id)
+                lowlinks[state_id] = min(lowlinks[state_id], lowlinks[child_id])
+            elif child_id in on_stack:
+                lowlinks[state_id] = min(lowlinks[state_id], indexes[child_id])
+        if lowlinks[state_id] != indexes[state_id]:
+            return
+        component = []
+        while True:
+            child_id = stack.pop()
+            on_stack.remove(child_id)
+            component.append(child_id)
+            if child_id == state_id:
+                break
+        components.append(component)
+
+    for state_id in seen:
+        if state_id not in indexes:
+            strong_connect(state_id)
+    cycles = [
+        component
+        for component in components
+        if len(component) > 1 or (len(component) == 1 and component[0] in adjacency[component[0]])
+    ]
+    return {
+        "rootInitialStates": len(root_ids),
+        "potentiallyLinkedStates": len(seen),
+        "maximumLiteralAddStateDepth": max(depths.values()),
+        "stateDepthHistogram": {str(key): value for key, value in sorted(Counter(depths.values()).items())},
+        "statesWithDirectProperties": sum(bool(states[state_id].get("ExistProperty")) for state_id in seen),
+        "triggerCommandReferences": len(command_ids),
+        "uniqueTriggerCommands": len(set(command_ids)),
+        "effectRowOccurrences": effect_row_occurrences,
+        "effectTypeCount": len(effect_types),
+        "effectRowTypeHistogram": dict(effect_types.most_common()),
+        "literalAddStateEdges": len(edges),
+        "uniqueLiteralAddStateEdges": len(set(edges)),
+        "dynamicAddStateRows": dynamic_add_state_rows,
+        "cyclicComponents": len(cycles),
+        "statesInCyclicComponents": sum(len(component) for component in cycles),
+        "largestCyclicComponent": max((len(component) for component in cycles), default=0),
+    }
 
 
 def load_inputs(skeydb: Path, item_path: Path) -> tuple[list[dict], dict, dict, Path, Path]:
@@ -185,7 +283,36 @@ def audit(skeydb: Path, item_path: Path, state_path: Path, command_path: Path) -
     }
     if initial_state_graph != expected_graph:
         raise ValueError(f"Unexpected initial-state graph summary: {initial_state_graph}")
-    private = {"schemaVersion": 1, "source": source, "summary": summary, "initialStateGraph": initial_state_graph, "rows": private_rows}
+    graph = potential_state_graph(
+        {
+            str(row["candidates"][0]["initialStateId"])
+            for row in private_rows
+            if row["status"] == "UNIQUE"
+        },
+        states,
+        commands,
+    )
+    expected_graph_summary = {
+        "rootInitialStates": 141,
+        "potentiallyLinkedStates": 353,
+        "maximumLiteralAddStateDepth": 3,
+        "stateDepthHistogram": {"0": 141, "1": 176, "2": 35, "3": 1},
+        "statesWithDirectProperties": 126,
+        "triggerCommandReferences": 323,
+        "uniqueTriggerCommands": 260,
+        "effectRowOccurrences": 589,
+        "effectTypeCount": 32,
+        "literalAddStateEdges": 332,
+        "uniqueLiteralAddStateEdges": 298,
+        "dynamicAddStateRows": 9,
+        "cyclicComponents": 3,
+        "statesInCyclicComponents": 5,
+        "largestCyclicComponent": 2,
+    }
+    for key, value in expected_graph_summary.items():
+        if graph.get(key) != value:
+            raise ValueError(f"Unexpected potential Wheel graph {key}: {graph.get(key)}")
+    private = {"schemaVersion": 1, "source": source, "summary": summary, "initialStateGraph": initial_state_graph, "potentialStateGraph": graph, "rows": private_rows}
     public = {
         "schemaVersion": 1,
         "kind": "MORIMENS_WHEEL_TO_CLIENT_STATE_CROSSWALK_AUDIT",
@@ -199,14 +326,17 @@ def audit(skeydb: Path, item_path: Path, state_path: Path, command_path: Path) -
         },
         "summary": summary,
         "initialStateGraph": initial_state_graph,
+        "potentialStateGraph": graph,
         "caseStudyBoundary": public_cases,
         "claims": [
             "A unique icon join identifies a client Weapon row and its initial state-attachment boundary for 141 of 146 public Wheel identities.",
             "All 141 unique initial states resolve; together they reference 229 trigger commands across 190 unique command IDs, and every referenced command exists in the client command catalog.",
+            "Following only literal BEAddState links expands those roots into a bounded static graph of 353 states and 260 unique trigger commands; this is potential connectivity, not proof that a branch executes.",
             "The four named Mouchette/Arachne case-study Wheels each have one unique client row with an initial state, target, and parameter slots.",
         ],
         "limitations": [
             "This is a static identity crosswalk. It does not execute the initial state, descendants, triggers, conditions, formulas, stacking, or refinement parameters.",
+            "Static expansion includes conditional and mutually exclusive rows. Cycles are reported structurally and must not be interpreted as repeated execution.",
             "One public Wheel has no matching client icon and four have multiple client rows; those five are unresolved and must fail closed.",
             "Associated owner labels are discovery metadata, not proof that a Wheel is unique, equipped, legal, optimal, or active in a replay.",
             "Raw client rows, localized descriptions, parameter expressions, and ambiguous candidates remain private.",

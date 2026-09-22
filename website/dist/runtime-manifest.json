@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "1b07e961b5f09230edc4b303a745c5ab1fd5807317adae260b7a6aea9409e682",
+  "fingerprint": "67313cc084b298b61a15371f60fd19796b4dad9bccd17d208ea68ac3a3c656d3",
   "files": {
     "build-catalog.json": "71d0e0d14959e933ae8942ac0064de95c0a63b84ce9065e2bdcef4509090b98b",
     "client-build-data-res150.json": "49d4bf5abe419360df47e4959a26fb50bdaa37ed8189c022a644ff518f6fba80",
@@ -128,7 +128,7 @@
     "engine/use-attach-post-card.mjs": "a68fe61a2e770f751e8fbffcb417c85af9f1858968bf47ae492a4fca2bca0289",
     "engine/wheel-search.mjs": "5055b6d67b72ea7d4dbc882dec7df9b6bb32812cc6f8675d355b6d9aff83b36e",
     "engine/wheel-stats.mjs": "d0eac4ca93b72cd91595dc6650b363f4b35e2262aac018e1c0e41c77f31b813e",
-    "rules.json": "de240d29f642461bf9eb78c431098bf1106cf7d087186a8ffc556b8a817ffd96",
+    "rules.json": "9024f16b954575af4ce51f9b0e22285a3937db35b3f5a070ac8d13381cfe08f1",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af"
   }
 }
