@@ -1,6 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
 import {runObservationScenario} from '../engine/observation-scenario.mjs';
+import {loadSkillCommandData} from '../tools/load_skill_command_data.mjs';
 
 const build='pc-res144-build51';
 const fixed=amount=>({build,mode:'experimental',damageType:'FIXED',effect:{build,category:'FIXED',targetDead:false,baseDamage:amount,dimensionFixPer:0,fixed1:0,fixed2:0,fixed3:0,fixed4:0,fixed5:0}});
@@ -26,6 +29,13 @@ test('observation dispatcher supports completed high-difficulty Old Embers timel
   const result=runObservationScenario(scenario,'modeledHpLost');
   assert.equal(result.value,50);assert.equal(result.scenarioKind,'old-embers-hit-timeline');
   assert.throws(()=>runObservationScenario(scenario,'preHitDamage'),/unavailable/);
+});
+test('observation dispatcher runs a paid catalog-backed prepared sequence only with pinned data',()=>{
+  const path=fileURLToPath(new URL('../research/examples/theorycraft-paid-prepared-state-active-chain.json',import.meta.url)),scenario=JSON.parse(readFileSync(path,'utf8'));
+  assert.throws(()=>runObservationScenario(scenario,'modeledHpLost'),/pinned skill-command data/);
+  assert.throws(()=>runObservationScenario(scenario,'preHitDamage',{skillCommandData:loadSkillCommandData(build)}),/requires modeledHpLost/);
+  const result=runObservationScenario(scenario,'modeledHpLost',{skillCommandData:loadSkillCommandData(build)});
+  assert.equal(result.value,15);assert.equal(result.scenarioKind,'run-paid-prepared-state-active-chain');assert.equal(result.build,build);
 });
 test('observation dispatcher refuses partial timelines and unknown shapes',()=>{
   const lethal={schemaVersion:1,build,interveningEffects:'assumed-absent',target:{hp:10,block:0},steps:[step('lethal',20),step('unresolved',1)]};

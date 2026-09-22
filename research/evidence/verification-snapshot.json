@@ -1,5 +1,5 @@
 {
-  "generatedAtUtc": "2026-09-22T00:16:11.898820+00:00",
+  "generatedAtUtc": "2026-09-22T00:28:15.853165+00:00",
   "publicationStatus": "NOT_READY",
   "publicationAuthorized": false,
   "automatedSuite": {
@@ -7,7 +7,7 @@
     "passed": true,
     "exitCode": 0,
     "log": "research\\evidence\\latest-test-suite.tap",
-    "logSha256": "90877b29835c05cac0d980a32d8453914cebe791a11ebe7c3c9aca8fb60155ac"
+    "logSha256": "86a6792320be1e51786512664592aba5a6a9f237c598f189eb007d417f1be96d"
   },
   "realObservations": {
     "records": 3,
@@ -188,6 +188,46 @@
   "websiteEngineCopies": [
     {
       "module": "build-plan.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "card-type-match.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "catalog-state-definitions.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "front-enemy-target.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "paid-prepared-state-active-chain.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "prepared-skill-experiment.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "prepared-skill-request.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "prepared-snapshot-active-skill.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "prepared-state-active-chain.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "prepared-state-active-sequence.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "snapshot-ulti-energy-context.mjs",
       "matchesResearchEngine": true
     },
     {

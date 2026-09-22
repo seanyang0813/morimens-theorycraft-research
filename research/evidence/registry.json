@@ -7556,6 +7556,50 @@
       "gameplayValidation": false
     },
     {
+      "id": "Verification:PreparedSequenceFreezeBoundary",
+      "status": "SUPPORTED_BY_TESTED_FREEZE_WORKFLOW",
+      "claim": "A paid catalog-backed state-to-Active request can be frozen and replayed with its scenario, complete relevant engine dependency graph and selected Skill, BattleApi, Cmd and State file hashes pinned",
+      "sources": [
+        {
+          "module": "Skill",
+          "member": "134203,3997",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\2015861756545847808_Skill.lua"
+        },
+        {
+          "module": "BattleApi",
+          "member": "catalog file",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "22d7e4cdc4746a1c3b543a97a5d68cca4b7b184c92ef9d4d19651da8189db15c",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\-6894225089628909939_BattleApi.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "134192,2350",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "State",
+          "member": "3835",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "ab2f7272d4b11673b55f4d3cca008a82d9b7b9c89ce7ad9e7a63f97504d6d0a8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\120510535982352647_State.lua"
+        }
+      ],
+      "tests": [
+        "tests/freeze-gameplay-prediction.test.mjs",
+        "tests/observation-scenario.test.mjs",
+        "tests/observation-runtime-contract.test.mjs",
+        "research/examples/theorycraft-paid-prepared-state-active-chain.json",
+        "docs/NEXT_GAMEPLAY_CAPTURE.md"
+      ],
+      "scope": "Verification preparation only. The tested repository request is synthetic and proves deterministic freezing, dependency selection, catalog hashing, replay and fail-closed tamper rejection. It is not an observed outcome, independent gameplay regression, blind holdout, accuracy result, publication credit, cheese analysis, budget scouting or theorycraft recommendation.",
+      "gameplayValidation": false
+    },
+    {
       "id": "ANDROID83:StartupLuaArchiveInspection",
       "status": "CONFIRMED_FROM_LOCAL_ARCHIVE_PARSER",
       "claim": "The protected packaged Android startup archive deserializes without execution into seven Lua prototypes and 109 string constants; its one literal URL is telemetry and no literal resource-download URL is present",

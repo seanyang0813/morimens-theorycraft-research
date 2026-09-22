@@ -4,6 +4,7 @@ import {mkdtempSync,readFileSync,rmSync,writeFileSync} from 'node:fs';
 import {join,relative} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {spawnSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
 import {freezeGameplayPrediction} from '../tools/freeze_gameplay_prediction.mjs';
 
 const root=fileURLToPath(new URL('../',import.meta.url)),relativeToRoot=path=>relative(root,path);
@@ -40,5 +41,16 @@ test('prediction freeze pins scenario, runtime and separate pre-outcome evidence
     assert.equal(sequenceFrozen.predictedDamage,150);const sequenceRecord=JSON.parse(readFileSync(sequenceOutput,'utf8'));assert.ok(sequenceRecord.prediction.runtimeContract.files['engine/snapshot-active-sequence.mjs']);assert.ok(sequenceRecord.prediction.runtimeContract.files['engine/battle-property-snapshot-damage.mjs']);
     const sequenceReplay=spawnSync(process.execPath,['tools/replay_observation.mjs',sequenceScenario,'modeledHpLost',sequenceRecord.prediction.runtimeFingerprint,JSON.stringify(sequenceRecord.prediction.runtimeContract)],{cwd:root,encoding:'utf8'});
     assert.equal(sequenceReplay.status,0,sequenceReplay.stderr);assert.equal(JSON.parse(sequenceReplay.stdout).value,150);
+    const preparedScenario=join(directory,'paid-prepared-sequence.json'),preparedOutput=join(directory,'paid-prepared-sequence-freeze.json');
+    writeFileSync(preparedScenario,readFileSync(join(root,'research/examples/theorycraft-paid-prepared-state-active-chain.json')));
+    const preparedFrozen=freezeGameplayPrediction({scenarioFile:relativeToRoot(preparedScenario),metric:'modeledHpLost',evidenceFiles:[relativeToRoot(evidence)],recordedCombatBuild:build,buildEvidenceFiles:[relativeToRoot(buildEvidence)],outputFile:relativeToRoot(preparedOutput),now:()=>new Date('2026-09-20T00:03:00Z')});
+    assert.equal(preparedFrozen.predictedDamage,15);const preparedRecord=JSON.parse(readFileSync(preparedOutput,'utf8')),preparedContract=preparedRecord.prediction.runtimeContract;
+    assert.ok(preparedContract.files['engine/paid-prepared-state-active-chain.mjs']);assert.ok(preparedContract.files['engine/prepared-state-active-chain.mjs']);assert.ok(preparedContract.files['engine/prepared-snapshot-active-skill.mjs']);
+    assert.deepEqual(Object.keys(preparedContract.dataFiles).sort(),['BattleApi','Cmd','Skill','State']);for(const digest of Object.values(preparedContract.dataFiles))assert.match(digest,/^[0-9a-f]{64}$/);
+    const preparedReplay=spawnSync(process.execPath,['tools/replay_observation.mjs',preparedScenario,'modeledHpLost',preparedRecord.prediction.runtimeFingerprint,JSON.stringify(preparedContract)],{cwd:root,encoding:'utf8'});
+    assert.equal(preparedReplay.status,0,preparedReplay.stderr);assert.equal(JSON.parse(preparedReplay.stdout).value,15);
+    const tampered={...preparedContract,dataFiles:{...preparedContract.dataFiles,Skill:'0'.repeat(64)}};delete tampered.fingerprint;tampered.fingerprint=createHash('sha256').update(JSON.stringify(tampered)).digest('hex');
+    const rejectedReplay=spawnSync(process.execPath,['tools/replay_observation.mjs',preparedScenario,'modeledHpLost',preparedRecord.prediction.runtimeFingerprint,JSON.stringify(tampered)],{cwd:root,encoding:'utf8'});
+    assert.notEqual(rejectedReplay.status,0);assert.match(rejectedReplay.stderr,/catalog data changed/);
   }finally{rmSync(directory,{recursive:true,force:true});}
 });

@@ -4,11 +4,18 @@ import {runCardActionTimeline} from './card-action-timeline.mjs';
 import {runOrderedStateCommand} from './ordered-state-command.mjs';
 import {calculateSnapshotActiveDamage} from './battle-property-snapshot-damage.mjs';
 import {runSnapshotActiveSequence} from './snapshot-active-sequence.mjs';
+import {runPaidPreparedStateActiveChain} from './paid-prepared-state-active-chain.mjs';
 
 const metrics=new Set(['preHitDamage','modeledHpLost']);
-export function runObservationScenario(scenario,metric){
+export function runObservationScenario(scenario,metric,context={}){
   if(!metrics.has(metric))throw new Error('Metric must be preHitDamage or modeledHpLost');
   if(!scenario||typeof scenario!=='object'||Array.isArray(scenario))throw new Error('Explicit observation scenario required');
+  if(scenario.schemaVersion===1&&scenario.kind==='morimens-theorycraft-request'&&scenario.operation==='run-paid-prepared-state-active-chain'){
+    if(metric!=='modeledHpLost'||!context.skillCommandData)throw new Error('Paid prepared observation requires modeledHpLost and pinned skill-command data');
+    const result=runPaidPreparedStateActiveChain(scenario.input,context.skillCommandData);
+    if(result.status!=='EXPERIMENTAL'||result.completed!==true||!Number.isFinite(result.modeledHpLost))throw new Error('Prepared-card observation scenario did not complete');
+    return {build:result.build,scenarioKind:scenario.operation,metric,value:result.modeledHpLost,scope:'Paid catalog-backed state and ordered Active-card chain with explicit snapshots',unresolvedDependencies:result.unresolvedDependencies};
+  }
   if(scenario.mode==='experimental'){
     const result=calculateDamage(scenario),models=result.experimentalModels.filter(model=>Object.hasOwn(model,metric));
     if(models.length!==1||!Number.isFinite(models[0][metric]))throw new Error('Requested metric is unavailable or ambiguous');

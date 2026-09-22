@@ -1,6 +1,7 @@
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {dirname,posix} from 'node:path';
+import {loadSkillCommandData} from './load_skill_command_data.mjs';
 const root=new URL('../',import.meta.url);
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
 function verifiedManifest(){
@@ -37,6 +38,7 @@ function dependencyClosure(entries,manifest){
   return [...seen].sort();
 }
 function observationEntries(scenario){
+  if(scenario?.schemaVersion===1&&scenario?.kind==='morimens-theorycraft-request'&&scenario?.operation==='run-paid-prepared-state-active-chain')return ['engine/observation-scenario.mjs','engine/paid-prepared-state-active-chain.mjs'];
   if(scenario?.mode==='experimental')return ['engine/observation-scenario.mjs','engine/calculate-damage.mjs'];
   if(scenario?.kind==='morimens-battle-property-snapshot-damage')return ['engine/observation-scenario.mjs','engine/battle-property-snapshot-damage.mjs'];
   if(scenario?.kind==='morimens-snapshot-active-sequence')return ['engine/observation-scenario.mjs','engine/snapshot-active-sequence.mjs'];
@@ -52,15 +54,18 @@ export function createObservationRuntimeContract(scenario){
   const selected=new Set(['engine/observation-scenario.mjs']);
   for(const entry of entries.filter(name=>name!=='engine/observation-scenario.mjs'))for(const name of dependencyClosure([entry],manifest))selected.add(name);
   const files=Object.fromEntries([...selected].sort().map(name=>[name,manifest.files[name]]));
-  const contract={schemaVersion:1,algorithm:'sha256',fullRuntimeFingerprint:manifest.fingerprint,entryModules:entries,files};
+  const dataFiles=scenario?.kind==='morimens-theorycraft-request'?loadSkillCommandData(scenario.input?.build).sourceHashes:{};
+  const contract={schemaVersion:1,algorithm:'sha256',fullRuntimeFingerprint:manifest.fingerprint,entryModules:entries,files,dataFiles};
   return {...contract,fingerprint:hash(JSON.stringify(contract))};
 }
 export function verifyObservationRuntimeContract(scenario,contract){
   const current=createObservationRuntimeContract(scenario);
   if(!contract||contract.schemaVersion!==1||contract.algorithm!=='sha256')throw new Error('Unsupported observation runtime contract');
   const supplied={schemaVersion:contract.schemaVersion,algorithm:contract.algorithm,fullRuntimeFingerprint:contract.fullRuntimeFingerprint,entryModules:contract.entryModules,files:contract.files};
+  if(Object.hasOwn(contract,'dataFiles'))supplied.dataFiles=contract.dataFiles;
   if(hash(JSON.stringify(supplied))!==contract.fingerprint)throw new Error('Observation runtime contract fingerprint mismatch');
   if(JSON.stringify(contract.entryModules)!==JSON.stringify(current.entryModules)||JSON.stringify(Object.keys(contract.files??{}))!==JSON.stringify(Object.keys(current.files)))throw new Error('Observation runtime contract scope mismatch');
   for(const [name,digest] of Object.entries(contract.files))if(current.files[name]!==digest)throw new Error('Observation runtime dependency changed: '+name);
+  if(JSON.stringify(contract.dataFiles??{})!==JSON.stringify(current.dataFiles??{}))throw new Error('Observation runtime catalog data changed');
   return {frozenRuntimeFingerprint:contract.fullRuntimeFingerprint,currentRuntimeFingerprint:verifyRuntimeManifest(),runtimeContractFingerprint:contract.fingerprint};
 }
