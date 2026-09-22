@@ -7366,6 +7366,30 @@
       ]
     },
     {
+      "id": "ANDROID83:LuaBundleLookupOrder",
+      "status": "CONFIRMED_FROM_LOCAL_ARM64_CALL_EDGES",
+      "claim": "The Android main Lua environment loads seven Scripts bundles in recovered order, then an optional language bundle, preferring a persistent download override before Android App Bundle mapping and StreamingAssets; module paths select bundles by their first component",
+      "scope": "Static source-hashed IL2CPP metadata, relocated-literal and ARM64 call-edge inspection. Establishes bundle names, order and lookup routing but does not provide a concrete device persistent-data root, downloaded bundle bytes, resource endpoint, Android formula parity, gameplay validation or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Android LuaBehaviour and LuaAssetBundlesMgr",
+          "member": "static bundle list, language selection, path priority, offset overloads and module-to-bundle routing",
+          "sha256": "6e7243f9b261353f67ad3a923d254b28e6e08d482f05e00262ded2d1f9dee91f"
+        },
+        {
+          "module": "Android resource-83 Scripts manifest",
+          "member": "exact seven-file set cross-check",
+          "sha256": "7e17333bffc43687c1394fd822ec9779c496e71f67f086333c7017fe847b67d4"
+        }
+      ],
+      "checks": [
+        "tools/inspect_android_lua_bundle_loader.py",
+        "tests/android-lua-bundle-loader-inspection.test.mjs",
+        "docs/PC_ANDROID_COMPARISON.md"
+      ]
+    },
+    {
       "id": "ANDROID83:ScriptGroupManifest",
       "status": "CONFIRMED_FROM_LOCAL_MANIFEST",
       "claim": "The packaged Android resource-83 manifest identifies seven Scripts-group bundles by filename, size, resource index and MD5; the hash interpretation is established by a direct bundled Android startup-archive match",

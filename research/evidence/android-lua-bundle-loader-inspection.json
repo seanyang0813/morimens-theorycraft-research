@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_ANDROID_LUA_BUNDLE_LOADER_INSPECTION",
+  "status": "STATIC_LUA_BUNDLE_LOOKUP_ORDER_RECOVERED",
+  "sourceHashes": {
+    "globalMetadata": "97564dd7d0314be14c6cdd3f219d6405027b787923f70cd2fce89ba8b630d441",
+    "libil2cpp": "f8d8f3181094b093c2580a6d548f4411eecf701dfe36953b6fa532066c1b4153",
+    "il2cppDump": "2e1b3522a2a07e38f611b353d84bae37baaa1f66ff207d1d0e662a99aa781030",
+    "scriptGroupManifest": "7e17333bffc43687c1394fd822ec9779c496e71f67f086333c7017fe847b67d4"
+  },
+  "startupBundleSequence": {
+    "baseBundles": [
+      {
+        "ordinal": 1,
+        "file": "gamelauncher.ab",
+        "literal": {
+          "slot": "0x3833d28",
+          "encodedUsage": "0xa000656f",
+          "stringLiteralIndex": 12983,
+          "value": "gamelauncher.ab"
+        }
+      },
+      {
+        "ordinal": 2,
+        "file": "config.ab",
+        "literal": {
+          "slot": "0x3833d30",
+          "encodedUsage": "0xa0005f2d",
+          "stringLiteralIndex": 12182,
+          "value": "config.ab"
+        }
+      },
+      {
+        "ordinal": 3,
+        "file": "foundation.ab",
+        "literal": {
+          "slot": "0x3833d40",
+          "encodedUsage": "0xa0006517",
+          "stringLiteralIndex": 12939,
+          "value": "foundation.ab"
+        }
+      },
+      {
+        "ordinal": 4,
+        "file": "gamescript.ab",
+        "literal": {
+          "slot": "0x3833d20",
+          "encodedUsage": "0xa0006575",
+          "stringLiteralIndex": 12986,
+          "value": "gamescript.ab"
+        }
+      },
+      {
+        "ordinal": 5,
+        "file": "share.ab",
+        "literal": {
+          "slot": "0x3833d38",
+          "encodedUsage": "0xa0007e07",
+          "stringLiteralIndex": 16131,
+          "value": "share.ab"
+        }
+      },
+      {
+        "ordinal": 6,
+        "file": "vue.ab",
+        "literal": {
+          "slot": "0x3833d48",
+          "encodedUsage": "0xa000859b",
+          "stringLiteralIndex": 17101,
+          "value": "vue.ab"
+        }
+      },
+      {
+        "ordinal": 7,
+        "file": "ejoysdk_lua.ab",
+        "literal": {
+          "slot": "0x3833d50",
+          "encodedUsage": "0xa00062c9",
+          "stringLiteralIndex": 12644,
+          "value": "ejoysdk_lua.ab"
+        }
+      }
+    ],
+    "manifestExactSetMatch": true,
+    "baseBundleCount": 7,
+    "languageBundle": {
+      "position": "after all base bundles",
+      "emptyOrCn": "text_cn.ab",
+      "otherwise": "lowercase(Text_ + CurLang + .ab)",
+      "literals": {
+        "suffix": {
+          "slot": "0x3833a30",
+          "encodedUsage": "0xa0000819",
+          "stringLiteralIndex": 1036,
+          "value": ".ab"
+        },
+        "prefix": {
+          "slot": "0x3817cb8",
+          "encodedUsage": "0xa00045ad",
+          "stringLiteralIndex": 8918,
+          "value": "Text_"
+        },
+        "cnCode": {
+          "slot": "0x3833a38",
+          "encodedUsage": "0xa0005e8f",
+          "stringLiteralIndex": 12103,
+          "value": "cn"
+        },
+        "default": {
+          "slot": "0x3833a40",
+          "encodedUsage": "0xa0008161",
+          "stringLiteralIndex": 16560,
+          "value": "text_cn.ab"
+        }
+      }
+    },
+    "totalCountRule": "base list count plus one when the selected language bundle is nonempty",
+    "loader": "Framework.LuaAssetBundlesMgr.LoadLuaBundleAsync"
+  },
+  "bundleFileLookupOrder": [
+    {
+      "priority": 1,
+      "source": "download override",
+      "path": "Path.Combine(DownloadHelper.GetDownloadPathDefault(), abPath)",
+      "acceptance": "System.IO.File.Exists",
+      "assetBundleLoad": "LoadFromFile/LoadFromFileAsync without offset"
+    },
+    {
+      "priority": 2,
+      "source": "Android App Bundle file-system mapping",
+      "condition": "LoadGlobal.fileManager.IsAab()",
+      "path": "LoadGlobal.fileManager.TryGetFile(abPath, out truePath, out offset)",
+      "assetBundleLoad": "LoadFromFile/LoadFromFileAsync with crc 0 and recovered offset"
+    },
+    {
+      "priority": 3,
+      "source": "packaged StreamingAssets fallback",
+      "path": "Path.Combine(Application.streamingAssetsPath, abPath)",
+      "assetBundleLoad": "LoadFromFile/LoadFromFileAsync without offset"
+    }
+  ],
+  "luaModuleResolution": {
+    "requestedNameTransform": "replace '.' with '/', then format as {0}.lua",
+    "externalOverride": "when LuaBytesSupportExternalStorage is enabled, try FileUtils.IsFileExist and LoadFileAllBytes first",
+    "bundleKey": "substring before the first '/', lowercased",
+    "lazyBundleFallback": "if the named bundle is absent, load lowercased first path component plus .ab",
+    "assetPath": "Assets/Lua/ + transformed module filename + .bytes",
+    "literals": {
+      "moduleSuffix": {
+        "slot": "0x3833a98",
+        "encodedUsage": "0xa00087e1",
+        "stringLiteralIndex": 17392,
+        "value": "{0}.lua"
+      },
+      "bundleSuffix": {
+        "slot": "0x3833a30",
+        "encodedUsage": "0xa0000819",
+        "stringLiteralIndex": 1036,
+        "value": ".ab"
+      },
+      "assetPrefix": {
+        "slot": "0x3835a00",
+        "encodedUsage": "0xa00012ad",
+        "stringLiteralIndex": 2390,
+        "value": "Assets/Lua/"
+      },
+      "assetSuffix": {
+        "slot": "0x3835a08",
+        "encodedUsage": "0xa0000825",
+        "stringLiteralIndex": 1042,
+        "value": ".bytes"
+      },
+      "updaterTemplate": {
+        "slot": "0x3836758",
+        "encodedUsage": "0xa0008827",
+        "stringLiteralIndex": 17427,
+        "value": "{0}{1}.lua"
+      }
+    }
+  },
+  "updaterBootstrapLoader": {
+    "pathTemplate": "{luaDir}{requestedPath}.lua",
+    "reader": "ResourceManager.DownloadHelper.LoadLuaFileAllBytes",
+    "relationship": "separate bootstrap byte loader used by Z1ClientUpdater.GameUpdater before the main LuaBehaviour bundle-backed environment"
+  },
+  "interpretation": "The packaged client first prefers same-name Lua bundles from the default persistent download directory, conditionally resolves an Android App Bundle container path and byte offset, and otherwise falls back to StreamingAssets. Main Lua module names select bundles by their first path component. The seven source literals exactly match the seven resource-83 Scripts-manifest entries and add their load order.",
+  "scope": "Static source-hashed IL2CPP metadata, ARM64 call-edge and relocation inspection. No managed method, Lua chunk or bundle was executed.",
+  "limitations": [
+    "The current downloaded resource-83 bundle bytes are still absent, so Android combat Lua cannot yet be compared with PC combat code",
+    "The inspection recovers the persistent lookup rule but not a concrete device Application.persistentDataPath",
+    "The resource server endpoint and the later runtime value supplied to FixUrlRoot remain unresolved",
+    "Load completion, retry timing and failure recovery are outside this report",
+    "No Android formula parity, gameplay validation or holdout credit"
+  ],
+  "nextEvidenceNeeded": "Capture the seven source-hashed resource-83 Scripts bundles from DownloadHelper.GetDownloadPathDefault beneath the same Android session's Application.persistentDataPath; gamescript.ab is the primary combat-code target."
+}

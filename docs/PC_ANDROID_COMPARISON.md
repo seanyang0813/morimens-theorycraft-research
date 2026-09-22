@@ -118,3 +118,45 @@ from Lua/runtime data. The packaged startup Lua archive contains no literal
 resource endpoint, leaving later downloaded Lua or a service response as the
 remaining source at this boundary. The source-hashed call-edge report is
 `research/evidence/android-url-bridge-inspection.json`.
+
+## Lua bundle lookup order
+
+`tools/inspect_android_lua_bundle_loader.py` follows the main Android Lua
+loader through relocated string literals and ARM64 call edges. The static
+initializer builds this exact ordered base-bundle list:
+
+1. `gamelauncher.ab`
+2. `config.ab`
+3. `foundation.ab`
+4. `gamescript.ab`
+5. `share.ab`
+6. `vue.ab`
+7. `ejoysdk_lua.ab`
+
+The set matches all seven entries in the packaged resource-83 Scripts group.
+The loader then appends a language bundle: empty or `cn` selects
+`text_cn.ab`; another language selects the lowercase form of
+`Text_<language>.ab`. Its tracked total is the seven-item list count plus one
+when that language result is nonempty.
+
+For each bundle, `LuaAssetBundlesMgr.GetLuaBundleFullPath` first tests
+`Path.Combine(DownloadHelper.GetDownloadPathDefault(), abPath)`. If that file
+does not exist and the runtime file manager reports Android App Bundle mode,
+it asks `TryGetFile` for a container path and byte offset. The final fallback
+is `Path.Combine(Application.streamingAssetsPath, abPath)`. The synchronous
+and asynchronous loaders use Unity's offset overload only for the App Bundle
+mapping branch.
+
+Main Lua module resolution replaces dots with slashes and appends `.lua`. When
+external Lua bytes are enabled it tries a direct file first. Bundle lookup
+uses the lowercased first path component, lazily loads `<component>.ab` when
+needed, and reads `Assets/Lua/<module>.lua.bytes`. The earlier updater has a
+separate direct-byte loader for `{luaDir}{requestedPath}.lua` through
+`DownloadHelper.LoadLuaFileAllBytes`.
+
+This closes the client-side bundle-name, priority and module-to-bundle routing
+questions. It does not supply the missing resource-83 bundle bytes or the
+concrete device persistent-data root. The next Android combat step is still a
+same-session capture of the seven manifest-hashed Scripts files, with
+`gamescript.ab` as the primary target. The source-hashed report is
+`research/evidence/android-lua-bundle-loader-inspection.json`.
