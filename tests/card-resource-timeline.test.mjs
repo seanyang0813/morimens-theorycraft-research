@@ -15,3 +15,6 @@ test('rejection preserves energy, invalid suffixes reject, and duplicate card av
   assert.throws(()=>runCardResourceTimeline(timeline([a,{...b,cardInstanceId:'a'}])));
   assert.throws(()=>runCardResourceTimeline(timeline([a,b,{...c,costInput:{...c.costInput,energy:99}}])));
 });
+test('the same resource projection accepts the current resource-150 build label',()=>{
+  const value=timeline([card('a','3',3)]);value.build='pc-res150-build51';const result=runCardResourceTimeline(value);assert.equal(result.build,'pc-res150-build51');assert.equal(result.energyAfter,2);
+});

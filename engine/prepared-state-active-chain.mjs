@@ -28,9 +28,17 @@ export function runPreparedStateActiveChain(value,source){
   const availableCasterStateLayers=first.stateCard.execution.calculation.states.filter(state=>state.roleId===input.roleBinding.activeCasterRoleId&&!state.isDeleted).map(state=>({stateId:state.stateId,layer:state.layer}));
   const targetBaseline=clone(firstTemplate.snapshot.initialTargetProperties),bindingBaseline=clone(firstTemplate.targetBinding),tagBaseline=firstTemplate.snapshot.targetBattleTag,stateIdsBaseline=clone(firstTemplate.snapshot.targetStateIds);
   let target=clone(first.targetAfter),energy=declaredEnergy(firstTemplate),energyBaseline=energy;
+  // Validate every suffix before exposing any partial execution. Each card is
+  // checked against the common pre-sequence snapshot; the execution loop below
+  // then substitutes only the documented carried fields.
+  for(const action of laterTemplates){
+    if(action.build!==input.build||!same(action.targetBinding,bindingBaseline)||action.snapshot?.targetBattleTag!==tagBaseline||!same(action.snapshot?.targetStateIds,stateIdsBaseline)||!same(action.snapshot?.initialTargetProperties,targetBaseline))throw new Error('Every Active action must declare the same build, target binding and pre-sequence target snapshot');
+    runPreparedStateActiveSequence({schemaVersion:1,kind:'morimens-prepared-state-active-sequence',build:input.build,stateCard:input.stateCard,activeSkill:action,roleBinding:input.roleBinding},source);
+    const declared=declaredEnergy(action);if(declared!==null){if(energyBaseline===null)energyBaseline=declared;else if(declared!==energyBaseline)throw new Error('Every Active action must declare the same pre-sequence caster energy');}
+  }
   if(first.activeSkill.energy)energy=first.activeSkill.energy.targetsAfter[0].energy;
   const actions=[first.activeSkill],transitions=[{index:0,hpBefore:targetBaseline.hp,blockBefore:targetBaseline.block??0,hpAfter:target.hp,blockAfter:target.block??0,energyAfter:energy,propertyChanges:clone(first.carry.propertyChanges),stateLayerChanges:clone(first.carry.stateLayerChanges)}];
-  let stop=first.completed?null:{index:0,reason:first.activeSkill.stop??'First Active action did not complete'};
+  let stop=!first.completed?{index:0,reason:first.activeSkill.stop??'First Active action did not complete'}:target.hp<=0?{index:0,reason:'Death handling required before another card'}:null;
 
   for(let index=0;index<laterTemplates.length&&!stop;index++){
     const action=clone(laterTemplates[index]),absoluteIndex=index+1;
@@ -50,8 +58,9 @@ export function runPreparedStateActiveChain(value,source){
     action.snapshot.initialTargetProperties.hp=target.hp;action.snapshot.initialTargetProperties.block=target.block??0;
     const declared=declaredEnergy(action);
     if(declared!==null){
-      if(energyBaseline===null){energyBaseline=declared;energy=declared;}
+      if(energyBaseline===null)energyBaseline=declared;
       if(declared!==energyBaseline)throw new Error('Every Active action must declare the same pre-sequence caster energy');
+      if(energy===null)energy=declared;
       setEnergy(action,energy);
     }
     const hpBefore=target.hp,blockBefore=target.block??0,result=runPreparedSnapshotActiveSkill(action,source);
@@ -59,6 +68,7 @@ export function runPreparedStateActiveChain(value,source){
     if(result.energy)energy=result.energy.targetsAfter[0].energy;
     transitions.push({index:absoluteIndex,hpBefore,blockBefore,hpAfter:target.hp,blockAfter:target.block??0,energyAfter:energy,propertyChanges:clone(first.carry.propertyChanges),stateLayerChanges});
     if(!result.completed)stop={index:absoluteIndex,reason:result.stop??'Active action did not complete'};
+    else if(target.hp<=0)stop={index:absoluteIndex,reason:'Death handling required before another card'};
   }
   return {schemaVersion:1,kind:'morimens-prepared-state-active-chain-result',analysisTrack:'theorycrafting',status:'EXPERIMENTAL',build:input.build,finalDamage:null,completed:stop===null,stop,roleBinding:input.roleBinding,targetRoleId:input.targetRoleId,sourceHashes:{...source.sourceHashes},stateCard:first.stateCard,carry:{...first.carry,availableCasterStateLayers},activeSkills:actions,transitions,executedActions:actions.length,unexecutedActions:input.activeSkills.length-actions.length,modeledHpLost:targetBaseline.hp-target.hp,targetAfter:target,casterEnergyAfter:energy,
     unresolvedDependencies:['One completed catalog-backed role-state card followed by an ordered nonempty list of supported prepared Active skills','All Active templates must describe one shared pre-sequence caster and target; only state properties/layers, target HP/Block and exposed caster energy carry','Costs, card zones, duration expiry, callbacks, reactive effects, retargeting, other actors, death execution and gameplay validation remain unresolved']};

@@ -6268,6 +6268,53 @@
       ]
     },
     {
+      "id": "Theorycraft:PaidPreparedStateActiveChain",
+      "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
+      "claim": "Ordinary non-keeper PvE legality and payment can precede each catalog-backed state/Active card while rejected or post-lethal cards expose no effects and consume no energy",
+      "scope": "Authored payment-before-effect composition over separately runtime-matched ordinary PvE play checks, connected payment, state-card execution and prepared Active chain. All resource/effect suffixes are prevalidated; distinct instances and supplied hand/status conditions are required. Hand removal, draws, refunds, cost changes, turn gates, lifecycle callbacks, reactive effects, death execution, gameplay and holdout validation remain excluded. Theorycraft track only; no cheese, budget or observed-strategy claim.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "BattleUnitBase",
+          "member": "CanUseCard",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410"
+        },
+        {
+          "module": "BEBeforeUseCard",
+          "member": "__CostEnergy",
+          "sha256": "b660610845cc1181bab671a07d5df91814b2b39419aed2d4ba826bee2be8699c"
+        },
+        {
+          "module": "BattleUnitPlayer",
+          "member": "EnergyEnough,ConsumeEnergy",
+          "sha256": "ca4e9847ac558a6c8e81a80461869ce2a6c72b0e8e75caf63b9c4dc9afb1b52e"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "SubProperty",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76"
+        },
+        {
+          "module": "Skill",
+          "member": "134203,3997",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8"
+        },
+        {
+          "module": "Cmd",
+          "member": "134192,2350",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2"
+        }
+      ],
+      "checks": [
+        "tests/paid-prepared-state-active-chain.test.mjs",
+        "tests/card-resource-timeline.test.mjs",
+        "tests/connected-card-payment.test.mjs",
+        "tests/theorycraft-api.test.mjs",
+        "research/examples/theorycraft-paid-prepared-state-active-chain.json",
+        "docs/PREPARED_STATE_ACTIVE_SEQUENCE.md"
+      ]
+    },
+    {
       "id": "ANDROID83:StartupLuaArchiveInspection",
       "status": "CONFIRMED_FROM_LOCAL_ARCHIVE_PARSER",
       "claim": "The protected packaged Android startup archive deserializes without execution into seven Lua prototypes and 109 string constants; its one literal URL is telemetry and no literal resource-download URL is present",

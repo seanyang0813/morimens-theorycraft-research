@@ -1,11 +1,11 @@
 import {resolvePveCardResources} from './card-use-resources.mjs';
 import {snapshot} from './experiments.mjs';
-const build='pc-res144-build51';
+const builds=new Set(['pc-res144-build51','pc-res150-build51']);
 
 // Resource projection for distinct supplied card instances, not a full battle.
 export function runCardResourceTimeline(value){
   const input=snapshot(value);
-  if(!input||input.schemaVersion!==1||input.kind!=='morimens-card-resource-timeline'||input.build!==build||input.interveningEffects!=='assumed-absent'||Object.keys(input).some(k=>!['schemaVersion','kind','build','interveningEffects','initialEnergy','steps'].includes(k)))throw new Error('Explicit supported resource timeline required');
+  if(!input||input.schemaVersion!==1||input.kind!=='morimens-card-resource-timeline'||!builds.has(input.build)||input.interveningEffects!=='assumed-absent'||Object.keys(input).some(k=>!['schemaVersion','kind','build','interveningEffects','initialEnergy','steps'].includes(k)))throw new Error('Explicit supported resource timeline required');
   if(!Number.isFinite(input.initialEnergy)||input.initialEnergy<0||input.initialEnergy>99||!Array.isArray(input.steps)||!input.steps.length)throw new Error('Initial energy in 0..99 and a nonempty sequence required');
   const ids=new Set(),cards=new Set();
   for(const step of input.steps){
@@ -23,7 +23,7 @@ export function runCardResourceTimeline(value){
     if(!result.check.allowed){stop={stepId:step.id,gate:result.check.gate,reasonCode:result.check.reasonCode};break;}
     energy=result.energyAfter;
   }
-  return {schemaVersion:1,status:'EXPERIMENTAL',build,scope:'Normal non-keeper PvE resource projection; supplied conditions and no intervening effects',finalDamage:null,
+  return {schemaVersion:1,status:'EXPERIMENTAL',build:input.build,scope:'Normal non-keeper PvE resource projection; supplied conditions and no intervening effects',finalDamage:null,
     initialEnergy:input.initialEnergy,energyAfter:energy,modeledEnergyLost:input.initialEnergy-energy,completed:stop===null,stop,acceptedSteps:trace.filter(t=>t.result.check.allowed).length,unattemptedSteps:input.steps.length-trace.length,trace,
     unresolvedDependencies:[...unresolved,'No automatic refunds, draws, cost changes, reactive effects, turn transitions or action damage','Hand membership and state conditions are supplied for each distinct card instance, not reconstructed']};
 }

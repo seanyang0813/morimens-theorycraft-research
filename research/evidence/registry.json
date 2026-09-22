@@ -7497,6 +7497,65 @@
       "gameplayValidation": false
     },
     {
+      "id": "Theorycraft:PaidPreparedStateActiveChain",
+      "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
+      "claim": "Ordinary non-keeper PvE legality and payment can precede each catalog-backed state/Active card while rejected or post-lethal cards expose no effects and consume no energy",
+      "sources": [
+        {
+          "module": "BattleUnitBase",
+          "member": "CanUseCard",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        },
+        {
+          "module": "BEBeforeUseCard",
+          "member": "__CostEnergy",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "b660610845cc1181bab671a07d5df91814b2b39419aed2d4ba826bee2be8699c",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\7020487249631624131_BEBeforeUseCard.lua"
+        },
+        {
+          "module": "BattleUnitPlayer",
+          "member": "EnergyEnough,ConsumeEnergy",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "ca4e9847ac558a6c8e81a80461869ce2a6c72b0e8e75caf63b9c4dc9afb1b52e",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\8953225705542082565_BattleUnitPlayer.lua"
+        },
+        {
+          "module": "BattlePropertyServer",
+          "member": "SubProperty",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "9b1fe152014ae59731b773b0021efccbb573d646abf8b3071386ec1222412e76",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-4941499991496271346_BattlePropertyServer.lua"
+        },
+        {
+          "module": "Skill",
+          "member": "134203,3997",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\2015861756545847808_Skill.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "134192,2350",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        }
+      ],
+      "tests": [
+        "tests/paid-prepared-state-active-chain.test.mjs",
+        "tests/card-resource-timeline.test.mjs",
+        "tests/connected-card-payment.test.mjs",
+        "tests/theorycraft-api.test.mjs",
+        "research/examples/theorycraft-paid-prepared-state-active-chain.json",
+        "docs/PREPARED_STATE_ACTIVE_SEQUENCE.md"
+      ],
+      "scope": "Authored payment-before-effect composition over separately runtime-matched ordinary PvE play checks, connected payment, state-card execution and prepared Active chain. All resource/effect suffixes are prevalidated; distinct instances and supplied hand/status conditions are required. Hand removal, draws, refunds, cost changes, turn gates, lifecycle callbacks, reactive effects, death execution, gameplay and holdout validation remain excluded. Theorycraft track only; no cheese, budget or observed-strategy claim.",
+      "gameplayValidation": false
+    },
+    {
       "id": "ANDROID83:StartupLuaArchiveInspection",
       "status": "CONFIRMED_FROM_LOCAL_ARCHIVE_PARSER",
       "claim": "The protected packaged Android startup archive deserializes without execution into seven Lua prototypes and 109 string constants; its one literal URL is telemetry and no literal resource-download URL is present",
