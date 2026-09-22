@@ -28,6 +28,7 @@ import {advanceDoomsdayAfterUseCard,advanceLightOfIntellectAfterKeeperSkill,adva
 import {runWheelEventSequence} from './wheel-event-sequence.mjs';
 import {runWheelActiveTimeline} from './wheel-active-timeline.mjs';
 import {compareWheelActiveTimelines} from './wheel-active-comparison.mjs';
+import {runPaidWheelActiveTimeline} from './paid-wheel-active-timeline.mjs';
 
 export const theorycraftOperations=Object.freeze([
   {name:'describe-capabilities',context:[],scope:'List supported versioned operations and evidence boundaries'},
@@ -56,6 +57,7 @@ export const theorycraftOperations=Object.freeze([
   {name:'run-wheel-event-sequence',context:[],scope:'Ordered supported Wheel events with explicit temporary contributions and source-derived lifecycle clearing'},
   {name:'run-wheel-active-timeline',context:[],scope:'Explicit supported Wheel events composed with complete-property Active hits and shared HP/Block state'},
   {name:'compare-wheel-active-timelines',context:[],scope:'Align two explicit Wheel/damage timelines by stable step identity and report order, input, damage, property and counter differences'},
+  {name:'run-paid-wheel-active-timeline',context:[],scope:'Ordinary PvE play checks and energy payment before explicit Wheel-aware Active card effects and accepted-card Doomsday transitions'},
   {name:'search-card-orders',context:[],scope:'Exact bounded permutation search over supplied resolved card actions'},
   {name:'prepare-skill-command',context:['skillCommandData'],scope:'Exported skill selection, argument preparation and optional supported command execution'},
   {name:'apply-monster-skill-change',context:[],scope:'Original-runtime-matched monster intent replacement/queue mutation without executing the selected skill'},
@@ -107,6 +109,7 @@ function execute(operation,input,context){
   if(operation==='run-wheel-event-sequence')return runWheelEventSequence(input);
   if(operation==='run-wheel-active-timeline')return runWheelActiveTimeline(input);
   if(operation==='compare-wheel-active-timelines')return compareWheelActiveTimelines(input);
+  if(operation==='run-paid-wheel-active-timeline')return runPaidWheelActiveTimeline(input);
   if(operation==='search-card-orders')return searchCardOrders(input);
   if(operation==='prepare-skill-command')return runPreparedSkillRequest(input,context.skillCommandData);
   if(operation==='apply-monster-skill-change'){

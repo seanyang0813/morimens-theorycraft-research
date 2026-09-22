@@ -154,6 +154,13 @@ test('agent API compares reordered Wheel/damage steps by stable identity',()=>{
   assert.equal(response.result.orderOnly,true);assert.equal(response.result.modeledHpLostDelta,-250);assert.equal(response.result.alignedSteps.find(row=>row.id==='second').delta.preHitDamage,-250);
 });
 
+test('agent API suppresses Wheel-aware effects for an unaffordable card',()=>{
+  const conditions={cardExists:true,inHand:true,judgeCost:true,commandExists:true,dead:false,strike:true,allowIgnoreCost:false,cardUseless:0,ownerUseless:0,coma:0,comaImmunity:0,ownerForbid:0,playerForbid:0,ownerForbidStrike:0,playerForbidStrike:0};
+  const action=(id,cost)=>({id,cardInstanceId:`card-${id}`,cardType:'Card_Strike',costInput:{cfgCost:String(cost),originCost:cost,delta:0,harmonize:0,fixedSwitches:{},keeper:false,keeperCost:null,pvp:false},conditions,effects:[{id:`${id}:hit`,type:'ACTIVE_HIT',baseValue:100,skillArgsPlus:0,tags:['Card_Strike'],cardProperties:{},cardContext:{present:false,instructionCard:false,stateTriggerAdd:false},targetContext:{critRoll:null,targetBattleTag:'Boss',targetStateIds:[]},hitContext:{damageSubtype:'Ordinary'}}]});
+  const input={schemaVersion:1,kind:'morimens-paid-wheel-active-timeline',build:'pc-res144-build51',initialEnergy:2,snapshotStage:'battle-property-server-live',snapshotCompleteness:'complete-map',initialWheelState:{doomsday:{refinementLevel:3,ownerAttack:1000,counter:0,baseStrikecardDamagePlus:0,wheelStrikecardDamagePlus:0},light:null,arachne:null},baseCasterProperties:{crit:0,crit_damage:0,crit_damage_from_strikecard:0,crit_damage_per:0,strikecard_damage_plus:0},basePlayerProperties:{dimension_fix_per:0},initialTargetProperties:{hp:2000,max_hp:2000,block:0,be_damage_per:0,vulnerable_per:0},actions:[action('one',2),action('two',2)]};
+  const response=runTheorycraftRequest(request('run-paid-wheel-active-timeline',input));assert.equal(response.result.acceptedActions,1);assert.equal(response.result.modeledHpLost,100);assert.equal(response.result.finalWheelState.doomsday.counter,1);assert.equal(response.result.trace[1].effect,null);
+});
+
 test('agent API exposes bounded card-order search without a global optimum claim',()=>{
   const input={schemaVersion:1,kind:'morimens-card-order-search',objective:'MAX_MODELED_HP_LOST',timeline:syntheticCardActionExample(),maxEvaluations:10,returnTop:2};
   const response=runTheorycraftRequest(request('search-card-orders',input));

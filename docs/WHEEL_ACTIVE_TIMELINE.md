@@ -56,3 +56,24 @@ candidate and display the same comparison returned by the agent operation
 fingerprint and rejects replay against different checked bytes. Deltas compare
 the two executions; they are not isolated causal attribution when several
 positions or inputs change together.
+
+## Paying for card actions
+
+`engine/paid-wheel-active-timeline.mjs` adds ordinary PvE card checks and energy
+payment before a sequence of explicit Wheel-aware effects. Each accepted action
+contains one or more complete-property Active hits and may place recovered
+post-pursuit events among them. When Doomsday Rampage is tracked, the runner
+appends its `AFTER_USE_CARD` event only after the accepted card's supplied
+effects finish. A rejected card exposes neither its hit nor its Wheel event.
+
+The runner cross-checks the explicit `cardType` against the supplied Strike
+condition, validates every unexecuted resource and effect suffix, and carries
+energy, target HP/Block, Wheel properties and trigger counters into the next
+card. In the neutral example, two legal 2-energy Strikes from 4 energy deal 100
+then 350 and leave two Doomsday stacks. Starting with only 2 energy rejects the
+second card before effects and leaves one stack.
+
+This boundary does not simulate hand removal, draws, refunds, changing costs,
+turn transitions or pursuit generation. The ordering of other listeners and
+whether an after-use listener completes following lethal damage remain
+unresolved, so the runner stops at that boundary.

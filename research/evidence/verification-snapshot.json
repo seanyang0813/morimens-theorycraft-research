@@ -1,13 +1,13 @@
 {
-  "generatedAtUtc": "2026-09-22T05:57:51.482254+00:00",
+  "generatedAtUtc": "2026-09-22T06:09:06.099675+00:00",
   "publicationStatus": "NOT_READY",
   "publicationAuthorized": false,
   "automatedSuite": {
-    "testFiles": 253,
+    "testFiles": 254,
     "passed": true,
     "exitCode": 0,
     "log": "research\\evidence\\latest-test-suite.tap",
-    "logSha256": "870c3af3d1077efe510363deceab6736dc0613510bcb16ff9ab2b15495f2a21b"
+    "logSha256": "9a5907579a63c41d5d27cabafb846cdc363d705b7b6132a7944dc24a696354ae"
   },
   "realObservations": {
     "records": 3,
@@ -704,6 +704,10 @@
     },
     {
       "module": "wheel-active-comparison.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "paid-wheel-active-timeline.mjs",
       "matchesResearchEngine": true
     }
   ],

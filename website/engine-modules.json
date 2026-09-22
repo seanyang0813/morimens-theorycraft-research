@@ -128,5 +128,6 @@
   "wheel-trigger-transitions.mjs",
   "wheel-event-sequence.mjs",
   "wheel-active-timeline.mjs",
-  "wheel-active-comparison.mjs"
+  "wheel-active-comparison.mjs",
+  "paid-wheel-active-timeline.mjs"
 ]
