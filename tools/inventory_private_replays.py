@@ -255,6 +255,8 @@ def build_inventory(paths, battle_config, awaker_config=None, domain_by_capture=
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--input-glob", default="replay-batch-*/index.json")
+    parser.add_argument("--min-batch", type=int)
+    parser.add_argument("--max-batch", type=int)
     parser.add_argument("--battle-config", type=Path, default=DEFAULT_BATTLE_CONFIG)
     parser.add_argument("--awaker-config", type=Path, default=DEFAULT_AWAKER_CONFIG)
     parser.add_argument("--domain-audit", action="append", type=Path, default=[])
@@ -267,7 +269,22 @@ def main():
         raise ValueError("Inventory output must stay inside research/observations") from error
     if output.exists():
         raise FileExistsError("Refusing to overwrite inventory")
+    if args.min_batch is not None and args.max_batch is not None and args.min_batch > args.max_batch:
+        raise ValueError("Minimum batch cannot exceed maximum batch")
     paths = list(OBSERVATIONS.glob(args.input_glob))
+    if args.min_batch is not None or args.max_batch is not None:
+        selected = []
+        for path in paths:
+            match = re.fullmatch(r"replay-batch-(\d+)", path.parent.name)
+            if not match:
+                continue
+            number = int(match.group(1))
+            if args.min_batch is not None and number < args.min_batch:
+                continue
+            if args.max_batch is not None and number > args.max_batch:
+                continue
+            selected.append(path)
+        paths = selected
     if not paths:
         raise ValueError("No replay indexes matched")
     battle_config = json.loads(args.battle_config.read_text(encoding="utf-8"))

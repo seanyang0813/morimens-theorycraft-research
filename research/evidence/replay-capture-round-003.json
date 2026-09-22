@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_SANITIZED_REPLAY_CAPTURE_ROUND",
+  "generatedAtUtc": "2026-09-22T01:09:52.875909+00:00",
+  "analysisTrack": "verification",
+  "identifiersPublished": false,
+  "rawArtifactsPublished": false,
+  "privateAuditSha256": "6ffceb07df4cfbf8d3a4b026fcb0a1f9497e3c9a3e3e870374f1347e5ae98e12",
+  "scope": "Aggregate acquisition and adapter-eligibility evidence only. Recorded combat builds are unknown. The records may be routed to separate budget-scouting or cheese-analysis artifacts, but this report does not make either claim and cannot supply a theorycraft conclusion or publication-gate holdout.",
+  "totals": {
+    "replays": 102,
+    "records": 61199,
+    "events": 1547959,
+    "cardUses": 12049,
+    "hits": 22034,
+    "completeHitSnapshots": 7948,
+    "unknownCommands": 0,
+    "unknownEvents": 0,
+    "retrospectiveActiveCandidates": 1573,
+    "deterministicExactChecks": 172,
+    "deterministicMismatches": 0,
+    "exactRngBranchConsistencyChecks": 1401,
+    "rngBranchMismatches": 0,
+    "completeHitTargetRoleTypes": {
+      "Player": 2399,
+      "Monster": 5549
+    },
+    "combatDomains": {
+      "PVE_MONSTER_TARGETS": 102
+    }
+  },
+  "blindSelection": {
+    "eligibleReplays": 0,
+    "frozenPredictions": 0,
+    "selector": "first complete deterministic Active candidate with a complete direct-hit identity boundary",
+    "outcome": "NO_ELIGIBLE_CANDIDATE"
+  },
+  "claimBoundary": {
+    "allowed": [
+      "native replay containers decoded and indexed privately",
+      "bounded verification adapter eligibility counts",
+      "protocol unknown-command and unknown-event counts"
+    ],
+    "forbidden": [
+      "cheese classification",
+      "budget-build ranking",
+      "optimal theorycraft sequence",
+      "current-build attribution",
+      "independent gameplay holdout credit"
+    ]
+  }
+}

@@ -1,0 +1,2347 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_SANITIZED_PVE_BUDGET_FRONTIERS",
+  "analysisTrack": "budget-scouting",
+  "identifiersPublished": false,
+  "sourcePrivateInventorySha256": "e078bb60e810cf4776669bb10447d697c808c213f5494ad32ad6323eefca4bc7",
+  "captureCount": 102,
+  "pveEligibleCaptureCount": 102,
+  "comparisonGroupCount": 10,
+  "frontierCandidateCount": 26,
+  "groups": [
+    {
+      "groupId": "group-1",
+      "battleTid": 88246,
+      "battleTemplate": "战斗@短图模版36_4",
+      "templateWave": 4,
+      "serverDifficultyId": 0,
+      "comparedRecords": 11,
+      "frontierCandidates": [
+        {
+          "candidateId": "group-1-candidate-1",
+          "investmentSignals": {
+            "characterLevelSum": 302,
+            "highestCharacterLevel": 80,
+            "maxLevelCharacterCount": 0,
+            "potencyLevelSum": 60,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 127,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15577,
+              "awakenerName": "菲茵特",
+              "level": 72,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                6,
+                3,
+                6,
+                6,
+                4
+              ]
+            },
+            {
+              "awakenerId": 15600,
+              "awakenerName": "阿格里帕",
+              "level": 70,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                3,
+                3,
+                3,
+                3,
+                3
+              ]
+            },
+            {
+              "awakenerId": 77917,
+              "awakenerName": "波吕克斯",
+              "level": 80,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 10,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1
+              ]
+            },
+            {
+              "awakenerId": 77923,
+              "awakenerName": "卡斯托尔",
+              "level": 80,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 12,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "candidateId": "group-1-candidate-2",
+          "investmentSignals": {
+            "characterLevelSum": 306,
+            "highestCharacterLevel": 84,
+            "maxLevelCharacterCount": 0,
+            "potencyLevelSum": 45,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 140,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15583,
+              "awakenerName": "奥尔拉",
+              "level": 70,
+              "potencyLevel": 7,
+              "breakLevel": 5,
+              "likeLevel": 15,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                4,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 15604,
+              "awakenerName": "莱克",
+              "level": 70,
+              "potencyLevel": 8,
+              "breakLevel": 5,
+              "likeLevel": 13,
+              "slotLevels": [
+                6,
+                5,
+                5,
+                5,
+                5,
+                5
+              ]
+            },
+            {
+              "awakenerId": 77913,
+              "awakenerName": "凯蒂古拉",
+              "level": 82,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 12,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1
+              ]
+            },
+            {
+              "awakenerId": 77925,
+              "awakenerName": "克莱门汀",
+              "level": 84,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 15,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "candidateId": "group-1-candidate-3",
+          "investmentSignals": {
+            "characterLevelSum": 308,
+            "highestCharacterLevel": 90,
+            "maxLevelCharacterCount": 1,
+            "potencyLevelSum": 52,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 123,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15571,
+              "awakenerName": "珈伦",
+              "level": 70,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 9,
+              "slotLevels": [
+                5,
+                3,
+                3,
+                6,
+                3,
+                6,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 15595,
+              "awakenerName": "拉蒙娜",
+              "level": 70,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 14,
+              "slotLevels": [
+                4,
+                3,
+                3,
+                4,
+                3,
+                3
+              ]
+            },
+            {
+              "awakenerId": 77917,
+              "awakenerName": "波吕克斯",
+              "level": 78,
+              "potencyLevel": 7,
+              "breakLevel": 5,
+              "likeLevel": 10,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1
+              ]
+            },
+            {
+              "awakenerId": 77923,
+              "awakenerName": "卡斯托尔",
+              "level": 90,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 12,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1,
+                1
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "groupId": "group-2",
+      "battleTid": 87986,
+      "battleTemplate": "战斗@机制模版36_6",
+      "templateWave": 6,
+      "serverDifficultyId": 0,
+      "comparedRecords": 10,
+      "frontierCandidates": [
+        {
+          "candidateId": "group-2-candidate-1",
+          "investmentSignals": {
+            "characterLevelSum": 270,
+            "highestCharacterLevel": 80,
+            "maxLevelCharacterCount": 0,
+            "potencyLevelSum": 35,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 147,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15576,
+              "awakenerName": "墨菲",
+              "level": 60,
+              "potencyLevel": 3,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                5,
+                5,
+                6,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 15599,
+              "awakenerName": "萨尔瓦多",
+              "level": 60,
+              "potencyLevel": 10,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 130226,
+              "awakenerName": "沙耶",
+              "level": 80,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 130901,
+              "awakenerName": "莫丝",
+              "level": 70,
+              "potencyLevel": 7,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "candidateId": "group-2-candidate-2",
+          "investmentSignals": {
+            "characterLevelSum": 300,
+            "highestCharacterLevel": 80,
+            "maxLevelCharacterCount": 0,
+            "potencyLevelSum": 48,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 113,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15566,
+              "awakenerName": "希莱斯特",
+              "level": 70,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 10,
+              "slotLevels": [
+                6,
+                3,
+                3,
+                3,
+                5,
+                3
+              ]
+            },
+            {
+              "awakenerId": 15594,
+              "awakenerName": "凯刻斯",
+              "level": 80,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                4,
+                6,
+                6,
+                4,
+                6
+              ]
+            },
+            {
+              "awakenerId": 130226,
+              "awakenerName": "沙耶",
+              "level": 70,
+              "potencyLevel": 3,
+              "breakLevel": 5,
+              "likeLevel": 10,
+              "slotLevels": [
+                6,
+                3,
+                3,
+                6,
+                6,
+                3
+              ]
+            },
+            {
+              "awakenerId": 130901,
+              "awakenerName": "莫丝",
+              "level": 80,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 9,
+              "slotLevels": [
+                6,
+                3,
+                3,
+                6,
+                6,
+                6,
+                1
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "groupId": "group-3",
+      "battleTid": 87029,
+      "battleTemplate": "战斗@机制模版37_6",
+      "templateWave": 6,
+      "serverDifficultyId": 0,
+      "comparedRecords": 10,
+      "frontierCandidates": [
+        {
+          "candidateId": "group-3-candidate-1",
+          "investmentSignals": {
+            "characterLevelSum": 270,
+            "highestCharacterLevel": 80,
+            "maxLevelCharacterCount": 0,
+            "potencyLevelSum": 35,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 147,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15576,
+              "awakenerName": "墨菲",
+              "level": 60,
+              "potencyLevel": 3,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                5,
+                5,
+                6,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 15599,
+              "awakenerName": "萨尔瓦多",
+              "level": 60,
+              "potencyLevel": 10,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 130226,
+              "awakenerName": "沙耶",
+              "level": 80,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 130901,
+              "awakenerName": "莫丝",
+              "level": 70,
+              "potencyLevel": 7,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "candidateId": "group-3-candidate-2",
+          "investmentSignals": {
+            "characterLevelSum": 300,
+            "highestCharacterLevel": 90,
+            "maxLevelCharacterCount": 1,
+            "potencyLevelSum": 50,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 140,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15566,
+              "awakenerName": "希莱斯特",
+              "level": 70,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 12,
+              "slotLevels": [
+                6,
+                5,
+                5,
+                5,
+                5,
+                5
+              ]
+            },
+            {
+              "awakenerId": 15576,
+              "awakenerName": "墨菲",
+              "level": 60,
+              "potencyLevel": 5,
+              "breakLevel": 5,
+              "likeLevel": 14,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 130226,
+              "awakenerName": "沙耶",
+              "level": 80,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 130901,
+              "awakenerName": "莫丝",
+              "level": 90,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 10,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "candidateId": "group-3-candidate-3",
+          "investmentSignals": {
+            "characterLevelSum": 308,
+            "highestCharacterLevel": 86,
+            "maxLevelCharacterCount": 0,
+            "potencyLevelSum": 53,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 138,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15566,
+              "awakenerName": "希莱斯特",
+              "level": 72,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                5,
+                5,
+                5,
+                5,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 15576,
+              "awakenerName": "墨菲",
+              "level": 70,
+              "potencyLevel": 8,
+              "breakLevel": 5,
+              "likeLevel": 15,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 130226,
+              "awakenerName": "沙耶",
+              "level": 80,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 15,
+              "slotLevels": [
+                6,
+                5,
+                5,
+                5,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 130901,
+              "awakenerName": "莫丝",
+              "level": 86,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 14,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "candidateId": "group-3-candidate-4",
+          "investmentSignals": {
+            "characterLevelSum": 310,
+            "highestCharacterLevel": 90,
+            "maxLevelCharacterCount": 2,
+            "potencyLevelSum": 37,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 133,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15583,
+              "awakenerName": "奥尔拉",
+              "level": 60,
+              "potencyLevel": 4,
+              "breakLevel": 5,
+              "likeLevel": 13,
+              "slotLevels": [
+                3,
+                4,
+                4,
+                4,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 77918,
+              "awakenerName": "阿拉克涅",
+              "level": 70,
+              "potencyLevel": 3,
+              "breakLevel": 5,
+              "likeLevel": 10,
+              "slotLevels": [
+                6,
+                3,
+                3,
+                6,
+                6,
+                6,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 94450,
+              "awakenerName": "茉夏",
+              "level": 90,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 15,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1
+              ]
+            },
+            {
+              "awakenerId": 145363,
+              "awakenerName": "蚀灭·萝坦",
+              "level": 90,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 9,
+              "slotLevels": [
+                6,
+                4,
+                4,
+                6,
+                6,
+                6,
+                1,
+                1,
+                1
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "groupId": "group-4",
+      "battleTid": 88073,
+      "battleTemplate": "战斗@突袭模版37_1",
+      "templateWave": 1,
+      "serverDifficultyId": 0,
+      "comparedRecords": 10,
+      "frontierCandidates": [
+        {
+          "candidateId": "group-4-candidate-1",
+          "investmentSignals": {
+            "characterLevelSum": 255,
+            "highestCharacterLevel": 70,
+            "maxLevelCharacterCount": 0,
+            "potencyLevelSum": 37,
+            "highestPotencyLevel": 11,
+            "slotLevelSum": 126,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15580,
+              "awakenerName": "宁菲亚",
+              "level": 60,
+              "potencyLevel": 9,
+              "breakLevel": 5,
+              "likeLevel": 9,
+              "slotLevels": [
+                6,
+                3,
+                3,
+                6,
+                3,
+                6
+              ]
+            },
+            {
+              "awakenerId": 15581,
+              "awakenerName": "莉莉",
+              "level": 60,
+              "potencyLevel": 9,
+              "breakLevel": 5,
+              "likeLevel": 10,
+              "slotLevels": [
+                5,
+                3,
+                3,
+                4,
+                3,
+                6
+              ]
+            },
+            {
+              "awakenerId": 15602,
+              "awakenerName": "熔毁·朵尔",
+              "level": 65,
+              "potencyLevel": 11,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                6,
+                5,
+                6,
+                4,
+                6,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 125346,
+              "awakenerName": "徐",
+              "level": 70,
+              "potencyLevel": 8,
+              "breakLevel": 5,
+              "likeLevel": 10,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                3,
+                6,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "candidateId": "group-4-candidate-2",
+          "investmentSignals": {
+            "characterLevelSum": 280,
+            "highestCharacterLevel": 90,
+            "maxLevelCharacterCount": 1,
+            "potencyLevelSum": 34,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 136,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15563,
+              "awakenerName": "图鲁",
+              "level": 60,
+              "potencyLevel": 1,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                5,
+                5,
+                3,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 15564,
+              "awakenerName": "戈利亚",
+              "level": 70,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                5,
+                5,
+                3,
+                3,
+                5,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 15582,
+              "awakenerName": "弥利亚姆",
+              "level": 60,
+              "potencyLevel": 3,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                5,
+                5,
+                6,
+                3,
+                6,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 15589,
+              "awakenerName": "诞妄·墨菲",
+              "level": 90,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "groupId": "group-5",
+      "battleTid": 87146,
+      "battleTemplate": "战斗@界域模版37_6",
+      "templateWave": 6,
+      "serverDifficultyId": 0,
+      "comparedRecords": 10,
+      "frontierCandidates": [
+        {
+          "candidateId": "group-5-candidate-1",
+          "investmentSignals": {
+            "characterLevelSum": 290,
+            "highestCharacterLevel": 90,
+            "maxLevelCharacterCount": 1,
+            "potencyLevelSum": 40,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 128,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15574,
+              "awakenerName": "汀克特",
+              "level": 60,
+              "potencyLevel": 7,
+              "breakLevel": 5,
+              "likeLevel": 10,
+              "slotLevels": [
+                2,
+                3,
+                3,
+                3,
+                3,
+                3
+              ]
+            },
+            {
+              "awakenerId": 15583,
+              "awakenerName": "奥尔拉",
+              "level": 60,
+              "potencyLevel": 3,
+              "breakLevel": 5,
+              "likeLevel": 13,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 77913,
+              "awakenerName": "凯蒂古拉",
+              "level": 90,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 10,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1
+              ]
+            },
+            {
+              "awakenerId": 77925,
+              "awakenerName": "克莱门汀",
+              "level": 80,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 12,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "candidateId": "group-5-candidate-2",
+          "investmentSignals": {
+            "characterLevelSum": 300,
+            "highestCharacterLevel": 90,
+            "maxLevelCharacterCount": 1,
+            "potencyLevelSum": 36,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 148,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15571,
+              "awakenerName": "珈伦",
+              "level": 70,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 9,
+              "slotLevels": [
+                5,
+                3,
+                3,
+                6,
+                3,
+                6,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 15596,
+              "awakenerName": "泰旖丝",
+              "level": 68,
+              "potencyLevel": 3,
+              "breakLevel": 5,
+              "likeLevel": 15,
+              "slotLevels": [
+                6,
+                3,
+                3,
+                6,
+                6,
+                6,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 77913,
+              "awakenerName": "凯蒂古拉",
+              "level": 90,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 15,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1
+              ]
+            },
+            {
+              "awakenerId": 77921,
+              "awakenerName": "卡拉布",
+              "level": 72,
+              "potencyLevel": 3,
+              "breakLevel": 5,
+              "likeLevel": 2,
+              "slotLevels": [
+                6,
+                3,
+                3,
+                5,
+                6,
+                5,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "candidateId": "group-5-candidate-3",
+          "investmentSignals": {
+            "characterLevelSum": 306,
+            "highestCharacterLevel": 84,
+            "maxLevelCharacterCount": 0,
+            "potencyLevelSum": 52,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 161,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15583,
+              "awakenerName": "奥尔拉",
+              "level": 70,
+              "potencyLevel": 7,
+              "breakLevel": 5,
+              "likeLevel": 15,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                4,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 15590,
+              "awakenerName": "达芙黛尔",
+              "level": 70,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 13,
+              "slotLevels": [
+                1,
+                6,
+                6,
+                1,
+                1,
+                6,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 77913,
+              "awakenerName": "凯蒂古拉",
+              "level": 82,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 12,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1
+              ]
+            },
+            {
+              "awakenerId": 77925,
+              "awakenerName": "克莱门汀",
+              "level": 84,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 15,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1,
+                1
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "groupId": "group-6",
+      "battleTid": 88047,
+      "battleTemplate": "战斗@精锐模版37_3",
+      "templateWave": 3,
+      "serverDifficultyId": 0,
+      "comparedRecords": 10,
+      "frontierCandidates": [
+        {
+          "candidateId": "group-6-candidate-1",
+          "investmentSignals": {
+            "characterLevelSum": 290,
+            "highestCharacterLevel": 74,
+            "maxLevelCharacterCount": 0,
+            "potencyLevelSum": 48,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 103,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15568,
+              "awakenerName": "环行·拉蒙娜",
+              "level": 70,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 14,
+              "slotLevels": [
+                4,
+                3,
+                3,
+                4,
+                3,
+                3,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 15570,
+              "awakenerName": "朵尔",
+              "level": 74,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 8,
+              "slotLevels": [
+                6,
+                3,
+                3,
+                6,
+                4,
+                6
+              ]
+            },
+            {
+              "awakenerId": 15585,
+              "awakenerName": "奥吉尔",
+              "level": 72,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 10,
+              "slotLevels": [
+                6,
+                3,
+                5,
+                5,
+                6,
+                3
+              ]
+            },
+            {
+              "awakenerId": 15601,
+              "awakenerName": "「24」",
+              "level": 74,
+              "potencyLevel": 3,
+              "breakLevel": 5,
+              "likeLevel": 8,
+              "slotLevels": [
+                6,
+                3,
+                3,
+                6,
+                3,
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "candidateId": "group-6-candidate-2",
+          "investmentSignals": {
+            "characterLevelSum": 310,
+            "highestCharacterLevel": 90,
+            "maxLevelCharacterCount": 1,
+            "potencyLevelSum": 45,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 146,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15567,
+              "awakenerName": "血链·希洛",
+              "level": 80,
+              "potencyLevel": 8,
+              "breakLevel": 5,
+              "likeLevel": 10,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 15587,
+              "awakenerName": "希洛",
+              "level": 70,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                3,
+                3,
+                3,
+                1
+              ]
+            },
+            {
+              "awakenerId": 15596,
+              "awakenerName": "泰旖丝",
+              "level": 70,
+              "potencyLevel": 7,
+              "breakLevel": 5,
+              "likeLevel": 14,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 77918,
+              "awakenerName": "阿拉克涅",
+              "level": 90,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "groupId": "group-7",
+      "battleTid": 87407,
+      "battleTemplate": "战斗@短图模版37_4",
+      "templateWave": 4,
+      "serverDifficultyId": 0,
+      "comparedRecords": 10,
+      "frontierCandidates": [
+        {
+          "candidateId": "group-7-candidate-1",
+          "investmentSignals": {
+            "characterLevelSum": 288,
+            "highestCharacterLevel": 80,
+            "maxLevelCharacterCount": 0,
+            "potencyLevelSum": 37,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 112,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15566,
+              "awakenerName": "希莱斯特",
+              "level": 70,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                3,
+                3,
+                3,
+                5,
+                3
+              ]
+            },
+            {
+              "awakenerId": 15576,
+              "awakenerName": "墨菲",
+              "level": 68,
+              "potencyLevel": 4,
+              "breakLevel": 5,
+              "likeLevel": 10,
+              "slotLevels": [
+                6,
+                3,
+                4,
+                6,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 130226,
+              "awakenerName": "沙耶",
+              "level": 70,
+              "potencyLevel": 3,
+              "breakLevel": 5,
+              "likeLevel": 10,
+              "slotLevels": [
+                6,
+                3,
+                3,
+                6,
+                6,
+                3
+              ]
+            },
+            {
+              "awakenerId": 130901,
+              "awakenerName": "莫丝",
+              "level": 80,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 10,
+              "slotLevels": [
+                6,
+                3,
+                3,
+                6,
+                6,
+                6,
+                1
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "groupId": "group-8",
+      "battleTid": 86883,
+      "battleTemplate": "战斗@界域模版36_6",
+      "templateWave": 6,
+      "serverDifficultyId": 0,
+      "comparedRecords": 10,
+      "frontierCandidates": [
+        {
+          "candidateId": "group-8-candidate-1",
+          "investmentSignals": {
+            "characterLevelSum": 280,
+            "highestCharacterLevel": 90,
+            "maxLevelCharacterCount": 1,
+            "potencyLevelSum": 46,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 122,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15577,
+              "awakenerName": "菲茵特",
+              "level": 70,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 10,
+              "slotLevels": [
+                6,
+                5,
+                4,
+                6,
+                4,
+                6
+              ]
+            },
+            {
+              "awakenerId": 15582,
+              "awakenerName": "弥利亚姆",
+              "level": 60,
+              "potencyLevel": 9,
+              "breakLevel": 5,
+              "likeLevel": 12,
+              "slotLevels": [
+                6,
+                3,
+                3,
+                6,
+                3,
+                6,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 15589,
+              "awakenerName": "诞妄·墨菲",
+              "level": 90,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                5,
+                5,
+                6,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 15591,
+              "awakenerName": "艾继丝",
+              "level": 60,
+              "potencyLevel": 7,
+              "breakLevel": 5,
+              "likeLevel": 12,
+              "slotLevels": [
+                1,
+                4,
+                4,
+                6,
+                6,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "candidateId": "group-8-candidate-2",
+          "investmentSignals": {
+            "characterLevelSum": 282,
+            "highestCharacterLevel": 90,
+            "maxLevelCharacterCount": 1,
+            "potencyLevelSum": 39,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 136,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15566,
+              "awakenerName": "希莱斯特",
+              "level": 62,
+              "potencyLevel": 11,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                5,
+                5,
+                5,
+                5,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 15582,
+              "awakenerName": "弥利亚姆",
+              "level": 60,
+              "potencyLevel": 6,
+              "breakLevel": 5,
+              "likeLevel": 13,
+              "slotLevels": [
+                6,
+                5,
+                5,
+                6,
+                5,
+                6,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 15589,
+              "awakenerName": "诞妄·墨菲",
+              "level": 90,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 15,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 77922,
+              "awakenerName": "克珀珊特",
+              "level": 70,
+              "potencyLevel": 7,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                3,
+                5,
+                5,
+                3,
+                6,
+                6,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "candidateId": "group-8-candidate-3",
+          "investmentSignals": {
+            "characterLevelSum": 290,
+            "highestCharacterLevel": 90,
+            "maxLevelCharacterCount": 1,
+            "potencyLevelSum": 53,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 116,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15569,
+              "awakenerName": "萝坦",
+              "level": 70,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 8,
+              "slotLevels": [
+                1,
+                3,
+                3,
+                6,
+                3,
+                3
+              ]
+            },
+            {
+              "awakenerId": 15570,
+              "awakenerName": "朵尔",
+              "level": 70,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 6,
+              "slotLevels": [
+                5,
+                5,
+                5,
+                3,
+                5,
+                5
+              ]
+            },
+            {
+              "awakenerId": 15581,
+              "awakenerName": "莉莉",
+              "level": 60,
+              "potencyLevel": 8,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                5,
+                5,
+                5,
+                5,
+                6
+              ]
+            },
+            {
+              "awakenerId": 94450,
+              "awakenerName": "茉夏",
+              "level": 90,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "candidateId": "group-8-candidate-4",
+          "investmentSignals": {
+            "characterLevelSum": 336,
+            "highestCharacterLevel": 88,
+            "maxLevelCharacterCount": 0,
+            "potencyLevelSum": 60,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 150,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15566,
+              "awakenerName": "希莱斯特",
+              "level": 80,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 15582,
+              "awakenerName": "弥利亚姆",
+              "level": 88,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 15,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 15589,
+              "awakenerName": "诞妄·墨菲",
+              "level": 88,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 15,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 15597,
+              "awakenerName": "雷娅",
+              "level": 80,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 12,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "groupId": "group-9",
+      "battleTid": 88269,
+      "battleTemplate": "战斗@突袭模版36_1",
+      "templateWave": 1,
+      "serverDifficultyId": 0,
+      "comparedRecords": 9,
+      "frontierCandidates": [
+        {
+          "candidateId": "group-9-candidate-1",
+          "investmentSignals": {
+            "characterLevelSum": 275,
+            "highestCharacterLevel": 70,
+            "maxLevelCharacterCount": 0,
+            "potencyLevelSum": 43,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 140,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15572,
+              "awakenerName": "卡茜亚",
+              "level": 65,
+              "potencyLevel": 13,
+              "breakLevel": 5,
+              "likeLevel": 12,
+              "slotLevels": [
+                4,
+                5,
+                5,
+                5,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 15579,
+              "awakenerName": "温柯尔",
+              "level": 70,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 13,
+              "slotLevels": [
+                6,
+                5,
+                6,
+                6,
+                5,
+                5
+              ]
+            },
+            {
+              "awakenerId": 15586,
+              "awakenerName": "旺达",
+              "level": 70,
+              "potencyLevel": 8,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 77922,
+              "awakenerName": "克珀珊特",
+              "level": 70,
+              "potencyLevel": 7,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "candidateId": "group-9-candidate-2",
+          "investmentSignals": {
+            "characterLevelSum": 289,
+            "highestCharacterLevel": 76,
+            "maxLevelCharacterCount": 0,
+            "potencyLevelSum": 34,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 122,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15572,
+              "awakenerName": "卡茜亚",
+              "level": 70,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 9,
+              "slotLevels": [
+                1,
+                3,
+                4,
+                6,
+                3,
+                5
+              ]
+            },
+            {
+              "awakenerId": 15576,
+              "awakenerName": "墨菲",
+              "level": 68,
+              "potencyLevel": 3,
+              "breakLevel": 5,
+              "likeLevel": 10,
+              "slotLevels": [
+                6,
+                3,
+                4,
+                6,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 77922,
+              "awakenerName": "克珀珊特",
+              "level": 76,
+              "potencyLevel": 5,
+              "breakLevel": 5,
+              "likeLevel": 10,
+              "slotLevels": [
+                6,
+                4,
+                4,
+                6,
+                6,
+                6,
+                1
+              ]
+            },
+            {
+              "awakenerId": 77925,
+              "awakenerName": "克莱门汀",
+              "level": 75,
+              "potencyLevel": 11,
+              "breakLevel": 5,
+              "likeLevel": 12,
+              "slotLevels": [
+                6,
+                5,
+                6,
+                5,
+                6,
+                6,
+                1,
+                1
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "groupId": "group-10",
+      "battleTid": 88308,
+      "battleTemplate": "战斗@精锐模版36_3",
+      "templateWave": 3,
+      "serverDifficultyId": 0,
+      "comparedRecords": 9,
+      "frontierCandidates": [
+        {
+          "candidateId": "group-10-candidate-1",
+          "investmentSignals": {
+            "characterLevelSum": 298,
+            "highestCharacterLevel": 90,
+            "maxLevelCharacterCount": 1,
+            "potencyLevelSum": 36,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 128,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15567,
+              "awakenerName": "血链·希洛",
+              "level": 90,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 15,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 15587,
+              "awakenerName": "希洛",
+              "level": 70,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                3,
+                3,
+                3,
+                3,
+                3,
+                1
+              ]
+            },
+            {
+              "awakenerId": 15596,
+              "awakenerName": "泰旖丝",
+              "level": 68,
+              "potencyLevel": 3,
+              "breakLevel": 5,
+              "likeLevel": 15,
+              "slotLevels": [
+                6,
+                3,
+                3,
+                6,
+                6,
+                6,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 77918,
+              "awakenerName": "阿拉克涅",
+              "level": 70,
+              "potencyLevel": 3,
+              "breakLevel": 5,
+              "likeLevel": 10,
+              "slotLevels": [
+                6,
+                3,
+                3,
+                6,
+                6,
+                6,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "candidateId": "group-10-candidate-2",
+          "investmentSignals": {
+            "characterLevelSum": 312,
+            "highestCharacterLevel": 84,
+            "maxLevelCharacterCount": 0,
+            "potencyLevelSum": 53,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 146,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15568,
+              "awakenerName": "环行·拉蒙娜",
+              "level": 70,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 15,
+              "slotLevels": [
+                6,
+                6,
+                5,
+                4,
+                4,
+                5,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 15601,
+              "awakenerName": "「24」",
+              "level": 78,
+              "potencyLevel": 8,
+              "breakLevel": 5,
+              "likeLevel": 13,
+              "slotLevels": [
+                6,
+                6,
+                4,
+                6,
+                6,
+                6
+              ]
+            },
+            {
+              "awakenerId": 15602,
+              "awakenerName": "熔毁·朵尔",
+              "level": 80,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 15,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 54116,
+              "awakenerName": "塔薇",
+              "level": 84,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 12,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1,
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "candidateId": "group-10-candidate-3",
+          "investmentSignals": {
+            "characterLevelSum": 318,
+            "highestCharacterLevel": 88,
+            "maxLevelCharacterCount": 0,
+            "potencyLevelSum": 60,
+            "highestPotencyLevel": 15,
+            "slotLevelSum": 144,
+            "wheelEnhancement": null
+          },
+          "roster": [
+            {
+              "awakenerId": 15567,
+              "awakenerName": "血链·希洛",
+              "level": 88,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 11,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 15587,
+              "awakenerName": "希洛",
+              "level": 70,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 12,
+              "slotLevels": [
+                6,
+                5,
+                5,
+                3,
+                3,
+                3,
+                1
+              ]
+            },
+            {
+              "awakenerId": 15596,
+              "awakenerName": "泰旖丝",
+              "level": 80,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 14,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "awakenerId": 77918,
+              "awakenerName": "阿拉克涅",
+              "level": 80,
+              "potencyLevel": 15,
+              "breakLevel": 5,
+              "likeLevel": 12,
+              "slotLevels": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "claimBoundary": {
+    "allowed": [
+      "observed roster and investment Pareto frontiers within exact replay coordinates"
+    ],
+    "forbidden": [
+      "cheese classification",
+      "optimal theorycraft build",
+      "damage verification",
+      "blind holdout credit"
+    ]
+  },
+  "limitations": [
+    "The server difficulty ID is retained but is not translated into a user-facing difficulty label",
+    "Wheel enhancement is absent from replay role payloads",
+    "A Pareto-frontier record is a budget-scouting candidate, not proof of optimality or a mechanic explanation"
+  ]
+}

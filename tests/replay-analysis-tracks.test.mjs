@@ -19,6 +19,10 @@ test('replay domain preflight routes complete targets without reading outcomes',
   assert.equal(result.inputSha256,'a'.repeat(64));assert.deepEqual(result.targetRoleTypes,{Player:1});assert.equal(result.combatDomain,'PVP_PLAYER_TARGETS');
   delete index.actionSnapshots[0].window.hits[0].data.beHitConfig;
   assert.deepEqual(classifyReplayCombatDomain(index),result);
+  const pve=classifyReplayCombatDomain(index,{battleDat:{battleTid:8},battleConfig:{ID:8,BattleType:'Boss',Monster1:99}});
+  assert.equal(pve.combatDomain,'PVE_MONSTER_TARGETS');assert.equal(pve.classificationBasis,'REPLAY_EMBEDDED_BOSS_CONFIG_WITH_MONSTER');assert.equal(pve.battleTid,8);assert.deepEqual(pve.targetRoleTypes,{Player:1});
+  const mismatched=classifyReplayCombatDomain(index,{battleDat:{battleTid:8},battleConfig:{ID:9,BattleType:'Boss',Monster1:99}});
+  assert.equal(mismatched.combatDomain,'PVP_PLAYER_TARGETS');assert.equal(mismatched.classificationBasis,'COMPLETE_HIT_TARGET_ROLE_TYPES');
 });
 
 test('strategy summaries carry an explicit analysis track and comparison coordinates',()=>{

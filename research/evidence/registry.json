@@ -7118,6 +7118,50 @@
       "gameplayValidation": false
     },
     {
+      "id": "ReplayCorpus:Round003RetrospectiveActiveConsistency",
+      "status": "GAMEPLAY_CONSISTENCY_EXACT_ENGINE_VERSION_UNCONFIRMED",
+      "claim": "Across 102 private PvE Boss replay containers, 172 deterministic Active candidates and 1,401 chance-dependent candidates match the reconstructed calculation with zero mismatches",
+      "sources": [
+        {
+          "module": "Sanitized replay capture round 003",
+          "member": "identifier-free aggregate counts, combat-domain routing and private-audit hash",
+          "bundle": "private decoded replays plus replay-embedded combat data",
+          "sha256": "29ef999689903d00ad94520b6a810ec1b25c3bd87d081fa95b20f711acab0000"
+        }
+      ],
+      "tests": [
+        "tools/process_private_replay_batch.py",
+        "tools/audit_replay_batch.mjs",
+        "tools/summarize_replay_capture_round.py",
+        "tests/replay-capture-round-003.test.mjs",
+        "tests/replay-action-candidate.test.mjs"
+      ],
+      "scope": "7,948 complete action-bound hit snapshots yield 1,573 strict retrospective Active candidates. All records match replay-embedded Boss configurations with declared monsters. Outcomes were decoded before calculation, recorded engine bytecode versions and random draws remain unknown, and zero blind-eligible records or publication credit are claimed. Verification regression track only; no budget ranking, cheese classification or theorycraft conclusion.",
+      "gameplayValidation": false
+    },
+    {
+      "id": "Budget:PveBossFrontiersRound003",
+      "status": "OBSERVED_PRIVATE_REPLAY_FRONTIERS",
+      "claim": "One hundred two replay-embedded PvE Boss records form ten exact comparison groups and twenty-six nondominated roster/investment candidates",
+      "sources": [
+        {
+          "module": "Sanitized PvE budget frontiers round 003",
+          "member": "catalog battle coordinates, anonymous roster progression and unweighted Pareto frontiers",
+          "bundle": "private decoded replay inventory; public sanitized report",
+          "sha256": "05d7b2297045f74881c9aefae6ee46d7426cc422e3744b79484ff036e93ec3cf"
+        }
+      ],
+      "tests": [
+        "tools/inventory_private_replays.py",
+        "tools/sanitize_budget_frontiers.py",
+        "tests/budget-frontier-sanitizer.test.mjs",
+        "tests/pve-budget-frontiers.test.mjs",
+        "tests/replay-analysis-tracks.test.mjs"
+      ],
+      "scope": "Budget-scouting track only. Every member has a matching replay-embedded Boss BattleConfig with a declared Monster and shares exact battle template, server difficulty and template wave within its group. Character, Potential, break, affinity and slot levels are observed; Wheel enhancement is unavailable. The report omits player/replay/stage-instance identifiers. Frontier membership does not prove optimality, explain cheese, validate damage or create a theorycraft recommendation or blind holdout.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC144-PC150:DefenseConsumerInventory",
       "status": "CONFIRMED_FROM_CODE_AND_DATA",
       "claim": "BattleDefForce is source DEF after source DEF-percent scaling; across both inspected PC catalogs, the sole direct damage route is the same entry marked unfinished, while 38 DEF-derived add-state routes feed three identical damage-modifying states",
