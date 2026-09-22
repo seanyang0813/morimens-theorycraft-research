@@ -6160,6 +6160,25 @@
       ]
     },
     {
+      "id": "PC144-SKeyDB:WheelStateCrosswalk",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "An exact icon-asset join uniquely maps 141 of 146 public SKeyDB Wheel identities to a PC client Weapon row and initial state; those states contain 63 direct property maps and 229 fully resolved trigger-command references across 190 commands",
+      "scope": "Static mechanics crosswalk only. One Wheel is missing and four fail closed as ambiguous. It does not execute the initial state or descendants, interpret private parameter or judgement expressions, establish equipment, legality, signature uniqueness, stacking, optimality, gameplay agreement or holdout credit. Raw client rows and ambiguous candidates remain private; no cheese, budget-scouting or theorycraft conclusion.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Sanitized Wheel-to-state crosswalk audit",
+          "member": "source hashes, exact join rule, aggregate coverage, initial-state graph counts and four bounded case-study identities",
+          "sha256": "3e113bd61fa23f86687ad95528d2dc99b3f3f212a8b44130ff4683beae76e04f"
+        }
+      ],
+      "checks": [
+        "tools/audit_wheel_state_crosswalk.py",
+        "tests/wheel-state-crosswalk-audit.test.mjs",
+        "docs/BUILD_STAT_RESOLUTION.md"
+      ]
+    },
+    {
       "id": "Theorycraft:LegalCardActionEnumeration",
       "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
       "claim": "The theorycraft API enumerates ordinary non-keeper PvE card actions from explicit dispatch, energy, hand and status state while retaining global and per-card rejection gates",

@@ -69,6 +69,16 @@ The same runner supports a strict single-parameter Heal subset. Formula, recipie
 
 The earlier equipped Mouchette PDF omitted intrinsic Arachne realm effects and is not a complete team prediction. Its builder is disabled. Final investigation Realm Mastery is still needed for the corrected scenario; see `docs/ARACHNE_SIGNATURE_COMPARISON.md`.
 
+The mechanics track now has a general Wheel-to-client-state crosswalk. Exact
+icon-asset joins uniquely map 141 of 146 public SKeyDB Wheel identities to a PC
+client Weapon row and initial state; one is missing and four are ambiguous and
+therefore rejected. Those unique states lead to 229 trigger-command references
+across 190 command IDs, all present in the client catalog, alongside 63 direct
+property maps. This is the entry boundary for reconstructing passive state
+graphs, not passive execution or a build recommendation. See
+`research/evidence/wheel-state-crosswalk-audit.json` and
+`tools/audit_wheel_state_crosswalk.py`.
+
 ## Offline replay pipeline
 
 An explicitly exported PC replay can now be processed without running game logic or reading process memory:

@@ -46,3 +46,31 @@ passive description or lore is copied into the public calculator catalog.
 Agents can run the same search through
 `research/examples/theorycraft-search-wheel-catalog.json` and
 `tools/run_theorycraft_request.mjs`.
+
+## Wheel-to-state mechanics boundary
+
+`tools/audit_wheel_state_crosswalk.py` joins the pinned SKeyDB Wheel icon asset
+identifier to the basename of the PC client's Weapon icon. The exact join is
+unique for 141 of 146 public Wheel identities. Every unique row exposes an
+initial state, a state target and at least one parameter slot. One Wheel is
+missing from this client export and four icon identifiers are reused by multiple
+client rows, so those five fail closed.
+
+All 141 unique initial states resolve in the client State catalog. They contain
+63 direct property maps and 229 trigger-command references across 190 unique
+commands; every referenced command is present in the client Cmd catalog. Four
+initial states have no trigger command, while the others have one to four. This
+shows that a general passive engine must support both retained properties and
+event-triggered command graphs instead of treating every Wheel as one scalar.
+
+This establishes a general entry point for passive reconstruction:
+
+`Wheel identity -> client Weapon row -> initial State -> later state/command graph`
+
+The current audit stops at the initial-state boundary. It does not execute the
+state graph or interpret private parameter expressions. The four Mouchette and
+Arachne associated Wheels used by the case study all join uniquely, but that
+does not show that any Wheel is equipped, active, legal, optimal, or uniquely
+owned. The public report contains aggregate counts, hashes, and a small derived
+case-study boundary; raw client rows stay private. See
+`research/evidence/wheel-state-crosswalk-audit.json`.

@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_WHEEL_TO_CLIENT_STATE_CROSSWALK_AUDIT",
+  "analysisTrack": "mechanics",
+  "status": "STATIC_CATALOG_CROSSWALK",
+  "source": {
+    "skeydbRevision": "a2ff07765b2e0c78af827577f881054dbe224d8d",
+    "skeydbWheelCatalogSha256": "186f784906c15ad11c7e6f34d746158b712e40903297440ba5fc99ec2f9a06d3",
+    "skeydbAssetIndexSha256": "c6dd59e8de7879f96de582df202934153579a0ca4ed151220b1d519d387545f4",
+    "privateClientItemExportSha256": "d90d2ca880ffc482c796e94c06bbc38e4b05851161c8232f63a5368b4517d55c",
+    "privateClientStateExportSha256": "955c979b9c2f2c3f8252a847ca9c663baadc1c5040338f1ce8f9403c4597eced",
+    "privateClientCommandExportSha256": "7e298514fde1e0555b2e5d11118c8b5c4d5e3695a4062a49d4d51bfa110d2eed"
+  },
+  "join": {
+    "left": "SKeyDB public-v3 Wheel icon assetId",
+    "right": "PC client Item Weapon SpIcon basename",
+    "rule": "exact string equality after extracting the icon filename stem"
+  },
+  "summary": {
+    "wheelCount": 146,
+    "wheelIconAssetCount": 146,
+    "clientWeaponRowCount": 181,
+    "uniqueMatches": 141,
+    "missingMatches": 1,
+    "ambiguousMatches": 4,
+    "uniqueMatchesWithInitialState": 141,
+    "uniqueMatchesWithStateParameters": 141
+  },
+  "initialStateGraph": {
+    "resolvedInitialStates": 141,
+    "initialStatesWithDirectProperties": 63,
+    "triggerCommandReferences": 229,
+    "uniqueTriggerCommands": 190,
+    "unresolvedTriggerCommands": 0,
+    "initialStateTriggerCountHistogram": {
+      "0": 4,
+      "1": 75,
+      "2": 38,
+      "3": 18,
+      "4": 6
+    },
+    "judgementExpressionsPresent": 104
+  },
+  "caseStudyBoundary": [
+    {
+      "wheelId": "wheel-0029",
+      "name": "Doomsday Rampage",
+      "caseRole": "Mouchette-associated: Doomsday Rampage",
+      "matchStatus": "UNIQUE",
+      "initialStateId": 123521,
+      "stateTarget": "TargetCmdOwner",
+      "parameterSlotCount": 2
+    },
+    {
+      "wheelId": "wheel-0117",
+      "name": "Light of Intellect",
+      "caseRole": "Mouchette-associated: Light of Intellect",
+      "matchStatus": "UNIQUE",
+      "initialStateId": 123520,
+      "stateTarget": "TargetCmdOwner",
+      "parameterSlotCount": 1
+    },
+    {
+      "wheelId": "wheel-0128",
+      "name": "Eternal Weave",
+      "caseRole": "Arachne-associated: Eternal Weave",
+      "matchStatus": "UNIQUE",
+      "initialStateId": 134231,
+      "stateTarget": "TargetCmdOwner",
+      "parameterSlotCount": 3
+    },
+    {
+      "wheelId": "wheel-0132",
+      "name": "Rota Fortunae",
+      "caseRole": "Arachne-associated: Rota Fortunae",
+      "matchStatus": "UNIQUE",
+      "initialStateId": 134313,
+      "stateTarget": "TargetCmdOwner",
+      "parameterSlotCount": 2
+    }
+  ],
+  "claims": [
+    "A unique icon join identifies a client Weapon row and its initial state-attachment boundary for 141 of 146 public Wheel identities.",
+    "All 141 unique initial states resolve; together they reference 229 trigger commands across 190 unique command IDs, and every referenced command exists in the client command catalog.",
+    "The four named Mouchette/Arachne case-study Wheels each have one unique client row with an initial state, target, and parameter slots."
+  ],
+  "limitations": [
+    "This is a static identity crosswalk. It does not execute the initial state, descendants, triggers, conditions, formulas, stacking, or refinement parameters.",
+    "One public Wheel has no matching client icon and four have multiple client rows; those five are unresolved and must fail closed.",
+    "Associated owner labels are discovery metadata, not proof that a Wheel is unique, equipped, legal, optimal, or active in a replay.",
+    "Raw client rows, localized descriptions, parameter expressions, and ambiguous candidates remain private.",
+    "This mechanics artifact makes no cheese, budget-scouting, theorycraft recommendation, gameplay-validation, or holdout claim."
+  ]
+}
