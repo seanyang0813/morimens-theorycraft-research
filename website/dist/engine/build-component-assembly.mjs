@@ -1,4 +1,4 @@
-import {validateBuildPlan} from './build-plan.mjs';
+import {validateBuildPlan,buildPlanWheelSlots} from './build-plan.mjs';
 import {resolveClientBuildPrimary,resolveClientAdvancementPrimary} from './client-build-stats.mjs';
 import {resolveWheelMainstat} from './wheel-stats.mjs';
 
@@ -21,6 +21,7 @@ export function assembleKnownBuildComponents(plan,catalog,clientBuildData){
       primaryStats:null,
       advancementTalent:null,
       wheelMainstat:null,
+      wheelMainstats:[],
       contributionLedger:[],
     };
     let primaryReady=true;
@@ -46,13 +47,14 @@ export function assembleKnownBuildComponents(plan,catalog,clientBuildData){
       assembled.advancementTalent={clientTalentId:member.advancementTalentId,level:member.advancementLevel,season:resolved.progression.season,percentages:{...resolved.progression.percentages}};
       for(const row of resolved.trace)assembled.contributionLedger.push({property:row.stat,value:row.value-row.baseValue,unit:'flat',sourceKind:'ADVANCEMENT_PRIMARY_PERCENT',sourceId:String(member.advancementTalentId),evidenceStatus:resolved.status,trace:clone(row)});
     }
-    if(member.wheelId===null)issues.push(issue('WHEEL_SELECTION_REQUIRED',member.slotId,'wheelId','Wheel selection is unspecified.'));
-    else if(!Object.hasOwn(member,'wheelEnhanceLevel')||member.wheelEnhanceLevel===null)issues.push(issue('WHEEL_ENHANCEMENT_REQUIRED',member.slotId,'wheelEnhanceLevel','Wheel enhancement is unknown.'));
-    else{
-      const wheel=catalog.wheels.find(row=>row.id===member.wheelId);
-      const mainstat=resolveWheelMainstat({catalogRevision:validated.catalogRevision,wheelId:member.wheelId,enhanceLevel:member.wheelEnhanceLevel},catalog);
-      assembled.wheelMainstat={wheelId:wheel.id,wheelName:wheel.name,property:mainstat.stat,value:mainstat.value,unit:mainstat.unit,enhanceLevel:mainstat.enhanceLevel,enhanceLabel:mainstat.enhanceLabel,ownerMatchesSelectedCharacter:member.characterId!==null&&wheel.ownerAwakenerId===member.characterId,catalogOwner:wheel.ownerAwakenerName??null,searchTags:[...(wheel.searchTags??[])]};
-      assembled.contributionLedger.push({property:mainstat.stat,value:mainstat.value,unit:mainstat.unit,sourceKind:'WHEEL_MAINSTAT',sourceId:wheel.id,evidenceStatus:mainstat.status,trace:clone(mainstat.trace)});
+    for(const wheelSlot of buildPlanWheelSlots(validated.schemaVersion,member)){
+      if(wheelSlot.wheelId===null){if(validated.schemaVersion===1)issues.push(issue('WHEEL_SELECTION_REQUIRED',member.slotId,'wheelId','Wheel selection is unspecified.'));continue;}
+      if(wheelSlot.enhanceLevel===null){issues.push(issue('WHEEL_ENHANCEMENT_REQUIRED',member.slotId,validated.schemaVersion===1?'wheelEnhanceLevel':`wheelSlots.${wheelSlot.slotId}.enhanceLevel`,'Wheel enhancement is unknown.'));continue;}
+      if(validated.schemaVersion===2&&wheelSlot.refinementLevel===null)issues.push(issue('WHEEL_REFINEMENT_REQUIRED',member.slotId,`wheelSlots.${wheelSlot.slotId}.refinementLevel`,'Wheel refinement is unknown.'));
+      const wheel=catalog.wheels.find(row=>row.id===wheelSlot.wheelId),mainstat=resolveWheelMainstat({catalogRevision:validated.catalogRevision,wheelId:wheelSlot.wheelId,enhanceLevel:wheelSlot.enhanceLevel},catalog);
+      const resolved={slotId:wheelSlot.slotId,wheelId:wheel.id,wheelName:wheel.name,property:mainstat.stat,value:mainstat.value,unit:mainstat.unit,enhanceLevel:mainstat.enhanceLevel,enhanceLabel:mainstat.enhanceLabel,refinementLevel:wheelSlot.refinementLevel,ownerMatchesSelectedCharacter:member.characterId!==null&&wheel.ownerAwakenerId===member.characterId,catalogOwner:wheel.ownerAwakenerName??null,searchTags:[...(wheel.searchTags??[])]};
+      assembled.wheelMainstats.push(resolved);if(assembled.wheelMainstat===null)assembled.wheelMainstat=resolved;
+      assembled.contributionLedger.push({property:mainstat.stat,value:mainstat.value,unit:mainstat.unit,sourceKind:'WHEEL_MAINSTAT',sourceId:wheel.id,sourceSlotId:wheelSlot.slotId,evidenceStatus:mainstat.status,trace:clone(mainstat.trace)});
     }
     members.push(assembled);
   }
@@ -68,7 +70,7 @@ export function assembleKnownBuildComponents(plan,catalog,clientBuildData){
     finalDamage:null,
     unresolvedDependencies:[
       'Advancement talent state/passive effects and other character progression',
-      'Wheel passive effects and equipment legality',
+      'Wheel passive effects, two-slot equipment legality and direct-property assembly',
       'Additional equipment, substats and team-wide properties',
       'Battle-start states, encounter properties and action sequencing',
       'Independent gameplay validation',

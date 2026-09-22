@@ -37,3 +37,20 @@ test('unsupported character client identity and level are typed rather than gues
   assert.deepEqual(result.issues.slice(0,2).map(row=>row.code),['CHARACTER_LEVEL_UNSUPPORTED','CHARACTER_PRIMARY_UNRESOLVED']);
   assert.equal(result.members[0].primaryStats,null);
 });
+
+test('version 2 assembler keeps two Wheel main-stat ledgers and refinement provenance separate',()=>{
+  const second=catalog.wheels.find(row=>row.id!==wheel.id&&row.mainstatKey==='REALM_MASTERY');
+  const input=plan(),legacy=input.team[0];input.schemaVersion=2;input.team[0]={slotId:legacy.slotId,characterId:legacy.characterId,level:legacy.level,gnosticRank:legacy.gnosticRank,advancementTalentId:legacy.advancementTalentId,advancementLevel:legacy.advancementLevel,wheelSlots:[{slotId:'wheel-a',wheelId:wheel.id,enhanceLevel:15,refinementLevel:3},{slotId:'wheel-b',wheelId:second.id,enhanceLevel:0,refinementLevel:0}]};
+  const result=assembleKnownBuildComponents(input,catalog,clientData),member=result.members[0];
+  assert.equal(result.assemblyStatus,'KNOWN_COMPONENTS_RESOLVED');
+  assert.equal(member.wheelMainstats.length,2);
+  assert.deepEqual(member.wheelMainstats.map(row=>row.refinementLevel),[3,0]);
+  assert.equal(member.contributionLedger.filter(row=>row.sourceKind==='WHEEL_MAINSTAT').length,2);
+});
+
+test('version 2 assembler treats empty Wheel slots as explicit and unknown selected refinement as typed',()=>{
+  const input=plan(),legacy=input.team[0];input.schemaVersion=2;input.team[0]={slotId:legacy.slotId,characterId:legacy.characterId,level:legacy.level,gnosticRank:legacy.gnosticRank,advancementTalentId:legacy.advancementTalentId,advancementLevel:legacy.advancementLevel,wheelSlots:[{slotId:'wheel-a',wheelId:wheel.id,enhanceLevel:15,refinementLevel:null},{slotId:'wheel-b',wheelId:null,enhanceLevel:null,refinementLevel:null}]};
+  const result=assembleKnownBuildComponents(input,catalog,clientData);
+  assert.deepEqual(result.issues.map(row=>row.code),['WHEEL_REFINEMENT_REQUIRED']);
+  assert.equal(result.members[0].wheelMainstats.length,1);
+});

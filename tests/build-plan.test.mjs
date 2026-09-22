@@ -29,3 +29,16 @@ test('advancement talent selection is explicit and round trips without inference
   for(const patch of [{advancementTalentId:0},{advancementTalentId:'122481'},{advancementLevel:-1},{advancementLevel:11},{advancementLevel:'10'}]){const q=plan();Object.assign(q.team[0],patch);assert.throws(()=>validateBuildPlan(q,catalog));}
   const orphan=plan();orphan.team[0].advancementLevel=0;assert.throws(()=>validateBuildPlan(orphan,catalog));
 });
+
+test('version 2 plans preserve two independent optional Wheel slots',()=>{
+  const [first,second]=catalog.wheels;
+  const value={schemaVersion:2,kind:'morimens-build-plan',catalogRevision:catalog.source.revision,clientBuild:'pc-res144-build51',team:[{slotId:'one',characterId:catalog.characters[0].id,level:90,gnosticRank:5,advancementTalentId:null,advancementLevel:null,wheelSlots:[{slotId:'wheel-a',wheelId:first.id,enhanceLevel:15,refinementLevel:3},{slotId:'wheel-b',wheelId:second.id,enhanceLevel:0,refinementLevel:0}]}]};
+  assert.deepEqual(validateBuildPlan(JSON.parse(JSON.stringify(value)),catalog).plan,value);
+  value.team[0].wheelSlots[1]={slotId:'wheel-b',wheelId:null,enhanceLevel:null,refinementLevel:null};
+  assert.deepEqual(validateBuildPlan(JSON.parse(JSON.stringify(value)),catalog).plan,value);
+});
+
+test('version 2 Wheel slots reject implicit values, duplicates and unsupported cardinality',()=>{
+  const wheel=catalog.wheels[0],base={schemaVersion:2,kind:'morimens-build-plan',catalogRevision:catalog.source.revision,team:[{slotId:'one',characterId:catalog.characters[0].id,level:null,wheelSlots:[{slotId:'a',wheelId:wheel.id,enhanceLevel:null,refinementLevel:null}]}]};
+  for(const mutate of [p=>p.team[0].wheelSlots[0].refinementLevel=4,p=>p.team[0].wheelSlots[0].enhanceLevel=16,p=>p.team[0].wheelSlots[0]={slotId:'a',wheelId:null,enhanceLevel:0,refinementLevel:null},p=>p.team[0].wheelSlots.push({...p.team[0].wheelSlots[0]}),p=>p.team[0].wheelSlots.push({slotId:'b',wheelId:null,enhanceLevel:null,refinementLevel:null},{slotId:'c',wheelId:null,enhanceLevel:null,refinementLevel:null})]){const value=JSON.parse(JSON.stringify(base));mutate(value);assert.throws(()=>validateBuildPlan(value,catalog));}
+});

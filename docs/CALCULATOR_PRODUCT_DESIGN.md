@@ -71,11 +71,12 @@ The build planner supports explicit Wheel enhancement and a catalog-derived main
 
 `builds.html` now provides the first catalog-backed team/loadout planning surface: 61 character identities and 146 Wheel identities from the existing pinned SKeyDB snapshot. Export/import uses `engine/build-plan.mjs`, preserving unknown levels and unspecified Wheels. These plans have PLAN_ONLY status; selecting an identity does not assert legal equipment, applied stats, supported passives or damage. The schema is deliberately separate from resolved formula experiments until build resolution is implemented. The catalog export strips lore/images and retains source hashes and license attribution.
 
-Retrospective battle-start data now shows two serialized Weapon-source states
-for 405 of 408 Awakeners, one for two, and none for one. The current planner's
-single Wheel field is therefore an incomplete temporary schema. Its next
-version must represent two optional Wheel selections independently, including
-enhancement and refinement, without inferring the missing selections.
+Retrospective battle-start data shows two serialized Weapon-source states for
+405 of 408 Awakeners, one for two, and none for one. Build-plan schema 2 and the
+website editor therefore represent two optional Wheel selections independently,
+including enhancement and refinement, without filling empty or unknown values.
+Schema 1 remains accepted for legacy imports and is migrated visibly in the
+editor with its refinement left unknown.
 
 The first experiment layer now accepts reproducible versioned JSON containing two explicit research scenarios. `engine/experiments.mjs` evaluates both with the same calculator, reports changed input paths, metric deltas and aligned stage differences, and retains both full results/dependencies. Missing results remain null. The website can pin A, compare edited B, and run pasted experiments. Agents can use `node tools/compare_experiment.mjs experiment.json`. These are single-hit experiments, not yet general team/sequence simulations or an optimizer.
 

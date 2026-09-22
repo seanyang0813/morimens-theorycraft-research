@@ -69,6 +69,16 @@ test('catalog-backed operations require explicit host context',()=>{
   assert.equal(response.result.status,'PLAN_ONLY');
 });
 
+test('agent API validates the two-Wheel build-plan example without filling combat effects',()=>{
+  const catalog=JSON.parse(readFileSync(new URL('../website/dist/build-catalog.json',import.meta.url),'utf8'));
+  const example=JSON.parse(readFileSync(new URL('../research/examples/theorycraft-two-wheel-build-plan.json',import.meta.url),'utf8'));
+  const response=runTheorycraftRequest(example,{buildCatalog:catalog});
+  assert.equal(response.analysisTrack,'theorycrafting');
+  assert.equal(response.result.plan.schemaVersion,2);
+  assert.deepEqual(response.result.plan.team.map(member=>member.wheelSlots.length),[2,2]);
+  assert.equal(response.result.finalDamage,null);
+});
+
 test('agent API searches Wheel candidates without turning metadata into a recommendation',()=>{
   const catalog=JSON.parse(readFileSync(new URL('../website/dist/build-catalog.json',import.meta.url),'utf8'));
   const input={catalogRevision:catalog.source.revision,query:'pursuit',characterId:null,ownerMatchOnly:false,tags:['Pursuit'],realms:[],mainstatKeys:[],limit:20};

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-theorycraft-request",
+  "requestId": "two-wheel-build-plan-example",
+  "operation": "validate-build-plan",
+  "input": {
+    "schemaVersion": 2,
+    "kind": "morimens-build-plan",
+    "catalogRevision": "a2ff07765b2e0c78af827577f881054dbe224d8d",
+    "clientBuild": "pc-res144-build51",
+    "team": [
+      {
+        "slotId": "mouchette",
+        "characterId": "awakener-0033",
+        "level": 90,
+        "gnosticRank": 5,
+        "advancementTalentId": null,
+        "advancementLevel": null,
+        "wheelSlots": [
+          {"slotId": "wheel-1", "wheelId": "wheel-0029", "enhanceLevel": 15, "refinementLevel": 3},
+          {"slotId": "wheel-2", "wheelId": "wheel-0117", "enhanceLevel": 15, "refinementLevel": 3}
+        ]
+      },
+      {
+        "slotId": "arachne",
+        "characterId": "awakener-0056",
+        "level": 90,
+        "gnosticRank": 5,
+        "advancementTalentId": null,
+        "advancementLevel": null,
+        "wheelSlots": [
+          {"slotId": "wheel-1", "wheelId": "wheel-0128", "enhanceLevel": 15, "refinementLevel": 3},
+          {"slotId": "wheel-2", "wheelId": "wheel-0132", "enhanceLevel": 15, "refinementLevel": 3}
+        ]
+      }
+    ]
+  }
+}

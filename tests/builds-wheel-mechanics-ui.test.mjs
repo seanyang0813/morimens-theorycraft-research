@@ -11,4 +11,8 @@ test('Build planner labels Wheel mechanics as a separate static fingerprint',()=
   assert.match(source,/does not establish activation, magnitude, timing, legality, stacking, or optimality/);
   assert.match(html,/separate mechanics-track fingerprint/);
   assert.match(html,/static fingerprints do not verify activation, magnitude, team legality or optimality/);
+  assert.match(source,/schemaVersion:2/);
+  assert.match(source,/Wheel slot \$\{index\+1\}/);
+  assert.match(source,/refinementLevel/);
+  assert.match(html,/two optional Wheel selections/);
 });

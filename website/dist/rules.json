@@ -6330,6 +6330,28 @@
       ]
     },
     {
+      "id": "Theorycraft:TwoWheelBuildPlan",
+      "status": "SUPPORTED_BY_AUTHORED_SCHEMA_TESTS",
+      "claim": "Build-plan schema 2 and the known-component assembler preserve two optional Wheel slots per character with separate enhancement and refinement inputs, while continuing to validate legacy schema 1 imports",
+      "scope": "Authored theorycraft planning and catalog main-stat assembly only. The two-slot bound follows this replay corpus and does not establish universal inventory rules, slot labels, equipment legality, passive activation, direct-property application, stacking, damage, optimality, gameplay validation or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Sanitized Wheel replay-state audit",
+          "member": "405 of 408 Awakeners with two Weapon states, two with one and one with none",
+          "sha256": "63d51cec74efae84c16c423000c91fc9d2654872af0f01c26efc248c84791906"
+        }
+      ],
+      "checks": [
+        "engine/build-plan.mjs",
+        "engine/build-component-assembly.mjs",
+        "tests/build-plan.test.mjs",
+        "tests/build-component-assembly.test.mjs",
+        "tests/builds-wheel-mechanics-ui.test.mjs",
+        "research/examples/theorycraft-two-wheel-build-plan.json"
+      ]
+    },
+    {
       "id": "Theorycraft:LegalCardActionEnumeration",
       "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
       "claim": "The theorycraft API enumerates ordinary non-keeper PvE card actions from explicit dispatch, energy, hand and status state while retaining global and per-card rejection gates",

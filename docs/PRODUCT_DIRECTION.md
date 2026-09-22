@@ -20,7 +20,7 @@ Context sources:
 
 `engine/theorycraft-api.mjs` is the stable JSON dispatcher shared by agents and future browser controls. `tools/run_theorycraft_request.mjs` runs the same interface from a file and loads the pinned local build catalogs. It dispatches only named bounded operations and preserves each component's `EXPERIMENTAL`, `PLAN_ONLY`, `CATALOG_DERIVED` or `UNVERIFIED` status.
 
-The first assembly slice is implemented as `assemble-build-components`: it joins recovered character primary-stat progression, explicit Season/Soulforge percentage promotion and catalog Wheel main stats into a provenance-bearing ledger. It reports missing inputs as typed issues. It is not a final property snapshot because advancement passive states, equipment and battle-start effects are still unresolved.
+The first assembly slice is implemented as `assemble-build-components`: it joins recovered character primary-stat progression, explicit Season/Soulforge percentage promotion and catalog main stats from two optional Wheel slots into a provenance-bearing ledger. Enhancement and refinement remain separate inputs. It reports missing selected-Wheel inputs as typed issues. It is not a final property snapshot because advancement passive states, broader Wheel passives, equipment legality and battle-start effects are still unresolved.
 
 Wheel discovery is also shared across interfaces. The build planner and
 `search-wheel-catalog` agent operation search 146 pinned identities by name,
