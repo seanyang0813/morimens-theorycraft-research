@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-theorycraft-request",
+  "requestId": "wheel-active-order-example",
+  "operation": "run-wheel-active-timeline",
+  "input": {
+    "schemaVersion": 1,
+    "kind": "morimens-wheel-active-timeline",
+    "build": "pc-res144-build51",
+    "snapshotStage": "battle-property-server-live",
+    "snapshotCompleteness": "complete-map",
+    "initialWheelState": {
+      "doomsday": {
+        "refinementLevel": 3,
+        "ownerAttack": 1000,
+        "counter": 0,
+        "baseStrikecardDamagePlus": 0,
+        "wheelStrikecardDamagePlus": 0
+      },
+      "light": null,
+      "arachne": null
+    },
+    "baseCasterProperties": {
+      "crit": 0,
+      "crit_damage": 0,
+      "crit_damage_from_strikecard": 0,
+      "crit_damage_per": 0,
+      "strikecard_damage_plus": 0
+    },
+    "basePlayerProperties": {
+      "dimension_fix_per": 0
+    },
+    "initialTargetProperties": {
+      "hp": 1000,
+      "max_hp": 1000,
+      "block": 0,
+      "be_damage_per": 0,
+      "vulnerable_per": 0
+    },
+    "steps": [
+      {
+        "id": "strike-1",
+        "type": "ACTIVE_HIT",
+        "baseValue": 100,
+        "skillArgsPlus": 0,
+        "tags": ["Card_Strike"],
+        "cardProperties": {},
+        "cardContext": {"present": false, "instructionCard": false, "stateTriggerAdd": false},
+        "targetContext": {"critRoll": null, "targetBattleTag": "Boss", "targetStateIds": []},
+        "hitContext": {"damageSubtype": "Ordinary"}
+      },
+      {"id": "after-strike-1", "type": "AFTER_USE_CARD", "cardType": "Card_Strike"},
+      {
+        "id": "strike-2",
+        "type": "ACTIVE_HIT",
+        "baseValue": 100,
+        "skillArgsPlus": 0,
+        "tags": ["Card_Strike"],
+        "cardProperties": {},
+        "cardContext": {"present": false, "instructionCard": false, "stateTriggerAdd": false},
+        "targetContext": {"critRoll": null, "targetBattleTag": "Boss", "targetStateIds": []},
+        "hitContext": {"damageSubtype": "Ordinary"}
+      }
+    ]
+  }
+}

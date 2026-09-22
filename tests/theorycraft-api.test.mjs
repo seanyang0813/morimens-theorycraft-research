@@ -139,6 +139,13 @@ test('agent API rejects extra fields and unsupported operations',()=>{
   assert.throws(()=>runTheorycraftRequest(request('invent-result',{})),/Unsupported/);
 });
 
+test('agent API composes explicit Wheel events with later Active hits',()=>{
+  const hit=id=>({id,type:'ACTIVE_HIT',baseValue:100,skillArgsPlus:0,tags:['Card_Strike'],cardProperties:{},cardContext:{present:false,instructionCard:false,stateTriggerAdd:false},targetContext:{critRoll:null,targetBattleTag:'Boss',targetStateIds:[]},hitContext:{damageSubtype:'Ordinary'}});
+  const input={schemaVersion:1,kind:'morimens-wheel-active-timeline',build:'pc-res144-build51',snapshotStage:'battle-property-server-live',snapshotCompleteness:'complete-map',initialWheelState:{doomsday:{refinementLevel:3,ownerAttack:1000,counter:0,baseStrikecardDamagePlus:0,wheelStrikecardDamagePlus:0},light:null,arachne:null},baseCasterProperties:{crit:0,crit_damage:0,crit_damage_from_strikecard:0,crit_damage_per:0,strikecard_damage_plus:0},basePlayerProperties:{dimension_fix_per:0},initialTargetProperties:{hp:1000,max_hp:1000,block:0,be_damage_per:0,vulnerable_per:0},steps:[hit('first'),{id:'after-first',type:'AFTER_USE_CARD',cardType:'Card_Strike'},hit('second')]};
+  const response=runTheorycraftRequest(request('run-wheel-active-timeline',input));
+  assert.equal(response.result.modeledHpLost,450);assert.deepEqual(response.result.trace.filter(row=>row.type==='ACTIVE_HIT').map(row=>row.result.preHitDamage),[100,350]);assert.equal(response.result.finalDamage,null);
+});
+
 test('agent API exposes bounded card-order search without a global optimum claim',()=>{
   const input={schemaVersion:1,kind:'morimens-card-order-search',objective:'MAX_MODELED_HP_LOST',timeline:syntheticCardActionExample(),maxEvaluations:10,returnTop:2};
   const response=runTheorycraftRequest(request('search-card-orders',input));
