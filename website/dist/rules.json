@@ -4773,6 +4773,24 @@
       ]
     },
     {
+      "id": "PC150-PC151:ReplayAdapterConfigCatalogs",
+      "status": "LUA_SEMANTICALLY_EQUIVALENT",
+      "claim": "The installed resource-151 Skill, Cmd, State, BattleApi and Constant tables have no added, removed or Lua-semantic gameplay-value changes from resource 150",
+      "scope": "Five config tables used by the narrow replay adapter. One empty Lua table has a representation-only JSON shape difference. Untracked runtime dependencies, gameplay validation and holdout credit remain separate.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-150 to resource-151 config comparison",
+          "member": "five complete private table comparisons; public hashes and counts only",
+          "sha256": "ca45070e0749bc8728d3a6bc2e261379120777e61f0d9d1241c8f2dbdcd4fe34"
+        }
+      ],
+      "checks": [
+        "tools/compare_pc_config_catalogs.py",
+        "tests/pc-res151-config-catalogs.test.mjs"
+      ]
+    },
+    {
       "id": "PC150:PrimaryStatAndAdvancementLookup",
       "status": "SUPPORTED_BY_CURRENT_RUNTIME_TEST",
       "claim": "The installed resource-150 character tables and original GetAwakerBaseAttrValue path match all 2,700 authored primary-stat checks; supported current advancement rows are exposed separately through the tested client rounding rule",
