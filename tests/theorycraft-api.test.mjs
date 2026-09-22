@@ -168,6 +168,11 @@ test('agent API searches every supplied paid Wheel action order',()=>{
   assert.deepEqual(response.result.best.order,['setup','big']);assert.equal(response.result.best.modeledHpLost,1125);assert.equal(response.result.evaluatedPermutations,2);assert.equal(response.result.finalDamage,null);
 });
 
+test('agent API keeps distinct caster snapshots in a shared Wheel timeline',()=>{
+  const requestValue=JSON.parse(readFileSync(new URL('../research/examples/theorycraft-multi-caster-wheel-active-timeline.json',import.meta.url)));const response=runTheorycraftRequest(requestValue);
+  assert.equal(response.result.wheelStateSemantics,'SHARED_WHEEL_CONTRIBUTIONS');assert.deepEqual(response.result.trace.filter(row=>row.type==='ACTIVE_HIT').map(row=>row.result.preHitDamage),[110,485]);assert.equal(response.result.modeledHpLost,595);assert.equal(response.result.finalDamage,null);
+});
+
 test('agent API exposes bounded card-order search without a global optimum claim',()=>{
   const input={schemaVersion:1,kind:'morimens-card-order-search',objective:'MAX_MODELED_HP_LOST',timeline:syntheticCardActionExample(),maxEvaluations:10,returnTop:2};
   const response=runTheorycraftRequest(request('search-card-orders',input));

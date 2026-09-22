@@ -23,6 +23,20 @@ The caller supplies the baseline value for each property twice: in the complete
 property map and in the Wheel state that separates base from temporary
 contribution. The values must agree, which prevents silent double counting.
 
+Schema 2 supports multiple casters in one timeline. Each Active hit carries its
+own complete caster and player base maps, while `initialWheelContributions`
+contains only the shared temporary Wheel values and counters. The runner adds
+those contributions to each hit's existing `strikecard_damage_plus` and
+`basic_damage_per`; it does not replace one character's base map with another's.
+The result labels this state `SHARED_WHEEL_CONTRIBUTIONS`.
+
+The multi-caster example starts with a Mouchette-like hit whose own Strike flat
+is 10, producing 110. After one Doomsday trigger and one Arachne-owned pursuit,
+an Arachne-like hit retains its own 30 Strike flat and 50% base team
+amplification, then receives the shared +250 and +55. Its modeled pre-hit damage
+is 485. This is a property-routing example with synthetic magnitudes, not a
+claim about those characters' real damage.
+
 The deliberately small max-refinement example produces Strike pre-hit values of
 100, 350 and 405. The first Strike precedes any event. Doomsday then adds 250
 flat damage for the second Strike. After one Arachne-owned pursuit, the two
@@ -76,7 +90,9 @@ second card before effects and leaves one stack.
 This boundary does not simulate hand removal, draws, refunds, changing costs,
 turn transitions or pursuit generation. The ordering of other listeners and
 whether an after-use listener completes following lethal damage remain
-unresolved, so the runner stops at that boundary.
+unresolved, so the runner stops at that boundary. The paid runner and its order
+search currently use the schema 1 single-caster maps; schema 2 multi-caster
+payment/search remains a separate integration step.
 
 ## Searching supplied card orders
 

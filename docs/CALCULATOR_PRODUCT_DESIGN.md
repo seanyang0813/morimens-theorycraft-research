@@ -104,6 +104,13 @@ timeline and compare an edited order through the same runtime-fingerprinted
 contract used by agents, aligning steps by stable ID and separating order-only
 changes from edited inputs. See WHEEL_ACTIVE_TIMELINE.md.
 
+Wheel timelines now also support per-hit complete caster/player maps. Shared
+Doomsday and Arachne Wheel contributions are added over each character's own
+baseline, so a generated pursuit no longer inherits the main card caster's
+properties. The current paid runner and order search remain single-caster; the
+multi-caster schema first establishes correct property ownership before those
+layers are joined.
+
 The same boundary now has a paid-card runner. It checks ordinary PvE legality
 and spends energy before exposing a card's supplied Active hits, then appends
 the recovered Doomsday after-use transition only for an accepted card. Energy,

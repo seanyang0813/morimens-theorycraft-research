@@ -25,3 +25,13 @@ test('Wheel Active timeline fails closed for inconsistent baselines and inferred
   const absent=input();absent.initialWheelState.arachne=null;assert.throws(()=>runWheelActiveTimeline(absent),/Arachne Wheel state/);
   const duplicate=input();duplicate.steps[1].id='strike-1';assert.throws(()=>runWheelActiveTimeline(duplicate),/unique IDs/);
 });
+
+test('schema 2 overlays shared Wheel contributions on each hit caster snapshot',()=>{
+  const multiHit=(id,strikecardDamagePlus,basicDamagePer)=>({...hit(id),casterProperties:{crit:0,crit_damage:0,crit_damage_from_strikecard:0,crit_damage_per:0,strikecard_damage_plus:strikecardDamagePlus},playerProperties:{dimension_fix_per:0,basic_damage_per:basicDamagePer}});
+  const value={schemaVersion:2,kind:'morimens-wheel-active-timeline',build:'pc-res144-build51',snapshotStage:'battle-property-server-live',snapshotCompleteness:'complete-map',initialWheelContributions:{doomsday:{refinementLevel:3,ownerAttack:1000,counter:0,strikecardDamagePlus:0},light:null,arachne:{ownerUid:56,basicDamagePer:0,wheels:[{slotId:'signature',wheelId:'wheel-0128',refinementLevel:3,triggersUsed:0},{slotId:'secondary',wheelId:'wheel-0132',refinementLevel:3,triggersUsed:0}]}},initialTargetProperties:{hp:5000,max_hp:5000,block:0,be_damage_per:0,vulnerable_per:0},steps:[multiHit('mouchette',10,0),{id:'after-mouchette',type:'AFTER_USE_CARD',cardType:'Card_Strike'},{id:'after-arachne-pursuit',type:'AFTER_PURSUIT',pursuitOwnerUid:56},multiHit('arachne',30,50)]};
+  const result=runWheelActiveTimeline(value),hits=result.trace.filter(row=>row.type==='ACTIVE_HIT');
+  assert.equal(result.schemaVersion,2);assert.equal(result.wheelStateSemantics,'SHARED_WHEEL_CONTRIBUTIONS');assert.deepEqual(hits.map(row=>row.result.preHitDamage),[110,485]);assert.equal(result.modeledHpLost,595);
+  assert.deepEqual(hits[1].appliedWheelProperties,{strikecardDamagePlus:250,basicDamagePer:55});assert.equal(hits[1].result.resolvedUtilityInputs.strikecard_damage_plus,280);assert.equal(hits[1].result.resolvedUtilityInputs.basicDamagePer,105);
+  assert.equal(result.finalWheelState.doomsday.strikecardDamagePlus,250);assert.equal(result.finalWheelState.arachne.basicDamagePer,55);assert.ok(!Object.hasOwn(result.finalWheelState.doomsday,'baseStrikecardDamagePlus'));
+  const missing=JSON.parse(JSON.stringify(value));delete missing.steps[0].casterProperties;assert.throws(()=>runWheelActiveTimeline(missing),/exact fields/);
+});
