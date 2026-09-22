@@ -6261,6 +6261,56 @@
       ]
     },
     {
+      "id": "PC144:WheelInitialPropertyGrammar",
+      "status": "CONFIRMED_FROM_CODE_AND_DATA",
+      "claim": "All 100 direct property entries on 63 uniquely crosswalked initial Wheel states fit seven bounded numeric forms, and all 141 initial attachments target the command owner",
+      "scope": "Static observed-grammar coverage combined with the separately original-runtime-matched generic state-property initialization boundary. This is not connected original execution of a Wheel state and does not establish equipment, attachment timing, triggers, later updates, stacking, gameplay agreement or holdout credit. Mechanics only; no theorycraft, cheese or budget claim.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Sanitized Wheel initial-property audit",
+          "member": "source hashes, target count and aggregate expression-class coverage",
+          "sha256": "6792b4033487eb4acbf930de198328b7515ef61ac5db6155d272dd4d61ff5ad0"
+        },
+        {
+          "module": "BattleStateServer",
+          "member": "InitProperty,ChangeOwnerProperty",
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369"
+        }
+      ],
+      "checks": [
+        "tools/audit_wheel_initial_properties.py",
+        "tests/wheel-initial-property-audit.test.mjs",
+        "tests/state-property-contribution.test.mjs"
+      ]
+    },
+    {
+      "id": "Mechanics:WheelInitialPropertyResolver",
+      "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
+      "claim": "A strict local mechanics resolver combines uniquely crosswalked Wheel refinement parameters with its initial direct StateOwner property expressions and the recovered ceiling boundary",
+      "scope": "Local resolver requires ignored private catalogs and strips source expressions from its response. It returns initial requested property contributions only; no equipment legality, attachment execution, trigger dispatch, later updates, stacking, final damage, theorycraft recommendation, cheese, budget-scouting, gameplay-validation or holdout result.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Wheel initial-property audit",
+          "member": "100 observed entries with zero unsupported expression forms",
+          "sha256": "6792b4033487eb4acbf930de198328b7515ef61ac5db6155d272dd4d61ff5ad0"
+        },
+        {
+          "module": "Wheel refinement runtime audit",
+          "member": "232 exact original-runtime comparisons",
+          "sha256": "8088d4c6edcafcf897ddc0a33f4bfbadb5f22d697f469ab16cfb139980417430"
+        }
+      ],
+      "checks": [
+        "engine/wheel-initial-properties.mjs",
+        "tools/resolve_wheel_initial_properties.mjs",
+        "tests/wheel-initial-properties.test.mjs",
+        "research/examples/mechanics-resolve-eternal-weave-initial-properties.json",
+        "research/examples/mechanics-resolve-doomsday-rampage-initial-properties.json"
+      ]
+    },
+    {
       "id": "Theorycraft:LegalCardActionEnumeration",
       "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
       "claim": "The theorycraft API enumerates ordinary non-keeper PvE card actions from explicit dispatch, energy, hand and status state while retaining global and per-card rejection gates",

@@ -106,3 +106,26 @@ client row locally. For example, Eternal Weave at refinement level 3 resolves
 StateArg1/2/3 to 25, 40 and 10. This supplies initial state arguments only; it
 does not equip the Wheel, attach the state, execute direct properties or fire a
 trigger. Detailed expressions and the full per-Wheel values remain private.
+
+## Initial Wheel property contributions
+
+The 141 uniquely crosswalked initial Wheel states contain 100 direct property
+entries across 63 states. All 100 use one of seven bounded numeric forms: a
+named StateArg, a numeric literal, explicit Physique scaling, or explicit ATK
+scaling with a ceiling. All 141 initial attachments target the command owner.
+`research/evidence/wheel-initial-property-audit.json` publishes only aggregate
+grammar counts and source hashes.
+
+`engine/wheel-initial-properties.mjs` resolves those source-bound expressions
+and passes their values through the previously matched state-property ceiling
+boundary. `tools/resolve_wheel_initial_properties.mjs` combines the private
+crosswalk, refinement resolver, and initial State property map locally. The
+request must provide owner ATK/Physique values when an observed expression
+reads them; unsupported syntax or missing values fail closed. Eternal Weave at
+maximum refinement therefore requests a 25-point `o_block_per` contribution,
+while Doomsday Rampage requests 60 points each for its direct attached-post and
+ultimate outgoing-damage properties.
+
+This result describes initial direct property requests only. It does not prove
+equipment legality, attachment timing, trigger behavior, recipient mutation,
+later updates, stacking, final damage, or gameplay agreement.

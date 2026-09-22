@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_WHEEL_INITIAL_PROPERTY_AUDIT",
+  "analysisTrack": "mechanics",
+  "status": "OBSERVED_GRAMMAR_COVERED",
+  "source": {
+    "privateClientStateExportSha256": "955c979b9c2f2c3f8252a847ca9c663baadc1c5040338f1ce8f9403c4597eced",
+    "privateCrosswalkSha256": "7cdf18708c864dbf86f53c607709db78243f5acd1d07164f61a7b6e94d8a388d"
+  },
+  "summary": {
+    "uniqueCrosswalkedWheels": 141,
+    "ownerTargetRows": 141,
+    "initialStatesWithDirectProperties": 63,
+    "directPropertyEntries": 100,
+    "uniquePropertyNames": 33,
+    "unsupportedExpressions": 0
+  },
+  "expressionClasses": {
+    "StateArg1": 73,
+    "StateArg2": 12,
+    "StateArg3": 9,
+    "StateArg4": 1,
+    "explicitAttackScalingWithCeil": 1,
+    "explicitPhysiqueScaling": 2,
+    "numericLiteral": 2
+  },
+  "claims": [
+    "All 100 direct property entries on the 141 uniquely crosswalked initial Wheel states fit the bounded numeric expression grammar exposed by the local resolver.",
+    "All 141 uniquely crosswalked initial state attachments target the command owner."
+  ],
+  "limitations": [
+    "This is grammar coverage plus component composition, not connected execution of a Wheel state by the original client.",
+    "The generic state-property initialization boundary has separate original-runtime fixture coverage; this audit does not add gameplay or end-to-end runtime evidence.",
+    "No trigger, condition, later state update, stacking, legality, theorycraft recommendation, cheese, budget-scouting, gameplay-validation or holdout result is claimed."
+  ]
+}
