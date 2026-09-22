@@ -4918,6 +4918,27 @@
       ]
     },
     {
+      "id": "PC151:PreparedDefendBlockEnergy",
+      "status": "SUPPORTED_BY_DIRECT_RUNTIME_AND_EXACT_COMPOSITION",
+      "claim": "Resource-151 bytecode matches 256 Block-calculation and 160 Block-storage fixtures exactly; combined with unchanged Skill/Cmd catalogs and the 516-case energy boundary, the installed build supports the catalog-prepared Defend Block-to-energy operation",
+      "scope": "Skill 4176 / command 834 ordinary Camp1 PvE Awakener Defend path from complete live snapshots: supplied UpperTarget Block then capped caster energy. Automatic targeting, legality/payment, repetition, callbacks, Block events, later lifecycle, gameplay, prediction and holdout credit remain excluded.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "PC resource-151 prepared Block compatibility",
+          "member": "direct Block runtime, catalog equality and energy composition",
+          "sha256": "1ebb69ba7235c87a1022c8e6a9d9bb185a0b316e3c480bda437ba46f4099cb00"
+        }
+      ],
+      "checks": [
+        "tools/verify_res151_prepared_block.py",
+        "tests/pc-res151-prepared-block-compatibility.test.mjs",
+        "tests/prepared-snapshot-block-skill.test.mjs",
+        "tests/theorycraft-api.test.mjs",
+        "tests/theorycraft-cli-res151.test.mjs"
+      ]
+    },
+    {
       "id": "PC151:ControlledReplayAuditCandidate004",
       "status": "SAME_BATTLE_REVIEW_PENDING",
       "claim": "One mechanically isolated resource-151 capture candidate yields six retrospective ordinary-Active critical-branch matches and zero mismatches after 71 out-of-scope hits are rejected",
@@ -6813,7 +6834,7 @@
       "id": "Theorycraft:PreparedDefendBlockEnergy",
       "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
       "claim": "The catalog-prepared theorycraft path executes an ordinary PvE Defend card as snapshot-derived Block gain followed by capped caster ultimate-energy gain",
-      "scope": "Authored two-row composition for matching resource-144 and resource-150 catalog rows. Skill 4176 / command 834 derives progression arguments, selected target, ordinary Camp1 PvE Awakener/card Block properties, recipient modifiers, storage cap and caster energy from complete snapshots. The Block assembly matches 256 original and current-build GetRealBlock fixtures; storage and energy have separate runtime evidence. Target generation, legality/payment, repetition, callbacks, events, card lifecycle, gameplay and holdout validation are excluded. Theorycraft track only; no cheese, budget or observed-strategy claim.",
+      "scope": "Authored two-row composition for matching resource-144, resource-150 and bounded resource-151 catalog rows. Skill 4176 / command 834 derives progression arguments, selected target, ordinary Camp1 PvE Awakener/card Block properties, recipient modifiers, storage cap and caster energy from complete snapshots. Resource 151 directly matches 256 Block-calculation and 160 storage fixtures, then composes the unchanged catalogs and 516-case energy boundary. Target generation, legality/payment, repetition, callbacks, events, card lifecycle, gameplay and holdout validation are excluded. Theorycraft track only; no cheese, budget or observed-strategy claim.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -6850,7 +6871,9 @@
       "checks": [
         "tests/prepared-snapshot-block-skill.test.mjs",
         "tests/connected-block-calculation.test.mjs",
+        "tests/pc-res151-prepared-block-compatibility.test.mjs",
         "research/examples/theorycraft-prepared-snapshot-block-skill.json",
+        "research/examples/theorycraft-installed-prepared-snapshot-block-skill.json",
         "docs/PREPARED_SNAPSHOT_BLOCK_SKILL.md"
       ]
     },

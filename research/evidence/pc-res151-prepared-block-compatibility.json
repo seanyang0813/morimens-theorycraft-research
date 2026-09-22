@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_PREPARED_BLOCK_BUILD_COMPATIBILITY",
+  "build": "pc-res151-build51",
+  "status": "SUPPORTED_BY_DIRECT_RUNTIME_AND_EXACT_COMPOSITION",
+  "operation": "run-prepared-snapshot-block-skill",
+  "sourceHashes": {
+    "currentBattleConst": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+    "currentBattleUtilServer": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
+    "currentBattleCmdServer": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9",
+    "currentBattlePropertyServer": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5",
+    "calculationFixture": "4055d56cf07cb4015f3106a8e38573a410fea60661cc96849a1ccf812a7e811e",
+    "storageFixture": "6b508d155b6b201271686e45ef3954b5b3878671e37dbcba9d33bb8093c1f658",
+    "energyCompatibility": "bc6071c917f25244f9a6288ce575f0e334c8c6a18598d9a1dbcbbef34b01eb61",
+    "catalogCompatibility": "ca45070e0749bc8728d3a6bc2e261379120777e61f0d9d1241c8f2dbdcd4fe34"
+  },
+  "directRuntime": {
+    "calculation": {
+      "fixtures": 256,
+      "exactMatches": 256,
+      "mismatches": 0
+    },
+    "storage": {
+      "fixtures": 160,
+      "exactMatches": 160,
+      "mismatches": 0
+    },
+    "fixtures": 416,
+    "mismatches": 0
+  },
+  "composedEvidence": {
+    "catalogStatus": "LUA_SEMANTICALLY_EQUIVALENT",
+    "catalogTableCount": 5,
+    "catalogSemanticChanges": 0,
+    "ultimateEnergyStatus": "SUPPORTED_BY_EXACT_DEPENDENCY_CARRYFORWARD",
+    "ultimateEnergyFixtures": 516,
+    "ultimateEnergyMismatches": 0
+  },
+  "results": [],
+  "scope": "Catalog-prepared Skill 4176 / command 834 shape: ordinary Camp1 PvE Awakener Defend Block for one supplied UpperTarget followed by capped caster ultimate-energy gain from complete live property maps.",
+  "limitations": [
+    "The two-row operation is authored composition of separately proven catalog preparation, direct resource-151 Block runtime and exact-carried energy components",
+    "Automatic target generation, card legality/payment, effect repetition, callbacks, Block events and later card lifecycle are excluded",
+    "No gameplay, prediction or holdout credit"
+  ]
+}

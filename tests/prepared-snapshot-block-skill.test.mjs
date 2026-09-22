@@ -4,7 +4,7 @@ import {createHash} from 'node:crypto';
 import {readFileSync} from 'node:fs';
 import {runPreparedSnapshotBlockSkill} from '../engine/prepared-snapshot-block-skill.mjs';
 
-const roots={'pc-res144-build51':'../research/extracted/config','pc-res150-build51':'../research/observations/current-res150-build51/modules'};
+const roots={'pc-res144-build51':'../research/extracted/config','pc-res150-build51':'../research/observations/current-res150-build51/modules','pc-res151-build51':'../research/observations/current-res151-build51/modules'};
 function source(build){
   const loaded={};for(const name of ['Skill','BattleApi','Cmd','State']){const bytes=readFileSync(new URL(`${roots[build]}/${name}.json`,import.meta.url));loaded[name]={data:JSON.parse(bytes),sha256:createHash('sha256').update(bytes).digest('hex')};}
   return {build,skills:loaded.Skill.data,battleApi:loaded.BattleApi.data,commands:loaded.Cmd.data,states:loaded.State.data,sourceHashes:Object.fromEntries(Object.entries(loaded).map(([name,row])=>[name,row.sha256]))};

@@ -92,7 +92,7 @@ const clone=value=>JSON.parse(JSON.stringify(value));
 function execute(operation,input,context){
   if(operation==='describe-capabilities'){
     if(input!==null)throw new Error('describe-capabilities requires input: null');
-    return {apiVersion:1,supportedCombatBuilds:['pc-res144-build51','pc-res150-build51','pc-res151-build51'],resource151OperationScope:['calculate-snapshot-active-damage','run-snapshot-active-sequence','prepare-skill-command','run-prepared-snapshot-active-skill','run-ulti-energy-effect'],operations:clone(theorycraftOperations),labels:['CATALOG_DERIVED','PLAN_ONLY','EXPERIMENTAL','UNVERIFIED'],publicationStatus:'NOT_READY'};
+    return {apiVersion:1,supportedCombatBuilds:['pc-res144-build51','pc-res150-build51','pc-res151-build51'],resource151OperationScope:['calculate-snapshot-active-damage','run-snapshot-active-sequence','prepare-skill-command','run-prepared-snapshot-active-skill','run-ulti-energy-effect','run-prepared-snapshot-block-skill'],operations:clone(theorycraftOperations),labels:['CATALOG_DERIVED','PLAN_ONLY','EXPERIMENTAL','UNVERIFIED'],publicationStatus:'NOT_READY'};
   }
   if(operation==='calculate-damage')return calculateDamage(input);
   if(operation==='calculate-snapshot-active-damage')return calculateSnapshotActiveDamage(input);

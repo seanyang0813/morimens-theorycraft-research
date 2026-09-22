@@ -36,6 +36,13 @@ test('agent CLI runs resource-151 ultimate-energy calculation and capped storage
   assert.ok(response.result.unresolvedDependencies.some(value=>value.includes('516 inherited fixtures')));
 });
 
+test('agent CLI prepares and executes the bounded resource-151 Defend Block and energy path',()=>{
+  const result=run('research/examples/theorycraft-installed-prepared-snapshot-block-skill.json');
+  assert.equal(result.status,0,result.stderr);
+  const response=JSON.parse(result.stdout);
+  assert.equal(response.result.build,'pc-res151-build51');assert.equal(response.result.command.id,834);assert.equal(response.result.block.blockAfter,10);assert.equal(response.result.energy.targetsAfter[0].energy,100);assert.equal(response.result.finalDamage,null);
+});
+
 test('agent CLI rejects resource-151 operations outside the proven dependency graph',()=>{
   const result=run('tests/synthetic/theorycraft-res151-unsupported-operation.json');
   assert.equal(result.status,1);
