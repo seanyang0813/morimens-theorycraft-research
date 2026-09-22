@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_ANDROID_URL_BRIDGE_INSPECTION",
+  "status": "LUA_SUPPLIED_URL_NORMALIZER_CONFIRMED",
+  "sourceHashes": {
+    "globalMetadata": "97564dd7d0314be14c6cdd3f219d6405027b787923f70cd2fce89ba8b630d441",
+    "libil2cpp": "f8d8f3181094b093c2580a6d548f4411eecf701dfe36953b6fa532066c1b4153",
+    "il2cppDump": "2e1b3522a2a07e38f611b353d84bae37baaa1f66ff207d1d0e662a99aa781030",
+    "startupLuaInspection": "ff0dc49404be38ad1a205649418aff914939afc39dbc20f576f90d94cada7e8d"
+  },
+  "xluaBridge": {
+    "wrapper": "XLua.CSObjectWrap.ResourceManagerDownloadHelperWrap._m_FixUrlRoot_xlua_st_",
+    "wrapperRva": "0x195d5a8",
+    "input": {
+      "api": "XLua.Lua.lua_tostring",
+      "rva": "0x1de971c",
+      "luaStackIndex": 1
+    },
+    "managedCall": {
+      "api": "ResourceManager.DownloadHelper.FixUrlRoot",
+      "rva": "0x2eff414"
+    },
+    "output": {
+      "api": "XLua.Lua.lua_pushstring",
+      "rva": "0x1dec04c",
+      "luaReturnValues": 1
+    }
+  },
+  "normalization": {
+    "firstCall": {
+      "api": "ResourceManager.DownloadHelper.FixPath",
+      "rva": "0x2ef80e0"
+    },
+    "suffixCheck": {
+      "api": "System.String.EndsWith",
+      "rva": "0x2c99f24",
+      "literal": {
+        "slot": "0x3816eb0",
+        "encodedUsage": "0xa0000859",
+        "stringLiteralIndex": 1068,
+        "value": "/"
+      }
+    },
+    "missingSuffixAction": {
+      "api": "System.String.Concat",
+      "rva": "0x2c8e3f8",
+      "appendedLiteral": "/"
+    },
+    "hostOrSchemeLiteralIntroduced": false
+  },
+  "startupLuaCrossCheck": {
+    "status": "PARSED_WITHOUT_EXECUTION",
+    "prototypeCount": 7,
+    "stringConstantCount": 109,
+    "resourceDownloadCandidates": 0
+  },
+  "interpretation": "The generated XLua wrapper reads argument 1 from the Lua stack, passes that string to FixUrlRoot, and pushes one string result. FixUrlRoot normalizes the path and only preserves or appends '/'; it introduces no host or scheme. The resource base URL therefore reaches this boundary from Lua/runtime data rather than being created by the normalizer.",
+  "scope": "Static ARM64 call-edge, relocation and generated-XLua-wrapper inspection. No native or managed method was executed and no endpoint value is published.",
+  "limitations": [
+    "This identifies the source side of one public URL-normalization bridge, not every possible Android network path",
+    "The packaged startup Lua archive has no literal resource endpoint, but later downloaded Lua or a service response can supply the argument",
+    "No Android downloaded combat bundle, formula parity, gameplay or holdout credit"
+  ],
+  "nextEvidenceNeeded": "Capture the versioned Android Scripts group or the client-defined download trees; search the recovered Lua call sites that pass argument 1 into CS.ResourceManager.DownloadHelper.FixUrlRoot."
+}

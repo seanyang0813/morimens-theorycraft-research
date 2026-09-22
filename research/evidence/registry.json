@@ -8529,6 +8529,25 @@
       "gameplayValidation": false
     },
     {
+      "id": "ANDROID83:LuaSuppliedUrlNormalizer",
+      "status": "CONFIRMED_FROM_LOCAL_ARM64_CALL_EDGES",
+      "claim": "The generated Android XLua wrapper reads argument 1 from the Lua stack, passes it to DownloadHelper.FixUrlRoot and returns one string; the normalizer only applies FixPath and preserves or appends a slash, introducing no host or scheme",
+      "sources": [
+        {
+          "module": "Android XLua DownloadHelper bridge and FixUrlRoot",
+          "member": "ARM64 wrapper input, managed call, output and slash-normalization edges",
+          "bundle": "Android APK libil2cpp plus metadata/symbol inventory; hashes only",
+          "sha256": "01b44a80cfe00590c4496e3901163e841fb0cf7b73ea3e2bdc2e3ba1ebbacee9"
+        }
+      ],
+      "tests": [
+        "tools/inspect_android_url_bridge.py",
+        "tests/android-url-bridge-inspection.test.mjs"
+      ],
+      "scope": "Static generated-wrapper, ARM64 call-edge and relocated-literal inspection. Establishes that this public normalizer receives its base string from Lua/runtime data; it does not identify all networking paths or the endpoint value. Later Lua/service data, downloaded combat bundles, Android formula behavior, gameplay and holdout credit remain unresolved.",
+      "gameplayValidation": false
+    },
+    {
       "id": "ANDROID83:ScriptGroupManifest",
       "status": "CONFIRMED_FROM_LOCAL_MANIFEST",
       "claim": "The packaged Android resource-83 manifest identifies seven Scripts-group bundles by filename, size, resource index and MD5; the hash interpretation is established by a direct bundled Android startup-archive match",

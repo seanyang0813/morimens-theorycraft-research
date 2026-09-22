@@ -107,3 +107,14 @@ unclassified external URLs. This closes the printable native-literal branch of
 the endpoint search. It does not exclude encoded, encrypted, assembled,
 service-supplied or downloaded values, so device filesystem capture remains the
 next evidence needed for Android combat support.
+
+The generated XLua binding further narrows that boundary. Static ARM64 call
+edges show `ResourceManagerDownloadHelperWrap._m_FixUrlRoot_xlua_st_` reading
+Lua stack argument 1 with `lua_tostring`, calling `DownloadHelper.FixUrlRoot`,
+and returning one value with `lua_pushstring`. `FixUrlRoot` calls `FixPath`,
+checks whether the result ends in `/`, and otherwise appends `/`; it introduces
+no host or scheme. Therefore this public normalizer receives its base string
+from Lua/runtime data. The packaged startup Lua archive contains no literal
+resource endpoint, leaving later downloaded Lua or a service response as the
+remaining source at this boundary. The source-hashed call-edge report is
+`research/evidence/android-url-bridge-inspection.json`.
