@@ -28,12 +28,13 @@ function dense(value,label){
 // Strict catalog-to-snapshot bridge for the smallest recovered Active command shape.
 export function runPreparedSnapshotActiveSkill(value,source){
   const input=clone(value);
-  const multi=input?.schemaVersion===3,mixed=input?.schemaVersion===2||multi;
-  if(!(multi?exact(input,multiTopKeys):mixed?exact(input,mixedTopKeys):exact(input,topKeys))||![1,2,3].includes(input.schemaVersion)||input.kind!=='morimens-prepared-snapshot-active-skill')throw new Error('Expected an exact prepared snapshot Active skill request');
-  const targetKeys=multi?['expression','resolution','targetUid','context']:['expression','resolution'];
+  const prefix=input?.schemaVersion===4,multi=input?.schemaVersion===3,mixed=input?.schemaVersion===2||multi;
+  if(!(multi?exact(input,multiTopKeys):mixed?exact(input,mixedTopKeys):exact(input,topKeys))||![1,2,3,4].includes(input.schemaVersion)||input.kind!=='morimens-prepared-snapshot-active-skill')throw new Error('Expected an exact prepared snapshot Active skill request');
+  const targetKeys=multi?['expression','resolution','targetUid','context']:prefix?['expression','resolution','eligibleTargetCount']:['expression','resolution'];
   if(!exact(input.preparation,preparationKeys)||!exact(input.targetBinding,targetKeys)||!exact(input.snapshot,snapshotKeys)||(!multi&&!exact(input.repeatModifiers,['plus','per'])))throw new Error('Exact preparation, target, snapshot and repetition inputs required');
   if(input.lifecycle!=='assumed-absent')throw new Error('Only an explicitly absent intervening lifecycle is supported');
-  if(!multi&&input.targetBinding.resolution!=='supplied-single-UpperTarget')throw new Error('Only a supplied single UpperTarget is supported');
+  if(prefix&&(input.targetBinding.resolution!=='supplied-single-target-selector'||input.targetBinding.eligibleTargetCount!==1))throw new Error('Schema 4 requires exactly one eligible target for the supplied catalog selector');
+  if(!multi&&!prefix&&input.targetBinding.resolution!=='supplied-single-UpperTarget')throw new Error('Only a supplied single UpperTarget is supported');
   if(multi&&input.targetBinding.resolution!=='front-enemy-context')throw new Error('Schema 3 requires recovered FrontEnemy resolution');
   const repeatModifiers=multi?{plus:input.snapshot.casterProperties?.damagetimes_plus??0,per:input.snapshot.casterProperties?.damagetimes_per??0}:input.repeatModifiers;
   if(!Number.isFinite(repeatModifiers.plus)||!Number.isFinite(repeatModifiers.per))throw new Error('Finite repetition modifiers required');
@@ -68,10 +69,15 @@ export function runPreparedSnapshotActiveSkill(value,source){
   const paraPlusBindings=Object.fromEntries((paraPlusEvaluation?.values??[]).map((item,index)=>[`ParaPlus${index+1}`,item]));
 
   const imported=importCommandRows(source.commands[String(preparedResult.prepared.commandId)]);
-  if(!multi&&imported.rows.length!==(mixed?2:1))throw new Error(`Prepared snapshot Active bridge requires exactly ${mixed?'damage and energy':'one'} command row${mixed?'s':''}`);
+  if(!multi&&!prefix&&imported.rows.length!==(mixed?2:1))throw new Error(`Prepared snapshot Active bridge requires exactly ${mixed?'damage and energy':'one'} command row${mixed?'s':''}`);
+  if(prefix&&!imported.rows.length)throw new Error('Schema 4 requires at least one command row');
   if(multi&&imported.rows.length<3)throw new Error('Schema 3 requires multiple Active rows followed by energy');
-  const row=imported.rows[0],energyRow=mixed?imported.rows.at(-1):null,activeRows=multi?imported.rows.slice(0,-1):[row];
-  if(!multi&&(row.Type!=='BEActiveDamage'||row.Target!=='UpperTarget'||Object.hasOwn(row,'Cond')))throw new Error('Prepared snapshot Active bridge requires one unconditional UpperTarget BEActiveDamage row first');
+  const row=imported.rows[0],energyRow=mixed?imported.rows.at(-1):null;
+  const prefixLength=prefix?imported.rows.findIndex(item=>item.Type!=='BEActiveDamage'):-1;
+  const activeRows=prefix?imported.rows.slice(0,prefixLength<0?imported.rows.length:prefixLength):multi?imported.rows.slice(0,-1):[row];
+  const prefixStop=prefix&&prefixLength>=0?{beforeRowId:imported.rows[prefixLength].id,type:imported.rows[prefixLength].Type??null,reason:'Unsupported effect handler'}:null;
+  if(!multi&&!prefix&&(row.Type!=='BEActiveDamage'||row.Target!=='UpperTarget'||Object.hasOwn(row,'Cond')))throw new Error('Prepared snapshot Active bridge requires one unconditional UpperTarget BEActiveDamage row first');
+  if(prefix&&(!activeRows.length||activeRows.some(item=>item.Target!==selectedTarget.value)))throw new Error('Schema 4 requires a leading Active-damage prefix using the selected catalog target');
   if(multi&&activeRows.some(item=>item.Type!=='BEActiveDamage'||!['FrontEnemy','UpperTarget'].includes(item.Target)))throw new Error('Schema 3 supports only selected-target Active rows before energy');
   if(mixed&&(energyRow.Type!=='BEGainUltiEnergy'||energyRow.Target!=='CmdCaster'||Object.hasOwn(energyRow,'Cond')))throw new Error(`${multi?'Schema 3':'Version 2'} requires one unconditional caster energy row after damage`);
   const bindings={...preparedResult.prepared.argumentBindings,...paraPlusBindings};
@@ -102,7 +108,7 @@ export function runPreparedSnapshotActiveSkill(value,source){
   const parameterEvaluation=multi?null:rowExecutions[0].parameterEvaluation,repetition=multi?null:rowExecutions[0].repetition;
   const derivedSequenceInput={schemaVersion:1,kind:'morimens-snapshot-active-sequence',build:input.build,snapshotStage:input.snapshot.snapshotStage,snapshotCompleteness:input.snapshot.snapshotCompleteness,interveningEffects:'assumed-absent',casterProperties:input.snapshot.casterProperties,playerProperties:input.snapshot.playerProperties,initialTargetProperties:input.snapshot.initialTargetProperties,hits};
   const calculation=runSnapshotActiveSequence(derivedSequenceInput);
-  let energy=null,energyParameterEvaluation=null,energyCardTypeMatch=null,energyPropertyDerivation=null,stop=calculation.stop;
+  let energy=null,energyParameterEvaluation=null,energyCardTypeMatch=null,energyPropertyDerivation=null,stop=calculation.stop??prefixStop;
   if(mixed){
     if(!exact(input.energy,multi?['source']:['source','target'])||!exact(input.energy.source,['castRoleUid','cmdServerUid']))throw new Error('Explicit self-target Awakener energy context required');
     let target;
@@ -121,5 +127,5 @@ export function runPreparedSnapshotActiveSkill(value,source){
       energy=runUltiEnergyExperiment({schemaVersion:1,kind:'morimens-ulti-energy-experiment',build:input.build,otherEvents:'assumed-absent',parameters:energyParameterEvaluation.values,source:{...input.energy.source,skillConfigId:input.preparation.skillId},targetOrder:[target.uid],targets:[{uid:target.uid,role:target.role,energy:target.energy,maximumProperties:target.maximumProperties,calculation:{dimension:target.calculation.dimension,properties:target.calculation.properties,card:{matchesEnergyCardTypes:energyCardTypeMatch.matched},casterEligible:true,skillTags:tags}}]});
     }
   }
-  return {schemaVersion:input.schemaVersion,kind:'morimens-prepared-snapshot-active-skill-result',analysisTrack:'theorycrafting',status:'EXPERIMENTAL',build:input.build,finalDamage:null,skillId:input.preparation.skillId,sourceHashes:preparedResult.sourceHashes,prepared:preparedResult.prepared,catalogTypes,tags,cardContext,targetSelection:selectedTarget,targetResolution,paraPlus:{selection:paraPlus,evaluation:paraPlusEvaluation,bindings:paraPlusBindings},command:{id:preparedResult.prepared.commandId,row,rows:imported.rows,importMetadata:imported.metadata},rowExecutions,parameterEvaluation,repetition,repeatModifierDerivation,derivedSequenceInput,calculation,energyParameterEvaluation,energyCardTypeMatch,energyPropertyDerivation,energy,completed:calculation.completed&&stop===null,stop,unresolvedDependencies:[multi?'FrontEnemy is resolved from the supplied role snapshot; later rows retain that target and do not retarget':'Target selection is supplied as one resolved UpperTarget; the catalog target expression is checked but not executed','Costs, card construction, triggers, state changes, callbacks, statistics, retargeting and death execution are not simulated',multi?'Schema 3 accepts only selected-target Active rows followed by one caster ultimate-energy row':mixed?'Version 2 accepts only one ordinary Active row followed by one caster ultimate-energy row':'Version 1 accepts only one ordinary Active row','The result is a theorycraft model and has not passed an independent pre-outcome gameplay holdout']};
+  return {schemaVersion:input.schemaVersion,kind:'morimens-prepared-snapshot-active-skill-result',analysisTrack:'theorycrafting',status:'EXPERIMENTAL',build:input.build,finalDamage:null,skillId:input.preparation.skillId,sourceHashes:preparedResult.sourceHashes,prepared:preparedResult.prepared,catalogTypes,tags,cardContext,targetSelection:selectedTarget,targetResolution,paraPlus:{selection:paraPlus,evaluation:paraPlusEvaluation,bindings:paraPlusBindings},command:{id:preparedResult.prepared.commandId,row,rows:imported.rows,importMetadata:imported.metadata},rowExecutions,parameterEvaluation,repetition,repeatModifierDerivation,derivedSequenceInput,calculation,energyParameterEvaluation,energyCardTypeMatch,energyPropertyDerivation,energy,completed:calculation.completed&&stop===null,stop,unresolvedDependencies:[multi?'FrontEnemy is resolved from the supplied role snapshot; later rows retain that target and do not retarget':prefix?'The catalog selector is bound to one supplied target only because eligibleTargetCount is explicitly one; multi-target execution is outside this result':'Target selection is supplied as one resolved UpperTarget; the catalog target expression is checked but not executed','Costs, card construction, triggers, state changes, callbacks, statistics, retargeting and death execution are not simulated',multi?'Schema 3 accepts only selected-target Active rows followed by one caster ultimate-energy row':prefix?'Schema 4 executes only the leading Active-damage prefix and stops before the first unsupported catalog row':mixed?'Version 2 accepts only one ordinary Active row followed by one caster ultimate-energy row':'Version 1 accepts only one ordinary Active row','The result is a theorycraft model and has not passed an independent pre-outcome gameplay holdout']};
 }

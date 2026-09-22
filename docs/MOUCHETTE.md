@@ -58,3 +58,12 @@ attachment before it may claim complete Mortal Blast execution. The existing
 catalog-prepared paid Wheel bridge therefore continues to reject Mortal Blast
 instead of calculating its damage row while silently discarding its card and
 state effects.
+
+The complete-property prepared Active bridge now has a separate fail-closed
+schema-4 prefix for this command shape. When the caller proves that exactly one
+enemy is eligible, it executes row 1 through the catalog-derived repetition,
+critical, property and HP paths, then returns `stop.beforeRowId = "2"` for the
+`BECreateCard` boundary. It rejects multiple eligible enemies because one
+supplied target cannot represent `AllEnemy`. This result is only Mortal Blast's
+direct-hit component; the copied Strike and three later state effects remain
+outside it.

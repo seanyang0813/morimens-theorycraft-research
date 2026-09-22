@@ -7768,6 +7768,56 @@
       "gameplayValidation": false
     },
     {
+      "id": "Theorycraft:PreparedActivePrefix",
+      "status": "SUPPORTED_BY_COMPONENT_AND_CATALOG_TESTS",
+      "claim": "A mixed catalog command can execute only its contiguous leading Active-damage rows through complete live property snapshots and expose the first unsupported row as a mandatory stop",
+      "sources": [
+        {
+          "module": "Skill",
+          "member": "122483",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "443af52868dfdfc8c8d82f44d2c6e7bdf6a53c81e843d166f0b02ae569acefc8",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\2015861756545847808_Skill.lua"
+        },
+        {
+          "module": "Cmd",
+          "member": "122499",
+          "bundle": "pc\\downloaded\\config.ab",
+          "sha256": "05a4c3acae9aa1230a9e99c61ce49bfa943c296e8a4f14052cd270117efda7a2",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\config\\134456523809127434_Cmd.lua"
+        },
+        {
+          "module": "BEActiveDamage",
+          "member": "DoEffect,__DoMultiEffect",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "6d87f4da91293c019579f5d586a093763d3fb1051d6efed8652cdbc3b114e208",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3933469113754588179_BEActiveDamage.lua"
+        },
+        {
+          "module": "BattleCmdServer",
+          "member": "GetRealDmg,__GetFinalDamage",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "f86334dc8057f34701dc44e65c5973f277d67dfe730f9eec1ed06931fdbfa96b",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\-3102576727878350212_BattleCmdServer.lua"
+        },
+        {
+          "module": "BattleUnitBase",
+          "member": "BeHit",
+          "bundle": "pc\\downloaded\\share.ab",
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "privateSourcePath": "research\\extracted\\pc\\downloaded\\share\\2287651111101133536_BattleUnitBase.lua"
+        }
+      ],
+      "tests": [
+        "tests/prepared-snapshot-active-skill.test.mjs",
+        "tests/theorycraft-api.test.mjs",
+        "docs/PREPARED_SNAPSHOT_ACTIVE_SKILL.md",
+        "docs/MOUCHETTE.md"
+      ],
+      "scope": "Resource-150 Mouchette Mortal Blast prepares the real two-hit leading Active row and stops before BECreateCard. A non-UpperTarget selector is accepted only with exactly one declared eligible target. The card-copy and three state rows, history selection, LastTarget, multi-enemy execution, costs, callbacks, death execution, gameplay and holdout validation remain excluded. Direct-hit component only; no complete skill total, cheese, budget or optimality claim.",
+      "gameplayValidation": false
+    },
+    {
       "id": "Theorycraft:PreparedDefendBlockEnergy",
       "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
       "claim": "The catalog-prepared theorycraft path executes an ordinary PvE Defend card as snapshot-derived Block gain followed by capped caster ultimate-energy gain",

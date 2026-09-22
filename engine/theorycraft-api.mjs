@@ -37,7 +37,7 @@ export const theorycraftOperations=Object.freeze([
   {name:'calculate-damage',context:[],scope:'Resolved single-hit Active, Passive, Fixed or Pure research calculation'},
   {name:'calculate-snapshot-active-damage',context:[],scope:'Complete captured battle-property maps through bounded PvE Active pre-hit and optional BeHit-to-HP paths'},
   {name:'run-snapshot-active-sequence',context:[],scope:'Repeated complete-property Active hits with recovered HP and Block mutations threaded between hits'},
-  {name:'run-prepared-snapshot-active-skill',context:['skillCommandData'],scope:'Catalog-prepared ordinary/Puncture Active rows through complete-property hits, conditions and optional caster ultimate-energy gain'},
+  {name:'run-prepared-snapshot-active-skill',context:['skillCommandData'],scope:'Catalog-prepared ordinary/Puncture Active rows through complete-property hits, including a fail-closed leading-damage prefix for mixed commands'},
   {name:'run-prepared-snapshot-block-skill',context:['skillCommandData'],scope:'Catalog-prepared ordinary PvE Defend Block gain and capped caster ultimate-energy gain from complete property snapshots'},
   {name:'run-prepared-state-active-sequence',context:['skillCommandData'],scope:'Catalog-backed role-state card followed by a prepared Active skill with explicit live-property and caster-state handoff'},
   {name:'run-prepared-state-active-chain',context:['skillCommandData'],scope:'Catalog-backed role-state card followed by ordered prepared Active skills with HP, Block and exposed caster-energy carry'},

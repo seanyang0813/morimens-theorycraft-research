@@ -35,6 +35,12 @@ function conditionalMixedInput(skillId=4165,build='pc-res150-build51'){
   Object.assign(value.snapshot.casterProperties,{ulti_energy:95,ulti_energy_max:100,ulti_energy_cost_per:0,ulti_energy_cost_flat:0,ulti_energy_max_per:0,o_ulti_energy_per:0,ulti_energy_per:0,i_ulti_energy_per:0,ulti_energy_efficiency:0,ulti_energy_plus:0,gain_ulti_energy_per:0,gain_ulti_energy_plus:0,ulti_per_strikecard:0});
   value.energy={source:value.energy.source};delete value.repeatModifiers;value.snapshot.critRolls=[null,null];return value;
 }
+function mortalBlastPrefixInput(){
+  const value=input('pc-res150-build51');value.schemaVersion=4;
+  value.preparation={skillId:122483,skillLevel:1,isAwaker:true,breakSkillLevel:0,potencyLevel:15,overrides:[],variables:{BattleAtkForce:100},conditionResults:{},stateQueries:{'CmdCaster.GetStateLayer':{'124039':0}}};
+  value.targetBinding={expression:'AllEnemy',resolution:'supplied-single-target-selector',eligibleTargetCount:1};
+  value.snapshot.critRolls=[null,null];return value;
+}
 
 for(const build of Object.keys(roots))test(`catalog-prepared ordinary Active skill reaches a complete-property sequence on ${build}`,()=>{
   const value=input(build),before=JSON.stringify(value),result=runPreparedSnapshotActiveSkill(value,source(build));
@@ -164,4 +170,20 @@ test('prepared snapshot bridge rejects mixed commands and monster intents before
   assert.throws(()=>runPreparedSnapshotActiveSkill(input(),mixedSource),/exactly one command row/);
   const monsterSource=source('pc-res150-build51'),monster=input();monster.preparation.skillId=67183;monster.preparation.variables={BattleAtkForce:100};
   assert.throws(()=>runPreparedSnapshotActiveSkill(monster,monsterSource),/Awakener damage tags/);
+});
+
+test('schema 4 executes the real current Mortal Blast damage prefix and exposes its card/state suffix',()=>{
+  const value=mortalBlastPrefixInput(),before=JSON.stringify(value),result=runPreparedSnapshotActiveSkill(value,source(value.build));
+  assert.equal(result.prepared.commandId,122499);assert.deepEqual(result.prepared.arguments,[15,2]);
+  assert.deepEqual(result.catalogTypes,['Card_Skill','Card_Strike']);
+  assert.deepEqual(result.rowExecutions.map(row=>[row.rowId,row.parameterEvaluation.values,row.repetition.totalEffectTimes]),[['1',[15,2],2]]);
+  assert.equal(result.calculation.modeledHpLost,30);assert.equal(result.calculation.targetAfter.hp,970);
+  assert.deepEqual(result.stop,{beforeRowId:'2',type:'BECreateCard',reason:'Unsupported effect handler'});
+  assert.equal(result.completed,false);assert.equal(result.finalDamage,null);assert.equal(JSON.stringify(value),before);
+  assert.match(result.unresolvedDependencies.join('\n'),/leading Active-damage prefix/);
+});
+
+test('schema 4 refuses to collapse an AllEnemy command when more than one target is eligible',()=>{
+  const value=mortalBlastPrefixInput();value.targetBinding.eligibleTargetCount=2;
+  assert.throws(()=>runPreparedSnapshotActiveSkill(value,source(value.build)),/exactly one eligible target/);
 });
