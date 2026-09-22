@@ -7,19 +7,27 @@ const base={schemaVersion:1,kind:'morimens-wheel-initial-properties',build:'pc-r
 test('Eternal Weave initial block contribution uses its resolved max-refinement StateArg',()=>{
   const result=resolveWheelInitialProperties({...base,properties:[{property:'o_block_per',expression:'StateArg1'}]});
   assert.equal(result.analysisTrack,'mechanics');
-  assert.deepEqual(result.propertyDeltas,{o_block_per:25});
+  assert.deepEqual(result.rawPropertyValues,{o_block_per:25});
+  assert.deepEqual(result.clientInitializationDeltas,{o_block_per:25});
   assert.equal(result.finalDamage,null);
 });
 
 test('Doomsday Rampage applies the same source-bound argument to both direct properties',()=>{
   const result=resolveWheelInitialProperties({...base,wheelId:'wheel-0029',stateArgs:{StateArg1:60,StateArg2:25},properties:[{property:'o_damage_per_attachpost',expression:'StateArg1'},{property:'o_damage_per_ulti',expression:'StateArg1'}]});
-  assert.deepEqual(result.propertyDeltas,{o_damage_per_attachpost:60,o_damage_per_ulti:60});
+  assert.deepEqual(result.rawPropertyValues,{o_damage_per_attachpost:60,o_damage_per_ulti:60});
 });
 
 test('observed owner-stat forms resolve explicitly and preserve client ceiling boundaries',()=>{
   const result=resolveWheelInitialProperties({...base,ownerProperties:{atk:123.4,physique:20,physique_per:15},properties:[{property:'scaled_physique',expression:'StateArg1*StateOwner.physique*0.01*(1+StateOwner.physique_per/100)'},{property:'scaled_atk',expression:'math.ceil(StateOwner.atk*StateArg3*0.01)'}]});
-  assert.deepEqual(result.propertyDeltas,{scaled_physique:6,scaled_atk:13});
+  assert.deepEqual(result.rawPropertyValues,{scaled_physique:5.75,scaled_atk:13});
+  assert.deepEqual(result.clientInitializationDeltas,{scaled_physique:6,scaled_atk:13});
   assert.deepEqual(result.contributions[1].calls,[{name:'math.ceil',args:[12.34],value:13}]);
+});
+
+test('empty direct-property map is a supported trigger-only initial state',()=>{
+  const result=resolveWheelInitialProperties({...base,properties:[]});
+  assert.deepEqual(result.rawPropertyValues,{});
+  assert.deepEqual(result.clientInitializationDeltas,{});
 });
 
 test('initial-property resolver rejects missing stats, unknown grammar and loose schemas',()=>{

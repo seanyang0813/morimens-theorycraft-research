@@ -6287,8 +6287,8 @@
     {
       "id": "Mechanics:WheelInitialPropertyResolver",
       "status": "SUPPORTED_BY_COMPONENT_RUNTIME_TESTS",
-      "claim": "A strict local mechanics resolver combines uniquely crosswalked Wheel refinement parameters with its initial direct StateOwner property expressions and the recovered ceiling boundary",
-      "scope": "Local resolver requires ignored private catalogs and strips source expressions from its response. It returns initial requested property contributions only; no equipment legality, attachment execution, trigger dispatch, later updates, stacking, final damage, theorycraft recommendation, cheese, budget-scouting, gameplay-validation or holdout result.",
+      "claim": "A strict local mechanics resolver combines uniquely crosswalked Wheel refinement parameters with its initial direct StateOwner property expressions and reports raw evaluation separately from local-client InitProperty ceiling behavior",
+      "scope": "Local resolver requires ignored private catalogs and strips source expressions from its response. Raw serialized values and local client initialization deltas remain distinct. It does not establish equipment legality, attachment execution, trigger dispatch, later updates, stacking, final damage, theorycraft recommendation, cheese, budget-scouting, gameplay-validation or holdout credit.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -6308,6 +6308,25 @@
         "tests/wheel-initial-properties.test.mjs",
         "research/examples/mechanics-resolve-eternal-weave-initial-properties.json",
         "research/examples/mechanics-resolve-doomsday-rampage-initial-properties.json"
+      ]
+    },
+    {
+      "id": "Verification:WheelSerializedStateConsistency",
+      "status": "RETROSPECTIVE_SERIALIZED_BATTLE_MATCH",
+      "claim": "Across 102 private PvE replays, all 793 uniquely crosswalked Weapon snapshots match their expected state, one refinement level, embedded property definition and raw serialized contribution; five preserve fractions that local client InitProperty would ceil",
+      "scope": "Retrospective serialized battle-start consistency over 108 distinct crosswalked Wheels. Recorded combat builds are unknown; outcomes and snapshots preceded this audit. Nineteen snapshots from three unresolved private Item rows fail closed. The 408 Awakeners contain zero, one or two Weapon states, supporting two optional planner slots within this corpus. No trigger execution, later stacking, damage result, theorycraft recommendation, cheese or budget claim, blind holdout or publication credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Sanitized Wheel replay-state audit",
+          "member": "identifier-free aggregate state, refinement, property and loadout counts plus private corpus hash",
+          "sha256": "63d51cec74efae84c16c423000c91fc9d2654872af0f01c26efc248c84791906"
+        }
+      ],
+      "checks": [
+        "tools/audit_wheel_replay_states.mjs",
+        "tests/wheel-replay-state-audit.test.mjs",
+        "tests/wheel-initial-properties.test.mjs"
       ]
     },
     {

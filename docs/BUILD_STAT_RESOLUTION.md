@@ -117,8 +117,8 @@ scaling with a ceiling. All 141 initial attachments target the command owner.
 grammar counts and source hashes.
 
 `engine/wheel-initial-properties.mjs` resolves those source-bound expressions
-and passes their values through the previously matched state-property ceiling
-boundary. `tools/resolve_wheel_initial_properties.mjs` combines the private
+and reports both the raw result and the separately matched local-client
+`InitProperty` ceiling result. `tools/resolve_wheel_initial_properties.mjs` combines the private
 crosswalk, refinement resolver, and initial State property map locally. The
 request must provide owner ATK/Physique values when an observed expression
 reads them; unsupported syntax or missing values fail closed. Eternal Weave at
@@ -126,6 +126,16 @@ maximum refinement therefore requests a 25-point `o_block_per` contribution,
 while Doomsday Rampage requests 60 points each for its direct attached-post and
 ultimate outgoing-damage properties.
 
-This result describes initial direct property requests only. It does not prove
+The 102-replay retrospective audit covers 812 serialized Weapon states. Of 793
+with unique public crosswalks, all match the expected state identity, one
+refinement level, embedded direct-property definition and raw serialized
+property contribution. Five Fin of Sorrow snapshots preserve fractional raw
+values where local client `InitProperty` would ceil. The serialized role
+properties preserve the same fractions, so the calculator now exposes these
+as distinct boundaries instead of silently rounding the server-prepared state.
+The corpus contains two Weapon states for 405 of 408 Awakeners, one for two,
+and none for one; a build planner therefore needs two optional Wheel slots.
+
+This result describes initial direct property expressions only. It does not prove
 equipment legality, attachment timing, trigger behavior, recipient mutation,
 later updates, stacking, final damage, or gameplay agreement.

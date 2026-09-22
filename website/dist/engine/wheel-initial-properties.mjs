@@ -24,7 +24,7 @@ function ownerValues(value){
 
 export function resolveWheelInitialProperties(input){
   const fields=['schemaVersion','kind','build','wheelId','stateArgs','ownerProperties','properties'];
-  if(!exact(input,fields)||input.schemaVersion!==1||input.kind!=='morimens-wheel-initial-properties'||input.build!=='pc-res144-build51'||typeof input.wheelId!=='string'||!input.wheelId||!Array.isArray(input.properties)||input.properties.length<1)throw new Error('Exact resource-144 Wheel initial-property input required');
+  if(!exact(input,fields)||input.schemaVersion!==1||input.kind!=='morimens-wheel-initial-properties'||input.build!=='pc-res144-build51'||typeof input.wheelId!=='string'||!input.wheelId||!Array.isArray(input.properties))throw new Error('Exact resource-144 Wheel initial-property input required');
   const stateArgs=normalizeValues(input.stateArgs,/^StateArg[1-9]\d*$/,'StateArg values'),owner=ownerValues(input.ownerProperties);
   const seen=new Set();
   const contributions=input.properties.map(row=>{
@@ -44,7 +44,7 @@ export function resolveWheelInitialProperties(input){
     });
     if(evaluated.values.length!==1)throw new Error('One value per Wheel property expression required');
     const initialized=initializeStateProperty({property:row.property,expression:row.expression,evaluate:()=>finite(evaluated.values[0]),specialValue:null,skipInit:false});
-    return {property:row.property,expression:row.expression,value:initialized.contribution.value,requestedDelta:initialized.requestedDelta,reads:evaluated.reads,calls:evaluated.calls,rounding:initialized.trace};
+    return {property:row.property,expression:row.expression,rawValue:evaluated.values[0],clientInitializedValue:initialized.contribution.value,clientRequestedDelta:initialized.requestedDelta,reads:evaluated.reads,calls:evaluated.calls,clientRounding:initialized.trace};
   });
-  return {schemaVersion:1,kind:'morimens-wheel-initial-properties-result',analysisTrack:'mechanics',status:'SOURCE_BOUND_INITIAL_PROPERTY_CONTRIBUTIONS',build:input.build,wheelId:input.wheelId,stateArgs,ownerProperties:owner,contributions,propertyDeltas:Object.fromEntries(contributions.map(row=>[row.property,row.requestedDelta])),finalDamage:null,limitations:['Initial direct StateOwner property contributions only; no equipment legality, attachment timing, trigger execution, target routing, later state updates, stacking or gameplay execution','Expressions must stay within the observed numeric subset and all required StateArgs and owner properties must be explicit','This mechanics result is not a theorycraft recommendation, cheese, budget-scouting, gameplay-validation or holdout result']};
+  return {schemaVersion:1,kind:'morimens-wheel-initial-properties-result',analysisTrack:'mechanics',status:'SOURCE_BOUND_INITIAL_PROPERTY_EVALUATION',build:input.build,wheelId:input.wheelId,stateArgs,ownerProperties:owner,contributions,rawPropertyValues:Object.fromEntries(contributions.map(row=>[row.property,row.rawValue])),clientInitializationDeltas:Object.fromEntries(contributions.map(row=>[row.property,row.clientRequestedDelta])),finalDamage:null,limitations:['Initial direct StateOwner property expressions only; no equipment legality, attachment timing, trigger execution, target routing, later state updates, stacking or gameplay execution','Raw expression values and local client InitProperty ceiling results are separate because serialized server-prepared battle states can retain fractional contributions','Expressions must stay within the observed numeric subset and all required StateArgs and owner properties must be explicit','This mechanics result is not a theorycraft recommendation, cheese, budget-scouting, gameplay-validation or holdout result']};
 }
