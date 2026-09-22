@@ -5981,6 +5981,28 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC151:UltimateEnergyExperiment",
+      "status": "SUPPORTED_BY_EXACT_DEPENDENCY_CARRYFORWARD",
+      "claim": "All seven Lua modules exercised by the bounded resource-150 ultimate-energy calculation, effect and capped-storage domains are byte-identical in resource 151, carrying 516 exact fixture cases and run-ulti-energy-effect to the installed build",
+      "sources": [
+        {
+          "module": "PC resource-151 ultimate-energy compatibility",
+          "member": "seven dependency hashes and inherited 144 calculation, 120 effect and 252 storage fixtures",
+          "bundle": "installed private modules; public names and hashes only",
+          "sha256": "bc6071c917f25244f9a6288ce575f0e334c8c6a18598d9a1dbcbbef34b01eb61"
+        }
+      ],
+      "tests": [
+        "tools/extract_private_pc_module_subset.py",
+        "tools/build_res151_ulti_energy_compatibility.py",
+        "tests/pc-res151-ulti-energy-compatibility.test.mjs",
+        "tests/theorycraft-api.test.mjs",
+        "tests/theorycraft-cli-res151.test.mjs"
+      ],
+      "scope": "Ordinary ultimate-energy calculation, repetition and capped Awakener storage from explicit properties, card/type/tag decisions, target order and eligibility. Callbacks are reported but not dispatched. Full card/command lifecycle, automatic build assembly, gameplay, prediction and holdout credit remain excluded.",
+      "gameplayValidation": false
+    },
+    {
       "id": "PC151:ControlledReplayAuditCandidate004",
       "status": "SAME_BATTLE_REVIEW_PENDING",
       "claim": "One mechanically isolated resource-151 capture candidate yields six retrospective ordinary-Active critical-branch matches and zero mismatches after 71 out-of-scope hits are rejected",

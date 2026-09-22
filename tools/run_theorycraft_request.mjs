@@ -14,7 +14,7 @@ try{
   const requestedClientBuild=request.operation.startsWith('resolve-character-')?request.input?.build:request.operation==='assemble-wheel-loadout-properties'?request.input?.buildPlan?.clientBuild:(request.input?.clientBuild??request.input?.build);
   const selectedBuild=requestedClientBuild??'pc-res144-build51';
   if(!['pc-res144-build51','pc-res150-build51','pc-res151-build51'].includes(selectedBuild))throw new Error('Unsupported requested client build');
-  const resource151Operations=new Set(['calculate-snapshot-active-damage','run-snapshot-active-sequence','prepare-skill-command','run-prepared-snapshot-active-skill']);
+  const resource151Operations=new Set(['calculate-snapshot-active-damage','run-snapshot-active-sequence','prepare-skill-command','run-prepared-snapshot-active-skill','run-ulti-energy-effect']);
   if(selectedBuild==='pc-res151-build51'&&!resource151Operations.has(request.operation))throw new Error('Requested operation is outside the proven resource-151 dependency scope');
   if(selectedBuild==='pc-res151-build51'&&request.operation==='prepare-skill-command'&&request.input?.execution!==null)throw new Error('Resource-151 prepared-skill support is preparation-only');
   if(selectedBuild==='pc-res151-build51'&&request.operation==='run-prepared-snapshot-active-skill'&&![1,4].includes(request.input?.schemaVersion))throw new Error('Resource-151 prepared snapshot support excludes ultimate-energy rows');

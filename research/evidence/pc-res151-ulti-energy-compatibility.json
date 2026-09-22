@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_ULTI_ENERGY_BUILD_COMPATIBILITY",
+  "beforeBuild": "pc-res150-build51",
+  "afterBuild": "pc-res151-build51",
+  "status": "SUPPORTED_BY_EXACT_DEPENDENCY_CARRYFORWARD",
+  "methods": [
+    "BattleCmdServer.GetRealUltiEnergy",
+    "BEGainUltiEnergy.DoEffect",
+    "BattleUnitAwaker.GainUltiEnergy"
+  ],
+  "modules": [
+    {
+      "name": "BattleConst.lua",
+      "status": "IDENTICAL",
+      "before": {
+        "sha256": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+        "bytes": 41981
+      },
+      "after": {
+        "sha256": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+        "bytes": 41981
+      }
+    },
+    {
+      "name": "BattleUtilServer.lua",
+      "status": "IDENTICAL",
+      "before": {
+        "sha256": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
+        "bytes": 27905
+      },
+      "after": {
+        "sha256": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
+        "bytes": 27905
+      }
+    },
+    {
+      "name": "BattleCmdServer.lua",
+      "status": "IDENTICAL",
+      "before": {
+        "sha256": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9",
+        "bytes": 65998
+      },
+      "after": {
+        "sha256": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9",
+        "bytes": 65998
+      }
+    },
+    {
+      "name": "BattlePropertyServer.lua",
+      "status": "IDENTICAL",
+      "before": {
+        "sha256": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5",
+        "bytes": 12825
+      },
+      "after": {
+        "sha256": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5",
+        "bytes": 12825
+      }
+    },
+    {
+      "name": "BattleEffectServer.lua",
+      "status": "IDENTICAL",
+      "before": {
+        "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+        "bytes": 15702
+      },
+      "after": {
+        "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e",
+        "bytes": 15702
+      }
+    },
+    {
+      "name": "BEGainUltiEnergy.lua",
+      "status": "IDENTICAL",
+      "before": {
+        "sha256": "eaa49d0dcbeb60d4894c725e97cc35eb37c840c47ffe287f8d77f0d63e3993e2",
+        "bytes": 1337
+      },
+      "after": {
+        "sha256": "eaa49d0dcbeb60d4894c725e97cc35eb37c840c47ffe287f8d77f0d63e3993e2",
+        "bytes": 1337
+      }
+    },
+    {
+      "name": "BattleUnitAwaker.lua",
+      "status": "IDENTICAL",
+      "before": {
+        "sha256": "a6703d8ea024ebb938789e9d3b22b725dad5137842db88729ac6c401c409fbc5",
+        "bytes": 9499
+      },
+      "after": {
+        "sha256": "a6703d8ea024ebb938789e9d3b22b725dad5137842db88729ac6c401c409fbc5",
+        "bytes": 9499
+      }
+    }
+  ],
+  "resource150Runtime": {
+    "path": "research/evidence/pc-res150-ulti-energy-runtime.json",
+    "sha256": "2768a8458776d8c9d8ae91ed3a20676854f8880f1d5c20e049f917e375f66e0f",
+    "fixtures": 516,
+    "domains": {
+      "calculation": {
+        "fixtures": 144,
+        "exactMatches": 144,
+        "mismatches": 0
+      },
+      "effect": {
+        "fixtures": 120,
+        "exactMatches": 120,
+        "mismatches": 0
+      },
+      "gainStorage": {
+        "fixtures": 252,
+        "exactMatches": 252,
+        "mismatches": 0
+      }
+    },
+    "mismatches": 0
+  },
+  "operation": "run-ulti-energy-effect",
+  "reasoning": "Every Lua module exercised by the bounded resource-150 calculation, effect and capped-storage fixture domains is byte-identical in the installed resource-151 build, so those exact domains carry forward without widening them.",
+  "scope": "Ordinary ultimate-energy calculation, repetitions and capped Awakener storage from explicit snapshots through the existing experiment interface.",
+  "limitations": [
+    "Explicit properties, target order, card/type/tag decisions and Awakener eligibility remain caller inputs",
+    "Callbacks are reported but not dispatched; full command/card lifecycle, automatic build assembly and gameplay remain outside scope",
+    "No prediction or holdout credit"
+  ]
+}

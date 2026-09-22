@@ -29,7 +29,7 @@ test('agent API advertises explicit bounded operations',()=>{
   assert.ok(response.result.operations.some(row=>row.name==='run-mortal-blast-copy-suffix'));
   assert.ok(response.result.operations.some(row=>row.name==='run-prepared-mortal-blast'));
   assert.ok(response.result.supportedCombatBuilds.includes('pc-res151-build51'));
-  assert.deepEqual(response.result.resource151OperationScope,['calculate-snapshot-active-damage','run-snapshot-active-sequence','prepare-skill-command','run-prepared-snapshot-active-skill']);
+  assert.deepEqual(response.result.resource151OperationScope,['calculate-snapshot-active-damage','run-snapshot-active-sequence','prepare-skill-command','run-prepared-snapshot-active-skill','run-ulti-energy-effect']);
   assert.equal(response.result.publicationStatus,'NOT_READY');
 });
 
@@ -56,6 +56,13 @@ test('agent API exposes current-build ultimate-energy calculation and capped sto
   const input={schemaVersion:1,kind:'morimens-ulti-energy-experiment',build:'pc-res150-build51',otherEvents:'assumed-absent',parameters:[10,1,1],source:{castRoleUid:7,cmdServerUid:2,skillConfigId:3},targetOrder:[7],targets:[{uid:7,role:'Awaker',energy:95,maximumProperties:{ulti_energy_max:100,ulti_energy_cost_per:0,ulti_energy_cost_flat:0,ulti_energy_max_per:0},calculation:{dimension:0,properties:{ulti_energy_per:0,i_ulti_energy_per:0,ulti_energy_efficiency:0,ulti_energy_plus:0,gain_ulti_energy_per:0,gain_ulti_energy_plus:0},card:null,casterEligible:true,skillTags:[]}}]};
   const response=runTheorycraftRequest(request('run-ulti-energy-effect',input));
   assert.equal(response.analysisTrack,'theorycrafting');assert.equal(response.result.build,'pc-res150-build51');assert.equal(response.result.targetsAfter[0].energy,100);assert.equal(response.result.finalDamage,null);
+});
+
+test('agent API carries the bounded ultimate-energy experiment to installed resource 151',()=>{
+  const input={schemaVersion:1,kind:'morimens-ulti-energy-experiment',build:'pc-res151-build51',otherEvents:'assumed-absent',parameters:[10,1,1],source:{castRoleUid:7,cmdServerUid:2,skillConfigId:3},targetOrder:[7],targets:[{uid:7,role:'Awaker',energy:95,maximumProperties:{ulti_energy_max:100,ulti_energy_cost_per:0,ulti_energy_cost_flat:0,ulti_energy_max_per:0},calculation:{dimension:0,properties:{ulti_energy_per:0,i_ulti_energy_per:0,ulti_energy_efficiency:0,ulti_energy_plus:0,gain_ulti_energy_per:0,gain_ulti_energy_plus:0},card:null,casterEligible:true,skillTags:[]}}]};
+  const response=runTheorycraftRequest(request('run-ulti-energy-effect',input));
+  assert.equal(response.result.build,'pc-res151-build51');assert.equal(response.result.targetsAfter[0].energy,100);assert.equal(response.result.finalDamage,null);
+  assert.ok(response.result.unresolvedDependencies.some(value=>value.includes('516 inherited fixtures')));
 });
 
 test('agent API dispatches the general damage calculator without promoting verification',()=>{

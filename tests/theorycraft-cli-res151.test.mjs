@@ -28,6 +28,14 @@ test('agent CLI composes resource-151 catalog preparation with its bounded snaps
   assert.equal(response.result.build,'pc-res151-build51');assert.equal(response.result.skillId,3997);assert.equal(response.result.command.id,2350);assert.equal(response.result.calculation.modeledHpLost,1);assert.equal(response.result.finalDamage,null);
 });
 
+test('agent CLI runs resource-151 ultimate-energy calculation and capped storage',()=>{
+  const result=run('research/examples/theorycraft-installed-ulti-energy.json');
+  assert.equal(result.status,0,result.stderr);
+  const response=JSON.parse(result.stdout);
+  assert.equal(response.result.build,'pc-res151-build51');assert.equal(response.result.targetsAfter[0].energy,100);assert.equal(response.result.finalDamage,null);
+  assert.ok(response.result.unresolvedDependencies.some(value=>value.includes('516 inherited fixtures')));
+});
+
 test('agent CLI rejects resource-151 operations outside the proven dependency graph',()=>{
   const result=run('tests/synthetic/theorycraft-res151-unsupported-operation.json');
   assert.equal(result.status,1);
