@@ -6,6 +6,7 @@ import argparse
 import collections
 import hashlib
 import json
+import math
 from pathlib import Path
 
 from attribute_replay_catalog_builds import normalize
@@ -17,6 +18,7 @@ BLOCKERS = {
     "At least one ordinary Active row required": "NO_ORDINARY_ACTIVE_ROW",
     "Unsupported state-attached Active parameter shape": "STATE_ATTACHED_ACTIVE_SHAPE",
     "Recorded direct-hit count must be a positive multiple of command repetition count": "REPETITION_WINDOW_AMBIGUOUS",
+    "Unknown or nonfinite command value PlayerRole.tentacle_dmg_show": "UNRESOLVED_TENTACLE_SHOW_DAMAGE",
 }
 
 
@@ -35,6 +37,25 @@ def catalog_counts(embedded: dict, old: dict, current: dict) -> dict:
         after = normalize(row) == normalize(current.get(row_id))
         counts["both" if before and after else "beforeOnly" if before else "currentOnly" if after else "neither"] += 1
     return {key: counts[key] for key in ("both", "beforeOnly", "currentOnly", "neither")}
+
+
+def comparison_counts(compared: list[dict], expected_count: int, expected_exact: int) -> dict:
+    if len(compared) != expected_count:
+        raise ValueError("Audit comparison count differs from its hit rows")
+    differences = []
+    for row in compared:
+        comparison = row.get("observedBranchComparison")
+        difference = comparison.get("difference") if isinstance(comparison, dict) else None
+        if isinstance(difference, bool) or not isinstance(difference, (int, float)) or not math.isfinite(difference):
+            raise ValueError("Every compared hit requires a finite observed-branch difference")
+        differences.append(difference)
+    exact = sum(difference == 0 for difference in differences)
+    if exact != expected_exact:
+        raise ValueError("Audit exact-match count differs from its hit rows")
+    return {
+        "mismatchCompared": len(differences) - exact,
+        "largestAbsoluteDifference": max(map(abs, differences), default=0),
+    }
 
 
 def main() -> None:
@@ -66,8 +87,7 @@ def main() -> None:
         catalogs[name] = catalog_counts(embedded[name], old, current)
     compared = [row for row in audit["hits"] if row["status"] == "BRANCH_COMPARISON"]
     blocker_counts = collections.Counter(BLOCKERS.get(row.get("blocker"), "OTHER_UNRESOLVED") for row in audit["hits"] if row["status"] == "BLOCKED")
-    if len(compared) != audit["counts"]["compared"] or any(row["observedBranchComparison"]["difference"] != 0 for row in compared):
-        raise ValueError("Unexpected or changed branch comparisons")
+    comparison_summary = comparison_counts(compared, audit["counts"]["compared"], audit["counts"]["exactObservedBranch"])
     report = {
         "schemaVersion": 1,
         "kind": "MORIMENS_RANKED_REPLAY_PREHIT_AGGREGATE",
@@ -82,14 +102,15 @@ def main() -> None:
         },
         "capture": {"newReferenceCount": delta["newReferenceCount"], "validContainerCount": len(results), "containerModifiedAfterBaseline": False, "sameProcess": delta["process"]["startedAtUtc"] == read(args.baseline)["process"]["startedAtUtc"]},
         "scale": {"replayRecords": len(decoded["decoded"]["unZippedRecord"]), "cardActions": len(index.get("actionSnapshots", [])), "hits": audit["counts"]["hits"]},
-        "adapterCoverage": {**audit["counts"], "criticalCompared": sum(row["observed"]["isCrit"] for row in compared), "noncriticalCompared": sum(not row["observed"]["isCrit"] for row in compared), "blockedByCode": {key: blocker_counts[key] for key in sorted(blocker_counts)}},
+        "adapterCoverage": {**audit["counts"], **comparison_summary, "criticalCompared": sum(row["observed"]["isCrit"] for row in compared), "noncriticalCompared": sum(not row["observed"]["isCrit"] for row in compared), "blockedByCode": {key: blocker_counts[key] for key in sorted(blocker_counts)}},
         "embeddedCatalogRelationToPinnedBuilds": catalogs,
         "scope": "Pre-hit ordinary Active direct-card comparisons only. Branches were calculated before selecting the recorded critical outcome; the selection and comparison were retrospective.",
         "limitations": [
             "The replay existed before this capture; playback on resource 153 does not prove which combat build recorded it.",
             "Some embedded Skill and Cmd rows match neither pinned resource-151 nor resource-153 catalog, so current-build gameplay validation is not claimed.",
             "This is one ranked replay, with no frozen pre-outcome prediction or holdout credit.",
-            "Unmodeled GrowArgValue, state-attached effects, and non-played-card hits account for excluded damage; their totals must not be inferred from matched hits.",
+            "Excluded hit paths are counted separately in adapterCoverage; their damage totals must not be inferred from the direct-card comparisons.",
+            "Any mismatches remain visible in mismatchCompared and largestAbsoluteDifference rather than being omitted from the report.",
             "No player or replay identifier is published.",
         ],
     }
