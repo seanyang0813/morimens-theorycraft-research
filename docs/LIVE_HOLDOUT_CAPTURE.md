@@ -35,6 +35,12 @@ python tools/capture_live_replay_session.py delta --pid $p.Id --baseline researc
 
 The tool rejects a different PID, process start time or executable hash. A useful capture normally reports one new reference and one valid container. The API can encode raw compressed bytes in a Latin-1 JSON envelope; the capture checks both UTF-8 and Latin-1 JSON and records the encoding without unpacking `compStr`. Multiple candidates require private review before selecting one. Do not open the container or inspect decoded damage.
 
+### 2026-09-23 D-Tide attempt
+
+After the committed second baseline, an agent-controlled D-Tide Normal Wave 1 fight ended in defeat on round 3. The account was level 33 against the wave's recommended level 36; its selected characters were levels 50, 30, 40 and 40. The result screen displayed a replay-copy option, but it yielded no usable code through the UI. A same-process delta captured at 08:26:14 UTC read 4,480,606,208 bytes and found zero replay references or valid containers. Damage values were visible while the agent piloted the fight. This attempt is therefore neither a captured replay nor a blind holdout, and it adds no publication credit. No revival items were spent. The private delta is `research/raw/dtide-failed-wave1-delta-20260923.json` (gitignored).
+
+For the next attempt, use a clearable PvE stage, commit a fresh baseline before entering, and load a completed battle record before taking the delta. Do not inspect damage during play if the resulting record is intended as a blind holdout; a copied record alone cannot repair prior outcome exposure.
+
 ## 4. Build the outcome-blind capture evidence
 
 Preserve the container hash and object timestamp first. Decode and index only through the repository tools; avoid opening their outputs. Generate the combat-domain report and continue only if it says `PVE_MONSTER_TARGETS`. Then build the public capture candidate with `tools/build_replay_session_capture_evidence.py` and obtain explicit confirmation that the selected record is the controlled battle. Store that confirmation only in a private `MORIMENS_PRIVATE_CONTROLLED_PVE_ATTESTATION`, and promote the candidate with `tools/review_replay_session_capture.py`.
