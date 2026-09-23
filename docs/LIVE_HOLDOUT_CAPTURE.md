@@ -75,6 +75,12 @@ The same running resource-151/build-51 process completed Chapter 1-7 Normal with
 
 The private index contains 47 records, 787 events, nine card uses and ten hits. Before any outcome reveal, the strict blind selector found no deterministic ordinary Active hit: the two supported Active opportunities require an unrecorded critical roll. This capture therefore provides a pipeline diagnostic only, with zero frozen predictions, zero blind holdouts and no publication credit. The capture candidate remains unreviewed; no user attestation has been recorded.
 
+### 2026-09-23 Chapter H1-3 Hard boss capture
+
+The account completed Chapter H1-3 Hard with three stars in the same running resource-151/build-51 process. A public pre-boss baseline was committed and pushed before entering that battle (`research/evidence/holdout-session-baseline-20260923-17.json`). The stage's Record list then showed the account's new clear. Loading that entry yielded exactly one new valid replay container in the same-process delta, with a server modification time after the baseline. Its embedded account and stage metadata matched the selected client record. The identifier-free capture candidate is `research/evidence/hard-h1-3-capture-candidate-20260923-17.json`.
+
+The replay is a PvE Boss record with 61 records, 1,103 events, 12 card uses and 27 complete hit snapshots. The strict resource-151 ordinary Active adapter supports 11 of those hits; all 11 match one possible critical branch, with zero deterministic checks and zero branch mismatches. The remaining 16 hits are excluded for specific selector reasons recorded in `research/evidence/hard-h1-3-exploratory-pve-audit-20260923.json`. Damage numbers appeared during the live battle, so this is a retrospective pipeline and branch-consistency check, **not** a blind holdout or publication credit. The capture candidate remains unreviewed, and the recorded engine build is not claimed from the catalog match alone.
+
 Preserve the container hash and object timestamp first. Decode and index only through the repository tools; avoid opening their outputs. Generate the combat-domain report and continue only if it says `PVE_MONSTER_TARGETS`. Then build the public capture candidate with `tools/build_replay_session_capture_evidence.py` and obtain explicit confirmation that the selected record is the controlled battle. Store that confirmation only in a private `MORIMENS_PRIVATE_CONTROLLED_PVE_ATTESTATION`, and promote the candidate with `tools/review_replay_session_capture.py`.
 
 ## 5. Freeze before revealing damage

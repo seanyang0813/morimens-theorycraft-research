@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_EXPLORATORY_HARD_PVE_REPLAY_AUDIT",
+  "status": "RETROSPECTIVE_BRANCH_CONSISTENCY_ONLY",
+  "analysisTrack": "verification",
+  "captureCandidate": {
+    "path": "research/evidence/hard-h1-3-capture-candidate-20260923-17.json",
+    "sha256": "16810f4fc263159b6f8fd62471b6ce0a5b98579117e03567751ab4d34dccc96b"
+  },
+  "adapterCompatibility": {
+    "path": "research/evidence/pc-res151-replay-adapter-compatibility.json",
+    "sha256": "9cdb9750b4486d8297c1c55401afb85bd0ef263fa70aa81cb8e89759ca437f8e"
+  },
+  "privateAuditCommitment": {
+    "sha256": "752c65a377adf732025b0d327e9d49715fcd9e768cb31a0005751b1e96cd25b3",
+    "identifiersPublished": false
+  },
+  "containerSha256": "9e9d2c84edc6e4bff8ad6d4cd8cb97df8adb8b23796d2a391ca0c34e98ef0c4b",
+  "calculationBuild": "pc-res151-build51",
+  "recordedCombatBuild": null,
+  "combatDomain": "PVE_MONSTER_TARGETS",
+  "snapshotBoundaryStatus": "COMPLETE",
+  "totals": {
+    "records": 61,
+    "events": 1103,
+    "cardUses": 12,
+    "hits": 27,
+    "completeHitSnapshots": 27,
+    "retrospectiveActiveCandidates": 11,
+    "deterministicExactChecks": 0,
+    "deterministicMismatches": 0,
+    "exactRngBranchConsistencyChecks": 11,
+    "rngBranchMismatches": 0
+  },
+  "completeHitTargetRoleTypes": {
+    "Monster": 23,
+    "Player": 4
+  },
+  "excludedHits": [
+    {
+      "reason": "Recorded hit must be ordinary Active damage type 1",
+      "count": 8
+    },
+    {
+      "reason": "At least one ordinary Active row required",
+      "count": 3
+    },
+    {
+      "reason": "Single captured enemy monster target required",
+      "count": 4
+    },
+    {
+      "reason": "Recorded hit caster identity must match card owner",
+      "count": 1
+    }
+  ],
+  "scope": "A post-baseline same-process capture of the account Hard H1-3 boss record, checked with the resource-151 ordinary Active replay adapter. Stage, account and three-star completion were matched privately in the client and decoded metadata.",
+  "limitations": [
+    "Damage values appeared during live play, so the replay is not an outcome-blind holdout and adds no publication credit.",
+    "The 11 supported Active hits are chance-dependent: each matches at least one evaluated critical branch, while the actual random roll is not recovered.",
+    "The other 16 hits were excluded by the listed strict selector rules; zero mismatches do not validate those hits or whole-battle simulation.",
+    "The capture candidate has not been promoted to reviewed recorded-build evidence; a matching current catalog and same-process timing do not establish complete engine-version equivalence.",
+    "No account, replay, role-instance or card-instance identifier is published."
+  ]
+}
