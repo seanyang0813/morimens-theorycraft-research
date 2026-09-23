@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_FIXED_FIRST_HIT_ADAPTER_AUDIT",
+  "analysisTrack": "verification",
+  "status": "RETROSPECTIVE_COMPONENT_CHECK_ONLY",
+  "calculationBuild": "pc-res144-build51",
+  "recordedCombatBuild": null,
+  "corpus": {
+    "replays": 1,
+    "indexSha256": "bcab20e2fdde9c7a5382996d049c19906390166139ba821461ed57eb20bdea85",
+    "decodedSha256": "5adfd16f43cba25f07b85b5d7d7941256303cee5b29e9a1e48824a98ae93d1ca",
+    "identifiersPublished": false
+  },
+  "counts": {
+    "completeFixedSnapshots": 95,
+    "eligibleFirstHits": 30,
+    "exact": 30,
+    "mismatches": 0,
+    "unrevealed": 0,
+    "eligibleActions": 30,
+    "eligibleRowAlternatives": {
+      "2": 4,
+      "3": 26
+    },
+    "blocked": {
+      "Prior hit in action could change Fixed inputs": 59,
+      "Hit identity does not match played card": 4,
+      "Stable Awakener, player and enemy required": 2
+    }
+  },
+  "method": "Use only replay hit identity, action-start and first-hit properties/states, card arguments and embedded command rows to compute each eligible first Fixed hit. Compare with recorded castDamage only after prediction. Reject prior hits, changed referenced inputs, competing damage categories and differing eligible-row predictions.",
+  "limitations": [
+    "The replay outcome was already available before this audit; these matches cannot be blind holdouts or publication credit.",
+    "All selected hits come from one replay and share combat conditions.",
+    "The recorded combat build is not established by the embedded catalog or this comparison.",
+    "This predicts pre-hit castDamage only, not shield, HP, callbacks or entire card sequencing."
+  ]
+}

@@ -1,5 +1,6 @@
 import {createHash} from 'node:crypto';
 import {buildReplayActionCandidate} from './replay-action-candidate.mjs';
+import {buildFixedReplayActionCandidate} from './replay-fixed-candidate.mjs';
 
 const clone=value=>JSON.parse(JSON.stringify(value));
 const hash=value=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
@@ -23,7 +24,7 @@ export function buildBlindReplayPrediction({index,skills,commands,monsters,awake
       snapshots=[...(sourceAction.window?.hitSnapshots??[])].sort((a,b)=>(a.recordIndex-b.recordIndex)||(a.frameIndex-b.frameIndex));
       if(!snapshots.length)throw new Error('A pre-hit boundary is required');
       hits=sourceAction.window?.hits??[];
-      directHits=snapshots.map(snapshot=>({snapshot,hit:hits.find(item=>item.recordIndex===snapshot.recordIndex&&item.frameIndex===snapshot.frameIndex)})).filter(({snapshot,hit})=>snapshot.boundaryStatus==='COMPLETE'&&hit?.data?.beHitConfig?.damageType===1&&hit.data.beHitConfig.castRoleUid===caster.uid&&hit.data.beHitConfig.skillConfigId===played.tid&&Number.isSafeInteger(hit.data?.roleUid));
+      directHits=snapshots.map(snapshot=>({snapshot,hit:hits.find(item=>item.recordIndex===snapshot.recordIndex&&item.frameIndex===snapshot.frameIndex)})).filter(({snapshot,hit})=>snapshot.boundaryStatus==='COMPLETE'&&[1,6].includes(hit?.data?.beHitConfig?.damageType)&&hit.data.beHitConfig.castRoleUid===caster.uid&&hit.data.beHitConfig.skillConfigId===played.tid&&Number.isSafeInteger(hit.data?.roleUid));
       if(!directHits.length)throw new Error('Complete direct-hit identity boundary required');
     }catch(error){blockers.push({actionIndex:sourceAction.actionIndex,hitIndex:null,reason:error.message});continue;}
     for(const direct of directHits){
@@ -40,20 +41,21 @@ export function buildBlindReplayPrediction({index,skills,commands,monsters,awake
         first.roles[String(target.uid)].properties.hp=startProperties.hp;
         first.roles[String(target.uid)].properties.block=startBlock;
         first.reconstruction={};
-        first.hitData={roleUid:target.uid,beHitConfig:{castRoleUid:caster.uid,skillConfigId:played.tid,damageType:1}};
+        const damageType=direct.hit.data.beHitConfig.damageType;
+        first.hitData={roleUid:target.uid,beHitConfig:{castRoleUid:caster.uid,skillConfigId:played.tid,damageType}};
         const syntheticHit={recordIndex:first.recordIndex,frameIndex:first.frameIndex,eventName:'BeHit',data:clone(first.hitData)};
         const action=clone(sourceAction);
         action.window={selectedTargetCommands:clone(sourceAction.window?.selectedTargetCommands??[]),events:[clone(syntheticHit)],hits:[clone(syntheticHit)],hitSnapshots:[first]};
         const sealedIndex={kind:index.kind,build:index.build,actionSnapshots:[action]};
         action.actionIndex=0;
-        const candidate=buildReplayActionCandidate({index:sealedIndex,actionIndex:0,hitIndex:first.hitIndex,skills,commands,monsters,awakeners,preOutcome:true,combatBuild});
+        const candidate=damageType===6?buildFixedReplayActionCandidate({index:sealedIndex,actionIndex:0,hitIndex:first.hitIndex,skills,commands,combatBuild}):buildReplayActionCandidate({index:sealedIndex,actionIndex:0,hitIndex:first.hitIndex,skills,commands,monsters,awakeners,preOutcome:true,combatBuild});
         if(candidate.status!=='CALCULATED_REGRESSION_CANDIDATE'||!candidate.calculation||candidate.comparison!==null||candidate.observedHit!==null)throw new Error(candidate.calculationBlocker??'Deterministic outcome-free calculation required');
         return {
           schemaVersion:1,kind:'MORIMENS_BLIND_REPLAY_PREDICTION',build:candidate.build,
-          selectionPolicy:'first complete deterministic direct hit using identity-only target/caster/skill routing with all numeric outcome fields excluded',
+          selectionPolicy:'first complete deterministic ordinary Active or Fixed direct hit using identity-only target/caster/skill routing with all numeric outcome fields excluded',
           sourceActionIndex:sourceAction.actionIndex,sourceHitIndex:first.hitIndex,
           scenario:candidate.scenario,calculation:candidate.calculation,predictedDamage:candidate.calculation.preHitDamage,
-          routing:{skillId:played.tid,commandId:candidate.identities.commandId,rowId:candidate.identities.rowId,parameters:candidate.routing.parameters,tags:candidate.routing.tags,repetitionPerExecution:candidate.repetition.perExecution,targetBindingSource:candidate.routing.targetBindingSource,commandSourceShape:candidate.routing.commandSourceShape},
+          routing:{damageType,skillId:played.tid,commandId:candidate.identities.commandId,rowId:candidate.identities.rowId,eligibleRowIds:candidate.routing.eligibleRowIds??[candidate.identities.rowId],eligibleRowPredictions:candidate.routing.eligibleRowPredictions??[candidate.calculation.preHitDamage],parameters:candidate.routing.parameters,tags:candidate.routing.tags,repetitionPerExecution:candidate.repetition.perExecution,targetBindingSource:candidate.routing.targetBindingSource,commandSourceShape:candidate.routing.commandSourceShape},
           identityCommitmentSha256:hash({cardUid:played.uid,skillId:played.tid,casterUid:caster.uid,targetUid:target.uid}),
           sealedProjectionSha256:hash({action,scenario:candidate.scenario,routing:candidate.routing}),
           blockersBeforeSelection:blockers,

@@ -45,6 +45,16 @@ export function validateRecordedBuildEvidence(recordedCombatBuild=null,buildEvid
   return {hasBuild,buildEvidence};
 }
 
+export function validateFixedRuntimeEvidence(input,recordedCombatBuild,buildEvidence){
+  if(input?.damageType!=='FIXED'||recordedCombatBuild!=='pc-res151-build51')return;
+  const supported=buildEvidence.some(item=>{
+    let report;try{report=JSON.parse(item.bytes.toString('utf8'));}catch{return false;}
+    const fixed=report?.results?.Fixed;
+    return report?.kind==='MORIMENS_PC_RES151_FIXED_PURE_RUNTIME_COMPARISON'&&report.installedBuild===recordedCombatBuild&&report.status==='EXACT_MATCH_IN_SYNTHETIC_FIXTURE_DOMAIN'&&/^[0-9a-f]{64}$/.test(report.sourceHashes?.modules?.BEFixedDamage??'')&&Number.isSafeInteger(fixed?.fixtures)&&fixed.fixtures>0&&fixed.exactMatches===fixed.fixtures&&fixed.mismatches===0;
+  });
+  if(!supported)throw new Error('Resource-151 Fixed prediction requires the installed Fixed-runtime comparison report');
+}
+
 export function freezeGameplayPrediction({scenarioFile,metric,evidenceFiles,outputFile,recordedCombatBuild=null,buildEvidenceFiles=[],now=()=>new Date()}){
   if(!['preHitDamage','modeledHpLost'].includes(metric))throw new Error('Metric must be preHitDamage or modeledHpLost');
   if(!Array.isArray(evidenceFiles)||evidenceFiles.length===0||evidenceFiles.some(value=>typeof value!=='string'||!value))throw new Error('At least one pre-outcome evidence file is required');
@@ -58,6 +68,7 @@ export function freezeGameplayPrediction({scenarioFile,metric,evidenceFiles,outp
   if(!allowed)throw new Error('Output must be inside research/observations or research/evidence/holdouts');
   if(existsSync(output))throw new Error('Prediction freeze already exists; refusing to overwrite chronology evidence');
   const input=JSON.parse(scenario.bytes.toString('utf8'));
+  validateFixedRuntimeEvidence(input,recordedCombatBuild,buildEvidence);
   const runtimeFingerprint=verifyRuntimeManifest(),runtimeContract=createObservationRuntimeContract(input),context=input?.kind==='morimens-theorycraft-request'?{skillCommandData:loadSkillCommandData(input.input?.build)}:{},result=runObservationScenario(input,metric,context);
   const prediction={scenarioFile:relativePath(scenario.path),scenarioSha256:hash(scenario.bytes),runtimeFingerprint,runtimeContract,metric};
   const record={schemaVersion:1,kind:'MORIMENS_PREDICTION_FREEZE',createdAtUtc:now().toISOString(),prediction,predictedDamage:result.value,predictionScope:result.scope,scenarioKind:result.scenarioKind,

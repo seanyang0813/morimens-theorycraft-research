@@ -27,7 +27,7 @@ def compact_candidate_index(index):
                 key:hit[key] for key in ('hitIndex','recordIndex','frameIndex','boundaryStatus','roles','activeStates','hitData','reconstruction') if key in hit
             } | {'cards':{} if hit_card is None else {str(card_uid):hit_card}})
         actions.append({
-            key:action[key] for key in ('actionIndex','boundaryStatus','cardUid','camp') if key in action
+            key:action[key] for key in ('actionIndex','boundaryStatus','cardUid','camp','roles','activeStates') if key in action
         } | {
             'cards':{} if card is None else {str(card_uid):card},
             'window':{
@@ -48,7 +48,7 @@ def compact_candidate_index(index):
         'snapshotBoundaryStatus':index.get('snapshotBoundaryStatus'),
         'unknownCommands':index.get('unknownCommands',[]),
         'unknownEvents':index.get('unknownEvents',[]),
-        'candidateAdapterScope':'Fields read by engine/replay-action-candidate.mjs; outcomes retained for retrospective audit',
+        'candidateAdapterScope':'Fields read by Active and Fixed replay adapters, including action-start roles/states for outcome-blind reconstruction; outcomes retained for retrospective audit but excluded by the blind freezer',
         'summary':{
             'completeHitSnapshots':sum(1 for row in index.get('hitSnapshots',[]) if row.get('boundaryStatus')=='COMPLETE'),
         },

@@ -3,7 +3,7 @@ import {existsSync,mkdirSync,readFileSync,writeFileSync} from 'node:fs';
 import {resolve,relative,isAbsolute} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {buildBlindReplayPrediction} from '../engine/replay-blind-prediction.mjs';
-import {freezeGameplayPrediction,validateRecordedBuildEvidence} from './freeze_gameplay_prediction.mjs';
+import {freezeGameplayPrediction,validateRecordedBuildEvidence,validateFixedRuntimeEvidence} from './freeze_gameplay_prediction.mjs';
 import {verifyRuntimeManifest} from './verify_runtime_manifest.mjs';
 
 const root=resolve(fileURLToPath(new URL('../',import.meta.url)));
@@ -36,6 +36,7 @@ export function freezeBlindReplayPrediction({indexFile,decodedFile,id,recordedCo
   const captureEvidence=reviewedCaptureEvidence(captureEvidenceFile,recordedCombatBuild,decoded.inputSha256);
   const combatBuild=recordedCombatBuild??'pc-res144-build51';
   const prediction=buildBlindReplayPrediction({index,skills:records.Skill,commands:records.Cmd,monsters:records.MonsterConfig,awakeners:records.AwakerConfig,combatBuild});
+  validateFixedRuntimeEvidence(prediction.scenario,recordedCombatBuild,buildEvidenceFiles.map(file=>({bytes:readFileSync(inside(file,'Build evidence'))})));
   const directory=resolve(root,'research/evidence/holdouts',id);mkdirSync(directory,{recursive:true});
   const scenarioPath=resolve(directory,'scenario.json'),evidencePath=resolve(directory,'preoutcome-evidence.json'),freezePath=resolve(directory,'prediction-freeze.json');
   for(const path of [scenarioPath,evidencePath,freezePath])if(existsSync(path))throw new Error('Blind prediction artifact already exists; refusing to overwrite chronology evidence');
