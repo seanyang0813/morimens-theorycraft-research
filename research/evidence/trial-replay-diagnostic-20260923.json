@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_TRIAL_REPLAY_DIAGNOSTIC",
+  "status": "NO_NEW_REPLAY_REFERENCE_AFTER_TRIAL_LOSS",
+  "trialCharacter": "尤乌哈希 (Youwuhaxi)",
+  "outcome": "LOSS_AFTER_ROUND_11",
+  "baselineEvidencePath": "research/evidence/holdout-session-baseline-20260923-trial-diagnostic.json",
+  "baselineCapturedAtUtc": "2026-09-23T14:04:09.663845+00:00",
+  "deltaCapturedAtUtc": "2026-09-23T14:24:12.913557+00:00",
+  "sameProcessStartAndExecutableHash": true,
+  "baselineReferenceCount": 3,
+  "currentReferenceCount": 3,
+  "newReferenceCount": 0,
+  "objectPromotionCount": 0,
+  "holdoutCredit": false,
+  "limitations": [
+    "The completed battle was a loss in Youwuhaxi's character trial, not Karab's Fixed-damage trial.",
+    "This negative result does not establish whether a successful character trial produces a replay.",
+    "The battle's card damage was observed on screen before any frozen prediction and does not validate the calculator."
+  ]
+}
