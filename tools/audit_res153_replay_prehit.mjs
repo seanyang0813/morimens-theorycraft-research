@@ -17,6 +17,16 @@ for(const action of index.actionSnapshots??[]){
   for(const snapshot of action.window?.hitSnapshots??[]){
     const row={actionIndex:action.actionIndex,hitIndex:snapshot.hitIndex};
     try{
+      const card=action.cards?.[String(action.cardUid)];
+      const hit=(action.window?.hits??[]).find(item=>item.recordIndex===snapshot.recordIndex&&item.frameIndex===snapshot.frameIndex);
+      const observedIdentity=hit?.data?.beHitConfig;
+      if(!card||!observedIdentity)throw new Error('Played card and hit identity required');
+      if(observedIdentity.castRoleUid!==card.ownerUid||observedIdentity.skillConfigId!==card.tid){
+        row.status='NON_PLAYED_CARD_HIT';
+        row.reason='Recorded hit caster or skill differs from the card played in this action window';
+        hits.push(row);
+        continue;
+      }
       const variants=[1,100].map(critRoll=>buildReplayActionCandidate({index,actionIndex:action.actionIndex,hitIndex:snapshot.hitIndex,critRoll,combatBuild:'pc-res153-build51',...catalogs}));
       const observed=variants[0].observedHit?.data?.beHitConfig;
       if(typeof observed?.isCrit!=='boolean'||!Number.isFinite(observed?.castDamage))throw new Error('Complete observed critical and cast-damage fields required');
@@ -34,14 +44,14 @@ const report={
   schemaVersion:1,kind:'MORIMENS_RES153_REPLAY_PREHIT_RETROSPECTIVE_AUDIT',build:'pc-res153-build51',
   status:'RETROSPECTIVE_DIAGNOSTIC_ONLY',
   sourceCommitments:{indexSha256:sha(indexPath),decodedSha256:sha(decodedPath),containerSha256:decoded.inputSha256},
-  counts:{actions:index.actionSnapshots?.length??0,hits:hits.length,compared:compared.length,exactObservedBranch:compared.filter(row=>row.observedBranchComparison?.difference===0).length,blocked:hits.filter(row=>row.status==='BLOCKED').length},
+  counts:{actions:index.actionSnapshots?.length??0,hits:hits.length,compared:compared.length,exactObservedBranch:compared.filter(row=>row.observedBranchComparison?.difference===0).length,nonPlayedCardHits:hits.filter(row=>row.status==='NON_PLAYED_CARD_HIT').length,blocked:hits.filter(row=>row.status==='BLOCKED').length},
   hits,
   method:'Calculate roll-1 and roll-100 branches independently from each replay-embedded row and pre-hit snapshot; only afterward match the recorded isCrit flag and compare the recorded castDamage.',
   limitations:[
     'Selecting a critical branch with the observed isCrit flag is retrospective and gives no predictive or holdout credit.',
     'The replay was inspected during capture; no result here is a frozen pre-outcome prediction.',
     'One replay and three compared hits do not establish general current-build correctness.',
-    'Blocked hits are not assigned damage predictions; unmodeled commands and trigger scheduling remain unresolved.',
+    'Hits with a caster or skill different from the played card are excluded, not assigned damage predictions; their trigger graph remains unresolved.',
     'Player, card, skill and target identifiers are omitted from this public report.',
   ],
 };
