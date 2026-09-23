@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_REPLAY_ADAPTER_CATALOG_DEPENDENCY_AUDIT",
+  "beforeBuild": "pc-res151-build51",
+  "afterBuild": "pc-res153-build51",
+  "status": "SELECTED_DEPENDENCIES_COMPATIBLE",
+  "sourceEvidence": {
+    "moduleCarryforward": {
+      "path": "research/evidence/pc-res151-to-res153-combat-carryforward.json",
+      "sha256": "987896234a5024637fa91bc5fd01ced07b02db88f3b473739671aa232e358332"
+    },
+    "catalogComparison": {
+      "path": "research/evidence/pc-res151-to-res153-config-catalogs.json",
+      "sha256": "51a271266b1fd4f809dd64fdf8a1f1f4af21ac66572c2bb54e17859f3a9ac421"
+    }
+  },
+  "moduleDependencies": [
+    {
+      "name": "BattleConst.lua",
+      "sha256": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4"
+    },
+    {
+      "name": "BattleUtilServer.lua",
+      "sha256": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f"
+    },
+    {
+      "name": "BattleCmdServer.lua",
+      "sha256": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9"
+    },
+    {
+      "name": "BattleUnitBase.lua",
+      "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410"
+    },
+    {
+      "name": "BattlePropertyServer.lua",
+      "sha256": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5"
+    },
+    {
+      "name": "BEActiveDamage.lua",
+      "sha256": "e192a4ab7db968b526c13d3495b2072f4ac88fe167f524f1defd2d00c747875c"
+    }
+  ],
+  "stateClassification": {
+    "beforeRows": 6959,
+    "afterRows": 6960,
+    "sharedClassificationChanges": 0,
+    "addedRows": 1,
+    "newTypeCounts": {
+      "none": 1,
+      "buff": 0,
+      "debuff": 0
+    },
+    "beforeRawSha256": "ff2f52c159fe2e4f1f2b097414337e6cc5945cd6e2fe544d017579b37df91472",
+    "afterRawSha256": "5af1b460279a8a46f33edaa83de19c54b102e153f6a480beef1285711f8c6ede"
+  },
+  "battleApiLuaSemanticallyEquivalent": true,
+  "constantDamagePer2HasStateLuaSemanticallyEquivalent": true,
+  "routing": "Skill, Cmd, MonsterConfig and AwakerConfig must be taken from replay-embedded rows for each candidate; local resource-151 Skill/Cmd equality is not claimed.",
+  "scope": "Catalog and selected code dependencies of complete-live-property ordinary Active replay damage; no local constructor, command scheduling or target prediction.",
+  "limitations": [
+    "This audit alone does not enable resource-153 execution or frozen predictions.",
+    "Embedded row presence and identity must be checked on each replay.",
+    "No current-build gameplay validation, prediction chronology or holdout credit follows."
+  ]
+}
