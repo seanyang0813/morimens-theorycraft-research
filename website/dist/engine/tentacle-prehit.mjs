@@ -1,16 +1,17 @@
 // Resolved SchoolCompPVE.CalcTentacleDmg inputs. No effect, BeHit or HP simulation.
 const numericKeys=['tentacleDamage','critDamagePer','beDamagePer','beDamagePer2',
   'beDamagePer3','beTentacleDamagePer','vulnerablePer','beDamagePlus',
-  'enemyTypePer','enemyStatePer','enemyBuffPer','enemyDebuffPer',
+  'enemyTypePer','enemyBuffPer','enemyDebuffPer',
   'enemyBlockPer','enemyBarrierPer','paraPlus'];
 
 export function tentaclePreHit(input){
   if(!input||input.build!=='pc-res151-build51'||typeof input.isCrit!=='boolean')
     throw new Error('Expected resource-151 Tentacle input with resolved isCrit');
-  const keys=['build','isCrit',...numericKeys];
+  const stateKey=Object.hasOwn(input,'enemyStateMultiplier')?'enemyStateMultiplier':'enemyStatePer';
+  const keys=['build','isCrit',...numericKeys,stateKey];
   if(keys.some(key=>!Object.hasOwn(input,key))||Object.keys(input).some(key=>!keys.includes(key)))
     throw new Error('Missing or unknown Tentacle input');
-  for(const key of numericKeys)if(!Number.isFinite(input[key]))throw new Error('Invalid numeric input: '+key);
+  for(const key of [...numericKeys,stateKey])if(!Number.isFinite(input[key]))throw new Error('Invalid numeric input: '+key);
   const targetDamageProduct=['beDamagePer','beDamagePer2','beDamagePer3','beTentacleDamagePer']
     .reduce((value,key)=>value*(1+input[key]/100),1);
   const factors=[
@@ -22,7 +23,7 @@ export function tentaclePreHit(input){
     ['enemy debuff',1+input.enemyDebuffPer/100],
     ['enemy block',1+input.enemyBlockPer/100],
     ['enemy block barrier',1+input.enemyBarrierPer/100],
-    ['enemy state',1+input.enemyStatePer/100]];
+    ['enemy state',stateKey==='enemyStateMultiplier'?input.enemyStateMultiplier:1+input.enemyStatePer/100]];
   let value=input.tentacleDamage;
   const trace=[{stage:'resolved Tentacle damage',value}];
   for(const [stage,factor] of factors){value*=factor;trace.push({stage,factor,value});}

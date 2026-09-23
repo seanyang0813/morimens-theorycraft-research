@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "4f7d264635c59476ac17cf4e73aac270d936f1e048dc72af1b024032d44932ec",
+  "fingerprint": "7de8079ad437359cb77298c783888c88ebdbbd19f7e9792d8b228a9acf3169be",
   "files": {
     "build-catalog.json": "71d0e0d14959e933ae8942ac0064de95c0a63b84ce9065e2bdcef4509090b98b",
     "client-build-data-res150.json": "49d4bf5abe419360df47e4959a26fb50bdaa37ed8189c022a644ff518f6fba80",
@@ -125,9 +125,10 @@
     "engine/state-type-catalog.mjs": "6ea6e4485c14527fb13019a298a16d043cd333d78dfbc06379e1cfbc1aef5ed2",
     "engine/sub-state-layer.mjs": "712f54e3b4d1744769912955995c23fcd16505a7a15c903848dfb68e2a2ddaeb",
     "engine/target-damage-eligibility.mjs": "dcd9de19c72bfe9b515a3b013c726b4f339ccc0c9bb68e0486897b3ad2b5296f",
+    "engine/tentacle-awaker-aggregate.mjs": "8ef5da5dbfeadc345abb9b26ae4fc2bc2850c85e9cc40c3c20e9712dd69feeff",
     "engine/tentacle-crit-damage.mjs": "a01d2709a53c69e425a4c4be91519d1105751148da53dc3c6ec7117afec2d175",
-    "engine/tentacle-direct-command.mjs": "245a7e2e75acfd0714c6ac96cf7d2a39dff17720534afcfe83bdd40da63c6f71",
-    "engine/tentacle-prehit.mjs": "177dcf3b0bf39a8527752e2428df4d851038c47c340a360cfc2c6c69fad67908",
+    "engine/tentacle-direct-command.mjs": "267eef5f50daa85d64c93cc07c6c545d0707559f1c8168d8fba34d4cca2eda62",
+    "engine/tentacle-prehit.mjs": "de4745609dee2e00e3b41fe1d8fa4e21bd78b38608b934faf747a8949e291f1d",
     "engine/terminal-state-command.mjs": "c3e3c9446463cbd944df4b5da9cdc0947554f069b7fead52c0bbcc3ad2bc39f5",
     "engine/timeline-experiments.mjs": "0bf199ca16b1b92bb33b7aae1acdcad47aae8b124b47290792f3a1d5e2f6ed3e",
     "engine/trigger-eligibility.mjs": "b39dc53d7acf3248adbc9923f269a586834a7cda29f387bdc42ccef9b66a2447",
@@ -147,7 +148,7 @@
     "engine/wheel-search.mjs": "5055b6d67b72ea7d4dbc882dec7df9b6bb32812cc6f8675d355b6d9aff83b36e",
     "engine/wheel-stats.mjs": "d0eac4ca93b72cd91595dc6650b363f4b35e2262aac018e1c0e41c77f31b813e",
     "engine/wheel-trigger-transitions.mjs": "8a96ae4ff2301ee11dcecc611a805ce060f9f7936869d5d72673f88d4a4c9459",
-    "rules.json": "ec446ca6ee5c731e7d3a7b00195748d4897329f3ab472d73708ef8bf38b3df2a",
+    "rules.json": "3437a0c5a9bba1fff4977228cda984ec56b00401af2b554489b6a6fda3b039c0",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af",
     "wheel-current-compatibility.json": "3956b79d1a5599fc3f86523cacea3cd4668e0d2ae26d12c006cc31fa8cf7bfb0",
     "wheel-mechanics-capability-catalog.json": "f544b9f24176c216532d050136a56aac58bccb20086f3acd78bd56613ca61af0"

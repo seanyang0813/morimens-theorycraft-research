@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_INSTALLED_TENTACLE_STATE_ACCUMULATION_PARITY",
+  "baselineBuild": "pc-res144-build51",
+  "installedBuild": "pc-res151-build51",
+  "status": "SELECTED_METHOD_BODY_IDENTICAL",
+  "installedModuleSha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+  "decodedMethodBodySha256": "4e93add8fee386ad7c74f9c99ca57abffbdb68240e7b88697d7b1b9d0a75b4f3",
+  "instructionCountExcludingSyntheticPrefix": 19,
+  "method": "BattleUnitBase.GetTotalDamagePer2HasState",
+  "observedRule": "Adds positive, eligible per-state property values into a shared table by property name; SchoolCompPVE multiplies distinct accumulated properties after its Awaker loop.",
+  "scope": "Selected installed method body and byte-identical installed SchoolCompPVE caller; target-state eligibility, property acquisition and gameplay remain separate.",
+  "limitations": [
+    "Decoded method-body parity and synthetic adapter checks are not observed gameplay.",
+    "The synthetic adapter supplies already eligible state-property values; it does not reconstruct target state IDs."
+  ]
+}

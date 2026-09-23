@@ -74,6 +74,18 @@ outside Crit DMG property. This is a conditional bonus *after* a critical hit;
 the critical chance and random roll are separate. See
 `research/evidence/pc-res151-tentacle-crit-runtime.json`.
 
+For a team of Awakeners, the installed Tentacle method averages the resolved
+enemy-type, buff, debuff, block and block-barrier bonuses across the Awakener
+list. Eligible damage-versus-state values with the same property name are
+instead added across Awakeners; the distinct accumulated state properties then
+multiply. This is supported by 346 synthetic executions of the installed
+method with one to four Awakeners, plus identical decoded method bodies for
+`BattleUnitBase.GetTotalDamagePer2HasState` in the historical and installed
+clients. The new team-bonus operation preserves the state multiplier directly
+to avoid rounding it through an equivalent percentage. State eligibility and
+property acquisition are still supplied, not inferred. See
+`research/evidence/pc-res151-tentacle-team-aggregation.json`.
+
 A separate outcome-first PvE replay audit reconstructs 85 Fixed pre-hit values
 exactly from captured card arguments, six conditional command rows, live state
 layers, target Fixed properties and the player's dimension modifier. Those hits

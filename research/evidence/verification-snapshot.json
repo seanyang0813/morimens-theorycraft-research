@@ -1,13 +1,13 @@
 {
-  "generatedAtUtc": "2026-09-23T07:27:12.307043+00:00",
+  "generatedAtUtc": "2026-09-23T07:46:16.822612+00:00",
   "publicationStatus": "NOT_READY",
   "publicationAuthorized": false,
   "automatedSuite": {
-    "testFiles": 284,
+    "testFiles": 285,
     "passed": true,
     "exitCode": 0,
     "log": "research\\evidence\\latest-test-suite.tap",
-    "logSha256": "baca900f9c8994aaacf9411962d19d1caebb67bf030ca6c1028fe729e3e18eb2"
+    "logSha256": "d8325f8aacbcf76d3e29d07ce525de35a52d5a289aae75bba2117fc71e3e802f"
   },
   "realObservations": {
     "records": 3,
@@ -312,6 +312,10 @@
     },
     {
       "module": "tentacle-direct-command.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "tentacle-awaker-aggregate.mjs",
       "matchesResearchEngine": true
     },
     {
@@ -800,6 +804,12 @@
     "composedDirectCommandMatches": 39,
     "mismatches": 0,
     "recordedCombatBuild": null,
+    "publicationCredit": false
+  },
+  "tentacleTeamAggregation": {
+    "report": "research\\evidence\\pc-res151-tentacle-team-aggregation.json",
+    "reportSha256": "3ffbd6b608fabdf11e41fa4bf27d0565fbd09fe3d8c56efad154cf7e890adafb",
+    "syntheticOriginalRuntimeCases": 346,
     "publicationCredit": false
   }
 }

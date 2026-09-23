@@ -16,6 +16,8 @@ test('source-bound direct Tentacle row composes upstream player, command ceiling
   assert.equal(result.finalDamage,null);
   assert.equal(result.commandExpression,'PlayerRole.tentacle_dmg*CmdCaster.occupation_master/200,1,0');
   assert.equal(calculateDirectTentacleCommand({...sample.input,isCrit:false}).preHitDamage,128);
+  const {enemyStatePer,...target}=sample.input.target;
+  assert.equal(calculateDirectTentacleCommand({...sample.input,target:{...target,enemyStateMultiplier:1.5}}).preHitDamage,352);
   assert.throws(()=>calculateDirectTentacleCommand({...sample.input,target:{...sample.input.target,unknown:0}}),/Exact finite target/);
   assert.throws(()=>calculateDirectTentacleCommand({...sample.input,target:{...sample.input.target,paraPlus:1}}),/zero third parameter/);
   assert.throws(()=>calculateDirectTentacleCommand({...sample.input,awakers:[]}),/At least one/);

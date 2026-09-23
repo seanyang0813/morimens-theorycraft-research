@@ -6,7 +6,7 @@ import {tentaclePreHit} from './tentacle-prehit.mjs';
 // PlayerRole.tentacle_dmg * CmdCaster.occupation_master / 200, 1, 0.
 const playerKeys=['tentacle_dmg','tentacle_base_dmg','basic_damage_per','weak_per','tentacle_dmg_per','outside_crit_damage'];
 const awakerKeys=['i_basic_damage_per','i_damage_per',...Array.from({length:8},(_,i)=>`i_damage_per${i+1}`),'crit_damage'];
-const targetKeys=['beDamagePer','beDamagePer2','beDamagePer3','beTentacleDamagePer','vulnerablePer','beDamagePlus','enemyTypePer','enemyStatePer','enemyBuffPer','enemyDebuffPer','enemyBlockPer','enemyBarrierPer','paraPlus'];
+const targetKeys=['beDamagePer','beDamagePer2','beDamagePer3','beTentacleDamagePer','vulnerablePer','beDamagePlus','enemyTypePer','enemyBuffPer','enemyDebuffPer','enemyBlockPer','enemyBarrierPer','paraPlus'];
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(key=>Object.hasOwn(value,key));
 const numeric=(value,keys,label)=>{
   if(!exact(value,keys)||keys.some(key=>!Number.isFinite(value[key])))throw new Error(`Exact finite ${label} properties required`);
@@ -19,7 +19,8 @@ export function calculateDirectTentacleCommand(input){
   numeric(input.player,playerKeys,'Player');
   if(!Array.isArray(input.awakers)||input.awakers.length===0)throw new Error('At least one explicit Awaker is required');
   for(const awaker of input.awakers)numeric(awaker,awakerKeys,'Awaker');
-  numeric(input.target,targetKeys,'target');
+  const stateKey=Object.hasOwn(input.target??{},'enemyStateMultiplier')?'enemyStateMultiplier':'enemyStatePer';
+  numeric(input.target,[...targetKeys,stateKey],'target');
   if(input.target.paraPlus!==0)throw new Error('Exact direct Tentacle row has zero third parameter');
   for(const key of ['powerStateLayer','dimensionFixPer','casterOccupationMaster'])
     if(!Number.isFinite(input[key]))throw new Error(`Finite ${key} required`);

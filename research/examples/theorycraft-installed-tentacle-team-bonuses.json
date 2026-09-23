@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-theorycraft-request",
+  "requestId": "sanitized-tentacle-team-bonus-example",
+  "operation": "aggregate-tentacle-awaker-bonuses",
+  "input": {
+    "build": "pc-res151-build51",
+    "awakers": [
+      {
+        "enemyTypePer": 30,
+        "enemyBuffPer": 0,
+        "enemyDebuffPer": 0,
+        "enemyBlockPer": 0,
+        "enemyBarrierPer": 0,
+        "stateBonuses": {"state_a": 20}
+      },
+      {
+        "enemyTypePer": 0,
+        "enemyBuffPer": 0,
+        "enemyDebuffPer": 0,
+        "enemyBlockPer": 0,
+        "enemyBarrierPer": 0,
+        "stateBonuses": {"state_a": 30, "state_b": 40}
+      }
+    ]
+  }
+}

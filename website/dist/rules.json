@@ -7646,6 +7646,27 @@
         "tests/tentacle-crit-damage.test.mjs",
         "research/evidence/pc-res151-tentacle-crit-runtime.json"
       ]
+    },
+    {
+      "id": "PC151:TentacleTeamBonusAggregation",
+      "status": "SUPPORTED_BY_ORIGINAL_RUNTIME_AND_SELECTED_METHOD_PARITY",
+      "claim": "Installed Tentacle pre-hit averages five per-Awakener target bonus categories, sums matching eligible target-state properties across Awakeners and multiplies distinct state-property totals; 346 synthetic original-runtime cases match",
+      "scope": "Already eligible per-Awakener target bonuses and named state properties. Target-state eligibility, property acquisition, critical RNG, effect/card origin, BeHit/HP, historical replay build and independent gameplay remain unresolved.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Installed Tentacle team aggregation and state accumulation method parity",
+          "member": "one-to-four Awakeners, 346 exact original-runtime cases, selected installed state method body parity",
+          "sha256": "3ffbd6b608fabdf11e41fa4bf27d0565fbd09fe3d8c56efad154cf7e890adafb"
+        }
+      ],
+      "checks": [
+        "tools/tentacle_multi_awaker_runtime_oracle.py",
+        "tools/audit_tentacle_state_method_parity.py",
+        "tools/build_tentacle_team_aggregate_evidence.py",
+        "tests/tentacle-awaker-aggregate.test.mjs",
+        "research/evidence/pc-res151-tentacle-team-aggregation.json"
+      ]
     }
   ]
 }

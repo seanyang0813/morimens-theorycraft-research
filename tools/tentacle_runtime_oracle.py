@@ -17,6 +17,7 @@ class TentacleOracle(TargetOracle):
     def __init__(self):
         super().__init__()
         self.values = {}
+        self.awaker_values = []
         self.rawseti = self.lib.lua_rawseti
         self.rawseti.argtypes = [C.c_void_p, C.c_int, C.c_longlong]
         self.rawseti.restype = None
@@ -79,28 +80,37 @@ class TentacleOracle(TargetOracle):
         self.method('GetProperty', property_get(target_properties))
         self.setglobal(L, b'_tentacle_target')
 
-        self.table(L, 0, 7)
-        for method, key in [('GetDamagePer2MonsterType', 'enemyTypePer'),
-                            ('GetDamagePer2BuffEnemy', 'enemyBuffPer'),
-                            ('GetDamagePer2DebuffEnemy', 'enemyDebuffPer'),
-                            ('GetDamagePer2Block', 'enemyBlockPer'),
-                            ('GetDamagePer2BlockBarrier', 'enemyBarrierPer')]:
-            def value(s, key=key):
-                self.number(s, self.values[key])
-                return 1
-            self.method(method, value)
-        def state_bonus(s):
-            self.number(s, self.values['enemyStatePer'])
-            self.setfield(s, 3, b'state_bonus')
-            return 0
-        self.method('GetTotalDamagePer2HasState', state_bonus)
-        self.setglobal(L, b'_tentacle_awaker')
+        for index in range(4):
+            self.table(L, 0, 7)
+            for method, key in [('GetDamagePer2MonsterType', 'enemyTypePer'),
+                                ('GetDamagePer2BuffEnemy', 'enemyBuffPer'),
+                                ('GetDamagePer2DebuffEnemy', 'enemyDebuffPer'),
+                                ('GetDamagePer2Block', 'enemyBlockPer'),
+                                ('GetDamagePer2BlockBarrier', 'enemyBarrierPer')]:
+                def value(s, key=key, index=index):
+                    self.number(s, self.awaker_values[index][key])
+                    return 1
+                self.method(method, value)
+            def state_bonus(s, index=index):
+                row=self.awaker_values[index]
+                properties=row.get('stateBonuses', {'state_bonus': row.get('enemyStatePer', 0)})
+                for key, value in properties.items():
+                    name=key.encode()
+                    self.getfield(s, 3, name)
+                    prior=self.tonumber(s, -1, None)
+                    self.top(s, -2)
+                    self.number(s, prior + value)
+                    self.setfield(s, 3, name)
+                return 0
+            self.method('GetTotalDamagePer2HasState', state_bonus)
+            self.setglobal(L, f'_tentacle_awaker_{index}'.encode())
 
         self.table(L, 0, 1)
         def awakers(s):
-            self.table(s, 1, 0)
-            self.getglobal(s, b'_tentacle_awaker')
-            self.rawseti(s, -2, 1)
+            self.table(s, len(self.awaker_values), 0)
+            for index in range(len(self.awaker_values)):
+                self.getglobal(s, f'_tentacle_awaker_{index}'.encode())
+                self.rawseti(s, -2, index + 1)
             return 1
         self.method('GetAwakerList', awakers)
         self.setglobal(L, b'_tentacle_player')
@@ -144,6 +154,9 @@ class TentacleOracle(TargetOracle):
 
     def calculate(self, values):
         self.values = values
+        self.awaker_values = values.get('awakers') or [values]
+        if len(self.awaker_values) > 4:
+            raise ValueError('Synthetic adapter supports at most four Awakeners')
         self.errors.clear()
         L = self.state
         self.top(L, 0)

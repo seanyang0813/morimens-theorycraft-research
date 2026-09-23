@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_INSTALLED_TENTACLE_TEAM_AGGREGATION",
+  "build": "pc-res151-build51",
+  "status": "EXACT_IN_SYNTHETIC_FIXTURE_DOMAIN",
+  "sourceHashes": {
+    "SchoolCompPVE.lua": "84720d4357ae3df20781e249781421c561dad828728320458134fd96132a46eb",
+    "stateAccumulationParityReport": "9f5a5dce5a82e4984f05207a9b171ec3b14ae876d33a63c4684863a72c079a3e",
+    "originalRuntimeFixture": "aa3ccb5021a2159a568f58669bab38b6b9ed5e8168d841f12a00632a45cbe178"
+  },
+  "originalRuntimeCases": 346,
+  "casesByAwakerCount": {
+    "1": 92,
+    "2": 86,
+    "3": 85,
+    "4": 83
+  },
+  "method": "Execute installed SchoolCompPVE.CalcTentacleDmg in copied XLua with one to four synthetic Awakeners. Its state callback models the installed BattleUnitBase.GetTotalDamagePer2HasState method: sum values by property name into the shared table. Compare an independent JavaScript aggregation plus pre-hit calculation to every original output.",
+  "rule": "Average enemy-type, buff, debuff, block and block-barrier bonuses over Awakeners. Sum eligible state-bonus values with the same property name across Awakeners, then multiply (1 + sum/100) across distinct state properties.",
+  "limitations": [
+    "Synthetic adapters supply already eligible per-Awakener bonuses and target-state property names; they do not infer them from a team or target.",
+    "No critical RNG, card effect, BeHit, HP, replay build attribution or independent gameplay validation is established."
+  ]
+}

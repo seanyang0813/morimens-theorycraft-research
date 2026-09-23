@@ -31,6 +31,7 @@
   "player-tentacle-damage.mjs",
   "tentacle-crit-damage.mjs",
   "tentacle-direct-command.mjs",
+  "tentacle-awaker-aggregate.mjs",
   "immunity.mjs",
   "active-prevention.mjs",
   "singularity-realm.mjs",
