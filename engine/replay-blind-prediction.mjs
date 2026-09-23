@@ -28,12 +28,17 @@ export function buildBlindReplayPrediction({index,skills,commands,monsters,awake
     }catch(error){blockers.push({actionIndex:sourceAction.actionIndex,hitIndex:null,reason:error.message});continue;}
     for(const direct of directHits){
       try{
+        if(hits.some(hit=>(hit.recordIndex<direct.hit.recordIndex||(hit.recordIndex===direct.hit.recordIndex&&hit.frameIndex<direct.hit.frameIndex))))
+          throw new Error('Prior hit in this action prevents outcome-free target HP/Block reconstruction');
         const first=clone(direct.snapshot),target=sourceAction.roles?.[String(direct.hit.data.roleUid)];
         if(!target||target.roleType!==roleType.Monster||target.camp===played.camp||!Number.isFinite(target.properties?.hp)||target.properties.hp<=0)throw new Error('Living enemy target identity required before outcome');
         const firstTarget=first.roles?.[String(target.uid)],actionTarget=sourceAction.roles?.[String(target.uid)];
         if(!firstTarget||firstTarget.tid!==target.tid||!actionTarget)throw new Error('Stable target identity required');
-        first.roles[String(target.uid)].properties.hp=actionTarget.properties.hp;
-        first.roles[String(target.uid)].properties.block=actionTarget.properties.block;
+        const startProperties=actionTarget.properties??{};
+        const startBlock=Object.hasOwn(startProperties,'block')?startProperties.block:0;
+        if(!Number.isFinite(startProperties.hp)||!Number.isFinite(startBlock))throw new Error('Finite card-use target HP and Block required');
+        first.roles[String(target.uid)].properties.hp=startProperties.hp;
+        first.roles[String(target.uid)].properties.block=startBlock;
         first.reconstruction={};
         first.hitData={roleUid:target.uid,beHitConfig:{castRoleUid:caster.uid,skillConfigId:played.tid,damageType:1}};
         const syntheticHit={recordIndex:first.recordIndex,frameIndex:first.frameIndex,eventName:'BeHit',data:clone(first.hitData)};

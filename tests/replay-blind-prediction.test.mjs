@@ -39,18 +39,28 @@ test('blind replay prediction supports multiple living enemies while conditionin
   assert.ok(result.unresolvedDependencies.some(item=>/Target selection/.test(item)));
 });
 
+test('blind replay prediction uses the original zero default for omitted card-use Block',()=>{
+  const input=fixture(250),action=input.index.actionSnapshots[0];
+  delete action.roles['2'].properties.block;
+  const result=buildBlindReplayPrediction(input);
+  assert.equal(result.predictedDamage,100);
+  assert.equal(result.scenario.targetProperties.block,0);
+  action.roles['2'].properties.block='invalid';
+  assert.throws(()=>buildBlindReplayPrediction(input),/Finite card-use target HP and Block required/);
+});
+
 test('blind replay prediction rejects chance-dependent critical outcomes',()=>{
   const input=fixture(250);input.index.actionSnapshots[0].roles['1'].properties.crit=50;input.index.actionSnapshots[0].window.hitSnapshots[0].roles['1'].properties.crit=50;
   assert.throws(()=>buildBlindReplayPrediction(input),/No blind deterministic replay candidate/);
 });
 
-test('blind replay prediction continues to a later deterministic hit in the same action',()=>{
+test('blind replay prediction rejects later hits whose starting HP or Block may depend on an earlier outcome',()=>{
   const input=fixture(250),action=input.index.actionSnapshots[0],firstSnapshot=action.window.hitSnapshots[0],firstHit=action.window.hits[0];
   firstSnapshot.roles['1'].properties.crit=50;
   const secondSnapshot=JSON.parse(JSON.stringify(firstSnapshot));secondSnapshot.hitIndex=1;secondSnapshot.recordIndex=5;secondSnapshot.frameIndex=3;secondSnapshot.roles['1'].properties.crit=0;
   const secondHit=JSON.parse(JSON.stringify(firstHit));secondHit.recordIndex=5;secondHit.frameIndex=3;
   action.window.hitSnapshots.push(secondSnapshot);action.window.hits.push(secondHit);
-  const result=buildBlindReplayPrediction(input);assert.equal(result.sourceHitIndex,1);assert.equal(result.predictedDamage,100);assert.deepEqual(result.blockersBeforeSelection.map(row=>[row.actionIndex,row.hitIndex]),[[0,0]]);assert.match(result.blockersBeforeSelection[0].reason,/RNG-dependent/);
+  assert.throws(()=>buildBlindReplayPrediction(input),error=>error.message.includes('RNG-dependent')&&error.message.includes('Prior hit in this action prevents outcome-free target HP/Block reconstruction'));
 });
 
 test('blind replay freeze pins an explicitly evidenced resource-150 build',()=>{
