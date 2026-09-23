@@ -50,7 +50,7 @@ const report={
   limitations:[
     'Selecting a critical branch with the observed isCrit flag is retrospective and gives no predictive or holdout credit.',
     'The replay was inspected during capture; no result here is a frozen pre-outcome prediction.',
-    'One replay and three compared hits do not establish general current-build correctness.',
+    'One retrospective replay does not establish general current-build correctness.',
     'Hits with a caster or skill different from the played card are excluded, not assigned damage predictions; their trigger graph remains unresolved.',
     'Player, card, skill and target identifiers are omitted from this public report.',
   ],

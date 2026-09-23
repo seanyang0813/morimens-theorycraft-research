@@ -1,13 +1,14 @@
 {
-  "generatedAtUtc": "2026-09-23T18:15:15.900968+00:00",
+  "generatedAtUtc": "2026-09-23T18:33:27.971009+00:00",
   "publicationStatus": "NOT_READY",
   "publicationAuthorized": false,
   "automatedSuite": {
-    "testFiles": 288,
+    "testFiles": 289,
     "passed": true,
     "exitCode": 0,
     "log": "research\\evidence\\latest-test-suite.tap",
-    "logSha256": "4d7c63e59a83443cbaf375192daa956ef6b91036b272eb2c5658e37e1c5abef2"
+    "logSha256": "24892c8549a45502a89899ba4979b1ab383cac56a98c76eaaf2ce588cafd58d1",
+    "nodeVersion": "v24.19.0"
   },
   "realObservations": {
     "records": 3,

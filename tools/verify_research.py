@@ -5,9 +5,19 @@ import datetime
 import hashlib
 import json
 import math
+import os
+import re
 import subprocess
 
 ROOT=Path(__file__).resolve().parents[1]
+NODE_EXECUTABLE=os.environ.get('MORIMENS_NODE','node')
+
+def supported_node_version():
+    result=subprocess.run([NODE_EXECUTABLE,'--version'],cwd=ROOT,capture_output=True,text=True,encoding='utf-8',timeout=10)
+    match=re.fullmatch(r'v(\d+)\.\d+\.\d+',result.stdout.strip())
+    if result.returncode or not match or int(match.group(1))<20:
+        raise RuntimeError('Research verification requires Node.js 20 or newer; set MORIMENS_NODE to a supported executable')
+    return result.stdout.strip()
 
 def number(value):
     return isinstance(value,(int,float)) and not isinstance(value,bool) and math.isfinite(value)
@@ -43,7 +53,7 @@ def replay_prediction(row):
         path=(ROOT/prediction['scenarioFile']).resolve()
         if not path.is_relative_to(ROOT) or not path.is_file():raise ValueError('Scenario file missing or outside workspace')
         if hashlib.sha256(path.read_bytes()).hexdigest()!=prediction['scenarioSha256']:raise ValueError('Scenario hash mismatch')
-        command=['node',str(ROOT/'tools/replay_observation.mjs'),str(path),prediction['metric'],prediction['runtimeFingerprint']]
+        command=[NODE_EXECUTABLE,str(ROOT/'tools/replay_observation.mjs'),str(path),prediction['metric'],prediction['runtimeFingerprint']]
         if prediction.get('runtimeContract') is not None:command.append(json.dumps(prediction['runtimeContract'],separators=(',',':')))
         run=subprocess.run(command,cwd=ROOT,capture_output=True,text=True,encoding='utf-8',timeout=30)
         if run.returncode:raise ValueError(run.stderr.strip() or 'Prediction execution failed')
@@ -130,7 +140,7 @@ def audit_mechanic_regression(row,path):
     if check.get('retrospective') is not True or check.get('holdout') is not False:reasons.append('Must be explicitly retrospective and non-holdout')
     if not row.get('version',{}).get('recordedCombatBuild'):reasons.append('Recorded combat build unknown')
     try:
-        run=subprocess.run(['node',str(ROOT/'tools/replay_mechanic_observation.mjs'),str(path)],cwd=ROOT,capture_output=True,text=True,encoding='utf-8',timeout=30)
+        run=subprocess.run([NODE_EXECUTABLE,str(ROOT/'tools/replay_mechanic_observation.mjs'),str(path)],cwd=ROOT,capture_output=True,text=True,encoding='utf-8',timeout=30)
         if run.returncode:raise ValueError(run.stderr.strip() or 'Mechanic replay failed')
         result=json.loads(run.stdout)
         if not result.get('exactMatch'):reasons.append('Mechanic result is not an exact match')
@@ -148,8 +158,9 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--check-publication',action='store_true',help='Exit nonzero unless publication review is complete (never automatically granted here)')
     args=parser.parse_args()
+    node_version=supported_node_version()
     tests=sorted((ROOT/'tests').glob('*.test.mjs'))
-    run=subprocess.run(['node','--test',*[str(p) for p in tests]],cwd=ROOT,text=True,encoding='utf-8',errors='replace',capture_output=True)
+    run=subprocess.run([NODE_EXECUTABLE,'--test',*[str(p) for p in tests]],cwd=ROOT,text=True,encoding='utf-8',errors='replace',capture_output=True)
     log=ROOT/'research/evidence/latest-test-suite.tap'
     log.write_text(run.stdout+'\n'+run.stderr,encoding='utf-8')
     observation_paths=sorted((ROOT/'tests/observations').glob('*.json'))
@@ -194,6 +205,7 @@ def main():
         copies.append({'module':name,'matchesResearchEngine':matches})
         if not matches:reasons.append('Website engine copy missing or stale: '+name)
     out={'generatedAtUtc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'publicationStatus':'NOT_READY' if len(reasons)>1 else 'REQUIRES_EVIDENCE_REVIEW','publicationAuthorized':False,'automatedSuite':{'testFiles':len(tests),'passed':run.returncode==0 and bool(tests),'exitCode':run.returncode,'log':str(log.relative_to(ROOT)),'logSha256':hashlib.sha256(log.read_bytes()).hexdigest()},'realObservations':{'records':len(rows),'eligibleForReview':reviewable,'holdoutsEligibleForReview':holdouts,'rows':rows},'gameplayMechanicRegressions':{'records':len(mechanic_rows),'exactMatches':sum(row['exactMatch'] for row in mechanic_rows),'eligibleForReview':sum(row['eligibleForReview'] for row in mechanic_rows),'publicationCredit':False,'rows':mechanic_rows},'replayCatalogAttribution':{'report':str(replay_catalog_path.relative_to(ROOT)),'reportSha256':hashlib.sha256(replay_catalog_path.read_bytes()).hexdigest(),'resource144Matches':replay_catalog_summary.get('PC_RES144_BUILD51_CATALOG_MATCH',0),'resource150Matches':replay_catalog_summary.get('PC_RES150_BUILD51_CATALOG_MATCH',0),'unmatchedOrIntermediate':replay_catalog_summary.get('UNMATCHED_OR_INTERMEDIATE_CATALOG',0),'publicationCredit':False},'currentCatalogGameplayConsistency':{'report':str(current_catalog_path.relative_to(ROOT)),'reportSha256':hashlib.sha256(current_catalog_path.read_bytes()).hexdigest(),'status':current_catalog['status'],'auditedReplays':current_catalog.get('totals',{}).get('auditedReplays',0),'exactRngBranchConsistencyChecks':current_catalog.get('totals',{}).get('exactRngBranchConsistencyChecks',0),'mismatches':current_catalog.get('totals',{}).get('rngBranchMismatches',0)+current_catalog.get('totals',{}).get('deterministicMismatches',0),'publicationCredit':False},'websiteEngineCopies':copies,'blockingReasons':reasons,'limitations':['Matching reported values alone cannot establish input provenance or validate a formula','Retrospective mechanic regressions, catalog attribution and current-catalog consistency checks do not count as full damage predictions or blind holdouts','Synthetic runtime comparisons are not gameplay fixtures or holdouts','No browser QA, source coverage review or deployed-site verification is performed by this script']}
+    out['automatedSuite']['nodeVersion']=node_version
     corpus_totals=replay_corpus.get('totals',{})
     out['retrospectiveReplayCorpus']={'report':str(replay_corpus_path.relative_to(ROOT)),'reportSha256':hashlib.sha256(replay_corpus_path.read_bytes()).hexdigest(),'additionalReports':[{'report':str(replay_round3_path.relative_to(ROOT)),'reportSha256':hashlib.sha256(replay_round3_path.read_bytes()).hexdigest()}],'analysisTrack':'verification','auditedReplays':corpus_totals.get('replays',0)+replay_round3_totals.get('replays',0),'activeCandidates':corpus_totals.get('retrospectiveActiveCandidates',0)+replay_round3_totals.get('retrospectiveActiveCandidates',0),'deterministicExactChecks':corpus_totals.get('deterministicExactChecks',0)+replay_round3_totals.get('deterministicExactChecks',0),'exactRngBranchConsistencyChecks':corpus_totals.get('exactRngBranchConsistencyChecks',0)+replay_round3_totals.get('exactRngBranchConsistencyChecks',0),'mismatches':corpus_totals.get('deterministicMismatches',0)+corpus_totals.get('rngBranchMismatches',0)+replay_round3_totals.get('deterministicMismatches',0)+replay_round3_totals.get('rngBranchMismatches',0),'publicationCredit':False,'crossTrackClaims':[]}
     out['fixedReplayComponentConsistency']={'report':str(fixed_replay_path.relative_to(ROOT)),'reportSha256':hashlib.sha256(fixed_replay_path.read_bytes()).hexdigest(),'analysisTrack':'verification','distinctReplays':1,'distinctCardActions':fixed_replay['selection']['distinctCardActions'],'exactPreHitComparisons':85,'mismatches':0,'recordedCombatBuild':None,'publicationCredit':False}

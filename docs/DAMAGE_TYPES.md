@@ -36,6 +36,16 @@ The Tentacle command's `PlayerRole.tentacle_dmg` is a special parser alias to
 `tentacle_dmg` property. The installed resource-151 player method matches 377
 synthetic original-runtime executions. Its decoded method body and the parser
 alias body match resource 144, even though their containing modules differ.
+The separate `PlayerRole.tentacle_dmg_show` alias calls
+`GetShowTentacleDamage()`. Its PvE expression uses base Tentacle damage,
+basic-damage percentage, average Awakener inside-basic percentage, stored flat
+Tentacle damage and Tentacle-damage percentage, then ceilings with a minimum
+of one. It omits the combat method's other inside modifiers. The selected
+producer and alias bodies are identical through installed resource 153, and
+300 synthetic original-runtime cases match the authored show formula. See
+`research/evidence/pc-res153-tentacle-show-alias.json`. This alias can occur
+inside an ordinary Active card command; it must not be substituted for
+`PlayerRole.tentacle_dmg` in a Tentacle attack.
 With stored `tentacle_dmg=38`, `tentacle_base_dmg=103` and
 `basic_damage_per=86`, neutral inside factors produce a computed player value
 of 230. A card expression multiplying that by `occupation_master=92` and

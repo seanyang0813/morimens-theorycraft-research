@@ -5,6 +5,7 @@ import {resolveScalarSkillField} from './skill-field.mjs';
 import {getLiveStateLayer} from './live-state-lookup.mjs';
 import {selectProgressionList} from './skill-list.mjs';
 import {resolveSkillGrowth} from './skill-growth.mjs';
+import {playerTentacleShowDamage} from './player-tentacle-show-damage.mjs';
 
 const protocolBuild='pc-res144-build51';
 const supportedCombatBuilds=new Set(['pc-res144-build51','pc-res150-build51','pc-res151-build51','pc-res153-build51']);
@@ -147,6 +148,10 @@ export function buildReplayActionCandidate({index,actionIndex,hitIndex=null,skil
   };
   const readVariable=name=>{
     if(Object.hasOwn(variables,name))return variables[name];
+    if(name==='PlayerRole.tentacle_dmg_show'&&['pc-res151-build51','pc-res153-build51'].includes(combatBuild)){
+      const sameCampAwakers=Object.values(hitSnapshot.roles).filter(role=>role?.roleType===roleType.Awaker&&role.camp===player.camp);
+      return playerTentacleShowDamage({playerProperties:player.properties,awakerProperties:sameCampAwakers.map(role=>role.properties)}).value;
+    }
     const separator=name.indexOf('.');
     if(separator>0){
       const owner=name.slice(0,separator),property=name.slice(separator+1),maps={CmdCaster:caster.properties,PlayerRole:player.properties,UpperTarget:target.properties,OwnerCard:card.properties,CurCard:card.properties};

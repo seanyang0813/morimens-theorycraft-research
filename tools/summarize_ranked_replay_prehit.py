@@ -19,6 +19,7 @@ BLOCKERS = {
     "Unsupported state-attached Active parameter shape": "STATE_ATTACHED_ACTIVE_SHAPE",
     "Recorded direct-hit count must be a positive multiple of command repetition count": "REPETITION_WINDOW_AMBIGUOUS",
     "Unknown or nonfinite command value PlayerRole.tentacle_dmg_show": "UNRESOLVED_TENTACLE_SHOW_DAMAGE",
+    "Positive-repeat zero-subtype Active hit required": "UNSUPPORTED_ACTIVE_SUBTYPE_OR_REPEAT",
 }
 
 

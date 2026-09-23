@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_RES153_TENTACLE_SHOW_ALIAS_EVIDENCE",
+  "status": "SELECTED_METHOD_BODIES_IDENTICAL_AND_RUNTIME_FIXTURES_AVAILABLE",
+  "build": "pc-res153-build51",
+  "installedBuildEvidenceSha256": "3cb7d9a72b180087cf83dbe9c1b8494b5e41d5e67f037866eaa2c28f5afdc776",
+  "modules": [
+    {
+      "name": "BattleUnitPlayer.lua",
+      "resource151Sha256": "14f007f69f6ce9e1d54cfb94ebd58da25f024a1262864c6e7f9af6292bceaf9f",
+      "resource153Sha256": "14f007f69f6ce9e1d54cfb94ebd58da25f024a1262864c6e7f9af6292bceaf9f",
+      "byteIdentical": true
+    },
+    {
+      "name": "BattleCmdParser.lua",
+      "resource151Sha256": "237b93d625372c9b334ffc4ee3c7b535e152b4fdf127dce461c2fe30f88ee92e",
+      "resource153Sha256": "237b93d625372c9b334ffc4ee3c7b535e152b4fdf127dce461c2fe30f88ee92e",
+      "byteIdentical": true
+    }
+  ],
+  "methods": [
+    {
+      "module": "BattleUnitPlayer.lua",
+      "method": "PvE show-damage producer",
+      "instructionCountExcludingSyntheticPrefix": 107,
+      "decodedBodySha256": "dc3a2191d22b5e1f402d15da3a1d1175abc7d453aebeb1ef7390cbc41927123c"
+    },
+    {
+      "module": "BattleCmdParser.lua",
+      "method": "PlayerRole.tentacle_dmg_show parser alias",
+      "instructionCountExcludingSyntheticPrefix": 11,
+      "decodedBodySha256": "5e6131bc85bd9e2545c927087ed0d55114ff59d631331e688cc0a8c18ef6adbf"
+    }
+  ],
+  "runtimeFixtures": {
+    "count": 300,
+    "sha256": "c4c10a6a9155579ece8f578c00813b2b6e92423130fcb610d536ce59bdd38a1d"
+  },
+  "scope": "GetShowTentacleDamage PvE producer and PlayerRole.tentacle_dmg_show expression alias only; complete live-property inputs required.",
+  "limitations": [
+    "Show damage is an expression input, not the final combat Tentacle damage.",
+    "Synthetic original-runtime cases and historical replay matches are not independent gameplay validation.",
+    "No recorded-combat-build attribution or blind holdout follows."
+  ]
+}

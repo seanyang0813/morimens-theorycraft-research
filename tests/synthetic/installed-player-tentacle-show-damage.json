@@ -1,0 +1,5649 @@
+{
+  "kind": "SYNTHETIC_INSTALLED_ORIGINAL_RUNTIME",
+  "build": "pc-res151-build51",
+  "method": "BattleUnitPlayer.GetShowTentacleDamage",
+  "sourceHash": "14f007f69f6ce9e1d54cfb94ebd58da25f024a1262864c6e7f9af6292bceaf9f",
+  "fixtures": [
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": []
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": []
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": []
+      },
+      "expected": 675.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": []
+      },
+      "expected": 43.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": []
+      },
+      "expected": 51.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": []
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": []
+      },
+      "expected": 400.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": []
+      },
+      "expected": 26.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": []
+      },
+      "expected": 32.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": []
+      },
+      "expected": 75.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": []
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": []
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": []
+      },
+      "expected": 276.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": []
+      },
+      "expected": 219.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": []
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": []
+      },
+      "expected": 32.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": []
+      },
+      "expected": 76.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": []
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": []
+      },
+      "expected": 76.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": []
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": []
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": []
+      },
+      "expected": 326.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": []
+      },
+      "expected": 375.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": []
+      },
+      "expected": 51.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": []
+      },
+      "expected": 125.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": []
+      },
+      "expected": 32.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": []
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": []
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": []
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": []
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": []
+      },
+      "expected": 32.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": []
+      },
+      "expected": 126.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": []
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": []
+      },
+      "expected": 51.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": []
+      },
+      "expected": 75.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": []
+      },
+      "expected": 600.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": []
+      },
+      "expected": 107.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": []
+      },
+      "expected": 32.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": []
+      },
+      "expected": 24.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": []
+      },
+      "expected": 525.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": []
+      },
+      "expected": 33.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": []
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": []
+      },
+      "expected": 376.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": []
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": []
+      },
+      "expected": 26.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": []
+      },
+      "expected": 76.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": []
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": []
+      },
+      "expected": 226.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": []
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": []
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": []
+      },
+      "expected": 7.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": []
+      },
+      "expected": 151.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": []
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": []
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": []
+      },
+      "expected": 26.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": []
+      },
+      "expected": 301.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": []
+      },
+      "expected": 19.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": []
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": []
+      },
+      "expected": 75.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": []
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 301.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 201.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 225.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 113.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1600.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 10.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 19.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 88.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 47.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 200.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 7.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 200.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 13.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 851.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 450.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 193.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 75.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 200.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 122.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 176.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 882.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 201.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 3.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 16.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 133.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1875.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 226.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 274.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 38.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 275.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 8.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 94.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 76.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 57.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 525.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 550.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 19.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 225.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 47.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 850.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 32.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 151.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 175.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1300.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 2.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 301.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 76.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1275.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 276.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 101.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 188.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 132.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 751.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 601.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 116.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 7.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 72.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 129.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 32.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 325.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 138.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 50.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 2.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 188.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 201.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 61.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 151.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 47.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 73.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 51.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 11.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 109.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 526.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 8.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 326.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 434.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 132.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 284.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 2175.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 76.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 56.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 5.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 261.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1500.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 384.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 60.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 76.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 201.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 17.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 493.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 57.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1651.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 907.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 188.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 282.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 418.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 530.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 321.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 791.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 94.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 51.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 92.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 123.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 307.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 2.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1426.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 107.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 470.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 101.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 333.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 126.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 401.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 525.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": -25,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": -25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 170.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 25,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 32.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 201.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 169.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 360.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 5.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 113.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 82.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 470.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 0.1,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 426.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 200,
+          "basic_damage_per": 100,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 63.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 25,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 0.1
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": -50
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": 100,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 155.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 0.1,
+          "tentacle_base_dmg": 0,
+          "basic_damage_per": 200,
+          "tentacle_dmg_per": 25
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 25
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 100,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 25,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 19.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": 200,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": -25,
+          "tentacle_dmg_per": -75
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 0
+          }
+        ]
+      },
+      "expected": 51.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -25,
+          "tentacle_base_dmg": -75,
+          "basic_damage_per": 0,
+          "tentacle_dmg_per": 200
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 25
+          }
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "playerProperties": {
+          "tentacle_dmg": -75,
+          "tentacle_base_dmg": 0.1,
+          "basic_damage_per": -75,
+          "tentacle_dmg_per": 100
+        },
+        "awakerProperties": [
+          {
+            "i_basic_damage_per": -50
+          },
+          {
+            "i_basic_damage_per": 0
+          },
+          {
+            "i_basic_damage_per": 100
+          },
+          {
+            "i_basic_damage_per": 100
+          }
+        ]
+      },
+      "expected": 1.0
+    }
+  ],
+  "scope": "Synthetic original Lua executions of the PvE show-damage method, not combat damage or gameplay validation"
+}

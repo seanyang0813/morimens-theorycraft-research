@@ -41,6 +41,16 @@ test('resource 153 replay pre-hit path uses live card properties and inherited s
   assert.match(result.calculation.unresolvedDependencies.at(-1),/no current-build gameplay validation/);
 });
 
+test('resource 153 replay expression resolves the PvE Tentacle show alias from pre-hit properties',()=>{
+  const input=fixture(),snapshot=input.index.actionSnapshots[0].window.hitSnapshots[0];
+  Object.assign(snapshot.roles['3'].properties,{tentacle_base_dmg:100,basic_damage_per:50,tentacle_dmg:25,tentacle_dmg_per:20});
+  snapshot.roles['1'].properties.i_basic_damage_per=25;
+  input.commands['20'].data_list['1'].Para='PlayerRole.tentacle_dmg_show';
+  const result=buildReplayActionCandidate({...input,actionIndex:0,combatBuild:'pc-res153-build51'});
+  assert.equal(result.scenario.baseValue,255);
+  assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0,combatBuild:'pc-res150-build51'}),/tentacle_dmg_show/);
+});
+
 test('replay card types resolve captured progression and positive Strike override',()=>{
   const input=fixture(),action=input.index.actionSnapshots[0],hit=action.window.hitSnapshots[0];
   input.skills['10'].Type={'0':['Card_Skill'],'2':['Card_Skill','Card_Strike']};

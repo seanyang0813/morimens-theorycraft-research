@@ -26,6 +26,7 @@ Run from this directory:
 ```
 
 `verify_research.py --check-publication` exits nonzero while publication review is incomplete. This checkpoint checks tests, observation completeness and website engine-copy consistency; it cannot authorize publication or replace a source/coverage audit. Its TAP log and evidence-file hashes are saved alongside the report.
+Verification requires Node.js 20 or newer. If the default `node` is older, set `MORIMENS_NODE` to an absolute path to a newer Node executable before running the Python verifier. The snapshot records the Node version used.
 
 ## Calculator and website
 
