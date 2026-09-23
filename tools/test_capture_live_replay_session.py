@@ -15,6 +15,7 @@ class LiveReplayCaptureTests(unittest.TestCase):
         metadata = {"pid": 7, "startedAtUtc": "2026-09-22T00:00:00+00:00", "executable": "C:/Morimens.exe", "executableSha256": "a" * 64}
         report = capture.baseline_report(metadata, {replay: {"field"}}, 123, "2026-09-22T00:01:00+00:00")
         self.assertEqual(report["replayReferences"], [replay])
+        self.assertEqual(report["replayDiscovery"], {replay: ["field"]})
         rendered = json.dumps(capture.public_summary(report))
         self.assertNotIn(replay, rendered)
         self.assertEqual(capture.public_summary(report)["replayReferenceCount"], 1)
@@ -63,6 +64,20 @@ class LiveReplayCaptureTests(unittest.TestCase):
         self.assertEqual(summary["modifiedAfterBaselineCount"], 0)
         self.assertEqual(summary["validContainers"], 1)
         self.assertNotIn("old.json", json.dumps(summary))
+
+    def test_field_reference_promoted_to_object_is_captured_without_calling_it_new(self):
+        old = "11111111-1111-1111-1111-111111111111"
+        new = "22222222-2222-2222-2222-222222222222"
+        baseline = {"replayReferences": [old], "replayDiscovery": {old: ["field"]}}
+        self.assertEqual(capture.replay_candidates(baseline, {old: {"field", "object"}, new: {"field"}}), ({new}, {old}))
+        self.assertEqual(capture.replay_candidates({"replayReferences": [old]}, {old: {"field", "object"}}), (set(), set()))
+        with self.assertRaises(ValueError):
+            capture.replay_candidates({"replayReferences": [old], "replayDiscovery": {}}, {old: {"object"}})
+        report = {"kind": "MORIMENS_PRIVATE_REPLAY_SESSION_DELTA", "capturedAtUtc": "now", "baselineReferenceCount": 1, "currentReferenceCount": 2, "newReferenceCount": 1, "objectPromotionCount": 1, "bytesRead": 0, "results": [{"uuid": old, "discovery": ["field", "object"], "objectPromotion": True, "httpStatus": 200}, {"uuid": new, "discovery": ["field"], "objectPromotion": False, "httpStatus": 404}]}
+        summary = capture.public_summary(report)
+        self.assertEqual((summary["objectPromotionCount"], summary["fieldOnlyCandidateCount"], summary["unavailableContainerCount"]), (1, 1, 1))
+        self.assertNotIn(old, json.dumps(summary))
+        self.assertNotIn(new, json.dumps(summary))
 
 
 if __name__ == "__main__":

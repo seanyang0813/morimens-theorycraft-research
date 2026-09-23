@@ -152,14 +152,33 @@ def assert_same_process(baseline: dict, metadata: dict) -> None:
 
 
 def baseline_report(metadata: dict, found: dict[str, set[str]], bytes_read: int, captured_at: str) -> dict:
-    return {"schemaVersion": 1, "kind": "MORIMENS_PRIVATE_REPLAY_SESSION_BASELINE", "capturedAtUtc": captured_at, "process": metadata, "bytesRead": bytes_read, "replayReferences": sorted(found)}
+    return {"schemaVersion": 1, "kind": "MORIMENS_PRIVATE_REPLAY_SESSION_BASELINE", "capturedAtUtc": captured_at, "process": metadata, "bytesRead": bytes_read, "replayReferences": sorted(found), "replayDiscovery": {uuid: sorted(found[uuid]) for uuid in sorted(found)}}
 
 
 def public_summary(report: dict) -> dict:
     if report.get("kind") == "MORIMENS_PRIVATE_REPLAY_SESSION_BASELINE":
         return {"capturedAtUtc": report["capturedAtUtc"], "replayReferenceCount": len(report["replayReferences"]), "bytesRead": report["bytesRead"]}
     rows = report["results"]
-    return {"capturedAtUtc": report["capturedAtUtc"], "baselineReferenceCount": report["baselineReferenceCount"], "currentReferenceCount": report["currentReferenceCount"], "newReferenceCount": report["newReferenceCount"], "modifiedAfterBaselineCount": sum(row.get("modifiedAfterBaseline") is True for row in rows), "olderContainerCount": sum(row.get("modifiedAfterBaseline") is False for row in rows), "validContainers": sum(row.get("validContainer") is True for row in rows), "containerHashes": [row["sha256"] for row in rows if row.get("privateFile")], "bytesRead": report["bytesRead"]}
+    return {"capturedAtUtc": report["capturedAtUtc"], "baselineReferenceCount": report["baselineReferenceCount"], "currentReferenceCount": report["currentReferenceCount"], "newReferenceCount": report["newReferenceCount"], "objectPromotionCount": report.get("objectPromotionCount", 0), "fieldOnlyCandidateCount": sum(row.get("discovery") == ["field"] for row in rows), "unavailableContainerCount": sum(row.get("httpStatus") == 404 for row in rows), "modifiedAfterBaselineCount": sum(row.get("modifiedAfterBaseline") is True for row in rows), "olderContainerCount": sum(row.get("modifiedAfterBaseline") is False for row in rows), "validContainers": sum(row.get("validContainer") is True for row in rows), "containerHashes": [row["sha256"] for row in rows if row.get("privateFile")], "bytesRead": report["bytesRead"]}
+
+
+def replay_candidates(baseline: dict, found: dict[str, set[str]]) -> tuple[set[str], set[str]]:
+    """Include a preexisting field reference if it gains an object reference.
+
+    Legacy baselines lack discovery provenance, so their existing references cannot
+    safely be classified as promotions. They retain the old new-ID-only behavior.
+    """
+    before = set(ensure_reference_inventory(baseline.get("replayReferences")))
+    discovery = baseline.get("replayDiscovery")
+    promoted: set[str] = set()
+    if discovery is not None:
+        if not isinstance(discovery, dict) or set(discovery) != before or any(
+            not isinstance(sources, list) or not sources or any(source not in ("field", "object") for source in sources)
+            for sources in discovery.values()
+        ):
+            raise ValueError("Invalid baseline replay discovery inventory")
+        promoted = {uuid for uuid in before & set(found) if "object" in found[uuid] and "object" not in discovery[uuid]}
+    return set(found) - before, promoted
 
 
 def after_baseline(object_last_modified: str | None, baseline_captured_at: str) -> bool | None:
@@ -223,9 +242,10 @@ def capture_delta(pid: int, baseline_value: Path, output_value: Path) -> dict:
         found, bytes_read = scan(api, handle)
     finally:
         api.CloseHandle(handle)
+    new_refs, promoted_refs = replay_candidates(baseline, found)
     rows = []
-    for index, replay_uuid in enumerate(sorted(set(found) - before), 1):
-        row = {"uuid": replay_uuid, "discovery": sorted(found[replay_uuid])}
+    for index, replay_uuid in enumerate(sorted(new_refs | promoted_refs), 1):
+        row = {"uuid": replay_uuid, "discovery": sorted(found[replay_uuid]), "objectPromotion": replay_uuid in promoted_refs}
         try:
             data, last_modified = download_container(replay_uuid)
             json_encoding = container_json_encoding(data)
@@ -247,7 +267,7 @@ def capture_delta(pid: int, baseline_value: Path, output_value: Path) -> dict:
         except Exception as error:
             row["error"] = type(error).__name__
         rows.append(row)
-    report = {"schemaVersion": 1, "kind": "MORIMENS_PRIVATE_REPLAY_SESSION_DELTA", "capturedAtUtc": datetime.now(timezone.utc).isoformat(), "privateBaselineSha256": sha(baseline_bytes), "process": metadata, "bytesRead": bytes_read, "baselineReferenceCount": len(before), "currentReferenceCount": len(found), "newReferenceCount": len(rows), "results": rows}
+    report = {"schemaVersion": 1, "kind": "MORIMENS_PRIVATE_REPLAY_SESSION_DELTA", "capturedAtUtc": datetime.now(timezone.utc).isoformat(), "privateBaselineSha256": sha(baseline_bytes), "process": metadata, "bytesRead": bytes_read, "baselineReferenceCount": len(before), "currentReferenceCount": len(found), "newReferenceCount": len(new_refs), "objectPromotionCount": len(promoted_refs), "results": rows}
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8", newline="\n")
     return report
