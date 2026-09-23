@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_RANKED_REPLAY_PREHIT_AGGREGATE",
+  "status": "RETROSPECTIVE_CROSS_BUILD_DIAGNOSTIC_ONLY",
+  "uiContext": {
+    "mode": "D Tide",
+    "leaderboardRank": 4,
+    "wave": 3,
+    "difficulty": "Frenzy",
+    "provenance": "observed in the Morimens playback UI"
+  },
+  "playbackClientBuild": "pc-res153-build51",
+  "recordedCombatBuild": "UNATTRIBUTED",
+  "sourceCommitments": {
+    "privateBaselineSha256": "ba918d3e848a974c81a60c8d35f71105eadc44b7d4847764a66e9f166151ae24",
+    "privateDeltaSha256": "d18a927581ea71a0cc429e0584034bcc43dd6d535b09626e392de478c0a072db",
+    "decodedSha256": "95588f356468fe13813ded71ffb6ff8287351bc80dd4b62cfb947f1120375528",
+    "indexSha256": "d5565bc65c2e57908a9637e1c3a2e99ea693ea5f945aba4dc3d3336d2231d3d8",
+    "containerSha256": "00853fe1570d7f67367b3aee41019c26018382b276986d4367a1778adf607190"
+  },
+  "capture": {
+    "newReferenceCount": 1,
+    "validContainerCount": 1,
+    "containerModifiedAfterBaseline": false,
+    "sameProcess": true
+  },
+  "scale": {
+    "replayRecords": 749,
+    "cardActions": 121,
+    "hits": 320
+  },
+  "adapterCoverage": {
+    "actions": 121,
+    "hits": 320,
+    "compared": 19,
+    "exactObservedBranch": 19,
+    "nonPlayedCardHits": 195,
+    "blocked": 106,
+    "criticalCompared": 10,
+    "noncriticalCompared": 9,
+    "blockedByCode": {
+      "NO_ORDINARY_ACTIVE_ROW": 10,
+      "STATE_ATTACHED_ACTIVE_SHAPE": 8,
+      "UNRESOLVED_GROW_ARG_VALUE": 88
+    }
+  },
+  "embeddedCatalogRelationToPinnedBuilds": {
+    "Skill": {
+      "both": 91,
+      "beforeOnly": 0,
+      "currentOnly": 2,
+      "neither": 10
+    },
+    "Cmd": {
+      "both": 197,
+      "beforeOnly": 0,
+      "currentOnly": 0,
+      "neither": 6
+    }
+  },
+  "scope": "Pre-hit ordinary Active direct-card comparisons only. Branches were calculated before selecting the recorded critical outcome; the selection and comparison were retrospective.",
+  "limitations": [
+    "The replay existed before this capture; playback on resource 153 does not prove which combat build recorded it.",
+    "Some embedded Skill and Cmd rows match neither pinned resource-151 nor resource-153 catalog, so current-build gameplay validation is not claimed.",
+    "This is one ranked replay, with no frozen pre-outcome prediction or holdout credit.",
+    "Unmodeled GrowArgValue, state-attached effects, and non-played-card hits account for excluded damage; their totals must not be inferred from matched hits.",
+    "No player or replay identifier is published."
+  ]
+}
