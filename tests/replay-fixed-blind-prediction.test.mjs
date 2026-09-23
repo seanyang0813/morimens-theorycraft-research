@@ -30,10 +30,10 @@ test('Fixed first-hit prediction excludes recorded damage and critical fields',(
   assert.equal(JSON.stringify(a).includes('999999'),false);
 });
 
-test('Fixed selector rejects changed modifiers and conflicting eligible rows',()=>{
+test('Fixed selector ignores later modifiers and rejects conflicting eligible rows',()=>{
   const changed=fixture(110);
   changed.index.actionSnapshots[0].window.hitSnapshots[0].roles['2'].properties.be_fixed_damage_per1=20;
-  assert.throws(()=>buildBlindReplayPrediction(changed),/Fixed target modifier changed/);
+  assert.equal(buildBlindReplayPrediction(changed).predictedDamage,buildBlindReplayPrediction(fixture(110)).predictedDamage);
   const ambiguous=fixture(110);
   ambiguous.commands['20'].data_list[1].Cond='PlayerRole.GetStateLayer(99)==0';
   ambiguous.commands['20'].data_list[1].Para='Arg1+1,Arg4';

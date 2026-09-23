@@ -22,8 +22,8 @@ function readExisting(value,label){
   return {path,bytes:readFileSync(path)};
 }
 function validateBuildEvidence(items,recordedCombatBuild){
-  if(!['pc-res144-build51','pc-res150-build51','pc-res151-build51'].includes(recordedCombatBuild))throw new Error('Recorded combat build is not supported by the prediction runtime');
-  let recognized=false,adapterCompatibility=recordedCombatBuild!=='pc-res151-build51';
+  if(!['pc-res144-build51','pc-res150-build51','pc-res151-build51','pc-res153-build51'].includes(recordedCombatBuild))throw new Error('Recorded combat build is not supported by the prediction runtime');
+  let recognized=false,adapterCompatibility=!['pc-res151-build51','pc-res153-build51'].includes(recordedCombatBuild);
   for(const item of items){
     let value;try{value=JSON.parse(item.bytes.toString('utf8'));}catch{continue;}
     if(value?.schemaVersion===1&&value.kind==='MORIMENS_PC_COMBAT_BUILD_COMPARISON'&&value.currentBuild===recordedCombatBuild){
@@ -32,9 +32,10 @@ function validateBuildEvidence(items,recordedCombatBuild){
       recognized=true;
     }
     if(value?.schemaVersion===1&&value.kind==='MORIMENS_PC_REPLAY_ADAPTER_BUILD_COMPATIBILITY'&&value.afterBuild===recordedCombatBuild&&value.status==='SUPPORTED_FOR_NARROW_REPLAY_ADAPTER_BY_EXACT_CARRYFORWARD')adapterCompatibility=true;
+    if(recordedCombatBuild==='pc-res153-build51'&&value?.schemaVersion===1&&value.kind==='MORIMENS_PC_REPLAY_ADAPTER_BUILD_COMPATIBILITY'&&value.afterBuild===recordedCombatBuild&&value.status==='SUPPORTED_FOR_NARROW_ORDINARY_ACTIVE_PREHIT_ADAPTER_BY_SELECTED_CARRYFORWARD')adapterCompatibility=true;
   }
   if(!recognized)throw new Error('At least one recognized build report must identify the recorded combat build');
-  if(!adapterCompatibility)throw new Error('Resource-151 replay predictions require the exact adapter compatibility report');
+  if(!adapterCompatibility)throw new Error('Current replay predictions require the matching adapter compatibility report');
 }
 
 export function validateRecordedBuildEvidence(recordedCombatBuild=null,buildEvidenceFiles=[]){
@@ -72,6 +73,7 @@ export function freezeGameplayPrediction({scenarioFile,metric,evidenceFiles,outp
   if(hasBuild){
     const scenarioBuild=input?.kind==='morimens-theorycraft-request'?input.input?.build:input?.build;
     if(scenarioBuild!==recordedCombatBuild)throw new Error('Recorded combat build must match the scenario build');
+    if(recordedCombatBuild==='pc-res153-build51'&&(input?.kind!=='morimens-battle-property-snapshot-damage'||input?.schemaVersion!==1||input?.cardContext?.present!==true||metric!=='preHitDamage'))throw new Error('Resource-153 freeze is limited to ordinary replay-card Active pre-hit damage');
   }
   validateFixedRuntimeEvidence(input,recordedCombatBuild,buildEvidence);
   const runtimeFingerprint=verifyRuntimeManifest(),runtimeContract=createObservationRuntimeContract(input),context=input?.kind==='morimens-theorycraft-request'?{skillCommandData:loadSkillCommandData(input.input?.build)}:{},result=runObservationScenario(input,metric,context);

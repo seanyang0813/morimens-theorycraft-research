@@ -10,7 +10,7 @@ const roleType={Awaker:1,Monster:2};
 // amount, crit flag, HP loss and block loss are replaced before the ordinary
 // replay adapter is invoked. This predicts damage conditional on the recorded
 // target/caster/skill identity; it does not claim to predict target selection.
-export function buildBlindReplayPrediction({index,skills,commands,monsters,awakeners,combatBuild='pc-res144-build51',critRoll=null}){
+export function buildBlindReplayPrediction({index,skills,commands,monsters,awakeners,battleApi=null,combatBuild='pc-res144-build51',critRoll=null}){
   if(!index||index.kind!=='MORIMENS_REPLAY_EVENT_INDEX')throw new Error('Replay event index required');
   if(critRoll!==null&&(!Number.isSafeInteger(critRoll)||critRoll<1||critRoll>100))throw new Error('Conditional critical roll must be an integer from 1 to 100');
   const blockers=[];
@@ -39,7 +39,11 @@ export function buildBlindReplayPrediction({index,skills,commands,monsters,awake
         const startProperties=actionTarget.properties??{};
         const startBlock=Object.hasOwn(startProperties,'block')?startProperties.block:0;
         if(!Number.isFinite(startProperties.hp)||!Number.isFinite(startBlock))throw new Error('Finite card-use target HP and Block required');
-        first.roles[String(target.uid)].properties.hp=startProperties.hp;
+        // Use only the earlier UseCard state. BeHit snapshots are serialized after
+        // damage and may include other mutations that an actual prediction cannot see.
+        first.roles=clone(sourceAction.roles);
+        first.cards=clone(sourceAction.cards);
+        first.activeStates=clone(sourceAction.activeStates);
         first.roles[String(target.uid)].properties.block=startBlock;
         first.reconstruction={};
         const damageType=direct.hit.data.beHitConfig.damageType;
@@ -49,7 +53,7 @@ export function buildBlindReplayPrediction({index,skills,commands,monsters,awake
         action.window={selectedTargetCommands:clone(sourceAction.window?.selectedTargetCommands??[]),events:[clone(syntheticHit)],hits:[clone(syntheticHit)],hitSnapshots:[first]};
         const sealedIndex={kind:index.kind,build:index.build,actionSnapshots:[action]};
         action.actionIndex=0;
-        const candidate=damageType===6?buildFixedReplayActionCandidate({index:sealedIndex,actionIndex:0,hitIndex:first.hitIndex,skills,commands,combatBuild}):buildReplayActionCandidate({index:sealedIndex,actionIndex:0,hitIndex:first.hitIndex,skills,commands,monsters,awakeners,critRoll,preOutcome:true,combatBuild});
+        const candidate=damageType===6?buildFixedReplayActionCandidate({index:sealedIndex,actionIndex:0,hitIndex:first.hitIndex,skills,commands,combatBuild}):buildReplayActionCandidate({index:sealedIndex,actionIndex:0,hitIndex:first.hitIndex,skills,commands,monsters,awakeners,battleApi,critRoll,preOutcome:true,combatBuild});
         if(candidate.status!=='CALCULATED_REGRESSION_CANDIDATE'||!candidate.calculation||candidate.comparison!==null||candidate.observedHit!==null)throw new Error(candidate.calculationBlocker??'Deterministic outcome-free calculation required');
         return {
           schemaVersion:1,kind:'MORIMENS_BLIND_REPLAY_PREDICTION',build:candidate.build,

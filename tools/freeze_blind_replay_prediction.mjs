@@ -14,7 +14,7 @@ const read=path=>JSON.parse(readFileSync(path,'utf8'));
 function inside(value,label){const path=resolve(root,value),r=relative(root,path);if(!r||r.startsWith('..')||isAbsolute(r))throw new Error(`${label} must be inside the workspace`);return path;}
 
 function reviewedCaptureEvidence(value,recordedCombatBuild,inputSha256){
-  const current=['pc-res150-build51','pc-res151-build51'].includes(recordedCombatBuild);
+  const current=['pc-res150-build51','pc-res151-build51','pc-res153-build51'].includes(recordedCombatBuild);
   if(!current){if(value!==null)throw new Error('Same-session capture evidence is accepted only with a supported current recorded build');return null;}
   if(typeof value!=='string'||!value)throw new Error('Current-build replay predictions require reviewed same-session capture evidence');
   const path=inside(value,'Capture evidence'),r=relative(publicEvidenceRoot,path);if(!r||r.startsWith('..')||isAbsolute(r))throw new Error('Reviewed capture evidence must be under research/evidence');
@@ -35,7 +35,7 @@ export function freezeBlindReplayPrediction({indexFile,decodedFile,id,recordedCo
   if(decoded?.kind!=='MORIMENS_DECODED_REPLAY'||decoded.inputSha256!==index.inputSha256||!records||!['Skill','Cmd','MonsterConfig','AwakerConfig'].every(name=>records[name]&&typeof records[name]==='object'))throw new Error('Matching decoded replay with embedded combat catalogs required');
   const captureEvidence=reviewedCaptureEvidence(captureEvidenceFile,recordedCombatBuild,decoded.inputSha256);
   const combatBuild=recordedCombatBuild??'pc-res144-build51';
-  const prediction=buildBlindReplayPrediction({index,skills:records.Skill,commands:records.Cmd,monsters:records.MonsterConfig,awakeners:records.AwakerConfig,combatBuild});
+  const prediction=buildBlindReplayPrediction({index,skills:records.Skill,commands:records.Cmd,monsters:records.MonsterConfig,awakeners:records.AwakerConfig,battleApi:records.BattleApi??null,combatBuild});
   validateFixedRuntimeEvidence(prediction.scenario,recordedCombatBuild,buildEvidenceFiles.map(file=>({bytes:readFileSync(inside(file,'Build evidence'))})));
   const directory=resolve(root,'research/evidence/holdouts',id);mkdirSync(directory,{recursive:true});
   const scenarioPath=resolve(directory,'scenario.json'),evidencePath=resolve(directory,'preoutcome-evidence.json'),freezePath=resolve(directory,'prediction-freeze.json');
@@ -44,7 +44,7 @@ export function freezeBlindReplayPrediction({indexFile,decodedFile,id,recordedCo
   const evidence={schemaVersion:1,kind:'MORIMENS_REPLAY_PREOUTCOME_EVIDENCE',createdAtUtc:now().toISOString(),holdoutId:id,inputSha256:decoded.inputSha256,
     selectionPolicy:prediction.selectionPolicy,sourceActionIndex:prediction.sourceActionIndex,sourceHitIndex:prediction.sourceHitIndex,routing:prediction.routing,
     identityCommitmentSha256:prediction.identityCommitmentSha256,sealedProjectionSha256:prediction.sealedProjectionSha256,
-    catalogSha256:Object.fromEntries(['Skill','Cmd','MonsterConfig','AwakerConfig'].map(name=>[name,hash(records[name])])),
+    catalogSha256:Object.fromEntries(['Skill','Cmd','MonsterConfig','AwakerConfig',...(records.BattleApi?['BattleApi']:[])].map(name=>[name,hash(records[name])])),
     excludedOutcomeFields:['castDamage','isCrit','oldHp','blockLose','realDamage','hpLose'],recordedCombatBuild,
     sameSessionCaptureEvidence:captureEvidence?{path:rel(captureEvidence.path),sha256:hash(captureEvidence.bytes)}:null,
     limitations:prediction.unresolvedDependencies};

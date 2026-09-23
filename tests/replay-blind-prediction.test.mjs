@@ -70,11 +70,22 @@ test('conditional critical branches stay outcome-blind and do not become exact p
 
 test('blind replay prediction rejects later hits whose starting HP or Block may depend on an earlier outcome',()=>{
   const input=fixture(250),action=input.index.actionSnapshots[0],firstSnapshot=action.window.hitSnapshots[0],firstHit=action.window.hits[0];
+  action.roles['1'].properties.crit=50;
   firstSnapshot.roles['1'].properties.crit=50;
   const secondSnapshot=JSON.parse(JSON.stringify(firstSnapshot));secondSnapshot.hitIndex=1;secondSnapshot.recordIndex=5;secondSnapshot.frameIndex=3;secondSnapshot.roles['1'].properties.crit=0;
   const secondHit=JSON.parse(JSON.stringify(firstHit));secondHit.recordIndex=5;secondHit.frameIndex=3;
   action.window.hitSnapshots.push(secondSnapshot);action.window.hits.push(secondHit);
   assert.throws(()=>buildBlindReplayPrediction(input),error=>error.message.includes('RNG-dependent')&&error.message.includes('Prior hit in this action prevents outcome-free target HP/Block reconstruction'));
+});
+
+test('blind replay prediction excludes later property and state changes from its inputs',()=>{
+  const baseline=buildBlindReplayPrediction(fixture(250));
+  const changedProperty=fixture(250);
+  changedProperty.index.actionSnapshots[0].window.hitSnapshots[0].roles['1'].properties.damage_plus=10;
+  assert.equal(buildBlindReplayPrediction(changedProperty).predictedDamage,baseline.predictedDamage);
+  const changedState=fixture(250);
+  changedState.index.actionSnapshots[0].window.hitSnapshots[0].activeStates=[{ownerUid:2,stateId:2934,layer:1,isDeleted:false}];
+  assert.equal(buildBlindReplayPrediction(changedState).predictedDamage,baseline.predictedDamage);
 });
 
 test('blind replay freeze pins an explicitly evidenced resource-150 build',()=>{
@@ -114,5 +125,23 @@ test('blind replay freeze requires both resource-151 build identity and adapter 
     const result=freezeBlindReplayPrediction({indexFile:relative(root,indexFile),decodedFile:relative(root,decodedFile),id,recordedCombatBuild:'pc-res151-build51',buildEvidenceFiles:[build,compatibility],captureEvidenceFile:relative(root,captureFile),now:()=>new Date('2026-09-22T00:00:00Z')});
     const freeze=JSON.parse(readFileSync(join(publicDir,'prediction-freeze.json'),'utf8'));
     assert.equal(result.predictedDamage,100);assert.equal(freeze.recordedBuild.id,'pc-res151-build51');assert.equal(freeze.recordedBuild.evidence.length,2);assert.equal(freeze.beforeOutcomeEvidence.length,2);
+  }finally{rmSync(privateDir,{recursive:true,force:true});rmSync(publicDir,{recursive:true,force:true});rmSync(join(root,'research/evidence/holdouts',missingId),{recursive:true,force:true});}
+});
+test('resource-153 blind freeze stays within the reviewed ordinary Active replay boundary',()=>{
+  const input=fixture(250),privateDir=mkdtempSync(join(root,'research/observations/blind-build153-test-')),id=`blind-build153-test-${process.pid}`;
+  const publicDir=join(root,'research/evidence/holdouts',id),missingId=`blind-build153-missing-${process.pid}`;
+  try{
+    input.index.inputSha256='d'.repeat(64);
+    const indexFile=join(privateDir,'index.json'),decodedFile=join(privateDir,'decoded.json');
+    writeFileSync(indexFile,JSON.stringify(input.index));
+    writeFileSync(decodedFile,JSON.stringify({kind:'MORIMENS_DECODED_REPLAY',inputSha256:input.index.inputSha256,decoded:{resourceRecords:{Skill:input.skills,Cmd:input.commands,MonsterConfig:input.monsters,AwakerConfig:input.awakeners,BattleApi:{}}}}));
+    const build='research/evidence/pc-res144-to-res153-combat-build.json',compatibility='research/evidence/pc-res153-replay-adapter-compatibility.json',captureFile=join(publicDir,'capture.json');
+    assert.throws(()=>freezeBlindReplayPrediction({indexFile:relative(root,indexFile),decodedFile:relative(root,decodedFile),id:missingId,recordedCombatBuild:'pc-res153-build51',buildEvidenceFiles:[build]}),/adapter compatibility report/);
+    assert.equal(existsSync(join(root,'research/evidence/holdouts',missingId)),false);
+    assert.throws(()=>freezeBlindReplayPrediction({indexFile:relative(root,indexFile),decodedFile:relative(root,decodedFile),id,recordedCombatBuild:'pc-res153-build51',buildEvidenceFiles:[build,compatibility]}),/reviewed same-session capture evidence/i);
+    mkdirSync(publicDir,{recursive:true});writeFileSync(captureFile,JSON.stringify(captureEvidence('pc-res153-build51',input.index.inputSha256)));
+    const result=freezeBlindReplayPrediction({indexFile:relative(root,indexFile),decodedFile:relative(root,decodedFile),id,recordedCombatBuild:'pc-res153-build51',buildEvidenceFiles:[build,compatibility],captureEvidenceFile:relative(root,captureFile)});
+    const freeze=JSON.parse(readFileSync(join(publicDir,'prediction-freeze.json'),'utf8')),evidence=JSON.parse(readFileSync(join(publicDir,'preoutcome-evidence.json'),'utf8'));
+    assert.equal(result.predictedDamage,100);assert.equal(freeze.recordedBuild.id,'pc-res153-build51');assert.equal(evidence.catalogSha256.BattleApi,createHash('sha256').update(JSON.stringify({})).digest('hex'));
   }finally{rmSync(privateDir,{recursive:true,force:true});rmSync(publicDir,{recursive:true,force:true});rmSync(join(root,'research/evidence/holdouts',missingId),{recursive:true,force:true});}
 });
