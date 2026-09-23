@@ -7,6 +7,7 @@ import {compileNumericCommand} from '../engine/command-expressions.mjs';
 import {playerTentacleDamage} from '../engine/player-tentacle-damage.mjs';
 import {tentaclePreHit} from '../engine/tentacle-prehit.mjs';
 import {tentacleCritDamage} from '../engine/tentacle-crit-damage.mjs';
+import {calculateDirectTentacleCommand} from '../engine/tentacle-direct-command.mjs';
 
 const root=resolve(fileURLToPath(new URL('../',import.meta.url)));
 const read=path=>JSON.parse(readFileSync(path,'utf8'));
@@ -14,7 +15,7 @@ const pkeys=['tentacle_dmg','tentacle_base_dmg','basic_damage_per','weak_per','t
 const akeys=['i_basic_damage_per','i_damage_per',...Array.from({length:8},(_,i)=>`i_damage_per${i+1}`)];
 const counters={replaysScanned:0,completeTentacleHits:0,immediateIdentity:0,oneDirectRow:0,
   exactRowShape:0,resolvedTargetAndNeutralAwakers:0,noncritEligible:0,exact:0,mismatch:0,
-  critEligible:0,internationalCritBranchExact:0,japanCritBranchExact:0,blocked:{}};
+  critEligible:0,internationalCritBranchExact:0,japanCritBranchExact:0,composedDirectCommandMatches:0,blocked:{}};
 const sourceReplays=new Set(),sourceActions=new Set(),digest=createHash('sha256');
 for(let n=71;n<=172;n++){
   const folder=resolve(root,`research/observations/replay-batch-${String(n).padStart(2,'0')}`);
@@ -58,12 +59,21 @@ for(let n=71;n<=172;n++){
       const resolved={build:'pc-res151-build51',isCrit:config.isCrit,tentacleDamage:effectBase,critDamagePer:0,
         beDamagePer:targetProps.be_damage_per??0,beDamagePer2:targetProps.be_damage_per2??0,beDamagePer3:targetProps.be_damage_per3??0,beTentacleDamagePer:targetProps.be_tentacle_damage_per??0,vulnerablePer:targetProps.vulnerable_per??0,beDamagePlus:targetProps.be_damage_plus??0,
         enemyTypePer:0,enemyStatePer:0,enemyBuffPer:0,enemyDebuffPer:0,enemyBlockPer:0,enemyBarrierPer:0,paraPlus:0};
+      const directInput={build:'pc-res151-build51',player:{...map(player.properties,pkeys),outside_crit_damage:player.properties?.outside_crit_damage??0},
+        awakers:awakers.map(role=>({...map(role.properties,akeys),crit_damage:role.properties?.crit_damage??0})),
+        powerStateLayer:0,dimensionFixPer:player.properties?.dimension_fix_per??0,
+        casterOccupationMaster:caster.properties?.occupation_master??0,japan:false,isCrit:config.isCrit,
+        target:Object.fromEntries(Object.entries(resolved).filter(([key])=>!['build','isCrit','tentacleDamage','critDamagePer'].includes(key)))};
+      const composed=calculateDirectTentacleCommand(directInput);
+      if(composed.player.value!==playerDamage||composed.command.effectDamage!==effectBase)
+        throw new Error('Composed direct command disagrees with independent replay expression stages');
       sourceReplays.add(n);sourceActions.add(`${n}:${action.actionIndex}`);
       if(!config.isCrit){
         counters.noncritEligible++;
         const preHit=tentaclePreHit(resolved).preHitDamage;
         if(preHit===config.castDamage)counters.exact++;
         else counters.mismatch++;
+        if(composed.preHitDamage===preHit&&preHit===config.castDamage)counters.composedDirectCommandMatches++;
       }else{
         counters.critEligible++;
         const criticalInput={build:'pc-res151-build51',outsideCritDamage:player.properties?.outside_crit_damage??0,
@@ -72,6 +82,7 @@ for(let n=71;n<=172;n++){
           const critDamagePer=tentacleCritDamage({...criticalInput,japan}).value;
           const preHit=tentaclePreHit({...resolved,critDamagePer}).preHitDamage;
           if(preHit===config.castDamage)counters[countKey]++;
+          if(!japan&&composed.preHitDamage===preHit&&preHit===config.castDamage)counters.composedDirectCommandMatches++;
         }
       }
     }
@@ -80,7 +91,7 @@ for(let n=71;n<=172;n++){
 const summary={...counters,distinctSourceReplays:sourceReplays.size,distinctSourceActions:sourceActions.size};
 const expected={replaysScanned:102,completeTentacleHits:905,immediateIdentity:58,oneDirectRow:39,
   exactRowShape:39,resolvedTargetAndNeutralAwakers:39,noncritEligible:34,exact:34,mismatch:0,
-  critEligible:5,internationalCritBranchExact:5,japanCritBranchExact:0,blocked:{},distinctSourceReplays:4,distinctSourceActions:39};
+  critEligible:5,internationalCritBranchExact:5,japanCritBranchExact:0,composedDirectCommandMatches:39,blocked:{},distinctSourceReplays:4,distinctSourceActions:39};
 if(JSON.stringify(summary)!==JSON.stringify(expected))throw new Error('Tentacle retrospective component corpus changed; review private cases');
 const catalogDigest=createHash('sha256');
 for(const n of [...sourceReplays].sort((a,b)=>a-b)){
@@ -91,7 +102,7 @@ const report={schemaVersion:1,kind:'MORIMENS_RETROSPECTIVE_TENTACLE_SIMPLE_CONSI
   analysisTrack:'verification',status:'EXACT_RETROSPECTIVE_PREHIT_COMPONENT_MATCHES',
   calculationBuild:'pc-res151-build51',recordedCombatBuild:null,
   privateIndexCommitmentSha256:digest.digest('hex'),privateCatalogCommitmentSha256:catalogDigest.digest('hex'),
-  summary,method:'From complete Tentacle hit snapshots, require matching played-card caster/skill identity, one exact direct BETentacleAttack FrontEnemy row, a living monster target and zero Awaker conditional damage bonuses. Reconstruct PlayerRole.tentacle_dmg through installed GetTentacleDamage, evaluate the command expression and effect ceiling, then apply recorded target Tentacle/Vulnerable/flat properties. Noncritical hits are compared directly; critical hits separately evaluate both installed regional Crit DMG branches against recorded castDamage without using either branch for region attribution.',
+  summary,method:'From complete Tentacle hit snapshots, require matching played-card caster/skill identity, one exact direct BETentacleAttack FrontEnemy row, a living monster target and zero Awaker conditional damage bonuses. Reconstruct PlayerRole.tentacle_dmg through installed GetTentacleDamage, evaluate the command expression and effect ceiling, then apply recorded target Tentacle/Vulnerable/flat properties. The source-bound direct-command composition agrees with the independently staged calculation and recorded castDamage in all 39 cases when the international critical branch is tested. Noncritical hits are compared directly; critical hits separately evaluate both installed regional Crit DMG branches against recorded castDamage without using either branch for region attribution.',
   limitations:['All outcomes were decoded before calculation; none is a blind holdout or publication credit.',
     'The 34 exact noncritical hits and five critical branch comparisons are 39 actions in four replays, not independent players or controlled battles.',
     'The recorded combat build is unknown despite selected installed method parity; this does not establish historical engine identity.',

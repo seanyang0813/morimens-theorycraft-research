@@ -20,11 +20,12 @@
     "critEligible": 5,
     "internationalCritBranchExact": 5,
     "japanCritBranchExact": 0,
+    "composedDirectCommandMatches": 39,
     "blocked": {},
     "distinctSourceReplays": 4,
     "distinctSourceActions": 39
   },
-  "method": "From complete Tentacle hit snapshots, require matching played-card caster/skill identity, one exact direct BETentacleAttack FrontEnemy row, a living monster target and zero Awaker conditional damage bonuses. Reconstruct PlayerRole.tentacle_dmg through installed GetTentacleDamage, evaluate the command expression and effect ceiling, then apply recorded target Tentacle/Vulnerable/flat properties. Noncritical hits are compared directly; critical hits separately evaluate both installed regional Crit DMG branches against recorded castDamage without using either branch for region attribution.",
+  "method": "From complete Tentacle hit snapshots, require matching played-card caster/skill identity, one exact direct BETentacleAttack FrontEnemy row, a living monster target and zero Awaker conditional damage bonuses. Reconstruct PlayerRole.tentacle_dmg through installed GetTentacleDamage, evaluate the command expression and effect ceiling, then apply recorded target Tentacle/Vulnerable/flat properties. The source-bound direct-command composition agrees with the independently staged calculation and recorded castDamage in all 39 cases when the international critical branch is tested. Noncritical hits are compared directly; critical hits separately evaluate both installed regional Crit DMG branches against recorded castDamage without using either branch for region attribution.",
   "limitations": [
     "All outcomes were decoded before calculation; none is a blind holdout or publication credit.",
     "The 34 exact noncritical hits and five critical branch comparisons are 39 actions in four replays, not independent players or controlled battles.",

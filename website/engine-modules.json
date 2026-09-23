@@ -30,6 +30,7 @@
   "tentacle-prehit.mjs",
   "player-tentacle-damage.mjs",
   "tentacle-crit-damage.mjs",
+  "tentacle-direct-command.mjs",
   "immunity.mjs",
   "active-prevention.mjs",
   "singularity-realm.mjs",

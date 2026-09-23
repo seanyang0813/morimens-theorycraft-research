@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-theorycraft-request",
+  "requestId": "sanitized-direct-tentacle-command",
+  "operation": "calculate-direct-tentacle-command",
+  "input": {
+    "build": "pc-res151-build51",
+    "player": {
+      "tentacle_dmg": 38,
+      "tentacle_base_dmg": 103,
+      "basic_damage_per": 86,
+      "weak_per": 0,
+      "tentacle_dmg_per": 0,
+      "outside_crit_damage": 84
+    },
+    "awakers": [{
+      "i_basic_damage_per": 0,
+      "i_damage_per": 0,
+      "i_damage_per1": 0,
+      "i_damage_per2": 0,
+      "i_damage_per3": 0,
+      "i_damage_per4": 0,
+      "i_damage_per5": 0,
+      "i_damage_per6": 0,
+      "i_damage_per7": 0,
+      "i_damage_per8": 0,
+      "crit_damage": 50
+    }],
+    "powerStateLayer": 0,
+    "dimensionFixPer": 0,
+    "casterOccupationMaster": 92,
+    "japan": false,
+    "isCrit": true,
+    "target": {
+      "beDamagePer": 0,
+      "beDamagePer2": 0,
+      "beDamagePer3": 0,
+      "beTentacleDamagePer": 20,
+      "vulnerablePer": 0,
+      "beDamagePlus": 0,
+      "enemyTypePer": 0,
+      "enemyStatePer": 0,
+      "enemyBuffPer": 0,
+      "enemyDebuffPer": 0,
+      "enemyBlockPer": 0,
+      "enemyBarrierPer": 0,
+      "paraPlus": 0
+    }
+  }
+}

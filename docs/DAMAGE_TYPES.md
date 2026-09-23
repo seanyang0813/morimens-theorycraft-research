@@ -57,6 +57,16 @@ outcomes were inspected first, so this is component consistency only, not a
 blind holdout. See
 `research/evidence/tentacle-replay-simple-consistency.json`.
 
+The `calculate-direct-tentacle-command` agent operation now joins these
+separately checked stages for the exact direct row
+`PlayerRole.tentacle_dmg*CmdCaster.occupation_master/200,1,0`. Its public
+example traces 230 player value to 106 effect damage to 235 pre-hit damage
+under explicitly supplied international critical and target modifiers. The
+composed path agrees with all 39 selected retrospective staged comparisons;
+these are the same inspected actions and provide no new holdout credit. The
+operation is fixed to that row shape and stops before BeHit/HP. See
+`research/examples/theorycraft-installed-direct-tentacle-command.json`.
+
 The installed `BattleZoneUtil.GetTentacleCritDmg` is byte-identical to resource
 144 and matches 308 synthetic runtime cases. International mode applies
 `ceil(outside Crit DMG + average Awaker Crit DMG - 50)`; Japan mode returns the

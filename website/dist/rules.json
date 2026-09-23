@@ -7607,14 +7607,14 @@
     {
       "id": "Replay:TentacleSimplePreHitConsistency",
       "status": "RETROSPECTIVE_COMPONENT_MATCH_ONLY",
-      "claim": "Thirty-four noncritical Tentacle pre-hit values across four private PvE replays match the installed Player producer, command expression, effect ceiling and target modifiers exactly; five known critical outcomes match the international Crit DMG branch",
+      "claim": "Thirty-four noncritical Tentacle pre-hit values across four private PvE replays match the installed Player producer, command expression, effect ceiling and target modifiers exactly; five known critical outcomes match the international Crit DMG branch. The composed direct-command operation agrees with all 39 staged retrospective comparisons",
       "scope": "Outcome-first retrospective component comparison. Source identity and one direct BETentacleAttack row, zero conditional Awaker target bonuses, recorded critical flag and target properties. Recorded engine build and critical region/roll are not independently attributed. No blind holdout, BeHit/HP validation or publication credit.",
       "gameplayValidation": false,
       "sources": [
         {
           "module": "Sanitized Tentacle replay component audit",
-          "member": "34 source-bound noncritical comparisons, five regional critical branch comparisons and private corpus commitments",
-          "sha256": "80370568264ddda387fa31e050dbfddd1383a3ecbf8c58bab57b9b47dc0b82ff"
+          "member": "34 source-bound noncritical comparisons, five regional critical branch comparisons, 39 composed-path agreements and private corpus commitments",
+          "sha256": "ec816df91a5f9f162ae3b4912c0946f209c7e41003eb81131d8d2339209111cc"
         }
       ],
       "checks": [
@@ -7622,6 +7622,8 @@
         "engine/player-tentacle-damage.mjs",
         "engine/tentacle-prehit.mjs",
         "engine/tentacle-crit-damage.mjs",
+        "engine/tentacle-direct-command.mjs",
+        "tests/tentacle-direct-command.test.mjs",
         "research/evidence/tentacle-replay-simple-consistency.json"
       ]
     },
