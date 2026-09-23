@@ -1,4 +1,4 @@
-import {fieldsFor,hitFields,buildGeneralScenario,calculateGeneral} from './general-calculator.mjs';
+import {fieldsFor,hitFields,buildGeneralScenario,calculateGeneral,supportedDamageCategories} from './general-calculator.mjs';
 import {compareScenarios} from './engine/experiments.mjs';
 const $=id=>document.getElementById(id),fmt=n=>n.toLocaleString('en-US',{maximumFractionDigits:5});
 let baseline=null;
@@ -24,14 +24,22 @@ function renderFields(){
     }
     field(f.key,f.label,f.defaultValue,groups.get(f.group),'damage-');
   }
-  $('critical-label').hidden=type!=='ACTIVE';$('prevention-label').hidden=type!=='ACTIVE';$('puncture-label').hidden=type==='PURE';
-  if(type!=='ACTIVE'){$('critical').checked=false;$('prevention').checked=false;}
+  $('critical-label').hidden=!['ACTIVE','TENTACLE'].includes(type);$('prevention-label').hidden=type!=='ACTIVE';$('puncture-label').hidden=type==='PURE';
+  if(!['ACTIVE','TENTACLE'].includes(type))$('critical').checked=false;
+  if(type!=='ACTIVE')$('prevention').checked=false;
   if(type==='PURE')$('puncture').checked=false;
-  $('category-help').textContent=type==='ACTIVE'?'The base is the resolved formula argument, not automatically the character’s ATK. Use the trace to inspect scaling.':type==='PURE'?'Pure uses a positive resolved base rounded upward. Its later hit resolution can still include shields, immunity and caps.':'Target modifier slots multiply independently; the dimension modifier is applied at its recovered rounding stage.';
+  $('category-help').textContent=type==='ACTIVE'?'The base is the resolved formula argument, not automatically the character’s ATK. Use the trace to inspect scaling.':type==='TENTACLE'?'Enter the effect damage after the command parameter ceiling and the separately resolved critical bonus. This stops before shields and HP.':type==='PURE'?'Pure uses a positive resolved base rounded upward. Historical hit resolution can also include shields, immunity and caps.':'Target modifier slots multiply independently; the dimension modifier is applied at its recovered rounding stage.';
 }
 for(const [key,label,value] of hitFields)field(key,label,value,$('hp-numbers'),'hit-');
-function syncHp(){const enabled=$('resolve-hp').checked;$('hp-fields').hidden=!enabled;for(const input of $('hp-fields').querySelectorAll('input'))input.disabled=!enabled;}
-function read(){return {damageType:$('damage-type').value,values:Object.fromEntries(fieldsFor($('damage-type').value).map(f=>[f.key,$('damage-'+f.key).value])),isCrit:$('critical').checked,
+function syncHp(){const supported=$('client-build').value==='pc-res144-build51';if(!supported)$('resolve-hp').checked=false;$('resolve-hp').disabled=!supported;const enabled=supported&&$('resolve-hp').checked;$('hp-fields').hidden=!enabled;for(const input of $('hp-fields').querySelectorAll('input'))input.disabled=!enabled;}
+function syncBuild(){
+  const allowed=supportedDamageCategories[$('client-build').value];
+  for(const option of $('damage-type').options)option.disabled=!allowed.includes(option.value);
+  if(!allowed.includes($('damage-type').value))$('damage-type').value=allowed[0];
+  baseline=null;$('baseline-note').textContent='No baseline saved.';$('compare').disabled=true;
+  renderFields();syncHp();
+}
+function read(){return {clientBuild:$('client-build').value,damageType:$('damage-type').value,values:Object.fromEntries(fieldsFor($('damage-type').value).map(f=>[f.key,$('damage-'+f.key).value])),isCrit:$('critical').checked,
   hitEnabled:$('resolve-hp').checked,hitValues:Object.fromEntries(hitFields.map(([k])=>[k,$('hit-'+k).value])),immune:$('immune').checked,puncture:$('puncture').checked,preventEligible:$('prevention').checked};}
 $('general-form').addEventListener('submit',event=>{event.preventDefault();clear();try{
   const input=read(),result=calculateGeneral(input),pre=result.experimentalModels[0];
@@ -42,9 +50,9 @@ $('general-form').addEventListener('submit',event=>{event.preventDefault();clear
   for(const dependency of result.unresolvedDependencies){const li=document.createElement('li');li.textContent=dependency;$('dependencies').append(li);}
   $('snapshot').textContent=JSON.stringify({input:buildGeneralScenario(input),result},null,2);
 }catch(error){$('error').textContent=error.message;}});
-$('general-form').addEventListener('input',clear);$('damage-type').addEventListener('change',renderFields);
+$('general-form').addEventListener('input',clear);$('damage-type').addEventListener('change',renderFields);$('client-build').addEventListener('change',syncBuild);
 $('resolve-hp').addEventListener('change',syncHp);$('reset').addEventListener('click',()=>{renderFields();$('critical').checked=false;});
-renderFields();syncHp();
+syncBuild();
 
 function showComparison(experiment){
   const result=compareScenarios(experiment);$('comparison').replaceChildren();

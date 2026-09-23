@@ -1,4 +1,9 @@
 import {calculateDamage,build} from './calculate-damage.mjs';
+const supportedCategories={
+  [build]:['ACTIVE','PASSIVE','FIXED','PURE'],
+  'pc-res150-build51':['FIXED','PURE'],
+  'pc-res151-build51':['FIXED','PURE','TENTACLE'],
+};
 
 export function snapshot(value){
   const visit=v=>{
@@ -39,7 +44,12 @@ export function compareScenarios(experiment,{runtimeFingerprint=null}={}){
     if(frozen.runtimeFingerprint!==runtimeFingerprint)throw new Error('Runtime fingerprint mismatch or current runtime not verified; replay refused');
   }
   if(runtimeFingerprint!==null)frozen.runtimeFingerprint=runtimeFingerprint;
-  for(const key of ['baseline','candidate'])if(frozen[key]?.build!==build||frozen[key]?.mode!=='experimental')throw new Error('Both scenarios must explicitly use the supported build and experimental mode');
+  for(const key of ['baseline','candidate']){
+    const scenario=frozen[key];
+    if(scenario?.mode!=='experimental'||!supportedCategories[scenario.build]?.includes(scenario.damageType))
+      throw new Error('Both scenarios must explicitly use a supported build, damage category and experimental mode');
+  }
+  if(frozen.baseline.build!==frozen.candidate.build)throw new Error('A/B comparison requires the same client build');
   const baseline=calculateDamage(frozen.baseline),candidate=calculateDamage(frozen.candidate);
   const a=metrics(baseline),b=metrics(candidate);
   const deltas=Object.fromEntries(Object.keys(a).map(k=>[k,a[k]===null||b[k]===null?null:b[k]-a[k]]));

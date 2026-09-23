@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "4de274605c072f312e887232c19506f8ce62f5424d4e3bd9156f111464261c0d",
+  "fingerprint": "01b001c2657a87c866de36bb26be0d192deb07249837ece80ad491096ad027d7",
   "files": {
     "build-catalog.json": "71d0e0d14959e933ae8942ac0064de95c0a63b84ce9065e2bdcef4509090b98b",
     "client-build-data-res150.json": "49d4bf5abe419360df47e4959a26fb50bdaa37ed8189c022a644ff518f6fba80",
@@ -56,7 +56,7 @@
     "engine/dimension-final-value.mjs": "027653e8bffe351dc85d40d42dc72df41c4ff2d64a659be79d0e931b4ca983dd",
     "engine/effect-order.mjs": "03c9e57ac4707bdec8be4cf1f87e8e33e20686449a3c6b6ef9416977ad3ce131",
     "engine/energy-payment.mjs": "b31b16dee520da604b7a0c5d60e47aa10ef6da43bbab3764bfb1c89893f44493",
-    "engine/experiments.mjs": "da1a90fd1488e012e74b00a8a657a2825f54e2d1b50d0d68c9d4d93ba7b10305",
+    "engine/experiments.mjs": "caaba3cfcc74a2b2710d538681d2a7e51ddc5cd7af4e1f937b5a37053a1edfdd",
     "engine/fixed-pure-command-experiment.mjs": "f05f0e1b35c6610b5b5aa8835453a0d981a0f8c22996a1e6817ffb47b0929141",
     "engine/fixed-pure-prehit.mjs": "4c454a98b915b8c9920743ba5fb4c707edb290e46de89999adcce21c1e09edde",
     "engine/front-enemy-target.mjs": "c513bd115639344c6f6981d5b167b29bfaae0e8750c86772f0e7b49aebc92f06",
