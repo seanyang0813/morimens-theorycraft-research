@@ -7702,6 +7702,32 @@
       "gameplayValidation": false
     },
     {
+      "id": "PC151:FixedPurePreHitRuntimeCarryforward",
+      "status": "EXACT_MATCH_IN_SYNTHETIC_FIXTURE_DOMAIN",
+      "claim": "Installed resource-151 Fixed and Pure effect methods reproduce 372 and 322 historical synthetic pre-hit outputs exactly under explicit target-property and dimension inputs",
+      "sources": [
+        {
+          "module": "Installed BEFixedDamage, BEPureDamage, BattleEffectServer and selected current dependencies",
+          "member": "copied-original __DoMultiEffect, CalFinalVal and intercepted BeHit payload",
+          "bundle": "private installed PC Lua modules",
+          "sha256": "5e51b7048f81059c68bbbd7ceac09bac6bf38f727169d19d41e9ee064e2be95e"
+        },
+        {
+          "module": "Sanitized current Fixed/Pure runtime comparison",
+          "member": "source hashes and exact fixture counts",
+          "bundle": "private copied-original runtime audit",
+          "sha256": "014e07161e9e0f22167018fd975e4966cee80859d389aabcf124f813b40e63e3"
+        }
+      ],
+      "tests": [
+        "tools/verify_installed_fixed_pure_runtime.py",
+        "tests/pc-res151-fixed-pure-runtime.test.mjs",
+        "tests/fixed-pure-prehit.test.mjs"
+      ],
+      "scope": "Pre-hit synthetic method domain only. Does not cover catalog arguments, automatic target/repetition behavior, HP/shield resolution, statistics, callbacks, gameplay validation or holdout credit.",
+      "gameplayValidation": false
+    },
+    {
       "id": "Mechanics:WheelCapabilityCatalog",
       "status": "STATIC_MECHANICS_FINGERPRINTS",
       "claim": "A sanitized per-Wheel catalog exposes static potential effect types and thirteen broad mechanic categories for 141 uniquely crosswalked Wheels while leaving five unresolved",

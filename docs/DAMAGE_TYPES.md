@@ -1,6 +1,13 @@
 # Damage categories
 
-All statements below concern PC144 copied code, not a verified public category matrix.
+The matrix below concerns PC144 copied code, not a verified public category matrix.
+
+The installed PC resource-151 client now has a bounded Fixed/Pure carry-forward
+check: its copied original effect methods, effect base and selected current
+dependencies reproduce 372 Fixed and 322 Pure synthetic pre-hit cases exactly.
+The comparison intercepts `BeHit` and therefore does not establish HP loss,
+catalog argument preparation or independent gameplay accuracy. See
+`research/evidence/pc-res151-fixed-pure-runtime.json`.
 
 | Stage | Active | Tentacle | Fixed | Pure |
 |---|---|---|---|---|
