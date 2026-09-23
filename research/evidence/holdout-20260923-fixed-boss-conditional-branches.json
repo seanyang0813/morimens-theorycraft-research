@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_CONDITIONAL_REPLAY_BRANCH_FREEZE",
+  "status": "PREOUTCOME_DIAGNOSTIC_NOT_EXACT_HOLDOUT",
+  "analysisTrack": "verification",
+  "createdAtUtc": "2026-09-23T13:46:15.916Z",
+  "build": "pc-res151-build51",
+  "containerSha256": "6f0f7588a0da104adfcec9469c9c27ce429d76fd3e3675473549e23bccb203b7",
+  "captureCandidate": {
+    "path": "research/evidence/holdout-20260923-fixed-boss-capture-candidate.json",
+    "sha256": "047979f22803e247abbc52091bb7d9de9f93fcb864912320605946fb0c63b1d9"
+  },
+  "privateIndexSha256": "9d9137444c62cb0ad0b781ac6a976c27c105760fb92215c4fbb571933f3dbc0e",
+  "sourceActionIndex": 1,
+  "sourceHitIndex": 0,
+  "identityCommitmentSha256": "48643be2f4d27038a4564d7c187fe5597021b888138ca01430c7a890a05d6f49",
+  "selectionPolicy": "first complete ordinary Active or Fixed direct hit conditional on an explicit hypothetical critical roll, using identity-only target/caster/skill routing with all numeric outcome fields excluded",
+  "critChanceCeil": 12,
+  "branches": {
+    "ordinary": {
+      "hypotheticalRoll": 100,
+      "critical": false,
+      "predictedPreHitDamage": 30,
+      "scenarioSha256": "48b878d110dbe7ae5798c44ada5e82c95b52ca677d12c778e5a2b23b007b8239"
+    },
+    "critical": {
+      "hypotheticalRoll": 1,
+      "critical": true,
+      "predictedPreHitDamage": 45,
+      "scenarioSha256": "040629ca5d12a5e5e3ccb4b4498c4f0ca90ad46bf3f791a5c7341853f22a5e17"
+    }
+  },
+  "excludedOutcomeFields": [
+    "castDamage",
+    "isCrit",
+    "oldHp",
+    "blockLose",
+    "realDamage",
+    "hpLose"
+  ],
+  "limitations": [
+    "Actual critical RNG draw was not captured; the branch pair is not an exact prediction",
+    "Capture candidate lacks controlled-battle/Record attestation",
+    "Target identity is conditioned on the recorded hit and is not predicted",
+    "This diagnostic receives no independent holdout or publication credit"
+  ]
+}

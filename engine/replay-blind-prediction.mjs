@@ -10,8 +10,9 @@ const roleType={Awaker:1,Monster:2};
 // amount, crit flag, HP loss and block loss are replaced before the ordinary
 // replay adapter is invoked. This predicts damage conditional on the recorded
 // target/caster/skill identity; it does not claim to predict target selection.
-export function buildBlindReplayPrediction({index,skills,commands,monsters,awakeners,combatBuild='pc-res144-build51'}){
+export function buildBlindReplayPrediction({index,skills,commands,monsters,awakeners,combatBuild='pc-res144-build51',critRoll=null}){
   if(!index||index.kind!=='MORIMENS_REPLAY_EVENT_INDEX')throw new Error('Replay event index required');
+  if(critRoll!==null&&(!Number.isSafeInteger(critRoll)||critRoll<1||critRoll>100))throw new Error('Conditional critical roll must be an integer from 1 to 100');
   const blockers=[];
   for(const sourceAction of index.actionSnapshots??[]){
     let played,caster,snapshots,hits,directHits;
@@ -48,18 +49,18 @@ export function buildBlindReplayPrediction({index,skills,commands,monsters,awake
         action.window={selectedTargetCommands:clone(sourceAction.window?.selectedTargetCommands??[]),events:[clone(syntheticHit)],hits:[clone(syntheticHit)],hitSnapshots:[first]};
         const sealedIndex={kind:index.kind,build:index.build,actionSnapshots:[action]};
         action.actionIndex=0;
-        const candidate=damageType===6?buildFixedReplayActionCandidate({index:sealedIndex,actionIndex:0,hitIndex:first.hitIndex,skills,commands,combatBuild}):buildReplayActionCandidate({index:sealedIndex,actionIndex:0,hitIndex:first.hitIndex,skills,commands,monsters,awakeners,preOutcome:true,combatBuild});
+        const candidate=damageType===6?buildFixedReplayActionCandidate({index:sealedIndex,actionIndex:0,hitIndex:first.hitIndex,skills,commands,combatBuild}):buildReplayActionCandidate({index:sealedIndex,actionIndex:0,hitIndex:first.hitIndex,skills,commands,monsters,awakeners,critRoll,preOutcome:true,combatBuild});
         if(candidate.status!=='CALCULATED_REGRESSION_CANDIDATE'||!candidate.calculation||candidate.comparison!==null||candidate.observedHit!==null)throw new Error(candidate.calculationBlocker??'Deterministic outcome-free calculation required');
         return {
           schemaVersion:1,kind:'MORIMENS_BLIND_REPLAY_PREDICTION',build:candidate.build,
-          selectionPolicy:'first complete deterministic ordinary Active or Fixed direct hit using identity-only target/caster/skill routing with all numeric outcome fields excluded',
+          selectionPolicy:critRoll===null?'first complete deterministic ordinary Active or Fixed direct hit using identity-only target/caster/skill routing with all numeric outcome fields excluded':'first complete ordinary Active or Fixed direct hit conditional on an explicit hypothetical critical roll, using identity-only target/caster/skill routing with all numeric outcome fields excluded',
           sourceActionIndex:sourceAction.actionIndex,sourceHitIndex:first.hitIndex,
           scenario:candidate.scenario,calculation:candidate.calculation,predictedDamage:candidate.calculation.preHitDamage,
           routing:{damageType,skillId:played.tid,commandId:candidate.identities.commandId,rowId:candidate.identities.rowId,eligibleRowIds:candidate.routing.eligibleRowIds??[candidate.identities.rowId],eligibleRowPredictions:candidate.routing.eligibleRowPredictions??[candidate.calculation.preHitDamage],parameters:candidate.routing.parameters,tags:candidate.routing.tags,repetitionPerExecution:candidate.repetition.perExecution,targetBindingSource:candidate.routing.targetBindingSource,commandSourceShape:candidate.routing.commandSourceShape},
           identityCommitmentSha256:hash({cardUid:played.uid,skillId:played.tid,casterUid:caster.uid,targetUid:target.uid}),
           sealedProjectionSha256:hash({action,scenario:candidate.scenario,routing:candidate.routing}),
           blockersBeforeSelection:blockers,
-          unresolvedDependencies:['Target selection is treated as a frozen identity input rather than predicted',...candidate.unresolvedDependencies]
+          unresolvedDependencies:['Target selection is treated as a frozen identity input rather than predicted',...(critRoll===null?[]:['The supplied critical roll is hypothetical; the actual RNG draw is unknown and this is not an exact blind prediction']),...candidate.unresolvedDependencies]
         };
       }catch(error){blockers.push({actionIndex:sourceAction.actionIndex,hitIndex:direct.snapshot.hitIndex,reason:error.message});}
     }

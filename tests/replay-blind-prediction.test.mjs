@@ -54,6 +54,20 @@ test('blind replay prediction rejects chance-dependent critical outcomes',()=>{
   assert.throws(()=>buildBlindReplayPrediction(input),/No blind deterministic replay candidate/);
 });
 
+test('conditional critical branches stay outcome-blind and do not become exact predictions',()=>{
+  const input=fixture(250);input.index.actionSnapshots[0].roles['1'].properties.crit=50;input.index.actionSnapshots[0].window.hitSnapshots[0].roles['1'].properties.crit=50;
+  const critical=buildBlindReplayPrediction({...input,critRoll:1}),ordinary=buildBlindReplayPrediction({...input,critRoll:100});
+  assert.equal(critical.predictedDamage,250);
+  assert.equal(ordinary.predictedDamage,100);
+  assert.equal(critical.sourceActionIndex,ordinary.sourceActionIndex);
+  assert.equal(critical.sourceHitIndex,ordinary.sourceHitIndex);
+  assert.match(critical.selectionPolicy,/hypothetical critical roll/);
+  assert.ok(critical.unresolvedDependencies.some(item=>/not an exact blind prediction/.test(item)));
+  const changed=fixture(999999);changed.index.actionSnapshots[0].roles['1'].properties.crit=50;changed.index.actionSnapshots[0].window.hitSnapshots[0].roles['1'].properties.crit=50;
+  assert.equal(buildBlindReplayPrediction({...changed,critRoll:1}).predictedDamage,critical.predictedDamage);
+  assert.throws(()=>buildBlindReplayPrediction({...input,critRoll:0}),/Conditional critical roll/);
+});
+
 test('blind replay prediction rejects later hits whose starting HP or Block may depend on an earlier outcome',()=>{
   const input=fixture(250),action=input.index.actionSnapshots[0],firstSnapshot=action.window.hitSnapshots[0],firstHit=action.window.hits[0];
   firstSnapshot.roles['1'].properties.crit=50;
