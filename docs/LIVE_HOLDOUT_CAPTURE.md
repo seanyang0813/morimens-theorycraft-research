@@ -67,6 +67,10 @@ Further UI inputs did advance the same chapter 5-14 run. Three ordinary battles 
 
 After abandoning the locked chapter run, the agent entered the previously cleared Ogier consciousness-trial battle at recommended level 25 with the account's level 50/30/40/40 team. In-game auto battle won the ordinary fight and granted a card imprint. The subsequent map gate required a rusted key, so the investigation did not finish. A fresh private same-process baseline had three references at 10:00:31 UTC. Its private delta at 10:04:56 UTC still had three references, **zero new references and zero valid containers**. The trial's earlier Record screen also showed no clear record for this stage. The files are `research/raw/holdout-session-baseline-20260923-09.json` and `research/raw/holdout-session-delta-20260923-09.json` (gitignored). This private baseline was not committed publicly before the fight, and the visible fight was exploratory; it provides no holdout or publication credit.
 
+### 2026-09-23 current Chapter 5-14 Normal run
+
+A new public baseline was committed and pushed before entering Chapter 5-14 Normal in the same resource-151/build-51 process. Two ordinary fights completed with in-game auto battle while the investigation remained open. A same-process scan at 14:49:41 UTC found two references absent from the three-reference baseline, but both were field-only and **neither replay container was retrievable**. The investigation reached a gate requiring a separate rusted key; the Record screen has not been loaded. The identifier-free diagnostic is `research/evidence/story-5-14-live-replay-diagnostic-20260923.json`, with the raw delta gitignored. Damage was visible during play, so these fights are exploratory and add no holdout credit. A later scan after a completed stage Record is loaded may show whether those references become containers; it cannot retroactively make the visible outcomes blind.
+
 ## 4. Build the outcome-blind capture evidence
 
 ### 2026-09-23 Chapter 1-7 controlled-run diagnostic

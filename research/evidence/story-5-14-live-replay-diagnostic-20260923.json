@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_STORY_REPLAY_CAPTURE_DIAGNOSTIC",
+  "status": "TWO_NEW_REFERENCES_NO_RETRIEVABLE_CONTAINERS",
+  "stage": "Chapter 5-14 Normal",
+  "baselineEvidencePath": "research/evidence/holdout-session-baseline-20260923-story-5-14.json",
+  "deltaCapturedAtUtc": "2026-09-23T14:49:41.089157+00:00",
+  "sameProcessStartAndExecutableHash": true,
+  "baselineReferenceCount": 3,
+  "currentReferenceCount": 5,
+  "newReferenceCount": 2,
+  "fieldOnlyCandidateCount": 2,
+  "unavailableContainerCount": 2,
+  "validContainers": 0,
+  "holdoutCredit": false,
+  "limitations": [
+    "The chapter investigation was still open at the scan; its Record screen had not been loaded.",
+    "The game displayed combat damage during both ordinary fights, so their outcomes cannot be blind holdouts.",
+    "The map gate requires a separate rusted key. Neither reference alone identifies a complete replay or proves calculator accuracy."
+  ]
+}
