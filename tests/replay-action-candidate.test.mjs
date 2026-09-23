@@ -41,6 +41,22 @@ test('resource 153 replay pre-hit path uses live card properties and inherited s
   assert.match(result.calculation.unresolvedDependencies.at(-1),/no current-build gameplay validation/);
 });
 
+test('replay card types resolve captured progression and positive Strike override',()=>{
+  const input=fixture(),action=input.index.actionSnapshots[0],hit=action.window.hitSnapshots[0];
+  input.skills['10'].Type={'0':['Card_Skill'],'2':['Card_Skill','Card_Strike']};
+  action.roles['1'].potencyLevel=2;hit.roles['1'].potencyLevel=2;
+  const progressed=buildReplayActionCandidate({...input,actionIndex:0});
+  assert.deepEqual(progressed.scenario.tags,['Card_Skill','Card_Strike']);
+  assert.deepEqual(progressed.routing.tagSelection,{matchKey:2,status:'VARIANT_SELECTED',breakThreshold:0,potencyThreshold:2});
+  hit.roles['1'].potencyLevel=0;action.roles['1'].potencyLevel=0;
+  hit.cards['30'].properties.card_type_strike=1;
+  const overridden=buildReplayActionCandidate({...input,actionIndex:0});
+  assert.deepEqual(overridden.scenario.tags,['Card_Skill','Card_Strike']);
+  assert.equal(overridden.routing.strikeTypeOverride,1);
+  hit.cards['30'].properties.card_type_strike=Number.NaN;
+  assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0}),/Strike-type override must be finite/);
+});
+
 test('replay adapter derives growth variables from embedded formulas and a captured skill slot',()=>{
   const input=fixture(),skill=input.skills['10'];
   skill.CoefficientTypelist=['BattleFomula2'];skill.OriginalCoefficient=[15];skill.ParaPlus='GrowArgValue1*0.01';

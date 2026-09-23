@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CARD_TYPE_ROUTING_COMPATIBILITY",
+  "analysisTrack": "verification",
+  "beforeBuild": "pc-res151-build51",
+  "afterBuild": "pc-res153-build51",
+  "module": "BattleCardServer.lua",
+  "beforeSha256": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53",
+  "afterSha256": "cdc402d5e6dfb297d784cca32275a94c470e78e731ea818381c53fc7a704fa53",
+  "bytes": 31006,
+  "status": "BYTE_IDENTICAL_SELECTED_CARD_TYPE_METHOD",
+  "sourceMethods": [
+    "BattleCardServer.GetType: progression-selected Type list, then positive card_type_strike insertion",
+    "BattleUtilServer.GetTQList: select a matching progression list when the first value is a table"
+  ],
+  "adapterScope": "Replay card types with a captured Awakener break/potency level and a finite captured card_type_strike property. Unmatched progression keys fail closed.",
+  "limitations": [
+    "Serialized cardTypes overrides and IsFromAttachPost-derived tags are not reconstructed by this adapter",
+    "This selected module equality does not establish the full resource-153 battle engine build or a blind gameplay holdout",
+    "No player, card-instance or replay identifier is published"
+  ]
+}

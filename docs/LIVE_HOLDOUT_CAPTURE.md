@@ -77,6 +77,8 @@ A public resource-153/build-51 baseline was committed and pushed before a fresh 
 
 All ten containers classify as `PVE_MONSTER_TARGETS`. The resource-153 adapter audit found 323 complete hit snapshots, 61 supported ordinary Active candidates, one exact deterministic match and 60 matches to one possible critical branch, with zero mismatches. The [identifier-free aggregate](../research/evidence/res153-record-list-retrospective-audit-20260923.json) commits to the private audit hash. These are retrospective component checks, not an exact recorded-build claim, a controlled capture, a blind holdout, or publication credit. The critical draws are unavailable, and the first selected record belongs to another player.
 
+A follow-up checked the installed resource-153 `BattleCardServer.lua` against resource 151: the selected 31,006-byte module is byte-identical. Its card-type path resolves progression-keyed `Type` lists and a positive `card_type_strike` override. Adding that bounded route to the replay adapter raised the same batch from 61 to 74 supported ordinary Active candidates: one deterministic match and 73 critical-branch matches, still with zero mismatches. The [card-type source commitment](../research/evidence/pc-res153-card-type-routing.json) and [updated identifier-free audit](../research/evidence/res153-record-list-type-routing-audit-20260923.json) keep this retrospective. Serialized card-type overrides and attach-post card routing remain unsupported, and the holdout count is unchanged.
+
 ## 4. Build the outcome-blind capture evidence
 
 ### 2026-09-23 Chapter 1-7 controlled-run diagnostic
