@@ -37,7 +37,7 @@ import {runPreparedMortalBlast} from './prepared-mortal-blast.mjs';
 
 export const theorycraftOperations=Object.freeze([
   {name:'describe-capabilities',context:[],scope:'List supported versioned operations and evidence boundaries'},
-  {name:'calculate-damage',context:[],scope:'Resolved single-hit research calculation; resource-150/151 support is Fixed/Pure pre-hit only'},
+  {name:'calculate-damage',context:[],scope:'Resolved single-hit research calculation; resource-150 supports Fixed/Pure pre-hit, and resource-151 supports Fixed/Pure/Tentacle pre-hit'},
   {name:'calculate-snapshot-active-damage',context:[],scope:'Complete captured battle-property maps through bounded PvE Active pre-hit and optional BeHit-to-HP paths'},
   {name:'run-snapshot-active-sequence',context:[],scope:'Repeated complete-property Active hits with recovered HP and Block mutations threaded between hits'},
   {name:'run-prepared-snapshot-active-skill',context:['skillCommandData'],scope:'Catalog-prepared ordinary/Puncture Active rows through complete-property hits, including a fail-closed leading-damage prefix for mixed commands'},

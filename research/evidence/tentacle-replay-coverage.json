@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_RETROSPECTIVE_TENTACLE_COVERAGE",
+  "analysisTrack": "verification",
+  "status": "SOURCE_ATTRIBUTION_ONLY",
+  "recordedCombatBuild": null,
+  "corpusIndexCommitmentSha256": "a65fa79fcdf6a82191d6146cc5c237bc88d022d66808de0405a515f723b76388",
+  "summary": {
+    "replaysScanned": 102,
+    "completeTentacleHits": 905,
+    "hitBearingReplays": 17,
+    "hitBearingActions": 204,
+    "snapshotCardTidMatch": 889,
+    "casterOwnerMatch": 204,
+    "skillTidMatch": 58,
+    "bothIdentityMatch": 58,
+    "directImmediateTentacleRows": 39,
+    "directNestedOrUnsupported": 19
+  },
+  "method": "Match complete damage-type-3 hit snapshots to same-frame hit records; compare recorded caster/skill identity with the played card, then inspect only embedded command rows for both-identity matches.",
+  "limitations": [
+    "No Tentacle damage value is predicted or compared here; no independent holdout or publication credit.",
+    "Most Tentacle hits are triggered effects and cannot be attributed to the played card by immediate caster/skill identity.",
+    "An immediate BETentacleAttack row establishes a source candidate, not complete parameter, crit, target, state, or HP reconstruction.",
+    "The recorded combat build is unknown; all source records and identifiers remain private."
+  ]
+}

@@ -12,6 +12,25 @@ The shared experimental `calculateDamage` API now accepts resolved Fixed/Pure
 pre-hit inputs for resource 150/151 and rejects current-build HP resolution.
 It still returns `finalDamage: null`.
 
+For Tentacle, the installed resource-151 `SchoolCompPVE.CalcTentacleDmg`
+matches the copied original module byte-for-byte. A resolved-input calculator
+matches 414 executions of that installed method with one synthetic Awakener and
+a deterministic critical roll. Four target damage percentages multiply; crit,
+Vulnerable, enemy-type/buff/debuff/block/barrier and per-state factors multiply
+outside them. Target flat damage and the command's ParaPlus are added before
+one ceiling and a minimum of one. The preceding `BETentacleAttack` effect
+ceil, target selection, repeats and chance roll are separate dependencies. See
+`research/evidence/pc-res151-tentacle-prehit-runtime.json` and
+`research/examples/theorycraft-installed-tentacle-prehit.json`. This path also
+returns `finalDamage: null` and rejects HP resolution.
+
+In 102 private PvE replay records, 905 complete Tentacle hits appear across 17
+replays and 204 action windows. Only 58 have both immediate caster and skill
+identity matching the played card; 39 of those have one direct
+`BETentacleAttack` command row and 19 require nested/other source tracing.
+These are coverage counts, not Tentacle damage predictions or holdout evidence.
+See `research/evidence/tentacle-replay-coverage.json`.
+
 A separate outcome-first PvE replay audit reconstructs 85 Fixed pre-hit values
 exactly from captured card arguments, six conditional command rows, live state
 layers, target Fixed properties and the player's dimension modifier. Those hits
@@ -23,9 +42,9 @@ installed build. See `research/evidence/fixed-replay-consistency.json`.
 
 | Stage | Active | Tentacle | Fixed | Pure |
 |---|---|---|---|---|
-| Offensive utility | ShowDamageFormula | Distinct tentacle setup | Bypassed by effect | Bypassed by effect |
-| STR | Added in active setup | Separate setup, pending | No automatic addition | No automatic addition |
-| Crit | Yes, eligibility/overrides | Separate crit calculation | false | false |
+| Offensive utility | ShowDamageFormula | Distinct installed SchoolCompPVE calculation | Bypassed by effect | Bypassed by effect |
+| STR | Added in active setup | No automatic STR addition in the resolved pre-hit method | No automatic addition | No automatic addition |
+| Crit | Yes, eligibility/overrides | Separate Tentacle roll and bonus | false | false |
 | Generic target factors | be_damage_per family | be_damage_per 1–3 plus tentacle | be_fixed_damage_per 1–5 | Not applied in BEPureDamage |
 | Vulnerable | Separate factor | Separate factor | Not in effect | Not in effect |
 | Shared hit resolver | Yes | Yes | Yes | Yes |

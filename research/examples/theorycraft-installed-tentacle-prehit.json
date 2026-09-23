@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-theorycraft-request",
+  "requestId": "synthetic-installed-tentacle-prehit",
+  "operation": "calculate-damage",
+  "input": {
+    "mode": "experimental",
+    "build": "pc-res151-build51",
+    "damageType": "TENTACLE",
+    "tentacle": {
+      "build": "pc-res151-build51",
+      "isCrit": false,
+      "tentacleDamage": 100,
+      "critDamagePer": 150,
+      "beDamagePer": 0,
+      "beDamagePer2": 0,
+      "beDamagePer3": 0,
+      "beTentacleDamagePer": 20,
+      "vulnerablePer": 0,
+      "beDamagePlus": 0,
+      "enemyTypePer": 0,
+      "enemyStatePer": 0,
+      "enemyBuffPer": 0,
+      "enemyDebuffPer": 0,
+      "enemyBlockPer": 0,
+      "enemyBarrierPer": 0,
+      "paraPlus": 0
+    }
+  }
+}

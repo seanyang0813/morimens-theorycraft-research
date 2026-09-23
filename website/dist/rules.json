@@ -7543,6 +7543,45 @@
         "tools/verify_android_script_group.py",
         "tests/android-script-manifest.test.mjs"
       ]
+    },
+    {
+      "id": "PC151:ResolvedTentaclePreHit",
+      "status": "SUPPORTED_BY_ORIGINAL_RUNTIME_TEST",
+      "claim": "Resolved Tentacle pre-hit arithmetic matches 414 executions of installed resource-151 SchoolCompPVE.CalcTentacleDmg with a synthetic one-Awakener adapter and deterministic critical branch",
+      "scope": "Resolved pre-hit category formula only. Explicit one-Awakener bonus values, deterministic critical decision and synthetic properties; no upstream effect parameter, multiple-Awakener averaging, BeHit, HP, gameplay or independent holdout.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Installed SchoolCompPVE and BETentacleAttack",
+          "member": "byte-identical copied-original modules and installed CalcTentacleDmg execution",
+          "sha256": "6399b84cda52de84b28b82f4d35fb847c6590269adf78d62ff814f7309d02bd5"
+        }
+      ],
+      "checks": [
+        "tools/tentacle_runtime_oracle.py",
+        "tools/build_tentacle_prehit_evidence.py",
+        "tests/synthetic/installed-tentacle-prehit.json",
+        "tests/tentacle-prehit.test.mjs",
+        "tests/tentacle-calculator-integration.test.mjs"
+      ]
+    },
+    {
+      "id": "Replay:TentacleSourceAttribution",
+      "status": "RETROSPECTIVE_COVERAGE_ONLY",
+      "claim": "Among 905 complete Tentacle hit snapshots from 102 private PvE replays, 58 match the played card by immediate caster and skill identity, and 39 have one direct BETentacleAttack row",
+      "scope": "Outcome-first source attribution only; no Tentacle damage calculation, recorded combat build, independent observation or holdout credit. Triggered Tentacle hits require separate provenance reconstruction.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Sanitized Tentacle replay coverage",
+          "member": "102-record private corpus aggregate and source identity checks",
+          "sha256": "f258b0ac9918bfc060a282b3245671cc768ff0b96af7176a3c00336f040a432c"
+        }
+      ],
+      "checks": [
+        "tools/audit_tentacle_replay_coverage.py",
+        "research/evidence/tentacle-replay-coverage.json"
+      ]
     }
   ]
 }

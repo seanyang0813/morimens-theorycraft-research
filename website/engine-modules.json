@@ -27,6 +27,7 @@
   "hp-property.mjs",
   "passive-prehit.mjs",
   "fixed-pure-prehit.mjs",
+  "tentacle-prehit.mjs",
   "immunity.mjs",
   "active-prevention.mjs",
   "singularity-realm.mjs",

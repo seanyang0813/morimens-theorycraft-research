@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_INSTALLED_TENTACLE_PREHIT_RUNTIME",
+  "build": "pc-res151-build51",
+  "status": "EXACT_IN_SYNTHETIC_FIXTURE_DOMAIN",
+  "sourceHashes": {
+    "SchoolCompPVE.lua": {
+      "sha256": "84720d4357ae3df20781e249781421c561dad828728320458134fd96132a46eb",
+      "status": "BYTE_IDENTICAL"
+    },
+    "BETentacleAttack.lua": {
+      "sha256": "b766fde3fa479a5944ce5a266a106085fae74431a41183b143960a6b4da29508",
+      "status": "BYTE_IDENTICAL"
+    }
+  },
+  "originalRuntimeFixtureSha256": "9c83aa9f7d4131294ef3a5c295845a0e6adacdcbe26f283daf0d949cedc7b178",
+  "originalRuntimeCases": 414,
+  "method": "Execute installed SchoolCompPVE.CalcTentacleDmg in copied XLua with one synthetic Awakener, explicit target/property getters and deterministic random draw; compare the independent JavaScript formula to every output.",
+  "scope": "Resolved Tentacle pre-hit calculation, including critical multiplier, four multiplicative target damage properties, Vulnerable, six Awakener-derived categories/state factor, two flat additions, ceiling and minimum one.",
+  "limitations": [
+    "Synthetic adapters and deterministic critical branch, not observed gameplay.",
+    "The BETentacleAttack effect parameter ceiling, target selection, repeats and skill-argument addition are not composed in this comparison.",
+    "Awakener bonuses are supplied as resolved aggregate values; multiple-Awakener averaging and per-state grouping are not exercised.",
+    "BeHit, HP loss, callbacks, target death, replay source binding and independent holdout are outside scope."
+  ]
+}

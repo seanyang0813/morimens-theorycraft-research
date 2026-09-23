@@ -91,9 +91,19 @@ test('agent CLI exposes installed Fixed pre-hit arithmetic without final damage'
   assert.ok(response.result.evidence.includes('research/evidence/pc-res151-fixed-pure-runtime.json'));
 });
 
-test('agent CLI rejects resource-151 resolved damage without a Fixed/Pure category',()=>{
+test('agent CLI rejects resource-151 resolved damage without a supported category',()=>{
   const result=run('tests/synthetic/theorycraft-res151-unsupported-operation.json');
   assert.equal(result.status,1);
   const failure=JSON.parse(result.stderr);
-  assert.match(failure.message,/limited to Fixed\/Pure pre-hit effects/);
+  assert.match(failure.message,/limited to Fixed\/Pure\/Tentacle pre-hit effects/);
+});
+
+test('agent CLI exposes installed Tentacle pre-hit arithmetic without final damage',()=>{
+  const result=run('research/examples/theorycraft-installed-tentacle-prehit.json');
+  assert.equal(result.status,0,result.stderr);
+  const response=JSON.parse(result.stdout);
+  assert.equal(response.result.build,'pc-res151-build51');
+  assert.equal(response.result.experimentalModels[0].preHitDamage,120);
+  assert.equal(response.result.finalDamage,null);
+  assert.ok(response.result.evidence.includes('tests/synthetic/installed-tentacle-prehit.json'));
 });

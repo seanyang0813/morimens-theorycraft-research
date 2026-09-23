@@ -6,6 +6,7 @@ import {normalizeSkillArguments} from './skill-arguments.mjs';
 import {subtractOrdinaryHp} from './hp-property.mjs';
 import {passivePreHit} from './passive-prehit.mjs';
 import {fixedPurePreHit} from './fixed-pure-prehit.mjs';
+import {tentaclePreHit} from './tentacle-prehit.mjs';
 import {resolveImmunity} from './immunity.mjs';
 import {resolveActivePrevention} from './active-prevention.mjs';
 import {hitTriggerValues} from './hit-trigger-values.mjs';
@@ -15,14 +16,29 @@ const fixedPureBuilds=new Set([build,'pc-res150-build51','pc-res151-build51']);
 // Research API. No complete gameplay scenario has passed independent validation.
 // Callers cannot opt into a VERIFIED status or suppress required dependencies.
 export function calculateDamage(input){
-  const allowed=['mode','build','damageType','offense','offenseSetup','skillArgumentSnapshot','target','passive','effect','hitResolution','unresolvedDependencies'];
+  const allowed=['mode','build','damageType','offense','offenseSetup','skillArgumentSnapshot','target','passive','effect','tentacle','hitResolution','unresolvedDependencies'];
   if(!input||Object.keys(input).some(k=>!allowed.includes(k)))throw new Error('Unknown or missing scenario input');
   const mode=input.mode??'strict';
   if(!['strict','experimental'].includes(mode))throw new Error('Unknown mode');
   if(input.unresolvedDependencies!==undefined&&(!Array.isArray(input.unresolvedDependencies)||input.unresolvedDependencies.some(x=>typeof x!=='string')))throw new Error('Dependencies must be named strings');
   const unresolved=[...(input.unresolvedDependencies??[])];
   const result={mode,build:input.build,damageType:input.damageType,status:'UNVERIFIED',message:'Exact verified result unavailable.',finalDamage:null,experimentalModels:[],trace:[],evidence:[],unresolvedDependencies:unresolved};
-  if(input.build!==build&&!(['FIXED','PURE'].includes(input.damageType)&&fixedPureBuilds.has(input.build))){unresolved.push('Unsupported or unknown combat build');return result;}
+  if(input.build!==build&&!(['FIXED','PURE'].includes(input.damageType)&&fixedPureBuilds.has(input.build))&&!(input.build==='pc-res151-build51'&&input.damageType==='TENTACLE')){unresolved.push('Unsupported or unknown combat build');return result;}
+  if(input.damageType==='TENTACLE'&&input.build===build){unresolved.push('Historical Tentacle category is not supported by this resolved-input API');return result;}
+  if(input.damageType==='TENTACLE'){
+    if(input.build!=='pc-res151-build51')throw new Error('Tentacle pre-hit path is pinned to installed resource 151');
+    if(['offense','offenseSetup','skillArgumentSnapshot','target','passive','effect','hitResolution'].some(key=>Object.hasOwn(input,key)))throw new Error('Tentacle path requires resolved category-specific inputs and stops before BeHit');
+    if(!input.tentacle||input.tentacle.build!==input.build)throw new Error('Matching explicit Tentacle build required');
+    const calculation=tentaclePreHit(input.tentacle);
+    result.trace.push(...calculation.trace);
+    result.evidence.push(calculation.evidenceFixture);
+    unresolved.push(...calculation.unresolvedDependencies);
+    if(mode==='experimental'){
+      result.status='EXPERIMENTAL';
+      result.experimentalModels.push({name:'Recovered Tentacle pre-hit formula',scope:calculation.scope,preHitDamage:calculation.preHitDamage,trace:calculation.trace});
+    }
+    return result;
+  }
   if(['FIXED','PURE'].includes(input.damageType)){
     if(['offense','offenseSetup','skillArgumentSnapshot','target','passive'].some(key=>Object.hasOwn(input,key)))throw new Error('Fixed/Pure path requires category-specific effect inputs');
     if(input.build!==build&&input.hitResolution!==undefined)throw new Error('Current-build Fixed/Pure support ends before BeHit and HP resolution');
@@ -42,6 +58,7 @@ export function calculateDamage(input){
     appendHitModels(result,input,effect.preHitDamage);return result;
   }
   if(Object.hasOwn(input,'effect'))throw new Error('Effect inputs require Fixed/Pure category');
+  if(Object.hasOwn(input,'tentacle'))throw new Error('Tentacle inputs require Tentacle category');
   if(input.damageType==='PASSIVE'){
     if(['offense','offenseSetup','skillArgumentSnapshot','target'].some(key=>Object.hasOwn(input,key)))throw new Error('Passive path does not accept Active offense, crit or target inputs');
     if(!input.passive||input.passive.build!==input.build)throw new Error('Explicit Passive inputs with matching build required');
@@ -58,7 +75,7 @@ export function calculateDamage(input){
     appendHitModels(result,input,passive.preHitDamage);
     return result;
   }
-  if(input.damageType!=='ACTIVE'){unresolved.push('This research API supports explicit Active, Passive, Fixed and Pure formula paths');return result;}
+  if(input.damageType!=='ACTIVE'){unresolved.push('This research API supports explicit Active, Passive, Fixed, Pure and installed Tentacle formula paths');return result;}
   if(Object.hasOwn(input,'passive'))throw new Error('Active path does not accept Passive inputs');
   if((input.offense!==undefined)===(input.offenseSetup!==undefined))throw new Error('Supply exactly one of offense or offenseSetup');
   let offense=input.offense;
