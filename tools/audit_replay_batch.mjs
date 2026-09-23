@@ -24,7 +24,7 @@ for(const spec of specs){
   const catalogs={skills:resources.Skill,commands:resources.Cmd,monsters:resources.MonsterConfig,awakeners:resources.AwakerConfig};
   const battleDat=decoded?.decoded?.battleDat,battleConfig=resources.BattleConfig?.[String(battleDat?.battleTid)];
   const domain=classifyReplayCombatDomain(index,{battleDat,battleConfig});
-  let completeHitSnapshots=0,retrospectiveActiveCandidates=0,exactRngBranchConsistencyChecks=0,deterministicExactChecks=0,deterministicMismatches=0,rngBranchMismatches=0;const candidateBlockers={};
+  let completeHitSnapshots=0,retrospectiveActiveCandidates=0,exactRngBranchConsistencyChecks=0,deterministicExactChecks=0,deterministicMismatches=0,rngBranchMismatches=0,recordedCritBranchExactChecks=0,recordedCritBranchMismatches=0,unavailableRecordedCritFlags=0,ambiguousCritBranchDecisions=0;const candidateBlockers={};
   for(const action of index.actionSnapshots??[]){
     for(const hit of action.window?.hitSnapshots??[]){
       if(hit.boundaryStatus!=='COMPLETE')continue;
@@ -40,12 +40,20 @@ for(const spec of specs){
         const branches=[1,100].map(critRoll=>buildReplayActionCandidate({index,actionIndex:action.actionIndex,hitIndex:hit.hitIndex,critRoll,...catalogs,combatBuild}));
         retrospectiveActiveCandidates++;
         if(branches.some(branch=>branch.comparison?.difference===0))exactRngBranchConsistencyChecks++;else rngBranchMismatches++;
+        const recordedCrit=hit.hitData?.beHitConfig?.isCrit;
+        if(typeof recordedCrit!=='boolean')unavailableRecordedCritFlags++;
+        else{
+          const matchingDecision=branches.filter(branch=>branch.calculation?.critResolution?.isCrit===recordedCrit);
+          if(matchingDecision.length!==1)ambiguousCritBranchDecisions++;
+          else if(matchingDecision[0].comparison?.difference===0)recordedCritBranchExactChecks++;
+          else recordedCritBranchMismatches++;
+        }
       }catch(error){const reason=error instanceof Error?error.message:String(error);candidateBlockers[reason]=(candidateBlockers[reason]??0)+1;}
     }
   }
   const unknownCommands=(index.unknownCommands??[]).length,unknownEvents=(index.unknownEvents??[]).length;
   if(domain.completeHitSnapshots!==completeHitSnapshots)throw new Error(`Domain classifier coverage differs for ${observationId}`);
-  rows.push({observationId,containerSha256:hash(containerPath),containerBytes:readFileSync(containerPath).length,records:index.counts?.records??0,events:index.counts?.events??index.events?.length??0,cardUses:index.counts?.cardUses??index.actionSnapshots?.length??0,hits:index.counts?.hits??index.hits?.length??0,completeHitSnapshots,completeHitTargetRoleTypes:domain.targetRoleTypes,combatDomain:domain.combatDomain,combatDomainBasis:domain.classificationBasis,snapshotBoundaryStatus:index.snapshotBoundaryStatus??null,unknownCommands,unknownEvents,retrospectiveActiveCandidates,exactRngBranchConsistencyChecks,deterministicExactChecks,deterministicMismatches,rngBranchMismatches,candidateBlockers,calculationBuild:combatBuild,recordedCombatBuild:null,catalogSource:'replay-embedded-resource-records'});
+  rows.push({observationId,containerSha256:hash(containerPath),containerBytes:readFileSync(containerPath).length,records:index.counts?.records??0,events:index.counts?.events??index.events?.length??0,cardUses:index.counts?.cardUses??index.actionSnapshots?.length??0,hits:index.counts?.hits??index.hits?.length??0,completeHitSnapshots,completeHitTargetRoleTypes:domain.targetRoleTypes,combatDomain:domain.combatDomain,combatDomainBasis:domain.classificationBasis,snapshotBoundaryStatus:index.snapshotBoundaryStatus??null,unknownCommands,unknownEvents,retrospectiveActiveCandidates,exactRngBranchConsistencyChecks,deterministicExactChecks,deterministicMismatches,rngBranchMismatches,recordedCritBranchExactChecks,recordedCritBranchMismatches,unavailableRecordedCritFlags,ambiguousCritBranchDecisions,candidateBlockers,calculationBuild:combatBuild,recordedCombatBuild:null,catalogSource:'replay-embedded-resource-records'});
 }
 writeFileSync(output,JSON.stringify(rows,null,2)+'\n');
-console.log(JSON.stringify({combatBuild,replays:rows.length,retrospectiveActiveCandidates:rows.reduce((n,row)=>n+row.retrospectiveActiveCandidates,0),deterministicExactChecks:rows.reduce((n,row)=>n+row.deterministicExactChecks,0),deterministicMismatches:rows.reduce((n,row)=>n+row.deterministicMismatches,0),exactRngBranchConsistencyChecks:rows.reduce((n,row)=>n+row.exactRngBranchConsistencyChecks,0),rngBranchMismatches:rows.reduce((n,row)=>n+row.rngBranchMismatches,0)}));
+console.log(JSON.stringify({combatBuild,replays:rows.length,retrospectiveActiveCandidates:rows.reduce((n,row)=>n+row.retrospectiveActiveCandidates,0),deterministicExactChecks:rows.reduce((n,row)=>n+row.deterministicExactChecks,0),deterministicMismatches:rows.reduce((n,row)=>n+row.deterministicMismatches,0),exactRngBranchConsistencyChecks:rows.reduce((n,row)=>n+row.exactRngBranchConsistencyChecks,0),rngBranchMismatches:rows.reduce((n,row)=>n+row.rngBranchMismatches,0),recordedCritBranchExactChecks:rows.reduce((n,row)=>n+row.recordedCritBranchExactChecks,0),recordedCritBranchMismatches:rows.reduce((n,row)=>n+row.recordedCritBranchMismatches,0),unavailableRecordedCritFlags:rows.reduce((n,row)=>n+row.unavailableRecordedCritFlags,0),ambiguousCritBranchDecisions:rows.reduce((n,row)=>n+row.ambiguousCritBranchDecisions,0)}));

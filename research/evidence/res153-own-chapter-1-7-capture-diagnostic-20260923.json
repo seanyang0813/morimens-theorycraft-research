@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_OWN_PVE_REPLAY_CAPTURE_DIAGNOSTIC",
+  "analysisTrack": "verification",
+  "status": "RETROSPECTIVE_DIAGNOSTIC_ONLY",
+  "baselineCommitment": {
+    "path": "research/evidence/holdout-res153-20260923-new-baseline.json",
+    "sha256": "154e9c74a0f5bd82195cca119d1747f7f0818fe228c6ba4a515e706687fc4bb2"
+  },
+  "privateDeltaCommitment": {
+    "sha256": "93e7ee2e3e22529ed1dc2a3f79f1d885c23f765071ab613e452f48fbdf56c8fd",
+    "identifiersPublished": false
+  },
+  "privateUpdatedAuditCommitment": {
+    "sha256": "fc960658d5759f63baa6f5dcc5b8b2983d53f407827fb194aac465e1d1f8462d",
+    "identifiersPublished": false
+  },
+  "privateRecordedCritAuditCommitment": {
+    "sha256": "61596d535824498dff2ea7fa3cf44f08a6a82b5ccea36d4ad33b6c40212dd210",
+    "identifiersPublished": false
+  },
+  "selectedContainerSha256": "84d26cedbc4451db306e6b9ca735121d740543ca570f7630e355bbfd6a61df22",
+  "selectedContainerLastModifiedUtc": "2026-09-23T16:57:05+00:00",
+  "stage": "Chapter 1-7 Normal, final battle",
+  "calculationBuild": "pc-res153-build51",
+  "recordedCombatBuild": null,
+  "sessionChecks": {
+    "sameProcessAndExecutable": true,
+    "referenceAbsentFromBaseline": true,
+    "objectModifiedAfterBaseline": true,
+    "accountMatchedPrivately": true,
+    "onlyOneOfTenContainersMatchesAccount": true,
+    "fourCharacterLevelsMatchSelectedTeam": true,
+    "pveMonsterTargets": true
+  },
+  "selectedReplay": {
+    "records": 37,
+    "events": 610,
+    "cardUses": 6,
+    "hits": 10,
+    "completeHitSnapshots": 10,
+    "retrospectiveActiveCandidates": 4,
+    "deterministicExactChecks": 0,
+    "exactRngBranchConsistencyChecks": 4,
+    "recordedCritBranchExactChecks": 4,
+    "recordedCritBranchMismatches": 0,
+    "mismatches": 0
+  },
+  "publicationCredit": false,
+  "limitations": [
+    "Damage was visible during the multi-combat investigation; no prediction was frozen before outcomes appeared",
+    "Each supported Active candidate requires an unavailable pre-outcome critical roll; matching one of two branches is not an exact prediction",
+    "The container has strong same-session provenance, but the replay does not explicitly encode its engine-code version",
+    "No player, account, replay, role-instance or card-instance identifier is published"
+  ]
+}

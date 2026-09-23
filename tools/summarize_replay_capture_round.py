@@ -38,6 +38,10 @@ def main() -> None:
             "deterministicMismatches",
             "exactRngBranchConsistencyChecks",
             "rngBranchMismatches",
+            "recordedCritBranchExactChecks",
+            "recordedCritBranchMismatches",
+            "unavailableRecordedCritFlags",
+            "ambiguousCritBranchDecisions",
         )
     }
     role_type_names = {"1": "Awakener", "2": "Monster", "3": "Player", "unknown": "Unknown"}
@@ -78,6 +82,7 @@ def main() -> None:
             "allowed": [
                 "native replay containers decoded and indexed privately",
                 "bounded verification adapter eligibility counts",
+                "retrospective comparison against the replay's recorded critical flag",
                 "protocol unknown-command and unknown-event counts",
             ],
             "forbidden": [
