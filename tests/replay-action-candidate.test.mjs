@@ -41,6 +41,23 @@ test('resource 153 replay pre-hit path uses live card properties and inherited s
   assert.match(result.calculation.unresolvedDependencies.at(-1),/no current-build gameplay validation/);
 });
 
+test('replay adapter derives growth variables from embedded formulas and a captured skill slot',()=>{
+  const input=fixture(),skill=input.skills['10'];
+  skill.CoefficientTypelist=['BattleFomula2'];skill.OriginalCoefficient=[15];skill.ParaPlus='GrowArgValue1*0.01';
+  input.commands['20'].data_list['1'].Para='Arg1,1,0,ParaPlus1';
+  input.battleApi={BattleFomula2:{Data:'GrowArgValue+(SkillLevel-1)'}};
+  for(const role of [input.index.actionSnapshots[0].roles['1'],input.index.actionSnapshots[0].window.hitSnapshots[0].roles['1']]){
+    role.slots=[{tid:10,level:6}];role.skillId=10;role.skillLevel=6;
+  }
+  const result=buildReplayActionCandidate({...input,actionIndex:0,combatBuild:'pc-res153-build51'});
+  assert.deepEqual(result.routing.growthResolution.growth.values,[20]);
+  assert.deepEqual(result.routing.plusValues,[0.2]);
+  assert.equal(result.scenario.skillArgsPlus,0.2);
+  assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0,battleApi:null,combatBuild:'pc-res153-build51'}),/Replay-embedded BattleApi/);
+  input.index.actionSnapshots[0].window.hitSnapshots[0].roles['1'].slots[0].level=5;
+  assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0,combatBuild:'pc-res153-build51'}),/Consistent positive played skill level/);
+});
+
 test('replay adapter requires explicit direct-hit caster and skill identity',()=>{
   const missingSkill=fixture();delete missingSkill.index.actionSnapshots[0].window.hits[0].data.beHitConfig.skillConfigId;
   assert.throws(()=>buildReplayActionCandidate({...missingSkill,actionIndex:0}),/skill identity/);

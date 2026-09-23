@@ -18,7 +18,7 @@ try{
   if(decodedReplayPath){
     const artifact=read(decodedReplayPath),records=artifact?.decoded?.resourceRecords;
     if(artifact?.kind!=='MORIMENS_DECODED_REPLAY'||!records||!['Skill','Cmd','MonsterConfig','AwakerConfig'].every(name=>records[name]&&typeof records[name]==='object'))throw new Error('Decoded replay with embedded combat resource tables required');
-    catalogs={skills:records.Skill,commands:records.Cmd,monsters:records.MonsterConfig,awakeners:records.AwakerConfig};provenance={kind:'replay-embedded-resource-records',decodedReplayInputSha256:artifact.inputSha256};
+    catalogs={skills:records.Skill,commands:records.Cmd,monsters:records.MonsterConfig,awakeners:records.AwakerConfig,battleApi:records.BattleApi??null};provenance={kind:'replay-embedded-resource-records',decodedReplayInputSha256:artifact.inputSha256};
   }else{
     catalogs={skills:read('research/extracted/config/Skill.json'),commands:read('research/extracted/config/Cmd.json'),monsters:read('research/extracted/config/MonsterConfig.json'),awakeners:read('research/extracted/config/AwakerConfig.json')};provenance={kind:'local-extracted-pc144-catalogs'};
   }

@@ -11,7 +11,7 @@ const index=JSON.parse(bytes(indexPath)),decoded=JSON.parse(bytes(decodedPath));
 if(index.kind!=='MORIMENS_REPLAY_EVENT_INDEX'||decoded.kind!=='MORIMENS_DECODED_REPLAY')throw new Error('Decoded replay and indexed events required');
 const records=decoded.decoded?.resourceRecords;
 if(!records||!['Skill','Cmd','MonsterConfig','AwakerConfig'].every(name=>records[name]&&typeof records[name]==='object'))throw new Error('Replay-embedded combat catalogs required');
-const catalogs={skills:records.Skill,commands:records.Cmd,monsters:records.MonsterConfig,awakeners:records.AwakerConfig};
+const catalogs={skills:records.Skill,commands:records.Cmd,monsters:records.MonsterConfig,awakeners:records.AwakerConfig,battleApi:records.BattleApi??null};
 const hits=[];
 for(const action of index.actionSnapshots??[]){
   for(const snapshot of action.window?.hitSnapshots??[]){

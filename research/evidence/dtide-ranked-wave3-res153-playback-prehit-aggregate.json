@@ -32,16 +32,16 @@
   "adapterCoverage": {
     "actions": 121,
     "hits": 320,
-    "compared": 19,
-    "exactObservedBranch": 19,
+    "compared": 71,
+    "exactObservedBranch": 71,
     "nonPlayedCardHits": 195,
-    "blocked": 106,
-    "criticalCompared": 10,
-    "noncriticalCompared": 9,
+    "blocked": 54,
+    "criticalCompared": 26,
+    "noncriticalCompared": 45,
     "blockedByCode": {
       "NO_ORDINARY_ACTIVE_ROW": 10,
-      "STATE_ATTACHED_ACTIVE_SHAPE": 8,
-      "UNRESOLVED_GROW_ARG_VALUE": 88
+      "REPETITION_WINDOW_AMBIGUOUS": 36,
+      "STATE_ATTACHED_ACTIVE_SHAPE": 8
     }
   },
   "embeddedCatalogRelationToPinnedBuilds": {

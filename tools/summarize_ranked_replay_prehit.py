@@ -16,6 +16,7 @@ BLOCKERS = {
     "Unknown or nonfinite command value GrowArgValue3": "UNRESOLVED_GROW_ARG_VALUE",
     "At least one ordinary Active row required": "NO_ORDINARY_ACTIVE_ROW",
     "Unsupported state-attached Active parameter shape": "STATE_ATTACHED_ACTIVE_SHAPE",
+    "Recorded direct-hit count must be a positive multiple of command repetition count": "REPETITION_WINDOW_AMBIGUOUS",
 }
 
 

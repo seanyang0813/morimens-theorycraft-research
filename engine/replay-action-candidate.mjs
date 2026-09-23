@@ -3,6 +3,8 @@ import {compileNumericCommand,compileCommandCondition} from './command-expressio
 import {importCommandRows} from './import-command-rows.mjs';
 import {resolveScalarSkillField} from './skill-field.mjs';
 import {getLiveStateLayer} from './live-state-lookup.mjs';
+import {selectProgressionList} from './skill-list.mjs';
+import {resolveSkillGrowth} from './skill-growth.mjs';
 
 const protocolBuild='pc-res144-build51';
 const supportedCombatBuilds=new Set(['pc-res144-build51','pc-res150-build51','pc-res151-build51','pc-res153-build51']);
@@ -60,7 +62,7 @@ function resolveScalarEnemySelector(snapshot,casterCamp,selector){
 
 // Retrospective replay bridge. It creates a regression candidate only; it never
 // treats post-outcome hit/crit fields as prediction inputs or as blind holdout evidence.
-export function buildReplayActionCandidate({index,actionIndex,hitIndex=null,skills,commands,monsters,awakeners,critRoll=null,preOutcome=false,combatBuild=protocolBuild}){
+export function buildReplayActionCandidate({index,actionIndex,hitIndex=null,skills,commands,monsters,awakeners,battleApi=null,critRoll=null,preOutcome=false,combatBuild=protocolBuild}){
   if(!index||index.kind!=='MORIMENS_REPLAY_EVENT_INDEX'||index.build!==protocolBuild||!supportedCombatBuilds.has(combatBuild)||!Number.isSafeInteger(actionIndex)||actionIndex<0||!skills||!commands||!monsters||!awakeners)throw new Error('Explicit supported replay protocol index, combat build, action and config catalogs required');
   const action=index.actionSnapshots?.[actionIndex];
   if(!action||action.actionIndex!==actionIndex||action.boundaryStatus!=='COMPLETE')throw new Error('Complete indexed card-use boundary required');
@@ -96,6 +98,23 @@ export function buildReplayActionCandidate({index,actionIndex,hitIndex=null,skil
   const args=dense(card.cardArgs,'Captured card arguments');
   if(args.some(value=>!Number.isFinite(value)))throw new Error('Captured card arguments must be finite');
   const variables=Object.fromEntries(args.map((value,i)=>[`Arg${i+1}`,value]));
+  let growthResolution=null;
+  const needsGrowth=JSON.stringify({paraPlus:skill.ParaPlus??null,rows:damageRows}).match(/GrowArgValue\d+/);
+  if(needsGrowth){
+    if(!battleApi||typeof battleApi!=='object'||Array.isArray(battleApi))throw new Error('Replay-embedded BattleApi required for growth variables');
+    const slotLevels=(caster.slots??[]).filter(slot=>slot?.tid===card.tid).map(slot=>slot.level);
+    const skillLevel=exactOne(slotLevels,'Played skill slot level');
+    if(!Number.isSafeInteger(skillLevel)||skillLevel<1||(caster.skillId===card.tid&&caster.skillLevel!==skillLevel))throw new Error('Consistent positive played skill level required');
+    const levels={breakSkillLevel,potencyLevel};
+    const formulaSelection=selectProgressionList({value:skill.CoefficientTypelist??null,...levels});
+    const coefficientSelection=selectProgressionList({value:skill.OriginalCoefficient??null,...levels});
+    const formulaNames=formulaSelection.value,originalCoefficients=coefficientSelection.value;
+    if(!formulaNames?.length||!originalCoefficients||originalCoefficients.length<formulaNames.length)throw new Error('Complete replay-embedded growth lists required');
+    const formulaExpressions=Object.fromEntries(formulaNames.map(name=>[name,battleApi[name]?.Data]));
+    const growth=resolveSkillGrowth({formulaNames,originalCoefficients:originalCoefficients.slice(0,formulaNames.length),skillLevel,formulaExpressions});
+    Object.assign(variables,growth.members);
+    growthResolution={skillLevel,formulaSelection,coefficientSelection,growth};
+  }
   const stateRegistry=new Map();
   for(const state of hitSnapshot.activeStates??[]){
     if(!Number.isSafeInteger(state?.ownerUid)||!Number.isSafeInteger(state?.stateId)||!Number.isFinite(state?.layer))throw new Error('Complete live state owner, ID and layer required');
@@ -231,6 +250,6 @@ export function buildReplayActionCandidate({index,actionIndex,hitIndex=null,skil
   try{calculation=calculateSnapshotActiveDamage(scenario);}catch(error){if(error.message==='RNG-dependent critical outcome requires a captured pre-outcome roll')calculationBlocker=error.message;else throw error;}
   const observedCastDamage=!preOutcome&&Number.isFinite(observed.castDamage)?observed.castDamage:null;
   const comparison=calculation&&observedCastDamage!==null?{metric:'preHitDamage-vs-beHitConfig.castDamage',predicted:calculation.preHitDamage,observed:observedCastDamage,difference:calculation.preHitDamage-observedCastDamage}:null;
-  return {schemaVersion:1,kind:preOutcome?'MORIMENS_REPLAY_PREOUTCOME_CANDIDATE':'MORIMENS_REPLAY_ACTION_REGRESSION_CANDIDATE',build:combatBuild,protocolBuild,status:calculation?'CALCULATED_REGRESSION_CANDIDATE':'PREOUTCOME_INPUT_REQUIRED',actionIndex,hitIndex:hitSnapshot.hitIndex,identities:{cardUid:card.uid,skillId:card.tid,casterUid:caster.uid,playerUid:player.uid,targetUid,commandId:selectedCommand.value,rowId:row.id},routing:{selectedCommand,commandSourceShape:imported.sourceShape,importMetadata:imported.metadata,rowSelection:rowSelection.map(item=>({rowId:item.row.id,type:item.row.Type,target:item.row.Target,condition:item.condition,targetMatched:item.targetMatched})),competingDamageSelection:competingDamageSelection.map(item=>({rowId:item.row.id,type:item.row.Type,target:item.row.Target,condition:item.condition})),awakerSchoolCounts,targetBindingSource:preOutcome?'identity-only-preoutcome':targetBindingSource,selectorValidation,superUltimateResolution:{isSuperUltimate:superUltimate,doubleUltiEnergy:doubleEnergy,maximumEnergy:maxUltiEnergy,currentEnergy:prop('ulti_energy'),levelUp:prop('ulti_skill_level_up')},parameters,stateSideEffect,plusValues,tags},scenario,calculation,calculationBlocker,
+  return {schemaVersion:1,kind:preOutcome?'MORIMENS_REPLAY_PREOUTCOME_CANDIDATE':'MORIMENS_REPLAY_ACTION_REGRESSION_CANDIDATE',build:combatBuild,protocolBuild,status:calculation?'CALCULATED_REGRESSION_CANDIDATE':'PREOUTCOME_INPUT_REQUIRED',actionIndex,hitIndex:hitSnapshot.hitIndex,identities:{cardUid:card.uid,skillId:card.tid,casterUid:caster.uid,playerUid:player.uid,targetUid,commandId:selectedCommand.value,rowId:row.id},routing:{selectedCommand,commandSourceShape:imported.sourceShape,importMetadata:imported.metadata,rowSelection:rowSelection.map(item=>({rowId:item.row.id,type:item.row.Type,target:item.row.Target,condition:item.condition,targetMatched:item.targetMatched})),competingDamageSelection:competingDamageSelection.map(item=>({rowId:item.row.id,type:item.row.Type,target:item.row.Target,condition:item.condition})),awakerSchoolCounts,targetBindingSource:preOutcome?'identity-only-preoutcome':targetBindingSource,selectorValidation,superUltimateResolution:{isSuperUltimate:superUltimate,doubleUltiEnergy:doubleEnergy,maximumEnergy:maxUltiEnergy,currentEnergy:prop('ulti_energy'),levelUp:prop('ulti_skill_level_up')},growthResolution,parameters,stateSideEffect,plusValues,tags},scenario,calculation,calculationBlocker,
     damageInputReconstruction:preOutcome?null:JSON.parse(JSON.stringify(hitSnapshot.reconstruction)),observedHit:preOutcome?null:JSON.parse(JSON.stringify(hit)),comparison,repetition:{perExecution:repetitionCount,hitOrdinal:directHitOrdinal,executionOrdinal:directExecutionOrdinal,observedDirectHits},unresolvedDependencies:preOutcome?['Prediction is limited to a deterministic direct hit with frozen target/caster/skill identity','Pre-hit snapshots and catalog rows require provenance review','Recorded engine-code version remains unresolved']:['Retrospective replay evidence cannot become a blind holdout','Action window and identity still require human review for triggered or overlapping actions','Observed hit and post-outcome critical fields are excluded from scenario construction','Target HP and block are reconstructed from explicit BeHit fields because the render record follows their mutations','Multiple executions sharing a card and skill identity require trigger-graph review','No connected original card-use, trigger graph, hit resolution or independent gameplay validation']};
 }
