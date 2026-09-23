@@ -91,3 +91,14 @@ resource-151 build identity and bounded adapter compatibility evidence included.
 The live snapshot must establish the critical-chance condition; the archive does
 not prove that any current account or battle has it. This recipe belongs only to
 the verification track and makes no theorycraft, cheese or budget-build claim.
+
+The identifier-free general audit in
+`research/evidence/general-holdout-readiness.json` broadens the retrospective
+selection pool to 182 exact deterministic ordinary-Active hit snapshots across
+seven characters and 15 skill IDs. Kathigu-Ra contributes 72 snapshots and
+Mouchette 69; every captured critical-chance ceiling is at least 100. These
+counts are hits, not distinct actions, battles or players. They do not establish
+which card or build a current account can use. The same live build, same-session
+provenance and prediction-before-reveal requirements apply regardless of which
+character is selected. No archived result receives holdout or publication
+credit from this planning scan.

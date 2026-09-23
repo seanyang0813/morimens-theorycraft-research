@@ -7547,6 +7547,26 @@
       "gameplayValidation": false
     },
     {
+      "id": "Verification:GeneralDeterministicHoldoutReadiness",
+      "status": "RETROSPECTIVE_SELECTION_REQUIRES_FRESH_CONTROLLED_RUN",
+      "claim": "Across 102 already decoded PvE replays, 182 deterministic ordinary-Active hit snapshots from seven characters and 15 skills match exactly, all with reconstructed critical-chance ceilings at least 100",
+      "sources": [
+        {
+          "module": "Sanitized general deterministic readiness report",
+          "member": "character/skill aggregate hit counts, critical-chance ranges and private audit hash",
+          "bundle": "private retrospective replay audit",
+          "sha256": "3af93dec344d2bbcf86f5e4887165b41a7fa8ab9728d87e64c78165f4ae087db"
+        }
+      ],
+      "tests": [
+        "tools/audit_holdout_readiness.mjs",
+        "tools/sanitize_general_holdout_readiness.py",
+        "tests/general-holdout-readiness.test.mjs"
+      ],
+      "scope": "Retrospective verification-test selection only. Hit counts are not distinct battles or players, engine bytecode versions are unknown, and no current account build or live critical condition is established. Outcomes preceded calculations. A fresh source-bound same-session capture and prediction-before-reveal freeze are required; no holdout or publication credit, cheese, budget or theorycraft conclusion.",
+      "gameplayValidation": false
+    },
+    {
       "id": "Budget:PveBossFrontiersRound003",
       "status": "OBSERVED_PRIVATE_REPLAY_FRONTIERS",
       "claim": "One hundred two replay-embedded PvE Boss records form ten exact comparison groups and twenty-six nondominated roster/investment candidates",

@@ -1,0 +1,263 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_GENERAL_HOLDOUT_READINESS_RECIPE",
+  "analysisTrack": "verification",
+  "status": "RETROSPECTIVE_SELECTION_REQUIRES_FRESH_CONTROLLED_RUN",
+  "corpus": {
+    "replays": 102,
+    "completeHitSnapshots": 7948,
+    "privateAuditSha256": "57942775f2a8c7533a49aefa74167469d670aa0acc958de85b69d14e0a494cd5",
+    "identifiersPublished": false
+  },
+  "deterministicExactHits": 182,
+  "deterministicMismatches": 0,
+  "characters": [
+    {
+      "name": "Kathigu-Ra",
+      "clientConfigId": 77913,
+      "exactHitSnapshots": 72
+    },
+    {
+      "name": "Mouchette",
+      "clientConfigId": 94450,
+      "exactHitSnapshots": 69
+    },
+    {
+      "name": "Pollux",
+      "clientConfigId": 77917,
+      "exactHitSnapshots": 17
+    },
+    {
+      "name": "Clementine",
+      "clientConfigId": 77925,
+      "exactHitSnapshots": 14
+    },
+    {
+      "name": "Ramona: Timeworn",
+      "clientConfigId": 15568,
+      "exactHitSnapshots": 6
+    },
+    {
+      "name": "Ryker",
+      "clientConfigId": 15604,
+      "exactHitSnapshots": 3
+    },
+    {
+      "name": "Tawil",
+      "clientConfigId": 54116,
+      "exactHitSnapshots": 1
+    }
+  ],
+  "skills": [
+    {
+      "characterName": "Kathigu-Ra",
+      "characterConfigId": 77913,
+      "skillConfigId": 97911,
+      "skillTags": [
+        "Card_Strike"
+      ],
+      "exactHitSnapshots": 38,
+      "capturedCritChanceCeilRange": [
+        102,
+        181
+      ]
+    },
+    {
+      "characterName": "Kathigu-Ra",
+      "characterConfigId": 77913,
+      "skillConfigId": 97913,
+      "skillTags": [
+        "Card_Skill"
+      ],
+      "exactHitSnapshots": 34,
+      "capturedCritChanceCeilRange": [
+        102,
+        156
+      ]
+    },
+    {
+      "characterName": "Mouchette",
+      "characterConfigId": 94450,
+      "skillConfigId": 123159,
+      "skillTags": [
+        "Card_Strike",
+        "Card_AttachPost"
+      ],
+      "exactHitSnapshots": 27,
+      "capturedCritChanceCeilRange": [
+        104,
+        109
+      ]
+    },
+    {
+      "characterName": "Mouchette",
+      "characterConfigId": 94450,
+      "skillConfigId": 122484,
+      "skillTags": [
+        "Card_Skill",
+        "Card_Strike"
+      ],
+      "exactHitSnapshots": 24,
+      "capturedCritChanceCeilRange": [
+        104,
+        104
+      ]
+    },
+    {
+      "characterName": "Mouchette",
+      "characterConfigId": 94450,
+      "skillConfigId": 122483,
+      "skillTags": [
+        "Card_Skill",
+        "Card_Strike"
+      ],
+      "exactHitSnapshots": 17,
+      "capturedCritChanceCeilRange": [
+        104,
+        109
+      ]
+    },
+    {
+      "characterName": "Clementine",
+      "characterConfigId": 77925,
+      "skillConfigId": 78786,
+      "skillTags": [
+        "Card_Skill"
+      ],
+      "exactHitSnapshots": 12,
+      "capturedCritChanceCeilRange": [
+        102,
+        130
+      ]
+    },
+    {
+      "characterName": "Pollux",
+      "characterConfigId": 77917,
+      "skillConfigId": 117314,
+      "skillTags": [
+        "Card_Skill"
+      ],
+      "exactHitSnapshots": 10,
+      "capturedCritChanceCeilRange": [
+        114,
+        114
+      ]
+    },
+    {
+      "characterName": "Pollux",
+      "characterConfigId": 77917,
+      "skillConfigId": 117312,
+      "skillTags": [
+        "Card_Skill"
+      ],
+      "exactHitSnapshots": 6,
+      "capturedCritChanceCeilRange": [
+        114,
+        114
+      ]
+    },
+    {
+      "characterName": "Ramona: Timeworn",
+      "characterConfigId": 15568,
+      "skillConfigId": 4587,
+      "skillTags": [
+        "Card_Strike"
+      ],
+      "exactHitSnapshots": 5,
+      "capturedCritChanceCeilRange": [
+        105,
+        105
+      ]
+    },
+    {
+      "characterName": "Ryker",
+      "characterConfigId": 15604,
+      "skillConfigId": 3961,
+      "skillTags": [
+        "Card_Strike"
+      ],
+      "exactHitSnapshots": 3,
+      "capturedCritChanceCeilRange": [
+        105,
+        119
+      ]
+    },
+    {
+      "characterName": "Clementine",
+      "characterConfigId": 77925,
+      "skillConfigId": 78783,
+      "skillTags": [
+        "Card_Strike"
+      ],
+      "exactHitSnapshots": 2,
+      "capturedCritChanceCeilRange": [
+        126,
+        126
+      ]
+    },
+    {
+      "characterName": "Ramona: Timeworn",
+      "characterConfigId": 15568,
+      "skillConfigId": 4017,
+      "skillTags": [
+        "Card_Skill"
+      ],
+      "exactHitSnapshots": 1,
+      "capturedCritChanceCeilRange": [
+        105,
+        105
+      ]
+    },
+    {
+      "characterName": "Tawil",
+      "characterConfigId": 54116,
+      "skillConfigId": 66354,
+      "skillTags": [
+        "Card_Strike"
+      ],
+      "exactHitSnapshots": 1,
+      "capturedCritChanceCeilRange": [
+        117,
+        117
+      ]
+    },
+    {
+      "characterName": "Pollux",
+      "characterConfigId": 77917,
+      "skillConfigId": 117313,
+      "skillTags": [
+        "Card_Strike"
+      ],
+      "exactHitSnapshots": 1,
+      "capturedCritChanceCeilRange": [
+        114,
+        114
+      ]
+    },
+    {
+      "characterName": "Mouchette",
+      "characterConfigId": 94450,
+      "skillConfigId": 122488,
+      "skillTags": [
+        "Card_Strike"
+      ],
+      "exactHitSnapshots": 1,
+      "capturedCritChanceCeilRange": [
+        109,
+        109
+      ]
+    }
+  ],
+  "nextControlledRun": [
+    "Commit a live same-session replay baseline before the battle.",
+    "Choose an accessible card with a captured pre-hit critical-chance ceiling of at least 100; this historical distribution does not prove a live account can reach it.",
+    "Freeze a complete ordinary-Active prediction under a reviewed current-build replay capture before revealing damage."
+  ],
+  "limitations": [
+    "All 182 matches were calculated after the replay outcomes were decoded; none is an independent holdout or publication credit.",
+    "Recorded engine bytecode versions are unknown and historical skill frequency is not card availability, account accessibility or build quality.",
+    "Counts are hit snapshots, not distinct card actions, battles, players or independent replications.",
+    "Critical chances are reconstructed from captured retrospective inputs; a new live snapshot must prove its own deterministic condition.",
+    "No player, account, replay, role-instance or card-instance identifier is published."
+  ]
+}
