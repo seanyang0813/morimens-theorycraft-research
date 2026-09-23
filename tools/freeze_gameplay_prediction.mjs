@@ -22,6 +22,7 @@ function readExisting(value,label){
   return {path,bytes:readFileSync(path)};
 }
 function validateBuildEvidence(items,recordedCombatBuild){
+  if(!['pc-res144-build51','pc-res150-build51','pc-res151-build51'].includes(recordedCombatBuild))throw new Error('Recorded combat build is not supported by the prediction runtime');
   let recognized=false,adapterCompatibility=recordedCombatBuild!=='pc-res151-build51';
   for(const item of items){
     let value;try{value=JSON.parse(item.bytes.toString('utf8'));}catch{continue;}
@@ -68,6 +69,10 @@ export function freezeGameplayPrediction({scenarioFile,metric,evidenceFiles,outp
   if(!allowed)throw new Error('Output must be inside research/observations or research/evidence/holdouts');
   if(existsSync(output))throw new Error('Prediction freeze already exists; refusing to overwrite chronology evidence');
   const input=JSON.parse(scenario.bytes.toString('utf8'));
+  if(hasBuild){
+    const scenarioBuild=input?.kind==='morimens-theorycraft-request'?input.input?.build:input?.build;
+    if(scenarioBuild!==recordedCombatBuild)throw new Error('Recorded combat build must match the scenario build');
+  }
   validateFixedRuntimeEvidence(input,recordedCombatBuild,buildEvidence);
   const runtimeFingerprint=verifyRuntimeManifest(),runtimeContract=createObservationRuntimeContract(input),context=input?.kind==='morimens-theorycraft-request'?{skillCommandData:loadSkillCommandData(input.input?.build)}:{},result=runObservationScenario(input,metric,context);
   const prediction={scenarioFile:relativePath(scenario.path),scenarioSha256:hash(scenario.bytes),runtimeFingerprint,runtimeContract,metric};
