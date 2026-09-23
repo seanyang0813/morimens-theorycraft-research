@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_REPLAY_RNG_INPUT_BOUNDARY",
+  "analysisTrack": "verification",
+  "sampleContainerSha256": "dc58bedc376d3085cbaf60b73c17be1024f120ee992b1ec566b79a29eb37aab8",
+  "battleSeedPresent": true,
+  "serverRunBattle": true,
+  "serializedRngStateFields": 0,
+  "sourceWrappers": [
+    {
+      "name": "CRand.lua",
+      "baselineSha256": "70a29b0366ec3195ec8f2d6787ba0b50b5343eebe248f50cc1e6d774efff6918",
+      "currentSha256": "70a29b0366ec3195ec8f2d6787ba0b50b5343eebe248f50cc1e6d774efff6918",
+      "identical": true
+    },
+    {
+      "name": "Rand.lua",
+      "baselineSha256": "4734d061c8791dbec351b8d9c4810af84d376b22e6d407e906af79e9011874f2",
+      "currentSha256": "4734d061c8791dbec351b8d9c4810af84d376b22e6d407e906af79e9011874f2",
+      "identical": true
+    }
+  ],
+  "conclusion": "SEED_NOT_A_PREHIT_ROLL",
+  "limitations": [
+    "The battle seed is intentionally omitted from this public artifact.",
+    "A seed cannot identify an event-time critical draw without the native PRNG and all intervening draws.",
+    "The decoded replay contains outcomes, so this audit is not a blind prediction or a gameplay validation."
+  ]
+}
