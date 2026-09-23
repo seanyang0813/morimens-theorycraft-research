@@ -5,7 +5,8 @@
     "Skill": "1546d7da690f36db257e9d64567894346bf0d80d90e4bb1aab9e7f7a0c433a38",
     "Cmd": "ae55c0c3b03464b93b091a98a96e8bf456036e3a7cb1c0003d295bf5d9d41f2b",
     "State": "ff2f52c159fe2e4f1f2b097414337e6cc5945cd6e2fe544d017579b37df91472",
-    "AwakerConfig": "9c9816952c571d7d0af94d273892239190a25789ba487c5f9f934a17c725a41e"
+    "AwakerConfig": "9c9816952c571d7d0af94d273892239190a25789ba487c5f9f934a17c725a41e",
+    "RelicConfig": "66102729a5fdd2968e196ca77eb1c5fc4369fde37793553063b6dde0b9e85379"
   },
   "certainCritStateIds": [
     2687,
@@ -104,9 +105,83 @@
       "nestedCommandRowCount": 0
     }
   ],
+  "relicsWhoseDescriptionSaysGuaranteedCritical": [
+    {
+      "relicId": 13741,
+      "relic": "<WhiteQuality:美学原理>",
+      "unlockLevel": 1,
+      "stageChapter": "StageChapterMorimens",
+      "initialStateIds": [
+        2396
+      ],
+      "initialCriticalProperties": {
+        "2396": {
+          "crit2block": 1
+        }
+      },
+      "triggerCommandIds": [
+        2127
+      ],
+      "grantedCertainCritStateIds": []
+    },
+    {
+      "relicId": 13742,
+      "relic": "<OrangeQuality:时灵摆「冥想」>",
+      "unlockLevel": 100,
+      "stageChapter": null,
+      "initialStateIds": [
+        2574
+      ],
+      "initialCriticalProperties": {
+        "2574": {
+          "crit_damage": 50
+        }
+      },
+      "triggerCommandIds": [
+        1762
+      ],
+      "grantedCertainCritStateIds": [
+        3299
+      ]
+    },
+    {
+      "relicId": 13754,
+      "relic": "<WhiteQuality:视力矫正器>",
+      "unlockLevel": 1,
+      "stageChapter": "StageChapterMorimens",
+      "initialStateIds": [
+        3461
+      ],
+      "initialCriticalProperties": {},
+      "triggerCommandIds": [
+        2107
+      ],
+      "grantedCertainCritStateIds": [
+        2895
+      ]
+    },
+    {
+      "relicId": 35139,
+      "relic": "<OrangeQuality:时灵摆「终结」>",
+      "unlockLevel": 100,
+      "stageChapter": null,
+      "initialStateIds": [
+        35162
+      ],
+      "initialCriticalProperties": {},
+      "triggerCommandIds": [
+        1726,
+        35214
+      ],
+      "grantedCertainCritStateIds": [
+        36873
+      ]
+    }
+  ],
   "limitations": [
-    "Text search covers explicit guaranteed-critical skill descriptions only; it is not an exhaustive route search.",
+    "Text search covers explicit guaranteed-critical skill and relic descriptions only; it is not an exhaustive route search.",
     "Command counts describe only the first command list and do not execute conditions, nested commands, state triggers or generated cards.",
+    "Relic grants are static one-level links from initial state through trigger command, without trigger ordering or acquisition proof.",
     "No character ownership, stage availability, combat damage or replay outcome is established."
   ],
   "publicationCredit": false

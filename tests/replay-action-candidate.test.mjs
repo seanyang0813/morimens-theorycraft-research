@@ -98,9 +98,23 @@ test('replay adapter accepts inspected presentation-only target fields',()=>{
   assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0}),/row field/);
 });
 
+test('state-attached Active row uses its pre-hit damage parameters and ignores the later state grant',()=>{
+  const input=fixture(),action=input.index.actionSnapshots[0],snapshot=action.window.hitSnapshots[0];
+  input.commands['20'].data_list={1:{Type:'BEActiveDamage.State',Target:'UpperTarget',Para:'Arg1,1,2840,PlayerRole.GetStateLayer(99),UseCastDmg,0,0,DefaultTarget,100-PlayerRole.GetStateLayer(88)'}};
+  snapshot.roles['1'].properties.crit=5;snapshot.roles['1'].properties.certain_crit=1;
+  snapshot.activeStates=[{ownerUid:1,stateId:2895,layer:1,isDeleted:false}];
+  const result=buildReplayActionCandidate({...input,actionIndex:0,combatBuild:'pc-res151-build51'});
+  assert.equal(result.identities.rowId,'1');assert.equal(result.routing.rowSelection[0].type,'BEActiveDamage.State');
+  assert.deepEqual(result.routing.parameters,[100,1,0,0]);assert.equal(result.routing.stateSideEffect.stateId,2840);
+  assert.equal(result.routing.stateSideEffect.modeling,'excluded-after-hit');
+  assert.equal(result.calculation.critResolution.reason,'caster_certain_crit');assert.equal(result.calculation.preHitDamage,250);
+  input.commands['20'].data_list['1'].Para='Arg1,1,2840';
+  assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0}),/Unsupported state-attached Active parameter shape/);
+});
+
 test('replay adapter accepts only condition-resolved inactive competing damage paths',()=>{
   const input=fixture(),snapshot=input.index.actionSnapshots[0].window.hitSnapshots[0];
-  input.commands['20']={data_list:{1:{Type:'BEActiveDamage',Target:'UpperTarget',Para:'Arg1',Cond:'CmdCaster.GetStateLayer(99)==0'},2:{Type:'BEActiveDamage.State',Target:'UpperTarget',Para:'Arg1',Cond:'CmdCaster.GetStateLayer(99)>0'}}};
+  input.commands['20']={data_list:{1:{Type:'BEActiveDamage',Target:'UpperTarget',Para:'Arg1',Cond:'CmdCaster.GetStateLayer(99)==0'},2:{Type:'BEPureDamage',Target:'UpperTarget',Para:'Arg1',Cond:'CmdCaster.GetStateLayer(99)>0'}}};
   const result=buildReplayActionCandidate({...input,actionIndex:0});assert.equal(result.routing.competingDamageSelection[0].condition.passed,false);
   snapshot.activeStates=[{ownerUid:1,stateId:99,layer:1,isDeleted:false}];assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0}),/competing damage effect/);
   delete input.commands['20'].data_list['2'].Cond;assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0}),/Unconditional competing/);
@@ -109,7 +123,7 @@ test('replay adapter accepts only condition-resolved inactive competing damage p
 test('replay adapter counts captured PvE Awakeners by configured school',()=>{
   const input=fixture(),snapshot=input.index.actionSnapshots[0].window.hitSnapshots[0];
   snapshot.roles['4']={uid:4,tid:102,camp:1,roleType:1,properties:{...properties}};input.awakeners['102']={ID:102,School:2};
-  input.commands['20']={data_list:{1:{Type:'BEActiveDamage',Target:'UpperTarget',Para:'Arg1',Cond:'GetAwakerCountBySchool(1)==1'},2:{Type:'BEActiveDamage.State',Target:'UpperTarget',Para:'Arg1',Cond:'GetAwakerCountBySchool(2)==0'}}};
+  input.commands['20']={data_list:{1:{Type:'BEActiveDamage',Target:'UpperTarget',Para:'Arg1',Cond:'GetAwakerCountBySchool(1)==1'},2:{Type:'BEPureDamage',Target:'UpperTarget',Para:'Arg1',Cond:'GetAwakerCountBySchool(2)==0'}}};
   const result=buildReplayActionCandidate({...input,actionIndex:0});assert.deepEqual(result.routing.awakerSchoolCounts,{'1':1,'2':1});assert.equal(result.routing.competingDamageSelection[0].condition.passed,false);
   delete input.awakeners['102'];assert.throws(()=>buildReplayActionCandidate({...input,actionIndex:0}),/school configuration/);
 });

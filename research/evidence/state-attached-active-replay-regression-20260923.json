@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_STATE_ATTACHED_ACTIVE_REPLAY_REGRESSION",
+  "analysisTrack": "verification",
+  "status": "RETROSPECTIVE_EXACT_COMPONENT_MATCH",
+  "combatDomain": "PVE_MONSTER_TARGETS",
+  "calculationBuild": "pc-res151-build51",
+  "recordedEngineBuild": "UNRECORDED",
+  "selectedContainerSha256": "3aedbaa4c92baa23833a171996f4ff141e6c2b8ea703dac055435cce9881bc07",
+  "sourceSha256": {
+    "privateIndex": "e08cd23e9692214df032eeda7a0aa7d0213f93f7736207f99d914581b2c48f1e",
+    "privateDecoded": "ef2d0fac0b4d315475b49fd23256e933c6497526ca6bc0c82ba6630a545390f5",
+    "priorCaptureAudit": "4e641cc780ef87ce7bbed987dcc1b315f23f82ea6dc645a5e3789f0210851c2a"
+  },
+  "route": {
+    "skillId": 61120,
+    "effectType": "BEActiveDamage.State",
+    "guaranteedCriticalReason": "caster_certain_crit",
+    "afterHitStateMode": "excluded-after-hit"
+  },
+  "comparison": {
+    "metric": "preHitDamage-vs-beHitConfig.castDamage",
+    "predicted": 75,
+    "observed": 75,
+    "difference": 0
+  },
+  "publicationCredit": false,
+  "limitations": [
+    "The replay outcome was decoded before this adapter path was implemented; this is a retrospective regression, not a blind prediction.",
+    "The replay does not serialize its engine-code version. Resource-151 is the calculation build, not a proved recorded engine build.",
+    "Only the selected first-hit pre-hit damage is compared. Its attached state grant, later hits, full card use, defense and encounter outcome are not validated by this check.",
+    "No account, player, replay key, card-instance or role-instance identifier is published."
+  ]
+}

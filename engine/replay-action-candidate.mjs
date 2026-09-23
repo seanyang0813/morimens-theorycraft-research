@@ -29,6 +29,21 @@ function finiteMap(value,label){
   return {...value};
 }
 function exactOne(values,label){if(values.length!==1)throw new Error(`${label} must resolve exactly once`);return values[0];}
+function splitEffectParameters(value){
+  if(typeof value!=='string'||!value.trim())throw new Error('State-attached Active row requires explicit parameters');
+  const parts=[];let start=0,stack=[];
+  for(let i=0;i<value.length;i++){
+    if('([{'.includes(value[i]))stack.push(value[i]);
+    else if(')]}'.includes(value[i])){
+      const expected={')':'(',']':'[','}':'{'}[value[i]];
+      if(stack.pop()!==expected)throw new Error('Unbalanced state-attached Active parameters');
+    }else if(value[i]===','&&stack.length===0){parts.push(value.slice(start,i).trim());start=i+1;}
+  }
+  if(stack.length!==0)throw new Error('Unbalanced state-attached Active parameters');
+  parts.push(value.slice(start).trim());
+  if(parts.some(part=>!part))throw new Error('Empty state-attached Active parameter');
+  return parts;
+}
 function chronological(a,b){return (a.recordIndex-b.recordIndex)||(a.frameIndex-b.frameIndex);}
 function livingEnemies(snapshot,casterCamp,{includeBlock=false}={}){
   const enemies=Object.values(snapshot.roles??{}).filter(role=>role?.roleType===roleType.Monster&&role.camp!==casterCamp&&Number.isFinite(role.properties?.hp)&&role.properties.hp>0);
@@ -74,9 +89,9 @@ export function buildReplayActionCandidate({index,actionIndex,hitIndex=null,skil
   const routeInput={skill,isAwaker:true,breakSkillLevel,potencyLevel,evaluate:expression=>{throw new Error(`Conditional skill routing is unsupported: ${expression}`);}};
   const selectedCommand=resolveScalarSkillField({...routeInput,field:'CmdList'});
   if(!Number.isSafeInteger(selectedCommand.value)||!commands[String(selectedCommand.value)])throw new Error('Resolved exported command required');
-  const imported=importCommandRows(commands[String(selectedCommand.value)]),damageRows=imported.rows.filter(row=>row.Type==='BEActiveDamage');
+  const imported=importCommandRows(commands[String(selectedCommand.value)]),damageRows=imported.rows.filter(row=>['BEActiveDamage','BEActiveDamage.State'].includes(row.Type));
   if(!damageRows.length)throw new Error('At least one ordinary Active row required');
-  const competingDamageRows=imported.rows.filter(row=>row.Type!=='BEActiveDamage'&&/Damage/.test(row.Type));
+  const competingDamageRows=imported.rows.filter(row=>!['BEActiveDamage','BEActiveDamage.State'].includes(row.Type)&&/Damage/.test(row.Type));
   if(damageRows.some(row=>Object.keys(row).some(key=>!['id','Type','Target','Para','Cond','VFX','DelayTime','PerformTarget'].includes(key))||(Object.hasOwn(row,'PerformTarget')&&!presentationTargets.has(row.PerformTarget))))throw new Error('Unsupported Active-damage row field');
   const args=dense(card.cardArgs,'Captured card arguments');
   if(args.some(value=>!Number.isFinite(value)))throw new Error('Captured card arguments must be finite');
@@ -174,7 +189,14 @@ export function buildReplayActionCandidate({index,actionIndex,hitIndex=null,skil
   }else if(usesTempMainTarget){
     selectorValidation=tempMainTargetValidation;targetBindingSource='reconstructed-stored-main-target-and-recorded-hit';
   }
-  const parameters=compileNumericCommand(row.Para,{allowedFunctions,allowLogicalNumeric:true})(readVariable,callFunction).values;
+  let parameters,stateSideEffect=null;
+  if(row.Type==='BEActiveDamage.State'){
+    const parts=splitEffectParameters(row.Para);
+    if(parts.length!==9||!/^[1-9]\d*$/.test(parts[2])||!['UseCastDmg','UseRealDmg'].includes(parts[4])||!['DefaultTarget','UpperTarget'].includes(parts[7]))throw new Error('Unsupported state-attached Active parameter shape');
+    const selectedParts=[parts[0],parts[1],parts[5],parts[6]];
+    parameters=selectedParts.map(part=>exactOne(compileNumericCommand(part,{allowedFunctions,allowLogicalNumeric:true})(readVariable,callFunction).values,'State-attached Active numeric parameter'));
+    stateSideEffect={stateId:Number(parts[2]),layerRateExpression:parts[3],layerType:parts[4],stateTarget:parts[7],critLayerRateExpression:parts[8],modeling:'excluded-after-hit'};
+  }else parameters=compileNumericCommand(row.Para,{allowedFunctions,allowLogicalNumeric:true})(readVariable,callFunction).values;
   const repetitionCount=Math.ceil(parameters[1]??1);
   if(parameters.length>4||!Number.isFinite(parameters[0])||!Number.isSafeInteger(repetitionCount)||repetitionCount<1||(parameters[2]??0)!==0)throw new Error('Positive-repeat zero-subtype Active hit required');
   let directHitOrdinal=1,directExecutionOrdinal=1,observedDirectHits=preOutcome?null:1;
@@ -209,6 +231,6 @@ export function buildReplayActionCandidate({index,actionIndex,hitIndex=null,skil
   try{calculation=calculateSnapshotActiveDamage(scenario);}catch(error){if(error.message==='RNG-dependent critical outcome requires a captured pre-outcome roll')calculationBlocker=error.message;else throw error;}
   const observedCastDamage=!preOutcome&&Number.isFinite(observed.castDamage)?observed.castDamage:null;
   const comparison=calculation&&observedCastDamage!==null?{metric:'preHitDamage-vs-beHitConfig.castDamage',predicted:calculation.preHitDamage,observed:observedCastDamage,difference:calculation.preHitDamage-observedCastDamage}:null;
-  return {schemaVersion:1,kind:preOutcome?'MORIMENS_REPLAY_PREOUTCOME_CANDIDATE':'MORIMENS_REPLAY_ACTION_REGRESSION_CANDIDATE',build:combatBuild,protocolBuild,status:calculation?'CALCULATED_REGRESSION_CANDIDATE':'PREOUTCOME_INPUT_REQUIRED',actionIndex,hitIndex:hitSnapshot.hitIndex,identities:{cardUid:card.uid,skillId:card.tid,casterUid:caster.uid,playerUid:player.uid,targetUid,commandId:selectedCommand.value,rowId:row.id},routing:{selectedCommand,commandSourceShape:imported.sourceShape,importMetadata:imported.metadata,rowSelection:rowSelection.map(item=>({rowId:item.row.id,target:item.row.Target,condition:item.condition,targetMatched:item.targetMatched})),competingDamageSelection:competingDamageSelection.map(item=>({rowId:item.row.id,type:item.row.Type,target:item.row.Target,condition:item.condition})),awakerSchoolCounts,targetBindingSource:preOutcome?'identity-only-preoutcome':targetBindingSource,selectorValidation,superUltimateResolution:{isSuperUltimate:superUltimate,doubleUltiEnergy:doubleEnergy,maximumEnergy:maxUltiEnergy,currentEnergy:prop('ulti_energy'),levelUp:prop('ulti_skill_level_up')},parameters,plusValues,tags},scenario,calculation,calculationBlocker,
+  return {schemaVersion:1,kind:preOutcome?'MORIMENS_REPLAY_PREOUTCOME_CANDIDATE':'MORIMENS_REPLAY_ACTION_REGRESSION_CANDIDATE',build:combatBuild,protocolBuild,status:calculation?'CALCULATED_REGRESSION_CANDIDATE':'PREOUTCOME_INPUT_REQUIRED',actionIndex,hitIndex:hitSnapshot.hitIndex,identities:{cardUid:card.uid,skillId:card.tid,casterUid:caster.uid,playerUid:player.uid,targetUid,commandId:selectedCommand.value,rowId:row.id},routing:{selectedCommand,commandSourceShape:imported.sourceShape,importMetadata:imported.metadata,rowSelection:rowSelection.map(item=>({rowId:item.row.id,type:item.row.Type,target:item.row.Target,condition:item.condition,targetMatched:item.targetMatched})),competingDamageSelection:competingDamageSelection.map(item=>({rowId:item.row.id,type:item.row.Type,target:item.row.Target,condition:item.condition})),awakerSchoolCounts,targetBindingSource:preOutcome?'identity-only-preoutcome':targetBindingSource,selectorValidation,superUltimateResolution:{isSuperUltimate:superUltimate,doubleUltiEnergy:doubleEnergy,maximumEnergy:maxUltiEnergy,currentEnergy:prop('ulti_energy'),levelUp:prop('ulti_skill_level_up')},parameters,stateSideEffect,plusValues,tags},scenario,calculation,calculationBlocker,
     damageInputReconstruction:preOutcome?null:JSON.parse(JSON.stringify(hitSnapshot.reconstruction)),observedHit:preOutcome?null:JSON.parse(JSON.stringify(hit)),comparison,repetition:{perExecution:repetitionCount,hitOrdinal:directHitOrdinal,executionOrdinal:directExecutionOrdinal,observedDirectHits},unresolvedDependencies:preOutcome?['Prediction is limited to a deterministic direct hit with frozen target/caster/skill identity','Pre-hit snapshots and catalog rows require provenance review','Recorded engine-code version remains unresolved']:['Retrospective replay evidence cannot become a blind holdout','Action window and identity still require human review for triggered or overlapping actions','Observed hit and post-outcome critical fields are excluded from scenario construction','Target HP and block are reconstructed from explicit BeHit fields because the render record follows their mutations','Multiple executions sharing a card and skill identity require trigger-graph review','No connected original card-use, trigger graph, hit resolution or independent gameplay validation']};
 }

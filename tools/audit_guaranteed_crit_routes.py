@@ -24,7 +24,7 @@ def main():
     parser.add_argument("--modules", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    paths = {name: args.modules / f"{name}.json" for name in ("Skill", "Cmd", "State", "AwakerConfig")}
+    paths = {name: args.modules / f"{name}.json" for name in ("Skill", "Cmd", "State", "AwakerConfig", "RelicConfig")}
     tables = {name: json.loads(path.read_text(encoding="utf-8")) for name, path in paths.items()}
 
     certain_states = {
@@ -61,22 +61,66 @@ def main():
             }
         )
     routes.sort(key=lambda row: row["skillId"])
+    relic_routes = []
+    for relic_id, relic in tables["RelicConfig"].items():
+        if not any(phrase in str(relic.get("Desc", "")) for phrase in ("必定暴击", "必然暴击")):
+            continue
+        initial_states = relic.get("State1", [])
+        if isinstance(initial_states, dict):
+            initial_states = [initial_states[key] for key in sorted(initial_states, key=int)]
+        if not isinstance(initial_states, list) or not all(isinstance(value, int) for value in initial_states):
+            raise ValueError(f"Relic {relic_id} has unsupported initial state list")
+        trigger_commands = sorted({
+            value
+            for state_id in initial_states
+            for key, value in tables["State"].get(str(state_id), {}).items()
+            if key.startswith("TriggerCmd") and isinstance(value, int)
+        })
+        initial_critical_properties = {
+            str(state_id): {
+                key: value
+                for key, value in tables["State"].get(str(state_id), {}).get("ExistProperty", {}).items()
+                if "crit" in key
+            }
+            for state_id in initial_states
+        }
+        certain_grants = sorted({
+            state_id
+            for command_id in trigger_commands
+            for row in tables["Cmd"].get(str(command_id), {}).get("data_list", [])
+            if row.get("Type") == "BEAddState"
+            for state_id in certain_states
+            if str(row.get("Para", "")).split(",", 1)[0] == str(state_id)
+        })
+        relic_routes.append({
+            "relicId": int(relic_id),
+            "relic": label(relic.get("Name")),
+            "unlockLevel": relic.get("UnlockLevel"),
+            "stageChapter": relic.get("StageChapter"),
+            "initialStateIds": initial_states,
+            "initialCriticalProperties": {key: value for key, value in initial_critical_properties.items() if value},
+            "triggerCommandIds": trigger_commands,
+            "grantedCertainCritStateIds": certain_grants,
+        })
+    relic_routes.sort(key=lambda row: row["relicId"])
     report = {
         "schemaVersion": 1,
         "kind": "MORIMENS_EXPLICIT_GUARANTEED_CRIT_SKILL_CATALOG",
         "sourceSha256": {name: sha256(path) for name, path in paths.items()},
         "certainCritStateIds": sorted(certain_states),
         "skillsWhoseDescriptionSaysGuaranteedCritical": routes,
+        "relicsWhoseDescriptionSaysGuaranteedCritical": relic_routes,
         "limitations": [
-            "Text search covers explicit guaranteed-critical skill descriptions only; it is not an exhaustive route search.",
+            "Text search covers explicit guaranteed-critical skill and relic descriptions only; it is not an exhaustive route search.",
             "Command counts describe only the first command list and do not execute conditions, nested commands, state triggers or generated cards.",
+            "Relic grants are static one-level links from initial state through trigger command, without trigger ordering or acquisition proof.",
             "No character ownership, stage availability, combat damage or replay outcome is established.",
         ],
         "publicationCredit": False,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"skills": len(routes), "certainCritStates": len(certain_states), "output": str(args.output)}))
+    print(json.dumps({"skills": len(routes), "relics": len(relic_routes), "certainCritStates": len(certain_states), "output": str(args.output)}))
 
 
 if __name__ == "__main__":
