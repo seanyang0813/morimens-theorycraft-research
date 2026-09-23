@@ -69,6 +69,12 @@ After abandoning the locked chapter run, the agent entered the previously cleare
 
 ## 4. Build the outcome-blind capture evidence
 
+### 2026-09-23 Chapter 1-7 controlled-run diagnostic
+
+The same running resource-151/build-51 process completed Chapter 1-7 Normal with in-game auto battle. An identifier-free baseline was committed and pushed immediately before the boss fight (`research/evidence/holdout-session-baseline-20260923-14.json`). The account's newly completed stage record appeared at the top of the Record list and was loaded without inspecting combat damage. The private same-process delta contains ten valid replay containers absent from that baseline; only one has a post-baseline object modification time. Its embedded account identifier matches the visible account, its stage and Normal difficulty match the selected record, and its container hash is `dc58bedc376d3085cbaf60b73c17be1024f120ee992b1ec566b79a29eb37aab8`. An outcome-free check classifies its ten complete hit snapshots as `PVE_MONSTER_TARGETS`. The mechanically checked, still-unreviewed provenance artifact is `research/evidence/holdout-session-capture-candidate-20260923-14.json`.
+
+The private index contains 47 records, 787 events, nine card uses and ten hits. Before any outcome reveal, the strict blind selector found no deterministic ordinary Active hit: the two supported Active opportunities require an unrecorded critical roll. This capture therefore provides a pipeline diagnostic only, with zero frozen predictions, zero blind holdouts and no publication credit. The capture candidate remains unreviewed; no user attestation has been recorded.
+
 Preserve the container hash and object timestamp first. Decode and index only through the repository tools; avoid opening their outputs. Generate the combat-domain report and continue only if it says `PVE_MONSTER_TARGETS`. Then build the public capture candidate with `tools/build_replay_session_capture_evidence.py` and obtain explicit confirmation that the selected record is the controlled battle. Store that confirmation only in a private `MORIMENS_PRIVATE_CONTROLLED_PVE_ATTESTATION`, and promote the candidate with `tools/review_replay_session_capture.py`.
 
 ## 5. Freeze before revealing damage
