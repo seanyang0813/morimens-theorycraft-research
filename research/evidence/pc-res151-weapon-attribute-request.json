@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_WEAPON_ATTRIBUTE_REQUEST_BOUNDARY",
+  "analysisTrack": "mechanics",
+  "status": "CLIENT_REQUEST_IDENTIFIED_VALUE_ALGORITHM_UNRESOLVED",
+  "build": "pc-res151-build51",
+  "sourceHashes": {
+    "installedItemDataUtilsSha256": "b23dff88533d74e8084a35c50f0eb4869f83ba20c87ed8aa23621951f7a505d6",
+    "historicalItemDataUtilsSha256": "62b83adb95a72ac7bcca90e8f050b21e05e53e869cc465ced7fddae3a0c77873"
+  },
+  "findings": {
+    "requestMethod": "ReqCalWeaponAttr",
+    "protocolPath": "ProtoManager.Instance.ReqServer(GameRequest.OnCalWeaponAttr)",
+    "successAndFailureCallbacksPresent": true,
+    "requestBodyEqualToHistoricalPc": true,
+    "attributeReadEntryPointsPresent": [
+      "GetItemAttrValByAttrName",
+      "GetWeaponAttrValue"
+    ]
+  },
+  "scope": "Static request and callback boundary in ItemDataUtils only. The client sends a weapon-attribute calculation request; this inspection does not identify the server's numeric algorithm or prove that any particular response becomes a battle property.",
+  "limitations": [
+    "No enhancement scaling curve, request payload, response values, server implementation, or gameplay result is recovered.",
+    "This does not validate the pinned SKeyDB Wheel main-stat series against the installed client.",
+    "No copied Lua bytes, private paths, player identifiers, or item rows are published."
+  ]
+}

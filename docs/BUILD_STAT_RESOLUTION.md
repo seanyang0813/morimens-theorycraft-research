@@ -175,3 +175,15 @@ prove that the SKeyDB scaling curve is the installed game's rule. The
 identifier-free report and reproducible audit are
 `research/evidence/pc-res151-item-data-utils-parity.json` and
 `tools/audit_installed_item_utils.py`.
+
+A focused installed-bytecode audit identifies the separate
+`ReqCalWeaponAttr` client entry point and its
+`ProtoManager.Instance.ReqServer(GameRequest.OnCalWeaponAttr)` request, with
+success and failure callbacks. The request body is equal to the historical PC
+copy. This confirms that the client asks for a weapon-attribute calculation;
+it does not expose the server's enhancement arithmetic, response values or
+battle-property application. The identifier-free evidence is
+`research/evidence/pc-res151-weapon-attribute-request.json`, reproduced by
+`tools/audit_installed_weapon_attr_request.py`. Current-build Wheel enhancement
+values therefore remain catalog previews until independently checked against
+server-returned values or gameplay.

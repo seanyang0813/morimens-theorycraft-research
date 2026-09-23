@@ -6521,6 +6521,29 @@
       ]
     },
     {
+      "id": "PC151:WeaponAttributeRequest",
+      "status": "STATIC_REQUEST_BOUNDARY",
+      "claim": "Installed ItemDataUtils contains a historical-PC-identical ReqCalWeaponAttr client request through GameRequest.OnCalWeaponAttr with success and failure callbacks",
+      "scope": "Static client request route only. The server-side calculation, response values, enhancement scaling, battle-property application and gameplay remain unresolved.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Installed resource-151 ItemDataUtils Lua bytecode",
+          "member": "ReqCalWeaponAttr request prototype and callbacks; private bytecode withheld",
+          "sha256": "b23dff88533d74e8084a35c50f0eb4869f83ba20c87ed8aa23621951f7a505d6"
+        },
+        {
+          "module": "Sanitized weapon attribute request audit",
+          "member": "source hashes and bounded request-path finding",
+          "sha256": "b98ed7c1dcff19f701245722b484d6d6705dba566aa463b04dc7986c893168dd"
+        }
+      ],
+      "checks": [
+        "tools/audit_installed_weapon_attr_request.py",
+        "docs/BUILD_STAT_RESOLUTION.md"
+      ]
+    },
+    {
       "id": "PC151:FixedPurePreHitRuntimeCarryforward",
       "status": "EXACT_MATCH_IN_SYNTHETIC_FIXTURE_DOMAIN",
       "claim": "Installed resource-151 Fixed and Pure effect methods reproduce 372 and 322 historical synthetic pre-hit outputs exactly under explicit target-property and dimension inputs; the shared experimental research calculator exposes those bounded paths for resource 150/151",
