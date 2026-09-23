@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_RES153_STORY_PREHIT_RETROSPECTIVE_EVIDENCE",
+  "analysisTrack": "verification",
+  "status": "RETROSPECTIVE_DIAGNOSTIC_ONLY",
+  "baselineCommitment": {
+    "path": "research/evidence/holdout-res153-hard-h2-1-prebattle-baseline-20260923.json",
+    "sha256": "4148982c3b75fb94355cf991b59022df74c843318e652a59fbb631b5fb28e8e5"
+  },
+  "privateCommitments": {
+    "deltaSha256": "db82292e5ddbf6b2b138005925fadd6ce9fbfc41c869fe83fca451ea1b300ca5",
+    "decodedSha256": "231d0daf807519f60810937cdf2cf8f4c2d001714407662a685a1e988406239b",
+    "indexSha256": "3c4cae9b6495512d38b444794660518a76731d1d5347cd34f3630bf7dbe5a101",
+    "auditSha256": "953dd4c97b0cef041e2cac2f839dc3b49dcb4b8e4d8bacd3440b72140495e52a",
+    "identifiersPublished": false
+  },
+  "selectedContainerSha256": "5b32bd3a4b98e178f4005681383fdf132dd57c612169aacb75f248aa6db65d39",
+  "selectedContainerLastModifiedUtc": "2026-09-23T22:23:42+00:00",
+  "sameProcessAndExecutable": true,
+  "selectedObjectModifiedAfterBaseline": true,
+  "selectedAccountMatchedPrivately": true,
+  "stage": {
+    "id": 7955,
+    "name": "伽拉忒亚",
+    "difficulty": "Hard"
+  },
+  "combatDomain": "PVE_MONSTER_TARGETS",
+  "viewingClientBuild": "pc-res153-build51",
+  "replay": {
+    "records": 141,
+    "events": 2163,
+    "cardUses": 21,
+    "hits": 38
+  },
+  "activePrehitAudit": {
+    "actions": 21,
+    "hits": 38,
+    "compared": 12,
+    "exactObservedBranch": 12,
+    "nonPlayedCardHits": 21,
+    "blocked": 5,
+    "criticalOutcomes": {
+      "noncritical": 9,
+      "critical": 3
+    },
+    "largestAbsoluteDifference": 0,
+    "blockers": {
+      "At least one ordinary Active row required": 4,
+      "Played card identity, owner and camp required": 1
+    }
+  },
+  "publicationCredit": false,
+  "limitations": [
+    "The battle outcome was visible before decoding and calculation; this is not a blind holdout.",
+    "The recorded critical flags select the matching calculated branches after the outcome; random draws were not predicted.",
+    "Hits from triggered effects and unsupported command shapes are excluded from the Active-hit comparison.",
+    "The viewing client and same-process capture match resource 153, but the replay does not encode an engine build field.",
+    "No account, player, replay UUID, role-instance or card-instance identifier is published."
+  ]
+}
