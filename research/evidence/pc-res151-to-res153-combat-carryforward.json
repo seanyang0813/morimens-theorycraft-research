@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_COMBAT_BUILD_CARRYFORWARD",
+  "beforeBuild": "pc-res151-build51",
+  "afterBuild": "pc-res153-build51",
+  "status": "TRACKED_COMBAT_MODULES_IDENTICAL",
+  "sourceHashes": {
+    "beforeReport": "62475a2673222f436c0fdd9b6d1d047ce220f1b780ce0f685908563a11ff56f1",
+    "afterReport": "3cb7d9a72b180087cf83dbe9c1b8494b5e41d5e67f037866eaa2c28f5afdc776"
+  },
+  "moduleCount": 15,
+  "modules": [
+    {
+      "name": "BEActiveDamage.lua",
+      "status": "IDENTICAL",
+      "before": [
+        {
+          "sha256": "e192a4ab7db968b526c13d3495b2072f4ac88fe167f524f1defd2d00c747875c",
+          "size": 5730
+        }
+      ],
+      "after": [
+        {
+          "sha256": "e192a4ab7db968b526c13d3495b2072f4ac88fe167f524f1defd2d00c747875c",
+          "size": 5730
+        }
+      ]
+    },
+    {
+      "name": "BEFixedDamage.lua",
+      "status": "IDENTICAL",
+      "before": [
+        {
+          "sha256": "f2b15141a02bd1c251364d969159b0556a280522604b7d02400c2cf12b75c280",
+          "size": 2361
+        }
+      ],
+      "after": [
+        {
+          "sha256": "f2b15141a02bd1c251364d969159b0556a280522604b7d02400c2cf12b75c280",
+          "size": 2361
+        }
+      ]
+    },
+    {
+      "name": "BEPureDamage.lua",
+      "status": "IDENTICAL",
+      "before": [
+        {
+          "sha256": "1a8c11026251e91c3d5f9838f8c69dffabf91ba6889ab27dc4893fd8a93771bc",
+          "size": 1724
+        }
+      ],
+      "after": [
+        {
+          "sha256": "1a8c11026251e91c3d5f9838f8c69dffabf91ba6889ab27dc4893fd8a93771bc",
+          "size": 1724
+        }
+      ]
+    },
+    {
+      "name": "BETentacleAttack.lua",
+      "status": "IDENTICAL",
+      "before": [
+        {
+          "sha256": "b766fde3fa479a5944ce5a266a106085fae74431a41183b143960a6b4da29508",
+          "size": 2144
+        }
+      ],
+      "after": [
+        {
+          "sha256": "b766fde3fa479a5944ce5a266a106085fae74431a41183b143960a6b4da29508",
+          "size": 2144
+        }
+      ]
+    },
+    {
+      "name": "BattleCmdServer.lua",
+      "status": "IDENTICAL",
+      "before": [
+        {
+          "sha256": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9",
+          "size": 65998
+        }
+      ],
+      "after": [
+        {
+          "sha256": "6d567f1639ddbcb1c04a9d07f0eefa31bdfd69793cd79a6d8796185bceafb3c9",
+          "size": 65998
+        }
+      ]
+    },
+    {
+      "name": "BattleConst.lua",
+      "status": "IDENTICAL",
+      "before": [
+        {
+          "sha256": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+          "size": 41981
+        }
+      ],
+      "after": [
+        {
+          "sha256": "d3ede825d70e2780bc729514a684170c1e9456337828b3617a203d89dd8559e4",
+          "size": 41981
+        }
+      ]
+    },
+    {
+      "name": "BattleEngine.lua",
+      "status": "IDENTICAL",
+      "before": [
+        {
+          "sha256": "1823d5b962605ccd42ba605840490235fb0c9b5fd751a112625c30101a34535e",
+          "size": 65112
+        }
+      ],
+      "after": [
+        {
+          "sha256": "1823d5b962605ccd42ba605840490235fb0c9b5fd751a112625c30101a34535e",
+          "size": 65112
+        }
+      ]
+    },
+    {
+      "name": "BattlePropertyServer.lua",
+      "status": "IDENTICAL",
+      "before": [
+        {
+          "sha256": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5",
+          "size": 12825
+        }
+      ],
+      "after": [
+        {
+          "sha256": "c4c750eba83c74d718e819e4e2998557a51b51e350f2ff426841a1694e3083e5",
+          "size": 12825
+        }
+      ]
+    },
+    {
+      "name": "BattleRecord.lua",
+      "status": "IDENTICAL",
+      "before": [
+        {
+          "sha256": "614b5f42dd28a841c340fb43463f5335db198401d6fd974e41a67a36739955db",
+          "size": 27751
+        }
+      ],
+      "after": [
+        {
+          "sha256": "614b5f42dd28a841c340fb43463f5335db198401d6fd974e41a67a36739955db",
+          "size": 27751
+        }
+      ]
+    },
+    {
+      "name": "BattleReplayPlayer.lua",
+      "status": "IDENTICAL",
+      "before": [
+        {
+          "sha256": "3637d629c0ec30d4fff41618c62f2694e5a462577a6eba2e838154dc413a3f14",
+          "size": 12222
+        }
+      ],
+      "after": [
+        {
+          "sha256": "3637d629c0ec30d4fff41618c62f2694e5a462577a6eba2e838154dc413a3f14",
+          "size": 12222
+        }
+      ]
+    },
+    {
+      "name": "BattleStateServer.lua",
+      "status": "IDENTICAL",
+      "before": [
+        {
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+          "size": 25736
+        }
+      ],
+      "after": [
+        {
+          "sha256": "c18f1cff96b0b479b0902bfaa6848c9367249ef2afde894f31d9e6d04a4d7369",
+          "size": 25736
+        }
+      ]
+    },
+    {
+      "name": "BattleUnitBase.lua",
+      "status": "IDENTICAL",
+      "before": [
+        {
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "size": 42806
+        }
+      ],
+      "after": [
+        {
+          "sha256": "c74544b277ef7534e47efcbb029d836a038d5963ba4055ad762c798dcc193410",
+          "size": 42806
+        }
+      ]
+    },
+    {
+      "name": "BattleUnitUtil.lua",
+      "status": "IDENTICAL",
+      "before": [
+        {
+          "sha256": "b664734d7f12a5009b36727d2c3dfde75295b6e2be03edb37c3cf98ee74a1d04",
+          "size": 2400
+        }
+      ],
+      "after": [
+        {
+          "sha256": "b664734d7f12a5009b36727d2c3dfde75295b6e2be03edb37c3cf98ee74a1d04",
+          "size": 2400
+        }
+      ]
+    },
+    {
+      "name": "BattleUtilServer.lua",
+      "status": "IDENTICAL",
+      "before": [
+        {
+          "sha256": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
+          "size": 27905
+        }
+      ],
+      "after": [
+        {
+          "sha256": "7b1084baf8addfa5e77f61e81763df272af9ad67a52aaf6c0ae4d50ee64e381f",
+          "size": 27905
+        }
+      ]
+    },
+    {
+      "name": "PVEGameplay.lua",
+      "status": "IDENTICAL",
+      "before": [
+        {
+          "sha256": "5da43c24bf5d09b7ad360e74842d033af7d844f982126d0e6730dfc6188b5b09",
+          "size": 8280
+        }
+      ],
+      "after": [
+        {
+          "sha256": "5da43c24bf5d09b7ad360e74842d033af7d844f982126d0e6730dfc6188b5b09",
+          "size": 8280
+        }
+      ]
+    }
+  ],
+  "scope": "Hash-only comparison of the combat TextAssets tracked by both public build reports.",
+  "limitations": [
+    "Equality transfers only evidence whose complete runtime dependency set is covered by these modules",
+    "Catalog and untracked dependency changes require separate review",
+    "This report does not establish gameplay accuracy or identify the engine build of a historical replay"
+  ]
+}

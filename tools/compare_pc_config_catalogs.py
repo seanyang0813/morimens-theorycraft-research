@@ -135,7 +135,7 @@ def main() -> None:
         "limitations": [
             "Lua-semantic catalog equality does not prove equality of untracked code modules or other config tables",
             "This report provides no gameplay validation or holdout credit",
-            "Compatibility must be composed with an explicit runtime dependency inventory before enabling a resource-151 calculation path",
+            "Compatibility must be composed with an explicit runtime dependency inventory before enabling the newer build's calculation path",
         ],
     }
     output.parent.mkdir(parents=True, exist_ok=True)

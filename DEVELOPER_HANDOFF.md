@@ -4,6 +4,8 @@
 
 This repository is an experimental reconstruction of Morimens combat mechanics and a general theorycraft workbench. Mouchette/Arachne is a case study, not the product boundary.
 
+The live PC client is now resource 153 / build 51. Start with [the resource-153 update audit](docs/RESOURCE_153_UPDATE.md) before attempting another current-build replay holdout. The old resource-151 process ended at the mandatory update, and its pre-battle baselines cannot be reused.
+
 Run the full checkpoint from the repository root:
 
 ```powershell

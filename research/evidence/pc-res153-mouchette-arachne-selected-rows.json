@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_SELECTED_ROW_CARRYFORWARD",
+  "beforeBuild": "pc-res151-build51",
+  "afterBuild": "pc-res153-build51",
+  "status": "SELECTED_ROWS_LUA_SEMANTICALLY_EQUIVALENT",
+  "selectedRowCount": 19,
+  "tables": [
+    {
+      "name": "Skill",
+      "beforeRawSha256": "1546d7da690f36db257e9d64567894346bf0d80d90e4bb1aab9e7f7a0c433a38",
+      "afterRawSha256": "a6380dc63bf4b845968b451b8cea3c4cff385b0fdeb19511122e5b887b7cadc6",
+      "rows": [
+        {
+          "id": 122483,
+          "luaSemanticallyEquivalent": true
+        },
+        {
+          "id": 122484,
+          "luaSemanticallyEquivalent": true
+        },
+        {
+          "id": 123159,
+          "luaSemanticallyEquivalent": true
+        },
+        {
+          "id": 126484,
+          "luaSemanticallyEquivalent": true
+        }
+      ]
+    },
+    {
+      "name": "Cmd",
+      "beforeRawSha256": "ae55c0c3b03464b93b091a98a96e8bf456036e3a7cb1c0003d295bf5d9d41f2b",
+      "afterRawSha256": "6e3e91d334067ec796f5d407fe9eeca0ec8c8792f85a7eab29efc65d64c0ac7c",
+      "rows": [
+        {
+          "id": 122499,
+          "luaSemanticallyEquivalent": true
+        },
+        {
+          "id": 123160,
+          "luaSemanticallyEquivalent": true
+        },
+        {
+          "id": 133367,
+          "luaSemanticallyEquivalent": true
+        },
+        {
+          "id": 134282,
+          "luaSemanticallyEquivalent": true
+        },
+        {
+          "id": 134385,
+          "luaSemanticallyEquivalent": true
+        },
+        {
+          "id": 134386,
+          "luaSemanticallyEquivalent": true
+        }
+      ]
+    },
+    {
+      "name": "State",
+      "beforeRawSha256": "ff2f52c159fe2e4f1f2b097414337e6cc5945cd6e2fe544d017579b37df91472",
+      "afterRawSha256": "5af1b460279a8a46f33edaa83de19c54b102e153f6a480beef1285711f8c6ede",
+      "rows": [
+        {
+          "id": 122504,
+          "luaSemanticallyEquivalent": true
+        },
+        {
+          "id": 123703,
+          "luaSemanticallyEquivalent": true
+        },
+        {
+          "id": 124656,
+          "luaSemanticallyEquivalent": true
+        },
+        {
+          "id": 123165,
+          "luaSemanticallyEquivalent": true
+        },
+        {
+          "id": 123307,
+          "luaSemanticallyEquivalent": true
+        },
+        {
+          "id": 134383,
+          "luaSemanticallyEquivalent": true
+        },
+        {
+          "id": 134382,
+          "luaSemanticallyEquivalent": true
+        },
+        {
+          "id": 70350,
+          "luaSemanticallyEquivalent": true
+        },
+        {
+          "id": 133368,
+          "luaSemanticallyEquivalent": true
+        }
+      ]
+    }
+  ],
+  "scope": "Only named Mouchette/Arachne Skill, Cmd and State rows. Proprietary values are omitted.",
+  "limitations": [
+    "Nested command, state, item, actor, target and team dependency graphs are not closed by this selected-row check",
+    "This is neither current-build replay-adapter compatibility nor gameplay validation"
+  ]
+}

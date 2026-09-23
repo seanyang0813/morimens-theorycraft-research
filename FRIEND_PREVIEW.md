@@ -2,6 +2,8 @@
 
 This is a shareable checkpoint of an unfinished reverse-engineering project. It explains the current damage model and exposes the calculator workbench, but it does **not** claim that a complete Mouchette rotation or general build prediction has been verified against gameplay.
 
+The live PC client updated to resource 153 on 2026-09-23. Its tracked combat code is unchanged from resource 151, but some skill, command and state data changed. The calculator is still pinned to earlier checked resource builds; [the update audit](docs/RESOURCE_153_UPDATE.md) explains why this is not yet a live-client verification.
+
 ## Best two documents to read
 
 - [How damage stacks](output/pdf/morimens-damage-stacking-mouchette.pdf) explains additive buckets, separate multipliers, flat Strike damage, critical damage, Mouchette's follow-ups, her temporary Strike stacks, and Frenzy Old Embers.

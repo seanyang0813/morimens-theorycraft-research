@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_CONFIG_CATALOG_COMPARISON",
+  "beforeBuild": "pc-res151-build51",
+  "afterBuild": "pc-res153-build51",
+  "status": "GAMEPLAY_DATA_REVIEW_REQUIRED",
+  "tables": [
+    {
+      "name": "Skill",
+      "beforeRawSha256": "1546d7da690f36db257e9d64567894346bf0d80d90e4bb1aab9e7f7a0c433a38",
+      "afterRawSha256": "a6380dc63bf4b845968b451b8cea3c4cff385b0fdeb19511122e5b887b7cadc6",
+      "beforeCanonicalSha256": "9ff96eff7bb2df839c477d58acb7b033491266d98b9eafbf078cc58b5df3b342",
+      "afterCanonicalSha256": "9abb5840f98da145980086eae2be4efc44c97cd2e78be8f1144e1c3e9182a25a",
+      "beforeRows": 3635,
+      "afterRows": 3635,
+      "addedRows": 0,
+      "removedRows": 0,
+      "normalizedChangedSharedRows": 25,
+      "luaSemanticChangedSharedRows": 25,
+      "representationOnlyChangedRows": 0,
+      "luaSemanticEquivalent": false,
+      "normalization": {
+        "ignoredFields": [
+          "BaseSortID"
+        ],
+        "oneBasedNumericTablesBecomeArrays": true,
+        "emptyObjectAndArrayBothRepresentEmptyLuaTable": true
+      }
+    },
+    {
+      "name": "Cmd",
+      "beforeRawSha256": "ae55c0c3b03464b93b091a98a96e8bf456036e3a7cb1c0003d295bf5d9d41f2b",
+      "afterRawSha256": "6e3e91d334067ec796f5d407fe9eeca0ec8c8792f85a7eab29efc65d64c0ac7c",
+      "beforeCanonicalSha256": "40b277167df2c0c8928068abc2106d891de6057b3c89a77f07ad0f11d36a539d",
+      "afterCanonicalSha256": "42f189e4c1eb68b8512c7cbedf8ca16483d144ff7d601c638de3acab8c05b5c7",
+      "beforeRows": 7570,
+      "afterRows": 7571,
+      "addedRows": 1,
+      "removedRows": 0,
+      "normalizedChangedSharedRows": 5,
+      "luaSemanticChangedSharedRows": 5,
+      "representationOnlyChangedRows": 0,
+      "luaSemanticEquivalent": false,
+      "normalization": {
+        "ignoredFields": [
+          "BaseSortID"
+        ],
+        "oneBasedNumericTablesBecomeArrays": true,
+        "emptyObjectAndArrayBothRepresentEmptyLuaTable": true
+      }
+    },
+    {
+      "name": "State",
+      "beforeRawSha256": "ff2f52c159fe2e4f1f2b097414337e6cc5945cd6e2fe544d017579b37df91472",
+      "afterRawSha256": "5af1b460279a8a46f33edaa83de19c54b102e153f6a480beef1285711f8c6ede",
+      "beforeCanonicalSha256": "f04c94bfdde704a24cffca788475988efea6fda0f7de81be38e9cca8dfccac3a",
+      "afterCanonicalSha256": "1858623ac3d26b243a459250082be38cf497ffa11b62328bfb8cf847cc6f4cf9",
+      "beforeRows": 6959,
+      "afterRows": 6960,
+      "addedRows": 1,
+      "removedRows": 0,
+      "normalizedChangedSharedRows": 22,
+      "luaSemanticChangedSharedRows": 22,
+      "representationOnlyChangedRows": 0,
+      "luaSemanticEquivalent": false,
+      "normalization": {
+        "ignoredFields": [
+          "BaseSortID"
+        ],
+        "oneBasedNumericTablesBecomeArrays": true,
+        "emptyObjectAndArrayBothRepresentEmptyLuaTable": true
+      }
+    },
+    {
+      "name": "BattleApi",
+      "beforeRawSha256": "e79202cdba3e73bd9f8bbfa1943d9fc016dc3ac7f1a80ec7372c8d0639687e6d",
+      "afterRawSha256": "e465ef40676491f842bfe532be44d8d31ef12b07afda7f4b3cafbd79110d1b18",
+      "beforeCanonicalSha256": "7284e8dd6beb64091c5654c5b365e3df37add3e21f0e349be9787ed12946d8b7",
+      "afterCanonicalSha256": "7284e8dd6beb64091c5654c5b365e3df37add3e21f0e349be9787ed12946d8b7",
+      "beforeRows": 1554,
+      "afterRows": 1554,
+      "addedRows": 0,
+      "removedRows": 0,
+      "normalizedChangedSharedRows": 0,
+      "luaSemanticChangedSharedRows": 0,
+      "representationOnlyChangedRows": 0,
+      "luaSemanticEquivalent": true,
+      "normalization": {
+        "ignoredFields": [
+          "BaseSortID"
+        ],
+        "oneBasedNumericTablesBecomeArrays": true,
+        "emptyObjectAndArrayBothRepresentEmptyLuaTable": true
+      }
+    },
+    {
+      "name": "Constant",
+      "beforeRawSha256": "4c359d7cc1446f06708dd02f3d587881e05bc10131bcc7377ef1584c6f1236c0",
+      "afterRawSha256": "c108190d2df57517a66d256ce38d7e6a9d2b8a29248bdbfd5ebde768fdd11a13",
+      "beforeCanonicalSha256": "e79a45a57a51429fe0178122c6b49762841b94ea3ef8c292ff820b80a632ee2d",
+      "afterCanonicalSha256": "20342a7baa6075f61df3827aba2e917c2da2e148b926080c11d2309c8dbda213",
+      "beforeRows": 1275,
+      "afterRows": 1278,
+      "addedRows": 3,
+      "removedRows": 0,
+      "normalizedChangedSharedRows": 0,
+      "luaSemanticChangedSharedRows": 0,
+      "representationOnlyChangedRows": 0,
+      "luaSemanticEquivalent": false,
+      "normalization": {
+        "ignoredFields": [
+          "BaseSortID"
+        ],
+        "oneBasedNumericTablesBecomeArrays": true,
+        "emptyObjectAndArrayBothRepresentEmptyLuaTable": true
+      }
+    }
+  ],
+  "summary": {
+    "tableCount": 5,
+    "luaSemanticallyEquivalentTables": 1,
+    "addedRows": 5,
+    "removedRows": 0,
+    "luaSemanticChangedSharedRows": 52,
+    "representationOnlyChangedRows": 0
+  },
+  "scope": "Hash-only comparison of five privately exported config tables used by the narrow replay damage adapter. No table rows or values are published.",
+  "limitations": [
+    "Lua-semantic catalog equality does not prove equality of untracked code modules or other config tables",
+    "This report provides no gameplay validation or holdout credit",
+    "Compatibility must be composed with an explicit runtime dependency inventory before enabling a resource-151 calculation path"
+  ]
+}

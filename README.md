@@ -2,6 +2,8 @@
 
 Status: research prototype. The general calculator, sequence workbenches and evidence browser run locally, but there is no verified end-to-end gameplay prediction and the accuracy publication gate is **NOT_READY**.
 
+**Live-client update (2026-09-23):** Morimens now downloads PC resource 153 / build 51. The 15 tracked combat Lua modules are byte-identical to resource 151, but three of the five replay-adapter catalog tables have changed Lua-semantic values (25 Skill, 5 Cmd and 22 State shared rows), and five rows were added across the five tables. Existing resource-151 calculator paths remain pinned research paths; no resource-153 gameplay or replay-adapter support is claimed. See [`docs/RESOURCE_153_UPDATE.md`](docs/RESOURCE_153_UPDATE.md) for the exact boundary. Historical references below to the “installed” resource-151 client describe the earlier checkpoint.
+
 This repository is a source checkpoint for collaboration. It does not claim that the calculator is accurate enough for build recommendations. Generated symbol indexes, copied client files, extraction outputs, local observations, private screenshots and keys are intentionally excluded.
 
 For a quick shareable overview, read [`FRIEND_PREVIEW.md`](FRIEND_PREVIEW.md). An agent or developer continuing the work should start with [`DEVELOPER_HANDOFF.md`](DEVELOPER_HANDOFF.md).
