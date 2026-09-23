@@ -13,7 +13,7 @@ test('property snapshot UI renders single hits, sequences and invalid input',()=
   assert.equal(nodes.get('metric-one-label').textContent,'Pre-hit damage');assert.equal(nodes.get('total').textContent,'317');assert.equal(nodes.get('hp-loss').textContent,'267');assert.equal(nodes.get('reads').children.length,79);
   assert.match(nodes.get('summary').textContent,/pc-res151-build51/);
   nodes.get('sequence-example').onclick();
-  assert.equal(JSON.parse(nodes.get('input').value).build,'pc-res150-build51');
+  assert.equal(JSON.parse(nodes.get('input').value).build,'pc-res151-build51');
   assert.equal(nodes.get('metric-one-label').textContent,'Total modeled HP loss');assert.equal(nodes.get('total').textContent,'150');assert.equal(nodes.get('hp-loss').textContent,'2 / 2');assert.match(nodes.get('summary').textContent,/1000 HP \/ 150 Block → 850 HP \/ 0 Block/);
   nodes.get('input').value='bad';nodes.get('run').onclick();assert.equal(nodes.get('result').hidden,true);assert.ok(nodes.get('error').textContent);
 });

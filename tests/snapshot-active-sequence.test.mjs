@@ -12,6 +12,14 @@ test('snapshot sequence threads shield and HP while recomputing block-sensitive 
   assert.equal(result.modeledHpLost,250);assert.deepEqual(result.targetAfter,{hp:750,block:0});assert.equal(JSON.stringify(value),copy);
 });
 
+test('installed-client snapshot sequence preserves the supported live-property result',()=>{
+  const value=input();value.build='pc-res151-build51';
+  const result=runSnapshotActiveSequence(value);
+  assert.equal(result.build,'pc-res151-build51');
+  assert.deepEqual(result.trace.map(row=>[row.result.preHitDamage,row.result.modeledHpLost,row.after.block,row.after.hp]),[[200,50,0,950],[100,100,0,850],[100,100,0,750]]);
+  assert.equal(result.finalDamage,null);
+});
+
 test('snapshot sequence stops before hits after lethal HP mutation',()=>{
   const value=input();value.initialTargetProperties={...value.initialTargetProperties,hp:120,block:0};
   const result=runSnapshotActiveSequence(value);
