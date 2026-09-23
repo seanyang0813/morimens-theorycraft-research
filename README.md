@@ -6,6 +6,8 @@ This repository is a source checkpoint for collaboration. It does not claim that
 
 For a quick shareable overview, read [`FRIEND_PREVIEW.md`](FRIEND_PREVIEW.md). An agent or developer continuing the work should start with [`DEVELOPER_HANDOFF.md`](DEVELOPER_HANDOFF.md).
 
+For the next controlled gameplay check, [`docs/GUARANTEED_CRIT_CAPTURE_PATHS.md`](docs/GUARANTEED_CRIT_CAPTURE_PATHS.md) catalogs source-backed guaranteed-critical routes and current account availability. None is a validated holdout yet.
+
 The intended product is described in [`docs/PRODUCT_DIRECTION.md`](docs/PRODUCT_DIRECTION.md): one auditable engine serving both a human sequence/build calculator and an agent-facing simulation/search API.
 
 ## Current checkpoint

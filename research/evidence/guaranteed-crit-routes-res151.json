@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_EXPLICIT_GUARANTEED_CRIT_SKILL_CATALOG",
+  "sourceSha256": {
+    "Skill": "1546d7da690f36db257e9d64567894346bf0d80d90e4bb1aab9e7f7a0c433a38",
+    "Cmd": "ae55c0c3b03464b93b091a98a96e8bf456036e3a7cb1c0003d295bf5d9d41f2b",
+    "State": "ff2f52c159fe2e4f1f2b097414337e6cc5945cd6e2fe544d017579b37df91472",
+    "AwakerConfig": "9c9816952c571d7d0af94d273892239190a25789ba487c5f9f934a17c725a41e"
+  },
+  "certainCritStateIds": [
+    2687,
+    2895,
+    3078,
+    3299,
+    36873,
+    90082,
+    126539,
+    146077
+  ],
+  "skillsWhoseDescriptionSaysGuaranteedCritical": [
+    {
+      "skillId": 89776,
+      "skill": "翱翔夙愿",
+      "owners": [
+        {
+          "characterId": 77923,
+          "character": "卡斯托尔",
+          "school": 3
+        }
+      ],
+      "commandId": 89789,
+      "guaranteedCriticalStateIdsReferenced": [
+        90082
+      ],
+      "directDamageRowCount": 0,
+      "nestedCommandRowCount": 0
+    },
+    {
+      "skillId": 98990,
+      "skill": "蚀骨色彩",
+      "owners": [
+        {
+          "characterId": 77926,
+          "character": "皮克曼",
+          "school": 2
+        }
+      ],
+      "commandId": 98994,
+      "guaranteedCriticalStateIdsReferenced": [
+        126539
+      ],
+      "directDamageRowCount": 0,
+      "nestedCommandRowCount": 1
+    },
+    {
+      "skillId": 125371,
+      "skill": "入骨相思",
+      "owners": [
+        {
+          "characterId": 125346,
+          "character": "徐",
+          "school": 2
+        }
+      ],
+      "commandId": 125467,
+      "guaranteedCriticalStateIdsReferenced": [
+        126539
+      ],
+      "directDamageRowCount": 1,
+      "nestedCommandRowCount": 0
+    },
+    {
+      "skillId": 142847,
+      "skill": "纵魇掠袭",
+      "owners": [
+        {
+          "characterId": 141302,
+          "character": "庞托斯",
+          "school": 4
+        }
+      ],
+      "commandId": 142848,
+      "guaranteedCriticalStateIdsReferenced": [
+        126539
+      ],
+      "directDamageRowCount": 0,
+      "nestedCommandRowCount": 2
+    },
+    {
+      "skillId": 146015,
+      "skill": "断界之剑",
+      "owners": [
+        {
+          "characterId": 145363,
+          "character": "蚀灭·萝坦",
+          "school": 1
+        }
+      ],
+      "commandId": 146025,
+      "guaranteedCriticalStateIdsReferenced": [
+        146077
+      ],
+      "directDamageRowCount": 1,
+      "nestedCommandRowCount": 0
+    }
+  ],
+  "limitations": [
+    "Text search covers explicit guaranteed-critical skill descriptions only; it is not an exhaustive route search.",
+    "Command counts describe only the first command list and do not execute conditions, nested commands, state triggers or generated cards.",
+    "No character ownership, stage availability, combat damage or replay outcome is established."
+  ],
+  "publicationCredit": false
+}
