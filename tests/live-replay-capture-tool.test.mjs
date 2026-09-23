@@ -10,7 +10,7 @@ const root=resolve(fileURLToPath(new URL('../',import.meta.url)));
 test('public live replay capture helpers preserve private-reference boundaries',()=>{
   const result=spawnSync('python',['tools/test_capture_live_replay_session.py'],{cwd:root,encoding:'utf8'});
   assert.equal(result.status,0,result.stdout+result.stderr);
-  assert.match(result.stderr,/Ran 5 tests/);
+  assert.match(result.stderr,/Ran 6 tests/);
 });
 
 test('public live replay capture CLI exposes baseline and delta modes',()=>{

@@ -1,5 +1,5 @@
 {
-  "generatedAtUtc": "2026-09-23T09:16:50.226596+00:00",
+  "generatedAtUtc": "2026-09-23T10:35:10.335501+00:00",
   "publicationStatus": "NOT_READY",
   "publicationAuthorized": false,
   "automatedSuite": {
@@ -7,7 +7,7 @@
     "passed": true,
     "exitCode": 0,
     "log": "research\\evidence\\latest-test-suite.tap",
-    "logSha256": "f6a2a916a6380fe597866511c8e37e966870c907f32c99c11fe96e48455b0c79"
+    "logSha256": "19b8496e9e01eed16852615905817a1bd08c5283517afe95ce889318b8cd6a8f"
   },
   "realObservations": {
     "records": 3,

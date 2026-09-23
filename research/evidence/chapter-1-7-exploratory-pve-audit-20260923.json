@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_EXPLORATORY_PVE_SESSION_AUDIT",
+  "analysisTrack": "verification",
+  "status": "RETROSPECTIVE_DIAGNOSTIC_ONLY",
+  "baselineCommitment": {
+    "path": "research/evidence/holdout-session-baseline-20260923-10.json",
+    "sha256": "28c2fe062881d6e7562e858a4c8f119f1795148e06a4ea5ebd898b3ff35126de"
+  },
+  "privateDeltaCommitment": {
+    "sha256": "0b196f3725a8a559aad5d09d7772e5c4fcda5d8fd165ef6e51c29b07df09f524",
+    "identifiersPublished": false
+  },
+  "privateAuditCommitment": {
+    "sha256": "6eff2c278d52c860b8cdb16dd2c041ee7f20e0800bf5718fb0598ff93de77f0d",
+    "identifiersPublished": false
+  },
+  "selectedContainerSha256": "3aedbaa4c92baa23833a171996f4ff141e6c2b8ea703dac055435cce9881bc07",
+  "selectedContainerLastModifiedUtc": "2026-09-23T10:25:11+00:00",
+  "sameProcessAndExecutable": true,
+  "selectedObjectModifiedAfterBaseline": true,
+  "selectedAccountMatchedPrivately": true,
+  "stage": "Chapter 1-7 Normal",
+  "combatDomain": "PVE_MONSTER_TARGETS",
+  "calculationBuild": "pc-res151-build51",
+  "totals": {
+    "records": 31,
+    "events": 633,
+    "cardUses": 7,
+    "hits": 9,
+    "completeHitSnapshots": 9,
+    "retrospectiveActiveCandidates": 2,
+    "deterministicExactChecks": 0,
+    "exactRngBranchConsistencyChecks": 2,
+    "deterministicMismatches": 0,
+    "rngBranchMismatches": 0
+  },
+  "captureInventory": {
+    "newReferences": 10,
+    "retrievableContainers": 10,
+    "selectedOwnBattleContainers": 1
+  },
+  "publicationCredit": false,
+  "limitations": [
+    "Damage was visible during play and the replay was decoded before calculation; this is not a blind holdout.",
+    "The stage contains multiple combats and its record screen also loaded other players' replays; only the privately matched account container is audited here.",
+    "Critical random draws are not reconstructed; branch consistency does not establish an exact predicted result.",
+    "The installed executable and resources were unchanged in the same process, but the replay does not explicitly encode the engine build.",
+    "No player, account, replay, role-instance or card-instance identifier is published."
+  ]
+}
