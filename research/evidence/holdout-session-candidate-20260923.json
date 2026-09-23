@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_REPLAY_SESSION_CAPTURE_EVIDENCE",
+  "status": "CAPTURE_CANDIDATE_REQUIRES_CONTROLLED_BATTLE_REVIEW",
+  "analysisTrack": "verification",
+  "createdAtUtc": "2026-09-23T07:54:23.065992+00:00",
+  "build": {
+    "id": "pc-res151-build51",
+    "evidencePath": "research/evidence/pc-res144-to-res151-combat-build.json",
+    "evidenceSha256": "62475a2673222f436c0fdd9b6d1d047ce220f1b780ce0f685908563a11ff56f1"
+  },
+  "containerSha256": "1098ad2c55a861814e1f94d2bf05ef271525157fc7bdcb4f61bbc13a5f1f48f9",
+  "combatDomain": "PVE_MONSTER_TARGETS",
+  "baselineCommitment": {
+    "path": "research/evidence/holdout-session-baseline-20260923.json",
+    "sha256": "975c676a5ea64a756d3354f16dba0b8df7ab8d21c2bfe68b3021d2735e819dea",
+    "privateBaselineSha256": "3bfb683a71233febb44713b2a365fbefebec90282e19985176a57731e9818e63"
+  },
+  "privateCaptureCommitment": {
+    "sha256": "c1f2e8f006147aa6c488061aab3e5f73cda8f432533d7f65f0dfc2adcd1b4110",
+    "identifiersPublished": false
+  },
+  "timing": {
+    "baselineCapturedAtUtc": "2026-09-23T07:30:34.318376+00:00",
+    "objectLastModifiedUtc": "2026-09-23T07:42:35+00:00",
+    "deltaCapturedAtUtc": "2026-09-23T07:53:23.104172+00:00"
+  },
+  "sessionChecks": {
+    "sameProcessStart": true,
+    "sameExecutable": true,
+    "installedBuildUnchanged": true,
+    "newReferenceAbsentFromBaseline": true,
+    "controlledPveBattleConfirmed": false,
+    "containerPreservedBeforeDecode": true
+  },
+  "requirementsForReview": [
+    "The user must confirm that this newly appearing reference is the controlled PvE battle completed after the baseline",
+    "Review must occur before this artifact can be included as recorded-build evidence in a frozen prediction"
+  ],
+  "scope": "Mechanically validated same-process, post-baseline, PvE capture candidate; no replay or player identifier is published.",
+  "limitations": [
+    "This candidate is not reviewed same-session evidence and cannot receive holdout or publication credit",
+    "The outcome-free domain check establishes PvE target type, not stage, difficulty, strategy or prediction correctness"
+  ]
+}

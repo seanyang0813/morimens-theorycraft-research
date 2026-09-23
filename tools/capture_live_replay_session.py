@@ -169,6 +169,22 @@ def download_container(replay_uuid: str) -> tuple[bytes, str | None]:
         return response.read(), response.headers.get("Last-Modified")
 
 
+def container_json_encoding(data: bytes) -> str | None:
+    """Identify the replay envelope without decoding its compressed battle data."""
+    try:
+        decoded = json.loads(data.decode("utf-8"))
+        encoding = "utf8"
+    except UnicodeDecodeError:
+        try:
+            decoded = json.loads(data.decode("latin-1"))
+            encoding = "latin1"
+        except json.JSONDecodeError:
+            return None
+    except json.JSONDecodeError:
+        return None
+    return encoding if isinstance(decoded, dict) and isinstance(decoded.get("compStr"), str) else None
+
+
 def capture_baseline(pid: int, output_value: Path) -> dict:
     output = private_path(output_value, "Baseline output")
     if output.exists():
@@ -205,12 +221,11 @@ def capture_delta(pid: int, baseline_value: Path, output_value: Path) -> dict:
         row = {"uuid": replay_uuid, "discovery": sorted(found[replay_uuid])}
         try:
             data, last_modified = download_container(replay_uuid)
-            try:
-                decoded = json.loads(data)
-                valid = isinstance(decoded, dict) and isinstance(decoded.get("compStr"), str)
-            except (UnicodeDecodeError, json.JSONDecodeError):
-                valid = False
+            json_encoding = container_json_encoding(data)
+            valid = json_encoding is not None
             row.update(httpStatus=200, bytes=len(data), sha256=sha(data), validContainer=valid, objectLastModified=last_modified)
+            if json_encoding:
+                row["jsonEncoding"] = json_encoding
             if last_modified:
                 row["objectLastModifiedUtc"] = parsedate_to_datetime(last_modified).astimezone(timezone.utc).isoformat()
             if valid:

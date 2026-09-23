@@ -33,7 +33,7 @@ $p = Get-Process Morimens
 python tools/capture_live_replay_session.py delta --pid $p.Id --baseline research/raw/holdout-session-baseline.json --output research/raw/holdout-session-delta.json
 ```
 
-The tool rejects a different PID, process start time or executable hash. A useful capture normally reports one new reference and one valid container. Multiple candidates require private review before selecting one. Do not open the container or inspect decoded damage.
+The tool rejects a different PID, process start time or executable hash. A useful capture normally reports one new reference and one valid container. The API can encode raw compressed bytes in a Latin-1 JSON envelope; the capture checks both UTF-8 and Latin-1 JSON and records the encoding without unpacking `compStr`. Multiple candidates require private review before selecting one. Do not open the container or inspect decoded damage.
 
 ## 4. Build the outcome-blind capture evidence
 

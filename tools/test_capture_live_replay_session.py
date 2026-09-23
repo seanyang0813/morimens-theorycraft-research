@@ -33,6 +33,14 @@ class LiveReplayCaptureTests(unittest.TestCase):
         path = capture.private_path(Path("research/raw/safe.json"), "Test")
         self.assertEqual(path.parent, capture.PRIVATE_ROOT)
 
+    def test_replay_envelope_accepts_binary_latin1_json_without_unpacking_it(self):
+        # The live replay API may write raw compressed bytes into the JSON string.
+        latin1 = b'{"compStr":"\xc0"}'
+        self.assertEqual(capture.container_json_encoding(latin1), "latin1")
+        self.assertEqual(capture.container_json_encoding(b'{"compStr":"ok"}'), "utf8")
+        self.assertIsNone(capture.container_json_encoding(b'{"compStr":3}'))
+        self.assertIsNone(capture.container_json_encoding(b'{"compStr":"\xc0"'))
+
 
 if __name__ == "__main__":
     unittest.main()
