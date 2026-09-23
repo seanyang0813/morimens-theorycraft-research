@@ -27,4 +27,10 @@ The exact client-side lookup and download dependency is in `docs/REPLAY_ACQUISIT
 
 If the interface cannot expose a necessary value, leave that record incomplete and select another controlled action or source. Do not fit unknown modifiers to a displayed total.
 
+### Deterministic Fixed-damage route check (2026-09-23)
+
+The installed resource-151 `Skill` and `Cmd` tables contain six directly linked commands with `BEFixedDamage` rows. Eight skills point to them: Karab's `粉雪魔咒` (144487), prototype 赭之壹型's `测·折光` and `测·镜返` (132360/132362), Pontos's `猎杀之魄` and `无休猎宴` (143558/142695), Mosi's `涡！流！弹！` (130934), and two developing/test cards without an Awakener owner (149181/149182). The source hashes are the `Skill`, `Cmd` and `AwakerConfig` hashes in `research/evidence/guaranteed-crit-routes-res151.json`. This is a **direct command-row inventory**, not an exhaustive nested-effect search or a claim that a card is playable in ordinary PvE. Fixed pre-hit arithmetic has a bounded resource-151 runtime comparison (`research/evidence/pc-res151-fixed-pure-runtime.json`), but its final HP effect and a current-build independent holdout remain unverified.
+
+The current account roster was inspected in the client after the H1-3 Hard clear. Karab is locked in Blood; Pontos is locked in Deep Sea; 赭之壹型 is not the sole owned Hyperdimension character; and Mosi is not among the eight owned Chaos characters. None of these direct Fixed-card routes can be put into the current ordinary team now. The `AwakerIntroduction` text for Karab, Pontos and Mosi describes preset-character trial battles, but that text does not establish that a trial is currently accessible, clearable or recorded. If an accessible trial is found, check its record support and command shape before committing a new baseline. Otherwise, the lower-investment route remains an obtainable certain-critical relic such as Vision Corrector, with its counter order independently established before freezing a prediction.
+
 Separate pending friend-scenario input: final team Realm Mastery. This is not permission to substitute the Frenzy record's Lv80 character stats for the approved Lv90 example.
