@@ -15,10 +15,10 @@
 <label class="check" id="puncture-label"><input id="puncture" type="checkbox">Puncture</label>
 <label class="check" id="prevention-label"><input id="prevention" type="checkbox">Eligible for Active-damage prevention</label>
 <p class="help">Use resolved battle properties. This step excludes triggered effects, phase changes and death processing.</p></div>
-<button type="submit">Calculate hit</button><button type="button" class="secondary" id="reset">Reset current category</button><p id="error" role="alert"></p>
+<button type="submit">Calculate hit</button><button type="button" class="secondary" id="critical-branches">Show both critical branches</button><button type="button" class="secondary" id="reset">Reset current category</button><p id="error" role="alert"></p>
 </form></section>
 <section class="results" aria-labelledby="result-heading"><h2 id="result-heading">Damage breakdown</h2><p id="total" class="total" aria-live="polite">—</p><p id="result-note">Enter the resolved card or effect base damage to begin.</p>
-<div id="hp-result"></div><ol id="arithmetic" class="arithmetic"></ol>
+<div id="hp-result"></div><div id="critical-branch-result" aria-live="polite"></div><ol id="arithmetic" class="arithmetic"></ol>
 <section aria-labelledby="experiment-heading"><h3 id="experiment-heading">A/B experiment</h3><p class="help">Save the current inputs as A, change a modifier, then compare B. Several simultaneous changes show their combined effect, not individual causal contributions.</p>
 <button type="button" id="save-baseline" class="secondary">Use current setup as A</button><button type="button" id="compare" disabled>Compare current setup as B</button><p id="baseline-note" aria-live="polite">No baseline saved.</p><div id="comparison"></div>
 <details><summary>Reproduce or share this experiment</summary><label for="experiment-json">Experiment JSON</label><textarea id="experiment-json" rows="8" spellcheck="false" placeholder="A completed comparison produces reproducible JSON here. You can also paste an experiment from another person or agent."></textarea><button type="button" class="secondary" id="import-experiment">Run pasted experiment</button><p class="help">Pasted experiments are evaluated separately; they do not overwrite the form. Use the displayed input changes and JSON to inspect both setups.</p></details></section>

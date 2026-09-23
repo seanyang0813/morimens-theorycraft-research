@@ -54,3 +54,18 @@ export function buildGeneralScenario({clientBuild=build,damageType,values,isCrit
   return scenario;
 }
 export function calculateGeneral(input){return {...calculateDamage(buildGeneralScenario(input)),analysisTrack:'theorycrafting',claimBoundary:{purpose:'Evaluate supplied damage inputs and A/B hypotheses',mustNotClaim:['observed cheese','leaderboard prevalence','independent gameplay verification']}};}
+
+// An unknown critical roll has two conditional outcomes. This deliberately
+// reports neither a probability nor a single predicted gameplay result.
+export function calculateCriticalBranches(input){
+  if(!['ACTIVE','TENTACLE'].includes(input?.damageType))throw new Error('Critical branches are available only for Active and Tentacle hits');
+  const branches={};
+  for(const [name,isCrit] of [['noncritical',false],['critical',true]]){
+    const result=calculateGeneral({...input,isCrit});
+    const preHitDamage=result.experimentalModels.find(model=>Object.hasOwn(model,'preHitDamage'))?.preHitDamage;
+    if(!Number.isFinite(preHitDamage))throw new Error('Both critical branches require a calculated pre-hit value');
+    branches[name]={preHitDamage,result};
+  }
+  return {status:'CONDITIONAL_BRANCHES_ONLY',damageType:input.damageType,branches,
+    unresolvedDependencies:['Critical chance and RNG roll are not inferred from these resolved inputs','Neither branch is an independent gameplay prediction']};
+}

@@ -1,4 +1,4 @@
-import {fieldsFor,hitFields,buildGeneralScenario,calculateGeneral,supportedDamageCategories} from './general-calculator.mjs';
+import {fieldsFor,hitFields,buildGeneralScenario,calculateGeneral,calculateCriticalBranches,supportedDamageCategories} from './general-calculator.mjs';
 import {compareScenarios} from './engine/experiments.mjs';
 const $=id=>document.getElementById(id),fmt=n=>n.toLocaleString('en-US',{maximumFractionDigits:5});
 let baseline=null;
@@ -10,7 +10,7 @@ function field(key,label,value,parent,prefix){
 }
 function clear(){
   $('total').textContent='—';$('result-note').textContent='Calculate to update the result for these inputs.';
-  $('arithmetic').replaceChildren();$('hp-result').replaceChildren();$('dependencies').replaceChildren();$('snapshot').textContent='No current calculation.';$('error').textContent='';
+  $('arithmetic').replaceChildren();$('hp-result').replaceChildren();$('critical-branch-result').replaceChildren();$('dependencies').replaceChildren();$('snapshot').textContent='No current calculation.';$('error').textContent='';
   $('comparison').replaceChildren();
 }
 function renderFields(){
@@ -25,6 +25,7 @@ function renderFields(){
     field(f.key,f.label,f.defaultValue,groups.get(f.group),'damage-');
   }
   $('critical-label').hidden=!['ACTIVE','TENTACLE'].includes(type);$('prevention-label').hidden=type!=='ACTIVE';$('puncture-label').hidden=type==='PURE';
+  $('critical-branches').hidden=!['ACTIVE','TENTACLE'].includes(type);
   if(!['ACTIVE','TENTACLE'].includes(type))$('critical').checked=false;
   if(type!=='ACTIVE')$('prevention').checked=false;
   if(type==='PURE')$('puncture').checked=false;
@@ -51,6 +52,12 @@ $('general-form').addEventListener('submit',event=>{event.preventDefault();clear
   $('snapshot').textContent=JSON.stringify({input:buildGeneralScenario(input),result},null,2);
 }catch(error){$('error').textContent=error.message;}});
 $('general-form').addEventListener('input',clear);$('damage-type').addEventListener('change',renderFields);$('client-build').addEventListener('change',syncBuild);
+$('critical-branches').addEventListener('click',()=>{clear();try{
+  const conditional=calculateCriticalBranches(read()),p=document.createElement('p');
+  p.textContent=`Conditional pre-hit damage: noncritical ${fmt(conditional.branches.noncritical.preHitDamage)}; critical ${fmt(conditional.branches.critical.preHitDamage)}. The actual branch requires the critical roll or a provably certain critical chance.`;
+  $('critical-branch-result').append(p);$('snapshot').textContent=JSON.stringify(conditional,null,2);
+  for(const dependency of conditional.unresolvedDependencies){const li=document.createElement('li');li.textContent=dependency;$('dependencies').append(li);}
+}catch(error){$('error').textContent=error.message;}});
 $('resolve-hp').addEventListener('change',syncHp);$('reset').addEventListener('click',()=>{renderFields();$('critical').checked=false;});
 syncBuild();
 

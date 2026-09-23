@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
-import {fieldsFor,calculateGeneral,buildGeneralScenario,supportedDamageCategories} from '../website/dist/general-calculator.mjs';
+import {fieldsFor,calculateGeneral,calculateCriticalBranches,buildGeneralScenario,supportedDamageCategories} from '../website/dist/general-calculator.mjs';
 import {compareScenarios} from '../engine/experiments.mjs';
 const setup=type=>({damageType:type,values:Object.fromEntries(fieldsFor(type).map(f=>[f.key,f.defaultValue??100])),isCrit:false,hitEnabled:false});
 test('general website supports all four recovered formula categories without a character preset',()=>{
@@ -16,6 +16,15 @@ test('general website carries critical and shield/HP inputs into the engine',()=
   const input=setup('ACTIVE');input.isCrit=true;input.values['target.awakerCritDamage']=150;
   Object.assign(input,{hitEnabled:true,hitValues:{hp:1000,block:50,retainHp:0,limit:0,usedLimit:0,deathResist:0},immune:false,puncture:false,preventEligible:false});
   const result=calculateGeneral(input);assert.equal(result.experimentalModels[0].preHitDamage,250);assert.equal(result.experimentalModels[2].modeledHpLost,200);
+});
+test('unknown critical roll shows both conditional amounts without claiming one outcome',()=>{
+  const input=setup('ACTIVE');input.values['target.awakerCritDamage']=150;
+  const conditional=calculateCriticalBranches(input);
+  assert.equal(conditional.status,'CONDITIONAL_BRANCHES_ONLY');
+  assert.equal(conditional.branches.noncritical.preHitDamage,100);
+  assert.equal(conditional.branches.critical.preHitDamage,250);
+  assert.equal(conditional.branches.critical.result.finalDamage,null);
+  assert.throws(()=>calculateCriticalBranches(setup('FIXED')),/only for Active and Tentacle/);
 });
 test('installed Tentacle page routes resolved inputs into the shared formula and A/B comparison',()=>{
   assert.deepEqual(supportedDamageCategories['pc-res151-build51'],['FIXED','PURE','TENTACLE']);
