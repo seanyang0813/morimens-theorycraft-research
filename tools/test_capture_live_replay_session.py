@@ -41,6 +41,29 @@ class LiveReplayCaptureTests(unittest.TestCase):
         self.assertIsNone(capture.container_json_encoding(b'{"compStr":3}'))
         self.assertIsNone(capture.container_json_encoding(b'{"compStr":"\xc0"'))
 
+    def test_loaded_old_container_is_not_fresh_battle_evidence(self):
+        baseline = "2026-09-23T08:39:42+00:00"
+        self.assertFalse(capture.after_baseline("Wed, 23 Sep 2026 08:38:36 GMT", baseline))
+        self.assertTrue(capture.after_baseline("Wed, 23 Sep 2026 08:40:00 GMT", baseline))
+        self.assertIsNone(capture.after_baseline(None, baseline))
+        report = {
+            "kind": "MORIMENS_PRIVATE_REPLAY_SESSION_DELTA",
+            "capturedAtUtc": "2026-09-23T08:41:00+00:00",
+            "baselineReferenceCount": 2,
+            "currentReferenceCount": 4,
+            "newReferenceCount": 2,
+            "bytesRead": 100,
+            "results": [
+                {"modifiedAfterBaseline": False, "validContainer": True, "sha256": "a" * 64, "privateFile": "old.json"},
+                {"modifiedAfterBaseline": None, "validContainer": False},
+            ],
+        }
+        summary = capture.public_summary(report)
+        self.assertEqual(summary["olderContainerCount"], 1)
+        self.assertEqual(summary["modifiedAfterBaselineCount"], 0)
+        self.assertEqual(summary["validContainers"], 1)
+        self.assertNotIn("old.json", json.dumps(summary))
+
 
 if __name__ == "__main__":
     unittest.main()

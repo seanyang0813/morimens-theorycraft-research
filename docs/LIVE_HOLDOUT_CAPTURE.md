@@ -35,6 +35,8 @@ python tools/capture_live_replay_session.py delta --pid $p.Id --baseline researc
 
 The tool rejects a different PID, process start time or executable hash. A useful capture normally reports one new reference and one valid container. The API can encode raw compressed bytes in a Latin-1 JSON envelope; the capture checks both UTF-8 and Latin-1 JSON and records the encoding without unpacking `compStr`. Multiple candidates require private review before selecting one. Do not open the container or inspect decoded damage.
 
+The delta summary also counts containers whose server `Last-Modified` is before the baseline as `olderContainerCount`. Such a container was merely loaded into memory later; it cannot establish a new post-baseline battle. A later `Last-Modified` is only a necessary timestamp check, not proof that the selected replay is the controlled fight. Missing timestamps remain unknown and require review.
+
 ### 2026-09-23 D-Tide attempt
 
 After the committed second baseline, an agent-controlled D-Tide Normal Wave 1 fight ended in defeat on round 3. The account was level 33 against the wave's recommended level 36; its selected characters were levels 50, 30, 40 and 40. The result screen displayed a replay-copy option, but it yielded no usable code through the UI. A same-process delta captured at 08:26:14 UTC read 4,480,606,208 bytes and found zero replay references or valid containers. Damage values were visible while the agent piloted the fight. This attempt is therefore neither a captured replay nor a blind holdout, and it adds no publication credit. No revival items were spent. The private delta is `research/raw/dtide-failed-wave1-delta-20260923.json` (gitignored).
@@ -44,6 +46,10 @@ For the next attempt, use a clearable PvE stage, commit a fresh baseline before 
 ### 2026-09-23 completed story-record check
 
 Opening an existing chapter 5-14 Normal win in the same game process produced two new replay containers relative to the second baseline. Both classify as `PVE_MONSTER_TARGETS` from replay-embedded Boss configurations with Monsters. The selected chapter record was matched privately against the in-client player and stage metadata; the other container was incidental. The strict resource-151 calculator audit found 19 and 27 ordinary Active-hit candidates respectively. All 46 matched one post hoc crit branch, with zero deterministic candidates and zero branch mismatches. The identifier-free counts and container hashes are in `research/evidence/story-pve-retrospective-audit-20260923.json`. These are retrospective regressions from existing records, not controlled post-baseline battles or blind holdouts. No publication credit is claimed.
+
+### 2026-09-23 exploratory chapter run
+
+A third public baseline was committed and pushed before entering chapter 1-13 Normal. The run contains multiple combats and visible results, so it is exploratory rather than the prescribed single unseen controlled battle. An intermediate same-process delta found one valid container, but its server `Last-Modified` preceded the baseline; it was an older replay loaded after the commitment and cannot receive holdout credit. The investigation is still in progress. The in-client exit option warns that abandoning it forfeits subsequent rewards, so the run was left intact. A new baseline and one isolated fight are needed for the strict holdout.
 
 ## 4. Build the outcome-blind capture evidence
 

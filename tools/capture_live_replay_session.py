@@ -159,7 +159,14 @@ def public_summary(report: dict) -> dict:
     if report.get("kind") == "MORIMENS_PRIVATE_REPLAY_SESSION_BASELINE":
         return {"capturedAtUtc": report["capturedAtUtc"], "replayReferenceCount": len(report["replayReferences"]), "bytesRead": report["bytesRead"]}
     rows = report["results"]
-    return {"capturedAtUtc": report["capturedAtUtc"], "baselineReferenceCount": report["baselineReferenceCount"], "currentReferenceCount": report["currentReferenceCount"], "newReferenceCount": report["newReferenceCount"], "validContainers": sum(row.get("validContainer") is True for row in rows), "containerHashes": [row["sha256"] for row in rows if row.get("privateFile")], "bytesRead": report["bytesRead"]}
+    return {"capturedAtUtc": report["capturedAtUtc"], "baselineReferenceCount": report["baselineReferenceCount"], "currentReferenceCount": report["currentReferenceCount"], "newReferenceCount": report["newReferenceCount"], "modifiedAfterBaselineCount": sum(row.get("modifiedAfterBaseline") is True for row in rows), "olderContainerCount": sum(row.get("modifiedAfterBaseline") is False for row in rows), "validContainers": sum(row.get("validContainer") is True for row in rows), "containerHashes": [row["sha256"] for row in rows if row.get("privateFile")], "bytesRead": report["bytesRead"]}
+
+
+def after_baseline(object_last_modified: str | None, baseline_captured_at: str) -> bool | None:
+    """Use object time only as a necessary freshness check, never as battle proof."""
+    if not object_last_modified:
+        return None
+    return parsedate_to_datetime(object_last_modified).astimezone(timezone.utc) >= datetime.fromisoformat(baseline_captured_at).astimezone(timezone.utc)
 
 
 def download_container(replay_uuid: str) -> tuple[bytes, str | None]:
@@ -228,6 +235,7 @@ def capture_delta(pid: int, baseline_value: Path, output_value: Path) -> dict:
                 row["jsonEncoding"] = json_encoding
             if last_modified:
                 row["objectLastModifiedUtc"] = parsedate_to_datetime(last_modified).astimezone(timezone.utc).isoformat()
+            row["modifiedAfterBaseline"] = after_baseline(last_modified, baseline["capturedAtUtc"])
             if valid:
                 container = output.parent / f"session-delta-{output.stem}-{index:02d}-container.json"
                 if container.exists():
