@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_RES151_WHEEL_INITIAL_STATE_COMPATIBILITY",
+  "analysisTrack": "mechanics",
+  "status": "PARTIAL_COMPATIBILITY",
+  "historicalBuild": "pc-res144-build51",
+  "currentBuild": "pc-res151-build51",
+  "sourceHashes": {
+    "crosswalk": "7cdf18708c864dbf86f53c607709db78243f5acd1d07164f61a7b6e94d8a388d",
+    "historical_items": "d90d2ca880ffc482c796e94c06bbc38e4b05851161c8232f63a5368b4517d55c",
+    "current_items": "8f656bc67bddbac59d88f4eb95f6f7c1fc04610a4135d8356ba4c0a1b6e9f897",
+    "historical_states": "955c979b9c2f2c3f8252a847ca9c663baadc1c5040338f1ce8f9403c4597eced",
+    "current_states": "ff2f52c159fe2e4f1f2b097414337e6cc5945cd6e2fe544d017579b37df91472",
+    "config_comparison": "ca45070e0749bc8728d3a6bc2e261379120777e61f0d9d1241c8f2dbdcd4fe34"
+  },
+  "counts": {
+    "historicallyUniqueWheelLinks": 141,
+    "currentItemRows": 4360,
+    "currentStateRows": 6959,
+    "unchangedItemAttributeRows": 139,
+    "INITIAL_DIRECT_PROPERTY_UNCHANGED": 136,
+    "INITIAL_DIRECT_PROPERTY_CHANGED": 3,
+    "LINKED_STATE_ABSENT": 0,
+    "ITEM_INITIAL_STATE_LINK_CHANGED": 0,
+    "HISTORICAL_ITEM_ABSENT": 2
+  },
+  "exceptions": [
+    {
+      "wheelId": "wheel-0013",
+      "status": "INITIAL_DIRECT_PROPERTY_CHANGED"
+    },
+    {
+      "wheelId": "wheel-0030",
+      "status": "INITIAL_DIRECT_PROPERTY_CHANGED"
+    },
+    {
+      "wheelId": "wheel-0118",
+      "status": "INITIAL_DIRECT_PROPERTY_CHANGED"
+    },
+    {
+      "wheelId": "wheel-0178",
+      "status": "HISTORICAL_ITEM_ABSENT"
+    },
+    {
+      "wheelId": "wheel-0179",
+      "status": "HISTORICAL_ITEM_ABSENT"
+    }
+  ],
+  "scope": "Historical unique Item-to-initial-State links checked against the installed resource-151 Item and State tables. Item main/sub-attribute and State direct-property field equality are static source comparisons.",
+  "limitations": [
+    "Two historical Item identities are absent from the installed table; this does not prove their current replacement or removal from gameplay.",
+    "Three linked initial states changed direct-property expressions; historical expressions cannot be used for current calculations.",
+    "Five historically unresolved Wheel crosswalks, new items, enhancement/main-stat scaling, attachment, triggers and gameplay effects are outside this audit.",
+    "Static equality does not validate full Wheel execution, build legality, damage or an independent gameplay prediction."
+  ]
+}

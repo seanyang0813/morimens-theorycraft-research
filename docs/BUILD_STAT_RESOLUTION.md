@@ -139,3 +139,20 @@ and none for one; a build planner therefore needs two optional Wheel slots.
 This result describes initial direct property expressions only. It does not prove
 equipment legality, attachment timing, trigger behavior, recipient mutation,
 later updates, stacking, final damage, or gameplay agreement.
+
+## Installed-client Wheel drift
+
+`tools/audit_current_wheel_initial_states.py` compares the 141 historically
+unique Wheel-to-Item links with the installed resource-151 Item and State
+tables. The exact Item ID, full icon asset, initial state, target and StatePara
+values still agree for 139 Wheels. Two historical Item IDs are absent from the
+installed table. All 139 retained Items also keep identical main- and
+sub-attribute rows. Of those links, 136 initial direct-property maps
+are unchanged and three changed. The changed maps include two property-name
+substitutions and one owner-attack source change; historical expressions must
+not be reused for those Wheels in current-build calculations. The sanitized
+count, exceptions and source hashes are in
+`research/evidence/pc-res151-wheel-initial-state-compatibility.json`; detailed
+client rows remain private. This does not identify replacement items for the
+two absent IDs, resolve the five older crosswalk ambiguities or validate
+current Wheel execution in gameplay.
