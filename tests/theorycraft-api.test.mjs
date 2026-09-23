@@ -18,6 +18,7 @@ test('agent API advertises explicit bounded operations',()=>{
   assert.deepEqual(response.result.operations,theorycraftOperations);
   assert.ok(response.result.operations.some(row=>row.name==='run-command-damage-prefix'));
   assert.ok(response.result.operations.some(row=>row.name==='calculate-snapshot-active-damage'));
+  assert.ok(response.result.operations.some(row=>row.name==='calculate-snapshot-active-branches'));
   assert.ok(response.result.operations.some(row=>row.name==='run-snapshot-active-sequence'));
   assert.ok(response.result.operations.some(row=>row.name==='run-prepared-snapshot-active-skill'));
   assert.ok(response.result.operations.some(row=>row.name==='run-prepared-snapshot-block-skill'));
@@ -29,7 +30,7 @@ test('agent API advertises explicit bounded operations',()=>{
   assert.ok(response.result.operations.some(row=>row.name==='run-mortal-blast-copy-suffix'));
   assert.ok(response.result.operations.some(row=>row.name==='run-prepared-mortal-blast'));
   assert.ok(response.result.supportedCombatBuilds.includes('pc-res151-build51'));
-  assert.deepEqual(response.result.resource151OperationScope,['calculate-damage','calculate-player-tentacle-damage','calculate-tentacle-crit-damage','calculate-direct-tentacle-command','aggregate-tentacle-awaker-bonuses','calculate-snapshot-active-damage','run-snapshot-active-sequence','prepare-skill-command','run-prepared-snapshot-active-skill','run-ulti-energy-effect','run-card-resource-timeline','run-prepared-snapshot-block-skill','run-prepared-state-active-sequence','run-prepared-state-active-chain','run-paid-prepared-state-active-chain','validate-build-plan','resolve-character-primary','resolve-character-advancement-primary','assemble-build-components','advance-after-use-card-wheel-trigger','advance-after-keeper-skill-wheel-trigger','advance-after-pursuit-wheel-triggers','run-wheel-event-sequence','run-wheel-active-timeline','compare-wheel-active-timelines','run-paid-wheel-active-timeline','run-prepared-paid-wheel-active-timeline','search-paid-wheel-orders']);
+  assert.deepEqual(response.result.resource151OperationScope,['calculate-damage','calculate-player-tentacle-damage','calculate-tentacle-crit-damage','calculate-direct-tentacle-command','aggregate-tentacle-awaker-bonuses','calculate-snapshot-active-damage','calculate-snapshot-active-branches','run-snapshot-active-sequence','prepare-skill-command','run-prepared-snapshot-active-skill','run-ulti-energy-effect','run-card-resource-timeline','run-prepared-snapshot-block-skill','run-prepared-state-active-sequence','run-prepared-state-active-chain','run-paid-prepared-state-active-chain','validate-build-plan','resolve-character-primary','resolve-character-advancement-primary','assemble-build-components','advance-after-use-card-wheel-trigger','advance-after-keeper-skill-wheel-trigger','advance-after-pursuit-wheel-triggers','run-wheel-event-sequence','run-wheel-active-timeline','compare-wheel-active-timelines','run-paid-wheel-active-timeline','run-prepared-paid-wheel-active-timeline','search-paid-wheel-orders']);
   assert.equal(response.result.publicationStatus,'NOT_READY');
 });
 
@@ -50,6 +51,15 @@ test('agent API runs a complete current-build property snapshot through modeled 
   assert.equal(response.result.finalDamage,null);
   input.snapshotCompleteness='partial';
   assert.throws(()=>runTheorycraftRequest(request('calculate-snapshot-active-damage',input)),/complete supported/);
+});
+
+test('agent API exposes chance-dependent one-hit branches without a realized outcome',()=>{
+  const input={schemaVersion:1,kind:'morimens-battle-property-snapshot-damage',build:'pc-res151-build51',snapshotStage:'battle-property-server-live',snapshotCompleteness:'complete-map',baseValue:100,skillArgsPlus:0,tags:['Card_Strike'],casterProperties:{crit:12,crit_damage:50},playerProperties:{dimension_fix_per:0},targetProperties:{hp:500,max_hp:500,block:0},cardProperties:{},cardContext:{present:false,instructionCard:false,stateTriggerAdd:false},targetContext:{critRoll:null,targetBattleTag:'Monster',targetStateIds:[]}};
+  const response=runTheorycraftRequest(request('calculate-snapshot-active-branches',input));
+  assert.equal(response.analysisTrack,'theorycrafting');
+  assert.equal(response.result.critProbability,0.12);
+  assert.equal(response.result.expectedPreHitDamage,106);
+  assert.equal(response.result.finalDamage,null);
 });
 
 test('agent API exposes current-build ultimate-energy calculation and capped storage',()=>{

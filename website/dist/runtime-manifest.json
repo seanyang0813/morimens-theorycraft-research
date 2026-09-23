@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "96ec925bd2c1d591a0360c332224523aa514b846c827906985e88373a87e2ccd",
+  "fingerprint": "82b8b18d9e9c63de37838ac07274a292b2b5927cb50564e3f0c59b0b47b8294e",
   "files": {
     "build-catalog.json": "71d0e0d14959e933ae8942ac0064de95c0a63b84ce9065e2bdcef4509090b98b",
     "client-build-data-res150.json": "49d4bf5abe419360df47e4959a26fb50bdaa37ed8189c022a644ff518f6fba80",
@@ -107,6 +107,7 @@
     "engine/skill-phase-finish.mjs": "506e89799a971ee437f21a9e87a76e1b10662615d40f6b514943b7d3dcf866d1",
     "engine/skill-phase.mjs": "5b91257465cba18d2ea182ddff98f977a8a7aec11f8a6c563ef5e804ce0711a6",
     "engine/skill-variant.mjs": "e0567962ff4cc2486566ab911e19c604730f147327ac5be8fd3b4500bbc66439",
+    "engine/snapshot-active-branches.mjs": "a2b09a7641024e80c362aac9d26d05e8a2cb5794599c803d66df0adba087685d",
     "engine/snapshot-active-sequence.mjs": "2899c77cce0c414c90eec8ca659d324a88ddf5b2af5a2179e0106095453c346f",
     "engine/snapshot-ulti-energy-context.mjs": "4f4cc8a05bb60feb467c8c907097fd3f17b12cbbd687502b7a90b3218d6032ae",
     "engine/state-callback.mjs": "174f28928bd2bc3b58a3374c54ec7e200deaae66248d78a4bc0196274dfe8f1f",

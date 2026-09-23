@@ -20,6 +20,7 @@ import {runCommandDamagePrefix} from './command-damage-prefix.mjs';
 import {runAttachedCardPipeline} from './attached-card-pipeline.mjs';
 import {runConditionalRoleStateSuffix} from './conditional-role-state-suffix.mjs';
 import {calculateSnapshotActiveDamage} from './battle-property-snapshot-damage.mjs';
+import {calculateSnapshotActiveBranches} from './snapshot-active-branches.mjs';
 import {runSnapshotActiveSequence} from './snapshot-active-sequence.mjs';
 import {runPreparedSnapshotActiveSkill} from './prepared-snapshot-active-skill.mjs';
 import {runUltiEnergyExperiment} from './ulti-energy-experiment.mjs';
@@ -47,6 +48,7 @@ export const theorycraftOperations=Object.freeze([
   {name:'calculate-direct-tentacle-command',context:[],scope:'Compose the exact installed direct BETentacleAttack row from explicit Player, Awaker, caster and target properties through pre-hit damage'},
   {name:'aggregate-tentacle-awaker-bonuses',context:[],scope:'Installed Tentacle team target-bonus aggregation: average five categories; sum matching eligible state properties, then multiply distinct properties'},
   {name:'calculate-snapshot-active-damage',context:[],scope:'Complete captured battle-property maps through bounded PvE Active pre-hit and optional BeHit-to-HP paths'},
+  {name:'calculate-snapshot-active-branches',context:[],scope:'Noncritical/critical damage and one-hit critical probability from complete battle-property maps, without predicting the RNG draw'},
   {name:'run-snapshot-active-sequence',context:[],scope:'Repeated complete-property Active hits with recovered HP and Block mutations threaded between hits'},
   {name:'run-prepared-snapshot-active-skill',context:['skillCommandData'],scope:'Catalog-prepared ordinary/Puncture Active rows through complete-property hits, including a fail-closed leading-damage prefix for mixed commands'},
   {name:'run-prepared-snapshot-block-skill',context:['skillCommandData'],scope:'Catalog-prepared ordinary PvE Defend Block gain and capped caster ultimate-energy gain from complete property snapshots'},
@@ -100,7 +102,7 @@ const clone=value=>JSON.parse(JSON.stringify(value));
 function execute(operation,input,context){
   if(operation==='describe-capabilities'){
     if(input!==null)throw new Error('describe-capabilities requires input: null');
-    return {apiVersion:1,supportedCombatBuilds:['pc-res144-build51','pc-res150-build51','pc-res151-build51'],resource151OperationScope:['calculate-damage','calculate-player-tentacle-damage','calculate-tentacle-crit-damage','calculate-direct-tentacle-command','aggregate-tentacle-awaker-bonuses','calculate-snapshot-active-damage','run-snapshot-active-sequence','prepare-skill-command','run-prepared-snapshot-active-skill','run-ulti-energy-effect','run-card-resource-timeline','run-prepared-snapshot-block-skill','run-prepared-state-active-sequence','run-prepared-state-active-chain','run-paid-prepared-state-active-chain','validate-build-plan','resolve-character-primary','resolve-character-advancement-primary','assemble-build-components','advance-after-use-card-wheel-trigger','advance-after-keeper-skill-wheel-trigger','advance-after-pursuit-wheel-triggers','run-wheel-event-sequence','run-wheel-active-timeline','compare-wheel-active-timelines','run-paid-wheel-active-timeline','run-prepared-paid-wheel-active-timeline','search-paid-wheel-orders'],operations:clone(theorycraftOperations),labels:['CATALOG_DERIVED','PLAN_ONLY','EXPERIMENTAL','UNVERIFIED'],publicationStatus:'NOT_READY'};
+    return {apiVersion:1,supportedCombatBuilds:['pc-res144-build51','pc-res150-build51','pc-res151-build51'],resource151OperationScope:['calculate-damage','calculate-player-tentacle-damage','calculate-tentacle-crit-damage','calculate-direct-tentacle-command','aggregate-tentacle-awaker-bonuses','calculate-snapshot-active-damage','calculate-snapshot-active-branches','run-snapshot-active-sequence','prepare-skill-command','run-prepared-snapshot-active-skill','run-ulti-energy-effect','run-card-resource-timeline','run-prepared-snapshot-block-skill','run-prepared-state-active-sequence','run-prepared-state-active-chain','run-paid-prepared-state-active-chain','validate-build-plan','resolve-character-primary','resolve-character-advancement-primary','assemble-build-components','advance-after-use-card-wheel-trigger','advance-after-keeper-skill-wheel-trigger','advance-after-pursuit-wheel-triggers','run-wheel-event-sequence','run-wheel-active-timeline','compare-wheel-active-timelines','run-paid-wheel-active-timeline','run-prepared-paid-wheel-active-timeline','search-paid-wheel-orders'],operations:clone(theorycraftOperations),labels:['CATALOG_DERIVED','PLAN_ONLY','EXPERIMENTAL','UNVERIFIED'],publicationStatus:'NOT_READY'};
   }
   if(operation==='calculate-damage')return calculateDamage(input);
   if(operation==='calculate-player-tentacle-damage')return playerTentacleDamage(input);
@@ -108,6 +110,7 @@ function execute(operation,input,context){
   if(operation==='calculate-direct-tentacle-command')return calculateDirectTentacleCommand(input);
   if(operation==='aggregate-tentacle-awaker-bonuses')return aggregateTentacleAwakerBonuses(input);
   if(operation==='calculate-snapshot-active-damage')return calculateSnapshotActiveDamage(input);
+  if(operation==='calculate-snapshot-active-branches')return calculateSnapshotActiveBranches(input);
   if(operation==='run-snapshot-active-sequence')return runSnapshotActiveSequence(input);
   if(operation==='run-prepared-snapshot-active-skill')return runPreparedSnapshotActiveSkill(input,context.skillCommandData);
   if(operation==='run-prepared-snapshot-block-skill')return runPreparedSnapshotBlockSkill(input,context.skillCommandData);
