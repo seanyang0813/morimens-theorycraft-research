@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_RETROSPECTIVE_PVE_REPLAY_AUDIT",
+  "analysisTrack": "verification",
+  "status": "RETROSPECTIVE_REGRESSION_ONLY",
+  "captureDateUtc": "2026-09-23",
+  "calculationBuild": "pc-res151-build51",
+  "recordedCombatBuild": null,
+  "source": "Two replay containers newly visible in one running Morimens process after opening a completed chapter 5-14 Normal record. The selected record was matched privately by its in-client player and stage metadata; the second container was incidental.",
+  "records": [
+    {
+      "label": "selected-chapter-5-14-normal",
+      "containerSha256": "bbce419887efb65f3c56eadd6c52b5ac414ed6c279664dfaad5527bb310044ef",
+      "combatDomain": "PVE_MONSTER_TARGETS",
+      "classificationBasis": "REPLAY_EMBEDDED_BOSS_CONFIG_WITH_MONSTER",
+      "records": 370,
+      "events": 7390,
+      "cardUses": 58,
+      "hits": 311,
+      "completeHitSnapshots": 311,
+      "completeHitTargetRoleTypes": {"Monster": 287, "Player": 24},
+      "retrospectiveActiveCandidates": 19,
+      "deterministicExactChecks": 0,
+      "deterministicMismatches": 0,
+      "exactRngBranchConsistencyChecks": 19,
+      "rngBranchMismatches": 0,
+      "unknownCommands": 0,
+      "unknownEvents": 0
+    },
+    {
+      "label": "incidental-pve-container",
+      "containerSha256": "3232112e070a75b462cb528e2253e32fbed22b608249b17b86efc608c1cd8999",
+      "combatDomain": "PVE_MONSTER_TARGETS",
+      "classificationBasis": "REPLAY_EMBEDDED_BOSS_CONFIG_WITH_MONSTER",
+      "records": 178,
+      "events": 3938,
+      "cardUses": 41,
+      "hits": 72,
+      "completeHitSnapshots": 71,
+      "completeHitTargetRoleTypes": {"Monster": 62, "Player": 9},
+      "retrospectiveActiveCandidates": 27,
+      "deterministicExactChecks": 0,
+      "deterministicMismatches": 0,
+      "exactRngBranchConsistencyChecks": 27,
+      "rngBranchMismatches": 0,
+      "unknownCommands": 0,
+      "unknownEvents": 0
+    }
+  ],
+  "claimBoundary": "These 46 matches mean the observed damage equals one of two post hoc critical-hit branches for each candidate. Crit rolls were not captured before outcome inspection. The replays are neither new controlled battles nor blind predictions; their exact source combat build is not established. They add no publication-gate credit, no cheese finding, and no proof of sequence-optimal builds."
+}

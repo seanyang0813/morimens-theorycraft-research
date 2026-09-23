@@ -41,6 +41,10 @@ After the committed second baseline, an agent-controlled D-Tide Normal Wave 1 fi
 
 For the next attempt, use a clearable PvE stage, commit a fresh baseline before entering, and load a completed battle record before taking the delta. Do not inspect damage during play if the resulting record is intended as a blind holdout; a copied record alone cannot repair prior outcome exposure.
 
+### 2026-09-23 completed story-record check
+
+Opening an existing chapter 5-14 Normal win in the same game process produced two new replay containers relative to the second baseline. Both classify as `PVE_MONSTER_TARGETS` from replay-embedded Boss configurations with Monsters. The selected chapter record was matched privately against the in-client player and stage metadata; the other container was incidental. The strict resource-151 calculator audit found 19 and 27 ordinary Active-hit candidates respectively. All 46 matched one post hoc crit branch, with zero deterministic candidates and zero branch mismatches. The identifier-free counts and container hashes are in `research/evidence/story-pve-retrospective-audit-20260923.json`. These are retrospective regressions from existing records, not controlled post-baseline battles or blind holdouts. No publication credit is claimed.
+
 ## 4. Build the outcome-blind capture evidence
 
 Preserve the container hash and object timestamp first. Decode and index only through the repository tools; avoid opening their outputs. Generate the combat-domain report and continue only if it says `PVE_MONSTER_TARGETS`. Then build the public capture candidate with `tools/build_replay_session_capture_evidence.py` and obtain explicit confirmation that the selected record is the controlled battle. Store that confirmation only in a private `MORIMENS_PRIVATE_CONTROLLED_PVE_ATTESTATION`, and promote the candidate with `tools/review_replay_session_capture.py`.
