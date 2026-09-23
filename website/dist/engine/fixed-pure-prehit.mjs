@@ -1,4 +1,5 @@
-// One original PC 144 effect iteration, before BeHit. No HP or event simulation.
+// One copied-original effect iteration, before BeHit. No HP or event simulation.
+const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51','pc-res151-build51']);
 export function fixedPurePreHit(input) {
   if (!input || !['FIXED', 'PURE'].includes(input.category)) throw new Error('Expected FIXED or PURE');
   const numeric = input.category === 'FIXED'
@@ -7,12 +8,12 @@ export function fixedPurePreHit(input) {
   const keys = ['build', 'category', 'targetDead', ...numeric];
   if (keys.some(k => !(k in input)) || Object.keys(input).some(k => !keys.includes(k)))
     throw new Error('Missing or unknown damage input');
-  if (input.build !== 'pc-res144-build51') throw new Error('Unsupported combat build');
+  if (!supportedBuilds.has(input.build)) throw new Error('Unsupported combat build');
   if (typeof input.targetDead !== 'boolean') throw new Error('Invalid targetDead');
   for (const k of numeric) if (!Number.isFinite(input[k])) throw new Error('Invalid numeric input: ' + k);
   const result = {status: 'UNVERIFIED', finalDamage: null, preHitDamage: null, trace: [],
     scope: 'One ' + input.category + ' effect iteration before BeHit',
-    evidenceFixture: 'tests/synthetic/original-' + input.category.toLowerCase() + '-runtime.json',
+    evidenceFixture: input.build==='pc-res144-build51'?'tests/synthetic/original-' + input.category.toLowerCase() + '-runtime.json':'research/evidence/pc-res151-fixed-pure-runtime.json',
     unresolvedDependencies: ['Independent gameplay validation', 'Resolved input reconstruction', 'BeHit, events, and HP resolution']};
   if (input.targetDead) return result;
   let value = input.baseDamage;

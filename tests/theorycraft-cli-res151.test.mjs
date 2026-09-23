@@ -81,9 +81,19 @@ test('agent CLI derives and pays a resource-151 two-card Arachne Wheel timeline'
   assert.equal(response.result.build,'pc-res151-build51');assert.equal(response.result.preparedActions.length,2);assert.equal(response.result.energyAfter,0);assert.equal(response.result.modeledHpLost,139);assert.equal(response.result.calculation.trace[0].effect.trace.at(-1).result.ownerAttackSourceProperty,'AtkForce');assert.equal(response.result.finalDamage,null);
 });
 
-test('agent CLI rejects resource-151 operations outside the proven dependency graph',()=>{
+test('agent CLI exposes installed Fixed pre-hit arithmetic without final damage',()=>{
+  const result=run('research/examples/theorycraft-installed-fixed-prehit.json');
+  assert.equal(result.status,0,result.stderr);
+  const response=JSON.parse(result.stdout);
+  assert.equal(response.result.build,'pc-res151-build51');
+  assert.equal(response.result.experimentalModels[0].preHitDamage,150);
+  assert.equal(response.result.finalDamage,null);
+  assert.ok(response.result.evidence.includes('research/evidence/pc-res151-fixed-pure-runtime.json'));
+});
+
+test('agent CLI rejects resource-151 resolved damage without a Fixed/Pure category',()=>{
   const result=run('tests/synthetic/theorycraft-res151-unsupported-operation.json');
   assert.equal(result.status,1);
   const failure=JSON.parse(result.stderr);
-  assert.match(failure.message,/outside the proven resource-151 dependency scope/);
+  assert.match(failure.message,/limited to Fixed\/Pure pre-hit effects/);
 });

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_RETROSPECTIVE_FIXED_REPLAY_CONSISTENCY",
+  "analysisTrack": "verification",
+  "status": "EXACT_RETROSPECTIVE_COMPONENT_MATCHES",
+  "calculationBuild": "pc-res144-build51",
+  "recordedCombatBuild": null,
+  "corpus": {
+    "replaysScanned": 102,
+    "completeFixedHitSnapshots": 99,
+    "privateReplayIndexSha256": "6f63d8cfefbcdc332e549d292ab8e1dfe15b5cd58a869f7bb8e415b7ca0e49ae",
+    "privateEmbeddedCatalogSha256": "5adfd16f43cba25f07b85b5d7d7941256303cee5b29e9a1e48824a98ae93d1ca",
+    "identifiersPublished": false
+  },
+  "selection": {
+    "sixRowFixedShape": 86,
+    "eligibleHitSnapshots": 85,
+    "rejectedHitIdentity": 1,
+    "otherFixedSnapshotsOutsideShape": 13,
+    "distinctReplays": 1,
+    "distinctCardActions": 30
+  },
+  "comparison": {
+    "exact": 85,
+    "mismatches": 0,
+    "boostedBranchHits": 0,
+    "nonzeroDimensionHits": 12,
+    "nonzeroFixedTargetHits": 1
+  },
+  "method": "For a single living enemy, evaluate the six captured conditional BEFixedDamage rows using the pre-hit card arguments, player dimension property and live caster/card/target state layers; require all eligible rows to yield one value, then run the recovered Fixed pre-hit formula and compare with recorded castDamage.",
+  "limitations": [
+    "All outcomes were decoded before calculation; none is an independent holdout or publication credit.",
+    "The 85 hits are 30 actions within one replay, not independent battles or players. The boosted branch was not observed.",
+    "The recorded combat build is unknown; matching historical expression and effect behavior cannot prove engine-version identity.",
+    "This compares pre-hit castDamage only, not actual HP loss, callbacks or complete battle behavior.",
+    "No player, account, replay, role-instance or card-instance identifier is published."
+  ]
+}

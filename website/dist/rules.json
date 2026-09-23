@@ -6375,6 +6375,25 @@
       ]
     },
     {
+      "id": "Verification:FixedReplayComponentConsistency",
+      "status": "EXACT_RETROSPECTIVE_COMPONENT_MATCHES",
+      "claim": "One already decoded PvE replay supplies 85 identity-bound Fixed pre-hit snapshots across 30 card actions, all exactly reproduced from captured six-row command conditions, card arguments, live states, target properties and player dimension",
+      "scope": "Retrospective single-replay pre-hit component consistency only. Outcomes preceded calculations; source engine build is unknown; all 85 hits are correlated within one record and the boosted branch was not observed. No independent holdout, full HP-loss validation, publication credit, cheese or budget conclusion.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Sanitized Fixed replay consistency report",
+          "member": "private replay/catalog hashes, selection counts, exact comparisons and limitations",
+          "sha256": "0d9b6b0bce5ecafd1e2c622e0de74adb22e452acbdefc848166ed73018c4524b"
+        }
+      ],
+      "checks": [
+        "tools/audit_fixed_replay_consistency.mjs",
+        "tests/fixed-replay-consistency.test.mjs",
+        "tests/fixed-pure-prehit.test.mjs"
+      ]
+    },
+    {
       "id": "Budget:PveBossFrontiersRound003",
       "status": "OBSERVED_PRIVATE_REPLAY_FRONTIERS",
       "claim": "One hundred two replay-embedded PvE Boss records form ten exact comparison groups and twenty-six nondominated roster/investment candidates",
@@ -6504,8 +6523,8 @@
     {
       "id": "PC151:FixedPurePreHitRuntimeCarryforward",
       "status": "EXACT_MATCH_IN_SYNTHETIC_FIXTURE_DOMAIN",
-      "claim": "Installed resource-151 Fixed and Pure effect methods reproduce 372 and 322 historical synthetic pre-hit outputs exactly under explicit target-property and dimension inputs",
-      "scope": "Pre-hit synthetic method domain only. Does not cover catalog arguments, automatic target/repetition behavior, HP/shield resolution, statistics, callbacks, gameplay validation or holdout credit.",
+      "claim": "Installed resource-151 Fixed and Pure effect methods reproduce 372 and 322 historical synthetic pre-hit outputs exactly under explicit target-property and dimension inputs; the shared experimental research calculator exposes those bounded paths for resource 150/151",
+      "scope": "Pre-hit synthetic method domain only. The current-build shared API rejects hitResolution, returns finalDamage null and does not cover catalog arguments, automatic target/repetition behavior, HP/shield resolution, statistics, callbacks, gameplay validation or holdout credit.",
       "gameplayValidation": false,
       "sources": [
         {
@@ -6521,8 +6540,11 @@
       ],
       "checks": [
         "tools/verify_installed_fixed_pure_runtime.py",
+        "engine/fixed-pure-prehit.mjs",
+        "engine/calculate-damage.mjs",
         "tests/pc-res151-fixed-pure-runtime.test.mjs",
-        "tests/fixed-pure-prehit.test.mjs"
+        "tests/fixed-pure-prehit.test.mjs",
+        "tests/research-api.test.mjs"
       ]
     },
     {

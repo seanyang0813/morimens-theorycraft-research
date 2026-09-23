@@ -22,6 +22,18 @@ test('unsupported builds and categories do not reuse current Active results',()=
   }
   for(const damageType of ['PURE','FIXED'])assert.throws(()=>calculateDamage({...scenario(),damageType}),/category-specific/);
 });
+test('installed-client Fixed and Pure pre-hit paths remain experimental and stop before BeHit',()=>{
+  const current='pc-res151-build51';
+  const fixed=calculateDamage({mode:'experimental',build:current,damageType:'FIXED',effect:{build:current,category:'FIXED',targetDead:false,baseDamage:100,dimensionFixPer:25,fixed1:20,fixed2:0,fixed3:0,fixed4:0,fixed5:0}});
+  assert.equal(fixed.finalDamage,null);
+  assert.equal(fixed.experimentalModels[0].preHitDamage,150);
+  assert.ok(fixed.evidence.includes('research/evidence/pc-res151-fixed-pure-runtime.json'));
+  const pure=calculateDamage({mode:'experimental',build:current,damageType:'PURE',effect:{build:current,category:'PURE',targetDead:false,baseDamage:2.2}});
+  assert.equal(pure.finalDamage,null);
+  assert.equal(pure.experimentalModels[0].preHitDamage,3);
+  assert.throws(()=>calculateDamage({mode:'experimental',build:current,damageType:'PURE',effect:{build:current,category:'PURE',targetDead:false,baseDamage:2.2},hitResolution:{}}),/ends before BeHit/);
+  assert.equal(calculateDamage({...scenario(),build:current}).offensiveUtility,undefined);
+});
 test('distinct target slots multiply; synthetic diagnostic, not gameplay evidence',()=>{
   assert.equal(activeTargetDamage(100,{...target(),beDamagePer:25,beDamagePer2:20}).preHitDamage,150);
   assert.equal(activeTargetDamage(100,{...target(),beDamagePer:45}).preHitDamage,145);

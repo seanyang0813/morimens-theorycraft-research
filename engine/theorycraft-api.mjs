@@ -37,7 +37,7 @@ import {runPreparedMortalBlast} from './prepared-mortal-blast.mjs';
 
 export const theorycraftOperations=Object.freeze([
   {name:'describe-capabilities',context:[],scope:'List supported versioned operations and evidence boundaries'},
-  {name:'calculate-damage',context:[],scope:'Resolved single-hit Active, Passive, Fixed or Pure research calculation'},
+  {name:'calculate-damage',context:[],scope:'Resolved single-hit research calculation; resource-150/151 support is Fixed/Pure pre-hit only'},
   {name:'calculate-snapshot-active-damage',context:[],scope:'Complete captured battle-property maps through bounded PvE Active pre-hit and optional BeHit-to-HP paths'},
   {name:'run-snapshot-active-sequence',context:[],scope:'Repeated complete-property Active hits with recovered HP and Block mutations threaded between hits'},
   {name:'run-prepared-snapshot-active-skill',context:['skillCommandData'],scope:'Catalog-prepared ordinary/Puncture Active rows through complete-property hits, including a fail-closed leading-damage prefix for mixed commands'},
@@ -92,7 +92,7 @@ const clone=value=>JSON.parse(JSON.stringify(value));
 function execute(operation,input,context){
   if(operation==='describe-capabilities'){
     if(input!==null)throw new Error('describe-capabilities requires input: null');
-    return {apiVersion:1,supportedCombatBuilds:['pc-res144-build51','pc-res150-build51','pc-res151-build51'],resource151OperationScope:['calculate-snapshot-active-damage','run-snapshot-active-sequence','prepare-skill-command','run-prepared-snapshot-active-skill','run-ulti-energy-effect','run-card-resource-timeline','run-prepared-snapshot-block-skill','run-prepared-state-active-sequence','run-prepared-state-active-chain','run-paid-prepared-state-active-chain','validate-build-plan','resolve-character-primary','resolve-character-advancement-primary','assemble-build-components','advance-after-use-card-wheel-trigger','advance-after-keeper-skill-wheel-trigger','advance-after-pursuit-wheel-triggers','run-wheel-event-sequence','run-wheel-active-timeline','compare-wheel-active-timelines','run-paid-wheel-active-timeline','run-prepared-paid-wheel-active-timeline','search-paid-wheel-orders'],operations:clone(theorycraftOperations),labels:['CATALOG_DERIVED','PLAN_ONLY','EXPERIMENTAL','UNVERIFIED'],publicationStatus:'NOT_READY'};
+    return {apiVersion:1,supportedCombatBuilds:['pc-res144-build51','pc-res150-build51','pc-res151-build51'],resource151OperationScope:['calculate-damage','calculate-snapshot-active-damage','run-snapshot-active-sequence','prepare-skill-command','run-prepared-snapshot-active-skill','run-ulti-energy-effect','run-card-resource-timeline','run-prepared-snapshot-block-skill','run-prepared-state-active-sequence','run-prepared-state-active-chain','run-paid-prepared-state-active-chain','validate-build-plan','resolve-character-primary','resolve-character-advancement-primary','assemble-build-components','advance-after-use-card-wheel-trigger','advance-after-keeper-skill-wheel-trigger','advance-after-pursuit-wheel-triggers','run-wheel-event-sequence','run-wheel-active-timeline','compare-wheel-active-timelines','run-paid-wheel-active-timeline','run-prepared-paid-wheel-active-timeline','search-paid-wheel-orders'],operations:clone(theorycraftOperations),labels:['CATALOG_DERIVED','PLAN_ONLY','EXPERIMENTAL','UNVERIFIED'],publicationStatus:'NOT_READY'};
   }
   if(operation==='calculate-damage')return calculateDamage(input);
   if(operation==='calculate-snapshot-active-damage')return calculateSnapshotActiveDamage(input);

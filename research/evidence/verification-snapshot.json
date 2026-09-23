@@ -1,13 +1,13 @@
 {
-  "generatedAtUtc": "2026-09-23T05:52:51.089600+00:00",
+  "generatedAtUtc": "2026-09-23T06:17:52.024917+00:00",
   "publicationStatus": "NOT_READY",
   "publicationAuthorized": false,
   "automatedSuite": {
-    "testFiles": 278,
+    "testFiles": 279,
     "passed": true,
     "exitCode": 0,
     "log": "research\\evidence\\latest-test-suite.tap",
-    "logSha256": "a20cc1b064e3c16345a1e9ce42e5521c2057e04ad0b0b7804b28ee8c04b2036f"
+    "logSha256": "57b9380a2cb47abea0f3fefaeefec5123cecb4f9446a7652183a845bb9c3daac"
   },
   "realObservations": {
     "records": 3,
@@ -759,5 +759,16 @@
     "mismatches": 0,
     "publicationCredit": false,
     "crossTrackClaims": []
+  },
+  "fixedReplayComponentConsistency": {
+    "report": "research\\evidence\\fixed-replay-consistency.json",
+    "reportSha256": "0d9b6b0bce5ecafd1e2c622e0de74adb22e452acbdefc848166ed73018c4524b",
+    "analysisTrack": "verification",
+    "distinctReplays": 1,
+    "distinctCardActions": 30,
+    "exactPreHitComparisons": 85,
+    "mismatches": 0,
+    "recordedCombatBuild": null,
+    "publicationCredit": false
   }
 }

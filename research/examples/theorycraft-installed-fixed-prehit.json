@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-theorycraft-request",
+  "requestId": "synthetic-installed-fixed-prehit",
+  "operation": "calculate-damage",
+  "input": {
+    "mode": "experimental",
+    "build": "pc-res151-build51",
+    "damageType": "FIXED",
+    "effect": {
+      "build": "pc-res151-build51",
+      "category": "FIXED",
+      "targetDead": false,
+      "baseDamage": 100,
+      "dimensionFixPer": 25,
+      "fixed1": 20,
+      "fixed2": 0,
+      "fixed3": 0,
+      "fixed4": 0,
+      "fixed5": 0
+    }
+  }
+}

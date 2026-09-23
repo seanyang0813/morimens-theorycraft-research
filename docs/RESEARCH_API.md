@@ -1,6 +1,6 @@
-# Research API: connected Active and Passive calculation stages
+# Research API: bounded damage calculation stages
 
-Entry point: `engine/calculate-damage.mjs`, export `calculateDamage`. Supported build identity: `pc-res144-build51`. These are experimental diagnostics, not verified gameplay predictions.
+Entry point: `engine/calculate-damage.mjs`, export `calculateDamage`. The resolved Active, Passive, Fixed and Pure paths retain their historical `pc-res144-build51` scope. Fixed and Pure pre-hit arithmetic is also supported experimentally for `pc-res150-build51` and installed `pc-res151-build51`, backed by copied-original runtime comparisons; those current-build requests reject `hitResolution`. These are experimental diagnostics, not verified gameplay predictions.
 
 ## Input boundaries
 
@@ -11,7 +11,9 @@ For damageType ACTIVE, supply exactly one offensive representation:
 
 For damageType PASSIVE, supply `passive: {build, targetDead, baseDamage, passive1, passive2, passive3, dimensionFixPer}` instead. Every field is required, and the nested build must match the root. Active offense/setup, skillArgumentSnapshot and target/crit fields are rejected. The resolved Passive base expression may already contain source-specific factors; the API does not infer them or add Active buckets. Its trace shows the separate Passive target product and two rounding boundaries. A dead target skips the effect and cannot also supply a living-target hitResolution.
 
-The same optional hitResolution can resolve a Passive hit through shields, incoming caps and ordinary HP subtraction. preventEligible must be false: original CheckPreventActiveDamage rejects non-Active categories. Immune is an already-resolved immunity decision, not the raw generic-immunity property; callers must account for subtype-specific eligibility before supplying it. Fixed, Pure and Tentacle paths remain unsupported by this API.
+The same optional hitResolution can resolve a historical Passive hit through shields, incoming caps and ordinary HP subtraction. preventEligible must be false: original CheckPreventActiveDamage rejects non-Active categories. Immune is an already-resolved immunity decision, not the raw generic-immunity property; callers must account for subtype-specific eligibility before supplying it. Tentacle remains unsupported by this API.
+
+For damageType FIXED or PURE, supply the matching explicit `effect` input instead of Active/Passive inputs. Fixed requires a resolved base, dimension percentage and five target Fixed percentages; Pure requires only its resolved base. The current-build result stops at `preHitDamage`, cites `research/evidence/pc-res151-fixed-pure-runtime.json`, keeps `finalDamage` null and rejects HP/shield requests. `tools/run_theorycraft_request.mjs` exposes this same bounded operation to agents.
 
 `target` contains explicit, already-eligible crit and target inputs. Its conditional slots must already reflect actual card/skill/target eligibility. The API does not infer shield/barrier eligibility, forced critical flags, enemy categories or state properties.
 

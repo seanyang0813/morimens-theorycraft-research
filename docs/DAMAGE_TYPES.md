@@ -8,6 +8,18 @@ dependencies reproduce 372 Fixed and 322 Pure synthetic pre-hit cases exactly.
 The comparison intercepts `BeHit` and therefore does not establish HP loss,
 catalog argument preparation or independent gameplay accuracy. See
 `research/evidence/pc-res151-fixed-pure-runtime.json`.
+The shared experimental `calculateDamage` API now accepts resolved Fixed/Pure
+pre-hit inputs for resource 150/151 and rejects current-build HP resolution.
+It still returns `finalDamage: null`.
+
+A separate outcome-first PvE replay audit reconstructs 85 Fixed pre-hit values
+exactly from captured card arguments, six conditional command rows, live state
+layers, target Fixed properties and the player's dimension modifier. Those hits
+come from 30 actions in one recorded battle; twelve have a nonzero dimension
+modifier and one has a nonzero Fixed target property. The conditional boosted
+branch was not observed. Its original combat build is unknown, so this is
+retrospective component consistency, not an independent holdout or proof of the
+installed build. See `research/evidence/fixed-replay-consistency.json`.
 
 | Stage | Active | Tentacle | Fixed | Pure |
 |---|---|---|---|---|

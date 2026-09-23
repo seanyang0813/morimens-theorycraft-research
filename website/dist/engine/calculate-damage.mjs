@@ -10,6 +10,7 @@ import {resolveImmunity} from './immunity.mjs';
 import {resolveActivePrevention} from './active-prevention.mjs';
 import {hitTriggerValues} from './hit-trigger-values.mjs';
 export const build='pc-res144-build51';
+const fixedPureBuilds=new Set([build,'pc-res150-build51','pc-res151-build51']);
 
 // Research API. No complete gameplay scenario has passed independent validation.
 // Callers cannot opt into a VERIFIED status or suppress required dependencies.
@@ -21,9 +22,10 @@ export function calculateDamage(input){
   if(input.unresolvedDependencies!==undefined&&(!Array.isArray(input.unresolvedDependencies)||input.unresolvedDependencies.some(x=>typeof x!=='string')))throw new Error('Dependencies must be named strings');
   const unresolved=[...(input.unresolvedDependencies??[])];
   const result={mode,build:input.build,damageType:input.damageType,status:'UNVERIFIED',message:'Exact verified result unavailable.',finalDamage:null,experimentalModels:[],trace:[],evidence:[],unresolvedDependencies:unresolved};
-  if(input.build!==build){unresolved.push('Unsupported or unknown combat build');return result;}
+  if(input.build!==build&&!(['FIXED','PURE'].includes(input.damageType)&&fixedPureBuilds.has(input.build))){unresolved.push('Unsupported or unknown combat build');return result;}
   if(['FIXED','PURE'].includes(input.damageType)){
     if(['offense','offenseSetup','skillArgumentSnapshot','target','passive'].some(key=>Object.hasOwn(input,key)))throw new Error('Fixed/Pure path requires category-specific effect inputs');
+    if(input.build!==build&&input.hitResolution!==undefined)throw new Error('Current-build Fixed/Pure support ends before BeHit and HP resolution');
     if(!input.effect||input.effect.build!==input.build||input.effect.category!==input.damageType)throw new Error('Matching explicit effect build and category required');
     if(input.damageType==='PURE'&&input.hitResolution?.puncture)throw new Error('Original Pure effect uses subtype 0, not Puncture');
     const effect=fixedPurePreHit(input.effect);
