@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_CONDITIONAL_REPLAY_BRANCH_RESULT",
+  "status": "BRANCH_COMPARISON_UNREVIEWED_CAPTURE",
+  "analysisTrack": "verification",
+  "createdAtUtc": "2026-09-23T13:47:43.862Z",
+  "freeze": {
+    "path": "research/evidence/holdout-20260923-fixed-boss-conditional-branches.json",
+    "sha256": "33346b96a79c092393222962b69058584e80b08d7c4366ad5f0d94ea8c105082",
+    "gitCommit": "07d9501"
+  },
+  "containerSha256": "6f0f7588a0da104adfcec9469c9c27ce429d76fd3e3675473549e23bccb203b7",
+  "sourceActionIndex": 1,
+  "sourceHitIndex": 0,
+  "observedCritical": false,
+  "selectedBranch": "ordinary",
+  "predictedPreHitDamage": 30,
+  "observedPreHitDamage": 30,
+  "difference": 0,
+  "selectedOutcomeCommitmentSha256": "08b21ac9cc4ffdf6abfcdb25ea8a5c8dc2324c861cf9e8fa72f7595b44aec3e8",
+  "limitations": [
+    "The actual critical RNG draw was unknown before reveal; only the branch pair was frozen",
+    "Capture provenance is a mechanically checked, unreviewed candidate; the matching Record was not loaded and attested",
+    "One branch agreement is a narrow formula diagnostic, not an exact blind holdout or publication credit"
+  ]
+}
