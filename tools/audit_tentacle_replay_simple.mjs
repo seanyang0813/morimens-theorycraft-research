@@ -6,14 +6,15 @@ import {fileURLToPath} from 'node:url';
 import {compileNumericCommand} from '../engine/command-expressions.mjs';
 import {playerTentacleDamage} from '../engine/player-tentacle-damage.mjs';
 import {tentaclePreHit} from '../engine/tentacle-prehit.mjs';
+import {tentacleCritDamage} from '../engine/tentacle-crit-damage.mjs';
 
 const root=resolve(fileURLToPath(new URL('../',import.meta.url)));
 const read=path=>JSON.parse(readFileSync(path,'utf8'));
 const pkeys=['tentacle_dmg','tentacle_base_dmg','basic_damage_per','weak_per','tentacle_dmg_per'];
 const akeys=['i_basic_damage_per','i_damage_per',...Array.from({length:8},(_,i)=>`i_damage_per${i+1}`)];
-const tkeys=['be_damage_per','be_damage_per2','be_damage_per3','be_tentacle_damage_per','vulnerable_per','be_damage_plus'];
 const counters={replaysScanned:0,completeTentacleHits:0,immediateIdentity:0,oneDirectRow:0,
-  exactRowShape:0,neutralTargetAndAwakers:0,noncritEligible:0,exact:0,mismatch:0,blocked:{}};
+  exactRowShape:0,resolvedTargetAndNeutralAwakers:0,noncritEligible:0,exact:0,mismatch:0,
+  critEligible:0,internationalCritBranchExact:0,japanCritBranchExact:0,blocked:{}};
 const sourceReplays=new Set(),sourceActions=new Set(),digest=createHash('sha256');
 for(let n=71;n<=172;n++){
   const folder=resolve(root,`research/observations/replay-batch-${String(n).padStart(2,'0')}`);
@@ -46,29 +47,40 @@ for(let n=71;n<=172;n++){
       const awakers=roles.filter(role=>role.roleType===1&&role.camp===card.camp);
       if(players.length!==1||awakers.length===0||!caster||!target||target.roleType!==2||target.camp===card.camp||target.properties?.hp<=0){counters.blocked['role/target binding']=(counters.blocked['role/target binding']??0)+1;continue;}
       const player=players[0],targetProps=target.properties??{};
-      if(tkeys.some(key=>(targetProps[key]??0)!==0)||awakers.some(role=>Object.entries(role.properties??{}).some(([key,value])=>/damage_per2|dmg_per2/.test(key)&&value!==0))){counters.blocked['nonneutral target or Awaker bonus']=(counters.blocked['nonneutral target or Awaker bonus']??0)+1;continue;}
-      counters.neutralTargetAndAwakers++;
-      if(config.isCrit!==false){counters.blocked['chance-dependent critical hit']=(counters.blocked['chance-dependent critical hit']??0)+1;continue;}
-      counters.noncritEligible++;
+      if(awakers.some(role=>Object.entries(role.properties??{}).some(([key,value])=>/damage_per2|dmg_per2/.test(key)&&value!==0))){counters.blocked['nonneutral Awaker bonus']=(counters.blocked['nonneutral Awaker bonus']??0)+1;continue;}
+      counters.resolvedTargetAndNeutralAwakers++;
+      if(typeof config.isCrit!=='boolean')throw new Error('Missing critical outcome flag');
       const map=(props,keys)=>Object.fromEntries(keys.map(key=>[key,props?.[key]??0]));
       const playerDamage=playerTentacleDamage({build:'pc-res151-build51',player:map(player.properties,pkeys),awakers:awakers.map(role=>map(role.properties,akeys)),powerStateLayer:0,dimensionFixPer:player.properties?.dimension_fix_per??0}).value;
       const numeric=compileNumericCommand(row.Para) (name=>name==='PlayerRole.tentacle_dmg'?playerDamage:name==='CmdCaster.occupation_master'?(caster.properties?.occupation_master??0):undefined).values;
       if(numeric.length!==3||numeric[1]!==1||numeric[2]!==0)throw new Error('Unexpected Tentacle row expression');
       const effectBase=Math.ceil(numeric[0]);
-      const preHit=tentaclePreHit({build:'pc-res151-build51',isCrit:false,tentacleDamage:effectBase,critDamagePer:0,
-        beDamagePer:0,beDamagePer2:0,beDamagePer3:0,beTentacleDamagePer:0,vulnerablePer:0,beDamagePlus:0,
-        enemyTypePer:0,enemyStatePer:0,enemyBuffPer:0,enemyDebuffPer:0,enemyBlockPer:0,enemyBarrierPer:0,paraPlus:0}).preHitDamage;
+      const resolved={build:'pc-res151-build51',isCrit:config.isCrit,tentacleDamage:effectBase,critDamagePer:0,
+        beDamagePer:targetProps.be_damage_per??0,beDamagePer2:targetProps.be_damage_per2??0,beDamagePer3:targetProps.be_damage_per3??0,beTentacleDamagePer:targetProps.be_tentacle_damage_per??0,vulnerablePer:targetProps.vulnerable_per??0,beDamagePlus:targetProps.be_damage_plus??0,
+        enemyTypePer:0,enemyStatePer:0,enemyBuffPer:0,enemyDebuffPer:0,enemyBlockPer:0,enemyBarrierPer:0,paraPlus:0};
       sourceReplays.add(n);sourceActions.add(`${n}:${action.actionIndex}`);
-      if(preHit===config.castDamage)counters.exact++;
-      else counters.mismatch++;
+      if(!config.isCrit){
+        counters.noncritEligible++;
+        const preHit=tentaclePreHit(resolved).preHitDamage;
+        if(preHit===config.castDamage)counters.exact++;
+        else counters.mismatch++;
+      }else{
+        counters.critEligible++;
+        const criticalInput={build:'pc-res151-build51',outsideCritDamage:player.properties?.outside_crit_damage??0,
+          awakerCritDamage:awakers.map(role=>role.properties?.crit_damage??0)};
+        for(const [japan,countKey] of [[false,'internationalCritBranchExact'],[true,'japanCritBranchExact']]){
+          const critDamagePer=tentacleCritDamage({...criticalInput,japan}).value;
+          const preHit=tentaclePreHit({...resolved,critDamagePer}).preHitDamage;
+          if(preHit===config.castDamage)counters[countKey]++;
+        }
+      }
     }
   }
 }
 const summary={...counters,distinctSourceReplays:sourceReplays.size,distinctSourceActions:sourceActions.size};
 const expected={replaysScanned:102,completeTentacleHits:905,immediateIdentity:58,oneDirectRow:39,
-  exactRowShape:39,neutralTargetAndAwakers:21,noncritEligible:19,exact:19,mismatch:0,
-  blocked:{'chance-dependent critical hit':2,'nonneutral target or Awaker bonus':18},
-  distinctSourceReplays:3,distinctSourceActions:19};
+  exactRowShape:39,resolvedTargetAndNeutralAwakers:39,noncritEligible:34,exact:34,mismatch:0,
+  critEligible:5,internationalCritBranchExact:5,japanCritBranchExact:0,blocked:{},distinctSourceReplays:4,distinctSourceActions:39};
 if(JSON.stringify(summary)!==JSON.stringify(expected))throw new Error('Tentacle retrospective component corpus changed; review private cases');
 const catalogDigest=createHash('sha256');
 for(const n of [...sourceReplays].sort((a,b)=>a-b)){
@@ -79,11 +91,11 @@ const report={schemaVersion:1,kind:'MORIMENS_RETROSPECTIVE_TENTACLE_SIMPLE_CONSI
   analysisTrack:'verification',status:'EXACT_RETROSPECTIVE_PREHIT_COMPONENT_MATCHES',
   calculationBuild:'pc-res151-build51',recordedCombatBuild:null,
   privateIndexCommitmentSha256:digest.digest('hex'),privateCatalogCommitmentSha256:catalogDigest.digest('hex'),
-  summary,method:'From complete Tentacle hit snapshots, require matching played-card caster/skill identity, one exact direct BETentacleAttack FrontEnemy row, a living monster target, neutral target Tentacle modifiers and zero Awaker conditional damage bonuses. Reconstruct PlayerRole.tentacle_dmg through installed GetTentacleDamage, evaluate the exact command expression and effect ceiling, then compare resolved noncritical pre-hit damage to recorded castDamage.',
+  summary,method:'From complete Tentacle hit snapshots, require matching played-card caster/skill identity, one exact direct BETentacleAttack FrontEnemy row, a living monster target and zero Awaker conditional damage bonuses. Reconstruct PlayerRole.tentacle_dmg through installed GetTentacleDamage, evaluate the command expression and effect ceiling, then apply recorded target Tentacle/Vulnerable/flat properties. Noncritical hits are compared directly; critical hits separately evaluate both installed regional Crit DMG branches against recorded castDamage without using either branch for region attribution.',
   limitations:['All outcomes were decoded before calculation; none is a blind holdout or publication credit.',
-    'The 19 exact hits are 19 actions in three replays, not 19 independent players or controlled battles.',
+    'The 34 exact noncritical hits and five critical branch comparisons are 39 actions in four replays, not independent players or controlled battles.',
     'The recorded combat build is unknown despite selected installed method parity; this does not establish historical engine identity.',
-    'Critical hits, nonneutral target bonuses, triggered/nested Tentacle sources, BeHit, HP, callbacks and full battle behavior remain outside the comparison.',
+    'The five critical outcomes were known before both regional branches were evaluated; their branch matches do not identify the replay region or random draw. Nonzero conditional Awaker bonuses, triggered/nested Tentacle sources, BeHit, HP, callbacks and full battle behavior remain outside the comparison.',
     'Private player, replay, role and card identifiers are not published.']};
 writeFileSync(resolve(root,'research/evidence/tentacle-replay-simple-consistency.json'),JSON.stringify(report,null,2)+'\n');
-console.log(JSON.stringify({eligible:summary.noncritEligible,exact:summary.exact,mismatch:summary.mismatch,replays:summary.distinctSourceReplays,actions:summary.distinctSourceActions}));
+console.log(JSON.stringify({noncritEligible:summary.noncritEligible,noncritExact:summary.exact,criticalBranchCases:summary.critEligible,internationalBranchExact:summary.internationalCritBranchExact,japanBranchExact:summary.japanCritBranchExact,replays:summary.distinctSourceReplays,actions:summary.distinctSourceActions}));

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_INSTALLED_TENTACLE_CRIT_DAMAGE_RUNTIME",
+  "build": "pc-res151-build51",
+  "status": "EXACT_IN_SYNTHETIC_FIXTURE_DOMAIN",
+  "sourceHashes": {
+    "installedBattleZoneUtil": "32d299e2dcd6c09aa493997863f03ce7aa701b5af6fc8cdff78c467a1b278a2f",
+    "originalRuntimeFixture": "0600278902c5d197804de90f7a69aba8e69fe1c7b07676b2f94c8258774ae244"
+  },
+  "moduleByteIdenticalToResource144": true,
+  "originalRuntimeCases": 308,
+  "method": "Execute installed BattleZoneUtil.GetTentacleCritDmg in copied XLua with explicit region, Player outside Crit DMG and Awaker Crit DMG properties; compare both regional branches with independent JavaScript arithmetic.",
+  "scope": "International branch ceilings outside Crit DMG plus average Awaker Crit DMG minus 50; Japan branch returns outside Crit DMG directly.",
+  "limitations": [
+    "The region flag is supplied, not reconstructed from a recorded battle.",
+    "This computes a critical bonus conditional on a critical hit; critical chance, random draw, source property assembly and gameplay remain separate.",
+    "No independent gameplay or holdout credit."
+  ]
+}

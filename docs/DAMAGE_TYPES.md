@@ -45,14 +45,24 @@ numerically zero in this build. See
 `research/evidence/pc-res151-player-tentacle-runtime.json` and
 `research/evidence/pc-res151-tentacle-source-parity.json`.
 
-After that correction, a strictly filtered retrospective subset has 19 exact
-noncritical Tentacle pre-hit comparisons from 19 actions in three replays, with
+After that correction, a strictly filtered retrospective subset has 34 exact
+noncritical Tentacle pre-hit comparisons from 34 actions in four replays, with
 zero mismatches. The filter requires a directly matching caster/skill identity,
-one exact `BETentacleAttack` row, a living monster, neutral target Tentacle
-modifiers and zero conditional Awaker damage bonuses. The recorded combat build
-is unknown and all outcomes were inspected first, so this is component
-consistency only, not a blind holdout. See
+one exact `BETentacleAttack` row, a living monster and zero conditional Awaker
+damage bonuses; recorded target Tentacle, Vulnerable and flat modifiers are
+applied. Five additional known critical outcomes match the international Crit
+DMG branch and none matches the Japan branch. That branch check does not prove
+the replay region or random draw. The recorded combat build is unknown and all
+outcomes were inspected first, so this is component consistency only, not a
+blind holdout. See
 `research/evidence/tentacle-replay-simple-consistency.json`.
+
+The installed `BattleZoneUtil.GetTentacleCritDmg` is byte-identical to resource
+144 and matches 308 synthetic runtime cases. International mode applies
+`ceil(outside Crit DMG + average Awaker Crit DMG - 50)`; Japan mode returns the
+outside Crit DMG property. This is a conditional bonus *after* a critical hit;
+the critical chance and random roll are separate. See
+`research/evidence/pc-res151-tentacle-crit-runtime.json`.
 
 A separate outcome-first PvE replay audit reconstructs 85 Fixed pre-hit values
 exactly from captured card arguments, six conditional command rows, live state

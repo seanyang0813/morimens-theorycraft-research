@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "d79672c99b48821f7c2f425adfcd683b806126c259aa3934432d6a0cc2d6514d",
+  "fingerprint": "4de274605c072f312e887232c19506f8ce62f5424d4e3bd9156f111464261c0d",
   "files": {
     "build-catalog.json": "71d0e0d14959e933ae8942ac0064de95c0a63b84ce9065e2bdcef4509090b98b",
     "client-build-data-res150.json": "49d4bf5abe419360df47e4959a26fb50bdaa37ed8189c022a644ff518f6fba80",
@@ -125,6 +125,7 @@
     "engine/state-type-catalog.mjs": "6ea6e4485c14527fb13019a298a16d043cd333d78dfbc06379e1cfbc1aef5ed2",
     "engine/sub-state-layer.mjs": "712f54e3b4d1744769912955995c23fcd16505a7a15c903848dfb68e2a2ddaeb",
     "engine/target-damage-eligibility.mjs": "dcd9de19c72bfe9b515a3b013c726b4f339ccc0c9bb68e0486897b3ad2b5296f",
+    "engine/tentacle-crit-damage.mjs": "a01d2709a53c69e425a4c4be91519d1105751148da53dc3c6ec7117afec2d175",
     "engine/tentacle-prehit.mjs": "177dcf3b0bf39a8527752e2428df4d851038c47c340a360cfc2c6c69fad67908",
     "engine/terminal-state-command.mjs": "c3e3c9446463cbd944df4b5da9cdc0947554f069b7fead52c0bbcc3ad2bc39f5",
     "engine/timeline-experiments.mjs": "0bf199ca16b1b92bb33b7aae1acdcad47aae8b124b47290792f3a1d5e2f6ed3e",
@@ -145,7 +146,7 @@
     "engine/wheel-search.mjs": "5055b6d67b72ea7d4dbc882dec7df9b6bb32812cc6f8675d355b6d9aff83b36e",
     "engine/wheel-stats.mjs": "d0eac4ca93b72cd91595dc6650b363f4b35e2262aac018e1c0e41c77f31b813e",
     "engine/wheel-trigger-transitions.mjs": "8a96ae4ff2301ee11dcecc611a805ce060f9f7936869d5d72673f88d4a4c9459",
-    "rules.json": "c7be70930e44b57dba296e50acd625c949ecab0e7422d86a9cef0a9e9fddc154",
+    "rules.json": "a2085a1a602f75cc7b81e677f01ac54f77dadc9566e7ecc206b1c45c1549889f",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af",
     "wheel-current-compatibility.json": "3956b79d1a5599fc3f86523cacea3cd4668e0d2ae26d12c006cc31fa8cf7bfb0",
     "wheel-mechanics-capability-catalog.json": "f544b9f24176c216532d050136a56aac58bccb20086f3acd78bd56613ca61af0"

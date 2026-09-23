@@ -1,0 +1,3551 @@
+{
+  "kind": "SYNTHETIC_INSTALLED_ORIGINAL_RUNTIME",
+  "build": "pc-res151-build51",
+  "method": "BattleZoneUtil.GetTentacleCritDmg",
+  "sourceHash": "32d299e2dcd6c09aa493997863f03ce7aa701b5af6fc8cdff78c467a1b278a2f",
+  "fixtures": [
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          0
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          219,
+          115,
+          72,
+          50
+        ]
+      },
+      "expected": 148.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.2,
+        "awakerCritDamage": [
+          50.1,
+          50.2
+        ]
+      },
+      "expected": 1.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": -5,
+        "awakerCritDamage": [
+          100
+        ]
+      },
+      "expected": 45.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          0
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          219,
+          115,
+          72,
+          50
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0.2,
+        "awakerCritDamage": [
+          50.1,
+          50.2
+        ]
+      },
+      "expected": 0.2
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": -5,
+        "awakerCritDamage": [
+          100
+        ]
+      },
+      "expected": -5.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          100,
+          50,
+          150
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          -25
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          219
+        ]
+      },
+      "expected": 253.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          50,
+          -25,
+          100
+        ]
+      },
+      "expected": -58.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          150,
+          100
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          72,
+          0
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          -25,
+          72,
+          0.1
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          219,
+          0,
+          150,
+          50
+        ]
+      },
+      "expected": 155.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          50,
+          150,
+          0.1
+        ]
+      },
+      "expected": 101.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          219
+        ]
+      },
+      "expected": 169.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          72
+        ]
+      },
+      "expected": 0.1
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          -25,
+          219
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          150,
+          150,
+          0
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          -25
+        ]
+      },
+      "expected": 9.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          -25,
+          219,
+          219
+        ]
+      },
+      "expected": 88.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          72
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          50,
+          219,
+          100
+        ]
+      },
+      "expected": 98.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          0,
+          0,
+          150
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          0.1,
+          150
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          100
+        ]
+      },
+      "expected": 134.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          150
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          219,
+          72,
+          50
+        ]
+      },
+      "expected": 148.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          0,
+          50,
+          219
+        ]
+      },
+      "expected": 190.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          150,
+          0,
+          0
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          50
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          72
+        ]
+      },
+      "expected": 122.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          150,
+          100,
+          0,
+          50
+        ]
+      },
+      "expected": 50.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          150
+        ]
+      },
+      "expected": 184.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          50
+        ]
+      },
+      "expected": 0.1
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          72,
+          0
+        ]
+      },
+      "expected": -64.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          219
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          -25,
+          72,
+          0.1,
+          72
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          0.1,
+          100,
+          50
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          0,
+          72,
+          150,
+          0.1
+        ]
+      },
+      "expected": 0.1
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          72,
+          -25,
+          100,
+          -25
+        ]
+      },
+      "expected": -19.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          150,
+          100,
+          72,
+          219
+        ]
+      },
+      "expected": 36.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          150,
+          100,
+          72
+        ]
+      },
+      "expected": 142.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          150,
+          100,
+          0.1,
+          0.1
+        ]
+      },
+      "expected": 13.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          0,
+          150,
+          0.1,
+          150
+        ]
+      },
+      "expected": 51.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          219,
+          50
+        ]
+      },
+      "expected": 85.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          219
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          0.1,
+          50
+        ]
+      },
+      "expected": 76.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          -25,
+          50,
+          100
+        ]
+      },
+      "expected": -8.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          72,
+          72
+        ]
+      },
+      "expected": 23.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          219
+        ]
+      },
+      "expected": 319.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          100
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          150
+        ]
+      },
+      "expected": 101.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          -25,
+          0,
+          150,
+          -25
+        ]
+      },
+      "expected": 125.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          72,
+          72
+        ]
+      },
+      "expected": 22.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          50
+        ]
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          50,
+          72,
+          0
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          0.1,
+          150,
+          -25
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          219,
+          50
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          50,
+          100,
+          50
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          219,
+          0
+        ]
+      },
+      "expected": 10.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          0,
+          -25,
+          150,
+          72
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          50,
+          50,
+          0
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          -25,
+          -25,
+          0,
+          72
+        ]
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          100,
+          0.1,
+          150,
+          219
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          150,
+          0
+        ]
+      },
+      "expected": 0.1
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          0
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          150,
+          100,
+          100
+        ]
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          50,
+          150
+        ]
+      },
+      "expected": 134.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          219,
+          219,
+          0,
+          100
+        ]
+      },
+      "expected": 110.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          0,
+          0.1,
+          150,
+          0.1
+        ]
+      },
+      "expected": 72.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          150
+        ]
+      },
+      "expected": 200.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          72
+        ]
+      },
+      "expected": 172.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          219
+        ]
+      },
+      "expected": 170.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          72,
+          72
+        ]
+      },
+      "expected": 106.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          0.1,
+          0.1
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          50,
+          0.1
+        ]
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          0
+        ]
+      },
+      "expected": 0.1
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          219,
+          -25,
+          50,
+          50
+        ]
+      },
+      "expected": 174.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          219,
+          0.1,
+          100,
+          100
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          219,
+          150
+        ]
+      },
+      "expected": 135.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          0
+        ]
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          0.1,
+          -25,
+          150,
+          100
+        ]
+      },
+      "expected": -43.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          0.1,
+          72,
+          0
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          150,
+          0.1,
+          72,
+          219
+        ]
+      },
+      "expected": 61.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          50,
+          150,
+          -25,
+          100
+        ]
+      },
+      "expected": 103.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          150,
+          0.1,
+          150
+        ]
+      },
+      "expected": 0.1
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          50
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          -25
+        ]
+      },
+      "expected": -74.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          -25,
+          -25,
+          219,
+          50
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          0.1,
+          50,
+          -25
+        ]
+      },
+      "expected": -91.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          150
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          0,
+          100
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          100,
+          150,
+          72,
+          72
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          219,
+          0.1
+        ]
+      },
+      "expected": 85.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          72,
+          0.1
+        ]
+      },
+      "expected": 12.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          219
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          0.1
+        ]
+      },
+      "expected": 101.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          100,
+          -25,
+          -25,
+          -25
+        ]
+      },
+      "expected": -43.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          50,
+          0,
+          72
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          0.1,
+          0
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          0.1,
+          -25
+        ]
+      },
+      "expected": 0.1
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          0,
+          -25,
+          72
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          72,
+          -25,
+          0,
+          219
+        ]
+      },
+      "expected": 117.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          -25
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          150,
+          0
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          72,
+          100,
+          50
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          50,
+          219,
+          219,
+          100
+        ]
+      },
+      "expected": 47.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          -25
+        ]
+      },
+      "expected": -74.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          219,
+          -25,
+          150
+        ]
+      },
+      "expected": 65.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          50
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          0,
+          0,
+          0.1,
+          50
+        ]
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          100,
+          100,
+          0.1,
+          0
+        ]
+      },
+      "expected": 26.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          100,
+          0.1,
+          72,
+          150
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          0.1
+        ]
+      },
+      "expected": -24.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          50,
+          72,
+          50,
+          72
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          50,
+          0.1
+        ]
+      },
+      "expected": 60.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          100,
+          100,
+          72
+        ]
+      },
+      "expected": 125.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          150,
+          -25
+        ]
+      },
+      "expected": -37.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          150
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          219,
+          150,
+          100,
+          0
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          0.1,
+          150
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          0,
+          150,
+          150,
+          0.1
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          0.1,
+          -25
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          150,
+          0.1,
+          0.1
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          100,
+          219,
+          219
+        ]
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          100,
+          0.1,
+          219
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          0,
+          -25,
+          100
+        ]
+      },
+      "expected": 125.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          50
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          100,
+          -25,
+          0,
+          219
+        ]
+      },
+      "expected": 174.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          -25,
+          50
+        ]
+      },
+      "expected": 47.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          219
+        ]
+      },
+      "expected": 269.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          100
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          0.1
+        ]
+      },
+      "expected": -49.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          72
+        ]
+      },
+      "expected": 47.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          100,
+          50
+        ]
+      },
+      "expected": 50.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          100,
+          50,
+          100
+        ]
+      },
+      "expected": 34.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          -25
+        ]
+      },
+      "expected": -75.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          72,
+          150
+        ]
+      },
+      "expected": 211.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          72,
+          0,
+          50,
+          219
+        ]
+      },
+      "expected": -14.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          100,
+          0,
+          0
+        ]
+      },
+      "expected": 0.1
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          100,
+          50,
+          50,
+          219
+        ]
+      },
+      "expected": 155.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          219,
+          50,
+          150
+        ]
+      },
+      "expected": 174.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          219
+        ]
+      },
+      "expected": 169.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          219,
+          100,
+          150
+        ]
+      },
+      "expected": 257.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          0,
+          0.1
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          0
+        ]
+      },
+      "expected": -49.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          100
+        ]
+      },
+      "expected": 134.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          50
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          219,
+          50,
+          0.1
+        ]
+      },
+      "expected": 124.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          150
+        ]
+      },
+      "expected": 184.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          0.1,
+          0.1
+        ]
+      },
+      "expected": -49.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          150
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          0.1,
+          -25,
+          50
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          0
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          -25,
+          219,
+          50,
+          100
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          72,
+          100,
+          -25
+        ]
+      },
+      "expected": 149.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          0.1,
+          0,
+          0,
+          72
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          100,
+          -25,
+          72
+        ]
+      },
+      "expected": -51.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          72,
+          100,
+          100,
+          -25
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          50
+        ]
+      },
+      "expected": 0.1
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          0.1
+        ]
+      },
+      "expected": 0.1
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          0.1,
+          72,
+          0.1,
+          0.1
+        ]
+      },
+      "expected": 69.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          50,
+          -25,
+          72,
+          0.1
+        ]
+      },
+      "expected": 59.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          219,
+          0.1,
+          0
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          -25,
+          0.1,
+          100,
+          219
+        ]
+      },
+      "expected": 24.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          0.1,
+          100,
+          150
+        ]
+      },
+      "expected": 134.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          0.1,
+          0.1,
+          219
+        ]
+      },
+      "expected": 174.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          0.1,
+          50,
+          72,
+          72
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          -25,
+          150,
+          50,
+          150
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          0.1,
+          0
+        ]
+      },
+      "expected": 51.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          150,
+          72
+        ]
+      },
+      "expected": 62.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          50,
+          -25,
+          100
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          0,
+          100,
+          150
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          -25,
+          150,
+          50,
+          50
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          150,
+          0,
+          150
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          50,
+          100,
+          0,
+          -25
+        ]
+      },
+      "expected": 7.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          50
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          0,
+          219,
+          72
+        ]
+      },
+      "expected": 72.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          219,
+          219
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          150
+        ]
+      },
+      "expected": 250.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          0.1,
+          150
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          100
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          219,
+          150,
+          0,
+          150
+        ]
+      },
+      "expected": 164.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          0,
+          0,
+          72,
+          -25
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          100
+        ]
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          150,
+          0,
+          219
+        ]
+      },
+      "expected": 74.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          100,
+          50,
+          50,
+          0
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          100,
+          0
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          0,
+          150,
+          150,
+          0
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          0.1,
+          219
+        ]
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          -25
+        ]
+      },
+      "expected": 0.1
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          -25,
+          50,
+          50,
+          0
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          72
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          100,
+          219,
+          -25
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          100,
+          0.1,
+          0.1,
+          72
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          100,
+          0,
+          -25,
+          0.1
+        ]
+      },
+      "expected": 119.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          72,
+          219,
+          0,
+          150
+        ]
+      },
+      "expected": 0.1
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          50,
+          72,
+          0,
+          0.1
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          -25,
+          100,
+          -25
+        ]
+      },
+      "expected": -33.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          -25,
+          219
+        ]
+      },
+      "expected": 131.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          0.1,
+          219,
+          50
+        ]
+      },
+      "expected": 140.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          219,
+          219
+        ]
+      },
+      "expected": 170.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          150,
+          50
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          -25,
+          0
+        ]
+      },
+      "expected": 22.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          72,
+          0
+        ]
+      },
+      "expected": 136.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          0.1,
+          150,
+          0,
+          100
+        ]
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          0
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          -25,
+          219,
+          72
+        ]
+      },
+      "expected": 0.1
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          50
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          100,
+          0.1,
+          150
+        ]
+      },
+      "expected": 118.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          -25,
+          50,
+          72,
+          150
+        ]
+      },
+      "expected": 96.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          72
+        ]
+      },
+      "expected": -28.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          100
+        ]
+      },
+      "expected": 50.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          -25,
+          100,
+          150
+        ]
+      },
+      "expected": -25.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          0,
+          150,
+          72,
+          -25
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          150
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          150
+        ]
+      },
+      "expected": 125.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          0.1,
+          72,
+          72
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          100,
+          -25,
+          72
+        ]
+      },
+      "expected": 0.1
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          72,
+          0,
+          0.1
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          -25,
+          50
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          0.1,
+          50,
+          50
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          150,
+          -25
+        ]
+      },
+      "expected": 38.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          150,
+          0
+        ]
+      },
+      "expected": -25.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          150,
+          219,
+          50
+        ]
+      },
+      "expected": 240.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          50,
+          0,
+          0.1,
+          0
+        ]
+      },
+      "expected": -87.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          0.1,
+          72
+        ]
+      },
+      "expected": -13.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          72
+        ]
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          100,
+          100
+        ]
+      },
+      "expected": 50.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          0.1,
+          150
+        ]
+      },
+      "expected": -24.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          -25,
+          -25
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          50,
+          100,
+          150,
+          72
+        ]
+      },
+      "expected": 143.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          -25,
+          50,
+          150,
+          0.1
+        ]
+      },
+      "expected": 94.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          219,
+          100
+        ]
+      },
+      "expected": 0.1
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          0.1,
+          72,
+          0.1
+        ]
+      },
+      "expected": 75.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          100,
+          0.1,
+          50
+        ]
+      },
+      "expected": 85.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          72,
+          0.1
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          0.1
+        ]
+      },
+      "expected": 0.1
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          219
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          50
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          100,
+          0.1
+        ]
+      },
+      "expected": 0.1
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          0.1,
+          0.1
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          50,
+          -25,
+          0.1,
+          72
+        ]
+      },
+      "expected": 59.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          219
+        ]
+      },
+      "expected": 0.1
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          100,
+          219,
+          150,
+          100
+        ]
+      },
+      "expected": 193.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          -25,
+          100,
+          -25,
+          100
+        ]
+      },
+      "expected": 138.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          72,
+          72
+        ]
+      },
+      "expected": 0.1
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          -25
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          0,
+          0.1,
+          150
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          50,
+          0.1,
+          50
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          72,
+          50
+        ]
+      },
+      "expected": 161.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          -25,
+          150,
+          0.1
+        ]
+      },
+      "expected": -58.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          50,
+          72
+        ]
+      },
+      "expected": 111.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          100,
+          72
+        ]
+      },
+      "expected": 120.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          0.1,
+          50,
+          72
+        ]
+      },
+      "expected": -59.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          100,
+          0,
+          72
+        ]
+      },
+      "expected": 92.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          150,
+          150,
+          -25,
+          100
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          50,
+          72,
+          0,
+          219
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          150,
+          -25,
+          50
+        ]
+      },
+      "expected": 93.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          -25
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          219
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          100,
+          0.1,
+          219,
+          100
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          219
+        ]
+      },
+      "expected": 253.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          0.1
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          72,
+          50,
+          -25,
+          219
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          150,
+          219,
+          100
+        ]
+      },
+      "expected": 207.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          0.1,
+          72,
+          150,
+          150
+        ]
+      },
+      "expected": 150.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          100,
+          0.1,
+          219,
+          50
+        ]
+      },
+      "expected": 68.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          150,
+          50,
+          -25
+        ]
+      },
+      "expected": -41.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          150,
+          50,
+          72,
+          50
+        ]
+      },
+      "expected": 0.1
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          100
+        ]
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          72,
+          150,
+          219,
+          100
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          -25,
+          0,
+          -25,
+          72
+        ]
+      },
+      "expected": -44.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          100,
+          0.1,
+          -25
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 150,
+        "awakerCritDamage": [
+          72,
+          -25,
+          72
+        ]
+      },
+      "expected": 140.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          150,
+          150,
+          100,
+          100
+        ]
+      },
+      "expected": 159.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          0,
+          150,
+          100,
+          219
+        ]
+      },
+      "expected": 93.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          150,
+          50,
+          0.1,
+          150
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          72,
+          50
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          150,
+          219,
+          150
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          100,
+          0.1,
+          100,
+          -25
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          0.1,
+          72,
+          0.1,
+          50
+        ]
+      },
+      "expected": 81.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          219
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          -25,
+          100,
+          219
+        ]
+      },
+      "expected": 148.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          150,
+          72,
+          100
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          219
+        ]
+      },
+      "expected": 194.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          219
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          0,
+          150,
+          72,
+          150
+        ]
+      },
+      "expected": 44.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          150,
+          72,
+          150,
+          219
+        ]
+      },
+      "expected": 0.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          0,
+          72
+        ]
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          150
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          150,
+          100,
+          219
+        ]
+      },
+      "expected": 191.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          72,
+          0
+        ]
+      },
+      "expected": 84.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          0.1,
+          150
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          50,
+          72,
+          -25,
+          0.1
+        ]
+      },
+      "expected": 59.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          150
+        ]
+      },
+      "expected": 100.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          -25
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          0,
+          0
+        ]
+      },
+      "expected": 25.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 100,
+        "awakerCritDamage": [
+          100,
+          219
+        ]
+      },
+      "expected": 210.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0.1,
+        "awakerCritDamage": [
+          100
+        ]
+      },
+      "expected": 51.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 25,
+        "awakerCritDamage": [
+          100,
+          100,
+          219
+        ]
+      },
+      "expected": 115.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 84,
+        "awakerCritDamage": [
+          50,
+          50,
+          50,
+          0
+        ]
+      },
+      "expected": 72.0
+    },
+    {
+      "input": {
+        "japan": true,
+        "outsideCritDamage": -50,
+        "awakerCritDamage": [
+          100,
+          0.1,
+          100
+        ]
+      },
+      "expected": -50.0
+    },
+    {
+      "input": {
+        "japan": false,
+        "outsideCritDamage": 0,
+        "awakerCritDamage": [
+          50
+        ]
+      },
+      "expected": 0.0
+    }
+  ]
+}

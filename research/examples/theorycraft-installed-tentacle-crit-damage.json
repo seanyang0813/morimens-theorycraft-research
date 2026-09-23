@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-theorycraft-request",
+  "requestId": "sanitized-tentacle-crit-component",
+  "operation": "calculate-tentacle-crit-damage",
+  "input": {
+    "build": "pc-res151-build51",
+    "japan": false,
+    "outsideCritDamage": 84,
+    "awakerCritDamage": [219, 115, 72, 50]
+  }
+}

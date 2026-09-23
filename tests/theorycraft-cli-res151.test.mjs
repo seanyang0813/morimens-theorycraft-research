@@ -115,3 +115,11 @@ test('agent CLI resolves the installed Player Tentacle source value before card 
   assert.equal(response.result.value,230);
   assert.ok(response.result.unresolvedDependencies.includes('Independent gameplay validation'));
 });
+
+test('agent CLI resolves the installed regional Tentacle critical bonus',()=>{
+  const result=run('research/examples/theorycraft-installed-tentacle-crit-damage.json');
+  assert.equal(result.status,0,result.stderr);
+  const response=JSON.parse(result.stdout);
+  assert.equal(response.result.value,148);
+  assert.ok(response.result.unresolvedDependencies.includes('Region attribution for recorded battles'));
+});

@@ -7607,21 +7607,42 @@
     {
       "id": "Replay:TentacleSimplePreHitConsistency",
       "status": "RETROSPECTIVE_COMPONENT_MATCH_ONLY",
-      "claim": "Nineteen neutral-target noncritical Tentacle pre-hit values across three private PvE replays match the installed Player producer, command expression, effect ceiling and resolved pre-hit path exactly",
-      "scope": "Outcome-first retrospective component comparison. Source identity and one direct BETentacleAttack row, neutral target/conditional Awaker damage, noncritical branch only; recorded engine build unknown. No independent holdout, BeHit/HP validation or publication credit.",
+      "claim": "Thirty-four noncritical Tentacle pre-hit values across four private PvE replays match the installed Player producer, command expression, effect ceiling and target modifiers exactly; five known critical outcomes match the international Crit DMG branch",
+      "scope": "Outcome-first retrospective component comparison. Source identity and one direct BETentacleAttack row, zero conditional Awaker target bonuses, recorded critical flag and target properties. Recorded engine build and critical region/roll are not independently attributed. No blind holdout, BeHit/HP validation or publication credit.",
       "gameplayValidation": false,
       "sources": [
         {
           "module": "Sanitized Tentacle replay component audit",
-          "member": "nineteen strict source-bound pre-hit comparisons and private corpus commitments",
-          "sha256": "c05ec9001300cfd9bad010700592d9bfae9ae9deca5a7616909e39ff587dbbd9"
+          "member": "34 source-bound noncritical comparisons, five regional critical branch comparisons and private corpus commitments",
+          "sha256": "80370568264ddda387fa31e050dbfddd1383a3ecbf8c58bab57b9b47dc0b82ff"
         }
       ],
       "checks": [
         "tools/audit_tentacle_replay_simple.mjs",
         "engine/player-tentacle-damage.mjs",
         "engine/tentacle-prehit.mjs",
+        "engine/tentacle-crit-damage.mjs",
         "research/evidence/tentacle-replay-simple-consistency.json"
+      ]
+    },
+    {
+      "id": "PC151:TentacleCritDamage",
+      "status": "SUPPORTED_BY_ORIGINAL_RUNTIME_TEST",
+      "claim": "Installed BattleZoneUtil.GetTentacleCritDmg has distinct international and Japan regional branches, reproduced by 308 synthetic original-runtime cases",
+      "scope": "Resolved conditional critical-damage bonus only. Region and role properties explicitly supplied; no critical chance/draw, source property assembly, replay-region attribution, gameplay or independent holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Installed Tentacle critical-bonus runtime comparison",
+          "member": "byte-identical module hash, both regional branches and 308 exact execution cases",
+          "sha256": "cd5d940a2812d607dd41ff7b061f76017e6200b13bba780f268a7d4a6a4e78a8"
+        }
+      ],
+      "checks": [
+        "tools/tentacle_crit_runtime_oracle.py",
+        "tools/build_tentacle_crit_evidence.py",
+        "tests/tentacle-crit-damage.test.mjs",
+        "research/evidence/pc-res151-tentacle-crit-runtime.json"
       ]
     }
   ]
