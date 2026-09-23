@@ -49,6 +49,16 @@ potentially linked states. The page displayed the activation, magnitude, timing,
 legality, stacking and optimality limitations, and produced no browser warnings
 or errors. This UI check does not add gameplay validation.
 
+On 2026-09-22, a fresh local-browser check selected the installed
+`pc-res151-build51` payload, Mouchette at level 90, Gnostic rank 5 and
+advancement talent 122481 at level 10. The Builds page rendered base
+CON/ATK/DEF 168/198/168 and advanced 219/258/219. Assembling known components
+produced the same build identity, the advancement arithmetic trace and an empty
+`issues` array; `finalDamage` remained null with equipment, passives, battle
+properties, sequencing and gameplay validation listed as unresolved. This
+checks the browser wiring of the installed-client progression path, not the
+accuracy of a complete build or damage outcome.
+
 The packaged authored module `wheel-mechanics-search.mjs` and its local CLI
 provide the same catalog as a strict mechanics-track query. This API remains
 separate from `theorycraft-api.mjs`; a search result cannot inherit a simulated
