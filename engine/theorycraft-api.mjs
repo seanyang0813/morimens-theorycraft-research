@@ -111,7 +111,7 @@ function execute(operation,input,context){
   if(operation==='resolve-character-advancement-primary')return resolveClientAdvancementPrimary(input,context.clientBuildData);
   if(operation==='resolve-wheel-mainstat')return resolveWheelMainstat(input,context.buildCatalog);
   if(operation==='search-wheel-catalog')return searchWheelCatalog(input,context.buildCatalog);
-  if(operation==='assemble-build-components')return assembleKnownBuildComponents(input,context.buildCatalog,context.clientBuildData);
+  if(operation==='assemble-build-components')return assembleKnownBuildComponents(input,context.buildCatalog,context.clientBuildData,context.wheelCurrentCompatibility);
   if(operation==='assemble-wheel-loadout-properties')return assembleWheelLoadoutProperties(input,context.buildCatalog,context.wheelMechanicsData);
   if(operation==='advance-after-use-card-wheel-trigger')return advanceDoomsdayAfterUseCard(input);
   if(operation==='advance-after-keeper-skill-wheel-trigger')return advanceLightOfIntellectAfterKeeperSkill(input);

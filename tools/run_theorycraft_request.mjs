@@ -28,6 +28,7 @@ try{
     const clientDataFile=selectedBuild==='pc-res151-build51'?'client-build-data-res151.json':selectedBuild==='pc-res150-build51'?'client-build-data-res150.json':'client-build-data.json';
     context.clientBuildData=JSON.parse(readFileSync(resolve(root,`website/dist/${clientDataFile}`),'utf8'));
   }
+  if(request.operation==='assemble-build-components'&&selectedBuild==='pc-res151-build51')context.wheelCurrentCompatibility=JSON.parse(readFileSync(resolve(root,'research/evidence/pc-res151-wheel-initial-state-compatibility.json'),'utf8'));
   if(['prepare-skill-command','run-prepared-snapshot-active-skill','run-prepared-snapshot-block-skill','run-prepared-state-active-sequence','run-prepared-state-active-chain','run-paid-prepared-state-active-chain','run-prepared-paid-wheel-active-timeline','run-attached-card-pipeline','run-prepared-mortal-blast'].includes(request.operation)){
     const skill=readConfig('Skill'),battleApi=readConfig('BattleApi'),command=readConfig('Cmd'),state=readConfig('State');
     context.skillCommandData={build:selectedBuild,skills:skill.data,battleApi:battleApi.data,commands:command.data,states:state.data,sourceHashes:{Skill:skill.sha256,BattleApi:battleApi.sha256,Cmd:command.sha256,State:state.sha256}};

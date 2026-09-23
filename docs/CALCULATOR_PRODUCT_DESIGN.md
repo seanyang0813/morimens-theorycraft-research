@@ -67,6 +67,16 @@ The current client-backed primary-stat resolver accepts character, level and Gno
 
 The build planner supports explicit Wheel enhancement and a catalog-derived main-stat preview with arithmetic. Export/import preserves unknown enhancement. Wheel passive execution, equipment legality and combination into team battle properties remain unresolved.
 
+For the installed resource-151 build, the build assembler and browser planner
+now consume a sanitized Item/State compatibility audit before presenting a
+Wheel main-stat contribution. They accept retained Items and two unique
+full-icon replacements whose main/sub-attribute rows agree, mark three changed
+initial direct-property rules, and withhold current-build contributions for
+four ambiguous crosswalks. One formerly missing Wheel has a unique current
+Item and source-matched catalog main-stat base, though no historical passive
+comparison. The preview remains based on the pinned public catalog; current
+enhancement scaling is not yet proven from the installed client.
+
 `engine/build-stats.mjs` now resolves catalog-derived primary stats from explicit level and resolved progression bonuses, preserving both rounding stages and source hashes. `tools/resolve_build_stats.mjs` exposes the same operation to agents. It does not yet map progression ranks to bonuses or automatically resolve planner selections; see BUILD_STAT_RESOLUTION.md.
 
 `builds.html` now provides the first catalog-backed team/loadout planning surface: 61 character identities and 146 Wheel identities from the existing pinned SKeyDB snapshot. Export/import uses `engine/build-plan.mjs`, preserving unknown levels and unspecified Wheels. These plans have PLAN_ONLY status; selecting an identity does not assert legal equipment, applied stats, supported passives or damage. The schema is deliberately separate from resolved formula experiments until build resolution is implemented. The catalog export strips lore/images and retains source hashes and license attribution.

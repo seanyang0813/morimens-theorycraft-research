@@ -6,7 +6,7 @@ The Property Snapshots page accepts complete live resource-144, resource-150 or 
 
 The Builds page has separate source-bound selectors and payloads for the installed resource-151 client, previous resource 150 and historical resource 144. The installed progression data resolves 60 character identities and is bound to 2,700 exact executions of resource 151's original primary-stat lookup. Its eight source modules are byte-identical to resource 150, and the derived character rows are equal. Advancement primary-stat rows are included where supported. The Wheel picker searches all 146 pinned identities by name, associated owner, main stat and normalized mechanic tags, marks owner matches without assuming a unique signature, and keeps passive execution unresolved. The page refuses cross-build data use; advancement passives, equipment effects and battle-property assembly remain unresolved.
 
-`tools/prepare_local_website.py` prepares 135 explicitly allowlisted authored engine modules plus sanitized catalogs and page assets. It does not publish original Lua, native libraries, keys, screenshots, replay observations or private research directories. The verification suite checks copied engine modules byte-for-byte against their authored sources, along with static references, JavaScript syntax and calculation integrations.
+`tools/prepare_local_website.py` prepares 136 explicitly allowlisted authored engine modules plus sanitized catalogs and page assets. It does not publish original Lua, native libraries, keys, screenshots, replay observations or private research directories. The verification suite checks copied engine modules byte-for-byte against their authored sources, along with static references, JavaScript syntax and calculation integrations.
 
 The Actions page can render ordered single-target Block gain and the shield consumed by later supported damage rows. The underlying formula/recipient/storage path has 911 exact copied-original component comparisons. This adds an evidence-backed command operation, not automatic loadout-property resolution or gameplay validation.
 
@@ -65,9 +65,21 @@ separate from `theorycraft-api.mjs`; a search result cannot inherit a simulated
 build, strategy, cheese, budget or verification claim.
 
 The Rules catalog also records the installed-client Wheel initial-state drift:
-136 historical direct-property maps remain equal, three changed, and two
-historical Item links are absent. This evidence does not make current Wheel
-passives executable in the Builds page.
+136 retained direct-property maps remain equal, three changed, and two old Item
+IDs have unique current full-icon replacements with equivalent initial rules.
+One historically missing Wheel now has a unique current Item and matching
+catalog main-stat base. The Builds page carries these statuses into current-build
+previews and assembly; four ambiguous mappings fail closed. Current enhancement
+scaling and Wheel passives remain unverified there.
+
+A fresh local-browser check on 2026-09-22 selected resource 151, then the
+historically ambiguous Wheel Unseen. The picker explicitly reported
+`HISTORICAL_CROSSWALK_UNRESOLVED` and withheld a current-build main-stat
+contribution. Selecting Ever Sunward instead, with E3 + 12 enhancement,
+rendered a 28.8% pinned-catalog Crit Rate preview and stated that its installed
+main-stat base matches while current enhancement scaling remains unverified.
+The source audit identifies Ever Sunward's unique current Item replacement;
+the browser check confirms the warning and preview wiring only.
 
 The authored Wheel refinement module is also packaged, but the full private
 parameter map is not. Its local resolver uses the ignored client crosswalk and

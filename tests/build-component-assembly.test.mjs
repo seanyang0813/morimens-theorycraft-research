@@ -6,6 +6,7 @@ import {assembleKnownBuildComponents} from '../engine/build-component-assembly.m
 const catalog=JSON.parse(readFileSync(new URL('../website/dist/build-catalog.json',import.meta.url),'utf8'));
 const clientData=JSON.parse(readFileSync(new URL('../website/dist/client-build-data.json',import.meta.url),'utf8'));
 const installedData=JSON.parse(readFileSync(new URL('../research/evidence/client-build-data-res151.json',import.meta.url),'utf8'));
+const installedWheelCompatibility=JSON.parse(readFileSync(new URL('../research/evidence/pc-res151-wheel-initial-state-compatibility.json',import.meta.url),'utf8'));
 const resolvableCharacter=catalog.characters.find(row=>clientData.characters.some(client=>client.characterId===row.id));
 const wheel=catalog.wheels.find(row=>row.rarity==='SSR'&&row.mainstatKey==='REALM_MASTERY');
 const talent=clientData.characters.find(row=>row.characterId===resolvableCharacter.id).advancementTalents[0];
@@ -25,12 +26,56 @@ test('known build assembler emits an auditable contribution ledger without final
 
 test('installed-client build assembler resolves explicit progression without crossing data builds',()=>{
   const input=plan();input.clientBuild='pc-res151-build51';
-  const result=assembleKnownBuildComponents(input,catalog,installedData);
+  const result=assembleKnownBuildComponents(input,catalog,installedData,installedWheelCompatibility);
   assert.equal(result.build,'pc-res151-build51');
   assert.equal(result.assemblyStatus,'KNOWN_COMPONENTS_RESOLVED');
   assert.equal(result.finalDamage,null);
   assert.deepEqual(result.issues,[]);
+  assert.equal(result.members[0].wheelMainstat.installedItemCompatibility.itemAttributeRowsEqual,true);
+  assert.equal(result.members[0].wheelMainstat.installedEnhancementScalingVerified,false);
   assert.throws(()=>assembleKnownBuildComponents(input,catalog,clientData),/mismatched/);
+});
+
+test('installed-client Wheel assembly fails closed for unresolved crosswalk and absent compatibility evidence',()=>{
+  const input=plan();input.clientBuild='pc-res151-build51';input.team[0].wheelId='wheel-0027';
+  let result=assembleKnownBuildComponents(input,catalog,installedData,installedWheelCompatibility);
+  assert.equal(result.assemblyStatus,'INCOMPLETE_INPUT');
+  assert.equal(result.members[0].wheelMainstat,null);
+  assert.ok(result.issues.some(row=>row.code==='WHEEL_CURRENT_ITEM_UNRESOLVED'));
+  assert.equal(result.members[0].contributionLedger.some(row=>row.sourceKind==='WHEEL_MAINSTAT'),false);
+  result=assembleKnownBuildComponents(input,catalog,installedData);
+  assert.ok(result.issues.some(row=>row.code==='WHEEL_CURRENT_COMPATIBILITY_REQUIRED'));
+});
+
+test('unique current Item replacement retains only the supported catalog main-stat preview',()=>{
+  const input=plan();input.clientBuild='pc-res151-build51';input.team[0].wheelId='wheel-0178';
+  const result=assembleKnownBuildComponents(input,catalog,installedData,installedWheelCompatibility);
+  assert.equal(result.assemblyStatus,'KNOWN_COMPONENTS_RESOLVED');
+  assert.equal(result.members[0].wheelMainstat.installedItemCompatibility.status,'ITEM_REPLACED_EQUIVALENT_INITIAL_RULE');
+  assert.equal(result.members[0].wheelMainstat.installedItemCompatibility.initialDirectPropertiesEqual,true);
+  assert.equal(result.members[0].wheelMainstat.installedEnhancementScalingVerified,false);
+});
+
+test('unique current-only Wheel can preview a matched main stat without claiming historical passive parity',()=>{
+  const input=plan();input.clientBuild='pc-res151-build51';input.team[0].wheelId='wheel-0180';
+  const result=assembleKnownBuildComponents(input,catalog,installedData,installedWheelCompatibility);
+  assert.equal(result.assemblyStatus,'KNOWN_COMPONENTS_RESOLVED');
+  const boundary=result.members[0].wheelMainstat.installedItemCompatibility;
+  assert.equal(boundary.status,'CURRENT_ONLY_UNIQUE_ICON_MAINSTAT_BASE_MATCH');
+  assert.equal(boundary.catalogMainstatBaseMatches,true);
+  assert.equal(boundary.itemAttributeRowsEqual,false);
+  assert.equal(boundary.initialDirectPropertiesEqual,null);
+  assert.equal(result.finalDamage,null);
+});
+
+test('installed-client changed initial direct properties remain explicit beside preserved catalog main stat',()=>{
+  const input=plan();input.clientBuild='pc-res151-build51';input.team[0].wheelId='wheel-0030';
+  const result=assembleKnownBuildComponents(input,catalog,installedData,installedWheelCompatibility);
+  assert.equal(result.assemblyStatus,'KNOWN_COMPONENTS_RESOLVED');
+  assert.equal(result.members[0].wheelMainstat.installedItemCompatibility.status,'INITIAL_DIRECT_PROPERTY_CHANGED');
+  assert.equal(result.members[0].wheelMainstat.installedItemCompatibility.initialDirectPropertiesEqual,false);
+  assert.equal(result.members[0].wheelMainstat.installedEnhancementScalingVerified,false);
+  assert.equal(result.finalDamage,null);
 });
 
 test('unknown build inputs produce typed issues and are never neutralized',()=>{

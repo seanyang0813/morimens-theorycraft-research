@@ -7633,19 +7633,19 @@
     {
       "id": "PC151:WheelInitialStateCompatibility",
       "status": "PARTIAL_COMPATIBILITY",
-      "claim": "Of 141 historically unique Wheel initial-state links, 139 retain the same installed Item-to-State and main/sub-attribute rows; 136 direct-property maps are unchanged, three changed and two historical Items are absent",
+      "claim": "Of 146 pinned Wheel identities, 139 retain their historical Item ID, two have equivalent current full-icon replacements, one has a unique current-only Item/main-stat-base match, and four remain ambiguous; three retained initial direct-property maps changed",
       "sources": [
         {
           "module": "Installed resource-151 Item and State tables",
-          "member": "source hashes, link equality and direct-property comparison; private rows withheld",
+          "member": "source hashes, link equality, exact-icon replacement, main-stat-base agreement and direct-property comparison; private rows withheld",
           "bundle": "installed config.ab",
           "sha256": "8f656bc67bddbac59d88f4eb95f6f7c1fc04610a4135d8356ba4c0a1b6e9f897"
         },
         {
           "module": "Sanitized installed Wheel compatibility audit",
-          "member": "aggregate counts and five exception identities",
+          "member": "aggregate counts, six exception/current-only identities and 146-Wheel compatibility statuses",
           "bundle": "private Item and State table comparison",
-          "sha256": "7fbd8db3fce28448a610f10061f1b206cc22ed23604165267bdca1d8f042ce00"
+          "sha256": "3956b79d1a5599fc3f86523cacea3cd4668e0d2ae26d12c006cc31fa8cf7bfb0"
         }
       ],
       "tests": [
@@ -7653,7 +7653,7 @@
         "tests/pc-res151-wheel-initial-state-compatibility.test.mjs",
         "docs/BUILD_STAT_RESOLUTION.md"
       ],
-      "scope": "Static mechanics compatibility only. Historical Wheel IDs are joined through exact Item ID, icon, State1, target and parameters. Three changed direct-property expressions and two absent historical Items block blanket carry-forward; replacement Items, historically ambiguous Wheels, attachment, triggers, legality, full stats, damage, gameplay and holdout credit remain unresolved.",
+      "scope": "Static mechanics compatibility only. Historical Wheel IDs are joined through exact Item ID or unique full-icon replacement with equal Item attribute rows, state parameters, target and initial direct-property maps. A current-only exact-icon match has the source-derived main-stat code and catalog base but no historical passive comparison. Three changed direct-property expressions block blanket carry-forward; four ambiguous Wheels, enhancement scaling, attachment, triggers, legality, full stats, damage, gameplay and holdout credit remain unresolved.",
       "gameplayValidation": false
     },
     {

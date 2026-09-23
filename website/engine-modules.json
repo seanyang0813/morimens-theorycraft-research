@@ -31,6 +31,7 @@
   "active-prevention.mjs",
   "singularity-realm.mjs",
   "wheel-stats.mjs",
+  "wheel-current-compatibility.mjs",
   "wheel-search.mjs",
   "client-primary-stats.mjs",
   "client-build-stats.mjs",

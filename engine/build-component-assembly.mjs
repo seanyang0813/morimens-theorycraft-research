@@ -1,6 +1,7 @@
 import {validateBuildPlan,buildPlanWheelSlots} from './build-plan.mjs';
 import {resolveClientBuildPrimary,resolveClientAdvancementPrimary} from './client-build-stats.mjs';
 import {resolveWheelMainstat} from './wheel-stats.mjs';
+import {assessInstalledWheelIdentity} from './wheel-current-compatibility.mjs';
 
 const clone=value=>JSON.parse(JSON.stringify(value));
 
@@ -9,7 +10,7 @@ function issue(code,slotId,field,message){return {code,slotId,field,message};}
 // Assemble only the build contributions whose lookup and arithmetic are recovered.
 // This is deliberately not a final-battle-property assembler: unsupported sources
 // stay visible instead of being filled with neutral values.
-export function assembleKnownBuildComponents(plan,catalog,clientBuildData){
+export function assembleKnownBuildComponents(plan,catalog,clientBuildData,wheelCurrentCompatibility=null){
   const validated=validateBuildPlan(plan,catalog).plan,issues=[],members=[];
   if(!clientBuildData||clientBuildData.schemaVersion!==1||!['pc-res144-build51','pc-res150-build51','pc-res151-build51'].includes(clientBuildData.build)||!Array.isArray(clientBuildData.characters)||validated.clientBuild&&clientBuildData.build!==validated.clientBuild)throw new Error('Unsupported or mismatched client build data');
   for(const member of validated.team){
@@ -49,12 +50,18 @@ export function assembleKnownBuildComponents(plan,catalog,clientBuildData){
     }
     for(const wheelSlot of buildPlanWheelSlots(validated.schemaVersion,member)){
       if(wheelSlot.wheelId===null){if(validated.schemaVersion===1)issues.push(issue('WHEEL_SELECTION_REQUIRED',member.slotId,'wheelId','Wheel selection is unspecified.'));continue;}
+      const currentBoundary=validated.clientBuild==='pc-res151-build51'?assessInstalledWheelIdentity(wheelSlot.wheelId,wheelCurrentCompatibility):null;
+      if(currentBoundary&&!currentBoundary.catalogMainstatBaseMatches){
+        const code=currentBoundary.status==='COMPATIBILITY_AUDIT_REQUIRED'?'WHEEL_CURRENT_COMPATIBILITY_REQUIRED':'WHEEL_CURRENT_ITEM_UNRESOLVED';
+        issues.push(issue(code,member.slotId,validated.schemaVersion===1?'wheelId':`wheelSlots.${wheelSlot.slotId}.wheelId`,`Current client Wheel Item is not source-confirmed (${currentBoundary.status}).`));
+        continue;
+      }
       if(wheelSlot.enhanceLevel===null){issues.push(issue('WHEEL_ENHANCEMENT_REQUIRED',member.slotId,validated.schemaVersion===1?'wheelEnhanceLevel':`wheelSlots.${wheelSlot.slotId}.enhanceLevel`,'Wheel enhancement is unknown.'));continue;}
       if(validated.schemaVersion===2&&wheelSlot.refinementLevel===null)issues.push(issue('WHEEL_REFINEMENT_REQUIRED',member.slotId,`wheelSlots.${wheelSlot.slotId}.refinementLevel`,'Wheel refinement is unknown.'));
       const wheel=catalog.wheels.find(row=>row.id===wheelSlot.wheelId),mainstat=resolveWheelMainstat({catalogRevision:validated.catalogRevision,wheelId:wheelSlot.wheelId,enhanceLevel:wheelSlot.enhanceLevel},catalog);
-      const resolved={slotId:wheelSlot.slotId,wheelId:wheel.id,wheelName:wheel.name,property:mainstat.stat,value:mainstat.value,unit:mainstat.unit,enhanceLevel:mainstat.enhanceLevel,enhanceLabel:mainstat.enhanceLabel,refinementLevel:wheelSlot.refinementLevel,ownerMatchesSelectedCharacter:member.characterId!==null&&wheel.ownerAwakenerId===member.characterId,catalogOwner:wheel.ownerAwakenerName??null,searchTags:[...(wheel.searchTags??[])]};
+      const resolved={slotId:wheelSlot.slotId,wheelId:wheel.id,wheelName:wheel.name,property:mainstat.stat,value:mainstat.value,unit:mainstat.unit,enhanceLevel:mainstat.enhanceLevel,enhanceLabel:mainstat.enhanceLabel,refinementLevel:wheelSlot.refinementLevel,ownerMatchesSelectedCharacter:member.characterId!==null&&wheel.ownerAwakenerId===member.characterId,catalogOwner:wheel.ownerAwakenerName??null,searchTags:[...(wheel.searchTags??[])],...(currentBoundary?{installedItemCompatibility:currentBoundary,installedEnhancementScalingVerified:false}:{})};
       assembled.wheelMainstats.push(resolved);if(assembled.wheelMainstat===null)assembled.wheelMainstat=resolved;
-      assembled.contributionLedger.push({property:mainstat.stat,value:mainstat.value,unit:mainstat.unit,sourceKind:'WHEEL_MAINSTAT',sourceId:wheel.id,sourceSlotId:wheelSlot.slotId,evidenceStatus:mainstat.status,trace:clone(mainstat.trace)});
+      assembled.contributionLedger.push({property:mainstat.stat,value:mainstat.value,unit:mainstat.unit,sourceKind:'WHEEL_MAINSTAT',sourceId:wheel.id,sourceSlotId:wheelSlot.slotId,evidenceStatus:mainstat.status,trace:clone(mainstat.trace),...(currentBoundary?{installedItemCompatibility:currentBoundary.status,installedEnhancementScalingVerified:false}:{})});
     }
     members.push(assembled);
   }
@@ -71,6 +78,7 @@ export function assembleKnownBuildComponents(plan,catalog,clientBuildData){
     unresolvedDependencies:[
       'Advancement talent state/passive effects and other character progression',
       'Wheel passive effects, two-slot equipment legality and direct-property assembly',
+      ...(validated.clientBuild==='pc-res151-build51'?['Pinned catalog Wheel enhancement scaling is not yet independently checked against the installed client']:[]),
       'Additional equipment, substats and team-wide properties',
       'Battle-start states, encounter properties and action sequencing',
       'Independent gameplay validation',

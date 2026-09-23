@@ -145,14 +145,21 @@ later updates, stacking, final damage, or gameplay agreement.
 `tools/audit_current_wheel_initial_states.py` compares the 141 historically
 unique Wheel-to-Item links with the installed resource-151 Item and State
 tables. The exact Item ID, full icon asset, initial state, target and StatePara
-values still agree for 139 Wheels. Two historical Item IDs are absent from the
-installed table. All 139 retained Items also keep identical main- and
-sub-attribute rows. Of those links, 136 initial direct-property maps
-are unchanged and three changed. The changed maps include two property-name
+values still agree for 139 Wheels. Two historical Item IDs are absent, but
+each has exactly one current Item with the same full icon, main/sub-attribute
+rows, state parameters, target and initial direct-property map. All 141
+source-confirmed current Items therefore keep the historical main/sub-attribute
+rows. Of the 139 retained Item IDs, 136 initial direct-property maps are
+unchanged and three changed. The changed maps include two property-name
 substitutions and one owner-attack source change; historical expressions must
 not be reused for those Wheels in current-build calculations. The sanitized
 count, exceptions and source hashes are in
 `research/evidence/pc-res151-wheel-initial-state-compatibility.json`; detailed
-client rows remain private. This does not identify replacement items for the
-two absent IDs, resolve the five older crosswalk ambiguities or validate
-current Wheel execution in gameplay.
+client rows remain private. The website and local agent build assembler now
+refuse a current-build Wheel main-stat contribution when this mapping is
+unresolved, and expose changed direct-property rules separately from preserved
+catalog main-stat previews. A formerly missing Wheel also has one unique
+current exact-icon Weapon Item whose sub-attribute code and base value match
+the mapping established across the other 141; its historical passive-rule
+comparison remains unavailable. Four crosswalks remain ambiguous. No Wheel
+enhancement scaling or full Wheel execution is validated in gameplay.
