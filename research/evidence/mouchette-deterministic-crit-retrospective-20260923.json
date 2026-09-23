@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_MOUCHETTE_DETERMINISTIC_CRIT_RETROSPECTIVE",
+  "analysisTrack": "verification",
+  "status": "RETROSPECTIVE_EXACT_COMPONENT_MATCH",
+  "sourceContainerSha256": "d077862777644e2e8df3d7f2033d31279b554ffaa66bc73c39aec3430a1d5823",
+  "recordedCatalog": "pc-res144-build51",
+  "skillId": 122483,
+  "commandId": 122499,
+  "skillName": "Mouchette Mortal Blast / Human Explosion",
+  "selection": "First complete direct Active hit of the first card-use action, with target/caster/skill identity fixed and all numeric hit outcomes excluded during prediction",
+  "criticalInputs": {
+    "casterCrit": 118,
+    "casterStrikeCritContribution": 35,
+    "targetAntiCrit": 0,
+    "resolvedCritChanceCeil": 153,
+    "criticalResultDeterministic": true,
+    "rngDrawNeededForPrediction": false
+  },
+  "calculation": {
+    "showDamage": 457,
+    "critBonusPercent": 217,
+    "afterCrit": 1448.69,
+    "afterTargetProductsAndFlatAddition": 2173.035,
+    "predictedPreHitDamage": 2174,
+    "recordedCastDamage": 2174,
+    "difference": 0
+  },
+  "holdoutCredit": false,
+  "limitations": [
+    "The replay was captured and decoded before this candidate was selected; this is retrospective consistency, not an independent blind holdout.",
+    "The source catalog matches resource 144, not the installed resource-151 build used for current gameplay.",
+    "Target selection is supplied by replay identity and is not predicted.",
+    "Only the first direct-hit damage component is checked. Mortal Blast repetition, card-copy suffix, and subsequent effects are not validated by this case."
+  ]
+}

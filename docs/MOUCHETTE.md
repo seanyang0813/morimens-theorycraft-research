@@ -40,6 +40,8 @@ This is not yet a runtime-tested event simulator: reentrancy, queued follow-ups 
 
 The selected Frenzy record shows Mouchette's talent summary 5/10/5 and a +653 flat team Strike bonus. Her level-10 Stars configuration identifies another potential input for Arachne's Strike: the separate +35% outside Strike property. Establish whether the state is active and whether any property already includes it before calculating. No missing multiplier is solved from the observed 2205 damage.
 
+An older resource-144 replay provides a narrow deterministic Mortal Blast check. Its first direct hit has captured caster crit 118, another 35 points of Strike crit, and target anti-crit zero; the resolved crit threshold is 153, so the critical branch is independent of the unknown draw. The outcome-sealed adapter predicts 2,174 pre-hit damage and the decoded replay records 2,174. The calculation traces show damage 457, 217% crit bonus, 1,448.69 after crit, 2,173.035 after target products and flat addition, then ceiling to 2,174. This is an already decoded retrospective component check, not a current-build blind holdout or a validation of Mortal Blast's repeat and copy effects. The identifier-free inputs and limits are in `research/evidence/mouchette-deterministic-crit-retrospective-20260923.json`. It gives a concrete route for a future controlled high-crit Mouchette capture if that character is playable and the battle produces a record.
+
 ## Mortal Blast command boundary
 
 The resource-150 inspection request at
