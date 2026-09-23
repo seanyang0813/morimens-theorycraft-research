@@ -10,8 +10,8 @@ import {resolveHitLimits} from './hit-limits.mjs';
 import {subtractOrdinaryHp} from './hp-property.mjs';
 import {hitTriggerValues} from './hit-trigger-values.mjs';
 
-const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51','pc-res151-build51']);
-const currentBuilds=new Set(['pc-res150-build51','pc-res151-build51']);
+const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51','pc-res151-build51','pc-res153-build51']);
+const currentBuilds=new Set(['pc-res150-build51','pc-res151-build51','pc-res153-build51']);
 const tags=['Card_Strike','Card_Skill','Ulti_Skill','Card_AttachPost'];
 const tagCrit={Card_Strike:'crit_damage_from_strikecard',Ulti_Skill:'crit_damage_from_ulti'};
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(key=>Object.hasOwn(value,key));
@@ -29,11 +29,12 @@ export function calculateSnapshotActiveDamage(value){
   for(const [label,map] of [['Caster',input.casterProperties],['Player',input.playerProperties],['Target',input.targetProperties],['Card',input.cardProperties]])validateMap(map,label);
   const cardContextKeys=['present','instructionCard','stateTriggerAdd'];
   if(!exact(input.cardContext,cardContextKeys)||!cardContextKeys.every(key=>typeof input.cardContext[key]==='boolean')||input.cardContext.stateTriggerAdd||(!input.cardContext.present&&(input.cardContext.instructionCard||Object.keys(input.cardProperties).length)))throw new Error('Explicit ordinary direct card context required');
+  if(input.build==='pc-res153-build51'&&(input.schemaVersion!==1||!input.cardContext.present))throw new Error('Resource-153 support is limited to replay-card ordinary Active pre-hit damage');
   const contextKeys=['critRoll','targetBattleTag','targetStateIds'];
   const context=input.targetContext;
   if(!exact(context,contextKeys)||(context.critRoll!==null&&(!Number.isInteger(context.critRoll)||context.critRoll<1||context.critRoll>100)))throw new Error('Explicit event-time target context required');
   if(input.schemaVersion===2&&(!exact(input.hitContext,['damageSubtype'])||!['Ordinary','Puncture'].includes(input.hitContext.damageSubtype)))throw new Error('Explicit supported hit context required');
-  if(currentBuilds.has(input.build)&&input.snapshotStage!=='battle-property-server-live')throw new Error('Resource-150/151 snapshot support requires live properties');
+  if(currentBuilds.has(input.build)&&input.snapshotStage!=='battle-property-server-live')throw new Error('Current-build snapshot support requires live properties');
   const targetEligibility=resolveTargetDamageEligibility({targetBattleTag:context.targetBattleTag,targetStateIds:context.targetStateIds},input.build);
   const constructorTrace={};
   const normalize=(name,map)=>{
@@ -78,7 +79,7 @@ export function calculateSnapshotActiveDamage(value){
     const propertyEvidence=input.build==='pc-res151-build51'?'PC151:BattlePropertyServer.SelectedPaths.ExactDependencyCarryforward':input.build==='pc-res150-build51'?'PC150:BattlePropertyServer.SelectedPaths':'PC144:OrdinaryBeHitHp';
     hpResolution={damageSubtype:input.hitContext.damageSubtype,immunity,prevention,limits,hpBefore,hpAfter:hp.hpAfter,modeledHpLost,blockBefore:targetBlock,blockAfter:limits.shield[5],callbacks:hp.callbacks,evidence:[...new Set([...immunity.evidence,...prevention.evidence,...limits.evidence,propertyEvidence])]};
   }
-  const currentBoundary=input.build==='pc-res151-build51'?'Resource-151 support is restricted to live property maps and exact resource-150 dependency carry-forward for the catalog, offense, utility, critical, final-target and BeHit-to-HP domains':'Resource-150 support is restricted to live property maps and composes current catalog-matched target eligibility with cross-build runtime-matched offense, utility, critical, final-target and BeHit-to-HP domains';
+  const currentBoundary=input.build==='pc-res153-build51'?'Resource-153 ordinary Active pre-hit support is restricted to live property maps, replay-embedded routing, and selected exact resource-151 dependency carry-forward; no current-build gameplay validation':input.build==='pc-res151-build51'?'Resource-151 support is restricted to live property maps and exact resource-150 dependency carry-forward for the catalog, offense, utility, critical, final-target and BeHit-to-HP domains':'Resource-150 support is restricted to live property maps and composes current catalog-matched target eligibility with cross-build runtime-matched offense, utility, critical, final-target and BeHit-to-HP domains';
   const dependencies=['Base command value, card identity/type, tags, target battle tag, active target state IDs and any required critical RNG draw must be captured from the same pre-action boundary','A deterministic crit result still consumes an RNG draw in the original chance branch; later RNG-stream reconstruction requires its state/effect',input.schemaVersion===2?'Card-awake skills, state-trigger-add, formula subtype, targeting, hit callbacks, statistics and death execution are outside this adapter':'Card-awake skills, state-trigger-add, formula subtype, targeting, HP resolution and callbacks are outside this adapter','Snapshot completeness and provenance require evidence review',crossBuild?currentBoundary:'Authored composition of separately checked property, offense, critical, eligibility, target and optional BeHit-to-HP boundaries; no connected original execution or independent gameplay validation'];
   return {schemaVersion:input.schemaVersion,status:'EXPERIMENTAL',build:input.build,finalDamage:null,preHitDamage:target.preHitDamage,modeledHpLost,scope:`Complete captured property maps; ${input.cardContext.present?'captured card instance':'no card'}; PvE Awakener ordinary direct Active damage; supplied event-time context${input.schemaVersion===2?'; explicit hit subtype through HP mutation':''}`,
     snapshotStage:input.snapshotStage,constructorTrace,reads,critResolution,targetEligibility,resolvedUtilityInputs:offense.resolvedUtilityInputs,targetInputs:targetData,offense,target,hpResolution,hitTriggerValues:triggerValues,

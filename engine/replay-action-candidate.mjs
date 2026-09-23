@@ -5,7 +5,7 @@ import {resolveScalarSkillField} from './skill-field.mjs';
 import {getLiveStateLayer} from './live-state-lookup.mjs';
 
 const protocolBuild='pc-res144-build51';
-const supportedCombatBuilds=new Set(['pc-res144-build51','pc-res150-build51','pc-res151-build51']);
+const supportedCombatBuilds=new Set(['pc-res144-build51','pc-res150-build51','pc-res151-build51','pc-res153-build51']);
 const roleType={Awaker:1,Monster:2,Player:3};
 const supportedTags=new Set(['Card_Strike','Card_Skill','Ulti_Skill','Card_AttachPost']);
 const instructionTags=new Set(['Card_Strike','Card_Skill','Card_Defend','Card_Extend']);

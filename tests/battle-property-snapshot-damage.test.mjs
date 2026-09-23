@@ -55,6 +55,15 @@ test('resource-151 uses only the exact resource-150 dependency carry-forward pat
   assert.match(result.unresolvedDependencies.at(-1),/Resource-151 support is restricted/);
   input.snapshotStage='roleData.properties-before-constructor';assert.throws(()=>calculateSnapshotActiveDamage(input),/live properties/);
 });
+test('resource-153 rejects HP mutation and snapshots without a card',()=>{
+  const input=base();input.build='pc-res153-build51';input.targetContext.targetStateIds=[];
+  assert.throws(()=>calculateSnapshotActiveDamage(input),/replay-card ordinary Active pre-hit/);
+  input.cardContext.present=true;input.cardProperties={};
+  const result=calculateSnapshotActiveDamage(input);
+  assert.equal(result.preHitDamage,317);
+  input.schemaVersion=2;input.hitContext={damageSubtype:'Ordinary'};
+  assert.throws(()=>calculateSnapshotActiveDamage(input),/replay-card ordinary Active pre-hit/);
+});
 test('schema 2 continues a complete snapshot through shield, limits and HP mutation',()=>{
   const input=base();input.schemaVersion=2;input.hitContext={damageSubtype:'Ordinary'};
   Object.assign(input.targetProperties,{hp:1000,max_hp:1000,block:50,immue_damage:0,immue_puncture_damage:0,immue_active_damage:0,PreventBeActiveDamage:1,PreventBeActiveDamageRetainHP:800,be_damage_limit:0,be_damage_statics:0,pvp_death_resist:0});

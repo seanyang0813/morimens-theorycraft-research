@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_RES153_REPLAY_PREHIT_RETROSPECTIVE_AUDIT",
+  "build": "pc-res153-build51",
+  "status": "RETROSPECTIVE_DIAGNOSTIC_ONLY",
+  "sourceCommitments": {
+    "indexSha256": "8c6a2e9e21fe629abcfaaa245e7fc734842e5d65e4e76e6faf429828aa10a2ac",
+    "decodedSha256": "361e3db194491f923b5606836425a2245c24624511da34f45cf73da7f40330f9",
+    "containerSha256": "a0f0e5feb2f943f04db4b55584014cd719a6a47f657d08b74ae2cf52dbff3416"
+  },
+  "counts": {
+    "actions": 5,
+    "hits": 6,
+    "compared": 3,
+    "exactObservedBranch": 3,
+    "blocked": 3
+  },
+  "hits": [
+    {
+      "actionIndex": 0,
+      "hitIndex": 0,
+      "status": "BRANCH_COMPARISON",
+      "observed": {
+        "isCrit": false,
+        "castDamage": 135
+      },
+      "branches": [
+        {
+          "probeRoll": 1,
+          "isCrit": true,
+          "preHitDamage": 203
+        },
+        {
+          "probeRoll": 100,
+          "isCrit": false,
+          "preHitDamage": 135
+        }
+      ],
+      "observedBranchComparison": {
+        "predicted": 135,
+        "difference": 0
+      }
+    },
+    {
+      "actionIndex": 1,
+      "hitIndex": 1,
+      "status": "BRANCH_COMPARISON",
+      "observed": {
+        "isCrit": false,
+        "castDamage": 52
+      },
+      "branches": [
+        {
+          "probeRoll": 1,
+          "isCrit": true,
+          "preHitDamage": 78
+        },
+        {
+          "probeRoll": 100,
+          "isCrit": false,
+          "preHitDamage": 52
+        }
+      ],
+      "observedBranchComparison": {
+        "predicted": 52,
+        "difference": 0
+      }
+    },
+    {
+      "actionIndex": 2,
+      "hitIndex": 2,
+      "status": "BRANCH_COMPARISON",
+      "observed": {
+        "isCrit": false,
+        "castDamage": 37
+      },
+      "branches": [
+        {
+          "probeRoll": 1,
+          "isCrit": true,
+          "preHitDamage": 56
+        },
+        {
+          "probeRoll": 100,
+          "isCrit": false,
+          "preHitDamage": 37
+        }
+      ],
+      "observedBranchComparison": {
+        "predicted": 37,
+        "difference": 0
+      }
+    },
+    {
+      "actionIndex": 4,
+      "hitIndex": 3,
+      "status": "BLOCKED",
+      "blocker": "At least one ordinary Active row required"
+    },
+    {
+      "actionIndex": 4,
+      "hitIndex": 4,
+      "status": "BLOCKED",
+      "blocker": "At least one ordinary Active row required"
+    },
+    {
+      "actionIndex": 4,
+      "hitIndex": 5,
+      "status": "BLOCKED",
+      "blocker": "At least one ordinary Active row required"
+    }
+  ],
+  "method": "Calculate roll-1 and roll-100 branches independently from each replay-embedded row and pre-hit snapshot; only afterward match the recorded isCrit flag and compare the recorded castDamage.",
+  "limitations": [
+    "Selecting a critical branch with the observed isCrit flag is retrospective and gives no predictive or holdout credit.",
+    "The replay was inspected during capture; no result here is a frozen pre-outcome prediction.",
+    "One replay and three compared hits do not establish general current-build correctness.",
+    "Blocked hits are not assigned damage predictions; unmodeled commands and trigger scheduling remain unresolved.",
+    "Player, card, skill and target identifiers are omitted from this public report."
+  ]
+}

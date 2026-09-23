@@ -2,14 +2,15 @@ import {readFileSync} from 'node:fs';
 import {buildReplayActionCandidate} from '../engine/replay-action-candidate.mjs';
 
 try{
-  const usage='Usage: node tools/build_replay_action_candidate.mjs <replay-index.json> <action-index> [--hit-index N] [--crit-roll N] [--decoded-replay FILE]';
+  const usage='Usage: node tools/build_replay_action_candidate.mjs <replay-index.json> <action-index> [--hit-index N] [--crit-roll N] [--decoded-replay FILE] [--combat-build BUILD]';
   if(process.argv.length<4)throw new Error(usage);
   const read=path=>JSON.parse(readFileSync(path,'utf8'));
-  const actionIndex=Number(process.argv[3]),options=process.argv.slice(4);let hitIndex=null,critRoll=null,decodedReplayPath=null;
+  const actionIndex=Number(process.argv[3]),options=process.argv.slice(4);let hitIndex=null,critRoll=null,decodedReplayPath=null,combatBuild='pc-res144-build51';
   while(options.length){
     const flag=options.shift(),raw=options.shift();
-    if(raw===undefined||!['--hit-index','--crit-roll','--decoded-replay'].includes(flag))throw new Error(usage);
+    if(raw===undefined||!['--hit-index','--crit-roll','--decoded-replay','--combat-build'].includes(flag))throw new Error(usage);
     if(flag==='--decoded-replay'){decodedReplayPath=raw;continue;}
+    if(flag==='--combat-build'){combatBuild=raw;continue;}
     const value=Number(raw);if(!Number.isFinite(value))throw new Error(`${flag} requires a finite number`);
     if(flag==='--hit-index')hitIndex=value;else critRoll=value;
   }
@@ -21,6 +22,7 @@ try{
   }else{
     catalogs={skills:read('research/extracted/config/Skill.json'),commands:read('research/extracted/config/Cmd.json'),monsters:read('research/extracted/config/MonsterConfig.json'),awakeners:read('research/extracted/config/AwakerConfig.json')};provenance={kind:'local-extracted-pc144-catalogs'};
   }
-  const result=buildReplayActionCandidate({index:read(process.argv[2]),actionIndex,hitIndex,critRoll,...catalogs});result.catalogProvenance=provenance;
+  if(combatBuild!=='pc-res144-build51'&&!decodedReplayPath)throw new Error('Current-build replay candidates require replay-embedded resource records');
+  const result=buildReplayActionCandidate({index:read(process.argv[2]),actionIndex,hitIndex,critRoll,combatBuild,...catalogs});result.catalogProvenance=provenance;
   console.log(JSON.stringify(result,null,2));
 }catch(error){console.error(error.message);process.exitCode=1;}

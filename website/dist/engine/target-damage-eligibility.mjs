@@ -26,9 +26,13 @@ export function resolveTargetDamageEligibility(value,build='pc-res144-build51'){
   if(!value||Array.isArray(value)||Object.getPrototypeOf(value)!==Object.prototype||Object.keys(value).length!==keys.length||!keys.every(key=>Object.hasOwn(value,key)))throw new Error('Exact target eligibility context required');
   if(value.targetBattleTag!==null&&(typeof value.targetBattleTag!=='string'||!value.targetBattleTag))throw new Error('Target battle tag must be null or a nonempty string');
   if(!Array.isArray(value.targetStateIds)||value.targetStateIds.some(id=>!Number.isSafeInteger(id)||id<=0)||new Set(value.targetStateIds).size!==value.targetStateIds.length)throw new Error('Target state IDs must be unique positive safe integers');
-  if(!['pc-res144-build51','pc-res150-build51','pc-res151-build51'].includes(build))throw new Error('Unsupported target eligibility build');
+  if(!['pc-res144-build51','pc-res150-build51','pc-res151-build51','pc-res153-build51'].includes(build))throw new Error('Unsupported target eligibility build');
   const states=new Set(value.targetStateIds);
-  const classification=(build==='pc-res144-build51'?classify144:classify150)(value.targetStateIds);
+  // Resource 153 adds one State row (153976) classified as neither buff nor debuff.
+  // All inherited State IsBuff classifications are identical to resource 151.
+  const inheritedIds=build==='pc-res153-build51'?value.targetStateIds.filter(id=>id!==153976):value.targetStateIds;
+  const classification=(build==='pc-res144-build51'?classify144:classify150)(inheritedIds);
+  if(build==='pc-res153-build51'&&value.targetStateIds.includes(153976))classification.types.push({stateId:153976,type:'none'});
   return {monsterTypeDamageProperties:value.targetBattleTag===null?[]:monsterRules.filter(([,data])=>data.includes(value.targetBattleTag)).map(([property])=>property),
     targetStateDamageProperties:stateRules.filter(([,id])=>states.has(id)).map(([property])=>property),targetBlockBarrierStatePresent:states.has(blockBarrierStateId),
     targetHasBuff:classification.targetHasBuff,targetHasDebuff:classification.targetHasDebuff,stateTypes:classification.types,

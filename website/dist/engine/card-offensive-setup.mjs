@@ -22,6 +22,6 @@ export function prepareCardPveOffense(input){
  if(d.strength>0)d.strength*=(1+c.awaker_strength_multiple/100+card.card_strength_multiple/100+(input.tags.includes('Ulti_Skill')?c.ulti_strength_multiple/100:0))*(1+c.awaker_dmg_power_per_scale/100);
  if(input.stateTriggerAdd)for(const k of ['cardDamagePer2','cardDamagePer3','card_damage_per3_n2','awaker_ulti_dmg_per','awaker_CmdCard_dmg_per'])d[k]=0;
  const out=showDamage(d);
- const evidence=input.build==='pc-res151-build51'?['PC151:BattleCmdServer.OffensiveSetup.ExactDependencyCarryforward','PC151:BattleUtilServer.ShowDamageFormula.ExactDependencyCarryforward']:input.build==='pc-res150-build51'?['PC150:BattleCmdServer.OffensiveSetup','PC150:BattleUtilServer.ShowDamageFormula']:['PC144:CardOffensiveSetup'];
+ const evidence=input.build==='pc-res153-build51'?['PC153:BattleCmdServer.OffensiveSetup.ExactDependencyCarryforward','PC153:BattleUtilServer.ShowDamageFormula.ExactDependencyCarryforward']:input.build==='pc-res151-build51'?['PC151:BattleCmdServer.OffensiveSetup.ExactDependencyCarryforward','PC151:BattleUtilServer.ShowDamageFormula.ExactDependencyCarryforward']:input.build==='pc-res150-build51'?['PC150:BattleCmdServer.OffensiveSetup','PC150:BattleUtilServer.ShowDamageFormula']:['PC144:CardOffensiveSetup'];
  return {status:'UNVERIFIED',build:input.build,finalDamage:null,showDamage:out.showDamage,diagnosticBaseDamage:out.diagnosticBaseDamage,resolvedUtilityInputs:d,evidence,unresolvedDependencies:['Actual card identity, flags and properties','Target, crit and HP resolution','Gameplay validation']};
 }

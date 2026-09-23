@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_REPLAY_ADAPTER_BUILD_COMPATIBILITY",
+  "beforeBuild": "pc-res151-build51",
+  "afterBuild": "pc-res153-build51",
+  "status": "SUPPORTED_FOR_NARROW_ORDINARY_ACTIVE_PREHIT_ADAPTER_BY_SELECTED_CARRYFORWARD",
+  "adapterScope": "Complete live property maps; PvE Awakener ordinary direct Active pre-hit damage; replay-embedded Skill, Cmd, MonsterConfig and AwakerConfig routing; no HP mutation or trigger scheduling.",
+  "sourceEvidence": {
+    "resource151Adapter": {
+      "path": "research/evidence/pc-res151-replay-adapter-compatibility.json",
+      "sha256": "9cdb9750b4486d8297c1c55401afb85bd0ef263fa70aa81cb8e89759ca437f8e"
+    },
+    "resource153SelectedDependencies": {
+      "path": "research/evidence/pc-res151-to-res153-replay-adapter-dependencies.json",
+      "sha256": "9a54cf4ff654c5f960130e4bdac1171d0486b645abc76594b0fdf92e38e48c00"
+    }
+  },
+  "stateClassification": {
+    "inheritedRowsUnchanged": 6959,
+    "addedNoneStateId": 153976
+  },
+  "routing": "Every candidate must use replay-embedded Skill, Cmd, MonsterConfig and AwakerConfig rows; the local resource-151 rows are not presumed current.",
+  "limitations": [
+    "This result enables only a bounded retrospective pre-hit calculation, not the general simulator or website for resource 153.",
+    "Random critical rolls, target prediction, command scheduling, callbacks, state side effects and HP mutation are outside this gate.",
+    "No replay comparison, independent gameplay validation, frozen prediction, or holdout credit follows from dependency equality."
+  ]
+}

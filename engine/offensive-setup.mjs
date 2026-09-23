@@ -1,6 +1,6 @@
 import {neutralShowInputs, showDamage} from './show-damage.mjs';
 const tagSuffix = {Card_Strike:'strikecard', Card_Skill:'skillcard', Ulti_Skill:'ulti', Card_AttachPost:'attachpost'};
-const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51','pc-res151-build51']);
+const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51','pc-res151-build51','pc-res153-build51']);
 export const casterSetupKeys = ['o_damage_per','i_basic_damage_per','i_damage_per',
   ...Array.from({length:8},(_,i)=>`i_damage_per${i+1}`), 'damage_plus','awaker_strength_multiple',
   'only_damage_plus','awaker_dmg_power_per_scale','spellbound_dmg_per',
@@ -45,7 +45,7 @@ export function prepareNoCardPveOffense(input) {
   if(d.strength>0)d.strength*= (1+c.awaker_strength_multiple/100+ultiStrength/100)*(1+c.awaker_dmg_power_per_scale/100);
   if(d.basicDamagePer>0)d.basicDamagePer+=ultiBase+postBase;
   const output=showDamage(d);
-  const evidence=input.build==='pc-res151-build51'?['PC151:BattleCmdServer.OffensiveSetup.ExactDependencyCarryforward','PC151:BattleUtilServer.ShowDamageFormula.ExactDependencyCarryforward']:input.build==='pc-res150-build51'?['PC150:BattleCmdServer.OffensiveSetup','PC150:BattleUtilServer.ShowDamageFormula']:['PC144:OffensiveSetup'];
+  const evidence=input.build==='pc-res153-build51'?['PC153:BattleCmdServer.OffensiveSetup.ExactDependencyCarryforward','PC153:BattleUtilServer.ShowDamageFormula.ExactDependencyCarryforward']:input.build==='pc-res151-build51'?['PC151:BattleCmdServer.OffensiveSetup.ExactDependencyCarryforward','PC151:BattleUtilServer.ShowDamageFormula.ExactDependencyCarryforward']:input.build==='pc-res150-build51'?['PC150:BattleCmdServer.OffensiveSetup','PC150:BattleUtilServer.ShowDamageFormula']:['PC144:OffensiveSetup'];
   return {status:'UNVERIFIED',build:input.build,finalDamage:null,scope:'PvE Awakener; no card object; ordinary formula subtype; not state-trigger-add',
     resolvedUtilityInputs:d,showDamage:output.showDamage,diagnosticBaseDamage:output.diagnosticBaseDamage,
     evidence,unresolvedDependencies:['Actual combat properties and tags','Card-instance branches excluded','Target and HP resolution','Independent gameplay validation']};

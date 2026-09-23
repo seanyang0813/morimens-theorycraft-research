@@ -30,6 +30,17 @@ test('replay adapter executes resource 151 only through the bounded carry-forwar
   assert.match(result.calculation.unresolvedDependencies.at(-1),/Resource-151 support is restricted/);
 });
 
+test('resource 153 replay pre-hit path uses live card properties and inherited state classification',()=>{
+  const input=fixture();
+  const targetStates=input.index.actionSnapshots[0].window.hitSnapshots[0].activeStates;
+  targetStates.push({ownerUid:2,stateId:153976,layer:1,isDeleted:false});
+  const result=buildReplayActionCandidate({...input,actionIndex:0,combatBuild:'pc-res153-build51'});
+  assert.equal(result.calculation.preHitDamage,250);
+  assert.deepEqual(result.calculation.targetEligibility.stateTypes,[{stateId:153976,type:'none'}]);
+  assert.deepEqual(result.calculation.target.evidence,['PC153:BattleCmdServer.CardTargetCrit.ExactDependencyCarryforward']);
+  assert.match(result.calculation.unresolvedDependencies.at(-1),/no current-build gameplay validation/);
+});
+
 test('replay adapter requires explicit direct-hit caster and skill identity',()=>{
   const missingSkill=fixture();delete missingSkill.index.actionSnapshots[0].window.hits[0].data.beHitConfig.skillConfigId;
   assert.throws(()=>buildReplayActionCandidate({...missingSkill,actionIndex:0}),/skill identity/);
