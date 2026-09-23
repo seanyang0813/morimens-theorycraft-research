@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_RES151_ITEM_DATA_UTILS_PARITY",
+  "analysisTrack": "mechanics",
+  "status": "FOCUSED_FUNCTION_BODIES_EQUAL",
+  "builds": [
+    "pc-res144-build51",
+    "pc-res151-build51"
+  ],
+  "sourceHashes": {
+    "historicalBytecodeSha256": "62b83adb95a72ac7bcca90e8f050b21e05e53e869cc465ced7fddae3a0c77873",
+    "installedBytecodeSha256": "b23dff88533d74e8084a35c50f0eb4869f83ba20c87ed8aa23621951f7a505d6"
+  },
+  "normalization": "Client instruction decryption, omitting the first per-Proto key header word; parameters, stack size, constants, child structure and remaining instructions compared exactly.",
+  "directFunctions": {
+    "compared": 182,
+    "equal": 178,
+    "changed": 4,
+    "changedPrototypeIndices": [
+      27,
+      132,
+      133,
+      155
+    ]
+  },
+  "focusedFunctions": [
+    {
+      "prototypeIndex": 71,
+      "role": "Weapon item construction candidate",
+      "bodyEqual": true
+    },
+    {
+      "prototypeIndex": 111,
+      "role": "Stored item attribute access candidate",
+      "bodyEqual": true
+    },
+    {
+      "prototypeIndex": 112,
+      "role": "Weapon attribute name candidate",
+      "bodyEqual": true
+    },
+    {
+      "prototypeIndex": 113,
+      "role": "Weapon attribute display value candidate",
+      "bodyEqual": true
+    },
+    {
+      "prototypeIndex": 114,
+      "role": "Weapon subattribute candidate",
+      "bodyEqual": true
+    }
+  ],
+  "limitations": [
+    "Prototype roles are inferred from constants and historical source location; this does not prove every caller or server-side attribute calculation.",
+    "Other module functions differ. Focused parity does not establish installed enhancement scaling, a Wheel passive or battle-property assembly.",
+    "Bytecode was loaded but not executed. This is static mechanics evidence, not gameplay validation or holdout credit.",
+    "No original bytecode, instructions, private paths, replay data or player identifiers are published."
+  ]
+}

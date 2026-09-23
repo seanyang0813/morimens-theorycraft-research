@@ -163,3 +163,15 @@ current exact-icon Weapon Item whose sub-attribute code and base value match
 the mapping established across the other 141; its historical passive-rule
 comparison remains unavailable. Four crosswalks remain ambiguous. No Wheel
 enhancement scaling or full Wheel execution is validated in gameplay.
+
+The installed resource-151 `ItemDataUtils` bytecode has a narrower static
+cross-build result. After normalizing the client's instruction encoding, 178
+of its 182 direct function prototypes match the historical PC copy; the
+five candidates for Weapon item construction and attribute lookup/display
+match exactly in their parameters, constants, upvalues, child structure and
+instruction bodies. Four other functions differ. This narrows the client
+change search but does not reveal server-calculated enhancement values or
+prove that the SKeyDB scaling curve is the installed game's rule. The
+identifier-free report and reproducible audit are
+`research/evidence/pc-res151-item-data-utils-parity.json` and
+`tools/audit_installed_item_utils.py`.
