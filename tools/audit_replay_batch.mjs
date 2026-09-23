@@ -12,7 +12,7 @@ while(args.length){
 }
 if(batchRoot||containerRoot){if(!batchRoot||!containerRoot||specs.length)throw new Error('Batch roots must be supplied together and cannot be mixed with explicit replay specifications');for(const row of discoverReplayBatchFiles({batchRoot,containerRoot,minBatch,maxBatch}))specs.push([row.observationId,row.indexPath,row.decodedPath,row.containerPath].join(','));}
 if(!output||!specs.length)throw new Error('At least one replay and an output path are required');
-if(!['pc-res144-build51','pc-res150-build51','pc-res151-build51'].includes(combatBuild))throw new Error('Unsupported combat build');
+if(!['pc-res144-build51','pc-res150-build51','pc-res151-build51','pc-res153-build51'].includes(combatBuild))throw new Error('Unsupported combat build');
 const read=path=>JSON.parse(readFileSync(path,'utf8'));
 const hash=path=>createHash('sha256').update(readFileSync(path)).digest('hex');
 const rows=[];

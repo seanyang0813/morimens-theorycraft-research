@@ -71,6 +71,12 @@ After abandoning the locked chapter run, the agent entered the previously cleare
 
 A new public baseline was committed and pushed before entering Chapter 5-14 Normal in the same resource-151/build-51 process. Two ordinary fights completed with in-game auto battle while the investigation remained open. A same-process scan at 14:49:41 UTC found two references absent from the three-reference baseline, but both were field-only and **neither replay container was retrievable**. The investigation reached a gate requiring a separate rusted key; the Record screen has not been loaded. The identifier-free diagnostic is `research/evidence/story-5-14-live-replay-diagnostic-20260923.json`, with the raw delta gitignored. Damage was visible during play, so these fights are exploratory and add no holdout credit. A later scan after a completed stage Record is loaded may show whether those references become containers; it cannot retroactively make the visible outcomes blind.
 
+### 2026-09-23 resource-153 Chapter 1-7 record-list diagnostic
+
+A public resource-153/build-51 baseline was committed and pushed before a fresh Chapter 1-7 Normal investigation. The investigation cleared, but damage and victory were visible during auto battle. The stage's Record list then loaded ten previously absent replay references in the same process; all ten containers were retrievable. Nine objects were modified after the baseline, while one was older. The Record list contains other players' runs, and the account's new battle has not been matched to a specific container. The private delta and decoded batch remain gitignored.
+
+All ten containers classify as `PVE_MONSTER_TARGETS`. The resource-153 adapter audit found 323 complete hit snapshots, 61 supported ordinary Active candidates, one exact deterministic match and 60 matches to one possible critical branch, with zero mismatches. The [identifier-free aggregate](../research/evidence/res153-record-list-retrospective-audit-20260923.json) commits to the private audit hash. These are retrospective component checks, not an exact recorded-build claim, a controlled capture, a blind holdout, or publication credit. The critical draws are unavailable, and the first selected record belongs to another player.
+
 ## 4. Build the outcome-blind capture evidence
 
 ### 2026-09-23 Chapter 1-7 controlled-run diagnostic
