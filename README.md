@@ -29,6 +29,8 @@ Run from this directory:
 
 `website/dist/index.html` is the local general formula sandbox. The adjacent Actions, States, Timeline, Builds, Property Snapshots and Rules pages expose bounded research components for human or agent-led theorycrafting; they do not yet form a complete battle simulator. Mouchette/Arachne remains a case study at `website/dist/mouchette.html`. The site uses copied versions of allowlisted authored engine modules, checked for byte equality. Run `tools/prepare_local_website.py` after changing a shared module. Browser checks cover every page plus representative formula, action and property-snapshot calculations; full interactive, responsive and WebMCP QA remains incomplete. See `docs/WEBSITE_STATUS.md`.
 
+The general `website/dist/tentacle.html` view runs the installed-client direct Tentacle command from explicit Player, Awakener, caster and target properties and exposes each pre-hit stage. It does not infer a character build or claim gameplay verification.
+
 The build planner and agent API share a catalog-derived Wheel search across all 146 pinned identities. It can filter by name, associated owner, realm, main stat and normalized mechanic tags while keeping passive execution, legality, ranking and optimality explicitly unresolved.
 
 The prediction freezer can also pin a paid catalog-backed state-to-Active chain. Its contract includes the exact engine dependency graph and the selected build's Skill, BattleApi, Cmd and State hashes, so an agent or human can replay an unchanged pre-outcome calculation. The supplied example is a reproducibility fixture rather than gameplay validation.
