@@ -1,6 +1,6 @@
 import {calculateClientPrimaryStat} from './client-primary-stats.mjs';
 import {calculateAttributeModifier} from './attribute-modifiers.mjs';
-const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51']);
+const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51','pc-res151-build51']);
 export function resolveClientBuildPrimary(input,data){
   const fields=['build','characterId','level','gnosticRank'];
   if(!input||fields.some(k=>!Object.hasOwn(input,k))||Object.keys(input).some(k=>!fields.includes(k)))throw new Error('Explicit build, character, level and Gnostic rank required');

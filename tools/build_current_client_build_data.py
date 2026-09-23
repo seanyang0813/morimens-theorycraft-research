@@ -1,8 +1,9 @@
-"""Build resource-150 character progression data and execute its original lookup path."""
+"""Build installed PC character progression data and execute its original lookup path."""
 
 from __future__ import annotations
 
 import ctypes as C
+import argparse
 import hashlib
 import json
 import math
@@ -37,6 +38,27 @@ def rows(value):
 
 def indexed(value):
     return {str(key): item for key, item in rows(value)}
+
+
+def verify_installed_modules(download: Path, expected: tuple[str, ...]) -> None:
+    import UnityPy
+
+    key = ROOT / "research" / "raw" / "bundle-key.bin"
+    UnityPy.set_assetbundle_decrypt_key(key.read_bytes())
+    found = {name: [] for name in expected}
+    for bundle_name in ("config.ab", "gamescript.ab"):
+        for obj in UnityPy.load(str(download / bundle_name)).objects:
+            if obj.type.name != "TextAsset":
+                continue
+            value = obj.read()
+            name = value.m_Name
+            if not name.endswith(".lua") or name[:-4] not in found:
+                continue
+            payload = value.m_Script.encode("utf-8", "surrogateescape") if isinstance(value.m_Script, str) else bytes(value.m_Script)
+            found[name[:-4]].append(payload)
+    for name, matches in found.items():
+        if len(matches) != 1 or matches[0] != (PRIVATE / f"{name}.lua").read_bytes():
+            raise ValueError(f"Private progression module does not uniquely match installed TextAsset: {name}")
 
 
 class CurrentPrimaryLookupOracle(Oracle):
@@ -176,6 +198,18 @@ def promotion_talents(client_id, talents, attr_types):
 
 
 def main() -> None:
+    global PRIVATE, OUTPUT, REPORT, BUILD
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--build", choices=("pc-res150-build51", "pc-res151-build51"), default=BUILD)
+    parser.add_argument("--install-root", type=Path)
+    args = parser.parse_args()
+    BUILD = args.build
+    if BUILD == "pc-res151-build51":
+        PRIVATE = ROOT / "research" / "observations" / "current-res151-build51" / "modules"
+        OUTPUT = ROOT / "research" / "evidence" / "client-build-data-res151.json"
+        REPORT = ROOT / "research" / "evidence" / "pc-res151-primary-stat-lookup.json"
+        if args.install_root is None:
+            parser.error("--install-root is required for the installed resource-151 build")
     required = ("AwakerConfig", "AwakerTalent", "ActorAttrType", "AwakerUpgrade", "Constant")
     for name in (*required, "FuncTable", "AwakerDataUtils", "AttrUtils"):
         if not (PRIVATE / f"{name}.lua").is_file():
@@ -184,10 +218,26 @@ def main() -> None:
     if len(upgrades) != 90:
         raise ValueError("Expected all 90 installed upgrade rows")
     catalog = read(CATALOG)
-    build_evidence = read(BUILD_EVIDENCE)
-    installed_config_hash = build_evidence.get("sourceHashes", {}).get("installedConfigBundle")
-    if not isinstance(installed_config_hash, str) or len(installed_config_hash) != 64:
-        raise ValueError("Current installed config bundle is not pinned by public build evidence")
+    if BUILD == "pc-res151-build51":
+        build_evidence_path = ROOT / "research" / "evidence" / "pc-res144-to-res151-combat-build.json"
+        build_evidence = read(build_evidence_path)
+        if build_evidence.get("currentBuild") != BUILD:
+            raise ValueError("Resource-151 build evidence does not match the selected build")
+        download = args.install_root.resolve() / "_game_data_" / "DownLoad"
+        version_bytes = (download / "_version.json").read_bytes()
+        version = json.loads(version_bytes.decode("utf-8-sig"))["versionInfo"]
+        if f"pc-res{version['resVersion']}-build{version['buildVersion']}" != BUILD or sha(download / "_version.json") != build_evidence["sourceHashes"]["versionManifest"]:
+            raise ValueError("Installed resource-151 manifest does not match pinned build evidence")
+        if sha(download / "gamescript.ab") != build_evidence["sourceHashes"]["bundles"]["gamescript.ab"]["sha256"]:
+            raise ValueError("Installed resource-151 game-script bundle does not match pinned build evidence")
+        verify_installed_modules(download, (*required, "FuncTable", "AwakerDataUtils", "AttrUtils"))
+        installed_config_hash = sha(download / "config.ab")
+    else:
+        build_evidence_path = BUILD_EVIDENCE
+        build_evidence = read(build_evidence_path)
+        installed_config_hash = build_evidence.get("sourceHashes", {}).get("installedConfigBundle")
+        if not isinstance(installed_config_hash, str) or len(installed_config_hash) != 64:
+            raise ValueError("Current installed config bundle is not pinned by public build evidence")
     output_rows, unresolved = [], []
     for catalog_row in catalog["records"]:
         matches = [value for value in characters.values() if value.get("AwakerResNum") == catalog_row["ingameId"] + "_AF"]
@@ -220,11 +270,17 @@ def main() -> None:
             "advancementTalents": promotion_talents(current["ID"], talents, attr_types),
         })
     source_hashes = {name: sha(PRIVATE / f"{name}.lua") for name in (*required, "FuncTable", "AwakerDataUtils", "AttrUtils")}
+    carryforward = None
+    if BUILD == "pc-res151-build51":
+        previous = read(ROOT / "research" / "evidence" / "client-build-data-res150.json")
+        if {"catalog": sha(CATALOG), **source_hashes} != previous["sourceHashes"] or output_rows != previous["characters"] or unresolved != previous["unresolved"]:
+            raise ValueError("Resource-151 progression differs from the reported resource-150 carryforward")
+        carryforward = {"sourceModuleCount": len(source_hashes), "identicalSourceModules": len(source_hashes), "derivedCharactersEqual": True, "unresolvedIdentitiesEqual": True, "installedTextAssetMatches": len(source_hashes)}
     advancement_talents = [talent for character in output_rows for talent in character["advancementTalents"]]
     data = {
         "schemaVersion": 1, "build": BUILD, "sourceHashes": {"catalog": sha(CATALOG), **source_hashes},
         "characters": output_rows, "unresolved": unresolved,
-        "scope": "Installed resource-150 primary base stats, explicit Gnostic ranks and Attr_Promote percentages. State/passive effects, equipment, substats, final battle properties and gameplay validation are excluded.",
+        "scope": f"Installed resource-{BUILD.split('-')[1][3:]} primary base stats, explicit Gnostic ranks and Attr_Promote percentages. State/passive effects, equipment, substats, final battle properties and gameplay validation are excluded.",
     }
     OUTPUT.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     oracle, mismatch_count, checks, samples = CurrentPrimaryLookupOracle(constants), 0, 0, []
@@ -249,16 +305,18 @@ def main() -> None:
             **source_hashes,
             "currentClientBuildData": sha(OUTPUT),
             "installedConfigBundle": installed_config_hash,
-            "installedBuildEvidence": sha(BUILD_EVIDENCE),
+            "installedBuildEvidence": sha(build_evidence_path),
+            **({"versionManifest": sha(download / "_version.json")} if BUILD == "pc-res151-build51" else {}),
         },
         "catalog": {"characters": len(catalog["records"]), "resolved": len(output_rows), "unresolved": len(unresolved)},
+        **({"resource150Carryforward": carryforward} if carryforward is not None else {}),
         "advancementCatalog": {
             "charactersWithSupportedPrimaryPromotion": sum(bool(character["advancementTalents"]) for character in output_rows),
             "supportedPrimaryPromotionTalents": len(advancement_talents),
             "levels": sum(talent["maximumLevel"] + 1 for talent in advancement_talents),
         },
         "runtimeChecks": {"cases": checks, "mismatches": mismatch_count, "sampleDomain": "Every resolved character at level 90 / Gnostic rank 5", "samples": samples},
-        "scope": "The installed resource-150 original GetAwakerBaseAttrValue path, current lookup tables and current compiled upgrade formulas are executed for five levels, three Gnostic ranks and three primary stats for every resolved catalog character.",
+        "scope": f"The installed resource-{BUILD.split('-')[1][3:]} original GetAwakerBaseAttrValue path, current lookup tables and current compiled upgrade formulas are executed for five levels, three Gnostic ranks and three primary stats for every resolved catalog character.",
         "limitations": ["Primary stat lookup only", "Advancement percentages use byte-identical current AttrUtils arithmetic but passive states remain unresolved", "No equipment, battle-property assembly, gameplay observation or holdout credit"],
     }
     REPORT.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")

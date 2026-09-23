@@ -5,6 +5,7 @@ import {assembleKnownBuildComponents} from '../engine/build-component-assembly.m
 
 const catalog=JSON.parse(readFileSync(new URL('../website/dist/build-catalog.json',import.meta.url),'utf8'));
 const clientData=JSON.parse(readFileSync(new URL('../website/dist/client-build-data.json',import.meta.url),'utf8'));
+const installedData=JSON.parse(readFileSync(new URL('../research/evidence/client-build-data-res151.json',import.meta.url),'utf8'));
 const resolvableCharacter=catalog.characters.find(row=>clientData.characters.some(client=>client.characterId===row.id));
 const wheel=catalog.wheels.find(row=>row.rarity==='SSR'&&row.mainstatKey==='REALM_MASTERY');
 const talent=clientData.characters.find(row=>row.characterId===resolvableCharacter.id).advancementTalents[0];
@@ -20,6 +21,16 @@ test('known build assembler emits an auditable contribution ledger without final
   assert.equal(result.members[0].advancementTalent.level,10);
   assert.equal(result.members[0].wheelMainstat.value,72);
   assert.equal(result.members[0].contributionLedger.at(-1).sourceKind,'WHEEL_MAINSTAT');
+});
+
+test('installed-client build assembler resolves explicit progression without crossing data builds',()=>{
+  const input=plan();input.clientBuild='pc-res151-build51';
+  const result=assembleKnownBuildComponents(input,catalog,installedData);
+  assert.equal(result.build,'pc-res151-build51');
+  assert.equal(result.assemblyStatus,'KNOWN_COMPONENTS_RESOLVED');
+  assert.equal(result.finalDamage,null);
+  assert.deepEqual(result.issues,[]);
+  assert.throws(()=>assembleKnownBuildComponents(input,catalog,clientData),/mismatched/);
 });
 
 test('unknown build inputs produce typed issues and are never neutralized',()=>{

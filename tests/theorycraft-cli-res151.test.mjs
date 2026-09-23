@@ -14,6 +14,16 @@ test('agent CLI executes a bounded resource-151 live-snapshot calculation',()=>{
   assert.equal(response.result.build,'pc-res151-build51');assert.equal(response.result.preHitDamage,317);assert.equal(response.result.modeledHpLost,267);assert.equal(response.result.finalDamage,null);
 });
 
+test('agent CLI resolves installed-client character advancement from pinned data',()=>{
+  const result=run('research/examples/theorycraft-installed-mouchette-primary.json');
+  assert.equal(result.status,0,result.stderr);
+  const response=JSON.parse(result.stdout);
+  assert.equal(response.result.build,'pc-res151-build51');
+  assert.equal(response.result.baseStats.ATK,198);
+  assert.equal(response.result.stats.ATK,258);
+  assert.equal(response.result.finalDamage,null);
+});
+
 test('agent CLI loads the actual resource-151 catalogs for preparation',()=>{
   const result=run('research/examples/theorycraft-installed-mouchette-inspection.json');
   assert.equal(result.status,0,result.stderr);

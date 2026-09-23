@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-theorycraft-request",
+  "requestId": "installed-mouchette-primary-example",
+  "operation": "resolve-character-advancement-primary",
+  "input": {
+    "build": "pc-res151-build51",
+    "characterId": "awakener-0033",
+    "level": 90,
+    "gnosticRank": 5,
+    "advancementTalentId": 122481,
+    "advancementLevel": 10
+  }
+}

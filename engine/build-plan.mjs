@@ -1,5 +1,5 @@
 // Serializable planning inputs, deliberately separate from resolved combat stats.
-const supportedClientBuilds=new Set(['pc-res144-build51','pc-res150-build51']);
+const supportedClientBuilds=new Set(['pc-res144-build51','pc-res150-build51','pc-res151-build51']);
 const optionalMemberFields=['gnosticRank','advancementTalentId','advancementLevel'];
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(key=>Object.hasOwn(value,key));
 

@@ -1,0 +1,5664 @@
+{
+  "schemaVersion": 1,
+  "build": "pc-res151-build51",
+  "sourceHashes": {
+    "catalog": "439e01e929634ef2e3d6d48ae66ee8d31e94d9b7548faac0fd7e49df10cba219",
+    "AwakerConfig": "a53cd2c0df3ffb6f1035ace2846bc84e78b7b108193768c3553ed3d32828477b",
+    "AwakerTalent": "800bdfa30827a17565237184853b3faa7f2e7275b8d62606d6dbda21b121895d",
+    "ActorAttrType": "45ef44ee7d59e7a7f0a978602ff7967b8c1582c598abcd20b0eb24f04ab0a996",
+    "AwakerUpgrade": "67a680485c0032031bdf4ebee481cf8dc614e13c14b9844d44ef7a32edc9a661",
+    "Constant": "6aad53c24d962e226afa4288af691b4455d6a459bc155b0c88f0cc263c8dc398",
+    "FuncTable": "28977d3dbdf5ffe8d56967ca3d77ed50a4c9d302a8fd9ec3eb5e695888fd0e43",
+    "AwakerDataUtils": "38fa6dc9e7d5c6971d21180eb48df5c033c6d03673781ad318b661d8b0413897",
+    "AttrUtils": "b00369326c56e98ec47aed7bd437b6aabc2e96e42e1bf12659076acb656f1f86"
+  },
+  "characters": [
+    {
+      "characterId": "awakener-0001",
+      "clientId": 15601,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 42,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 19,
+          "extra": 0
+        },
+        "CON": {
+          "base": 33,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139531,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74128,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0002",
+      "clientId": 15600,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 28,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 34,
+          "extra": 0
+        },
+        "CON": {
+          "base": 33,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139540,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74103,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0003",
+      "clientId": 15591,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 30,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 27,
+          "extra": 0
+        },
+        "CON": {
+          "base": 25,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139527,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74114,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0004",
+      "clientId": 15588,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 32,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 35,
+          "extra": 0
+        },
+        "CON": {
+          "base": 30,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139508,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74123,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0005",
+      "clientId": 15573,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 26,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 23,
+          "extra": 0
+        },
+        "CON": {
+          "base": 24,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139518,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74105,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0006",
+      "clientId": 15594,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 31,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 34,
+          "extra": 0
+        },
+        "CON": {
+          "base": 39,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139530,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74138,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0007",
+      "clientId": 15572,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 28,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 24,
+          "extra": 0
+        },
+        "CON": {
+          "base": 27,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139560,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74111,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0008",
+      "clientId": 77923,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 30,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 35,
+          "extra": 0
+        },
+        "CON": {
+          "base": 33,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139515,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 78624,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0009",
+      "clientId": 15566,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 19,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 20,
+          "extra": 0
+        },
+        "CON": {
+          "base": 20,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139575,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74125,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0010",
+      "clientId": 77925,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 33,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 27,
+          "extra": 0
+        },
+        "CON": {
+          "base": 28,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139541,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 78645,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0011",
+      "clientId": 77922,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 28,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 33,
+          "extra": 0
+        },
+        "CON": {
+          "base": 32,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139514,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 78620,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0012",
+      "clientId": 15590,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 39,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 29,
+          "extra": 0
+        },
+        "CON": {
+          "base": 31,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139553,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74137,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0013",
+      "clientId": 15570,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 18,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 24,
+          "extra": 0
+        },
+        "CON": {
+          "base": 22,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139552,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74124,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0014",
+      "clientId": 95786,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 35,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 29,
+          "extra": 0
+        },
+        "CON": {
+          "base": 33,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139557,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 95806,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0015",
+      "clientId": 15603,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 36,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 36,
+          "extra": 0
+        },
+        "CON": {
+          "base": 37,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139562,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74104,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0016",
+      "clientId": 15577,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 20,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 31,
+          "extra": 0
+        },
+        "CON": {
+          "base": 26,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139555,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74100,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0017",
+      "clientId": 15575,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 26,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 30,
+          "extra": 0
+        },
+        "CON": {
+          "base": 24,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139506,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74132,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0018",
+      "clientId": 15602,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 18,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 24,
+          "extra": 0
+        },
+        "CON": {
+          "base": 22,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139520,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74141,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0019",
+      "clientId": 15567,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 34,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 25,
+          "extra": 0
+        },
+        "CON": {
+          "base": 35,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139550,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74102,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0020",
+      "clientId": 15568,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 30,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 30,
+          "extra": 0
+        },
+        "CON": {
+          "base": 30,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139574,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74201,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0021",
+      "clientId": 15564,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 40,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 33,
+          "extra": 0
+        },
+        "CON": {
+          "base": 41,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139567,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74118,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0022",
+      "clientId": 54117,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 31,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 29,
+          "extra": 0
+        },
+        "CON": {
+          "base": 30,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139529,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74110,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0023",
+      "clientId": 15587,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 34,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 25,
+          "extra": 0
+        },
+        "CON": {
+          "base": 35,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139568,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74134,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0024",
+      "clientId": 15583,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 24,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 21,
+          "extra": 0
+        },
+        "CON": {
+          "base": 23,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139544,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74135,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0026",
+      "clientId": 15571,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 24,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 27,
+          "extra": 0
+        },
+        "CON": {
+          "base": 28,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139510,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74127,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0027",
+      "clientId": 77913,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 37,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 28,
+          "extra": 0
+        },
+        "CON": {
+          "base": 31,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139548,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 78622,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0028",
+      "clientId": 15597,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 18,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 18,
+          "extra": 0
+        },
+        "CON": {
+          "base": 18,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139521,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74126,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0029",
+      "clientId": 15581,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 26,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 36,
+          "extra": 0
+        },
+        "CON": {
+          "base": 36,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139569,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74129,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0030",
+      "clientId": 15562,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 37,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 29,
+          "extra": 0
+        },
+        "CON": {
+          "base": 27,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139566,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74136,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0031",
+      "clientId": 15569,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 33,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 28,
+          "extra": 0
+        },
+        "CON": {
+          "base": 32,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139556,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74120,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0032",
+      "clientId": 15582,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 33,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 18,
+          "extra": 0
+        },
+        "CON": {
+          "base": 21,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139573,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74106,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0033",
+      "clientId": 94450,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 33,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 28,
+          "extra": 0
+        },
+        "CON": {
+          "base": 28,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139526,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 122481,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0034",
+      "clientId": 15576,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 31,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 35,
+          "extra": 0
+        },
+        "CON": {
+          "base": 29,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139513,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74140,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0035",
+      "clientId": 15589,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 27,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 26,
+          "extra": 0
+        },
+        "CON": {
+          "base": 22,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139542,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 78911,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0036",
+      "clientId": 15565,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 23,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 40,
+          "extra": 0
+        },
+        "CON": {
+          "base": 38,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139528,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74139,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0037",
+      "clientId": 15580,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 30,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 20,
+          "extra": 0
+        },
+        "CON": {
+          "base": 19,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139507,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74107,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0038",
+      "clientId": 15585,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 29,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 37,
+          "extra": 0
+        },
+        "CON": {
+          "base": 34,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139563,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74108,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0039",
+      "clientId": 15560,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 35,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 31,
+          "extra": 0
+        },
+        "CON": {
+          "base": 30,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139509,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74113,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0040",
+      "clientId": 77926,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 29,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 32,
+          "extra": 0
+        },
+        "CON": {
+          "base": 32,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139547,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 78625,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0041",
+      "clientId": 77917,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 35,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 30,
+          "extra": 0
+        },
+        "CON": {
+          "base": 31,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139543,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 78618,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0042",
+      "clientId": 15595,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 30,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 30,
+          "extra": 0
+        },
+        "CON": {
+          "base": 30,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139545,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74133,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0043",
+      "clientId": 15604,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 33,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 32,
+          "extra": 0
+        },
+        "CON": {
+          "base": 40,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139565,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74101,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0044",
+      "clientId": 15599,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 27,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 42,
+          "extra": 0
+        },
+        "CON": {
+          "base": 42,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139525,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74131,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0045",
+      "clientId": 15592,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 25,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 38,
+          "extra": 0
+        },
+        "CON": {
+          "base": 32,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139532,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74112,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0046",
+      "clientId": 15584,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 41,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 21,
+          "extra": 0
+        },
+        "CON": {
+          "base": 29,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139571,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74130,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0047",
+      "clientId": 54116,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 30,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 30,
+          "extra": 0
+        },
+        "CON": {
+          "base": 30,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139537,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74119,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0048",
+      "clientId": 15596,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 30,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 28,
+          "extra": 0
+        },
+        "CON": {
+          "base": 31,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139539,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74116,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0049",
+      "clientId": 15574,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 24,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 25,
+          "extra": 0
+        },
+        "CON": {
+          "base": 26,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139572,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74122,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0050",
+      "clientId": 15563,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 38,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 30,
+          "extra": 0
+        },
+        "CON": {
+          "base": 34,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139559,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74099,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0051",
+      "clientId": 15598,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 34,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 30,
+          "extra": 0
+        },
+        "CON": {
+          "base": 36,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139512,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74115,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0052",
+      "clientId": 15586,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 22,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 41,
+          "extra": 0
+        },
+        "CON": {
+          "base": 35,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139523,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74121,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0053",
+      "clientId": 15579,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 25,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 32,
+          "extra": 0
+        },
+        "CON": {
+          "base": 28,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139564,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 74117,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0054",
+      "clientId": 125346,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 27,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 25,
+          "extra": 0
+        },
+        "CON": {
+          "base": 45,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139519,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 125362,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0055",
+      "clientId": 130901,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 40,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 27,
+          "extra": 0
+        },
+        "CON": {
+          "base": 33,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139551,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 130920,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0056",
+      "clientId": 77918,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 23,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 31,
+          "extra": 0
+        },
+        "CON": {
+          "base": 32,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139558,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 78642,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0057",
+      "clientId": 130226,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 23,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 22,
+          "extra": 0
+        },
+        "CON": {
+          "base": 23,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139511,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 130398,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0058",
+      "clientId": 141302,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 29,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 39,
+          "extra": 0
+        },
+        "CON": {
+          "base": 40,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 141305,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 141303,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0059",
+      "clientId": 145363,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 45,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 27,
+          "extra": 0
+        },
+        "CON": {
+          "base": 26,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 145379,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 145381,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0060",
+      "clientId": 77921,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 24,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 33,
+          "extra": 0
+        },
+        "CON": {
+          "base": 20,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 139549,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 78623,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    },
+    {
+      "characterId": "awakener-0061",
+      "clientId": 148578,
+      "qualityLevelOffset": 0,
+      "primary": {
+        "ATK": {
+          "base": 38,
+          "extra": 0
+        },
+        "DEF": {
+          "base": 32,
+          "extra": 0
+        },
+        "CON": {
+          "base": 31,
+          "extra": 0
+        }
+      },
+      "gnostic": {
+        "clientTalentId": 148886,
+        "bonusLevelsByRank": {
+          "0": 0,
+          "1": 2,
+          "2": 4,
+          "3": 6,
+          "4": 8,
+          "5": 10
+        }
+      },
+      "advancementTalents": [
+        {
+          "clientTalentId": 148885,
+          "season": "StageChapterStarsCameRight",
+          "maximumLevel": 10,
+          "percentByLevel": {
+            "0": {
+              "CON": 0,
+              "ATK": 0,
+              "DEF": 0
+            },
+            "1": {
+              "CON": 3,
+              "ATK": 3,
+              "DEF": 3
+            },
+            "2": {
+              "CON": 6,
+              "ATK": 6,
+              "DEF": 6
+            },
+            "3": {
+              "CON": 9,
+              "ATK": 9,
+              "DEF": 9
+            },
+            "4": {
+              "CON": 12,
+              "ATK": 12,
+              "DEF": 12
+            },
+            "5": {
+              "CON": 15,
+              "ATK": 15,
+              "DEF": 15
+            },
+            "6": {
+              "CON": 18,
+              "ATK": 18,
+              "DEF": 18
+            },
+            "7": {
+              "CON": 21,
+              "ATK": 21,
+              "DEF": 21
+            },
+            "8": {
+              "CON": 24,
+              "ATK": 24,
+              "DEF": 24
+            },
+            "9": {
+              "CON": 27,
+              "ATK": 27,
+              "DEF": 27
+            },
+            "10": {
+              "CON": 30,
+              "ATK": 30,
+              "DEF": 30
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "characterId": "awakener-0025",
+      "reason": "Current client identity is not uniquely resolved"
+    }
+  ],
+  "scope": "Installed resource-151 primary base stats, explicit Gnostic ranks and Attr_Promote percentages. State/passive effects, equipment, substats, final battle properties and gameplay validation are excluded."
+}

@@ -1,6 +1,6 @@
 // PC AwakerUpgrade primary-stat formula, retaining operation order.
 // Requires already-resolved upgrade level (including the quality offset).
-const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51']);
+const supportedBuilds=new Set(['pc-res144-build51','pc-res150-build51','pc-res151-build51']);
 export function calculateClientPrimaryStat(input){
   const fields=['build','base','extra','upgradeLevel','talentBonusLevels'];
   if(!input||fields.some(k=>!Object.hasOwn(input,k))||Object.keys(input).some(k=>!fields.includes(k)))throw new Error('Explicit client primary-stat inputs required');

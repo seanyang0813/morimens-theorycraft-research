@@ -19,7 +19,7 @@ test('invalid identities, revisions, unknown fields and duplicate slots reject i
 });
 test('client build and Gnostic rank survive round trip without filling legacy unknowns',()=>{
   const legacy=plan();assert.equal(Object.hasOwn(validateBuildPlan(legacy,catalog).plan,'clientBuild'),false);
-  for(const build of ['pc-res144-build51','pc-res150-build51'])for(const rank of [null,0,5]){const p=plan();p.clientBuild=build;p.team[0].gnosticRank=rank;assert.deepEqual(validateBuildPlan(JSON.parse(JSON.stringify(p)),catalog).plan,p);}
+  for(const build of ['pc-res144-build51','pc-res150-build51','pc-res151-build51'])for(const rank of [null,0,5]){const p=plan();p.clientBuild=build;p.team[0].gnosticRank=rank;assert.deepEqual(validateBuildPlan(JSON.parse(JSON.stringify(p)),catalog).plan,p);}
   for(const rank of [-1,6,'5',undefined,NaN]){const p=plan();p.team[0].gnosticRank=rank;assert.throws(()=>validateBuildPlan(p,catalog));}
   const p=plan();p.clientBuild='android';assert.throws(()=>validateBuildPlan(p,catalog));
 });
