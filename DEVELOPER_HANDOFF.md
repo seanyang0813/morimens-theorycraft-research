@@ -6,6 +6,8 @@ This repository is an experimental reconstruction of Morimens combat mechanics a
 
 The live PC client is now resource 153 / build 51. Start with [the resource-153 update audit](docs/RESOURCE_153_UPDATE.md) before attempting another current-build replay holdout. The old resource-151 process ended at the mandatory update, and its pre-battle baselines cannot be reused.
 
+The completed H1-7 Hard account replay is now privately preserved with same-process, post-baseline provenance. Its [identifier-free retrospective report](research/evidence/res153-hard-h1-7-own-pve-prehit-retrospective-20260923.json) records 17 exact direct-card Active pre-hit matches selected with observed critical flags, 28 other-caster/skill hits excluded and three unsupported command shapes. This is useful regression coverage, not a blind holdout or a full-battle simulation. `tools/sanitize_res153_story_prehit.py` reproduces the report from the ignored private capture after checking provenance, account, stage, domain and audit hashes.
+
 Run the full checkpoint from the repository root:
 
 ```powershell

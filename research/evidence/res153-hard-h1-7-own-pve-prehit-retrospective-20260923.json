@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_RES153_STORY_PREHIT_RETROSPECTIVE_EVIDENCE",
+  "analysisTrack": "verification",
+  "status": "RETROSPECTIVE_DIAGNOSTIC_ONLY",
+  "baselineCommitment": {
+    "path": "research/evidence/holdout-res153-story-1-7-attempt3-baseline-20260923.json",
+    "sha256": "4b3f1e7078eb0ec6b16e46a963e9961cb0fca482beb175f69b59fe0c4283dee7"
+  },
+  "privateCommitments": {
+    "deltaSha256": "f5ae70abfc6b684a9658d40c21c3abfc1c4dda89e302b8b427f8ac91dc47df3d",
+    "decodedSha256": "7905039ebbc6a9921a8b97caa398f6f992231ae8f7ca02acac3149c31f8b5c40",
+    "indexSha256": "de37b9f5071246cde7cffd421c53090de06c2d27c67e983b34fad0ffb4c03153",
+    "auditSha256": "f19f59dd36757723fab0aeb96909033657d1e47cca4d4eb6b8bd94255a5a41fd",
+    "identifiersPublished": false
+  },
+  "selectedContainerSha256": "17988d969c6c54706e68486328e32a5c790719569cb8aa159b79e2770b900d24",
+  "selectedContainerLastModifiedUtc": "2026-09-23T20:03:02+00:00",
+  "sameProcessAndExecutable": true,
+  "selectedObjectModifiedAfterBaseline": true,
+  "selectedAccountMatchedPrivately": true,
+  "stage": {
+    "id": 7839,
+    "name": "良心之重",
+    "difficulty": "Hard"
+  },
+  "combatDomain": "PVE_MONSTER_TARGETS",
+  "viewingClientBuild": "pc-res153-build51",
+  "replay": {
+    "records": 129,
+    "events": 2004,
+    "cardUses": 26,
+    "hits": 48
+  },
+  "activePrehitAudit": {
+    "actions": 26,
+    "hits": 48,
+    "compared": 17,
+    "exactObservedBranch": 17,
+    "nonPlayedCardHits": 28,
+    "blocked": 3,
+    "criticalOutcomes": {
+      "noncritical": 16,
+      "critical": 1
+    },
+    "largestAbsoluteDifference": 0,
+    "blockers": {
+      "At least one ordinary Active row required": 3
+    }
+  },
+  "publicationCredit": false,
+  "limitations": [
+    "The battle outcome was visible before decoding and calculation; this is not a blind holdout.",
+    "The recorded critical flags select the matching calculated branches after the outcome; random draws were not predicted.",
+    "Hits from triggered effects and unsupported command shapes are excluded from the Active-hit comparison.",
+    "The viewing client and same-process capture match resource 153, but the replay does not encode an engine build field.",
+    "No account, player, replay UUID, role-instance or card-instance identifier is published."
+  ]
+}
