@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_REPLAY_SESSION_BASELINE_COMMITMENT",
+  "status": "COMMITTED_PRE_BATTLE_BASELINE",
+  "createdAtUtc": "2026-09-23T22:05:00.009478+00:00",
+  "analysisTrack": "verification",
+  "session": {
+    "processStartedAtUtc": "2026-09-23T15:08:15.672128+00:00",
+    "baselineCapturedAtUtc": "2026-09-23T22:04:52.055880+00:00",
+    "executableSha256": "662097e6828c0bd7aaa2037799df413b1d59375f6573b44c4981815befb088ff"
+  },
+  "build": {
+    "id": "pc-res153-build51",
+    "evidencePath": "research/evidence/pc-res144-to-res153-combat-build.json",
+    "evidenceSha256": "3cb7d9a72b180087cf83dbe9c1b8494b5e41d5e67f037866eaa2c28f5afdc776",
+    "installedSourceHashes": {
+      "versionManifest": "548f33bce38ea486f76ff8c3b102fb39d466893b09403412d6a3e1e563d95d9b",
+      "bundles": {
+        "share.ab": "b62601a3391a5999ebb196dec5e52c0660d95c19655ac3b19f13299806c38907",
+        "gamescript.ab": "c93aa8daafc1ab2c882a6c492404ca237d04a6007a60aed305020b25c230b95b",
+        "foundation.ab": "36e30bcd044b74043499183b5313bd6f4f9999f0d03aecce4751c3d87414f03d"
+      }
+    }
+  },
+  "privateBaselineCommitment": {
+    "sha256": "bb5d4e9f9e91c8bbd1353b248172d52e54351054d45718decc2a6ab1ac93fdbf",
+    "replayReferenceCount": 4,
+    "bytesRead": 3920015360,
+    "identifiersPublished": false
+  },
+  "requirementsForLaterUse": [
+    "A post-battle capture must prove the same process start and executable hash",
+    "Private review must establish that the selected replay reference was absent from this committed baseline and first appeared after the controlled battle",
+    "The retrieved object timestamp and container hash must be preserved before decoding",
+    "The capture must be classified as PvE before entering the PvE calculator",
+    "A prediction must be frozen and committed before any outcome is revealed"
+  ],
+  "scope": "Pre-battle live-session and installed-build commitment only; no replay identifier, player identifier, battle outcome or strategy is published.",
+  "limitations": [
+    "This artifact alone does not identify a future replay, prove that a battle occurred, establish the recorded combat build or receive holdout credit",
+    "A process restart, installed-build change or replay reference already present in the private baseline invalidates the intended same-session proof"
+  ]
+}
