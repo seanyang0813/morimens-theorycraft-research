@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "sha256",
-  "fingerprint": "126b8399e3e971c85a35c29939523aebfaf1d1b1d4353a520c47e558b1c7c074",
+  "fingerprint": "d79672c99b48821f7c2f425adfcd683b806126c259aa3934432d6a0cc2d6514d",
   "files": {
     "build-catalog.json": "71d0e0d14959e933ae8942ac0064de95c0a63b84ce9065e2bdcef4509090b98b",
     "client-build-data-res150.json": "49d4bf5abe419360df47e4959a26fb50bdaa37ed8189c022a644ff518f6fba80",
@@ -84,6 +84,7 @@
     "engine/paid-wheel-order-search.mjs": "a98accac2b3039c7c49fc3546a867b9b2739f6210b41b22d9b5907748f86069c",
     "engine/passive-command-experiment.mjs": "38bbdd17dc535e58fc844b22b1761546fcc98867964972dc4aa4ef3ac535881f",
     "engine/passive-prehit.mjs": "c8b1ccfb7c47ce49c3bd09842fef15058ed78277d9de743d772c79ba0d85a77e",
+    "engine/player-tentacle-damage.mjs": "b8d25d5ebbee0bcc68c9aaef717150071cb862f9c1a36aac13b68ee0c0f82bef",
     "engine/prepare-skill-command.mjs": "702ff70bc68e4c8a6f5dd4a6af9e131f98231ad28844fbcab8f12c559b03caa3",
     "engine/prepared-mortal-blast.mjs": "a0aca171a54b4c384f59dd0111abf2e8f13a387967b01fc0b9918219b9d2958a",
     "engine/prepared-skill-experiment.mjs": "25273c0dedd803d05d39b5b5e184d09880131507b0a3a8b98c3c7727be09d370",
@@ -144,7 +145,7 @@
     "engine/wheel-search.mjs": "5055b6d67b72ea7d4dbc882dec7df9b6bb32812cc6f8675d355b6d9aff83b36e",
     "engine/wheel-stats.mjs": "d0eac4ca93b72cd91595dc6650b363f4b35e2262aac018e1c0e41c77f31b813e",
     "engine/wheel-trigger-transitions.mjs": "8a96ae4ff2301ee11dcecc611a805ce060f9f7936869d5d72673f88d4a4c9459",
-    "rules.json": "770de3cb099200f7affe53a26d3474651fa0ca1a9ebaedc4fbbd8063f92fea68",
+    "rules.json": "c7be70930e44b57dba296e50acd625c949ecab0e7422d86a9cef0a9e9fddc154",
     "scenario.json": "552b1884cb61634f2a659fedd276684986d0ede97139545b5984aa6cd565b9af",
     "wheel-current-compatibility.json": "3956b79d1a5599fc3f86523cacea3cd4668e0d2ae26d12c006cc31fa8cf7bfb0",
     "wheel-mechanics-capability-catalog.json": "f544b9f24176c216532d050136a56aac58bccb20086f3acd78bd56613ca61af0"

@@ -7582,6 +7582,47 @@
         "tools/audit_tentacle_replay_coverage.py",
         "research/evidence/tentacle-replay-coverage.json"
       ]
+    },
+    {
+      "id": "PC151:PlayerTentacleDamage",
+      "status": "SUPPORTED_BY_ORIGINAL_RUNTIME_AND_SELECTED_METHOD_PARITY",
+      "claim": "Installed resource-151 Player.GetTentacleDamage matches 377 synthetic original-runtime executions, and its method body plus the PlayerRole.tentacle_dmg parser alias match resource 144 after removing the synthetic opcode prefix",
+      "scope": "Ordinary PvE resolved Player/Awakener properties through computed Tentacle value, before card command, critical roll, target modifiers, BeHit or HP. Synthetic runtime comparison and selected method parity are not gameplay validation or holdout credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Installed Player Tentacle calculation and selected method parity",
+          "member": "original XLua executions, source hashes and decoded method-body comparisons",
+          "sha256": "10878ffa2d4a518e5815a3e6c1ae71be0b330ad5db476041bc49a0dc209d7278"
+        }
+      ],
+      "checks": [
+        "tools/player_tentacle_runtime_oracle.py",
+        "tools/audit_tentacle_source_parity.py",
+        "tools/build_player_tentacle_evidence.py",
+        "tests/player-tentacle-damage.test.mjs",
+        "tests/theorycraft-cli-res151.test.mjs"
+      ]
+    },
+    {
+      "id": "Replay:TentacleSimplePreHitConsistency",
+      "status": "RETROSPECTIVE_COMPONENT_MATCH_ONLY",
+      "claim": "Nineteen neutral-target noncritical Tentacle pre-hit values across three private PvE replays match the installed Player producer, command expression, effect ceiling and resolved pre-hit path exactly",
+      "scope": "Outcome-first retrospective component comparison. Source identity and one direct BETentacleAttack row, neutral target/conditional Awaker damage, noncritical branch only; recorded engine build unknown. No independent holdout, BeHit/HP validation or publication credit.",
+      "gameplayValidation": false,
+      "sources": [
+        {
+          "module": "Sanitized Tentacle replay component audit",
+          "member": "nineteen strict source-bound pre-hit comparisons and private corpus commitments",
+          "sha256": "c05ec9001300cfd9bad010700592d9bfae9ae9deca5a7616909e39ff587dbbd9"
+        }
+      ],
+      "checks": [
+        "tools/audit_tentacle_replay_simple.mjs",
+        "engine/player-tentacle-damage.mjs",
+        "engine/tentacle-prehit.mjs",
+        "research/evidence/tentacle-replay-simple-consistency.json"
+      ]
     }
   ]
 }

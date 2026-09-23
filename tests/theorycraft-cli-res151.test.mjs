@@ -107,3 +107,11 @@ test('agent CLI exposes installed Tentacle pre-hit arithmetic without final dama
   assert.equal(response.result.finalDamage,null);
   assert.ok(response.result.evidence.includes('tests/synthetic/installed-tentacle-prehit.json'));
 });
+
+test('agent CLI resolves the installed Player Tentacle source value before card scaling',()=>{
+  const result=run('research/examples/theorycraft-installed-player-tentacle-damage.json');
+  assert.equal(result.status,0,result.stderr);
+  const response=JSON.parse(result.stdout);
+  assert.equal(response.result.value,230);
+  assert.ok(response.result.unresolvedDependencies.includes('Independent gameplay validation'));
+});

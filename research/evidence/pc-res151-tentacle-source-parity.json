@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_TENTACLE_SOURCE_METHOD_PARITY",
+  "baselineBuild": "pc-res144-build51",
+  "installedBuild": "pc-res151-build51",
+  "status": "SELECTED_METHOD_BODIES_IDENTICAL",
+  "methods": [
+    {
+      "module": "BattleUnitPlayer.lua",
+      "method": "GetTentacleDamage",
+      "installedModuleSha256": "14f007f69f6ce9e1d54cfb94ebd58da25f024a1262864c6e7f9af6292bceaf9f",
+      "instructionCountExcludingSyntheticPrefix": 307,
+      "decodedBodySha256": "fce9a9a58c8518bb8dee8539a4cc818548442551b33fd88fc3fa5e4cdcab0248",
+      "constantsIdentical": true,
+      "decodedBodyIdentical": true
+    },
+    {
+      "module": "BattleCmdParser.lua",
+      "method": "PlayerRole.tentacle_dmg alias",
+      "installedModuleSha256": "237b93d625372c9b334ffc4ee3c7b535e152b4fdf127dce461c2fe30f88ee92e",
+      "instructionCountExcludingSyntheticPrefix": 11,
+      "decodedBodySha256": "5e6131bc85bd9e2545c927087ed0d55114ff59d631331e688cc0a8c18ef6adbf",
+      "constantsIdentical": true,
+      "decodedBodyIdentical": true
+    }
+  ],
+  "scope": "Selected GetTentacleDamage producer and PlayerRole.tentacle_dmg expression alias methods only; whole modules and external dependencies are not asserted identical.",
+  "limitations": [
+    "Method-body parity is not replay engine-version attribution or gameplay validation.",
+    "Awakener, state, target and BeHit dependencies require separate checks."
+  ]
+}

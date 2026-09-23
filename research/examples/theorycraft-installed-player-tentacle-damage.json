@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-theorycraft-request",
+  "requestId": "sanitized-player-tentacle-component",
+  "operation": "calculate-player-tentacle-damage",
+  "input": {
+    "build": "pc-res151-build51",
+    "player": {
+      "tentacle_dmg": 38,
+      "tentacle_base_dmg": 103,
+      "basic_damage_per": 86,
+      "weak_per": 0,
+      "tentacle_dmg_per": 0
+    },
+    "awakers": [{
+      "i_basic_damage_per": 0,
+      "i_damage_per": 0,
+      "i_damage_per1": 0,
+      "i_damage_per2": 0,
+      "i_damage_per3": 0,
+      "i_damage_per4": 0,
+      "i_damage_per5": 0,
+      "i_damage_per6": 0,
+      "i_damage_per7": 0,
+      "i_damage_per8": 0
+    }],
+    "powerStateLayer": 0,
+    "dimensionFixPer": 0
+  }
+}

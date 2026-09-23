@@ -28,6 +28,7 @@
   "passive-prehit.mjs",
   "fixed-pure-prehit.mjs",
   "tentacle-prehit.mjs",
+  "player-tentacle-damage.mjs",
   "immunity.mjs",
   "active-prevention.mjs",
   "singularity-realm.mjs",

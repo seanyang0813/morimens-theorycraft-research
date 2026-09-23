@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_RETROSPECTIVE_TENTACLE_SIMPLE_CONSISTENCY",
+  "analysisTrack": "verification",
+  "status": "EXACT_RETROSPECTIVE_PREHIT_COMPONENT_MATCHES",
+  "calculationBuild": "pc-res151-build51",
+  "recordedCombatBuild": null,
+  "privateIndexCommitmentSha256": "a65fa79fcdf6a82191d6146cc5c237bc88d022d66808de0405a515f723b76388",
+  "privateCatalogCommitmentSha256": "d7a088c4e382b74fd31c1ea30bb99fbb193fa4273c0c12140ebecde66342a6c8",
+  "summary": {
+    "replaysScanned": 102,
+    "completeTentacleHits": 905,
+    "immediateIdentity": 58,
+    "oneDirectRow": 39,
+    "exactRowShape": 39,
+    "neutralTargetAndAwakers": 21,
+    "noncritEligible": 19,
+    "exact": 19,
+    "mismatch": 0,
+    "blocked": {
+      "chance-dependent critical hit": 2,
+      "nonneutral target or Awaker bonus": 18
+    },
+    "distinctSourceReplays": 3,
+    "distinctSourceActions": 19
+  },
+  "method": "From complete Tentacle hit snapshots, require matching played-card caster/skill identity, one exact direct BETentacleAttack FrontEnemy row, a living monster target, neutral target Tentacle modifiers and zero Awaker conditional damage bonuses. Reconstruct PlayerRole.tentacle_dmg through installed GetTentacleDamage, evaluate the exact command expression and effect ceiling, then compare resolved noncritical pre-hit damage to recorded castDamage.",
+  "limitations": [
+    "All outcomes were decoded before calculation; none is a blind holdout or publication credit.",
+    "The 19 exact hits are 19 actions in three replays, not 19 independent players or controlled battles.",
+    "The recorded combat build is unknown despite selected installed method parity; this does not establish historical engine identity.",
+    "Critical hits, nonneutral target bonuses, triggered/nested Tentacle sources, BeHit, HP, callbacks and full battle behavior remain outside the comparison.",
+    "Private player, replay, role and card identifiers are not published."
+  ]
+}

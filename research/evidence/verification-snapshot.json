@@ -1,13 +1,13 @@
 {
-  "generatedAtUtc": "2026-09-23T06:40:19.733777+00:00",
+  "generatedAtUtc": "2026-09-23T07:00:08.133053+00:00",
   "publicationStatus": "NOT_READY",
   "publicationAuthorized": false,
   "automatedSuite": {
-    "testFiles": 281,
+    "testFiles": 282,
     "passed": true,
     "exitCode": 0,
     "log": "research\\evidence\\latest-test-suite.tap",
-    "logSha256": "2b411774348eaf902a317a6f97123e871664179f0b6e6c97e2b787f028a2c6fe"
+    "logSha256": "b2bc06dd61f1ca0a80e945ba03721c98ef71eb08534e61c201faf41db10edf12"
   },
   "realObservations": {
     "records": 3,
@@ -300,6 +300,10 @@
     },
     {
       "module": "tentacle-prehit.mjs",
+      "matchesResearchEngine": true
+    },
+    {
+      "module": "player-tentacle-damage.mjs",
       "matchesResearchEngine": true
     },
     {
@@ -771,6 +775,17 @@
     "distinctReplays": 1,
     "distinctCardActions": 30,
     "exactPreHitComparisons": 85,
+    "mismatches": 0,
+    "recordedCombatBuild": null,
+    "publicationCredit": false
+  },
+  "tentacleReplayComponentConsistency": {
+    "report": "research\\evidence\\tentacle-replay-simple-consistency.json",
+    "reportSha256": "c05ec9001300cfd9bad010700592d9bfae9ae9deca5a7616909e39ff587dbbd9",
+    "analysisTrack": "verification",
+    "distinctReplays": 3,
+    "distinctCardActions": 19,
+    "exactPreHitComparisons": 19,
     "mismatches": 0,
     "recordedCombatBuild": null,
     "publicationCredit": false

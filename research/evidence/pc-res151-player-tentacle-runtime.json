@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_PC_INSTALLED_PLAYER_TENTACLE_RUNTIME",
+  "build": "pc-res151-build51",
+  "status": "EXACT_IN_SYNTHETIC_FIXTURE_DOMAIN",
+  "sourceHashes": {
+    "BattleUnitPlayer": "14f007f69f6ce9e1d54cfb94ebd58da25f024a1262864c6e7f9af6292bceaf9f",
+    "Constant": "4c359d7cc1446f06708dd02f3d587881e05bc10131bcc7377ef1584c6f1236c0",
+    "methodParityReport": "0aefd638ed4a3edb85435ea1e3980a78051169ea8b23564f5286de0b78c86ca7",
+    "originalRuntimeFixture": "1d7812060b40b8df79c5da6aa5868eb52a5ebe798ea79666ece497c36a6e22a6"
+  },
+  "originalRuntimeCases": 377,
+  "powerContributionPercent": -100,
+  "method": "Execute installed BattleUnitPlayer.GetTentacleDamage in copied XLua with explicit Player/Awakener property getters, PvE branch, Power-layer and Dimension adapters; compare independent JavaScript calculation to every output.",
+  "scope": "Computed Player Tentacle damage from stored base/flat, average Awaker basic and nine inside percentage slots, Weak, Dimension, Tentacle bonus, ceiling and minimum one. Parser alias and producer method bodies are separately compared with resource 144.",
+  "limitations": [
+    "No automatic equipment/state property assembly or actual battle execution.",
+    "The installed Power contribution constant is -100%, making its supplied layer numerically inert in this build; future constants require revalidation.",
+    "Source-attribution, target selection, critical roll, effect, BeHit, HP and independent gameplay holdout are separate."
+  ]
+}

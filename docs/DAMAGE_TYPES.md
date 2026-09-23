@@ -31,6 +31,29 @@ identity matching the played card; 39 of those have one direct
 These are coverage counts, not Tentacle damage predictions or holdout evidence.
 See `research/evidence/tentacle-replay-coverage.json`.
 
+The Tentacle command's `PlayerRole.tentacle_dmg` is a special parser alias to
+`BattleUnitPlayer:GetTentacleDamage()`, not a direct read of the stored
+`tentacle_dmg` property. The installed resource-151 player method matches 377
+synthetic original-runtime executions. Its decoded method body and the parser
+alias body match resource 144, even though their containing modules differ.
+With stored `tentacle_dmg=38`, `tentacle_base_dmg=103` and
+`basic_damage_per=86`, neutral inside factors produce a computed player value
+of 230. A card expression multiplying that by `occupation_master=92` and
+dividing by 200 ceilings to 106 before target multipliers. The installed
+`TentacleDamageForPowerPercent` constant is -100%, so the Power-layer term is
+numerically zero in this build. See
+`research/evidence/pc-res151-player-tentacle-runtime.json` and
+`research/evidence/pc-res151-tentacle-source-parity.json`.
+
+After that correction, a strictly filtered retrospective subset has 19 exact
+noncritical Tentacle pre-hit comparisons from 19 actions in three replays, with
+zero mismatches. The filter requires a directly matching caster/skill identity,
+one exact `BETentacleAttack` row, a living monster, neutral target Tentacle
+modifiers and zero conditional Awaker damage bonuses. The recorded combat build
+is unknown and all outcomes were inspected first, so this is component
+consistency only, not a blind holdout. See
+`research/evidence/tentacle-replay-simple-consistency.json`.
+
 A separate outcome-first PvE replay audit reconstructs 85 Fixed pre-hit values
 exactly from captured card arguments, six conditional command rows, live state
 layers, target Fixed properties and the player's dimension modifier. Those hits
