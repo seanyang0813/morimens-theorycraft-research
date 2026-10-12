@@ -9,9 +9,13 @@ Scope: October 12–26, 2026 Astral Reign, highest listed difficulty (tier 7), e
 - Installed client `MonsterConfig` row 67097, "The Sage," starts with state 67255. `State` row 67255 says that on death it restores all HP, raises max HP by 100%, and releases First Doctrine. State 67257 says the first Posse each turn gives all Awakeners 10 Aliemus but permanently raises Posse cost by 10%. The [boss listing](https://www.kaiden.gg/morimens/monsters/the-sage/) associates The Sage with Season 71 Zone 5 and lists its card rotation. Exact tier-7 combat properties have not been captured.
 - Installed client `AwakerConfig` classifies Mouchette as Orange DPS and Lotan, Doll and Ogier as Purple DPS, support and tank, respectively. All four have `School=1`. The pinned SKeyDB Awakener catalog independently labels all four `CHAOS` (Mouchette SSR, the others SR).
 
-## Proposed team
+## Proposed teams
 
-Mouchette / Lotan / Doll / Ogier: one Orange damage dealer and three Purple units. Lotan supplies repeated Strike actions, Mouchette is the second damage source, Doll heals and supplies Aliemus, and Ogier shields. This limits the expensive slots to one and leaves no signature Wheel or duplicate as a prerequisite in the model. It is a **candidate**, not an established tier-7 clear. If Mouchette is unavailable, Ramona is the all-Purple card-access substitute, but this likely worsens the already unknown damage margin.
+1. **Zone 1 Strike line:** Mouchette / Lotan / Doll / Ogier. One SSR and three SR. Lotan supplies repeated Strike actions; Mouchette also brings regular Strike cards and a team Strike buff; Doll heals, and Ogier shields. This tests the starting Rusty Lancet+ without requiring a signature Wheel or duplicate in the model.
+2. **Zone 5 card-copy line:** Mouchette / Ramona / Doll / Ogier. One SSR and three SR. Rouse Mouchette when her regular Storm Strike is in hand, select it for Jade Imprint, then use Ramona's Posse to fetch a copy from the discard pile at zero card cost if her Posse is available. Mouchette's generated Mortal Blast is **not** the proposed Jade target: the relic requires a non-derived card. Ramona's fetch is subject to the Sage's permanent Posse-cost increase.
+3. **Zone 5 all-SR fallback:** Lotan / Ramona / Doll / Ogier. Use Jade on Ramona's regular Queen's Sword, whose listed hit count rises after each play, or test Lotan's regular Strike card when Strike-specific relics are available. This removes the SSR but has a much weaker isolated card coefficient; it is not an equivalent damage substitute.
+
+These are **candidates**, not established tier-7 clears. The installed client lists all five named characters under `School=1`; pinned SKeyDB marks them Chaos (Mouchette SSR, the others SR). Actual levels, Wheels and card ranks are unspecified.
 
 In Zone 1, prioritize up to three Strike uses per turn for Rusty Lancet+. In Zone 5, use Jade Imprint on a non-derived damage card that is actually in hand after its Awakener's Rouse; then reassess the new draw/hand/discard composition. Use Posse only when the payoff exceeds the permanent cost increase. Do not treat the boss's first empty HP bar as lethal: state 67255 changes the second bar.
 
@@ -26,7 +30,18 @@ Run `node tools/season71_constraint_sim.mjs`. It evaluates only exact relic-card
 | 3 | 6 | 3.6 × source ATK |
 | 4 | 6 | 3.6 × source ATK |
 
+The coefficient column assumes the same Awakener makes every Strike. With mixed casters, add 1.2 × the ATK of each of the first three Strike sources; the fourth Strike receives no Lancet trigger. These are relic hit coefficients, before the ordinary Strike card's own damage and all combat modifiers.
+
 For one eligible card initially in hand, one Jade trigger leaves one copy in hand, one in draw and one in discard: **three copies rather than one**, a net gain of two. It does not immediately grant three plays; costs, draw order and legal Rouse timing still govern actual use.
+
+The script now reads the installed `Skill`, `RelicConfig` and `AwakerConfig` rows and fails if the selected coefficients, school IDs or relic parameters differ. Its conditional two-play comparison uses the first card from Jade's hand copy and a second retrieved by Ramona's Posse from the discard copy:
+
+| Zone 5 line | Base hit count across two plays | Sum of level-one `BattleAtkForce` coefficients |
+| --- | ---: | ---: |
+| Mouchette Storm Strike | 5 + 5 = 10 | 10 × 0.30 = **3.00** |
+| Ramona Queen's Sword | 2 + 3 = 5 | 5 × 0.15 = **0.75** |
+
+These numbers are **not final damage** and cannot be compared across characters as if their `BattleAtkForce` values were equal. Storm Strike's cost starts at `3 − PlayerRole.GetStateLayer(124035)`; Queen's Sword costs 3. The second play assumes Ramona's Posse is ready, a legal target exists in discard and the first ordinary card can be paid for. Jade's draw-pile copy is not counted as immediately playable. Skill upgrades, extra hit states, crit, enemy defense, buffs and other relics are excluded. The all-SR team also has Lotan's damage outside this isolated Queen's Sword line.
 
 The boss page reports two HP bars, and the recovered state doubles max HP after the first death. The 25.1M display is abbreviated and its bar semantics are unconfirmed. If it denotes the first bar, the encounter requires approximately 75.3M total HP removal before mitigation, healing or overkill. If it denotes an encounter total, use approximately 25.1M instead. At a ten-turn horizon those are roughly **7.53M or 2.51M damage per turn**, respectively. These are feasibility thresholds, not simulated team output.
 
