@@ -68,6 +68,7 @@ def main():
         "candidate": {
             "team": ["Mouchette", "Ramona", "Doll", "Ogier"],
             "breakpointEnlightenLevels": {"Mouchette": 3, "Ramona": 0, "Doll": 2, "Ogier": 3},
+            "wheelLoadout": None,
             "purpose": "Mouchette AoE, Ramona card reuse/Power reduction, Doll heal, Ogier repeatable shields; four Chaos members if Chaos Ring is present",
             "unverified": "No complete team survival or clear follows from these bounds.",
         },
@@ -75,6 +76,7 @@ def main():
             "One recorded boss battle, not the other preview monsters or an entire zone.",
             "Observed originVal is after any enemy states already active; do not apply Weakness again.",
             "Baseline HP is from a different recorded build, not this proposed team.",
+            "No Wheels or Wheel refinements were assigned or included in the candidate calculation.",
             "No card draw, energy, damage, shielding, healing, block expiry, or boss AI counterfactual is simulated.",
             "Additional 30% DR branch excludes Murphy's Sacrifice and is not a recommended build prediction.",
         ],
