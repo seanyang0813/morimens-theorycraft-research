@@ -1,0 +1,82 @@
+{
+  "kind": "BOUNDED_ENEMY_SURVIVAL_STRESS_TEST",
+  "stageId": 153548,
+  "bossInitialHpObserved": 7667758,
+  "baselinePlayerMaxHpObserved": 3193,
+  "baselinePlayerInitialHpObserved": 2669,
+  "enemyAttackRounds": [
+    {
+      "turn": 2,
+      "skillId": 4819,
+      "hitValuesAlreadyUnderObservedEnemyStates": [
+        798,
+        798,
+        798
+      ],
+      "incomingBeforeBlock": 2394,
+      "cumulativeIncomingBeforeBlock": 2394,
+      "netDefenseNeededFromFullHpToRemainAboveZero": 0
+    },
+    {
+      "turn": 3,
+      "skillId": 4780,
+      "hitValuesAlreadyUnderObservedEnemyStates": [
+        1689
+      ],
+      "incomingBeforeBlock": 1689,
+      "cumulativeIncomingBeforeBlock": 4083,
+      "netDefenseNeededFromFullHpToRemainAboveZero": 891
+    },
+    {
+      "turn": 6,
+      "skillId": 4861,
+      "hitValuesAlreadyUnderObservedEnemyStates": [
+        1481,
+        1481
+      ],
+      "incomingBeforeBlock": 2962,
+      "cumulativeIncomingBeforeBlock": 7045,
+      "netDefenseNeededFromFullHpToRemainAboveZero": 3853
+    }
+  ],
+  "optimisticAdditional30PercentDRIgnoringSacrifice": [
+    {
+      "turn": 2,
+      "cumulativeIncomingIfAdditional30PercentDR": 1675.8,
+      "additionalNetDefenseNeeded": 0
+    },
+    {
+      "turn": 3,
+      "cumulativeIncomingIfAdditional30PercentDR": 2858.1,
+      "additionalNetDefenseNeeded": 0
+    },
+    {
+      "turn": 6,
+      "cumulativeIncomingIfAdditional30PercentDR": 4931.5,
+      "additionalNetDefenseNeeded": 1739.5
+    }
+  ],
+  "candidate": {
+    "team": [
+      "Mouchette",
+      "Ramona",
+      "Doll",
+      "Ogier"
+    ],
+    "breakpointEnlightenLevels": {
+      "Mouchette": 3,
+      "Ramona": 0,
+      "Doll": 2,
+      "Ogier": 3
+    },
+    "purpose": "Mouchette AoE, Ramona card reuse/Power reduction, Doll heal, Ogier repeatable shields; four Chaos members if Chaos Ring is present",
+    "unverified": "No complete team survival or clear follows from these bounds."
+  },
+  "limitations": [
+    "One recorded boss battle, not the other preview monsters or an entire zone.",
+    "Observed originVal is after any enemy states already active; do not apply Weakness again.",
+    "Baseline HP is from a different recorded build, not this proposed team.",
+    "No card draw, energy, damage, shielding, healing, block expiry, or boss AI counterfactual is simulated.",
+    "Additional 30% DR branch excludes Murphy's Sacrifice and is not a recommended build prediction."
+  ]
+}
