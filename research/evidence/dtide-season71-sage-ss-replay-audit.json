@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "kind": "DTIDE_SEASON71_SAGE_SS_REPLAY_AUDIT",
+  "sourceDecodedSha256": "80024e5e5bd7cbcbc1a62738c6e87b3c8b2115607a56323917b8a8ec46ca4cb5",
+  "sourceContainerSha256": "47afe690d71a5e9acdd6aa27eb94bed40a3b3cf6259bdc287f788c6ee0a5c334",
+  "recordStartUtc": "2026-10-12T01:36:04+00:00",
+  "stageId": 83142,
+  "stage": "Season 71, Zone 5, SS",
+  "boss": "The Sage",
+  "initialBarHp": 1362452,
+  "firstBarZeroRecordIndex": 115,
+  "secondBarMaxHp": 2724904,
+  "secondBarRefillObserved": true,
+  "secondBarZeroObserved": true,
+  "minimumTwoBarHpRemoval": 4087356,
+  "teamBuildsReadForAudit": false,
+  "limitations": [
+    "One current-season SS replay, not tier 7 or a budget-team clear.",
+    "The HP floor excludes extra healing, shields, overkill, and survival requirements.",
+    "No full combat-engine simulation or independent holdout credit."
+  ]
+}
