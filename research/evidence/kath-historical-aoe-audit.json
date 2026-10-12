@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "kind": "HISTORICAL_KATH_AOE_OBSERVATION",
+  "sourceDecodedSha256": "b0ebd94135e924b3b85e7a9847d67295e931d85db582322d6daad095d9919565",
+  "sourceIndexSha256": "a03211a06919d0508be2b27f8608a6c5c8d76556d29bde842eaa3e7c49173e6b",
+  "stage": "Season 69, D-Tide wave 4, highest listed difficulty",
+  "stageRecommendedLevel": 98,
+  "kathLevel": 90,
+  "kathPotencyLevel": 15,
+  "gigaflareSkillLevel": 6,
+  "observedSkill": "Kathigu-Ra transformed Gigaflare (97916)",
+  "targets": [
+    {
+      "targetMaxHp": 15748479,
+      "hpBeforeHit": 13162612,
+      "hpAfterHit": 6149084,
+      "observedHpLoss": 7013528
+    },
+    {
+      "targetMaxHp": 8053058,
+      "hpBeforeHit": 6211186,
+      "hpAfterHit": 0,
+      "observedHpLoss": 6211186
+    }
+  ],
+  "limitations": [
+    "One late action in an older season with an E15 Kathigu-Ra; not an E3 damage prediction.",
+    "The target HP values and observed HP losses do not expose all buffs, relics or earlier setup.",
+    "This is not a Season 71 replay, full mob clear, or validation of a proposed four-character team."
+  ]
+}
