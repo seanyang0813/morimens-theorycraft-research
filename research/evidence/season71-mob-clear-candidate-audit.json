@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "kind": "RETROSPECTIVE_MOB_CLEAR_CANDIDATE_AUDIT",
+  "sources": [
+    {
+      "label": "mouchette-pack",
+      "skillId": 122483,
+      "observedActions": 5,
+      "multiTargetActions": 2,
+      "actions": [
+        {
+          "actionIndex": 20,
+          "targetCount": 3,
+          "hitCount": 9,
+          "recordedDamage": 48351,
+          "targets": [
+            {
+              "initialHpAtCard": 6182365,
+              "targetMaxHp": 7349597,
+              "hpAfterLastCardHit": 6161644,
+              "recordedDamage": 20721
+            },
+            {
+              "initialHpAtCard": 76821,
+              "targetMaxHp": 146992,
+              "hpAfterLastCardHit": 63006,
+              "recordedDamage": 13815
+            },
+            {
+              "initialHpAtCard": 95735,
+              "targetMaxHp": 146992,
+              "hpAfterLastCardHit": 81920,
+              "recordedDamage": 13815
+            }
+          ]
+        },
+        {
+          "actionIndex": 25,
+          "targetCount": 3,
+          "hitCount": 6,
+          "recordedDamage": 6366,
+          "targets": [
+            {
+              "initialHpAtCard": 6161336,
+              "targetMaxHp": 7349597,
+              "hpAfterLastCardHit": 6157788,
+              "recordedDamage": 3548
+            },
+            {
+              "initialHpAtCard": 44307,
+              "targetMaxHp": 146992,
+              "hpAfterLastCardHit": 42579,
+              "recordedDamage": 1728
+            },
+            {
+              "initialHpAtCard": 76607,
+              "targetMaxHp": 146992,
+              "hpAfterLastCardHit": 75517,
+              "recordedDamage": 1090
+            }
+          ]
+        },
+        {
+          "actionIndex": 53,
+          "targetCount": 1,
+          "hitCount": 9,
+          "recordedDamage": 352338,
+          "targets": [
+            {
+              "initialHpAtCard": 3567327,
+              "targetMaxHp": 7349597,
+              "hpAfterLastCardHit": 3214989,
+              "recordedDamage": 352338
+            }
+          ]
+        },
+        {
+          "actionIndex": 54,
+          "targetCount": 1,
+          "hitCount": 3,
+          "recordedDamage": 119010,
+          "targets": [
+            {
+              "initialHpAtCard": 3214989,
+              "targetMaxHp": 7349597,
+              "hpAfterLastCardHit": 3095979,
+              "recordedDamage": 119010
+            }
+          ]
+        },
+        {
+          "actionIndex": 56,
+          "targetCount": 1,
+          "hitCount": 3,
+          "recordedDamage": 148398,
+          "targets": [
+            {
+              "initialHpAtCard": 2915611,
+              "targetMaxHp": 7349597,
+              "hpAfterLastCardHit": 2767213,
+              "recordedDamage": 148398
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "helot-38",
+      "skillId": 4010,
+      "observedActions": 4,
+      "multiTargetActions": 0,
+      "actions": [
+        {
+          "actionIndex": 7,
+          "targetCount": 1,
+          "hitCount": 1,
+          "recordedDamage": 5314,
+          "targets": [
+            {
+              "initialHpAtCard": 837541,
+              "targetMaxHp": 1047691,
+              "hpAfterLastCardHit": 832227,
+              "recordedDamage": 5314
+            }
+          ]
+        },
+        {
+          "actionIndex": 30,
+          "targetCount": 1,
+          "hitCount": 1,
+          "recordedDamage": 4451,
+          "targets": [
+            {
+              "initialHpAtCard": 1849607,
+              "targetMaxHp": 2095382,
+              "hpAfterLastCardHit": 1845156,
+              "recordedDamage": 4451
+            }
+          ]
+        },
+        {
+          "actionIndex": 37,
+          "targetCount": 1,
+          "hitCount": 1,
+          "recordedDamage": 4451,
+          "targets": [
+            {
+              "initialHpAtCard": 1572537,
+              "targetMaxHp": 2095382,
+              "hpAfterLastCardHit": 1568086,
+              "recordedDamage": 4451
+            }
+          ]
+        },
+        {
+          "actionIndex": 51,
+          "targetCount": 1,
+          "hitCount": 1,
+          "recordedDamage": 3647,
+          "targets": [
+            {
+              "initialHpAtCard": 221622,
+              "targetMaxHp": 2095382,
+              "hpAfterLastCardHit": 217975,
+              "recordedDamage": 3647
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "helot-47",
+      "skillId": 4010,
+      "observedActions": 5,
+      "multiTargetActions": 0,
+      "actions": [
+        {
+          "actionIndex": 3,
+          "targetCount": 1,
+          "hitCount": 1,
+          "recordedDamage": 525,
+          "targets": [
+            {
+              "initialHpAtCard": 1813609,
+              "targetMaxHp": 1816159,
+              "hpAfterLastCardHit": 1813084,
+              "recordedDamage": 525
+            }
+          ]
+        },
+        {
+          "actionIndex": 13,
+          "targetCount": 1,
+          "hitCount": 1,
+          "recordedDamage": 373,
+          "targets": [
+            {
+              "initialHpAtCard": 1799330,
+              "targetMaxHp": 1816159,
+              "hpAfterLastCardHit": 1798957,
+              "recordedDamage": 373
+            }
+          ]
+        },
+        {
+          "actionIndex": 52,
+          "targetCount": 1,
+          "hitCount": 1,
+          "recordedDamage": 490,
+          "targets": [
+            {
+              "initialHpAtCard": 1171046,
+              "targetMaxHp": 1816159,
+              "hpAfterLastCardHit": 1170556,
+              "recordedDamage": 490
+            }
+          ]
+        },
+        {
+          "actionIndex": 68,
+          "targetCount": 1,
+          "hitCount": 1,
+          "recordedDamage": 457,
+          "targets": [
+            {
+              "initialHpAtCard": 2641460,
+              "targetMaxHp": 2724239,
+              "hpAfterLastCardHit": 2641003,
+              "recordedDamage": 457
+            }
+          ]
+        },
+        {
+          "actionIndex": 107,
+          "targetCount": 1,
+          "hitCount": 1,
+          "recordedDamage": 3939,
+          "targets": [
+            {
+              "initialHpAtCard": 89136,
+              "targetMaxHp": 2724239,
+              "hpAfterLastCardHit": 85197,
+              "recordedDamage": 3939
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "helot-48",
+      "skillId": 4010,
+      "observedActions": 2,
+      "multiTargetActions": 0,
+      "actions": [
+        {
+          "actionIndex": 83,
+          "targetCount": 1,
+          "hitCount": 1,
+          "recordedDamage": 5877,
+          "targets": [
+            {
+              "initialHpAtCard": 502504,
+              "targetMaxHp": 2724239,
+              "hpAfterLastCardHit": 496627,
+              "recordedDamage": 5877
+            }
+          ]
+        },
+        {
+          "actionIndex": 86,
+          "targetCount": 1,
+          "hitCount": 1,
+          "recordedDamage": 5895,
+          "targets": [
+            {
+              "initialHpAtCard": 354885,
+              "targetMaxHp": 2724239,
+              "hpAfterLastCardHit": 348990,
+              "recordedDamage": 5895
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "mouchettePackContext": {
+    "stageId": 81781,
+    "mouchetteLevel": 90,
+    "mouchettePotencyLevel": 15,
+    "mortalBlastSkillLevel": 6
+  },
+  "limitations": [
+    "Historical replays with different builds and encounters; none uses the proposed E0 team.",
+    "Only the sampled Mouchette replay shows three targets hit by one Mortal Blast action.",
+    "The sampled Helot actions hit one target each; these do not validate multi-enemy coverage in gameplay.",
+    "Targets may have been damaged before these cards. No team clear, tier-7 simulation, or blind holdout is established."
+  ]
+}
