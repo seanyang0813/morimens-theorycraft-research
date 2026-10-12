@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "kind": "SAGE_BOSS_HP_TRANSITION_REPLAY_AUDIT",
+  "scope": "Two older PvE Sage replays; enemy events only; not Season 71 tier 7",
+  "fixtures": [
+    {
+      "sourceSha256": "b1704c0543111ce422cc18bfa5a0b1845fe86f20f17a07c8d21e73147d9e862b",
+      "initialBarHp": 27208,
+      "secondBarMaxHp": 54416,
+      "minimumTwoBarHpRemoval": 81624,
+      "firstBarZeroBeforeDoubling": true,
+      "secondBarRefillObserved": true,
+      "secondBarZeroObserved": true
+    },
+    {
+      "sourceSha256": "766bfc2d91873aa14a0d3cce607c00447a8289b73b5b3a4e648c082c85edc105",
+      "initialBarHp": 70651,
+      "secondBarMaxHp": 141302,
+      "minimumTwoBarHpRemoval": 211953,
+      "firstBarZeroBeforeDoubling": true,
+      "secondBarRefillObserved": true,
+      "secondBarZeroObserved": true
+    }
+  ],
+  "teamBuildsRead": false,
+  "publicationCredit": false
+}
