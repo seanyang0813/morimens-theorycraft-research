@@ -1,7 +1,9 @@
 {
-  "kind": "REPLAY_CONDITIONED_SURVIVAL_FRONTIER_NOT_CLEAR_SIM",
+  "kind": "REPLAY_CONDITIONED_ENEMY_PRESSURE_NOT_CLEAR_SIM",
   "sourceAudit": "research/evidence/season71-zone3-example-enemy-audit.json",
-  "initialPlayerHp": 3141,
+  "replayPlayerHpNotCandidateHp": 3141,
+  "candidateInitialPlayerHp": null,
+  "candidateEffectiveHealingPerTurn": null,
   "observedTotalIncomingBeforeBlock": 17053,
   "observedIncomingByTurn": {
     "1": 889,
@@ -21,40 +23,7 @@
     "15": 1685,
     "16": 0
   },
-  "frontier": [
-    {
-      "throughTurn": 4,
-      "minimumFreshBlockPerTurnByHealing": {
-        "0": 0,
-        "250": 0,
-        "500": 0
-      }
-    },
-    {
-      "throughTurn": 8,
-      "minimumFreshBlockPerTurnByHealing": {
-        "0": 614,
-        "250": 338,
-        "500": 138
-      }
-    },
-    {
-      "throughTurn": 11,
-      "minimumFreshBlockPerTurnByHealing": {
-        "0": 1077,
-        "250": 740,
-        "500": 646
-      }
-    },
-    {
-      "throughTurn": 16,
-      "minimumFreshBlockPerTurnByHealing": {
-        "0": 1344,
-        "250": 1062,
-        "500": 812
-      }
-    }
-  ],
+  "candidateSurvivalFrontier": null,
   "damageFloors": {
     "unmodifiedTwoBarsHp": 8014887,
     "minimumAverageDamagePerTurnIfNoHpGrowthAndNoAddDamage": {
@@ -76,11 +45,12 @@
     "Observed post-state incoming hits held fixed, in replay order.",
     "Fresh fixed Block at the start of every turn; unused Block expires.",
     "Fixed healing at each turn start, capped by current maximum HP.",
-    "Observed maximum-HP reductions applied after that event's hit.",
+    "Each Equivalent Exchange cuts the supplied candidate maximum HP by 20%, with ceiling, after its hit.",
     "No resource, card, Wheel, relic, damage, or kill simulation."
   ],
   "limitations": [
-    "Hypothetical healing/Block values are thresholds, not any character's measured output.",
+    "No candidate survival result is calculated without candidate HP and healing inputs.",
+    "Even with inputs, required Block is a threshold, not Ogier's measured output.",
     "Counterfactual team or faster kills change enemy actions and damage.",
     "Player's replay had two deaths and respawns; this hypothetical model starts fresh and disallows them.",
     "The same turn number may contain multiple enemy hits; the model preserves their order."

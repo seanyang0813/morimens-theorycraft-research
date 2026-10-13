@@ -20,7 +20,9 @@ OUTPUT = ROOT / "output/pdf/season71-zone3-budget-team-report.pdf"
 
 def build():
     data = json.loads(EVIDENCE.read_text(encoding="utf-8"))
-    assert data["kind"] == "REPLAY_CONDITIONED_SURVIVAL_FRONTIER_NOT_CLEAR_SIM"
+    assert data["kind"] == "REPLAY_CONDITIONED_ENEMY_PRESSURE_NOT_CLEAR_SIM"
+    assert data["candidateInitialPlayerHp"] is None
+    assert data["candidateSurvivalFrontier"] is None
     assert data["observedTotalIncomingBeforeBlock"] == 17053
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 
@@ -68,8 +70,8 @@ def build():
 
     verdict = Table([[para("VERDICT", "CellHead"),
                       para("One testable team; no verified minimum-cost or no-death clear. "
-                           "The current model cannot yet execute this team's card sequence, Wheels, "
-                           "Keyflare/Posse, or exact output.", "BodyCustom")]],
+                           "Candidate player HP is unresolved, so no numerical survival "
+                           "prediction is reported.", "BodyCustom")]],
                     colWidths=[0.95 * inch, 5.85 * inch])
     verdict.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (0, 0), blue),
@@ -110,36 +112,21 @@ def build():
                    "3,141 to 2,513 to 2,011 to 1,609 to 1,288, while the boss's "
                    "maximum HP grew. The two listed starting bars total <b>8,014,887 HP</b>, "
                    "but the boss's second-bar maximum reached 11,079,782 by turn 14."),
-              para("Survival stress test", "SectionCustom"),
-              para("<b>The 3,141 starting HP belongs to Meruru's recorded team, not this "
-                   "candidate. No candidate-team HP was calculated.</b> We replayed the "
-                   "recorded enemy hits in order from that HP, applied "
-                   "the observed maximum-HP reductions, and disallowed death. The table shows "
-                   "the <b>minimum fresh Block every turn</b> needed with fixed healing at turn start. "
-                   "Unused Block expires; healing cannot exceed current maximum HP."),
+              para("Survival input boundary", "SectionCustom"),
+              para("<b>The 3,141 HP in the replay belongs to Meruru's different team. "
+                   "It cannot be used as this candidate's starting HP.</b> The game receives "
+                   "the player's final HP in battleInitData.copyProperties; the current "
+                   "character catalog alone does not reconstruct that value for a hypothetical "
+                   "team. The previous Block/heal threshold table used the wrong HP and has "
+                   "been withdrawn."),
+              para("For this proposed build, the relevant value is its own initial player "
+                   "max HP after loadout and battle-start effects. Only then can a "
+                   "replay-conditioned stress test apply each 20% maximum-HP cut to that "
+                   "candidate value. Actual Doll healing and Ogier Block also need to be "
+                   "resolved from the same build and action schedule."),
               ]
 
-    frontier = data["frontier"]
-    surv = [[para("Survive through", "CellHead"), para("0 heal", "CellHead"),
-             para("250 heal", "CellHead"), para("500 heal", "CellHead")]]
-    for case in frontier:
-        vals = case["minimumFreshBlockPerTurnByHealing"]
-        surv.append([f"Turn {case['throughTurn']}"] + [f"{vals[h]:,}" for h in ["0", "250", "500"]])
-    st = Table(surv, colWidths=[1.65 * inch] + [1.72 * inch] * 3)
-    st.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, 0), navy),
-        ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, pale]),
-        ("ALIGN", (1, 1), (-1, -1), "CENTER"),
-        ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
-        ("TOPPADDING", (0, 0), (-1, -1), 7),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
-        ("LINEBELOW", (0, -1), (-1, -1), 0.5, blue),
-    ]))
-    story += [st, Spacer(1, 5),
-              para("For example, 500 effective healing plus 646 fresh Block each turn passes "
-                   "this recorded-hit test through turn 11. This does <b>not</b> mean Doll and "
-                   "Ogier produce those amounts with this build or draw them on time.", "SmallCustom"),
-              para("Damage and add-clear gates", "SectionCustom"),
+    story += [para("Damage and add-clear gates", "SectionCustom"),
               para("Without HP growth or add damage, the two bars alone require about "
                    "<b>1.00M damage per turn</b> by turn 8, or <b>729k per turn</b> by turn 11. "
                    "These are necessary averages, not predicted DPS. Lotan's E7 coefficient "

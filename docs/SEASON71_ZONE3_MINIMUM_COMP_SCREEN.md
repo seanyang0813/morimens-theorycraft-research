@@ -15,33 +15,27 @@ four boss HP-growth/player maximum-HP-loss events, and two deaths before a
 win. It therefore cannot validate a no-death route. The [frontier data](../research/evidence/season71-zone3-survival-frontier.json)
 are regenerated with `python tools/season71_zone3_survival_frontier.py`.
 
-## Replay-conditioned defense simulation
+## Survival input boundary
 
 The **3,141 starting HP belongs to Meruru's recorded team**, not to the
-Mouchette/Lotan/Doll/Ogier candidate. No candidate-team HP was calculated.
-The model starts at that replay HP, replays its enemy hits in order,
-applies the observed maximum-HP reductions, and disallows death. A fixed
-amount of fresh Block is granted each turn and expires at turn end; fixed
-healing, when present, is granted at turn start and capped by maximum HP.
-These are **required thresholds**, not outputs assigned to Ogier or Doll.
+Mouchette/Lotan/Doll/Ogier candidate. The earlier numeric Block/heal table
+used the wrong team's HP and is **withdrawn**. No candidate-team HP, healing,
+or Block was calculated. The installed PvE client routes the player's
+`battleInitData.copyProperties` into battle; the current character catalog
+does not reconstruct that final player HP for a hypothetical build.
 
-| Survive through | Fresh Block/turn, no heal | With 250 heal/turn | With 500 heal/turn |
-| --- | ---: | ---: | ---: |
-| Turn 4 | 0 | 0 | 0 |
-| Turn 8 | 614 | 338 | 138 |
-| Turn 11 | 1,077 | 740 | 646 |
-| Turn 16 | 1,344 | 1,062 | 812 |
-
-For example, a build that truly produces 500 effective healing and 646
-effective fresh Block each turn meets this **recorded-hit** HP test through
-turn 11; its card access and resource costs remain untested. At turn 9 alone,
-the recorded incoming total was 2,656. New team buffs, earlier add kills,
-enemy targets, and mitigation can alter these numbers. Doll's Surgery is a
+The reproducible [enemy-pressure data](../research/evidence/season71-zone3-survival-frontier.json)
+now leave the candidate survival frontier empty until a verified candidate
+HP and effective healing input are supplied. The script accepts these through
+`--candidate-hp` and `--healing-per-turn`; it scales the boss's 20% maximum-HP
+cuts to that input. Even then it is a replay-conditioned stress test: new team
+buffs, earlier add kills, enemy targets, and mitigation can alter incoming
+damage. At turn 9 alone, recorded incoming damage was 2,656. Doll's Surgery is a
 2-Compute heal plus all-enemy Weakness (`Skill` 4365); E1 improves its heal
 and Weakness duration, and E2 improves other healing/Block. Ogier's base
 Defend (`Skill` 4176) and Indeterminate Rampart (`Skill` 4195) create Block.
 We have not resolved their actual output for a specified Lv70/90 build, so
-the table is a survival **screen**, not a pass for the proposed lineup.
+there is no survival pass for the proposed lineup.
 
 ## Damage and mobbing screen
 
@@ -74,7 +68,7 @@ only after the survival threshold is met. Helot's area damage spends current
 team HP and is a poor initial fit for this boss's shrinking maximum HP.
 
 **Verdict:** the candidate is worth a controlled test, but no minimum viable
-clear is verified. The current calculator does not yet sequence its actual
+clear is verified. The current calculator does not yet resolve its player HP or sequence its actual
 cards, Keyflare/Posse, Wheel procs, enemy response, or damage. A valid next
 gate is to use actual build stats to show (1) Block/heal timing above the
 required frontier, (2) add kills before their attacks, and (3) both boss bars
