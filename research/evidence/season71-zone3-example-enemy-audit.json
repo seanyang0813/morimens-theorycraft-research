@@ -1,0 +1,473 @@
+{
+  "kind": "SEASON71_ZONE3_REPLAY_ENEMY_AUDIT",
+  "sourceReplayContainerSha256": "f44238ef60669a40f8b4e59a0d7f9d2ee0d3fad2610246012119d8fbf5ec3b93",
+  "stageId": 153505,
+  "initialBossHp": 2671629,
+  "initialPlayerHp": 3141,
+  "initialPlayerMaxHp": 3141,
+  "bossMaxHpChanges": [
+    {
+      "turn": 4,
+      "record": 150,
+      "maxHp": 3205955
+    },
+    {
+      "turn": 8,
+      "record": 296,
+      "maxHp": 3847146
+    },
+    {
+      "turn": 9,
+      "record": 371,
+      "maxHp": 7694292
+    },
+    {
+      "turn": 11,
+      "record": 473,
+      "maxHp": 9233151
+    },
+    {
+      "turn": 14,
+      "record": 631,
+      "maxHp": 11079782
+    }
+  ],
+  "playerMaxHpChanges": [
+    {
+      "turn": 4,
+      "record": 150,
+      "maxHp": 2513
+    },
+    {
+      "turn": 8,
+      "record": 296,
+      "maxHp": 2011
+    },
+    {
+      "turn": 11,
+      "record": 473,
+      "maxHp": 1609
+    },
+    {
+      "turn": 14,
+      "record": 631,
+      "maxHp": 1288
+    }
+  ],
+  "spawnedEnemyCount": 27,
+  "spawnedEnemyTypes": 1,
+  "firstSpawnedEnemyMaxHp": 58776,
+  "enemyHitsToPlayer": [
+    {
+      "turn": 1,
+      "record": 46,
+      "source": "boss",
+      "skillId": 67183,
+      "hits": 1,
+      "incomingBeforeBlock": 889,
+      "observedBlockLoss": 889,
+      "observedHpLoss": 0
+    },
+    {
+      "turn": 2,
+      "record": 82,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 125,
+      "observedBlockLoss": 125,
+      "observedHpLoss": 0
+    },
+    {
+      "turn": 3,
+      "record": 120,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 166,
+      "observedBlockLoss": 166,
+      "observedHpLoss": 0
+    },
+    {
+      "turn": 3,
+      "record": 122,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 166,
+      "observedBlockLoss": 166,
+      "observedHpLoss": 0
+    },
+    {
+      "turn": 4,
+      "record": 140,
+      "source": "boss",
+      "skillId": null,
+      "hits": 1,
+      "incomingBeforeBlock": 178,
+      "observedBlockLoss": 178,
+      "observedHpLoss": 0
+    },
+    {
+      "turn": 4,
+      "record": 148,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 166,
+      "observedBlockLoss": 166,
+      "observedHpLoss": 0
+    },
+    {
+      "turn": 4,
+      "record": 150,
+      "source": "boss",
+      "skillId": 67169,
+      "hits": 1,
+      "incomingBeforeBlock": 1185,
+      "observedBlockLoss": 466,
+      "observedHpLoss": 719
+    },
+    {
+      "turn": 5,
+      "record": 166,
+      "source": "boss",
+      "skillId": null,
+      "hits": 1,
+      "incomingBeforeBlock": 178,
+      "observedBlockLoss": 0,
+      "observedHpLoss": 178
+    },
+    {
+      "turn": 5,
+      "record": 174,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 166,
+      "observedBlockLoss": 0,
+      "observedHpLoss": 166
+    },
+    {
+      "turn": 5,
+      "record": 176,
+      "source": "boss",
+      "skillId": 67183,
+      "hits": 1,
+      "incomingBeforeBlock": 1185,
+      "observedBlockLoss": 0,
+      "observedHpLoss": 1185
+    },
+    {
+      "turn": 6,
+      "record": 212,
+      "source": "boss",
+      "skillId": null,
+      "hits": 1,
+      "incomingBeforeBlock": 178,
+      "observedBlockLoss": 178,
+      "observedHpLoss": 0
+    },
+    {
+      "turn": 6,
+      "record": 222,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 711,
+      "observedBlockLoss": 437,
+      "observedHpLoss": 274
+    },
+    {
+      "turn": 7,
+      "record": 246,
+      "source": "boss",
+      "skillId": null,
+      "hits": 1,
+      "incomingBeforeBlock": 178,
+      "observedBlockLoss": 178,
+      "observedHpLoss": 0
+    },
+    {
+      "turn": 7,
+      "record": 254,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 166,
+      "observedBlockLoss": 147,
+      "observedHpLoss": 19
+    },
+    {
+      "turn": 7,
+      "record": 256,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 166,
+      "observedBlockLoss": 0,
+      "observedHpLoss": 166
+    },
+    {
+      "turn": 8,
+      "record": 286,
+      "source": "boss",
+      "skillId": null,
+      "hits": 1,
+      "incomingBeforeBlock": 356,
+      "observedBlockLoss": 356,
+      "observedHpLoss": 0
+    },
+    {
+      "turn": 8,
+      "record": 294,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 125,
+      "observedBlockLoss": 125,
+      "observedHpLoss": 0
+    },
+    {
+      "turn": 8,
+      "record": 296,
+      "source": "boss",
+      "skillId": 67169,
+      "hits": 1,
+      "incomingBeforeBlock": 889,
+      "observedBlockLoss": 261,
+      "observedHpLoss": 572
+    },
+    {
+      "turn": 9,
+      "record": 352,
+      "source": "boss",
+      "skillId": null,
+      "hits": 1,
+      "incomingBeforeBlock": 356,
+      "observedBlockLoss": 356,
+      "observedHpLoss": 0
+    },
+    {
+      "turn": 9,
+      "record": 360,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 166,
+      "observedBlockLoss": 166,
+      "observedHpLoss": 0
+    },
+    {
+      "turn": 9,
+      "record": 362,
+      "source": "boss",
+      "skillId": 67183,
+      "hits": 1,
+      "incomingBeforeBlock": 889,
+      "observedBlockLoss": 122,
+      "observedHpLoss": 630
+    },
+    {
+      "turn": 9,
+      "record": 364,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 711,
+      "observedBlockLoss": 0,
+      "observedHpLoss": 1
+    },
+    {
+      "turn": 9,
+      "record": 366,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 534,
+      "observedBlockLoss": 0,
+      "observedHpLoss": 1
+    },
+    {
+      "turn": 11,
+      "record": 467,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 111,
+      "observedBlockLoss": 111,
+      "observedHpLoss": 0
+    },
+    {
+      "turn": 11,
+      "record": 469,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 111,
+      "observedBlockLoss": 111,
+      "observedHpLoss": 0
+    },
+    {
+      "turn": 11,
+      "record": 471,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 166,
+      "observedBlockLoss": 166,
+      "observedHpLoss": 0
+    },
+    {
+      "turn": 11,
+      "record": 473,
+      "source": "boss",
+      "skillId": 67169,
+      "hits": 1,
+      "incomingBeforeBlock": 876,
+      "observedBlockLoss": 311,
+      "observedHpLoss": 565
+    },
+    {
+      "turn": 12,
+      "record": 537,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 93,
+      "observedBlockLoss": 93,
+      "observedHpLoss": 0
+    },
+    {
+      "turn": 12,
+      "record": 541,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 747,
+      "observedBlockLoss": 551,
+      "observedHpLoss": 196
+    },
+    {
+      "turn": 12,
+      "record": 543,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 507,
+      "observedBlockLoss": 0,
+      "observedHpLoss": 507
+    },
+    {
+      "turn": 13,
+      "record": 577,
+      "source": "boss",
+      "skillId": null,
+      "hits": 1,
+      "incomingBeforeBlock": 178,
+      "observedBlockLoss": 178,
+      "observedHpLoss": 0
+    },
+    {
+      "turn": 13,
+      "record": 585,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 166,
+      "observedBlockLoss": 166,
+      "observedHpLoss": 0
+    },
+    {
+      "turn": 13,
+      "record": 587,
+      "source": "boss",
+      "skillId": 67183,
+      "hits": 1,
+      "incomingBeforeBlock": 889,
+      "observedBlockLoss": 186,
+      "observedHpLoss": 703
+    },
+    {
+      "turn": 14,
+      "record": 615,
+      "source": "boss",
+      "skillId": null,
+      "hits": 1,
+      "incomingBeforeBlock": 178,
+      "observedBlockLoss": 177,
+      "observedHpLoss": 1
+    },
+    {
+      "turn": 14,
+      "record": 623,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 166,
+      "observedBlockLoss": 0,
+      "observedHpLoss": 166
+    },
+    {
+      "turn": 14,
+      "record": 625,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 166,
+      "observedBlockLoss": 0,
+      "observedHpLoss": 50
+    },
+    {
+      "turn": 14,
+      "record": 631,
+      "source": "boss",
+      "skillId": 67169,
+      "hits": 1,
+      "incomingBeforeBlock": 1185,
+      "observedBlockLoss": 0,
+      "observedHpLoss": 0
+    },
+    {
+      "turn": 15,
+      "record": 697,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 166,
+      "observedBlockLoss": 166,
+      "observedHpLoss": 0
+    },
+    {
+      "turn": 15,
+      "record": 701,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 758,
+      "observedBlockLoss": 542,
+      "observedHpLoss": 216
+    },
+    {
+      "turn": 15,
+      "record": 703,
+      "source": "spawned_enemy",
+      "skillId": 67780,
+      "hits": 1,
+      "incomingBeforeBlock": 761,
+      "observedBlockLoss": 0,
+      "observedHpLoss": 761
+    }
+  ],
+  "observedPosseUses": 26,
+  "recordedRounds": 16,
+  "recordedPlayerDeaths": 2,
+  "recordedPlayerRespawns": 2,
+  "recordedWinCamp": 1,
+  "limitations": [
+    "A retrospective successful replay; enemy attack values depend on that run's buffs and mitigation.",
+    "The clear used respawns and is not evidence for a no-death attempt.",
+    "Spawned-enemy actions and boss max-HP growth make static two-bar HP insufficient for a clear prediction.",
+    "This audit does not simulate a proposed team, wheel loadout, card draw, Keyflare, or future battle."
+  ]
+}
