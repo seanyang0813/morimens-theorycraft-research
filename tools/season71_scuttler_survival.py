@@ -23,6 +23,13 @@ def main():
     boss = init["monsterDataList"][0]
     player_uid = player["uid"]
     boss_uid = boss["uid"]
+    boss_bars = [boss["properties"]["max_hp"]]
+    for change in data["propertyChanges"]:
+        payload = change["data"]
+        if payload.get("uid") == boss_uid and payload.get("propertyType") == "max_hp":
+            if payload["value"] != boss_bars[-1]:
+                boss_bars.append(payload["value"])
+    assert boss_bars == [7667758, 11501637]
     groups = defaultdict(list)
     for hit in data["hits"]:
         cfg = hit["data"]["beHitConfig"]
@@ -61,6 +68,9 @@ def main():
         "kind": "BOUNDED_ENEMY_SURVIVAL_STRESS_TEST",
         "stageId": data["battleDat"]["stageId"],
         "bossInitialHpObserved": boss["properties"]["max_hp"],
+        "bossHpBarsObserved": boss_bars,
+        "bossEffectiveHpAcrossObservedBars": sum(boss_bars),
+        "observedPosseUses": sum(e["eventName"] == "UseKeeperSkill" for e in data["events"]),
         "baselinePlayerMaxHpObserved": hp,
         "baselinePlayerInitialHpObserved": player["properties"]["hp"],
         "enemyAttackRounds": rounds,
@@ -77,6 +87,7 @@ def main():
             "Observed originVal is after any enemy states already active; do not apply Weakness again.",
             "Baseline HP is from a different recorded build, not this proposed team.",
             "No Wheels or Wheel refinements were assigned or included in the candidate calculation.",
+            "Keyflare (keeper energy), Posse timing, and their effects are not modeled; recorded Posse uses are only counted.",
             "No card draw, energy, damage, shielding, healing, block expiry, or boss AI counterfactual is simulated.",
             "Additional 30% DR branch excludes Murphy's Sacrifice and is not a recommended build prediction.",
         ],

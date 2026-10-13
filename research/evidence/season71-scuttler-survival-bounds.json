@@ -2,6 +2,12 @@
   "kind": "BOUNDED_ENEMY_SURVIVAL_STRESS_TEST",
   "stageId": 153548,
   "bossInitialHpObserved": 7667758,
+  "bossHpBarsObserved": [
+    7667758,
+    11501637
+  ],
+  "bossEffectiveHpAcrossObservedBars": 19169395,
+  "observedPosseUses": 10,
   "baselinePlayerMaxHpObserved": 3193,
   "baselinePlayerInitialHpObserved": 2669,
   "enemyAttackRounds": [
@@ -78,6 +84,7 @@
     "Observed originVal is after any enemy states already active; do not apply Weakness again.",
     "Baseline HP is from a different recorded build, not this proposed team.",
     "No Wheels or Wheel refinements were assigned or included in the candidate calculation.",
+    "Keyflare (keeper energy), Posse timing, and their effects are not modeled; recorded Posse uses are only counted.",
     "No card draw, energy, damage, shielding, healing, block expiry, or boss AI counterfactual is simulated.",
     "Additional 30% DR branch excludes Murphy's Sacrifice and is not a recommended build prediction."
   ]
