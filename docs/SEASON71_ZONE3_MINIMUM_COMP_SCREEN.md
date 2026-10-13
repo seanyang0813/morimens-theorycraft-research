@@ -17,7 +17,9 @@ are regenerated with `python tools/season71_zone3_survival_frontier.py`.
 
 ## Replay-conditioned defense simulation
 
-The model starts at the replay's 3,141 HP, replays its enemy hits in order,
+The **3,141 starting HP belongs to Meruru's recorded team**, not to the
+Mouchette/Lotan/Doll/Ogier candidate. No candidate-team HP was calculated.
+The model starts at that replay HP, replays its enemy hits in order,
 applies the observed maximum-HP reductions, and disallows death. A fixed
 amount of fresh Block is granted each turn and expires at turn end; fixed
 healing, when present, is granted at turn start and capped by maximum HP.

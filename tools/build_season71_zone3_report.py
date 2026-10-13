@@ -111,7 +111,9 @@ def build():
                    "maximum HP grew. The two listed starting bars total <b>8,014,887 HP</b>, "
                    "but the boss's second-bar maximum reached 11,079,782 by turn 14."),
               para("Survival stress test", "SectionCustom"),
-              para("We replayed the recorded enemy hits in order from 3,141 starting HP, applied "
+              para("<b>The 3,141 starting HP belongs to Meruru's recorded team, not this "
+                   "candidate. No candidate-team HP was calculated.</b> We replayed the "
+                   "recorded enemy hits in order from that HP, applied "
                    "the observed maximum-HP reductions, and disallowed death. The table shows "
                    "the <b>minimum fresh Block every turn</b> needed with fixed healing at turn start. "
                    "Unused Block expires; healing cannot exceed current maximum HP."),
