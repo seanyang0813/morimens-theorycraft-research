@@ -145,6 +145,11 @@
       "tests": 28,
       "passed": 28,
       "failed": 0
+    },
+    "localFullSuiteLog": {
+      "path": "research/evidence/latest-test-suite.tap",
+      "sha256": "3e93ad0ff02ee8803157f29aefe85e4908f4995229f02246322a63e3d54907ff",
+      "tracked": false
     }
   },
   "nativeSheetVerification": {
