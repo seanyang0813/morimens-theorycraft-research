@@ -1,0 +1,342 @@
+{
+  "schemaVersion": 1,
+  "sourceUrl": "https://docs.google.com/spreadsheets/d/1HYETEJrRVNcL9AyX6vgTlhzvwG4A7M4E29XcGKXobuk/edit#gid=1746594969",
+  "sheet": "SkeyDB",
+  "title": "5 Suggested teams",
+  "retrievedAtUtc": "2026-10-20T07:27:31.019288+00:00",
+  "xlsxSha256": "9baa3d56249b58fb297331d0cf887b91ce486481a6a43d6476297b13c3a43ddf",
+  "cells": {
+    "B1": "Unless otherwise stated - lv60 baseline is expected for ALL characters. \"4 copies of wheel\" = effect fully upgraded. ",
+    "B3": "Note: The recommended investment is NOT necessarily the minimum investment required - it is recommended when playing the teams close to optimally and with a few resets and minimal rewinds. SF10 is the assumption for the investments listed. Some SF are minor",
+    "B5": "usually W4, can do some other waves too",
+    "K5": "usually W1 or W3. Short exploration stages.",
+    "T5": "Very strong - can go into any wave. But AA Gogier is MANDATORY otherwise team doesn't work",
+    "Q6": "Alternative to GLotan",
+    "Y6": "Alternatives to horla/ ryker:",
+    "I13": "OR",
+    "Q13": "OR",
+    "B27": "Extra notes: Madness omen on Thais is great for dissolution and AA Thais is a big upgrade.",
+    "K27": "SS: Lv 80 Mouchette E3 + 4 copies of wheel +12 BOT, Arachne e0 1 copy of wheel, Horla e1. DR Wheels are replaceable just stack DR.",
+    "T27": "Extra notes: On chaos ring his posse works very well/better. Clears are significantly easier if you can find his ring in shops.",
+    "B28": "SS: Lv 70 GHelot E3 + 4 copies of wheel, Thais E2 + 4 copies of wheel, Arachne e0 - 1 copy of wheel",
+    "K28": "SSS: Lv 80 Mouchette OE + 4 copies of wheel +12 BOT, Arachne e3 1 copy of wheel, Horla e1. DR Wheels are replaceable just stack DR.",
+    "T28": "SS: Lv70 AA GOgier",
+    "B29": "SSS:  Lv 80 GHelot E3 + 4 copies of wheel, Thais E2 + 4 copies of wheel, Arachne e3 - 1 copy of wheel",
+    "K29": "Dissolution: Lv 90 Mouchette AA + 4 copies of wheel +12 BOT, Arachne e3 + 4 copies of wheel, Horla e1. DR Wheels are replaceable just stack DR.",
+    "T29": "SSS: Lv80 AA GOgier + Event wheel, Arachne w/ 1 copy of wheel",
+    "B30": "Dissolution: Lv80 Ghelot E3 + Celestial Beast, lv70 Helot (AA), E3 Thais lv 80 + 4 copies of wheel and +12 keyflare wheel, E3 Arachne Lv80 + 4 copies of wheel",
+    "T30": "Dissolution: Lv90 AA Gogier + L70 E3 Arachne with 4 copies of her wheel + enough DRs/ rewinds",
+    "B32": "Usually W5 or the most difficuly wave. Especially good vs. caro",
+    "I33": "4th member is flexible. Other strong options (matchup dependent who is best)",
+    "I44": "Cariboo is particularly good if you have no rewinds since the boss clear is very safe and the hardest part is the mobs.",
+    "I45": "However Cariboo requires higher investment.",
+    "B53": "Extra notes: WOD and team members are flexible. A bit of keyflare distributed across members on the team helps (because of keyflare diminishing returns). I put my recommended covs but these can be flexible.",
+    "B54": "SS: Vortice E1, Murphy - some WOD generating Keyflare, Saya 1 copy of WOD",
+    "B55": "SSS: Lv70 Vortice OE, Murphy E1, Saya E3 1 copy of WOD ",
+    "B56": "Dissolution: Lv 80 Vortice OE +12 \"We will meet again\", Lv70 Murphy E1, Saya E3 Max WOD, Soul syncronization wheel available. Generates 1000+ Keyflare with cards + turn end on average",
+    "B58": "Fairly flexible but W4 means no symptoms so best run into W3/W4",
+    "H58": "Use 24 posse.Picked the wrong one in the builder.",
+    "I59": "Alternative to 24 is to run Lotan with this team, it depends on the matchup. May need to shuffle teams around depending on which wave.",
+    "I69": "Alternative to Nautila",
+    "B79": "Extra notes: This team lacks keyflare so even keyflare on character who don't use arith is worthwhile for end of turn keyflare. Using murphy wheel on ogier can help if available.",
+    "B80": "SS: 24 wheel, AA Doll, OE Naut, AA Ogier. Pick some wheels to improve the team",
+    "B81": "SSS: Lv 70 24 + one copy of wheel + Celestial Beast,  AA Doll, OE Naut, AA Ogier. Pick some wheels to improve the team",
+    "B82": "Dissolution:  Lv 80 24 + one copy of wheel + Celestial Beast,  AA Doll, OE Naut, AA Ogier. Use mostly suggested wheels.",
+    "B84": "Choose a wave with 1 hp bar. Use 24 (borrow for either this team or prev) for harder waves",
+    "K84": "Choose a boss with 1 hp bar + short exploration. ",
+    "H85": "(Use \"The Gated Answer\" if other team is using 24 posse)",
+    "K85": "Can replace Lotan with Caraboo, and a character to replace faint at high investments for long exploration (Potentially Vivian)",
+    "H87": "Lotan replacement for more flexible team:",
+    "I95": "OR",
+    "B104": "Extra notes: Gateway + Ramon SF allows for a turn 1 tawil/ 24 rouse accelerating the tempo of the team. When running 24 - use enough madness omen ",
+    "B105": "where rouse gives enough exalt aliemus.",
+    "K105": "Extra notes: I do not have enough experience on this team to know the investment breakpoints",
+    "B106": "SS: Lv70 Tawil E3 with one copy of wheel, Gdoll e1 + 1 copy of her wheel, AA Lotan",
+    "B107": "SSS:  Lv80 Tawil E3 with one copy of wheel, Gdoll e1 + 1 copy of her wheel, AA Lotan",
+    "B108": "Dissolution: Lv80 Tawil OE with 4 copies of wheel, Gdoll E3 (OE for long exploration) + wheel maxed, AA Lotan",
+    "B110": "Typically best when mobbing is not required (outside of blue ring). Specific matchups are significantly better than others. Best at w3 generally",
+    "B128": "Extra Notes: The realm buffs are especially beneficial to this team. GTulu is also expected to increase the power of this team - possibly replacing Tulu.",
+    "B129": "SS: Lv70 OE Gmurphy, Goliath AA, Miriam E2, +2 handsize wheel + titan's blade +12",
+    "B130": "SSS: Lv80 OE Gmurphy,  Goliath AA maxed lily wheel, Miriam E2 - sorel wheel, +2 handsize wheel + titan's blade +12 - 2.8k+ team hp",
+    "B131": "Dissolution: As much HP as possible - heavily matchup dependent.",
+    "B133": "This section depend heavily on your account and your awakeners - but I am listing some good options",
+    "B134": "Blue ring Awakener borrows:",
+    "B148": "Caro ring awakener borrows",
+    "B162": "Ultra ring awakener borrows",
+    "B176": "Chaos ring awakener borrows",
+    "B191": "Expensive extra teams you can make without overlap:",
+    "J192": "Note: Vivian should work in place of ryker or clem in this team with the updated PChaos. This is also untested.",
+    "J205": "Note: I don't have this team so this is not actually tested. Suggesting AA pontos with AA clem as a murphy substitute.",
+    "B221": "If you REALLY want to use Vivian (These are not my clears)",
+    "B222": " Needs OE GOgier, OE Vivian.",
+    "B239": "This one still needs OE Vivian and will be improved when we get upgraded pchaos and ultra ",
+    "B256": "Seems to use the fact alva scaling increases even when shield capped.  Mostly just an arachne alva team and vivian doesn't do too much except 50% multiplier (30% without it)"
+  },
+  "images": [
+    {
+      "file": "image15.png",
+      "anchorRow": 6,
+      "anchorColumn": 2,
+      "sha256": "de186bfaaedcc4db0cabf333092ab7a2a5f1ea5898618692c99269ce50b796d4"
+    },
+    {
+      "file": "image34.png",
+      "anchorRow": 6,
+      "anchorColumn": 10,
+      "sha256": "8f18b2abafd684d77f40b6b550bf9f0dc640bc23ac216f7924cfb17748d157dc"
+    },
+    {
+      "file": "image24.png",
+      "anchorRow": 32,
+      "anchorColumn": 2,
+      "sha256": "8e8c18f5f57d0bba5213aae9152240b159b2f3563aad17d599a25f3591fe383b"
+    },
+    {
+      "file": "image11.png",
+      "anchorRow": 34,
+      "anchorColumn": 8,
+      "sha256": "ce8488e28ed98cdde65f63cf284907d1c9ef8abc0442d25be064c8af97a3b1cd"
+    },
+    {
+      "file": "image8.png",
+      "anchorRow": 34,
+      "anchorColumn": 10,
+      "sha256": "924da3214747a7c2082a0c24d5508e22b577d8e2ae015535c999378b78ccf234"
+    },
+    {
+      "file": "image3.png",
+      "anchorRow": 58,
+      "anchorColumn": 1,
+      "sha256": "25ef793c2cc3dec993beede412d81ee21eea493032149de80d127037e01bab92"
+    },
+    {
+      "file": "image6.png",
+      "anchorRow": 59,
+      "anchorColumn": 8,
+      "sha256": "0007342c39b07baede942f2b6d244b332aa13664eedab87ceeafad737ca96fc6"
+    },
+    {
+      "file": "image29.png",
+      "anchorRow": 85,
+      "anchorColumn": 1,
+      "sha256": "144f7ec86eaca5f229e10a60e853694a02357c6001b9a8c67b86a6f454ec70fc"
+    },
+    {
+      "file": "image31.png",
+      "anchorRow": 85,
+      "anchorColumn": 10,
+      "sha256": "8c1f8c8c3f1eba95917043f82e00c16d992fcfe778890f16991f7b235708dd57"
+    },
+    {
+      "file": "image5.png",
+      "anchorRow": 69,
+      "anchorColumn": 8,
+      "sha256": "c3731b124b0dd3393320838dadb3357847be52175cfd68733283e4a7574e759f"
+    },
+    {
+      "file": "image32.png",
+      "anchorRow": 87,
+      "anchorColumn": 7,
+      "sha256": "b0c364ac206fa90d6545748790e2d0835d632b4b1492ca07deba0ef6f830089c"
+    },
+    {
+      "file": "image35.png",
+      "anchorRow": 110,
+      "anchorColumn": 1,
+      "sha256": "9b635b36b7727d0aae745ad518836102a85a5d84a053d22b5b8a2cb1f11ef8fd"
+    },
+    {
+      "file": "image13.png",
+      "anchorRow": 134,
+      "anchorColumn": 3,
+      "sha256": "898d33e6c8190042e64faed1b8af76416ccba63c595d4ac29de8be782f6b6780"
+    },
+    {
+      "file": "image23.png",
+      "anchorRow": 134,
+      "anchorColumn": 5,
+      "sha256": "be4d0b58b48c4cdd791d497634a5b0ec709cb79bbddef20d8419d1e6aeb97052"
+    },
+    {
+      "file": "image9.png",
+      "anchorRow": 134,
+      "anchorColumn": 7,
+      "sha256": "977ed96a1624fe8801d3a4515bef1d3c1721ae4f1ddd7ef8e103333977fbe48c"
+    },
+    {
+      "file": "image17.png",
+      "anchorRow": 134,
+      "anchorColumn": 2,
+      "sha256": "5660b965229cd0e120e04ea6a2b7560084818f49b70602dfeed74a903b029a64"
+    },
+    {
+      "file": "image16.png",
+      "anchorRow": 134,
+      "anchorColumn": 9,
+      "sha256": "e1a94fd2c27a27e98c6a21521200398e28ff75a6e06bb6c2588d70ddaa56e868"
+    },
+    {
+      "file": "image1.png",
+      "anchorRow": 148,
+      "anchorColumn": 5,
+      "sha256": "3d537755bca1cfaae8851212d49a7c473dfb9ffb2a87cfade9db5b1d6f76b6c2"
+    },
+    {
+      "file": "image4.png",
+      "anchorRow": 148,
+      "anchorColumn": 7,
+      "sha256": "ba431edb634a138f47fdba69233bc66ce5e79da081a653e2a2cb8400dd3e8d90"
+    },
+    {
+      "file": "image9.png",
+      "anchorRow": 148,
+      "anchorColumn": 1,
+      "sha256": "977ed96a1624fe8801d3a4515bef1d3c1721ae4f1ddd7ef8e103333977fbe48c"
+    },
+    {
+      "file": "image13.png",
+      "anchorRow": 162,
+      "anchorColumn": 1,
+      "sha256": "898d33e6c8190042e64faed1b8af76416ccba63c595d4ac29de8be782f6b6780"
+    },
+    {
+      "file": "image16.png",
+      "anchorRow": 148,
+      "anchorColumn": 3,
+      "sha256": "e1a94fd2c27a27e98c6a21521200398e28ff75a6e06bb6c2588d70ddaa56e868"
+    },
+    {
+      "file": "image28.png",
+      "anchorRow": 148,
+      "anchorColumn": 9,
+      "sha256": "5bb6d08e3b6159f7b694a033e617196e77eb7e6f34a1d997f3a2353fbebf98d1"
+    },
+    {
+      "file": "image7.png",
+      "anchorRow": 162,
+      "anchorColumn": 3,
+      "sha256": "4ef74c40e5556c5b6900dfc4b0a72e280ba63c7e0ed2d3d1cdb15ca9fdddb7dd"
+    },
+    {
+      "file": "image14.png",
+      "anchorRow": 162,
+      "anchorColumn": 5,
+      "sha256": "bbeffbe63a86657f405b726194c83c5ee5fa90961ac878f3f3a44e07ee0c3147"
+    },
+    {
+      "file": "image9.png",
+      "anchorRow": 162,
+      "anchorColumn": 7,
+      "sha256": "977ed96a1624fe8801d3a4515bef1d3c1721ae4f1ddd7ef8e103333977fbe48c"
+    },
+    {
+      "file": "image16.png",
+      "anchorRow": 162,
+      "anchorColumn": 9,
+      "sha256": "e1a94fd2c27a27e98c6a21521200398e28ff75a6e06bb6c2588d70ddaa56e868"
+    },
+    {
+      "file": "image20.png",
+      "anchorRow": 176,
+      "anchorColumn": 1,
+      "sha256": "28759c63a9c470422ce05e3f5fe9a3425ad79b0084af3daeec0852b3e5582409"
+    },
+    {
+      "file": "image9.png",
+      "anchorRow": 176,
+      "anchorColumn": 3,
+      "sha256": "977ed96a1624fe8801d3a4515bef1d3c1721ae4f1ddd7ef8e103333977fbe48c"
+    },
+    {
+      "file": "image27.png",
+      "anchorRow": 191,
+      "anchorColumn": 1,
+      "sha256": "219d6fa54017bd29ecf02bb39d1cbc795684a602721a8719507188b617cd83eb"
+    },
+    {
+      "file": "image18.png",
+      "anchorRow": 191,
+      "anchorColumn": 3,
+      "sha256": "e818ddddc795c963eb3dc860b9570f923636045056b3a92e0f94142de52c771f"
+    },
+    {
+      "file": "image12.png",
+      "anchorRow": 191,
+      "anchorColumn": 5,
+      "sha256": "2452a9fb84c2703ee0ebb36c35134d25ae0daa67751c3803eea20b0b3a29512f"
+    },
+    {
+      "file": "image10.png",
+      "anchorRow": 191,
+      "anchorColumn": 7,
+      "sha256": "422bbb85ab541feaf109440992458f79fe8d9b4c8fb3abf7e17045b4a95db7a9"
+    },
+    {
+      "file": "image13.png",
+      "anchorRow": 204,
+      "anchorColumn": 1,
+      "sha256": "898d33e6c8190042e64faed1b8af76416ccba63c595d4ac29de8be782f6b6780"
+    },
+    {
+      "file": "image18.png",
+      "anchorRow": 204,
+      "anchorColumn": 7,
+      "sha256": "e818ddddc795c963eb3dc860b9570f923636045056b3a92e0f94142de52c771f"
+    },
+    {
+      "file": "image25.png",
+      "anchorRow": 204,
+      "anchorColumn": 5,
+      "sha256": "9f790b8628d591f1cd7c099776297b61f063e64d6286e25fd916e7703ddb3f1e"
+    },
+    {
+      "file": "image2.png",
+      "anchorRow": 204,
+      "anchorColumn": 3,
+      "sha256": "ea469a1d6e397d7872b112ad0ad02fc26eb21cf55d3aed2590a7a10072a5f8af"
+    },
+    {
+      "file": "image26.png",
+      "anchorRow": 6,
+      "anchorColumn": 18,
+      "sha256": "1fb83551b28208e453c9b429dc50cc4526265d8469ebd2b97fb10f1b6d879f25"
+    },
+    {
+      "file": "image21.png",
+      "anchorRow": 7,
+      "anchorColumn": 25,
+      "sha256": "fa6791b8526df33240559fb1ad68f62fe8f596e919b8788077a9580b80d44eeb"
+    },
+    {
+      "file": "image22.png",
+      "anchorRow": 14,
+      "anchorColumn": 25,
+      "sha256": "a0808afd6a3acd2aee84603a04b8e979bcd8d828d818f63d47d2e5de20818d88"
+    },
+    {
+      "file": "image19.png",
+      "anchorRow": 6,
+      "anchorColumn": 16,
+      "sha256": "39724f9286ded4772a51938eee1ecaa04c55f35739bcbbe63e0f94c5701f9668"
+    },
+    {
+      "file": "image36.png",
+      "anchorRow": 223,
+      "anchorColumn": 2,
+      "sha256": "c489ca4ac09aaef3bdc2d76244c4ef1b6ec26a0af8593dd40b2d76cf4b072e01"
+    },
+    {
+      "file": "image33.png",
+      "anchorRow": 239,
+      "anchorColumn": 1,
+      "sha256": "eb37b2edcc60a1cf334210f74cd536fe41c9845ebbaf25a7d3fb069236d984ac"
+    },
+    {
+      "file": "image30.png",
+      "anchorRow": 256,
+      "anchorColumn": 1,
+      "sha256": "14f1dccf9df82220b9cc7d7188fe3678a69f08ab4cdfb87f5fc27cc48c2b3ec6"
+    }
+  ],
+  "scope": "Public source transcription, not gameplay evidence. Images hashed for provenance; image bytes not redistributed."
+}

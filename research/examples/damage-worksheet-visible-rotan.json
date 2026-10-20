@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-damage-worksheet",
+  "setups": [
+    {
+      "id": "visible-rotan-arithmetic",
+      "label": "Visible Rotan average-hit formula — arithmetic reconstruction",
+      "source": "User-provided screenshot; visible coefficients and raw 74.6% chance, not a build-attributed gameplay model",
+      "cost": "Not supplied; resource payment unresolved",
+      "criticalProbability": 0.746,
+      "scenario": {
+        "mode": "experimental",
+        "build": "pc-res144-build51",
+        "damageType": "ACTIVE",
+        "offense": {
+          "value": 1158,
+          "awakerOutsideDamagePer": 0,
+          "awakerInsideBasicDamagePer": 0,
+          "playerOutsideDamagePer": 186.4,
+          "cardOutsideDmgPer": 40,
+          "curCardDamagePer": 0,
+          "basicDamagePer": 69.2,
+          "cardDamagePlus": 0,
+          "strength": 0,
+          "ultiDamgePlus": 0,
+          "strikecard_damage_plus": 0,
+          "skillArgsPlus": 0,
+          "awakerDamagePlus": 0,
+          "skillTypeOutsideDmgPer": 1,
+          "skillTypeDmgPer": 1,
+          "roleEnhancePer": 0,
+          "roleWeakPer": 0,
+          "awakerInsideDamagePer": 0,
+          "awakerInsideDamagePer1": 0,
+          "awakerInsideDamagePer2": 0,
+          "awakerInsideDamagePer3": 0,
+          "awakerInsideDamagePer4": 0,
+          "awakerInsideDamagePer5": 0,
+          "awakerInsideDamagePer6": 0,
+          "awakerInsideDamagePer7": 0,
+          "awakerInsideDamagePer8": 0,
+          "playerInsideDamagePer": 0,
+          "dimension_fix_per": 0,
+          "cardInsideDmgPer": 0,
+          "cardDamagePer2": 0,
+          "cardDamagePer3": 0,
+          "card_damage_per3_n2": 0,
+          "awaker_CmdCard_dmg_per": 0,
+          "awaker_ulti_dmg_per": 0,
+          "skillTypeInsideDmgPer": 1,
+          "spellboundDmgPer": 0,
+          "spellboundDmgPer2": 0,
+          "spellboundDmgPer3": 0,
+          "spellboundDmgPer4": 0,
+          "spellboundDmgPer5": 0
+        },
+        "target": {
+          "isCrit": false,
+          "awakerCritDamage": 165,
+          "cardCritDamage": 0,
+          "skillTypeCritDamage": 0,
+          "awakerCardCritDamage": 0,
+          "critDamagePer": 0,
+          "beDamagePer": 0,
+          "beDamagePer2": 0,
+          "beDamagePer3": 0,
+          "beDamagePer4": 0,
+          "beDamagePer5": 0,
+          "vulnerablePer": 0,
+          "enemyTypeDmgPer": 0,
+          "enemyBuffDmgPer": 0,
+          "enemyDebuffDmgPer": 0,
+          "enemyBlockDmgPer": 0,
+          "enemyBlockBarrierDmgPer": 0,
+          "cardBlockBarrierPer": 0,
+          "enemyStateDmgMultiplier": 1,
+          "beDamagePlus": 0
+        }
+      }
+    }
+  ],
+  "rowAxis": {
+    "label": "STR (explicit visible coefficient ×5)",
+    "path": "offense.strength",
+    "scale": 5,
+    "values": [
+      0,
+      100,
+      500,
+      1000
+    ]
+  },
+  "columnAxis": {
+    "label": "Resolved critical bonus (%)",
+    "path": "target.awakerCritDamage",
+    "scale": 1,
+    "values": [
+      50,
+      100,
+      165,
+      220
+    ]
+  },
+  "threshold": {
+    "metric": "expected",
+    "value": 22000
+  }
+}

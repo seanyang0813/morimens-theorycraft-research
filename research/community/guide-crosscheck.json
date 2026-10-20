@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_COMMUNITY_GUIDE_CROSSCHECK",
+  "retrievedDate": "2026-10-20",
+  "sources": [
+    {
+      "url": "https://www.youtube.com/watch?v=m-tVVRDFGBQ",
+      "title": "[Morimens] Mono chaos team guide (24/Lotan) - The unbalanceable team archetype",
+      "access": "English auto-caption transcript; targeted mechanics passages read, not independent video-frame verification",
+      "notes": [
+        {"seconds": 59, "summary": "The guide connects Posse use, Realm Mastery and Aliemus generation, making resource supply part of the rotation."},
+        {"seconds": 278, "summary": "Lotan's percentage-HP route favors one-bar bosses. The 24 route instead needs time and repeated Exalts."},
+        {"seconds": 720, "summary": "Double-Posse plans require adequate Keyflare. A wheel or level upgrade that fixes that shortage can change feasibility."},
+        {"seconds": 1319, "summary": "The guide qualifies Rouse ordering by carry damage and existing Keyflare, rather than giving one universally optimal opener."}
+      ],
+      "engineBoundary": "No automatic Chaos/Keyflare battle loop is implemented by the new threshold search. These are explicit missing dependencies."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=maPTXSitEcI",
+      "title": "[Morimens] Helot: Catena Low to High Investment Detailed Guide",
+      "access": "English auto-caption transcript; targeted stats, investment, and burst passages read",
+      "notes": [
+        {"seconds": 294, "summary": "Carry base-damage growth and survival time are linked; delaying death can improve the eventual burst."},
+        {"seconds": 413, "summary": "Arachne's own pursuits build Wheel amplification before the carry attacks."},
+        {"seconds": 829, "summary": "The guide proposes roughly 750 end-turn Keyflare for its higher-investment setup, not a universal clear threshold."},
+        {"seconds": 1141, "summary": "It prioritizes the carry's levels, then Arachne's defensive contribution, and treats HP as a survival input."}
+      ],
+      "engineBoundary": "The recovered Wheel model independently enforces owner identity, five-trigger limits and after-pursuit timing; it does not reproduce this video's full battle."
+    },
+    {
+      "url": "https://docs.google.com/spreadsheets/d/1cC7FOebdy_J2hONmVT1QUSk6SxIRTuVoI4XADVlq5JU/edit#gid=1757667844",
+      "title": "Flares' Holy Spreadsheet to Morimens V5.0 2026 G-OgierUpdate",
+      "modifiedTime": "2026-10-05T06:19:21.900Z",
+      "access": "Bounded native reads: Starter Realm Guide A1:AW60; Basics of Teambuilding A1:Z65; STR SCALING SHEEt A1:Z35",
+      "notes": [
+        {"range": "'Basics of Teambuilding'!A15:Z65", "summary": "Choose a carry/archetype, add enabling supports, then check reliable access to Vulnerable and Weakness."},
+        {"range": "'Starter Realm Guide'!C25:AC50", "summary": "Realm mechanics change resource, defense and turn behavior; the sheet itself warns that mastery values can change."},
+        {"range": "'STR SCALING SHEEt'!D6:Y35", "summary": "Published damage comparisons include different ramp times and utility; they cannot be used as matched build benchmarks."}
+      ],
+      "engineBoundary": "Do not import tier ranks or damage totals as coefficients. Character portraits and comparison assumptions were not fully audited."
+    },
+    {
+      "url": "https://forget-last-night-morimens.fandom.com/wiki/Keyflare",
+      "title": "Keyflare — Forget last Night: Morimens Wiki",
+      "access": "Search-index readable text; direct Fandom page access was blocked",
+      "notes": [{"summary": "The wiki describes card-linked Keyflare gain and a 1000-Keyflare Posse threshold. This is orientation only; build attribution is absent."}],
+      "engineBoundary": "No wiki coefficient is newly executed. Later or alternate realm rules require a build-specific audit."
+    }
+  ],
+  "conflictPolicy": "Never blend a guide's patch-era rule, an old client runtime and a different encounter into a purported complete current-build simulation.",
+  "remainingMissingInputs": ["candidate-specific final player HP", "complete caster/player/target property maps", "skill variants and upgrade effects", "initial hand and draw model", "Keyflare / Posse availability", "enemy intents and multiple HP bars", "Creations / Covenants / Wheel trigger coverage"]
+}

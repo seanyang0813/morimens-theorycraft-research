@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "kind": "morimens-damage-worksheet",
+  "setups": [
+    {
+      "id": "resolved-tentacle-example",
+      "label": "Resolved Tentacle effect — synthetic",
+      "source": "Explicit res151 pre-hit inputs, not a reconstructed Vortice skill",
+      "cost": "Unknown: command/repeat/payment not modeled",
+      "criticalProbability": null,
+      "scenario": {
+        "mode": "experimental",
+        "build": "pc-res151-build51",
+        "damageType": "TENTACLE",
+        "tentacle": {
+          "build": "pc-res151-build51",
+          "isCrit": false,
+          "tentacleDamage": 1500,
+          "critDamagePer": 100,
+          "beDamagePer": 0,
+          "beDamagePer2": 0,
+          "beDamagePer3": 0,
+          "beTentacleDamagePer": 0,
+          "vulnerablePer": 0,
+          "beDamagePlus": 0,
+          "enemyTypePer": 0,
+          "enemyBuffPer": 0,
+          "enemyDebuffPer": 0,
+          "enemyBlockPer": 0,
+          "enemyBarrierPer": 0,
+          "paraPlus": 0,
+          "enemyStatePer": 0
+        }
+      }
+    }
+  ],
+  "rowAxis": {
+    "label": "Resolved Tentacle effect after command ceiling",
+    "path": "tentacle.tentacleDamage",
+    "values": [
+      1500,
+      2000,
+      2500,
+      3000,
+      3500
+    ],
+    "scale": 1
+  },
+  "columnAxis": {
+    "label": "Resolved Crit DMG bonus (%)",
+    "path": "tentacle.critDamagePer",
+    "values": [
+      100,
+      150,
+      200,
+      250,
+      300
+    ],
+    "scale": 1
+  },
+  "threshold": {
+    "metric": "critical",
+    "value": 10000
+  }
+}

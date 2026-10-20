@@ -1,0 +1,723 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_COMMUNITY_TEAM_CATALOG",
+  "analysisTrack": "team-planning",
+  "source": {
+    "url": "https://docs.google.com/spreadsheets/d/1HYETEJrRVNcL9AyX6vgTlhzvwG4A7M4E29XcGKXobuk/edit#gid=1746594969",
+    "tab": "SkeyDB",
+    "retrievedAtUtc": "2026-10-20T07:27:31.019288+00:00",
+    "textSnapshot": "research/community/suggested-teams-source.json",
+    "textSnapshotSha256": "f5c2b7eaf179994a109dea818687d6553af4e0536627828c2850ccf7d9a754ac",
+    "xlsxSha256": "9baa3d56249b58fb297331d0cf887b91ce486481a6a43d6476297b13c3a43ddf",
+    "attribution": "Community sheet “5 Suggested teams”; author identity not asserted. Lineup names manually transcribed from exported embedded images. No image assets redistributed.",
+    "companionVideo": {
+      "url": "https://www.youtube.com/watch?v=pGtbG3TBb5I",
+      "title": "[Morimens] 5 Recommended distinct meta D-tide teams",
+      "uploadDate": "2026-10-20",
+      "durationSeconds": 1615,
+      "access": "Read full English auto-caption transcript; character names cross-checked against sheet images, not trusted to ASR."
+    }
+  },
+  "catalogRevision": "a2ff07765b2e0c78af827577f881054dbe224d8d",
+  "baseline": {
+    "level": 60,
+    "soulforge": 10,
+    "cells": [
+      "B1",
+      "B3"
+    ],
+    "wheelCopiesMeaning": "Four copies means fully upgraded effect in the source; not four equipped slots.",
+    "investmentMeaning": "Recommended investment, not proven minimum.",
+    "upgradeLabels": "E-level, OE and AA labels retained as source text; no conversion to Gnostic rank or numeric ordering.",
+    "posseCorrection": {
+      "teamId": "24-chaos",
+      "cell": "H58",
+      "imageLabel": "The Gated Answer",
+      "correctedLabel": "All of Her",
+      "reason": "Explicit text instruction overrides the pictured Posse."
+    }
+  },
+  "teams": [
+    {
+      "id": "helot-catena",
+      "name": "Helot: Catena / Thais",
+      "members": [
+        {
+          "characterId": "awakener-0019",
+          "name": "Helot: Catena"
+        },
+        {
+          "characterId": "awakener-0023",
+          "name": "Helot"
+        },
+        {
+          "characterId": "awakener-0048",
+          "name": "Thais"
+        },
+        {
+          "characterId": "awakener-0056",
+          "name": "Arachne"
+        }
+      ],
+      "realms": [
+        "CARO",
+        "ULTRA"
+      ],
+      "posse": "The Lone Seed",
+      "imageSource": {
+        "file": "image15.png",
+        "anchor": "B6",
+        "sha256": "de186bfaaedcc4db0cabf333092ab7a2a5f1ea5898618692c99269ce50b796d4"
+      },
+      "placement": {
+        "cell": "B5",
+        "text": "usually W4, can do some other waves too",
+        "suggestedWaves": [
+          4
+        ]
+      },
+      "tiers": [
+        {
+          "tier": "SS",
+          "cell": "B28",
+          "text": "SS: Lv 70 GHelot E3 + 4 copies of wheel, Thais E2 + 4 copies of wheel, Arachne e0 - 1 copy of wheel"
+        },
+        {
+          "tier": "SSS",
+          "cell": "B29",
+          "text": "SSS:  Lv 80 GHelot E3 + 4 copies of wheel, Thais E2 + 4 copies of wheel, Arachne e3 - 1 copy of wheel"
+        },
+        {
+          "tier": "Dissolution",
+          "cell": "B30",
+          "text": "Dissolution: Lv80 Ghelot E3 + Celestial Beast, lv70 Helot (AA), E3 Thais lv 80 + 4 copies of wheel and +12 keyflare wheel, E3 Arachne Lv80 + 4 copies of wheel"
+        }
+      ],
+      "notes": [
+        {
+          "cell": "B27",
+          "text": "Extra notes: Madness omen on Thais is great for dissolution and AA Thais is a big upgrade."
+        }
+      ],
+      "restrictions": [],
+      "alternatives": [],
+      "evidenceStatus": "COMMUNITY_GUIDANCE_UNVERIFIED",
+      "combatBuild": null,
+      "rationale": {
+        "text": "Carry levels lift base damage; Thais supplies resources and Vulnerable; Arachne amplifies the prepared burst.",
+        "url": "https://www.youtube.com/watch?v=pGtbG3TBb5I&t=180s",
+        "evidence": "AUTO_CAPTION_GUIDANCE_NOT_GAMEPLAY_VERIFICATION"
+      }
+    },
+    {
+      "id": "mouchette",
+      "name": "Mouchette / Arachne",
+      "members": [
+        {
+          "characterId": "awakener-0033",
+          "name": "Mouchette"
+        },
+        {
+          "characterId": "awakener-0056",
+          "name": "Arachne"
+        },
+        {
+          "characterId": "awakener-0059",
+          "name": "Lotan: Cetarchon"
+        },
+        {
+          "characterId": "awakener-0024",
+          "name": "Horla"
+        }
+      ],
+      "realms": [
+        "CHAOS",
+        "ULTRA"
+      ],
+      "posse": "From the Mist Realm",
+      "imageSource": {
+        "file": "image34.png",
+        "anchor": "J6",
+        "sha256": "8f18b2abafd684d77f40b6b550bf9f0dc640bc23ac216f7924cfb17748d157dc"
+      },
+      "placement": {
+        "cell": "K5",
+        "text": "usually W1 or W3. Short exploration stages.",
+        "suggestedWaves": [
+          1,
+          3
+        ]
+      },
+      "tiers": [
+        {
+          "tier": "SS",
+          "cell": "K27",
+          "text": "SS: Lv 80 Mouchette E3 + 4 copies of wheel +12 BOT, Arachne e0 1 copy of wheel, Horla e1. DR Wheels are replaceable just stack DR."
+        },
+        {
+          "tier": "SSS",
+          "cell": "K28",
+          "text": "SSS: Lv 80 Mouchette OE + 4 copies of wheel +12 BOT, Arachne e3 1 copy of wheel, Horla e1. DR Wheels are replaceable just stack DR."
+        },
+        {
+          "tier": "Dissolution",
+          "cell": "K29",
+          "text": "Dissolution: Lv 90 Mouchette AA + 4 copies of wheel +12 BOT, Arachne e3 + 4 copies of wheel, Horla e1. DR Wheels are replaceable just stack DR."
+        }
+      ],
+      "notes": [],
+      "restrictions": [
+        {
+          "code": "SHORT_EXPLORATION",
+          "cell": "K5",
+          "text": "Source suggests short exploration stages."
+        }
+      ],
+      "alternatives": [],
+      "evidenceStatus": "COMMUNITY_GUIDANCE_UNVERIFIED",
+      "combatBuild": null,
+      "rationale": {
+        "text": "Fast Chaos burst favors short exploration; Arachne pursuit buildup improves the later burst; DR-heavy setups can depend on resets.",
+        "url": "https://www.youtube.com/watch?v=pGtbG3TBb5I&t=326s",
+        "evidence": "AUTO_CAPTION_GUIDANCE_NOT_GAMEPLAY_VERIFICATION"
+      }
+    },
+    {
+      "id": "ogier-oathbound",
+      "name": "Ogier: Oathbound / Arachne",
+      "members": [
+        {
+          "characterId": "awakener-0061",
+          "name": "Ogier: Oathbound"
+        },
+        {
+          "characterId": "awakener-0056",
+          "name": "Arachne"
+        },
+        {
+          "characterId": "awakener-0024",
+          "name": "Horla"
+        },
+        {
+          "characterId": "awakener-0043",
+          "name": "Ryker"
+        }
+      ],
+      "realms": [
+        "CHAOS",
+        "ULTRA"
+      ],
+      "posse": "Reunion's Wish",
+      "imageSource": {
+        "file": "image26.png",
+        "anchor": "R6",
+        "sha256": "1fb83551b28208e453c9b429dc50cc4526265d8469ebd2b97fb10f1b6d879f25"
+      },
+      "placement": {
+        "cell": "T5",
+        "text": "Very strong - can go into any wave. But AA Gogier is MANDATORY otherwise team doesn't work",
+        "suggestedWaves": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "tiers": [
+        {
+          "tier": "SS",
+          "cell": "T28",
+          "text": "SS: Lv70 AA GOgier"
+        },
+        {
+          "tier": "SSS",
+          "cell": "T29",
+          "text": "SSS: Lv80 AA GOgier + Event wheel, Arachne w/ 1 copy of wheel"
+        },
+        {
+          "tier": "Dissolution",
+          "cell": "T30",
+          "text": "Dissolution: Lv90 AA Gogier + L70 E3 Arachne with 4 copies of her wheel + enough DRs/ rewinds"
+        }
+      ],
+      "notes": [
+        {
+          "cell": "T27",
+          "text": "Extra notes: On chaos ring his posse works very well/better. Clears are significantly easier if you can find his ring in shops."
+        }
+      ],
+      "restrictions": [
+        {
+          "code": "MANDATORY_UPGRADE",
+          "cell": "T5",
+          "characterId": "awakener-0061",
+          "requiredLabel": "AA",
+          "text": "AA Ogier: Oathbound is mandatory according to the source; lower upgrade is not a supported substitution."
+        }
+      ],
+      "alternatives": [],
+      "evidenceStatus": "COMMUNITY_GUIDANCE_UNVERIFIED",
+      "combatBuild": null,
+      "rationale": {
+        "text": "AA changes the base-damage contribution that Arachne amplifies. A strength-scaling replacement is a different team concept.",
+        "url": "https://www.youtube.com/watch?v=pGtbG3TBb5I&t=462s",
+        "evidence": "AUTO_CAPTION_GUIDANCE_NOT_GAMEPLAY_VERIFICATION"
+      }
+    },
+    {
+      "id": "vortice",
+      "name": "Vortice / Murphy / Saya",
+      "members": [
+        {
+          "characterId": "awakener-0055",
+          "name": "Vortice"
+        },
+        {
+          "characterId": "awakener-0034",
+          "name": "Murphy"
+        },
+        {
+          "characterId": "awakener-0057",
+          "name": "Saya"
+        },
+        {
+          "characterId": "awakener-0044",
+          "name": "Salvador"
+        }
+      ],
+      "realms": [
+        "AEQUOR",
+        "CARO"
+      ],
+      "posse": "Drowned Innocence",
+      "imageSource": {
+        "file": "image24.png",
+        "anchor": "B32",
+        "sha256": "8e8c18f5f57d0bba5213aae9152240b159b2f3563aad17d599a25f3591fe383b"
+      },
+      "placement": {
+        "cell": "B32",
+        "text": "Usually W5 or the most difficuly wave. Especially good vs. caro",
+        "suggestedWaves": [
+          5
+        ]
+      },
+      "tiers": [
+        {
+          "tier": "SS",
+          "cell": "B54",
+          "text": "SS: Vortice E1, Murphy - some WOD generating Keyflare, Saya 1 copy of WOD"
+        },
+        {
+          "tier": "SSS",
+          "cell": "B55",
+          "text": "SSS: Lv70 Vortice OE, Murphy E1, Saya E3 1 copy of WOD "
+        },
+        {
+          "tier": "Dissolution",
+          "cell": "B56",
+          "text": "Dissolution: Lv 80 Vortice OE +12 \"We will meet again\", Lv70 Murphy E1, Saya E3 Max WOD, Soul syncronization wheel available. Generates 1000+ Keyflare with cards + turn end on average"
+        }
+      ],
+      "notes": [
+        {
+          "cell": "B53",
+          "text": "Extra notes: WOD and team members are flexible. A bit of keyflare distributed across members on the team helps (because of keyflare diminishing returns). I put my recommended covs but these can be flexible."
+        },
+        {
+          "cell": "I33",
+          "text": "4th member is flexible. Other strong options (matchup dependent who is best)"
+        },
+        {
+          "cell": "I44",
+          "text": "Cariboo is particularly good if you have no rewinds since the boss clear is very safe and the hardest part is the mobs."
+        },
+        {
+          "cell": "I45",
+          "text": "However Cariboo requires higher investment."
+        }
+      ],
+      "restrictions": [],
+      "alternatives": [
+        {
+          "slot": "Salvador",
+          "replacement": "Caraboo",
+          "cell": "I44",
+          "text": "Source discusses Caraboo as a higher-investment, matchup-dependent fourth slot; not automatically selected."
+        },
+        {
+          "slot": "Salvador",
+          "replacement": "Celeste",
+          "cell": null,
+          "url": "https://www.youtube.com/watch?v=pGtbG3TBb5I&t=756s",
+          "text": "Video suggests Celeste against periodic heavy attacks; not automatically selected."
+        }
+      ],
+      "evidenceStatus": "COMMUNITY_GUIDANCE_UNVERIFIED",
+      "combatBuild": null,
+      "rationale": {
+        "text": "Keyflare sustains the loop. Salvador protects opening mobs; Celeste or Caraboo can improve matchup-specific defense.",
+        "url": "https://www.youtube.com/watch?v=pGtbG3TBb5I&t=567s",
+        "evidence": "AUTO_CAPTION_GUIDANCE_NOT_GAMEPLAY_VERIFICATION"
+      }
+    },
+    {
+      "id": "24-chaos",
+      "name": "24 / Doll / Nautila",
+      "members": [
+        {
+          "characterId": "awakener-0001",
+          "name": "\"24\""
+        },
+        {
+          "characterId": "awakener-0013",
+          "name": "Doll"
+        },
+        {
+          "characterId": "awakener-0036",
+          "name": "Nautila"
+        },
+        {
+          "characterId": "awakener-0038",
+          "name": "Ogier"
+        }
+      ],
+      "realms": [
+        "CHAOS"
+      ],
+      "posse": "All of Her",
+      "imageSource": {
+        "file": "image3.png",
+        "anchor": "A58",
+        "sha256": "25ef793c2cc3dec993beede412d81ee21eea493032149de80d127037e01bab92"
+      },
+      "placement": {
+        "cell": "B58",
+        "text": "Fairly flexible but W4 means no symptoms so best run into W3/W4",
+        "suggestedWaves": [
+          3,
+          4
+        ]
+      },
+      "tiers": [
+        {
+          "tier": "SS",
+          "cell": "B80",
+          "text": "SS: 24 wheel, AA Doll, OE Naut, AA Ogier. Pick some wheels to improve the team"
+        },
+        {
+          "tier": "SSS",
+          "cell": "B81",
+          "text": "SSS: Lv 70 24 + one copy of wheel + Celestial Beast,  AA Doll, OE Naut, AA Ogier. Pick some wheels to improve the team"
+        },
+        {
+          "tier": "Dissolution",
+          "cell": "B82",
+          "text": "Dissolution:  Lv 80 24 + one copy of wheel + Celestial Beast,  AA Doll, OE Naut, AA Ogier. Use mostly suggested wheels."
+        }
+      ],
+      "notes": [
+        {
+          "cell": "H58",
+          "text": "Use 24 posse.Picked the wrong one in the builder."
+        },
+        {
+          "cell": "I59",
+          "text": "Alternative to 24 is to run Lotan with this team, it depends on the matchup. May need to shuffle teams around depending on which wave."
+        },
+        {
+          "cell": "B79",
+          "text": "Extra notes: This team lacks keyflare so even keyflare on character who don't use arith is worthwhile for end of turn keyflare. Using murphy wheel on ogier can help if available."
+        }
+      ],
+      "restrictions": [
+        {
+          "code": "MANDATORY_UPGRADE",
+          "cell": "B80",
+          "characterId": "awakener-0013",
+          "requiredLabel": "AA",
+          "text": "Video at 14:48 describes AA Doll Rouse as the defensive dependency; no lower-upgrade substitution is validated."
+        }
+      ],
+      "alternatives": [
+        {
+          "slot": "\"24\"",
+          "replacement": "Lotan",
+          "cell": "I59",
+          "text": "Alternative to 24 is to run Lotan with this team, it depends on the matchup. May need to shuffle teams around depending on which wave."
+        }
+      ],
+      "evidenceStatus": "COMMUNITY_GUIDANCE_UNVERIFIED",
+      "combatBuild": null,
+      "rationale": {
+        "text": "Doll shielding and Nautila shield overcap support a slower carry. Keyflare and maximum HP remain bottlenecks.",
+        "url": "https://www.youtube.com/watch?v=pGtbG3TBb5I&t=801s",
+        "evidence": "AUTO_CAPTION_GUIDANCE_NOT_GAMEPLAY_VERIFICATION"
+      }
+    },
+    {
+      "id": "tawil",
+      "name": "Tawil / Doll: Inferno",
+      "members": [
+        {
+          "characterId": "awakener-0047",
+          "name": "Tawil"
+        },
+        {
+          "characterId": "awakener-0020",
+          "name": "Ramona: Timeworn"
+        },
+        {
+          "characterId": "awakener-0018",
+          "name": "Doll: Inferno"
+        },
+        {
+          "characterId": "awakener-0031",
+          "name": "Lotan"
+        }
+      ],
+      "realms": [
+        "CHAOS"
+      ],
+      "posse": "All of Her",
+      "imageSource": {
+        "file": "image29.png",
+        "anchor": "A85",
+        "sha256": "144f7ec86eaca5f229e10a60e853694a02357c6001b9a8c67b86a6f454ec70fc"
+      },
+      "placement": {
+        "cell": "B84",
+        "text": "Choose a wave with 1 hp bar. Use 24 (borrow for either this team or prev) for harder waves",
+        "suggestedWaves": []
+      },
+      "tiers": [
+        {
+          "tier": "SS",
+          "cell": "B106",
+          "text": "SS: Lv70 Tawil E3 with one copy of wheel, Gdoll e1 + 1 copy of her wheel, AA Lotan"
+        },
+        {
+          "tier": "SSS",
+          "cell": "B107",
+          "text": "SSS:  Lv80 Tawil E3 with one copy of wheel, Gdoll e1 + 1 copy of her wheel, AA Lotan"
+        },
+        {
+          "tier": "Dissolution",
+          "cell": "B108",
+          "text": "Dissolution: Lv80 Tawil OE with 4 copies of wheel, Gdoll E3 (OE for long exploration) + wheel maxed, AA Lotan"
+        }
+      ],
+      "notes": [
+        {
+          "cell": "H85",
+          "text": "(Use \"The Gated Answer\" if other team is using 24 posse)"
+        },
+        {
+          "cell": "H87",
+          "text": "Lotan replacement for more flexible team:"
+        },
+        {
+          "cell": "B104",
+          "text": "Extra notes: Gateway + Ramon SF allows for a turn 1 tawil/ 24 rouse accelerating the tempo of the team. When running 24 - use enough madness omen "
+        },
+        {
+          "cell": "B105",
+          "text": "where rouse gives enough exalt aliemus."
+        }
+      ],
+      "restrictions": [
+        {
+          "code": "ONE_HP_BAR",
+          "cell": "B84",
+          "text": "Source calls for a wave with one boss HP bar."
+        }
+      ],
+      "alternatives": [
+        {
+          "slot": "Lotan",
+          "replacement": "\"24\"",
+          "cell": "H87",
+          "text": "24 portrait shown as Lotan replacement; introduces overlap with the 24 team."
+        }
+      ],
+      "evidenceStatus": "COMMUNITY_GUIDANCE_UNVERIFIED",
+      "combatBuild": null,
+      "rationale": {
+        "text": "Tawil, Timeworn Ramona and Chaos resource cycling support Exalts; percentage-damage Lotan favors one-bar bosses.",
+        "url": "https://www.youtube.com/watch?v=pGtbG3TBb5I&t=1047s",
+        "evidence": "AUTO_CAPTION_GUIDANCE_NOT_GAMEPLAY_VERIFICATION"
+      }
+    },
+    {
+      "id": "lotan-xu",
+      "name": "Lotan / Xu / Faint",
+      "members": [
+        {
+          "characterId": "awakener-0031",
+          "name": "Lotan"
+        },
+        {
+          "characterId": "awakener-0054",
+          "name": "Xu"
+        },
+        {
+          "characterId": "awakener-0016",
+          "name": "Faint"
+        },
+        {
+          "characterId": "awakener-0018",
+          "name": "Doll: Inferno"
+        }
+      ],
+      "realms": [
+        "CHAOS",
+        "CARO"
+      ],
+      "posse": "Tiny Wish",
+      "imageSource": {
+        "file": "image31.png",
+        "anchor": "J85",
+        "sha256": "8c1f8c8c3f1eba95917043f82e00c16d992fcfe778890f16991f7b235708dd57"
+      },
+      "placement": {
+        "cell": "K84",
+        "text": "Choose a boss with 1 hp bar + short exploration. ",
+        "suggestedWaves": []
+      },
+      "tiers": [],
+      "notes": [
+        {
+          "cell": "K85",
+          "text": "Can replace Lotan with Caraboo, and a character to replace faint at high investments for long exploration (Potentially Vivian)"
+        },
+        {
+          "cell": "K105",
+          "text": "Extra notes: I do not have enough experience on this team to know the investment breakpoints"
+        }
+      ],
+      "restrictions": [
+        {
+          "code": "ONE_HP_BAR",
+          "cell": "K84",
+          "text": "Source calls for a boss with one HP bar."
+        },
+        {
+          "code": "SHORT_EXPLORATION",
+          "cell": "K84",
+          "text": "Source calls for short exploration."
+        },
+        {
+          "code": "UNKNOWN_BREAKPOINTS",
+          "cell": "K105",
+          "text": "Source author explicitly does not know this team’s investment breakpoints."
+        }
+      ],
+      "alternatives": [
+        {
+          "slot": "Lotan",
+          "replacement": "Caraboo",
+          "cell": "K85",
+          "text": "Can replace Lotan with Caraboo, and a character to replace faint at high investments for long exploration (Potentially Vivian)"
+        },
+        {
+          "slot": "Faint",
+          "replacement": "Vivian",
+          "cell": "K85",
+          "text": "Potential high-investment long-exploration replacement; tentative and absent from pinned character catalog."
+        }
+      ],
+      "evidenceStatus": "COMMUNITY_GUIDANCE_UNVERIFIED",
+      "combatBuild": null,
+      "rationale": {
+        "text": "Percentage damage targets one-bar bosses; exact investment breakpoints remain untested by the author.",
+        "url": "https://www.youtube.com/watch?v=pGtbG3TBb5I&t=1084s",
+        "evidence": "AUTO_CAPTION_GUIDANCE_NOT_GAMEPLAY_VERIFICATION"
+      }
+    },
+    {
+      "id": "aequor-hp",
+      "name": "Aequor HP team",
+      "members": [
+        {
+          "characterId": "awakener-0050",
+          "name": "Tulu"
+        },
+        {
+          "characterId": "awakener-0032",
+          "name": "Miryam"
+        },
+        {
+          "characterId": "awakener-0021",
+          "name": "Goliath"
+        },
+        {
+          "characterId": "awakener-0035",
+          "name": "Murphy: Fauxborn"
+        }
+      ],
+      "realms": [
+        "AEQUOR"
+      ],
+      "posse": "Wayward Ship",
+      "imageSource": {
+        "file": "image35.png",
+        "anchor": "A110",
+        "sha256": "9b635b36b7727d0aae745ad518836102a85a5d84a053d22b5b8a2cb1f11ef8fd"
+      },
+      "placement": {
+        "cell": "B110",
+        "text": "Typically best when mobbing is not required (outside of blue ring). Specific matchups are significantly better than others. Best at w3 generally",
+        "suggestedWaves": [
+          3
+        ]
+      },
+      "tiers": [
+        {
+          "tier": "SS",
+          "cell": "B129",
+          "text": "SS: Lv70 OE Gmurphy, Goliath AA, Miriam E2, +2 handsize wheel + titan's blade +12"
+        },
+        {
+          "tier": "SSS",
+          "cell": "B130",
+          "text": "SSS: Lv80 OE Gmurphy,  Goliath AA maxed lily wheel, Miriam E2 - sorel wheel, +2 handsize wheel + titan's blade +12 - 2.8k+ team hp"
+        },
+        {
+          "tier": "Dissolution",
+          "cell": "B131",
+          "text": "Dissolution: As much HP as possible - heavily matchup dependent."
+        }
+      ],
+      "notes": [
+        {
+          "cell": "B128",
+          "text": "Extra Notes: The realm buffs are especially beneficial to this team. GTulu is also expected to increase the power of this team - possibly replacing Tulu."
+        }
+      ],
+      "restrictions": [
+        {
+          "code": "MOBBING_LIMIT",
+          "cell": "B110",
+          "text": "Source generally favors encounters without required mobbing, outside Blue Ring."
+        }
+      ],
+      "alternatives": [],
+      "evidenceStatus": "COMMUNITY_GUIDANCE_UNVERIFIED",
+      "combatBuild": null,
+      "rationale": {
+        "text": "Team HP supports defense; the source favors limited mobbing and matchup-specific stall, with no fixed Dissolution breakpoint.",
+        "url": "https://www.youtube.com/watch?v=pGtbG3TBb5I&t=1197s",
+        "evidence": "AUTO_CAPTION_GUIDANCE_NOT_GAMEPLAY_VERIFICATION"
+      }
+    }
+  ],
+  "limitations": [
+    "Source season, server and combat build are not established. Sheet retrieval date is not a game-patch date.",
+    "Eight main lineup images are transcribed. Borrow portraits, expensive extras and Vivian demonstrations are not evaluated team entries.",
+    "Wheel icons, unnamed alternatives and ambiguous abbreviations are not inferred. Refer to the source for equipment images.",
+    "No win probability, damage, survival, minimum investment, gameplay verification or globally optimal roster is established.",
+    "Character identity differs across variants. Planning allows distinct catalog IDs; game-specific cross-variant restrictions remain unresolved.",
+    "Non-overlap checks cover named characters and Posse only; shared Wheels, Creations, borrows and account rules require separate review."
+  ]
+}

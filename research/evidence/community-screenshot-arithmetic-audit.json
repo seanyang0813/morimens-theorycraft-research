@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_USER_SCREENSHOT_ARITHMETIC_AUDIT",
+  "source": "User-provided Rotan AA screenshot with visible formula bar",
+  "sourceImageSha256": "8b1454b6e0055c578d75ed47dba542e829ba1fbeee9843e84033ce9e07a58661",
+  "evidenceLevel": "VISIBLE_FORMULA_ARITHMETIC_NOT_GAMEPLAY",
+  "transcribedStructure": "ceil((ceil(1158*(1+1.864)*(1+0.692)*(1+0.40))+5*STR)*(0.746*(1+2.20)))",
+  "probabilityAssumption": "74.6% taken literally from the image. Actual runtime crit probability requires complete context and its discrete-roll rounding.",
+  "finding": "The visible expression counts the critical branch weighted by probability but omits (1-p)*noncritical damage. It reproduces all three unobscured STR 100/500/1000 values.",
+  "rows": [
+    {
+      "strength": 0,
+      "precritical": 7857,
+      "visibleFormulaResult": 18757,
+      "conditionalCritical": 25143,
+      "expectedBothBranches": 20752.356,
+      "omittedNoncriticalContributionBeforeFinalRounding": 1995.678
+    },
+    {
+      "strength": 100,
+      "precritical": 8357,
+      "visibleFormulaResult": 19950,
+      "conditionalCritical": 26743,
+      "expectedBothBranches": 22072.956,
+      "omittedNoncriticalContributionBeforeFinalRounding": 2122.678
+    },
+    {
+      "strength": 500,
+      "precritical": 10357,
+      "visibleFormulaResult": 24725,
+      "conditionalCritical": 33143,
+      "expectedBothBranches": 27355.356,
+      "omittedNoncriticalContributionBeforeFinalRounding": 2630.678
+    },
+    {
+      "strength": 1000,
+      "precritical": 12857,
+      "visibleFormulaResult": 30693,
+      "conditionalCritical": 41143,
+      "expectedBothBranches": 33958.356,
+      "omittedNoncriticalContributionBeforeFinalRounding": 3265.678
+    }
+  ],
+  "otherExamples": {
+    "vorticeRealmMasteryTotals": {
+      "rmBuildUnrounded": 1036.8,
+      "rmBuildDisplayed": 1037,
+      "critBuildUnrounded": 939.6,
+      "critBuildDisplayed": 940,
+      "conclusion": "Displayed RM ledgers are arithmetically consistent with the visible components and 35% factor. Skill damage coefficients and proc behavior remain unaudited."
+    },
+    "vivianAndCaraboo": "Conditional healing/shield/corrosion and upgrade states suggest useful ability output columns, but do not establish executable skill models.",
+    "stackAndIncomingDamageGrids": "Useful two-axis interfaces; raw stacks/incoming damage need source-backed transforms before they may drive resolved damage properties."
+  },
+  "gameplayValidation": false
+}

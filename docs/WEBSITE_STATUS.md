@@ -8,7 +8,7 @@ The Property Snapshots page accepts complete live resource-144, resource-150 or 
 
 The Builds page has separate source-bound selectors and payloads for the installed resource-151 client, previous resource 150 and historical resource 144. The installed progression data resolves 60 character identities and is bound to 2,700 exact executions of resource 151's original primary-stat lookup. Its eight source modules are byte-identical to resource 150, and the derived character rows are equal. Advancement primary-stat rows are included where supported. The Wheel picker searches all 146 pinned identities by name, associated owner, main stat and normalized mechanic tags, marks owner matches without assuming a unique signature, and keeps passive execution unresolved. The page refuses cross-build data use; advancement passives, equipment effects and battle-property assembly remain unresolved.
 
-`tools/prepare_local_website.py` prepares 142 explicitly allowlisted authored engine modules plus sanitized catalogs and page assets. It does not publish original Lua, native libraries, keys, screenshots, replay observations or private research directories. The verification suite checks copied engine modules byte-for-byte against their authored sources, along with static references, JavaScript syntax and calculation integrations.
+`tools/prepare_local_website.py` prepares 146 explicitly allowlisted authored engine modules plus sanitized catalogs and page assets. It does not publish original Lua, native libraries, keys, screenshots, replay observations or private research directories. The verification suite checks copied engine modules byte-for-byte against their authored sources, along with static references, JavaScript syntax and calculation integrations.
 
 The Actions page can render ordered single-target Block gain and the shield consumed by later supported damage rows. The underlying formula/recipient/storage path has 911 exact copied-original component comparisons. This adds an evidence-backed command operation, not automatic loadout-property resolution or gameplay validation.
 
@@ -101,3 +101,12 @@ The CLI now also resolves five averaged per-Awakener Tentacle target bonuses and
 On 2026-09-23, a local HTTP browser check selected resource 151 and Tentacle, entered effect damage 100, resolved critical bonus 150%, and target Tentacle damage taken 20%, then rendered 300 pre-hit damage with the formula stages visible and HP resolution disabled. Saving A and changing the target modifier to 50% yielded a B-minus-A pre-hit difference of 75 and the changed input path. The browser reported no warnings or errors. This confirms UI wiring for that supplied-input example, not independent gameplay accuracy.
 
 Remaining product work includes source-backed character/build normalization, broader action and encounter execution, complete event/HP behavior, full browser and responsive QA, independent gameplay regression, a separately frozen holdout, discrepancy review, and publication only after the original gate passes.
+
+## Offline community team lab (2026-10-20)
+
+`teams.html` adds source-linked community lineups, portfolio checks, build-editor
+handoff and threshold labs. It uses checked authored runtime bytes and explicit
+inputs; full team properties and current-build gameplay remain unresolved.
+See [scope, commands and verification](OFFLINE_COMMUNITY_TEAM_LAB.md).
+No interactive browser backend was available for this addition; syntax, module
+loading and engine tests passed, while visual/browser QA remains open.

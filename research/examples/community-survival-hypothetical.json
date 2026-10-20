@@ -1,0 +1,6 @@
+{
+  "candidateMaxHp": 3000,
+  "candidateStartingHp": 3000,
+  "healingPerTurn": 200,
+  "horizon": 8
+}
