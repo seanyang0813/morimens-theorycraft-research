@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "kind": "MORIMENS_OFFLINE_COMMUNITY_PLANNING_AUDIT",
+  "status": "EXPERIMENTAL_NOT_GAMEPLAY_VALIDATION",
+  "inputs": {
+    "wheel": "research/examples/community-wheel-threshold.json",
+    "survival": "research/examples/community-survival-hypothetical.json",
+    "enemyPressure": "research/evidence/season71-zone3-example-enemy-audit.json"
+  },
+  "syntheticWheelThreshold": {
+    "thresholdHpLost": 1000,
+    "evaluatedPermutations": 12,
+    "candidates": [
+      {
+        "id": "no-amplification",
+        "passed": false,
+        "modeledHpLost": 850,
+        "bestOrder": [
+          "burst",
+          "setup"
+        ]
+      },
+      {
+        "id": "signature-refinement-0",
+        "passed": false,
+        "modeledHpLost": 975,
+        "bestOrder": [
+          "setup",
+          "burst"
+        ]
+      },
+      {
+        "id": "signature-refinement-1",
+        "passed": true,
+        "modeledHpLost": 1000,
+        "bestOrder": [
+          "setup",
+          "burst"
+        ]
+      },
+      {
+        "id": "signature-refinement-2",
+        "passed": true,
+        "modeledHpLost": 1025,
+        "bestOrder": [
+          "setup",
+          "burst"
+        ]
+      },
+      {
+        "id": "signature-refinement-3",
+        "passed": true,
+        "modeledHpLost": 1050,
+        "bestOrder": [
+          "setup",
+          "burst"
+        ]
+      },
+      {
+        "id": "signature-and-secondary-refinement-3",
+        "passed": true,
+        "modeledHpLost": 1125,
+        "bestOrder": [
+          "setup",
+          "burst"
+        ]
+      }
+    ],
+    "claim": "Synthetic complete-property fixture only; not damage of any community team at a listed E-level.",
+    "counterexample": "Signature refinement 0 fails the 1000 threshold even with optimized order; refinement 1 is the lowest tested signature-only refinement that passes. Refinements 0\u20133 are all enumerated. This is not a real-team breakpoint."
+  },
+  "hypotheticalSurvivalThreshold": {
+    "inputs": {
+      "candidateMaxHp": 3000,
+      "candidateStartingHp": 3000,
+      "healingPerTurn": 200,
+      "horizon": 8,
+      "blockPerTurn": 406
+    },
+    "minimumBlockPerTurn": 406,
+    "minimumHp": 3,
+    "oneBelowPass": false,
+    "claim": "Hypothetical 3000 HP / 200 heal supply, not a team build. Fixed Zone 3 pressure survives at 406 Block/turn and fails at 405."
+  },
+  "portfolio": {
+    "status": "PLANNING_ONLY",
+    "evaluatedSubsets": 256,
+    "maximumTeams": 5,
+    "portfolios": [
+      [
+        "helot-catena",
+        "vortice",
+        "24-chaos",
+        "lotan-xu",
+        "aequor-hp"
+      ],
+      [
+        "mouchette",
+        "vortice",
+        "24-chaos",
+        "lotan-xu",
+        "aequor-hp"
+      ],
+      [
+        "ogier-oathbound",
+        "vortice",
+        "24-chaos",
+        "lotan-xu",
+        "aequor-hp"
+      ]
+    ],
+    "optimality": "Maximum number of conflict-free supplied templates, not strongest teams, legal event assignment or optimal account investment.",
+    "checkPosse": true
+  },
+  "gameplayClear": null,
+  "publicationCredit": false,
+  "verification": {
+    "baselineCommit": "7c28993",
+    "baseline": {
+      "tests": 752,
+      "passed": 634,
+      "failed": 117,
+      "skipped": 1
+    },
+    "current": {
+      "tests": 764,
+      "pass": 653,
+      "fail": 110,
+      "skipped": 1
+    },
+    "newFailingTestNames": [],
+    "baselineFailuresNowPassing": [
+      "blind replay freeze pins an explicitly evidenced resource-150 build",
+      "blind replay freeze requires both resource-151 build identity and adapter compatibility",
+      "browser loader executes checked module bytes with the CLI runtime fingerprint",
+      "current-build Fixed freeze requires its specific original-runtime evidence before writing",
+      "observation runtime contract pins only the selected prediction dependency graph",
+      "prepared runtime matches every allowlisted authored engine and packaged data hash",
+      "resource-153 blind freeze stays within the reviewed ordinary Active replay boundary"
+    ],
+    "remainingFailureScope": "Unavailable ignored client/config/raw files and existing platform-specific test assumptions; no game installed.",
+    "publicationStatus": "NOT_READY",
+    "browserQA": "No browser backend available; artifact_tool_v2 unavailable. Native Sheets values, formulas and formatting checked via API; local webpage interactions not visually verified.",
+    "focusedTests": {
+      "tests": 28,
+      "passed": 28,
+      "failed": 0
+    },
+    "localFullSuiteLog": {
+      "path": "research/evidence/latest-test-suite.tap",
+      "sha256": "3e93ad0ff02ee8803157f29aefe85e4908f4995229f02246322a63e3d54907ff",
+      "tracked": false
+    }
+  },
+  "nativeSheetVerification": {
+    "url": "https://docs.google.com/spreadsheets/d/1JL-2Z5jwaUoHlfdde8BpbuFQRzGEb1AGSWm89lmFyYg/edit",
+    "tabs": [
+      "Start here",
+      "Team guide",
+      "Investment",
+      "Engine results",
+      "Survival lab",
+      "Damage grids",
+      "Critical audit",
+      "SkeyDB"
+    ],
+    "inputMissingResult": "INPUTS REQUIRED",
+    "hypothetical406Block": "PASS fixed trace",
+    "hypothetical405Block": "FAIL fixed trace",
+    "finalInputs": "Candidate max HP, starting HP, heal and Block cleared; horizon 8 retained.",
+    "originalSheetEdited": false,
+    "formatting": "All authored ranges read back; wrap, gray headers, bounded row heights, freeze/filter on guide and investment. No Google-rendered visual inspection.",
+    "screenshotArithmetic": {
+      "noncritical": 8357,
+      "critical": 26743,
+      "expected": 22072.956,
+      "visibleFormula": 19950,
+      "nativeReadbackMatches": true
+    }
+  }
+}

@@ -16,6 +16,14 @@ shutil.copyfile(ROOT/'research/evidence/client-build-data-res150.json',DEST/'cli
 shutil.copyfile(ROOT/'research/evidence/client-build-data-res151.json',DEST/'client-build-data-res151.json')
 shutil.copyfile(ROOT/'research/evidence/wheel-mechanics-capability-catalog.json',DEST/'wheel-mechanics-capability-catalog.json')
 shutil.copyfile(ROOT/'research/evidence/pc-res151-wheel-initial-state-compatibility.json',DEST/'wheel-current-compatibility.json')
+community_files = {
+    'community-teams.json': 'research/community/suggested-teams.json',
+    'community-enemy-pressure.json': 'research/evidence/season71-zone3-example-enemy-audit.json',
+    'community-wheel-threshold.json': 'research/examples/community-wheel-threshold.json',
+    **{f'damage-worksheet-{name}.json': f'research/examples/damage-worksheet-{name}.json' for name in ['active','tentacle','visible-rotan']},
+}
+for name, source in community_files.items():
+    shutil.copyfile(ROOT/source, DEST/name)
 modules=json.loads((ROOT/'website/engine-modules.json').read_text(encoding='utf-8'))
 for name in modules:
     shutil.copyfile(ROOT/'engine'/name,DEST/'engine'/name)
@@ -29,6 +37,7 @@ for row in report['rounds']:
     rounds.append(new)
 (DEST/'scenario.json').write_text(json.dumps({'rounds':rounds},indent=2)+'\n',encoding='utf-8')
 files={name:hashlib.sha256((DEST/name).read_bytes()).hexdigest() for name in sorted([*['engine/'+n for n in modules],'build-catalog.json','client-build-data.json','client-build-data-res150.json','client-build-data-res151.json','wheel-mechanics-capability-catalog.json','wheel-current-compatibility.json','scenario.json','rules.json'])}
+files.update({name: hashlib.sha256((DEST/name).read_bytes()).hexdigest() for name in community_files})
 fingerprint=hashlib.sha256(json.dumps(files,sort_keys=True,separators=(',',':')).encode()).hexdigest()
 (DEST/'runtime-manifest.json').write_text(json.dumps({'schemaVersion':1,'algorithm':'sha256','fingerprint':fingerprint,'files':files},indent=2)+'\n',encoding='utf-8')
 print('Prepared local website numerical inputs and',len(modules),'authored engine modules; no deployment')

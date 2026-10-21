@@ -140,5 +140,9 @@
   "paid-wheel-order-search.mjs",
   "copy-history-card-selection.mjs",
   "mortal-blast-copy-suffix.mjs",
-  "prepared-mortal-blast.mjs"
+  "prepared-mortal-blast.mjs",
+  "community-team-planner.mjs",
+  "encounter-thresholds.mjs",
+  "simulation-threshold-search.mjs",
+  "damage-worksheet.mjs"
 ]
